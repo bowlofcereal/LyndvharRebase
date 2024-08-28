@@ -5,7 +5,7 @@
 	name = "Half-Kin"
 	id = "demihuman"
 	desc = "In time you will learn the history of this race"
-	skin_tone_wording = "Ancestry"
+	skin_tone_wording = "Skin Tone"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY,MUTCOLORS_PARTSONLY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)

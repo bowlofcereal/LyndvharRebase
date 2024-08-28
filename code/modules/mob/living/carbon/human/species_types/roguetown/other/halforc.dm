@@ -14,7 +14,7 @@
 	between mere distrust and disgust. Yet somehow your wandering feet came to Azure Peak, where \
 	half-orcs ply muscle and their hardiness in the rough underbelly or outer reaches of society."
 
-	skin_tone_wording = "Clan"
+	skin_tone_wording = "Skin Tone"
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)

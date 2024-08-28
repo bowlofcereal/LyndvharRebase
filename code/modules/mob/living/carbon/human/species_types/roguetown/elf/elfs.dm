@@ -17,7 +17,7 @@
 	not lend itself to the concepts of strength or durability... \
 	There are elves from a small smattering of tribes in these parts."
 
-	skin_tone_wording = "Tribal Identity"
+	skin_tone_wording = "Skin Tone"
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
