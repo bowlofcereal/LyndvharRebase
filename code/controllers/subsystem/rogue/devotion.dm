@@ -7,7 +7,7 @@
 
 #define CLERIC_REQ_0 0
 #define CLERIC_REQ_1 100
-#define CLERIC_REQ_2 500
+#define CLERIC_REQ_2 250
 #define CLERIC_REQ_3 750
 #define CLERIC_REQ_4 1000
 
