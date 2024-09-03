@@ -15,13 +15,13 @@
 				C.visible_message(span_smallnotice("[C] start taking off [src]..."), span_smallnotice("I start taking off [src]..."))
 			if(edelay_type)
 				if(move_after(C, minone(unequip_delay_self-C.STASPD), target = C))
-					return TRUE
+					return ..()
 				else
 					to_chat(C, span_warning("I'm struggling to take it off."))
 					return FALSE
 			else
 				if(do_after(C, minone(unequip_delay_self-C.STASPD), target = C))
-					return TRUE
+					return ..()
 				else
 					to_chat(C, span_warning("I'm struggling to take it off."))
 					return FALSE
