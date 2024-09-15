@@ -33,7 +33,7 @@
 /datum/patron/divine/dendor
 	name = "Dendor"
 	domain = "God of the Earth and Nature"
-	desc = "The Primordial Son of Psydon, patron of beasts and the wood. Gone mad with time."
+	desc = "Born from the madness of Abyssor's fever-dreams, patron of beasts and the wood."
 	worshippers = "Druids, Beasts, Madmen"
 	mob_traits = list(TRAIT_KNEESTINGER_IMMUNITY)
 	t1 = /obj/effect/proc_holder/spell/targeted/blesscrop
@@ -48,7 +48,7 @@
 /datum/patron/divine/abyssor
 	name = "Abyssor"
 	domain = "God of the Ocean, Storms and the Tide"
-	desc = "The Beloved Son, gifted primordial men food and water."
+	desc = "The strongest of the Ten, he rests fitfully. His very presence would flood the world. Gifted primordial man food and water."
 	worshippers = "Men of the Sea, Primitive Aquatics"
 	mob_traits = list(TRAIT_ABYSSOR_SWIM)
 	confess_lines = list(
@@ -60,7 +60,7 @@
 /datum/patron/divine/ravox
 	name = "Ravox"
 	domain = "God of War, Justice and Strength"
-	desc = "The strongest of Psydon's children, he watches man from afar."
+	desc = "A great mortal warrior that ascended as reward from Psydon, he watches man from afar."
 	worshippers = "Warriors, Sellswords & those who seek Justice"
 	confess_lines = list(
 		"RAVOX IS JUSTICE!",
