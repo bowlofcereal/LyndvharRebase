@@ -71,7 +71,7 @@
 /datum/patron/divine/necra
 	name = "Necra"
 	domain = "Goddess of Death and the Afterlife"
-	desc = "The Veiled Lady, a feared but respected God who leads the dead."
+	desc = "The Veiled Lady, a feared but respected Goddess who leads spirits to the other side."
 	worshippers = "The Dead, Mourners, Gravekeepers"
 	mob_traits = list(TRAIT_SOUL_EXAMINE)
 	t1 = /obj/effect/proc_holder/spell/targeted/burialrite
@@ -86,7 +86,7 @@
 /datum/patron/divine/xylix
 	name = "Xylix"
 	domain = "God of Trickery, Freedom and Inspiration"
-	desc = "The Mad-God, gifted man wanderlust and a thousand tricks."
+	desc = "The Mad-God. A mortal whom stole their power from Psydon in a fiddle contest."
 	worshippers = "Cheats, Frauds, Silver-Tongued devils and Roguish Types"
 	confess_lines = list(
 		"ASTRATA IS MY LIGHT!",
@@ -121,8 +121,8 @@
 /datum/patron/divine/malum
 	name = "Malum"
 	domain = "God of Fire, Destruction and Rebirth"
-	desc = "The Opinionless God, his children hold no malice in their actions."
-	worshippers = "Smiths, Miners, Artists"
+	desc = "The Opinionless God; great works for killing or saving are great works, either way."
+	worshippers = "Smiths, Miners, Artists, Engineers"
 	t1 = /obj/effect/proc_holder/spell/invoked/sacred_flame_rogue
 	confess_lines = list(
 		"MALUM IS MY MUSE!",
