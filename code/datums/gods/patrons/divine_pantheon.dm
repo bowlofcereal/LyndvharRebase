@@ -60,7 +60,7 @@
 /datum/patron/divine/ravox
 	name = "Ravox"
 	domain = "God of War, Justice and Strength"
-	desc = "A great mortal warrior that ascended as reward from Psydon, he watches man from afar."
+	desc = "The Warrior-God, powerful and distant- he watches man from afar."
 	worshippers = "Warriors, Sellswords & those who seek Justice"
 	confess_lines = list(
 		"RAVOX IS JUSTICE!",
