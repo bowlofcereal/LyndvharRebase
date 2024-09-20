@@ -143,8 +143,6 @@
 		if(BLACKSMITH_LEVEL_LEGENDARY to BLACKSMITH_LEVEL_MAX)
 			I.name = "masterwork [I.name]"
 			modifier = 1.3
-			I.polished = 4
-			I.AddComponent(/datum/component/metal_glint)
 
 	if(!modifier) // Sanity.
 		return
