@@ -121,7 +121,7 @@
 /datum/patron/divine/malum
 	name = "Malum"
 	domain = "God of Fire, Destruction and Rebirth"
-	desc = "The Opinionless God; great works for killing or saving are great works, either way."
+	desc = "The Opinionless God; great works for killing or saving are great works, either way. The well-oiled guillotine and the well-sharpened axe are tools, and there is no good and evil to their craft"
 	worshippers = "Smiths, Miners, Artists, Engineers"
 	t1 = /obj/effect/proc_holder/spell/invoked/sacred_flame_rogue
 	confess_lines = list(
