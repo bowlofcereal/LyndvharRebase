@@ -57,6 +57,10 @@
 	name = "Bedhead (Long)"
 	icon_state = "bedhead-long"
 
+/datum/sprite_accessory/hair/head/badlycut
+	name = "Shorter Long Bedhead"
+	icon_state = "hair_verybadlycut"
+
 /datum/sprite_accessory/hair/head/beehive
 	name = "Beehive"
 	icon_state = "beehive"
@@ -136,6 +140,10 @@
 /datum/sprite_accessory/hair/head/bun3
 	name = "Bun Head 3"
 	icon_state = "bun3"
+
+/datum/sprite_accessory/hair/head/lowbun
+	name = "Bun (Low)"
+	icon_state = "bun-low"
 
 /datum/sprite_accessory/hair/head/largebun
 	name = "Bun (Large)"
