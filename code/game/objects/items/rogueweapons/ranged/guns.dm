@@ -139,7 +139,7 @@
 		BB.damage = BB.damage * damfactor
 
 	cocked = FALSE
-	..()
+	. = ..()
 
 /obj/item/ammo_box/magazine/internal/shot/boomstick
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/bullet

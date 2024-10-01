@@ -274,7 +274,7 @@
 	woundclass = BCLASS_STAB
 	flag = "bullet"
 	armor_penetration = 200
-	speed = 0.1
+	speed = 0.4
 
 /obj/item/ammo_casing/caseless/rogue/bullet/iron
 	name = "iron bullet"
@@ -285,7 +285,7 @@
 	icon_state = "musketball"
 	dropshrink = 0.5
 	possible_item_intents = list(/datum/intent/use)
-	max_integrity = 0.1
+	max_integrity = 20
 
 /obj/projectile/bullet/reusable/bullet/silver
 	name = "silver bullet"
@@ -300,7 +300,7 @@
 	woundclass = BCLASS_STAB
 	flag = "bullet"
 	armor_penetration = 100
-	speed = 0.1
+	speed = 0.4
 	is_silver = TRUE
 
 /obj/item/ammo_casing/caseless/rogue/bullet/silver
@@ -312,5 +312,5 @@
 	icon_state = "silverball"
 	dropshrink = 0.5
 	possible_item_intents = list(/datum/intent/use)
-	max_integrity = 0.1
+	max_integrity = 20
 	is_silver = TRUE
