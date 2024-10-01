@@ -1208,7 +1208,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!target.lying_attack_check(user))
 			return 0
 
-		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = user.used_intent.blade_class)
+		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = user.used_intent.blade_class, armor_penetration = user.used_intent.penfactor)
 
 		target.lastattacker = user.real_name
 		if(target.mind)
@@ -1244,6 +1244,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 							span_userdanger("I'm [atk_verb]ed by [user]![target.next_attack_msg.Join()]"), span_hear("I hear a sickening sound of flesh hitting flesh!"), COMBAT_MESSAGE_RANGE, user)
 			to_chat(user, span_danger("I [atk_verb] [target]![target.next_attack_msg.Join()]"))
 */
+		
 		var/message_verb = "punched"
 		if(user.used_intent)
 			message_verb = "[pick(user.used_intent.attack_verb)]"
@@ -1252,8 +1253,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			message_hit_area = " in the [parse_zone(selzone)]"
 		var/attack_message = "[user] [message_verb] [target][message_hit_area]!"
 		var/attack_message_local = "[user] [message_verb] me[message_hit_area]!"
-		target.visible_message(span_danger("[attack_message][target.next_attack_msg.Join()]"),\
-			span_danger("[attack_message_local][target.next_attack_msg.Join()]"), null, COMBAT_MESSAGE_RANGE)
+		if(!nodmg)
+			target.visible_message(span_danger("[attack_message][target.next_attack_msg.Join()]"),\
+				span_danger("[attack_message_local][target.next_attack_msg.Join()]"), null, COMBAT_MESSAGE_RANGE)
+		else //Don't fucking ask me why it works it just does.
+			target.visible_message(span_danger("[attack_message][target.next_attack_msg.Join()]"),\
+				span_danger("[attack_message_local][target.next_attack_msg.Join()]"), null, COMBAT_MESSAGE_RANGE)
 		target.next_attack_msg.Cut()
 
 		target.retaliate(user)
