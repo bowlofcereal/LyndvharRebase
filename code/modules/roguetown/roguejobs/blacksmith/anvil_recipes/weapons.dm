@@ -373,7 +373,7 @@
 	created_item = /obj/item/rogueweapon/shield/buckler
 	craftdiff = 2
 
-/// CROSSBOWS
+/// CROSSBOW + BOLTS
 /datum/anvil_recipe/weapons/steel/xbow
 	name = "Crossbow (+1 Small Log) (+1 Fiber)"
 	req_bar = /obj/item/ingot/steel
@@ -388,12 +388,47 @@
 	createditem_num = 5
 	i_type = "Ammo"
 
-/// BOWS
+/datum/anvil_recipe/weapons/silver/bolts
+	name = "Silver Crossbow Bolts 5x (+1 Stick)"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/grown/log/tree/stick)
+	created_item = /obj/item/ammo_casing/caseless/rogue/bolt/silver
+	createditem_num = 5
+	i_type = "Ammo"
+
+/// ARROWS
 /datum/anvil_recipe/weapons/iron/arrows
 	name = "Arrows 5x (+1 Stick)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/grown/log/tree/stick)
 	created_item = /obj/item/ammo_casing/caseless/rogue/arrow/iron
+	createditem_num = 5
+	i_type = "Ammo"
+	craftdiff = 0
+
+/datum/anvil_recipe/weapons/silver/arrows
+	name = "Silver Arrows 5x (+1 Stick)"
+	req_bar = /obj/item/ingot/silver
+	additional_items = list(/obj/item/grown/log/tree/stick)
+	created_item = /obj/item/ammo_casing/caseless/rogue/arrow/silver
+	createditem_num = 5
+	i_type = "Ammo"
+	craftdiff = 0
+
+// BULLETS
+
+/datum/anvil_recipe/weapons/iron/bullets
+	name = "Iron Sphere 5x"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/ammo_casing/caseless/rogue/bullet/iron
+	createditem_num = 5
+	i_type = "Ammo"
+	craftdiff = 0
+
+/datum/anvil_recipe/weapons/silver/bullets
+	name = "Silver Sphere 5x"
+	req_bar = /obj/item/ingot/silver
+	created_item = /obj/item/ammo_casing/caseless/rogue/bullet/silver
 	createditem_num = 5
 	i_type = "Ammo"
 	craftdiff = 0

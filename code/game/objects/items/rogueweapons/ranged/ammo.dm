@@ -31,6 +31,35 @@
 	flag = "bullet"
 	speed = 0.5
 
+/obj/item/ammo_casing/caseless/rogue/bolt/silver
+	name = "silver bolt"
+	desc = "A durable silver bolt that will pierce a skull easily. Unholy creatures beware.."
+	projectile_type = /obj/projectile/bullet/reusable/bolt/silver
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	caliber = "regbolt"
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "silverbolt"
+	dropshrink = 0.6
+	max_integrity = 10
+	force = 10
+	is_silver = TRUE
+
+/obj/projectile/bullet/reusable/bolt/silver
+	name = "silver bolt"
+	damage = 50
+	damage_type = BRUTE
+	armor_penetration = 30
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "silverbolt_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/bolt
+	range = 15
+	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
+	embedchance = 100
+	woundclass = BCLASS_STAB
+	flag = "bullet"
+	speed = 0.5
+	is_silver = TRUE
+
 /obj/projectile/bullet/reusable/bolt/on_hit(atom/target)
 	. = ..()
 
@@ -84,6 +113,19 @@
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
 	max_integrity = 20
 
+/obj/item/ammo_casing/caseless/rogue/arrow/silver
+	name = "silver arrow"
+	desc = "A wooden shaft with a pointy silver end. Unholy creatures beware.."
+	projectile_type = /obj/projectile/bullet/reusable/arrow/silver
+	caliber = "arrow"
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "arrow"
+	force = 26
+	dropshrink = 0.6
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	max_integrity = 20
+	is_silver = TRUE
+
 /obj/projectile/bullet/reusable/arrow
 	name = "arrow"
 	damage = 50
@@ -118,6 +160,13 @@
 /obj/projectile/bullet/reusable/arrow/iron
 	name = "iron arrow"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/iron
+
+/obj/projectile/bullet/reusable/arrow/silver
+	name = "silver arrow"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/silver
+	armor_penetration = 20
+	damage = 30
+	is_silver = TRUE
 
 /obj/projectile/bullet/reusable/arrow/stone
 	name = "stone arrow"
@@ -168,13 +217,13 @@
 		addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living, adjustToxLoss), 100), 10 SECONDS)
 		addtimer(CALLBACK(M, TYPE_PROC_REF(/atom, visible_message), span_danger("[M] appears greatly weakened by the poison!")), 10 SECONDS)
 
-/obj/projectile/bullet/reusable/bullet
-	name = "lead ball"
+/obj/projectile/bullet/reusable/bullet/iron
+	name = "iron bullet"
 	damage = 50
 	damage_type = BRUTE
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "musketball_proj"
-	ammo_type = /obj/item/ammo_casing/caseless/rogue/bullet
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/bullet/iron
 	range = 30
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
@@ -183,9 +232,9 @@
 	armor_penetration = 200
 	speed = 0.1
 
-/obj/item/ammo_casing/caseless/rogue/bullet
-	name = "lead sphere"
-	desc = "A small lead sphere. This should go well with gunpowder."
+/obj/item/ammo_casing/caseless/rogue/bullet/iron
+	name = "iron bullet"
+	desc = "A small iron sphere. Useful in a boomstick."
 	projectile_type = /obj/projectile/bullet/reusable/bullet
 	caliber = "musketball"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
@@ -193,3 +242,31 @@
 	dropshrink = 0.5
 	possible_item_intents = list(/datum/intent/use)
 	max_integrity = 0.1
+
+/obj/projectile/bullet/reusable/bullet/silver
+	name = "silver bullet"
+	damage = 50
+	damage_type = BRUTE
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "silverball_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/bullet
+	range = 30
+	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
+	embedchance = 100
+	woundclass = BCLASS_STAB
+	flag = "bullet"
+	armor_penetration = 100
+	speed = 0.1
+	is_silver = TRUE
+
+/obj/item/ammo_casing/caseless/rogue/bullet/silver
+	name = "silver bullet"
+	desc = "A small silver sphere. Unholy creatures beware.."
+	projectile_type = /obj/projectile/bullet/reusable/bullet
+	caliber = "musketball"
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "silverball"
+	dropshrink = 0.5
+	possible_item_intents = list(/datum/intent/use)
+	max_integrity = 0.1
+	is_silver = TRUE
