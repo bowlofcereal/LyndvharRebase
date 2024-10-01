@@ -311,7 +311,7 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 
 /obj/item/clothing/neck/roguetown/ornateamulet
-	name = "Ornate Amulet"
+	name = "ornate amulet"
 	desc = "A beautiful amulet, made of solid gold."
 	icon_state = "ornateamulet"
 	//dropshrink = 0.75
@@ -320,7 +320,7 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 
 /obj/item/clothing/neck/roguetown/skullamulet
-	name = "Skull Amulet"
+	name = "skull amulet"
 	desc = "Gold shaped into the form of a skull, made into an amulet."
 	icon_state = "skullamulet"
 	//dropshrink = 0.75

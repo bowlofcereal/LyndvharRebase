@@ -125,7 +125,7 @@
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/clothing/mask/rogue/facemask/goldmask
-	name = "Gold Mask"
+	name = "gold gask"
 	icon_state = "goldmask"
 	max_integrity = 150
 	sellprice = 100

@@ -581,7 +581,7 @@
 
 /obj/item/rogueweapon/sword/gladius
 	force = 22
-	name = "Gladius"
+	name = "gladius"
 	desc = "A bronze short sword with a slightly wider end, and no guard. Compliments a shield."
 	icon_state = "gladius"
 	gripped_intents = null
@@ -607,7 +607,7 @@
 
 /obj/item/rogueweapon/sword/silver
 	force = 24
-	name = "Silver Sword"
+	name = "silver sword"
 	desc = "A sword forged of pure silver. The guard is fashioned into a cross."
 	icon_state = "silversword"
 	is_silver = TRUE
