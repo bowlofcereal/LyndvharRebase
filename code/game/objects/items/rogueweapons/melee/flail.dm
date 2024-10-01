@@ -45,7 +45,7 @@
 	name = "smash"
 	chargetime = 5
 	no_early_release = TRUE
-	penfactor = 80
+	penfactor = 65
 	recovery = 10
 	swingdelay = 7
 	damfactor = 1.2
@@ -61,7 +61,7 @@
 	name = "ranged smash"
 	chargetime = 25
 	no_early_release = TRUE
-	penfactor = 50
+	penfactor = 45
 	recovery = 30
 	damfactor = 1.5
 	reach = 2
