@@ -418,18 +418,18 @@
 // BULLETS
 
 /datum/anvil_recipe/weapons/iron/bullets
-	name = "Iron Sphere 5x"
+	name = "Iron Sphere 4x"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/ammo_casing/caseless/rogue/bullet/iron
-	createditem_num = 5
+	createditem_num = 4
 	i_type = "Ammo"
 	craftdiff = 0
 
 /datum/anvil_recipe/weapons/silver/bullets
-	name = "Silver Sphere 5x"
+	name = "Silver Sphere 4x"
 	req_bar = /obj/item/ingot/silver
 	created_item = /obj/item/ammo_casing/caseless/rogue/bullet/silver
-	createditem_num = 5
+	createditem_num = 4
 	i_type = "Ammo"
 	craftdiff = 0
 
