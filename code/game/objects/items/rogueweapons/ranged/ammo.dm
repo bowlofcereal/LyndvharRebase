@@ -1,3 +1,46 @@
+/obj/projectile
+	var/is_silver = FALSE
+	var/last_used = 0
+
+/obj/projectile/proc/funny_attack_effects(mob/living/target, mob/living/user, nodmg)
+	if(is_silver)
+		if(world.time < src.last_used + 120)
+			to_chat(user, span_notice("The silver effect is on cooldown."))
+			return
+
+		if(ishuman(target) && target.mind)
+			var/mob/living/carbon/human/s_user = user
+			var/mob/living/carbon/human/H = target
+			var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
+			var/datum/antagonist/vampirelord/lesser/V = H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+			var/datum/antagonist/vampirelord/V_lord = H.mind.has_antag_datum(/datum/antagonist/vampirelord/)
+			if(V)
+				if(V.disguised)
+					H.visible_message("<font color='white'>The silver projectile weakens the curse temporarily!</font>")
+					to_chat(H, span_userdanger("I'm hit by my BANE!"))
+					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+					src.last_used = world.time
+				else
+					H.visible_message("<font color='white'>The silver projectile weakens the curse temporarily!</font>")
+					to_chat(H, span_userdanger("I'm hit by my BANE!"))
+					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+					src.last_used = world.time
+			if(V_lord)
+				if(V_lord.vamplevel < 4 && !V)
+					H.visible_message("<font color='white'>The silver projectile weakens the curse temporarily!</font>")
+					to_chat(H, span_userdanger("I'm hit by my BANE!"))
+					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+					src.last_used = world.time
+				if(V_lord.vamplevel == 4 && !V)
+					to_chat(s_user, "<font color='red'> The silver projectile fails!</font>")
+					H.visible_message(H, span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
+			if(W && W.transformed == TRUE)
+				H.visible_message("<font color='white'>The silver projectile weakens the curse temporarily!</font>")
+				to_chat(H, span_userdanger("I'm hit by my BANE!"))
+				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+				src.last_used = world.time
+	return
+
 /obj/item/ammo_casing/caseless/rogue/bolt
 	name = "bolt"
 	desc = "A durable iron bolt that will pierce a skull easily."
@@ -36,7 +79,7 @@
 	desc = "A durable silver bolt that will pierce a skull easily. Unholy creatures beware.."
 	projectile_type = /obj/projectile/bullet/reusable/bolt/silver
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
-	caliber = "regbolt"
+	caliber = "silverbolt"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "silverbolt"
 	dropshrink = 0.6
@@ -119,7 +162,7 @@
 	projectile_type = /obj/projectile/bullet/reusable/arrow/silver
 	caliber = "arrow"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
-	icon_state = "arrow"
+	icon_state = "silverarrow"
 	force = 26
 	dropshrink = 0.6
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
@@ -163,6 +206,7 @@
 
 /obj/projectile/bullet/reusable/arrow/silver
 	name = "silver arrow"
+	icon_state = "silverarrow_proj"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/silver
 	armor_penetration = 20
 	damage = 30
@@ -235,7 +279,7 @@
 /obj/item/ammo_casing/caseless/rogue/bullet/iron
 	name = "iron bullet"
 	desc = "A small iron sphere. Useful in a boomstick."
-	projectile_type = /obj/projectile/bullet/reusable/bullet
+	projectile_type = /obj/projectile/bullet/reusable/bullet/iron
 	caliber = "musketball"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "musketball"

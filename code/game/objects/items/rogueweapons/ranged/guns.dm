@@ -5,7 +5,7 @@
 	icon = 'icons/roguetown/weapons/32.dmi'
 	icon_state = ""
 	item_state = ""
-	possible_item_intents = list(/datum/intent/shoot/boomstick, /datum/intent/arc/boomstick, /datum/intent/strike/boomstick, INTENT_GENERIC)
+	possible_item_intents = list(/datum/intent/shoot/boomstick, /datum/intent/arc/boomstick, /datum/intent/boomstick/strike, INTENT_GENERIC)
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/boomstick
 	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
