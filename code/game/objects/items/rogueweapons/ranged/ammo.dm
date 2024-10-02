@@ -278,7 +278,7 @@
 
 /obj/item/ammo_casing/caseless/rogue/bullet/iron
 	name = "iron bullet"
-	desc = "A small iron sphere. Useful in a boomstick."
+	desc = "A small iron sphere used as ammunition."
 	projectile_type = /obj/projectile/bullet/reusable/bullet/iron
 	caliber = "musketball"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
@@ -305,7 +305,7 @@
 
 /obj/item/ammo_casing/caseless/rogue/bullet/silver
 	name = "silver bullet"
-	desc = "A small silver sphere. Unholy creatures beware.."
+	desc = "A small silver sphere used as ammunition. Unholy creatures beware.."
 	projectile_type = /obj/projectile/bullet/reusable/bullet
 	caliber = "musketball"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
