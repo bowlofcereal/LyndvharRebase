@@ -406,6 +406,22 @@
 	icon_state = "brownkey"
 	lockid = "apartment4"
 
+//Workshop keys
+/obj/item/roguekey/workshop/workshop1
+	name = "worrkshop i key"
+	icon_state = "brownkey"
+	lockid = "workshop1"
+
+/obj/item/roguekey/workshop/workshop2
+	name = "worrkshop ii key"
+	icon_state = "brownkey"
+	lockid = "workshop2"
+
+/obj/item/roguekey/workshop/workshop3
+	name = "worrkshop iii key"
+	icon_state = "brownkey"
+	lockid = "workshop3"
+
 //custom key
 /obj/item/roguekey/custom
 	name = "custom key"

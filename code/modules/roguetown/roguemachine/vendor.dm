@@ -270,3 +270,15 @@
 		held_items[P]["NAME"] = P.name
 		held_items[P]["PRICE"] = 10
 	update_icon()
+
+/obj/structure/roguemachine/vendor/workshop
+	keycontrol = "steward"
+
+/obj/structure/roguemachine/vendor/workshop/Initialize()
+	. = ..()
+	for(var/X in list(/obj/item/roguekey/workshop/workshop1,/obj/item/roguekey/workshop/workshop2,/obj/item/roguekey/workshop/workshop3))
+		var/obj/P = new X(src)
+		held_items[P] = list()
+		held_items[P]["NAME"] = P.name
+		held_items[P]["PRICE"] = 50
+	update_icon()
