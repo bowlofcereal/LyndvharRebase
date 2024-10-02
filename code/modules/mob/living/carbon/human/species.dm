@@ -1208,7 +1208,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!target.lying_attack_check(user))
 			return 0
 
-		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = user.used_intent.blade_class, armor_penetration = user.used_intent.penfactor)
+		var/armor_block = target.run_armor_check(selzone, "blunt", "", "",user.used_intent.penfactor, damage = (damage*0.60)) //This is still very strong at 14 STR with the werewolf claws. NEVER set this to 1:1 else like six punches breaks armor.
 
 		target.lastattacker = user.real_name
 		if(target.mind)
