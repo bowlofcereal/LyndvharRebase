@@ -273,7 +273,7 @@
 	embedchance = 100
 	woundclass = BCLASS_STAB
 	flag = "bullet"
-	armor_penetration = 200
+	armor_penetration = 60
 	speed = 0.4
 
 /obj/item/ammo_casing/caseless/rogue/bullet/iron
@@ -299,7 +299,7 @@
 	embedchance = 100
 	woundclass = BCLASS_STAB
 	flag = "bullet"
-	armor_penetration = 100
+	armor_penetration = 40
 	speed = 0.4
 	is_silver = TRUE
 
