@@ -43,15 +43,6 @@
 /datum/intent/shoot/gemlock
 	chargedrain = 0 //no drain to aim
 
-//Makes you require both hands to fire & use.
-/datum/intent/shoot/gemlock/can_charge()
-	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 2)
-			return FALSE
-		if(mastermob.get_inactive_held_item())
-			return FALSE
-	return TRUE
-
 /datum/intent/shoot/gemlock/get_chargetime()
 	if(mastermob && chargetime)
 		var/newtime = chargetime
@@ -70,16 +61,7 @@
 /datum/intent/arc/gemlock
 	chargetime = 1
 	chargedrain = 0 //no drain to aim a crossbow
-
-//Makes you require both hands to fire & use.
-/datum/intent/arc/gemlock/can_charge()
-	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 2)
-			return FALSE
-		if(mastermob.get_inactive_held_item())
-			return FALSE
-	return TRUE
-
+	
 /datum/intent/arc/gemlock/get_chargetime()
 	if(mastermob && chargetime)
 		var/newtime = chargetime
