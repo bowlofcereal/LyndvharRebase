@@ -61,9 +61,9 @@
 */
 /obj/projectile/bullet/reusable/bolt
 	name = "bolt"
-	damage = 70
+	damage = 90
 	damage_type = BRUTE
-	armor_penetration = 50
+	armor_penetration = 80
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "bolt_proj"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/bolt
@@ -89,9 +89,9 @@
 
 /obj/projectile/bullet/reusable/bolt/silver
 	name = "silver bolt"
-	damage = 50
+	damage = 70
 	damage_type = BRUTE
-	armor_penetration = 30
+	armor_penetration = 40
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "silverbolt_proj"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/bolt
