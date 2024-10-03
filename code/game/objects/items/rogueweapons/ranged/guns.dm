@@ -19,7 +19,7 @@
 	load_sound = 'sound/foley/musketload.ogg'
 	fire_sound = 'sound/combat/Ranged/musketfire.ogg'
 	anvilrepair = /datum/skill/craft/weaponsmithing
-	var/damfactor = 5
+	var/damfactor = 1
 	experimental_onback = TRUE
 	experimental_onhip = TRUE
 
