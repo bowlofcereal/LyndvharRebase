@@ -34,7 +34,7 @@
 		H.become_blind("advsetup")
 
 /datum/advclass/squire/lancer
-	name = "Lancer"
+	name = "Lancer Trainee"
 	tutorial = "A hopeful for the next generation of knightly mounted lancers and infantry pike specialists, \
 	your training with polearms sets you apart from other squires."
 	outfit = /datum/outfit/job/roguetown/squire/lancer
@@ -42,9 +42,8 @@
 	category_tags = list(CTAG_SQUIRE)
 
 /datum/outfit/job/roguetown/squire/lancer/pre_equip(mob/living/carbon/human/H)
-	r_hand = /obj/item/rogueweapon/spear/billhook
+	r_hand = /obj/item/rogueweapon/spear
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
-	head = /obj/item/clothing/head/roguetown/helmet/bascinet
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -71,18 +70,17 @@
 		H.change_stat("speed", 1)
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
 
-/datum/advclass/squire/blade_speciaist
-	name = "Blade Specialist"
+/datum/advclass/squire/blade_trainee
+	name = "Blade Trainee"
 	tutorial = "Your training has been singularly focused on the intricacies of sword, a weapon whose versatility \
 	belies the difficulty of its use."
-	outfit = /datum/outfit/job/roguetown/squire/blade_specialist
+	outfit = /datum/outfit/job/roguetown/squire/blade_trainee
 		
 	category_tags = list(CTAG_SQUIRE)
 
-/datum/outfit/job/roguetown/squire/blade_specialist/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/squire/blade_trainee/pre_equip(mob/living/carbon/human/H)
 	beltr = /obj/item/rogueweapon/sword
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
-	head = /obj/item/clothing/head/roguetown/helmet/bascinet
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -122,14 +120,13 @@
 	beltr = /obj/item/quiver/arrows
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
-	head = /obj/item/clothing/head/roguetown/helmet/bascinet
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
-		/obj/item/rogueweapon/huntingknife/idagger/steel,
+		/obj/item/rogueweapon/huntingknife/idagger,
 		/obj/item/storage/belt/rogue/pouch,
 		)
 	if(H.mind)
@@ -166,7 +163,7 @@
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
@@ -175,6 +172,4 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
 		H.change_stat("strength", 2)
-		H.change_stat("constitution", 1)
-		H.change_stat("speed", 1)
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
