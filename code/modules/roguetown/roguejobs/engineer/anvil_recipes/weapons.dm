@@ -3,9 +3,9 @@
 	craftdiff = 3
 	i_type = "Mechanical Weapons"
 	
-/datum/anvil_recipe/engiweapons/bronze/gemlock
-	name = "Gemlock (+1 Cog, +1 Dorpel, +1 Blacksteel)"
+/datum/anvil_recipe/engiweapons/bronze/gearlocke
+	name = "Gearlocke (+1 Bronze, +1 Cog, +1 Blacksteel)"
 	req_bar = /obj/item/ingot/bronze
-	additional_items = list(/obj/item/roguegear, /obj/item/roguegem/diamond, /obj/item/ingot/blacksteel)
-	created_item = /obj/item/gun/ballistic/revolver/grenadelauncher/gemlock
+	additional_items = list(/obj/item/ingot/bronze, /obj/item/roguegear, /obj/item/ingot/blacksteel)
+	created_item = /obj/item/gun/ballistic/revolver/grenadelauncher/gearlocke
 	craftdiff = 4

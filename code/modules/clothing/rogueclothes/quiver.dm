@@ -137,8 +137,8 @@
 		else
 			to_chat(loc, span_warning("Full!"))
 		return
-	if(istype(A, /obj/item/gun/ballistic/revolver/grenadelauncher/gemlock))
-		var/obj/item/gun/ballistic/revolver/grenadelauncher/gemlock/B = A
+	if(istype(A, /obj/item/gun/ballistic/revolver/grenadelauncher/gearlocke))
+		var/obj/item/gun/ballistic/revolver/grenadelauncher/gearlocke/B = A
 		if(bullets.len && !B.chambered)
 			for(var/AR in bullets)
 				if(istype(AR, /obj/item/ammo_casing/caseless/rogue/bullet))
