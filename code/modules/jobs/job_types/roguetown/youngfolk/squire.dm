@@ -153,30 +153,3 @@
 		H.change_stat("constitution", 1)
 		H.change_stat("speed", 2)
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
-
-/datum/advclass/squire/deprived
-	name = "Deprived"
-	tutorial = "Many squires are lucky enough to receive specialized training and equipment \
-	from their doting knights. You are not one of them. Good luck."
-	outfit = /datum/outfit/job/roguetown/squire/deprived
-		
-	category_tags = list(CTAG_SQUIRE)
-
-/datum/outfit/job/roguetown/squire/deprived/pre_equip(mob/living/carbon/human/H)
-	beltr = /obj/item/rogueweapon/mace/wsword
-	armor = /obj/item/clothing/suit/roguetown/armor/gambeson
-	head = /obj/item/clothing/head/roguetown/paddedcap
-	pants = /obj/item/clothing/under/roguetown/tights/vagrant
-	backr = /obj/item/storage/backpack/rogue/satchel
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-		H.change_stat("strength", 2)
-	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
