@@ -150,7 +150,7 @@
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
 
 /datum/advclass/squire/deprived
-	name = "Derpived"
+	name = "Deprived"
 	tutorial = "Many squires are lucky enough to receive specialized training and equipment \
 	from their doting knights. You are not one of them. Good luck."
 	outfit = /datum/outfit/job/roguetown/squire/deprived
