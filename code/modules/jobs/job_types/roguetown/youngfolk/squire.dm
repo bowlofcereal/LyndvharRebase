@@ -69,15 +69,15 @@
 		H.change_stat("speed", 1)
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
 
-/datum/advclass/squire/blade_trainee
-	name = "Blade Trainee"
+/datum/advclass/squire/footman
+	name = "Trainee Footman"
 	tutorial = "Your training has been singularly focused on the intricacies of sword, a weapon whose versatility \
 	belies the difficulty of its use."
-	outfit = /datum/outfit/job/roguetown/squire/blade_trainee
+	outfit = /datum/outfit/job/roguetown/squire/footman
 		
 	category_tags = list(CTAG_SQUIRE)
 
-/datum/outfit/job/roguetown/squire/blade_trainee/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/squire/footman/pre_equip(mob/living/carbon/human/H)
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
@@ -106,15 +106,15 @@
 		H.change_stat("speed", 1)
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
 
-H.adjust_blindness(-3)
-	var/weapons = list("Iron Sword", "Cudgel",)
+	H.adjust_blindness(-3)
+	var/weapons = list("Iron Sword","Cudgel",)
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Iron Sword")
-			r_hand = /obj/item/rogueweapon/sword/iron
+			beltr = /obj/item/rogueweapon/sword/iron
 		if("Cudgel")	
-			r_hand = /obj/item/rogueweapon/mace/cudgel
+			beltr = /obj/item/rogueweapon/mace/cudgel
 
 /datum/advclass/squire/skirmisher
 	name = "Skirmisher"
