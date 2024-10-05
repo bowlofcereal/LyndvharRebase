@@ -358,7 +358,7 @@
 		return TRUE
 	to_chat(user, span_notice("Adding water, now its time to knead it..."))
 	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
-	if(do_after(user,2 SECONDS, target = src))
+	if(do_after(user, short_cooktime, target = src))
 		name = "wet powder"
 		desc = "Destined for greatness, at your hands."
 		R.reagents.remove_reagent(/datum/reagent/water, 10)
@@ -369,7 +369,7 @@
 /obj/item/reagent_containers/powder/flour/attack_hand(mob/user)
 	if(water_added)
 		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
-		if(do_after(user,3 SECONDS, target = src))
+		if(do_after(user, short_cooktime, target = src))
 			new /obj/item/reagent_containers/food/snacks/rogue/dough_base(loc)
 			qdel(src)
 	else ..()
@@ -431,7 +431,7 @@
 		return TRUE
 	to_chat(user, span_notice("Adding water, now its time to sift it..."))
 	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
-	if(do_after(user,2 SECONDS, target = src))
+	if(do_after(user, short_cooktime, target = src))
 		name = "prepared minerals"
 		desc = "Still quite coarse, needs some sifting."
 		R.reagents.remove_reagent(/datum/reagent/water, 10)
