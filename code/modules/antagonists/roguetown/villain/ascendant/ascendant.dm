@@ -64,7 +64,7 @@ var/psydon_artefact_four = psydon_pool[5]
 var/psydon_capstone_two = psydon_pool[6]
 
 //Roger, the deal is honored - you are blessed with entry to heaven.
-var/psydon_ascend = item_pool[7]
+var/psydon_ascend = psydon_pool[7]
 
 
 	var/psydon_artefact_one
@@ -86,4 +86,17 @@ var/psydon_ascend = item_pool[7]
 	owner.special_items["Maniac"] = pick(possible_weapons)
 	owner.special_items["Surgical Kit"] = /obj/item/storage/belt/rogue/surgery_bag/full
 	LAZYINITLIST(owner.learned_recipes)
+		if(owner.current)
+		if(ishuman(owner.current))
+			var/mob/living/carbon/human/dreamer = owner.current
+			dreamer.cmode_music = 'sound/music/requiem.ogg'
+			var/medicine_skill = dreamer.mind.get_skill_level(/datum/skill/misc/medicine)
+			if(medicine_skill < 3)// Bumps his skill up to 3 for surgery, not higher
+				owner.adjust_skillrank(/datum/skill/misc/medicine, 3 - medicine_skill, TRUE)
+			STASTR = dreamer.STASTR
+			STACON = dreamer.STACON
+			STAEND = dreamer.STAEND
+			dreamer.STASTR = 20
+			dreamer.STACON = 20
+			dreamer.STAEND = 20
 
