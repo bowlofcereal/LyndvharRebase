@@ -54,8 +54,6 @@ var/list/psydon_pool = list(
 	"Item 7"
 )
 
-item_pool = shuffle(item_pool) //shuffle em
-
 var/psydon_artefact_one = psydon_pool[1]
 var/psydon_artefact_two = psydon_pool[2]
 var/psydon_capstone_one = psydon_pool[3]
