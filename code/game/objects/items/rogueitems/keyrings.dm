@@ -295,6 +295,9 @@
 /obj/item/storage/keyring/physician
 	keys = list(/obj/item/roguekey/manor, /obj/item/roguekey/garrison, /obj/item/roguekey/physician)
 
+/obj/item/storage/keyring/apothacary
+	keys = list(/obj/item/roguekey/manor, /obj/item/roguekey/physician)
+
 /obj/item/storage/keyring/royal
 	keys = list(/obj/item/roguekey/manor, /obj/item/roguekey/royal)
 
