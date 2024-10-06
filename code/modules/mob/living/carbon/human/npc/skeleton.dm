@@ -102,6 +102,54 @@
 	else
 		r_hand = /obj/item/rogueweapon/stoneaxe/woodcut
 
+/datum/outfit/job/roguetown/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Skeleton players
+	..()
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
+	if(prob(50))
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant
+	else
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant/l
+	if(prob(50))
+		pants = /obj/item/clothing/under/roguetown/tights/vagrant
+	else
+		pants = /obj/item/clothing/under/roguetown/tights/vagrant/l
+	head = /obj/item/clothing/head/roguetown/helmet/leather
+
+	H.STASTR = rand(14,16)
+	H.STASPD = 8
+	H.STACON = 9
+	H.STAEND = 15
+	H.STAINT = 1
+
+	//light labor skills for skeleton manual labor and some warrior-adventurer skills, equipment is still bad probably
+	H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+
+	H.possible_rmb_intents = list(/datum/rmb_intent/feint,\
+	/datum/rmb_intent/aimed,\
+	/datum/rmb_intent/strong,\
+	/datum/rmb_intent/swift,\
+	/datum/rmb_intent/riposte,\
+	/datum/rmb_intent/weak)
+	H.swap_rmb_intent(num=1) //dont want to mess with base NPCs too much out of fear of breaking them so I assigned the intents in the outfit
+
+	if(prob(50))
+		r_hand = /obj/item/rogueweapon/sword
+	else
+		r_hand = /obj/item/rogueweapon/stoneaxe/woodcut
+
 /mob/living/carbon/human/species/skeleton/npc/no_equipment
     skel_outfit = null
 
