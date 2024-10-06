@@ -39,21 +39,7 @@
 	var/STACON
 	var/STAEND
 
-/datum/antagonist/ascendant/on_gain()
-	. = ..()
-
-
-//doing it this way came to me in a dream. find out which items ASCENDANT will be getting today
-var/list/psydon_pool = list(
-	"Item 1",  //todo: items lol
-	"Item 2",
-	"Item 3",
-	"Item 4",
-	"Item 5",
-	"Item 6",
-	"Item 7"
-)
-
+/*
 var/psydon_artefact_one = psydon_pool[1]
 var/psydon_artefact_two = psydon_pool[2]
 var/psydon_capstone_one = psydon_pool[3]
@@ -78,31 +64,30 @@ var/psydon_ascend = psydon_pool[7]
 
 //ascension artefact
 	var/psydon_ascend
+*/
 
 /datum/antagonist/ascendant/on_gain()
 	. = ..()
 
 	owner.special_role = ROLE_ASCENDANT
 	owner.special_items["Ascendant"] = pick(possible_weapons)
-	owner.special_items["Surgical Kit"] = /obj/item/storage/belt/rogue/surgery_bag/full
-	LAZYINITLIST(owner.learned_recipes)
-		if(owner.current)
+	if(owner.current)
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.cmode_music = 'sound/music/requiem.ogg'
-			var/medicine_skill = dreamer.mind.get_skill_level(/datum/skill/misc/medicine)
-			if(medicine_skill < 3)// Bumps his skill up to 3 for surgery, not higher
-				owner.adjust_skillrank(/datum/skill/misc/medicine, 3 - medicine_skill, TRUE)
+			var/sword_skill = dreamer.mind.get_skill_level(/datum/skill/combat/swords)
+			if(sword_skill < 4)
+				owner.adjust_skillrank(/datum/skill/misc/medicine, 4 - medicine_skill, TRUE)
 			STASTR = dreamer.STASTR
 			STACON = dreamer.STACON
 			STAEND = dreamer.STAEND
-			dreamer.STASTR = 20
-			dreamer.STACON = 20
-			dreamer.STAEND = 20
+			dreamer.STASTR += 2
+			dreamer.STACON += 2
+			dreamer.STAEND += 2
 
 	var/static/list/possible_weapons = list(
-		/obj/item/rogueweapon/huntingknife/cleaver,
-		/obj/item/rogueweapon/huntingknife/cleaver/combat,
-		/obj/item/rogueweapon/huntingknife/idagger/steel/special,
+		/obj/item/rogueweapon/sword/cutlass,
+		/obj/item/rogueweapon/sword/decorated,
+		/obj/item/rogueweapon/sword/sabre/dec,
 	)
 
