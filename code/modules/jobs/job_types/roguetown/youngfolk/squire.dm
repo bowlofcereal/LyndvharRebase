@@ -3,8 +3,8 @@
 	flag = SQUIRE
 	department_flag = YOUNGFOLK
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 12 //strength in numbers
+	spawn_positions = 12
 	allowed_races = RACES_ALL_KINDS
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT)
@@ -19,7 +19,6 @@
 
 /datum/outfit/job/roguetown/squire/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.pronouns == SHE_HER)
 		pants = /obj/item/clothing/under/roguetown/tights
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 		armor = /obj/item/clothing/suit/roguetown/armor/chainmail
@@ -31,44 +30,11 @@
 		if(H.mind)
 			H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-			H.change_stat("strength", 1)
-			H.change_stat("perception", 1)
-			H.change_stat("constitution", 1)
-			H.change_stat("speed", 1)
-	else
-		pants = /obj/item/clothing/under/roguetown/tights
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
-		armor = /obj/item/clothing/suit/roguetown/armor/chainmail
-		shoes = /obj/item/clothing/shoes/roguetown/boots
-		belt = /obj/item/storage/belt/rogue/leather
-		beltr = /obj/item/storage/belt/rogue/pouch
-		beltl = /obj/item/storage/keyring/guardcastle
-		backr = /obj/item/storage/backpack/rogue/satchel
-		if(H.mind)
-			H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-			H.change_stat("strength", 1)
-			H.change_stat("perception", 1)
-			H.change_stat("constitution", 1)
-			H.change_stat("speed", 1)
+			H.change_stat("strength", -2) //to balance for muscular trait
+			H.change_stat("perception", 1) 
 	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
