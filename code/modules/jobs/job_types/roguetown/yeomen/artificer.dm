@@ -44,12 +44,12 @@
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
+	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	beltl = /obj/item/roguekey/artificer
 	mask = /obj/item/clothing/mask/rogue/spectacles/golden
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(/obj/item/rogueweapon/hammer/claw = 1)
-	H.change_stat("strength", 1)
+	H.change_stat("strength", 10)
 	H.change_stat("intelligence", 2)
 	H.change_stat("endurance", 1)
 	H.change_stat("constitution", 1)
