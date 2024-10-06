@@ -1,5 +1,18 @@
 // OH GOD IT'S SO SHITTY IM SO SORRY PLEASE PLEAS EPLEASEP ELEA
 
+var/list/capstone_pool = list(
+	"Item 1",  //todo: items lol
+	"Item 2",
+	"Item 3",
+	"Item 4",
+	"Item 5",
+	"Item 6",
+	"Item 7"
+)
+
+
+
+
 /datum/crafting_recipe/roguetown/structure/ascendant
 	name = "ascendant's altar"
 	result = /obj/structure/ascendant_altar
@@ -22,7 +35,7 @@
 	var/ascend_stage = 0 //stages - 0 is base, 1 is 1st capstone, 2 is 2nd capstone, 3 is full ascension
 	var/ascendpoints = 0 //artefact points
 
-/obj/structure/fluff/statue/what/examine(mob/user)
+/obj/structure/ascendant_altar/examine(mob/user)
 
 	. = ..()
 	if((user.mind?.has_antag_datum(/datum/antagonist/ascendant))
@@ -34,6 +47,7 @@
 				"There is no more to be done. It is time to find my temple."
 	else
 		.+= "It almost looks like it's waiting for something- but I don't know what."
+
 
 
 
@@ -59,6 +73,7 @@
 			psydon_pool.Remove(psydon_pool[1])
 			user.STASTR += 4
 			user.STAPER += 4
+			user.STAINT += 4
 			user.STACON += 4
 			user.STAEND += 4
 			user.STASPD += 4
@@ -69,13 +84,39 @@
 				if(1)
 					ADD_TRAIT(user, TRAIT_DECEIVING_MEEKNESS, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_EMPATH, TRAIT_GENERIC)
+					ADD_TRAIT(user, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 					to_chat(victim, span_userdanger("I bow my head in humility as I begin my journey. MAJOR ARCANA : TEMPERANCE, UPRIGHT."))
 				if(2)
-					to_chat(victim, span_userdanger("The world around me seems to mean less and less- I realize how small everything is. MAJOR ARCANA : QUEEN OF CUPS, REVERSED."))
+					to_chat(victim, span_userdanger("The world around me means less and less- I realize how small everything is. MAJOR ARCANA : QUEEN OF CUPS, REVERSED."))
+					ADD_TRAIT(user, TRAIT_NOSTINK, TRAIT_GENERIC)
+					ADD_TRAIT(user, TRAIT_NOMOOD, TRAIT_GENERIC)
+					ADD_TRAIT(user, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+				if(3)
+					ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
+					ADD_TRAIT(user, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
+					to_chat(victim, span_userdanger("TEN OF SWORDS, UPRIGHT"))
+				if(4)
+					ADD_TRAIT(user, TRAIT_STABLEHEART, TRAIT_GENERIC)
+					ADD_TRAIT(user, TRAIT_STABLELIVER, TRAIT_GENERIC)
+
+		else
+			to_chat(victim, span_userdanger("I bow my head in humility as I begin my journey. MAJOR ARCANA : TEMPERANCE, UPRIGHT."))
+
+
+//handles capstones
+	if(is_type_in_list(I, capstone_pool[1]))
+
+
+		switch(src.ascend_stage)
+
+
+			if(4)
+				user.cmode_music = 'sound/music/combat_maniac.ogg'
 
 			qdel(I)
 
-	if(src.ascend_stage == 3)
+	if(src.ascend_stage == 4)
+
 
 // If(istype(item,item_pool[1]))
 

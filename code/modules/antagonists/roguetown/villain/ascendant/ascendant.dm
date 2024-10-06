@@ -83,7 +83,7 @@ var/psydon_ascend = psydon_pool[7]
 	. = ..()
 
 	owner.special_role = ROLE_ASCENDANT
-	owner.special_items["Maniac"] = pick(possible_weapons)
+	owner.special_items["Ascendant"] = pick(possible_weapons)
 	owner.special_items["Surgical Kit"] = /obj/item/storage/belt/rogue/surgery_bag/full
 	LAZYINITLIST(owner.learned_recipes)
 		if(owner.current)
@@ -99,4 +99,10 @@ var/psydon_ascend = psydon_pool[7]
 			dreamer.STASTR = 20
 			dreamer.STACON = 20
 			dreamer.STAEND = 20
+
+	var/static/list/possible_weapons = list(
+		/obj/item/rogueweapon/huntingknife/cleaver,
+		/obj/item/rogueweapon/huntingknife/cleaver/combat,
+		/obj/item/rogueweapon/huntingknife/idagger/steel/special,
+	)
 
