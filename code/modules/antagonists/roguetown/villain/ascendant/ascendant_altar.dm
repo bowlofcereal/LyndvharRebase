@@ -71,7 +71,7 @@ var/list/psydon_pool = list(
 
 	if((user.mind?.has_antag_datum(/datum/antagonist/ascendant)))
 		if(src.ascend_stage == (0,1))
-		. += "The next artefact I must find is [???]. The next capstone to ascend in power is [???]" //todo oh god
+		. += "The next artefacts I must find is [src.artefact_one_display]. The next capstone to ascend in power is [src.capstone_one_display]" //i think this works.
 			return
 		if(src.ascend_stage == 2)
 			.+= "The next artefact I must find is [???]. The next capstone to ascend in power is [???]."
@@ -157,7 +157,7 @@ var/list/psydon_pool = list(
 		switch(src.ascend_stage)
 
 
-			if(4)
+			if(3)
 
 				user.cmode_music = 'sound/music/ORDER.ogg'
 				user.STASTR += 10
@@ -167,7 +167,9 @@ var/list/psydon_pool = list(
 				user.STAEND += 10
 				user.STASPD += 10
 				user.STALUC += 6
-				SEND_SOUND(connected_player, 'sound/villain/littlescary.ogg')
+				heavensaysdanger()
+
+
 
 			qdel(I)
 
@@ -175,11 +177,7 @@ var/list/psydon_pool = list(
 
 		heavensaysdanger()
 
-		for(var/mob/connected_player in GLOB.player_list)
-		if(!connected_player.client)
-			continue
-		SEND_SOUND(connected_player, sound(null))
-		SEND_SOUND(connected_player, 'sound/villain/dreamer_win.ogg')
+
 
 
 // If(istype(item,item_pool[1]))
@@ -194,3 +192,12 @@ var/list/psydon_pool = list(
 			to_chat(victim, span_userdanger("I have collected [src.ascend_stage] capstones and [src.ascendpoints] artefacts."))
 		else
 			to_chat(victim, span_userdanger("I have no idea what this is."))
+
+
+/obj/structure/ascendant_altar/proc/heavensaysdanger()
+
+	for(var/mob/connected_player in GLOB.player_list)
+	if(!connected_player.client)
+		continue
+	SEND_SOUND(connected_player, sound(null))
+	SEND_SOUND(connected_player, 'sound/villain/dreamer_win.ogg')
