@@ -90,8 +90,6 @@ var/list/psydon_pool = list(
 
 	if((user.mind?.has_antag_datum(/datum/antagonist/ascendant)))
 		to_chat(victim, span_userdanger("I must collect [psydonlist]"))
-
-
 	else
 		to_chat(user, span_userdanger("I have no idea what this is."))
 
@@ -102,16 +100,17 @@ var/list/psydon_pool = list(
 //todo: this is garbage, break this into multiple procs, fucking please??
 //basically- stuff in artefacts, get traits. stuff in capstone to actually get the next stage
 // first, if this is an artifact, and not a capstone...
+	if((user.mind?.has_antag_datum(/datum/antagonist/ascendant)))
 		if(is_type_in_list(I, psydon_pool[1]))
 			src.ascendpoints += 1
 			psydon_pool.Remove(psydon_pool[1])
-			user.STASTR += 4
-			user.STAPER += 4
-			user.STAINT += 4
-			user.STACON += 4
-			user.STAEND += 4
-			user.STASPD += 4
-			user.STALUC += 2 //relax
+			user.STASTR += 2
+			user.STAPER += 2
+			user.STAINT += 2
+			user.STACON += 2
+			user.STAEND += 2
+			user.STASPD += 2
+			user.STALUC += 2
 
 //check what ascendpoint they are on and add that trait
 			switch(src.ascendpoints)
@@ -119,46 +118,58 @@ var/list/psydon_pool = list(
 					ADD_TRAIT(user, TRAIT_DECEIVING_MEEKNESS, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_EMPATH, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-					to_chat(victim, span_userdanger("I bow my head in humility as I begin my journey. MAJOR ARCANA : TEMPERANCE, UPRIGHT."))
+					to_chat(user, span_userdanger("I bow my head in humility as I begin my journey. MAJOR ARCANA : TEMPERANCE, UPRIGHT."))
 				if(2)
-					to_chat(victim, span_userdanger("The world around me means less and less- I realize how small everything is. MAJOR ARCANA : QUEEN OF CUPS, REVERSED."))
+					to_chat(user, span_userdanger("The world around me means less and less- I realize how small everything is. MAJOR ARCANA : QUEEN OF CUPS, REVERSED."))
 					ADD_TRAIT(user, TRAIT_NOSTINK, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_NOMOOD, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 				if(3)
 					ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
-
-					var/mace_skill = user.mind.get_skill_level(/datum/skill/combat/mace)
-					var/axe_skill = user.mind.get_skill_level(/datum/skill/combat/axes)
-					var/shield_skill = user.mind.get_skill_level(/datum/skill/combat/shields)
-					if(axe_skill < 5)
-					if(shield_skill < 5)
-					if(mace_skill < 5)
-
-					user.mind.adjust_skillrank(/datum/skill/combat/maces, 3
-					to_chat(victim, span_userdanger("TEN OF SWORDS, UPRIGHT"))
+					to_chat(victim, span_userdanger("I have many enemies- AND they HAVE NOTHING. TEN OF SWORDS, UPRIGHT"))
 				if(4)
 					ADD_TRAIT(user, TRAIT_STABLEHEART, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_STABLELIVER, TRAIT_GENERIC)
+					to_chat(victim, span_userdanger("My insides BECOME like MALUM'S STONE. I am NEARING COMPLETION. MAJOR ARCANA : STRENGTH"))
+
 				else
-					to_chat(victim, span_userdanger("There are no more artefacts to collect. It is time for my business to be DONE."))
+					to_chat(user, span_danger("There are no more artefacts to collect. It is time for my business to be DONE."))
 					return
 
 
-		else
-			to_chat(victim, span_userdanger("I bow my head in humility as I begin my journey. MAJOR ARCANA : TEMPERANCE, UPRIGHT."))
-
 
 //handles capstones
-	if(is_type_in_list(I, capstone_pool[1]))
+		if(is_type_in_list(I, capstone_pool[1]))
+
+			src.ascend_stage += 1
+			user.STASTR += 2
+			user.STAPER += 2
+			user.STAINT += 2
+			user.STACON += 2
+			user.STAEND += 2
+			user.STASPD += 2
+			user.STALUC += 2
 
 
 		switch(src.ascend_stage)
+			if(1)
+				ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
+				to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. A corpse. We are living on a corpse. And this deadite must be dealt with the same as the rest. My pace stiffens."))
+				user.spelllist += /obj/effect/proc_holder/spell/targeted/churn
+			if(2)
+				to_chat(user, span_danger("The second capstone. Stuck in filth- FILTH AND SHIT! I grab the rotted, fetted thing and begin to peel it back. LAYER BY LAYER- THE COMET SYON. THE ARCHDEVIL. IS HE DEAD, OR SLEEPING? ..."))
+				sleep(50)
+				to_chat(user, span_userdanger("IS HE WEAK - OR A COWARD??"))
+				sleep(20)
+				to_chat(user, span_userdanger("GOD IS COMING."))
+				sleep(20)
+				to_chat(user, span_userdanger("GODISCOMING"))
+
+
 
 
 			if(3)
-
 				user.cmode_music = 'sound/music/ORDER.ogg'
 				user.STASTR += 10
 				user.STAPER += 10
@@ -167,20 +178,21 @@ var/list/psydon_pool = list(
 				user.STAEND += 10
 				user.STASPD += 10
 				user.STALUC += 6
-				heavensaysdanger()
+
+				heavensaysdanger() //Roger, our deal is honored; you will be rewarded in heaven.
+				qdel(src)
+
+
 
 
 
 			qdel(I)
 
-	if(src.ascend_stage == 4)
 
-		heavensaysdanger()
-
-
+		else
+			to_chat(victim, span_userdanger("This item is useless to me.."))
 
 
-// If(istype(item,item_pool[1]))
 
 
 
