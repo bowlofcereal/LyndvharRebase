@@ -50,6 +50,12 @@
 	sellprice = 56
 	desc = "This gem is admired by many wizards."
 
+/obj/item/roguegem/amethyst
+	name = "Amythortz"
+	icon_state = "amethyst_cut"
+	sellprice = 71
+	desc = "A rarer, purple kind of blortz"
+
 /obj/item/roguegem/diamond
 	name = "dorpel"
 	icon_state = "diamond_cut"
@@ -86,5 +92,5 @@
 	sellprice = 400
 
 /obj/item/riddleofsteel/Initialize()
-	. = ..()
+	..()
 	set_light(2, 1, "#ff0d0d")
