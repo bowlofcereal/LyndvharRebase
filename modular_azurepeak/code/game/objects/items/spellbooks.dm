@@ -155,10 +155,12 @@
 	if(!isarcyne(user))
 		if (gamer != owner) // if you didn't make this book, get fucked.
 			chance2learn = 1
+		else
+			chance2learn *= 0.5
+			chance2learn = min(chance2learn, 15) 
 	if (born_of_rock)
-		// the rock tomes are a *lot* easier to make, so we make them worse by them reducing your chances by 20% and capping it to a maximum of 15% overall
-		// we do this because we don't want literally everybody being able to access arcane magic in a round.
-		chance2learn *= 0.5
+		// the rock tomes are a *lot* easier to make, so we make them worse by them reducing your chances by 20%
+		chance2learn *= 0.8
 	testing("chance to learn is [chance2learn]")
 	if(prob(chance2learn))
 		user.visible_message(span_warning("[user] is filled with arcyne energy! You witness [user.p_their()] body convulse and spark brightly."), \
