@@ -206,6 +206,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	S["defiant"]			>> defiant
 
+	S["nsfw"]			>> nsfw
+
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
 		update_preferences(needs_update, S)		//needs_update = savefile_version if we need an update (positive integer)
@@ -497,6 +499,14 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["ooc_extra"]			>> ooc_extra
 	S["ooc_extra_link"]		>> ooc_extra_link
 	S["is_legacy"]			>> is_legacy
+	S["nsfw_headshot_link"]		>> nsfw_headshot_link
+	if(!valid_nsfw_headshot_link(null, nsfw_headshot_link, TRUE))
+		nsfw_headshot_link = null
+
+	S["nsfw_info"]		>> nsfw_info
+	if(!valid_nsfw_info(null, nsfw_info, TRUE))
+		nsfw_info = null
+
 
 	S["char_accent"]		>> char_accent
 	if (!char_accent)
@@ -645,6 +655,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	WRITE_FILE(S["update_mutant_colors"] , update_mutant_colors)
 	WRITE_FILE(S["headshot_link"] , headshot_link)
+	WRITE_FILE(S["nsfw_headshot_link"] , nsfw_headshot_link)
 	WRITE_FILE(S["flavortext"] , html_decode(flavortext))
 	WRITE_FILE(S["flavortext_display"], flavortext_display)
 	WRITE_FILE(S["ooc_notes"] , html_decode(ooc_notes))
@@ -669,6 +680,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	else
 		WRITE_FILE(S["loadout3"] , null)
 
+	WRITE_FILE(S["flavor_text"] , flavor_text)
+
+	WRITE_FILE(S["nsfw_info"] , nsfw_info)
 
 	return TRUE
 
