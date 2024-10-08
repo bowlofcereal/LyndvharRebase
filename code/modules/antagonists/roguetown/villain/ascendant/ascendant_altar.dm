@@ -192,7 +192,7 @@ var/list/psydon_pool = list(
 					var/turf/location = get_spawn_turf_for_job("Pilgrim")
 					user.forceMove(location)
 					user.Stun(100)
-					user.cmode_music = 'sound/music/ORDER.ogg'
+					user.cmode_music = 'sound/music/combat_ascended.ogg'
 					user.STASTR += 10
 					user.STAPER += 10
 					user.STAINT += 10

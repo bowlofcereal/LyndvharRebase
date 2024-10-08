@@ -7,7 +7,7 @@
 	antag_hud_type = ANTAG_HUD_TRAITOR
 	antag_hud_name = "villain"
 	confess_lines = list(
-		"I gave them no time to squeal.",
+		"",
 		"I shant quit ripping them.",
 		"They deserve to be put at my blade.",
 		"Do what thou wilt shall be the whole of the law.",
@@ -15,23 +15,8 @@
 	rogue_enabled = FALSE
 	/// Traits we apply to the owner
 	var/static/list/applied_traits = list(
-		TRAIT_CRITICAL_RESISTANCE,
-		TRAIT_DECEIVING_MEEKNESS,
-		TRAIT_NOSTINK,
-		TRAIT_EMPATH,
 		TRAIT_NOROGSTAM,
-		TRAIT_NOPAIN,
-		TRAIT_NOPAINSTUN,
-		TRAIT_STEELHEARTED,
-		TRAIT_NOMOOD,
-		TRAIT_HARDDISMEMBER,
-		TRAIT_NOSLEEP,
-		TRAIT_SHOCKIMMUNE,
-		TRAIT_STABLEHEART,
-		TRAIT_STABLELIVER,
-		TRAIT_ANTIMAGIC,
 		TRAIT_SCHIZO_AMBIENCE,
-		TRAIT_BLOODLOSS_IMMUNE,
 	)
 
 	/// Cached old stats in case we get removed
@@ -79,10 +64,15 @@ var/psydon_ascend = psydon_pool[7]
 	if(owner.current)
 		if(ishuman(owner.current))
 			var/mob/living/carbon/human/dreamer = owner.current
-			dreamer.cmode_music = 'sound/music/requiem.ogg'
 			var/sword_skill = dreamer.mind.get_skill_level(/datum/skill/combat/swords)
+			var/unarmed_skill = dreamer.mind.get_skill_level(/datum/skill/combat/unarmed)
+			var/wrestling_skill = dreamer.mind.get_skill_level(/datum/skill/combat/wrestling)
 			if(sword_skill < 6)
 				owner.adjust_skillrank(/datum/skill/combat/swords, 6 - sword_skill, TRUE)
+			if(unarmed_skill < 6)
+				owner.adjust_skillrank(/datum/skill/combat/unarmed, 6 - unarmed_skill, TRUE)
+			if(wrestling_skill)
+				owner.adjust_skillrank(/datum/skill/combat/wrestling, 6 - wrestling_skill, TRUE)
 			STASTR = dreamer.STASTR
 			STACON = dreamer.STACON
 			STAEND = dreamer.STAEND
