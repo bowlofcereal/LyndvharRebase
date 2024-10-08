@@ -66,7 +66,7 @@ var/list/capstone_pool = list(
 	runthejewels()
 
 	if((user.mind?.has_antag_datum(/datum/antagonist/ascendant)))
-		. += "The next artefacts I must find are [src.artefact_one_display], and [src.artefact_two_display]. The next capstone to ascend in power is [src.capstone_one_display]" //i think this works.
+		. += "The next artefacts I must find is a [src.artefact_one_display]. The next capstone to ascend in power is a [src.capstone_one_display]" //i think this works.
 		return
 	else
 		.+= "It almost looks like it's waiting for something- but I don't know what."
@@ -156,24 +156,28 @@ var/list/capstone_pool = list(
 					capstone_pool.Remove(capstone_pool[1])
 					qdel(I)
 					addomen(ASCEND_FIRST)
+					priority_announce("The leylines begin to tremble in unnatural perversion - MAJOR ARCANA: THE FOOL, UPRIGHT.", "THE DREAMER", 'sound/villain/dreamer_warning.ogg')
 					return
 				if(2)
 					qdel(I)
 					to_chat(user, span_danger("The second capstone. Stuck in filth- FILTH AND SHIT! I grab the rotted, fetted thing and begin to peel it back. LAYER BY LAYER- THE COMET SYON. THE ARCHDEVIL. IS HE DEAD, OR SLEEPING? ..."))
-					sleep(50)
+					sleep(30)
 					to_chat(user, span_userdanger("IS HE WEAK - OR A COWARD??"))
 					sleep(20)
 					to_chat(user, span_userdanger("GOD IS COMING."))
-					sleep(20)
-					to_chat(user, span_userdanger("GODISCOMING"))
+					sleep(10)
+					to_chat(user, span_userdanger("GODISCOMINGGODISCOMING"))
 					addomen(ASCEND_FIRST)
 					ADD_TRAIT(user, TRAIT_ANTIMAGIC, TRAIT_GENERIC)
 					capstone_pool.Remove(capstone_pool[1])
+					priority_announce("The sky begins to turn quicker - MAJOR ARCANA: THE HANGED MAN, REVERSED", "THE DREAMER ", 'sound/villain/dreamer_warning.ogg')
 					return
 				if(3)
 					capstone_pool.Remove(capstone_pool[1])
 					qdel(I)
 					to_chat(user, span_danger("AGONY. SPLITTING HEADACHE. THROBBING OF THE SOUL."))
+					user.flash_fullscreen("redflash3")
+					user.emote("agony", forced = TRUE)
 					sleep(20)
 					to_chat(user, span_userdanger("THEW ORLD is not real. my BREATH IS gone. my heart barely baeats. my veins are empty."))
 					sleep(50)
@@ -190,6 +194,7 @@ var/list/capstone_pool = list(
 					user.emote("agony", forced = TRUE)
 					user.Stun(100)
 					user.Knockdown(100)
+					user.SetSleeping(10 SECONDS)
 					for(var/i = 1, i <= 10, i++)
 						spawn((i - 1) * 5)
 							to_chat(user, span_userdanger("I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD "))
@@ -201,7 +206,7 @@ var/list/capstone_pool = list(
 					to_chat(user, span_reallybig("THE WORLD GOES DARK!"))
 					var/turf/location = get_spawn_turf_for_job("Pilgrim")
 					user.forceMove(location)
-					user.Stun(100)
+					user.Stun(50)
 					user.cmode_music = 'sound/music/combat_ascended.ogg'
 					user.STASTR += 10
 					user.STAPER += 10
@@ -237,8 +242,4 @@ var/list/capstone_pool = list(
 
 /obj/structure/ascendant_altar/proc/heavensaysdanger()
 
-	for(var/mob/connected_player in GLOB.player_list)
-		if(!connected_player.client)
-			continue
-		SEND_SOUND(connected_player, sound(null))
-		SEND_SOUND(connected_player, 'sound/villain/dreamer_win.ogg')
+	priority_announce("THE DREAMER HAS ASCENDED - MAJOR ARCANA : T$yh3 TOW##ER, UP r4IGHT", "GOD IS COMING", 'sound/villain/ascendant_intro.ogg')

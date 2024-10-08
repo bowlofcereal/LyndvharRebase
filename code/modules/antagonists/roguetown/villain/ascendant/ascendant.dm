@@ -63,6 +63,10 @@ var/psydon_ascend = psydon_pool[7]
 	owner.special_items["Ascendant"] = pick(possible_weapons)
 	if(owner.current)
 		if(ishuman(owner.current))
+
+			for(var/trait in applied_traits)
+				ADD_TRAIT(owner.current, trait, "[type]")
+
 			var/mob/living/carbon/human/dreamer = owner.current
 			var/sword_skill = dreamer.mind.get_skill_level(/datum/skill/combat/swords)
 			var/unarmed_skill = dreamer.mind.get_skill_level(/datum/skill/combat/unarmed)
@@ -79,4 +83,9 @@ var/psydon_ascend = psydon_pool[7]
 			dreamer.STASTR += 2
 			dreamer.STACON += 2
 			dreamer.STAEND += 2
+
+		if(length(objectives))
+			SEND_SOUND(owner.current, 'sound/villain/sound/villain/ascendant_intro.ogg.ogg')
+			to_chat(owner.current, span_danger("[antag_memory]"))
+			owner.announce_objectives()
 
