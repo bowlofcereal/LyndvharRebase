@@ -1,24 +1,20 @@
 // OH GOD IT'S SO SHITTY IM SO SORRY PLEASE PLEAS EPLEASEP ELEA
 
 var/list/capstone_pool = list(
-	"Item 1",  //todo: items lol
-	"Item 2",
-	"Item 3",
-	"Item 4",
-	"Item 5",
-	"Item 6",
-	"Item 7"
+	/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk,  //todo: items lol
+	/obj/item/clothing/suit/roguetown/armor/gambeson,
+	/obj/item/clothing/suit/roguetown/armor/leather,
+	/obj/item/reagent_containers/glass/bottle/waterskin,
+	/obj/item/natural/cloth,
+	/obj/item/natural/fur,
+	/obj/item/reagent_containers/food/snacks/grown/berries/rogue
 )
 
 //doing it this way came to me in a dream. find out which items ASCENDANT will be getting today
 var/list/psydon_pool = list(
-	"Item 1" = "minecraft item",  //todo: items lol
-	"Item 2",
-	"Item 3",
-	"Item 4",
-	"Item 5",
-	"Item 6",
-	"Item 7"
+	/obj/item/rogueore/coal, //= "minecraft item",
+	/obj/item/rogueore/gold,
+	/obj/item/rogueore/iron
 )
 
 
