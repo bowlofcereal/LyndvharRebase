@@ -110,7 +110,7 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/longbowpartial
-	name = "unstrung recurve bow"
+	name = "unstrung long bow"
 	result = /obj/item/grown/log/tree/bowpartial/longbow
 	reqs = list(
 		/obj/item/grown/log/tree = 1,
@@ -245,13 +245,13 @@
 	skillcraft = /datum/skill/craft/carpentry
 
 /datum/crafting_recipe/roguetown/spoon
-	name = "spoon"
+	name = "spoon (x2)"
 	result = list(/obj/item/kitchen/spoon,
 				/obj/item/kitchen/spoon)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/platter
-	name = "platter"
+	name = "platter (x2)"
 	result = list(/obj/item/cooking/platter,
 				/obj/item/cooking/platter)
 	reqs = list(/obj/item/grown/log/tree/small = 1)

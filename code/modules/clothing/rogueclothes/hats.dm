@@ -79,6 +79,9 @@
 	max_integrity = 100
 	sewrepair = TRUE
 
+/obj/item/clothing/head/roguetown/roguehood/shalal/black
+	color = CLOTHING_BLACK
+
 /obj/item/clothing/head/roguetown/roguehood/astrata
 	name = "sun hood"
 	desc = "A hood worn by those who favor Astrata. Praise the firstborn sun!"
@@ -471,6 +474,7 @@
 	icon_state = "nasal"
 	sleevetype = null
 	sleeved = null
+	resistance_flags = FIRE_PROOF
 	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	dynamic_hair_suffix = "+generic"
@@ -1042,6 +1046,11 @@
 	desc = ""
 	icon_state = "witch"
 	sewrepair = TRUE
+
+/obj/item/clothing/head/roguetown/archercap
+	name = "archer's cap"
+	desc = "For the merry men."
+	icon_state = "archercap"
 
 /obj/item/clothing/head/roguetown/physician
 	name = "doctor's hat"

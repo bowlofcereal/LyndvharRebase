@@ -12,11 +12,11 @@
 
 	outfit = /datum/outfit/job/roguetown/archivist
 	display_order = JDO_ARCHIVIST
+	give_bank_account = 15
 	min_pq = 0
 	max_pq = null
 
-/datum/outfit/job/roguetown/archivist
-	allowed_patrons = list(/datum/patron/divine/noc)
+	cmode_music = 'sound/music/combat_fancy.ogg'
 
 /datum/outfit/job/roguetown/archivist/pre_equip(mob/living/carbon/human/H)
 	..()

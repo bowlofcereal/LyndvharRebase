@@ -2,7 +2,7 @@
 	force = 10
 	force_wielded = 15
 	possible_item_intents = list(MACE_STRIKE)
-	gripped_intents = list(MACE_STRIKE,/datum/intent/flailthresh)
+	gripped_intents = list(/datum/intent/flailthresh,MACE_STRIKE)
 	name = "thresher"
 	desc = "A shredding tool for farmers."
 	icon_state = "flail"
@@ -216,6 +216,7 @@
 	lefthand_file = 'icons/mob/inhands/weapons/polearms_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/polearms_righthand.dmi'
 	sharpness = IS_BLUNT
+	associated_skill = /datum/skill/combat/polearms
 	//dropshrink = 0.8
 	wlength = 33
 	var/list/forked = list()
