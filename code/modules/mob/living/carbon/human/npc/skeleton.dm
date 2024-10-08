@@ -102,7 +102,7 @@
 	else
 		r_hand = /obj/item/rogueweapon/stoneaxe/woodcut
 
-/datum/outfit/job/roguetown/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Skeleton players
+/datum/outfit/job/roguetown/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
 	..()
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
@@ -110,11 +110,9 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant
 	else
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant/l
-	if(prob(50))
-		pants = /obj/item/clothing/under/roguetown/tights/vagrant
-	else
-		pants = /obj/item/clothing/under/roguetown/tights/vagrant/l
+	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	head = /obj/item/clothing/head/roguetown/helmet/leather
+	shoes = /obj/item/clothing/shoes/roguetown/boots
 
 	H.STASTR = rand(14,16)
 	H.STASPD = 8
