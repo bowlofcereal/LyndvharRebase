@@ -183,8 +183,8 @@ var/list/psydon_pool = list(
 					for(var/i = 1, i <= 50, i++)
 						spawn((i - 1) * 5)  // Schedule each iteration with a delay
 							to_chat(user, span_userdanger("I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD "))
-							user.flash_fullscreen("redflash3")
 					sleep(30)
+					user.flash_fullscreen("redflash3")
 
 //all goes dark. tp them over. give them their stats.
 					user.emote("agony", forced = TRUE)
