@@ -46,9 +46,9 @@ GLOBAL_LIST_INIT(badomens, list())
 		if(OMEN_SKELETONSIEGE)
 			used = "Unwelcome visitors!"
 		if(ASCEND_FIRST)
-			used = "NEW DECK, MAJOR ARCANA: THE FOOL - UPRIGHT"
+			used = "A tremble runs through the leylines of the realm. NEW DECK, MAJOR ARCANA: THE FOOL - UPRIGHT"
 		if(ASCEND_WAKENING)
-			used = "NEW OMEN, MAJOR ARCANA: THE HANGED MAN - REVERSED"
+			used = "The sky begins to turn quicker. NEW OMEN, MAJOR ARCANA: THE HANGED MAN - REVERSED"
 		if(ASCEND_ASCENDANT)
 			used = "A N##EW G$ $OD A@@AKENSS IN GORE AND S3%HIT - <span class='userdanger'>MAJOR ARCANA: THE TOWER - UPRIGHT</span>"
 	if(eventreason && used)

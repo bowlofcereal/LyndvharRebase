@@ -1,6 +1,6 @@
 // OH GOD IT'S SO SHITTY IM SO SORRY PLEASE PLEAS EPLEASEP ELEA
 
-var/list/capstone_pool = list(
+var/list/psydon_pool = list(
 	/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk,  //todo: items lol
 	/obj/item/clothing/suit/roguetown/armor/gambeson,
 	/obj/item/clothing/suit/roguetown/armor/leather,
@@ -11,7 +11,7 @@ var/list/capstone_pool = list(
 )
 
 //doing it this way came to me in a dream. find out which items ASCENDANT will be getting today
-var/list/psydon_pool = list(
+var/list/capstone_pool = list(
 	/obj/item/rogueore/coal, //= "minecraft item",
 	/obj/item/rogueore/gold,
 	/obj/item/rogueore/iron
@@ -91,9 +91,8 @@ var/list/psydon_pool = list(
 //basically- stuff in artefacts, get traits. stuff in capstone to actually get the next stage
 // first, if this is an artifact, and not a capstone...
 	if((user.mind?.has_antag_datum(/datum/antagonist/ascendant)))
-		if(is_type_in_list(I, psydon_pool[1]))
+		if(istype(I, psydon_pool[1]))
 			src.ascendpoints += 1
-			psydon_pool.Remove(psydon_pool[1])
 			user.STASTR += 2
 			user.STAPER += 2
 			user.STAINT += 2
@@ -109,29 +108,37 @@ var/list/psydon_pool = list(
 					ADD_TRAIT(user, TRAIT_EMPATH, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 					to_chat(user, span_userdanger("I bow my head in humility as I begin my journey. MAJOR ARCANA : TEMPERANCE, UPRIGHT."))
+					psydon_pool.Remove(psydon_pool[1])
 					qdel(I)
+					return
 				if(2)
 					to_chat(user, span_userdanger("The world around me means LESS and LESS- I realize how SMALL everything is. MAJOR ARCANA : QUEEN OF CUPS, REVERSED."))
 					ADD_TRAIT(user, TRAIT_NOSTINK, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_NOMOOD, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+					psydon_pool.Remove(psydon_pool[1])
 					qdel(I)
+					return
 				if(3)
 					ADD_TRAIT(user, TRAIT_NOPAIN, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
 					to_chat(user, span_userdanger("I have many enemies- AND they HAVE NOTHING. TEN OF SWORDS, UPRIGHT"))
+					psydon_pool.Remove(psydon_pool[1])
 					qdel(I)
+					return
 				if(4)
 					ADD_TRAIT(user, TRAIT_STABLEHEART, TRAIT_GENERIC)
 					ADD_TRAIT(user, TRAIT_STABLELIVER, TRAIT_GENERIC)
 					to_chat(user, span_userdanger("My insides BECOME like INCONGRUOUS STONE. Lines of vapour cross me over. I can NOT be mortal, I am BEYOND MORTAL, I AM I AM I AM I AM NEARING COMPLETION. MAJOR ARCANA : STRENGTH"))
+					psydon_pool.Remove(psydon_pool[1])
 					qdel(I)
+					return
 				else
 					to_chat(user, span_danger("There are nO MORE ARTEFACts to collect. It is time for my BUSINESS to be DONE."))
 					return
 
 //handles capstones
-		if(is_type_in_list(I, capstone_pool[1]))
+		else if(istype(I, capstone_pool[1]))
 			src.ascend_stage += 1
 			user.STASTR += 2
 			user.STAPER += 2
@@ -146,8 +153,12 @@ var/list/psydon_pool = list(
 					ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 					to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. A corpse. We are living on a corpse. And this deadite must be dealt with the same as the rest. My pace stiffens."))
 					user.mind.AddSpell(/obj/effect/proc_holder/spell/targeted/churn)
+					capstone_pool.Remove(capstone_pool[1])
 					qdel(I)
+					addomen(ASCEND_FIRST)
+					return
 				if(2)
+					qdel(I)
 					to_chat(user, span_danger("The second capstone. Stuck in filth- FILTH AND SHIT! I grab the rotted, fetted thing and begin to peel it back. LAYER BY LAYER- THE COMET SYON. THE ARCHDEVIL. IS HE DEAD, OR SLEEPING? ..."))
 					sleep(50)
 					to_chat(user, span_userdanger("IS HE WEAK - OR A COWARD??"))
@@ -155,9 +166,13 @@ var/list/psydon_pool = list(
 					to_chat(user, span_userdanger("GOD IS COMING."))
 					sleep(20)
 					to_chat(user, span_userdanger("GODISCOMING"))
+					addomen(ASCEND_FIRST)
 					ADD_TRAIT(user, TRAIT_ANTIMAGIC, TRAIT_GENERIC)
-					qdel(I)
+					capstone_pool.Remove(capstone_pool[1])
+					return
 				if(3)
+					capstone_pool.Remove(capstone_pool[1])
+					qdel(I)
 					to_chat(user, span_danger("AGONY. SPLITTING HEADACHE. THROBBING OF THE SOUL."))
 					sleep(20)
 					to_chat(user, span_userdanger("THEW ORLD is not real. my BREATH IS gone. my heart barely baeats. my veins are empty."))
@@ -169,15 +184,14 @@ var/list/psydon_pool = list(
 					user.emote("agony", forced = TRUE)
 					user.Stun(30)
 					user.Knockdown(30)
-
 					sleep(30)
 					to_chat(user, span_userdanger("i am god i am god i am go di am ogod I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD"))
 					user.flash_fullscreen("redflash3")
 					user.emote("agony", forced = TRUE)
 					user.Stun(100)
 					user.Knockdown(100)
-					for(var/i = 1, i <= 50, i++)
-						spawn((i - 1) * 5)  // Schedule each iteration with a delay
+					for(var/i = 1, i <= 10, i++)
+						spawn((i - 1) * 5)
 							to_chat(user, span_userdanger("I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD "))
 					sleep(30)
 					user.flash_fullscreen("redflash3")
@@ -198,9 +212,10 @@ var/list/psydon_pool = list(
 					user.STALUC += 6
 
 					heavensaysdanger() //Roger, our deal is honored; you will be rewarded in heaven.
+					addomen(ASCEND_ASCENDANT)
 					qdel(src)
+					return
 
-					qdel(I)
 
 
 		else
