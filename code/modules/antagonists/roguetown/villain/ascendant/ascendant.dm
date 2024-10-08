@@ -65,6 +65,11 @@ var/psydon_ascend = psydon_pool[7]
 //ascension artefact
 	var/psydon_ascend
 */
+	var/static/list/possible_weapons = list(
+		/obj/item/rogueweapon/sword/cutlass,
+		/obj/item/rogueweapon/sword/decorated,
+		/obj/item/rogueweapon/sword/sabre/dec,
+	)
 
 /datum/antagonist/ascendant/on_gain()
 	. = ..()
@@ -76,18 +81,12 @@ var/psydon_ascend = psydon_pool[7]
 			var/mob/living/carbon/human/dreamer = owner.current
 			dreamer.cmode_music = 'sound/music/requiem.ogg'
 			var/sword_skill = dreamer.mind.get_skill_level(/datum/skill/combat/swords)
-			if(sword_skill < 4)
-				owner.adjust_skillrank(/datum/skill/misc/medicine, 4 - medicine_skill, TRUE)
+			if(sword_skill < 6)
+				owner.adjust_skillrank(/datum/skill/combat/swords, 6 - sword_skill, TRUE)
 			STASTR = dreamer.STASTR
 			STACON = dreamer.STACON
 			STAEND = dreamer.STAEND
 			dreamer.STASTR += 2
 			dreamer.STACON += 2
 			dreamer.STAEND += 2
-
-	var/static/list/possible_weapons = list(
-		/obj/item/rogueweapon/sword/cutlass,
-		/obj/item/rogueweapon/sword/decorated,
-		/obj/item/rogueweapon/sword/sabre/dec,
-	)
 
