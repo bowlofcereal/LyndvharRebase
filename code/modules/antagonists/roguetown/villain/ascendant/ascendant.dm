@@ -85,7 +85,7 @@ var/psydon_ascend = psydon_pool[7]
 			dreamer.STAEND += 2
 
 		if(length(objectives))
-			SEND_SOUND(owner.current, 'sound/villain/sound/villain/ascendant_intro.ogg')
+			SEND_SOUND(owner.current, 'sound/villain/ascendant_intro.ogg')
 			to_chat(owner.current, span_danger("[antag_memory]"))
 			owner.announce_objectives()
 
