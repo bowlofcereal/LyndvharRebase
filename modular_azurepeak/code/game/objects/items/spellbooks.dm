@@ -310,7 +310,7 @@
 		if (the_rock.magic_power)
 			if(isturf(loc) && (found_table))
 				var/crafttime = ((130 - the_rock.magic_power) - ((user.mind?.get_skill_level(/datum/skill/magic/arcane))*5))
-				if(do_after(user, crafttime, taraget = src))
+				if(do_after(user, crafttime, target = src))
 					if (isarcyne(user))
 						playsound(loc, 'modular_azurepeak/sound/spellbooks/crystal.ogg', 100, TRUE)
 						user.visible_message(span_warning("[user] crushes [user.p_their()] [P]! Its powder seeps into the [src]."), \
