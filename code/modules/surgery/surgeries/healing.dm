@@ -111,10 +111,11 @@
 
 /datum/surgery_step/heal/brute/upgraded/femto
 	name = "Tend bruises (Exp.)"
-	brutehealing = 10
+	brutehealing = 20
 	missinghpbonus = 2.5
-	requires_tech = TRUE
+	requires_tech = FALSE
 	replaced_by = null
+	skill_min = SKILL_LEVEL_LEGENDARY
 
 /********************BURN STEPS********************/
 /datum/surgery_step/heal/burn/basic
@@ -133,9 +134,10 @@
 
 /datum/surgery_step/heal/burn/upgraded/femto
 	name = "Tend burns (Exp.)"
-	burnhealing = 10
+	burnhealing = 20
 	missinghpbonus = 2.5
-	requires_tech = TRUE
+	requires_tech = FALSE
+	skill_min = SKILL_LEVEL_LEGENDARY
 	replaced_by = null
 
 /********************COMBO STEPS********************/
@@ -157,10 +159,11 @@
 
 /datum/surgery_step/heal/combo/upgraded/femto
 	name = "Tend damage (Exp.)"
-	brutehealing = 6
-	burnhealing = 6
+	brutehealing = 12
+	burnhealing = 12
 	missinghpbonus = 2.5
-	requires_tech = TRUE
+	requires_tech = FALSE
+	skill_min = SKILL_LEVEL_LEGENDARY
 	replaced_by = null
 
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)
