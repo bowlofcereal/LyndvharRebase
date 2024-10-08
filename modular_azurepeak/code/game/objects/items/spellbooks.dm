@@ -204,7 +204,7 @@
 /// Book slapcrafting
 
 /obj/item/spellbook_unfinished
-	var/pages_left = 4
+	var/pages_left = 3
 	name = "bound scrollpaper"
 	dropshrink = 0.6
 	icon = 'icons/roguetown/items/books.dmi'
