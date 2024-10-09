@@ -15,6 +15,13 @@
 /obj/item/rogueweapon/sword/rapier/dec,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
+"aU" = (
+/obj/structure/closet/crate/chest/lootbox,
+/obj/item/clothing/ring/ruby,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
+/area/rogue/under/cave/dungeon1)
 "bn" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/effect/spawner/lootdrop/roguetown/sewers,
@@ -189,9 +196,10 @@
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/outdoors/mountains/decap)
 "ge" = (
-/obj/item/roguecoin/gold/pile,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/dungeon1)
+/obj/structure/closet/crate/chest/crate,
+/obj/item/ingot/gold,
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/mountains/decap)
 "gn" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /turf/open/floor/rogue/tile{
@@ -370,6 +378,10 @@
 "qH" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors/mountains/decap)
+"qJ" = (
+/obj/item/clothing/ring/sapphires,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
 "qK" = (
 /obj/structure/fluff/walldeco/rpainting/forest,
 /turf/closed/wall/mineral/rogue/stonebrick,
@@ -496,6 +508,15 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/mountains/decap)
+"vh" = (
+/obj/structure/fluff/walldeco/chains,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
+"vs" = (
+/obj/item/clothing/ring/diamonds,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/cave)
 "vw" = (
 /obj/item/clothing/head/helmet/skull,
 /turf/open/floor/rogue/naturalstone,
@@ -900,7 +921,6 @@
 /area/rogue/outdoors/mountains)
 "IM" = (
 /obj/structure/bed/rogue/shit,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
 /obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/dungeon1)
@@ -1003,7 +1023,7 @@
 /area/rogue/outdoors/mountains/decap)
 "NH" = (
 /obj/structure/table/wood,
-/obj/item/roguecoin/gold/pile,
+/obj/item/reagent_containers/glass/bottle/rogue/beer/voddena,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "NL" = (
@@ -1044,6 +1064,7 @@
 /area/rogue/outdoors/mountains/decap)
 "PA" = (
 /obj/item/roguestatue/gold,
+/obj/structure/table/wood,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},
@@ -1146,6 +1167,13 @@
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains)
+"TL" = (
+/obj/item/ingot/gold,
+/obj/structure/table/wood,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
+/area/rogue/under/cave/dungeon1)
 "TW" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap)
@@ -1943,7 +1971,7 @@ ej
 PZ
 ej
 ej
-Ky
+vs
 Oj
 Oj
 yp
@@ -8618,7 +8646,7 @@ pd
 pd
 lv
 hW
-Ka
+ge
 Ka
 hW
 Zd
@@ -9635,7 +9663,7 @@ TW
 xS
 xS
 Hp
-Hp
+qJ
 CX
 xV
 pS
@@ -9765,7 +9793,7 @@ TW
 xS
 Ui
 kW
-ge
+Hp
 CX
 xS
 pS
@@ -10165,7 +10193,7 @@ xV
 Hp
 Ke
 Ke
-Jy
+vh
 xS
 xS
 xS
@@ -15604,7 +15632,7 @@ Oj
 Oj
 Oj
 Hh
-jP
+aU
 yB
 PA
 oy
@@ -15996,7 +16024,7 @@ Oj
 Hh
 jP
 bA
-yl
+TL
 oy
 hz
 Zk
