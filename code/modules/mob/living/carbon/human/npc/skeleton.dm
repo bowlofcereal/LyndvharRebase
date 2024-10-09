@@ -10,6 +10,7 @@
 	ambushable = FALSE
 	rot_type = null
 	possible_rmb_intents = list()
+	cmode_music = 'sound/music/combat_weird.ogg'
 
 /mob/living/carbon/human/species/skeleton/npc
 	aggressive = 1
@@ -124,6 +125,8 @@
 	H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
@@ -134,6 +137,8 @@
 	H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+
+	H.set_patron(/datum/patron/inhumen/zizo)
 
 	H.possible_rmb_intents = list(/datum/rmb_intent/feint,\
 	/datum/rmb_intent/aimed,\
