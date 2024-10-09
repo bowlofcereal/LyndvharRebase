@@ -64,8 +64,18 @@
 /datum/surgery_step/heal/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	var/umsg = "You succeed in fixing some of [target]'s wounds" //no period, add initial space to "addons"
 	var/tmsg = "[user] fixes some of [target]'s wounds" //see above
-	var/urhealedamt_brute = brutehealing
-	var/urhealedamt_burn = burnhealing
+	var/healing_multiplier = 1
+	switch(user.mind.get_skill_level(skill_used))
+		if(SKILL_LEVEL_JOURNEYMAN)
+			healing_multiplier = 1.2
+		if(SKILL_LEVEL_EXPERT)
+			healing_multiplier = 1.4
+		if(SKILL_LEVEL_MASTER)
+			healing_multiplier = 1.7
+		if(SKILL_LEVEL_LEGENDARY)
+			healing_multiplier = 2
+	var/urhealedamt_brute = brutehealing * healing_multiplier
+	var/urhealedamt_burn = burnhealing * healing_multiplier
 	if(missinghpbonus)
 		if(target.stat != DEAD)
 			urhealedamt_brute += round((target.getBruteLoss()/ missinghpbonus),0.1)
@@ -111,11 +121,10 @@
 
 /datum/surgery_step/heal/brute/upgraded/femto
 	name = "Tend bruises (Exp.)"
-	brutehealing = 20
+	brutehealing = 10
 	missinghpbonus = 2.5
-	requires_tech = FALSE
+	requires_tech = TRUE
 	replaced_by = null
-	skill_min = SKILL_LEVEL_LEGENDARY
 
 /********************BURN STEPS********************/
 /datum/surgery_step/heal/burn/basic
@@ -134,10 +143,9 @@
 
 /datum/surgery_step/heal/burn/upgraded/femto
 	name = "Tend burns (Exp.)"
-	burnhealing = 20
+	burnhealing = 10
 	missinghpbonus = 2.5
-	requires_tech = FALSE
-	skill_min = SKILL_LEVEL_LEGENDARY
+	requires_tech = TRUE
 	replaced_by = null
 
 /********************COMBO STEPS********************/
@@ -159,11 +167,10 @@
 
 /datum/surgery_step/heal/combo/upgraded/femto
 	name = "Tend damage (Exp.)"
-	brutehealing = 12
-	burnhealing = 12
+	brutehealing = 6
+	burnhealing = 6
 	missinghpbonus = 2.5
-	requires_tech = FALSE
-	skill_min = SKILL_LEVEL_LEGENDARY
+	requires_tech = TRUE
 	replaced_by = null
 
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)
