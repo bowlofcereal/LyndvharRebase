@@ -147,6 +147,28 @@
 	. = ..()
 	icon_state = "roofgc1"
 
+/turf/open/floor/rogue/grassred
+	name = "red grass"
+	desc = "Grass, ripe with Dendor's blood."
+	icon_state = "grass_red"
+	layer = MID_TURF_LAYER
+	footstep = FOOTSTEP_GRASS
+	barefootstep = FOOTSTEP_SOFT_BAREFOOT
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	landsound = 'sound/foley/jumpland/grassland.wav'
+	slowdown = 0
+	smooth = SMOOTH_TRUE
+	neighborlay = "grass_rededge"
+
+/turf/open/floor/rogue/grassred/Initialize()
+	dir = pick(GLOB.cardinals)
+//	GLOB.dirt_list += src
+	. = ..()
+
+/turf/open/floor/rogue/grassred/cardinal_smooth(adjacencies)
+	roguesmooth(adjacencies)
+
 /turf/open/floor/rogue/grass
 	name = "grass"
 	desc = "Grass, sodden with mud and bogwater."
