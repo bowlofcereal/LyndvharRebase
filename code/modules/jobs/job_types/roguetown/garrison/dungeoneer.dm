@@ -24,6 +24,12 @@
 /datum/job/roguetown/dungeoneer/New()
 	. = ..()
 	peopleknowme = list()
+	for(var/X in GLOB.garrison_positions)
+		peopleknowme += X
+	for(var/X in GLOB.noble_positions)
+		peopleknowme += X
+	for(var/X in GLOB.courtier_positions)
+		peopleknowme += X
 
 /datum/outfit/job/roguetown/dungeoneer/pre_equip(mob/living/carbon/human/H)
 	..()
