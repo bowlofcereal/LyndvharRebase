@@ -92,6 +92,7 @@
 
 /datum/plant_def/fyritiusflower
 	name = "fyritius flowers"
+	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "fyritius"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/rogue/fyritius
 	produce_amount_min = 1
