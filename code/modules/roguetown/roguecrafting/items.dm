@@ -523,12 +523,8 @@
 	verbage = "puts together"
 
 /datum/crafting_recipe/roguetown/paperscroll
-	name = "scroll of parchment (x5)"
-	result = list(/obj/item/paper/scroll,
-				  /obj/item/paper/scroll,
-				  /obj/item/paper/scroll,
-				  /obj/item/paper/scroll,
-				  /obj/item/paper/scroll)
+	name = "scroll of parchment"
+	result = /obj/item/paper/scroll
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 	/datum/reagent/water = 50)
 	tools = list(/obj/item/rogueweapon/huntingknife = 1)

@@ -8,6 +8,7 @@
 	traits_applied = list(TRAIT_HEAVYARMOR, TRAIT_NOBLE)
 	category_tags = list(CTAG_ADVENTURER)
 
+	noble_income = 5
 	cmode_music = 'sound/music/combat_knight.ogg'
 
 

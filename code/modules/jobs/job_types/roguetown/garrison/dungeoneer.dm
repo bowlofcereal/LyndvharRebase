@@ -13,12 +13,19 @@
 
 	tutorial = "Sometimes at night you stare into the vacant room and feel the loneliness of your existence crawl into whatever remains of your loathsome soul. You will never know hunger, thirst or want for anything with the mammons you make: Just as you’ll never forget the sounds a saw makes cutting through the bone, what a drowning man will gurgle out between the blood and teeth strangling his breath. You’re a terrible person, and the carriagemen are going to enjoy walking you down that lonesome path to hell."
 
+	announce_latejoin = FALSE
 	outfit = /datum/outfit/job/roguetown/dungeoneer
-	give_bank_account = 5
+	give_bank_account = 25
 	min_pq = 0
 	max_pq = null
 
 	cmode_music = 'sound/music/combat_weird.ogg'
+
+/datum/job/roguetown/dungeoneer/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+	..()
+	if(ishuman(L) && L.mind)
+		for(var/datum/mind/MF in get_minds())
+			L.mind.become_unknown_to(MF)
 
 /datum/outfit/job/roguetown/dungeoneer/pre_equip(mob/living/carbon/human/H)
 	..()
