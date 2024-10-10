@@ -21,11 +21,9 @@
 
 	cmode_music = 'sound/music/combat_weird.ogg'
 
-/datum/job/roguetown/dungeoneer/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
-	..()
-	if(ishuman(L) && L.mind)
-		for(var/datum/mind/MF in get_minds())
-			L.mind.become_unknown_to(MF)
+/datum/job/roguetown/dungeoneer/New()
+	. = ..()
+	peopleknowme = list()
 
 /datum/outfit/job/roguetown/dungeoneer/pre_equip(mob/living/carbon/human/H)
 	..()
