@@ -473,6 +473,7 @@
 		to_chat(user, "The coin turns to ash in my hands!")
 		playsound(loc, 'sound/items/firesnuff.ogg', 100, FALSE, -1)
 		qdel(src)
+	..()
 
 /obj/item/mattcoin/attack_right(mob/living/carbon/human/user)
 	user.changeNext_move(CLICK_CD_MELEE)
