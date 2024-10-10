@@ -406,7 +406,7 @@
 	name = "pyroclastic bolt"
 	result = /obj/item/ammo_casing/caseless/rogue/bolt/pyro
 	reqs = list(/obj/item/ammo_casing/caseless/rogue/bolt = 1,
-				/obj/item/reagent_containers/food/snacks/produce/fyritius = 1)
+				/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius = 1)
 	req_table = TRUE
 	craftdiff = 1
 	skillcraft = /datum/skill/craft/engineering
@@ -421,7 +421,7 @@
 				/obj/item/ammo_casing/caseless/rogue/bolt/pyro
 				)
 	reqs = list(/obj/item/ammo_casing/caseless/rogue/bolt = 5,
-				/obj/item/reagent_containers/food/snacks/produce/fyritius = 5)
+				/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius = 5)
 	req_table = TRUE
 	craftdiff = 1
 	skillcraft = /datum/skill/craft/engineering
@@ -430,7 +430,7 @@
 	name = "pyroclastic arrow"
 	result = /obj/item/ammo_casing/caseless/rogue/arrow/pyro
 	reqs = list(/obj/item/ammo_casing/caseless/rogue/arrow = 1,
-				/obj/item/reagent_containers/food/snacks/produce/fyritius = 1)
+				/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius = 1)
 	req_table = TRUE
 	craftdiff = 1
 	skillcraft = /datum/skill/craft/engineering
@@ -445,7 +445,7 @@
 				/obj/item/ammo_casing/caseless/rogue/arrow/pyro
 				)
 	reqs = list(/obj/item/ammo_casing/caseless/rogue/arrow = 5,
-				/obj/item/reagent_containers/food/snacks/produce/fyritius = 5)
+				/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius = 5)
 	req_table = TRUE
 	craftdiff = 1
 	skillcraft = /datum/skill/craft/engineering

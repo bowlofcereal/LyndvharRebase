@@ -97,3 +97,7 @@
 /obj/item/seeds/potato
 	seed_identity = "potato seeds"
 	plant_def_type = /datum/plant_def/potato
+
+/obj/item/seeds/fyritius
+    seed_identity = "fyritius seeds"
+    plant_def_type = /datum/plant_def/fyritiusflower

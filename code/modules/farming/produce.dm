@@ -184,8 +184,9 @@
 	color_index = "bad"
 
 //pyroclastic flowers - stonekeep port
-/obj/item/reagent_containers/food/snacks/produce/fyritius
+/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius
 	name = "fyritius flower"
+	seed = /obj/item/seeds/fyritius
 	desc = "A delicate orange flower that radiates warmth."
 	icon_state = "fyritius"
 	filling_color = "#ff5e00"

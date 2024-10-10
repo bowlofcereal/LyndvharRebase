@@ -526,11 +526,13 @@
 	var/bushtype2
 	var/res_replenish2
 
+/obj/structure/flora/roguegrass/pyroclasticflowers/update_icon()
+	icon_state = "pyroflower[rand(1,3)]"
+	
 /obj/structure/flora/roguegrass/pyroclasticflowers/Initialize()
 	. = ..()
-	icon_state = "pyroflower[rand(1,3)]"
 	if(prob(88))
-		bushtype2 = pickweight(list(/obj/item/reagent_containers/food/snacks/produce/fyritius = 1))
+		bushtype2 = pickweight(list(/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius = 1))
 	loot_replenish2()
 	pixel_x += rand(-3,3)
 	return ..()
@@ -539,7 +541,7 @@
 	if(bushtype2)
 		looty2 += bushtype2
 	if(prob(66))
-		looty2 += /obj/item/reagent_containers/food/snacks/produce/fyritius
+		looty2 += /obj/item/reagent_containers/food/snacks/grown/rogue/fyritius
 
 // pyroflower cluster looting
 /obj/structure/flora/roguegrass/pyroclasticflowers/attack_hand(mob/user)

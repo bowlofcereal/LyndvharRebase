@@ -93,7 +93,7 @@
 /datum/plant_def/fyritiusflower
 	name = "fyritius flowers"
 	icon_state = "fyritius"
-	produce_type = /obj/item/reagent_containers/food/snacks/produce/fyritius
+	produce_type = /obj/item/reagent_containers/food/snacks/grown/rogue/fyritius
 	produce_amount_min = 1
 	produce_amount_max = 3
 
