@@ -769,7 +769,7 @@
 		see_in_dark = max(see_in_dark, 8)
 
 	if(HAS_TRAIT(src, TRAIT_NOCSIGHT))
-		E.lighting_alpha = 215
+		E.lighting_alpha = 225
 		E.see_in_dark = 8
 
 	if(see_override)
