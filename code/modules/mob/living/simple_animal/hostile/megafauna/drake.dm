@@ -57,6 +57,7 @@ Difficulty: Medium
 	pull_force = MOVE_FORCE_NORMAL
 	pixel_x = -16
 	base_intents = list(/datum/intent/simple/bite)
+	damage_coeff = list(BRUTE = 1, BURN = 0.2, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 20,
 						/obj/item/natural/hide = 20, /obj/item/natural/bundle/bone/full = 4)
 	var/swooping = NONE
