@@ -240,6 +240,9 @@
 	. = ..() //See mob.dm for an explanation on this and some rage about people copypasting instead of calling ..() like they should.
 	if(!. || !I)
 		return
+	var/datum/weakref/lookup = WEAKREF(I)
+	if (hidden_flags[lookup]) // this is a table of weakrefs pointing to
+		hidden_flags -= lookup
 	if(index && !QDELETED(src) && dna.species.mutanthands) //hand freed, fill with claws, skip if we're getting deleted.
 		put_in_hand(new dna.species.mutanthands(), index)
 	if(I == wear_armor)
@@ -349,6 +352,8 @@
 		mouth = null
 		if(!QDELETED(src))
 			update_inv_mouth()
+
+	obscured_flags = flatten_bitflag_list(hidden_flags)
 
 //	if(!QDELETED(src))
 //		if(I.eweight)

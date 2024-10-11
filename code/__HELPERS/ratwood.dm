@@ -80,3 +80,10 @@
 	// this previously monumentally sucked and iterated over every item in a person's inventory every time their appearance needed to be checked, which was often.
 	// replaced it by checking what hide slots are obscured at any given point in a /mob/'s `obscured_flags` var, so we check that instead
 	return !(human.obscured_flags & flags_inv)
+
+/proc/flatten_bitflag_list(var/list/L)
+	var/new_flags = NONE
+	for (var/flag_bearer in L)
+		new_flags |= L[flag_bearer]
+	
+	return new_flags

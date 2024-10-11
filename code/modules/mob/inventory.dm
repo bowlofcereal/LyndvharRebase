@@ -330,8 +330,7 @@
 				I.moveToNullspace()
 			else
 				I.forceMove(newloc)
-		if (I.flags_inv && !hand_index)
-			obscured_flags &= ~I.flags_inv
+
 		I.dropped(src, silent)
 	if(hud_used)
 		hud_used.throw_icon?.update_icon()
