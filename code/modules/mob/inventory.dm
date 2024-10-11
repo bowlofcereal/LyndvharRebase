@@ -330,7 +330,6 @@
 				I.moveToNullspace()
 			else
 				I.forceMove(newloc)
-
 		I.dropped(src, silent)
 	if(hud_used)
 		hud_used.throw_icon?.update_icon()
