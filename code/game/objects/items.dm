@@ -686,6 +686,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	
 	if (flags_inv && slot != ITEM_SLOT_HANDS)
 		user.hidden_flags[WEAKREF(src)] = flags_inv
+		user.obscured_flags = flatten_bitflag_list(user.hidden_flags)
 	
 	update_transform()
 
