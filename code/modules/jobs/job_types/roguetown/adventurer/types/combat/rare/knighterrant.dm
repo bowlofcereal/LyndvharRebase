@@ -8,6 +8,7 @@
 	traits_applied = list(TRAIT_HEAVYARMOR, TRAIT_NOBLE)
 	category_tags = list(CTAG_ADVENTURER)
 
+	noble_income = 5
 	cmode_music = 'sound/music/combat_knight.ogg'
 
 
@@ -26,14 +27,14 @@
 			cloak = /obj/item/clothing/cloak/tabard
 			neck = /obj/item/clothing/neck/roguetown/gorget
 			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-			armor = /obj/item/clothing/suit/roguetown/armor/plate/half
+			armor = /obj/item/clothing/suit/roguetown/armor/plate
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 			belt = /obj/item/storage/belt/rogue/leather
 			beltr = /obj/item/rogueweapon/sword/long
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backl = /obj/item/rogueweapon/shield/tower/metal
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1,/obj/item/storage/belt/rogue/pouch/coins/poor)
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
@@ -58,17 +59,17 @@
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/black
 			gloves = /obj/item/clothing/gloves/roguetown/chain/blk
 			pants = /obj/item/clothing/under/roguetown/chainlegs/blk
-			cloak = /obj/item/clothing/cloak/tabard/blkknight
+			cloak = /obj/item/clothing/cloak/half/rider/red
 			neck = /obj/item/clothing/neck/roguetown/gorget
 			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-			armor = /obj/item/clothing/suit/roguetown/armor/plate/half/blk
+			armor = /obj/item/clothing/suit/roguetown/armor/plate/blk
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blk
 			belt = /obj/item/storage/belt/rogue/leather
 			beltr = /obj/item/rogueweapon/sword/long
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backl = /obj/item/rogueweapon/shield/tower/metal
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/storage/belt/rogue/pouch/coins/poor)
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
@@ -90,13 +91,13 @@
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 
 /obj/item/clothing/gloves/roguetown/chain/blk
-		color = CLOTHING_BLACK
+		color = CLOTHING_GREY
 
 /obj/item/clothing/under/roguetown/chainlegs/blk
-		color = CLOTHING_BLACK
+		color = CLOTHING_GREY
 
-/obj/item/clothing/suit/roguetown/armor/plate/half/blk
-		color = CLOTHING_BLACK
+/obj/item/clothing/suit/roguetown/armor/plate/blk
+		color = CLOTHING_GREY
 
 /obj/item/clothing/shoes/roguetown/boots/armor/blk
-		color = CLOTHING_BLACK
+		color = CLOTHING_GREY

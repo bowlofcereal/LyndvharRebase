@@ -1012,6 +1012,9 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	inhand_mod = FALSE
 
+/obj/item/clothing/cloak/half/rider/red
+	color = CLOTHING_RED
+
 /obj/item/clothing/cloak/half/vet
 	name = "town watch cloak"
 	icon_state = "guardcloak"
@@ -1029,6 +1032,13 @@
 /obj/item/clothing/cloak/half/vet/Destroy()
 	GLOB.lordcolor -= src
 	return ..()
+
+/obj/item/clothing/cloak/half/shadowcloak
+	name = "stalker cloak"
+	desc = "A heavy leather cloak held together by a gilded pin, depicting the Monarch's house. The sign of a faithful servant."
+	icon_state = "shadowcloak"
+	color = null
+	allowed_race = NON_DWARVEN_RACE_TYPES
 
 /obj/item/clothing/cloak/templar/psydon
 	name = "psydon tabard"
@@ -1271,7 +1281,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/blkknight
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "blacksteel plate"
+	name = "darkened steel plate"
+	desc = "A darkened half-plate piece with added arm coverage."
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
@@ -1281,7 +1292,7 @@
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 
 /obj/item/clothing/shoes/roguetown/boots/armor/blkknight
-	name = "blacksteel boots"
+	name = "darkened steel boots"
 	icon_state = "bkboots"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
