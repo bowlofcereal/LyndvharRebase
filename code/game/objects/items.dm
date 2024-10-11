@@ -684,7 +684,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		else
 			ungrip(user)
 	
-	if (flags_inv)
+	if (flags_inv && slot != ITEM_SLOT_HANDS)
 		user.obscured_flags |= flags_inv
 	
 	update_transform()
