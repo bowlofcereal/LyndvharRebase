@@ -240,9 +240,10 @@
 	. = ..() //See mob.dm for an explanation on this and some rage about people copypasting instead of calling ..() like they should.
 	if(!. || !I)
 		return
-	var/datum/weakref/lookup = WEAKREF(I)
-	if (hidden_flags[lookup]) // this is a table of weakrefs pointing to
-		hidden_flags -= lookup
+	var/datum/weakref/lookup = WEAKREF(I) // make a weakref of our unequipped item
+	if (hidden_flags[lookup]) // this is a associative list of item weakrefs pointing to the inv_flags of anything non-hand we've got equipped.
+		// we flatten it at the end of this proc to neatly obtain all the flags we want
+		hidden_flags -= lookup // it also lets us do this which is baller
 	if(index && !QDELETED(src) && dna.species.mutanthands) //hand freed, fill with claws, skip if we're getting deleted.
 		put_in_hand(new dna.species.mutanthands(), index)
 	if(I == wear_armor)
