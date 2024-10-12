@@ -173,13 +173,12 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/dungeon1)
 "fc" = (
-/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/dungeon1)
-"fp" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/dungeon1)
+/obj/structure/stairs/stone{
+	dir = 1;
+	icon_state = "stonestairs"
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/mountains/decap)
 "fS" = (
 /obj/machinery/light/rogue/firebowl/standing/blue,
 /turf/open/floor/rogue/blocks,
@@ -536,12 +535,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "uJ" = (
-/obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
-	},
-/turf/open/floor/rogue/blocks,
-/area/rogue/outdoors/mountains/decap)
+/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
 "uQ" = (
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/blocks,
@@ -803,6 +799,10 @@
 "Dq" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap)
+"DA" = (
+/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
 "DY" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/dirt/road,
@@ -9553,7 +9553,7 @@ Ke
 gV
 Ke
 wM
-fc
+DA
 xS
 TW
 TW
@@ -9809,7 +9809,7 @@ pS
 xV
 Hp
 Ke
-fp
+uJ
 Ke
 Ke
 Hp
@@ -10730,7 +10730,7 @@ Xe
 UA
 Xe
 Xe
-uJ
+fc
 Ry
 Ry
 Ry
@@ -10860,7 +10860,7 @@ Zd
 Zd
 Zd
 Zd
-uJ
+fc
 Ry
 Ry
 Ry
@@ -10990,7 +10990,7 @@ vW
 dC
 vW
 dC
-uJ
+fc
 Ry
 Ry
 Ry
@@ -12916,14 +12916,14 @@ pd
 pd
 pd
 pd
-yp
-yp
-yp
-yp
-yp
-yp
-yp
-yp
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
 pd
 pd
 pd
@@ -16323,7 +16323,7 @@ xK
 hz
 hz
 hz
-uJ
+fc
 TW
 Ry
 TW
@@ -16453,7 +16453,7 @@ hz
 hz
 hz
 hz
-uJ
+fc
 Ry
 TW
 TW
@@ -16583,7 +16583,7 @@ tg
 tg
 tg
 hz
-uJ
+fc
 TW
 Ry
 Ry
@@ -16713,7 +16713,7 @@ tg
 tg
 tg
 hz
-uJ
+fc
 TW
 TW
 TW
@@ -16843,7 +16843,7 @@ tg
 tg
 tg
 hz
-uJ
+fc
 Ry
 TW
 TW
@@ -16973,7 +16973,7 @@ dn
 hz
 hz
 hz
-uJ
+fc
 Ry
 TW
 TW
@@ -17103,7 +17103,7 @@ xK
 hz
 hz
 hz
-uJ
+fc
 TW
 Ry
 TW
