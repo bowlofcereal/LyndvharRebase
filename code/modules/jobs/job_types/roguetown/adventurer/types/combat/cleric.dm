@@ -6,7 +6,6 @@
 	allowed_races = RACES_ALL_KINDS
 	vampcompat = FALSE
 	outfit = /datum/outfit/job/roguetown/adventurer/cleric
-	traits_applied = list(TRAIT_HEAVYARMOR)
 	category_tags = list(CTAG_ADVENTURER)
 
 /datum/outfit/job/roguetown/adventurer/cleric
@@ -97,14 +96,21 @@
 			// They're better with miracles and regenerate devotion passively like the Priest does, however.
 			H.set_blindness(0)
 			to_chat(H, span_warning("You are a cloistered cleric, eschewing arms and armor for the weapon of word and greater connection to your chosen patron."))
-			H.mind.adjust_skillrank(/datum/skill/magic/holy, 5, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/magic/holy, 4, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
-			H.change_stat("intelligence", 4)
-			H.change_stat("strength", -2)
+			H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+			H.change_stat("intelligence", 2)
+			H.change_stat("strength", -1)
 			H.change_stat("perception", 2)
 			H.change_stat("speed", 1)
 		// HEARTHSTONE ADDITION END
@@ -156,19 +162,15 @@
 				shoes = /obj/item/clothing/shoes/roguetown/sandals
 			if(/datum/patron/divine/eora)
 				armor = /obj/item/clothing/suit/roguetown/shirt/robe/eora
-	// HEARTHSTONE ADDITION END
-
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	var/datum/devotion/C = new /datum/devotion(H, H.patron)
-	// HEARTHSTONE ADDITION: cloistered devout devo regen & tier buff
-	if (classchoice == "Cloistered Devout")
-		// start with passive devo gain and ability to gain up to T3 spells
+				// HEARTHSTONE ADDITION: cloistered devout devo regen & tier buff
+		var/datum/devotion/C = new /datum/devotion(H, H.patron)
 		C.passive_devotion_gain += 0.5
 		C.max_progression = CLERIC_REQ_3
 		C.max_devotion = CLERIC_REQ_3
 		C.grant_spells(H) // don't give churn as an extra spell to cloistered since they get their patron's full spell list (up to t3)
 	else
+// HEARTHSTONE ADDITION END
+		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+		var/datum/devotion/C = new /datum/devotion(H, H.patron)
 		C.grant_spells(H)
-	// HEARTHSTONE ADDITION END
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
