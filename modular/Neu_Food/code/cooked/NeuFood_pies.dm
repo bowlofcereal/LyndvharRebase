@@ -98,8 +98,8 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
-		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
-		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
+		short_cooktime = (6 SECONDS - (user.mind.get_skill_level(/datum/skill/craft/cooking) * 0.5 SECONDS))
+		long_cooktime = (10 SECONDS - (user.mind.get_skill_level(/datum/skill/craft/cooking) * 1 SECONDS))
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish))
 		if (process_step > 4)
 			return

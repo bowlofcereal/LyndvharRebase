@@ -346,8 +346,8 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	var/obj/item/reagent_containers/R = I
 	if(user.mind)
-		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
-		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
+		short_cooktime = (6 SECONDS - (user.mind.get_skill_level(/datum/skill/craft/cooking) * 0.5 SECONDS))
+		long_cooktime = (10 SECONDS - (user.mind.get_skill_level(/datum/skill/craft/cooking) * 1 SECONDS))
 	if(!istype(R) || (water_added))
 		return ..()
 	if(isturf(loc)&& (!found_table))
@@ -421,8 +421,8 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	var/obj/item/reagent_containers/R = I
 	if(user.mind)
-		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
-		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
+		short_cooktime = (6 SECONDS - (user.mind.get_skill_level(/datum/skill/craft/cooking) * 0.5 SECONDS))
+		long_cooktime = (10 SECONDS - (user.mind.get_skill_level(/datum/skill/craft/cooking) * 1 SECONDS))
 	if(!istype(R) || (water_added))
 		return ..()
 	if(isturf(loc)&& (!found_table))
