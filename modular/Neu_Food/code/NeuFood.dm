@@ -40,7 +40,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/preserved // just convenient way to group food with long rotprocess
 	bitesize = 3
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	rotprocess = SHELFLIFE_EXTREME
 
 /obj/item/reagent_containers/food/snacks
