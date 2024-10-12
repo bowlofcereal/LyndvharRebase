@@ -165,8 +165,6 @@
 				// HEARTHSTONE ADDITION: cloistered devout devo regen & tier buff
 		var/datum/devotion/C = new /datum/devotion(H, H.patron)
 		C.passive_devotion_gain += 0.5
-		C.max_progression = CLERIC_REQ_3
-		C.max_devotion = CLERIC_REQ_3
 		C.grant_spells(H) // don't give churn as an extra spell to cloistered since they get their patron's full spell list (up to t3)
 	else
 // HEARTHSTONE ADDITION END
