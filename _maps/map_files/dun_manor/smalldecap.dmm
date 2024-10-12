@@ -173,11 +173,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/dungeon1)
 "fc" = (
-/obj/structure/stairs/stone/d{
-	dir = 4
-	},
-/turf/open/floor/rogue/blocks,
-/area/rogue/outdoors/mountains/decap)
+/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
 "fp" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
 /turf/open/floor/rogue/dirt,
@@ -805,10 +803,6 @@
 "Dq" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap)
-"DA" = (
-/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/dungeon1)
 "DY" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/dirt/road,
@@ -981,6 +975,12 @@
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
+"IM" = (
+/obj/structure/stairs/stone/d{
+	dir = 4
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/mountains/decap)
 "IT" = (
 /obj/item/ingot/gold,
 /obj/structure/table/wood,
@@ -1193,7 +1193,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/outdoors/dungeon1)
 "PP" = (
-/obj/structure/chair/wood/rogue/throne,
+/obj/structure/chair/wood/rogue/throne{
+	anchored = 1
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/under/cave/dungeon1)
 "PZ" = (
@@ -4403,9 +4405,9 @@ TW
 TW
 TW
 TW
-fc
-fc
-fc
+IM
+IM
+IM
 TW
 TW
 TW
@@ -9319,8 +9321,8 @@ yp
 yp
 yp
 yp
-fc
-fc
+IM
+IM
 TW
 TW
 TW
@@ -9343,8 +9345,8 @@ Ry
 Ry
 TW
 yp
-fc
-fc
+IM
+IM
 cP
 TW
 TW
@@ -9551,7 +9553,7 @@ Ke
 gV
 Ke
 wM
-DA
+fc
 xS
 TW
 TW
@@ -11683,8 +11685,8 @@ yp
 TW
 Ry
 TW
-fc
-fc
+IM
+IM
 TW
 TW
 TW
