@@ -87,12 +87,8 @@
 /obj/structure/stairs/stone/d{
 	dir = 4
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap)
-"da" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/dungeon1)
 "de" = (
 /obj/machinery/light/rogue/firebowl/standing/blue,
 /turf/open/floor/rogue/dirt,
@@ -177,17 +173,16 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/dungeon1)
 "fc" = (
-/obj/structure/stairs/stone{
-	dir = 1;
-	icon_state = "stonestairs"
+/obj/structure/stairs/stone/d{
+	dir = 4
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap)
 "fp" = (
 /obj/structure/stairs/stone/d{
 	dir = 8
 	},
-/turf/open/floor/rogue/dirt,
+/turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap)
 "fS" = (
 /obj/machinery/light/rogue/firebowl/standing/blue,
@@ -549,7 +544,7 @@
 	dir = 1;
 	icon_state = "stonestairs"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap)
 "uQ" = (
 /obj/structure/chair/wood/rogue,
@@ -812,11 +807,6 @@
 "Dq" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap)
-"DA" = (
-/obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/roguetown/sewers,
-/turf/open/floor/carpet/red,
-/area/rogue/outdoors/dungeon1)
 "DY" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/dirt/road,
@@ -990,7 +980,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
 "IM" = (
-/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/dungeon1)
 "IT" = (
@@ -1188,11 +1178,9 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "PF" = (
-/obj/structure/stairs/stone/d{
-	dir = 8
-	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/mountains/decap)
+/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
 "PG" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/rogue/dirt/road,
@@ -4416,9 +4404,9 @@ TW
 TW
 TW
 TW
-Lo
-Lo
-Lo
+fc
+fc
+fc
 TW
 TW
 TW
@@ -5066,7 +5054,7 @@ Ry
 TW
 TW
 TW
-PF
+fp
 fp
 fp
 TW
@@ -9332,8 +9320,8 @@ yp
 yp
 yp
 yp
-Lo
-Lo
+fc
+fc
 TW
 TW
 TW
@@ -9356,8 +9344,8 @@ Ry
 Ry
 TW
 yp
-Lo
-Lo
+fc
+fc
 cP
 TW
 TW
@@ -9564,7 +9552,7 @@ Ke
 gV
 Ke
 wM
-IM
+PF
 xS
 TW
 TW
@@ -9820,7 +9808,7 @@ pS
 xV
 Hp
 Ke
-da
+IM
 Ke
 Ke
 Hp
@@ -9852,8 +9840,8 @@ yp
 yp
 yp
 yp
-PF
-PF
+fp
+fp
 TW
 yp
 yp
@@ -10006,9 +9994,9 @@ yp
 yp
 yp
 yp
-PF
-PF
-PF
+fp
+fp
+fp
 TW
 TW
 TW
@@ -11638,7 +11626,7 @@ pS
 pS
 bq
 AI
-DA
+tD
 cz
 bq
 pS
@@ -11696,8 +11684,8 @@ yp
 TW
 Ry
 TW
-Lo
-Lo
+fc
+fc
 TW
 TW
 TW
@@ -11769,7 +11757,7 @@ Az
 bq
 tD
 AI
-DA
+tD
 bq
 Az
 pS
@@ -12346,8 +12334,8 @@ yp
 yp
 yp
 yp
-PF
-PF
+fp
+fp
 TW
 TW
 TW
@@ -16080,7 +16068,7 @@ yp
 TW
 TW
 TW
-TW
+Ry
 TW
 TW
 TW
@@ -16210,7 +16198,7 @@ TW
 TW
 TW
 TW
-TW
+Ry
 TW
 TW
 TW
@@ -16334,14 +16322,14 @@ xK
 hz
 hz
 hz
-fc
+uJ
 TW
 Ry
 TW
 Ry
-TW
-TW
-TW
+Ry
+Ry
+Ry
 TW
 TW
 FH
@@ -16464,14 +16452,14 @@ hz
 hz
 hz
 hz
-fc
+uJ
 Ry
 TW
 TW
 TW
-TW
+Ry
 tL
-TW
+Ry
 TW
 TW
 TW
@@ -16597,13 +16585,13 @@ hz
 uJ
 TW
 Ry
-TW
-TW
-TW
+Ry
+Ry
+Ry
 tL
-TW
-TW
-TW
+Ry
+Ry
+Ry
 TW
 yp
 TW
@@ -16724,17 +16712,17 @@ tg
 tg
 tg
 hz
-fc
+uJ
 TW
 TW
 TW
-TW
+Ry
 tL
 tL
 tL
 tL
-TW
-TW
+Ry
+Ry
 yp
 TW
 yp
@@ -16854,17 +16842,17 @@ tg
 tg
 tg
 hz
-fc
+uJ
 Ry
 TW
 TW
-TW
-TW
+Ry
+Ry
 tL
 tL
 tL
 tL
-TW
+Ry
 yp
 yp
 yp
@@ -16984,17 +16972,17 @@ dn
 hz
 hz
 hz
-fc
+uJ
 Ry
 TW
 TW
 TW
-TW
+Ry
 tL
 tL
-TW
-TW
-TW
+Ry
+Ry
+Ry
 yp
 yp
 yp
@@ -17085,7 +17073,7 @@ vD
 vD
 vD
 ej
-ej
+Oj
 Hh
 ke
 ke
@@ -17114,15 +17102,15 @@ xK
 hz
 hz
 hz
-fc
+uJ
 TW
 Ry
 TW
 TW
-TW
+Ry
 tL
 tL
-TW
+Ry
 TW
 TW
 yp
@@ -17249,10 +17237,10 @@ yp
 yp
 yp
 TW
-TW
-TW
-TW
-TW
+Ry
+Ry
+Ry
+Ry
 yp
 yp
 yp
@@ -17345,7 +17333,7 @@ vD
 vD
 ej
 ej
-ej
+Oj
 Hh
 ke
 ke
