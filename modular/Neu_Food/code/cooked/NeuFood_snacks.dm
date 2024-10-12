@@ -186,7 +186,7 @@
 	name = "fried crabmeat"
 	desc = "A fried piece of crabmeat, yum."
 	icon_state = "crabmeat"
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = 5)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	desc = ""
 
 
@@ -210,7 +210,7 @@
 	icon_state = "cabbage_fried"
 	desc = "A peasant's delight."
 	bitesize = 6
-	list_reagents = list(/datum/reagent/consumable/nutriment = 6)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("warm cabbage" = 1)
 	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried/attackby(obj/item/I, mob/user, params)

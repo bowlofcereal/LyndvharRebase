@@ -600,4 +600,4 @@
 	icon_state = "handpie[bitecount]"
 	if(bitecount == 1)
 		rotprocess = SHELFLIFE_DECENT
-		addtimer(CALLBACK(src, PROC_REF(begin_rotting)), 20, TIMER_CLIENT_TIME) //
+		addtimer(CALLBACK(src, PROC_REF(begin_rotting)), 20, TIMER_CLIENT_TIME)
