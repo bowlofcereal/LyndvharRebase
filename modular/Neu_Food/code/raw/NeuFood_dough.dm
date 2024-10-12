@@ -255,7 +255,7 @@
 	name = "hardtack"
 	desc = "Very, very hard and dry."
 	icon_state = "tack6"
-	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("spelt" = 1)
 	bitesize = 6
