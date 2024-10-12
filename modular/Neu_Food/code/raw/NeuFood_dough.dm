@@ -14,7 +14,7 @@
 	icon_state = "dough_base"
 	w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -24,6 +24,7 @@
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Kneading in more powder..."))
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
 				qdel(I)
 				qdel(src)
@@ -42,7 +43,8 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/bread
 	w_class = WEIGHT_CLASS_NORMAL
 	slice_sound = TRUE
-/obj/item/reagent_containers/food/snacks/rogue/dough/attackby(obj/item/I, mob/user, params)
+
+/obj/item/reagent_containers/food/snacks/rogue/dough/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -52,6 +54,7 @@
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
 			to_chat(user, span_notice("Kneading butter into the dough..."))
 			if(do_after(user,long_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/butterdough(loc)
 				qdel(I)
 				qdel(src)
@@ -62,6 +65,7 @@
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Kneading the dough and adding raisins..."))
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/rbread_half(loc)
 				qdel(I)
 				qdel(src)
@@ -72,6 +76,7 @@
 			playsound(get_turf(user), 'modular/Neu_Food/sound/rollingpin.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Rolling [src] into cracker dough."))
 			if(do_after(user,long_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/foodbase/hardtack_raw(loc)
 				qdel(src)
 		else
@@ -88,7 +93,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("dough" = 1)
 
-/obj/item/reagent_containers/food/snacks/rogue/doughslice/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/doughslice/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -98,6 +103,7 @@
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
 			to_chat(user, span_notice("Adding fresh cheese..."))
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesebun_raw(loc)
 				qdel(I)
 				qdel(src)
@@ -108,6 +114,7 @@
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Combining dough..."))
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
 				qdel(I)
 				qdel(src)
@@ -128,7 +135,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	slice_sound = TRUE
 
-/obj/item/reagent_containers/food/snacks/rogue/butterdough/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/butterdough/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -139,6 +146,7 @@
 			to_chat(user, span_notice("Working cackleberry into the dough, shaping it into a cake..."))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/cake_base(loc)
 				qdel(I)
 				qdel(src)
@@ -159,7 +167,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 // Dough + rolling pin on table = flat dough. RT got some similar proc for this.
-/obj/item/reagent_containers/food/snacks/rogue/butterdoughslice/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/butterdoughslice/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -169,6 +177,7 @@
 			playsound(get_turf(user), 'modular/Neu_Food/sound/rollingpin.ogg', 100, TRUE, -1)
 			to_chat(user, span_notice("Flattening [src]..."))
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/piedough(loc)
 				qdel(src)
 		else
@@ -178,6 +187,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, span_notice("Adding raisins to the dough..."))
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/foodbase/biscuit_raw(loc)
 				qdel(I)
 				qdel(src)
@@ -192,6 +202,7 @@
 				playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 				to_chat(user, span_notice("Cutting the dough in strips and making a prezzel..."))
 				if(do_after(user,short_cooktime, target = src))
+					add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 					new /obj/item/reagent_containers/food/snacks/rogue/foodbase/prezzel_raw(loc)
 					qdel(src)
 			else
@@ -207,7 +218,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom
 	w_class = WEIGHT_CLASS_NORMAL
 
-/obj/item/reagent_containers/food/snacks/rogue/piedough/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/piedough/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
@@ -215,6 +226,7 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		to_chat(user, span_notice("Making a handpie..."))
 		if(do_after(user,short_cooktime, target = src))
+			add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 			var/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mushroom/handpie= new(get_turf(user))
 			user.put_in_hands(handpie)
 			qdel(I)
@@ -223,6 +235,7 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		to_chat(user, span_notice("Making a handpie..."))
 		if(do_after(user,short_cooktime, target = src))
+			add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 			var/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mince/handpie= new(get_turf(user))
 			user.put_in_hands(handpie)
 			qdel(I)
@@ -231,6 +244,7 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		to_chat(user, span_notice("Making a handpie..."))
 		if(do_after(user,short_cooktime, target = src))
+			add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 			var/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/poison/handpie= new(get_turf(user))
 			user.put_in_hands(handpie)
 			qdel(I)
@@ -239,6 +253,7 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
 		to_chat(user, span_notice("Making a handpie..."))
 		if(do_after(user,short_cooktime, target = src))
+			add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 			var/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/berry/handpie= new(get_turf(user))
 			user.put_in_hands(handpie)
 			qdel(I)
@@ -324,7 +339,8 @@
 	bitesize = 2
 	rotprocess = SHELFLIFE_LONG
 	dropshrink = 0.8
-/obj/item/reagent_containers/food/snacks/rogue/breadslice/attackby(obj/item/I, mob/user, params)
+
+/obj/item/reagent_containers/food/snacks/rogue/breadslice/attackby(obj/item/I, mob/living/user, params)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
@@ -367,6 +383,7 @@
 	cooked_type = null
 	bitesize = 2
 	rotprocess = null
+
 /obj/item/reagent_containers/food/snacks/rogue/breadslice/toast/attackby(obj/item/I, mob/user, params)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -540,7 +557,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = 30 MINUTES
 
-/obj/item/reagent_containers/food/snacks/rogue/rbread_half/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/rbread_half/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -550,6 +567,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, span_notice("Adding the last of the raisins, puffing up the dough for baking."))
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/rbreaduncooked(loc)
 				qdel(I)
 				qdel(src)
@@ -623,7 +641,7 @@
 	foodtype = GRAIN | DAIRY
 	rotprocess = SHELFLIFE_LONG
 
-/obj/item/reagent_containers/food/snacks/rogue/cake_base/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/cake_base/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -633,6 +651,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, span_notice("Spreading fresh cheese on the cake..."))
 			if(do_after(user,long_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/ccakeuncooked(loc)
 				qdel(I)
 				qdel(src)
@@ -643,6 +662,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			to_chat(user, span_notice("Slathering the cake with delicious spider honey..."))
 			if(do_after(user,long_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/hcakeuncooked(loc)
 				qdel(I)
 				qdel(src)
@@ -689,6 +709,7 @@
 	bitesize = 3
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_LONG
+
 /obj/item/reagent_containers/food/snacks/rogue/hcakeslice/plated
 	icon_state = "honeycakeslice_plated"
 	rotprocess = SHELFLIFE_EXTREME

@@ -17,7 +17,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	tastes = list("warm steak" = 1)
 
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
 	if (!isturf(src.loc) || \
 		!(locate(/obj/structure/table) in src.loc) && \
@@ -41,10 +41,12 @@
 				return TRUE
 			mill.reagents.remove_reagent(/datum/reagent/consumable/blackpepper, 1)
 			new /obj/item/reagent_containers/food/snacks/rogue/peppersteak(loc)
+			add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 			qdel(src)
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
+		add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 		to_chat(user, span_notice("Adding onions..."))
 		if(do_after(user,short_cooktime, target = src))
 			new /obj/item/reagent_containers/food/snacks/rogue/onionsteak(loc)
@@ -91,7 +93,7 @@
 	warming = 5 MINUTES
 	rotprocess = SHELFLIFE_DECENT
 
-/obj/item/reagent_containers/food/snacks/rogue/friedegg/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/friedegg/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -100,6 +102,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/friedegg/two(loc)
 				qdel(I)
 				qdel(src)
@@ -115,7 +118,7 @@
 	desc = "Double the yolks, double the fun."
 	icon_state = "seggs"
 
-/obj/item/reagent_containers/food/snacks/rogue/friedegg/two/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/friedegg/two/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -124,6 +127,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian(loc)
 				qdel(I)
 				qdel(src)
@@ -141,7 +145,8 @@
 	fried_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_DECENT
-/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried/attackby(obj/item/I, mob/user, params)
+
+/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -150,6 +155,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/frybirdtato(loc)
 				qdel(I)
 				qdel(src)
@@ -157,6 +163,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/frybirdtato(loc)
 				qdel(I)
 				qdel(src)
@@ -216,7 +223,8 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("warm cabbage" = 1)
 	rotprocess = SHELFLIFE_LONG
-/obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried/attackby(obj/item/I, mob/user, params)
+
+/obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -225,6 +233,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienercabbage(loc)
 				qdel(I)
 				qdel(src)
@@ -241,7 +250,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_LONG
 
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -251,6 +260,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			to_chat(user, "Preparing a serving of wiener and tatos...")
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotato(loc)
 				qdel(I)
 				qdel(src)
@@ -259,6 +269,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			to_chat(user, "Preparing a serving of frybird and tatos...")
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/frybirdtato(loc)
 				qdel(I)
 				qdel(src)
@@ -276,7 +287,7 @@
 	tastes = list("savoury morsel" = 1)
 	rotprocess = SHELFLIFE_DECENT
 
-/obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -286,6 +297,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			to_chat(user, "Preparing a serving of wiener and onions...")
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/wieneronions(loc)
 				qdel(I)
 				qdel(src)
@@ -302,7 +314,7 @@
 	tastes = list("warm potato" = 1)
 	rotprocess = SHELFLIFE_LONG
 
-/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_fried/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/preserved/potato_fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
@@ -312,6 +324,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			to_chat(user, "Preparing a serving of wiener and tatos...")
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotato(loc)
 				qdel(I)
 				qdel(src)
@@ -320,6 +333,7 @@
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			to_chat(user, "Preparing a serving of frybird and tatos...")
 			if(do_after(user,short_cooktime, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/frybirdtato(loc)
 				qdel(I)
 				qdel(src)

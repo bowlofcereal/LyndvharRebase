@@ -93,7 +93,7 @@
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 
-/obj/item/reagent_containers/food/snacks/rogue/wienerpotato/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/wienerpotato/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(!experimental_inhand)
 		return
@@ -101,6 +101,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,3 SECONDS, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions(loc)
 				qdel(I)
 				qdel(src)
@@ -118,7 +119,7 @@
 	trash = /obj/item/cooking/platter
 	rotprocess = SHELFLIFE_EXTREME
 
-/obj/item/reagent_containers/food/snacks/rogue/wienerpotato/plated/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/wienerpotato/plated/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(!experimental_inhand)
 		return
@@ -126,6 +127,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,3 SECONDS, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated(loc)
 				qdel(I)
 				qdel(src)
@@ -144,7 +146,7 @@
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 
-/obj/item/reagent_containers/food/snacks/rogue/wieneronions/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/wieneronions/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(!experimental_inhand)
 		return
@@ -152,6 +154,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,3 SECONDS, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions(loc)
 				qdel(I)
 				qdel(src)
@@ -169,7 +172,7 @@
 	trash = /obj/item/cooking/platter
 	rotprocess = SHELFLIFE_EXTREME
 
-/obj/item/reagent_containers/food/snacks/rogue/wieneronions/plated/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/food/snacks/rogue/wieneronions/plated/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(!experimental_inhand)
 		return
@@ -177,6 +180,7 @@
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,3 SECONDS, target = src))
+				add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated(loc)
 				qdel(I)
 				qdel(src)

@@ -342,7 +342,7 @@
 	..()
 	qdel(src)
 
-/obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/user, params)
+/obj/item/reagent_containers/powder/flour/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	var/obj/item/reagent_containers/R = I
 	if(user.mind)
@@ -359,6 +359,7 @@
 	to_chat(user, span_notice("Adding water, now its time to knead it..."))
 	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
 	if(do_after(user, short_cooktime, target = src))
+		add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 		name = "wet powder"
 		desc = "Destined for greatness, at your hands."
 		R.reagents.remove_reagent(/datum/reagent/water, 10)
@@ -366,10 +367,11 @@
 		color = "#d9d0cb"
 	return TRUE
 
-/obj/item/reagent_containers/powder/flour/attack_hand(mob/user)
+/obj/item/reagent_containers/powder/flour/attack_hand(mob/living/user)
 	if(water_added)
 		playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
 		if(do_after(user, short_cooktime, target = src))
+			add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
 			new /obj/item/reagent_containers/food/snacks/rogue/dough_base(loc)
 			qdel(src)
 	else ..()
