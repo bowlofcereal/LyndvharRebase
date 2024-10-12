@@ -179,11 +179,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap)
 "fp" = (
-/obj/structure/stairs/stone/d{
-	dir = 8
-	},
-/turf/open/floor/rogue/blocks,
-/area/rogue/outdoors/mountains/decap)
+/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
 "fS" = (
 /obj/machinery/light/rogue/firebowl/standing/blue,
 /turf/open/floor/rogue/blocks,
@@ -807,6 +805,10 @@
 "Dq" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap)
+"DA" = (
+/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
 "DY" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/dirt/road,
@@ -979,10 +981,6 @@
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
-"IM" = (
-/obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/dungeon1)
 "IT" = (
 /obj/item/ingot/gold,
 /obj/structure/table/wood,
@@ -1178,9 +1176,11 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "PF" = (
-/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/dungeon1)
+/obj/structure/stairs/stone/d{
+	dir = 8
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/mountains/decap)
 "PG" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/floor/rogue/dirt/road,
@@ -1344,8 +1344,7 @@
 "Vv" = (
 /obj/structure/bars/passage{
 	density = 0;
-	icon_state = "passage1";
-	redstone_id = "null"
+	icon_state = "passage1"
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
@@ -5054,9 +5053,9 @@ Ry
 TW
 TW
 TW
-fp
-fp
-fp
+PF
+PF
+PF
 TW
 TW
 TW
@@ -9552,7 +9551,7 @@ Ke
 gV
 Ke
 wM
-PF
+DA
 xS
 TW
 TW
@@ -9808,7 +9807,7 @@ pS
 xV
 Hp
 Ke
-IM
+fp
 Ke
 Ke
 Hp
@@ -9840,8 +9839,8 @@ yp
 yp
 yp
 yp
-fp
-fp
+PF
+PF
 TW
 yp
 yp
@@ -9994,9 +9993,9 @@ yp
 yp
 yp
 yp
-fp
-fp
-fp
+PF
+PF
+PF
 TW
 TW
 TW
@@ -12334,8 +12333,8 @@ yp
 yp
 yp
 yp
-fp
-fp
+PF
+PF
 TW
 TW
 TW
@@ -15904,7 +15903,7 @@ yl
 wy
 hz
 hz
-hz
+Vv
 Er
 tg
 tg
