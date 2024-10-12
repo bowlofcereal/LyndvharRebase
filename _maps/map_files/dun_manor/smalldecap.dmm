@@ -30,14 +30,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains/decap)
-"bu" = (
-/obj/structure/table/wood,
-/obj/structure/lever{
-	pixel_y = 12;
-	redstone_id = "prisongate2"
-	},
-/turf/open/floor/rogue/blocks,
-/area/rogue/outdoors/dungeon1)
 "bA" = (
 /obj/structure/closet/crate/chest/lootbox,
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
@@ -63,6 +55,7 @@
 	icon_state = "longtable"
 	},
 /obj/item/paper/scroll,
+/obj/item/natural/feather,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "co" = (
@@ -101,7 +94,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave)
 "dg" = (
-/obj/structure/closet/crate/chest/lootbox,
+/obj/item/clothing/gloves/roguetown/blacksteel/plategloves,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/dungeon1)
 "dk" = (
@@ -135,11 +128,13 @@
 /turf/closed/wall/mineral/rogue/stonebrick,
 /area/rogue/under/cave/dungeon1)
 "dH" = (
-/obj/structure/mineral_door/bars{
-	locked = 1
+/obj/structure/table/wood,
+/obj/structure/lever{
+	pixel_y = 12;
+	redstone_id = "scary_manor2"
 	},
-/turf/open/floor/rogue/blocks,
-/area/rogue/outdoors/dungeon1)
+/turf/open/floor/carpet/red,
+/area/rogue/under/cave/dungeon1)
 "dM" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -148,17 +143,12 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "dP" = (
-/obj/structure/lever{
-	pixel_y = 12;
-	redstone_id = "prisongate1"
-	},
-/obj/structure/table/wood,
-/turf/open/floor/rogue/blocks,
+/obj/item/rogueweapon/sword/long/blackflamb,
+/turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/dungeon1)
 "dV" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 4;
-	locked = 1
+/obj/structure/bars/passage/steel{
+	redstone_id = "scary_manor2"
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
@@ -264,7 +254,7 @@
 /area/rogue/under/cave)
 "iN" = (
 /obj/structure/closet/crate/roguecloset,
-/obj/item/clothing/cloak/darkcloak,
+/obj/item/clothing/cloak/darkcloak/bear,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "jp" = (
@@ -368,12 +358,13 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/dungeon1)
 "nN" = (
-/obj/structure/bars,
+/obj/structure/roguewindow,
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/dungeon1)
 "oq" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
+/obj/structure/closet/crate/chest/lootbox,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/dungeon1)
 "oy" = (
@@ -426,9 +417,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap)
 "qB" = (
-/obj/structure/closet/crate/chest/crate,
-/obj/item/roguegem/random,
-/turf/open/floor/rogue/blocks,
+/obj/effect/decal/cleanable/blood,
+/obj/item/clothing/ring/sapphires,
+/turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/dungeon1)
 "qH" = (
 /turf/open/water/swamp,
@@ -589,16 +580,12 @@
 "vD" = (
 /turf/open/water/swamp,
 /area/rogue/under/cave)
-"vE" = (
-/obj/structure/mineral_door/wood/donjon{
-	dir = 8;
-	locked = 1
-	},
-/turf/open/floor/rogue/blocks,
-/area/rogue/under/cave/dungeon1)
 "vN" = (
 /obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/obj/structure/lever{
+	pixel_y = 12;
+	redstone_id = "prisongate1"
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/dungeon1)
 "vW" = (
@@ -621,10 +608,10 @@
 	},
 /area/rogue/under/cave/dungeon1)
 "wF" = (
-/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
-/obj/item/rogueweapon/greatsword,
+/obj/structure/bookcase,
+/obj/item/book/rogue/cardgame,
 /turf/open/floor/rogue/blocks,
-/area/rogue/outdoors/dungeon1)
+/area/rogue/under/cave/dungeon1)
 "wM" = (
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/dirt,
@@ -647,8 +634,10 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "xH" = (
-/obj/structure/table/wood,
-/obj/effect/spawner/lootdrop/roguetown/sewers,
+/obj/structure/lever/wall{
+	redstone_id = "prisongate2";
+	pixel_x = 22
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/dungeon1)
 "xK" = (
@@ -689,7 +678,7 @@
 /obj/structure/bars/passage{
 	density = 0;
 	icon_state = "passage1";
-	redstone_id = "null"
+	redstone_id = "scary_prison"
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/dungeon1)
@@ -705,8 +694,8 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
 "zL" = (
-/obj/structure/table/wood,
-/obj/item/roguegem/random,
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/dungeon1)
 "zO" = (
@@ -773,7 +762,6 @@
 	dir = 6;
 	icon_state = "border"
 	},
-/obj/structure/rack/rogue/shelf,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "BR" = (
@@ -883,11 +871,8 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
 "FD" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "artificer"
-	},
-/turf/open/floor/carpet/red,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "FH" = (
 /obj/effect/decal/remains/mole,
@@ -908,11 +893,10 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap)
 "Gc" = (
-/obj/structure/mineral_door/bars{
-	locked = 1
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/mountains/decap)
+/obj/structure/fluff/walldeco/chains,
+/obj/item/roguegem/random,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/dungeon1)
 "Gm" = (
 /obj/structure/bars/passage/steel{
 	redstone_id = "prisongate2"
@@ -1003,7 +987,7 @@
 /area/rogue/outdoors/mountains)
 "IM" = (
 /obj/structure/bed/rogue/shit,
-/obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass,
+/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/dungeon1)
 "IT" = (
@@ -1065,12 +1049,19 @@
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
+"Ld" = (
+/obj/structure/closet/crate/roguecloset,
+/obj/item/clothing/shoes/roguetown/boots,
+/obj/item/clothing/shoes/roguetown/boots,
+/obj/item/clothing/shoes/roguetown/boots,
+/turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/dungeon1)
 "Lh" = (
 /obj/structure/table/wood{
 	dir = 1;
 	icon_state = "longtable"
 	},
-/obj/item/natural/feather,
+/obj/item/reagent_containers/glass/cup/golden,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/dungeon1)
 "Lo" = (
@@ -1237,7 +1228,7 @@
 /area/rogue/under/cave/dungeon1)
 "QJ" = (
 /obj/effect/decal/cleanable/blood,
-/mob/living/simple_animal/hostile/retaliate/rogue/minotaur/female,
+/mob/living/simple_animal/hostile/retaliate/rogue/minotaur,
 /turf/open/water/swamp,
 /area/rogue/under/cave)
 "QX" = (
@@ -1267,6 +1258,7 @@
 "Rw" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/closet/crate/chest/lootbox,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/dungeon1)
 "Ry" = (
@@ -1359,20 +1351,21 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave)
 "Vv" = (
-/obj/structure/mineral_door/bars{
-	locked = 1
+/obj/structure/bars/passage{
+	density = 0;
+	icon_state = "passage1";
+	redstone_id = "null"
 	},
-/obj/item/restraints/legcuffs/beartrap/armed/camouflage,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/mountains/decap)
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/cave/dungeon1)
 "VC" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/water/swamp,
 /area/rogue/under/cave)
 "VR" = (
-/obj/structure/closet/crate/chest/crate,
-/obj/item/clothing/ring/sapphires,
-/turf/open/floor/rogue/blocks,
+/obj/effect/decal/cleanable/blood,
+/obj/item/roguegem/random,
+/turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/dungeon1)
 "Wl" = (
 /turf/open/floor/rogue/concrete,
@@ -1386,11 +1379,6 @@
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains)
-"WX" = (
-/obj/structure/closet/crate/chest/crate,
-/obj/effect/spawner/lootdrop/roguetown/sewers,
-/turf/open/floor/rogue/blocks,
-/area/rogue/outdoors/dungeon1)
 "Xe" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -7125,7 +7113,7 @@ hW
 Zd
 hW
 hW
-Ju
+XQ
 hW
 lv
 yp
@@ -8414,7 +8402,7 @@ pd
 lv
 hW
 Zd
-Vv
+XQ
 Zd
 Zd
 Zd
@@ -8674,8 +8662,8 @@ pd
 lv
 hW
 Es
-qX
-Gc
+Zd
+XQ
 Zd
 Zd
 Ju
@@ -9434,12 +9422,12 @@ wM
 Hp
 xS
 fS
-wF
+pS
 fS
 xS
 Ke
 Ke
-Jy
+Gc
 Ke
 Ke
 xS
@@ -9564,7 +9552,7 @@ Hp
 Hp
 xV
 pS
-nA
+dP
 pS
 xV
 Hp
@@ -9690,11 +9678,11 @@ pd
 TW
 xS
 bn
-CX
+qB
 Hp
 QX
 pS
-Ox
+nA
 pS
 QX
 Hp
@@ -9954,7 +9942,7 @@ Hp
 CX
 xS
 pS
-pS
+Ox
 pS
 xS
 Hp
@@ -10084,7 +10072,7 @@ ro
 Hp
 xV
 pS
-Ox
+nA
 pS
 xV
 Hp
@@ -10340,11 +10328,11 @@ TW
 xS
 Jy
 Rw
-CX
+VR
 Hp
 xV
 pS
-Ox
+pS
 pS
 xV
 Hp
@@ -10473,9 +10461,9 @@ bL
 Hp
 CX
 xS
-fS
-pS
-fS
+Ff
+Ff
+Ff
 xS
 Ke
 Ke
@@ -10603,9 +10591,9 @@ xS
 xS
 xS
 xS
-xS
-Ff
-xS
+pS
+pS
+pS
 xS
 xS
 xS
@@ -10730,11 +10718,11 @@ TW
 xS
 vN
 Az
-WX
-VR
-xS
-fS
 pS
+HN
+xS
+pS
+Ox
 pS
 pS
 Ci
@@ -10858,11 +10846,11 @@ HW
 TW
 TW
 xS
-dP
+Ld
 pS
 pS
-pS
-Gm
+HN
+xS
 pS
 Ox
 Ox
@@ -10977,7 +10965,7 @@ Dq
 Dq
 Dq
 Dq
-gb
+Dq
 gb
 Dq
 HW
@@ -10989,9 +10977,9 @@ TW
 TW
 xS
 zL
-Az
-WX
-qB
+cq
+Ox
+HN
 xS
 fS
 pS
@@ -11107,8 +11095,8 @@ Dq
 OJ
 Dq
 Dq
-wu
-wu
+Dq
+gb
 Dq
 HW
 HW
@@ -11118,10 +11106,10 @@ pd
 TW
 TW
 xS
-xS
-xS
-xS
-xS
+zL
+Ox
+Ox
+HN
 xS
 xS
 lS
@@ -11237,8 +11225,8 @@ Dq
 Dq
 Dq
 Dq
-wu
-wu
+Dq
+gb
 Dq
 HW
 HW
@@ -11248,9 +11236,9 @@ pd
 pd
 TW
 xS
-xH
-pS
-HN
+xz
+Ox
+cq
 HN
 xS
 fS
@@ -11367,7 +11355,7 @@ Dq
 Za
 Dq
 Dq
-gb
+Dq
 gb
 Dq
 HW
@@ -11378,11 +11366,11 @@ pd
 pd
 TW
 xS
-bu
+fS
 pS
 pS
 pS
-nN
+xS
 pS
 pS
 pS
@@ -11509,10 +11497,10 @@ HW
 TW
 xS
 xS
-HN
-cq
+xz
 pS
-dH
+pS
+Gm
 pS
 pS
 bq
@@ -11639,10 +11627,10 @@ TW
 TW
 TW
 xS
-HN
-Ox
+xz
+Az
 pS
-dH
+Gm
 pS
 pS
 bq
@@ -11772,7 +11760,7 @@ xS
 xS
 pS
 pS
-nN
+Gm
 pS
 Az
 bq
@@ -11904,7 +11892,7 @@ JV
 xz
 xS
 fS
-pS
+xH
 bq
 qY
 qY
@@ -15803,11 +15791,11 @@ sj
 uQ
 cm
 Hh
+xK
 hz
 hz
 hz
-Hh
-hz
+sj
 cx
 hz
 Dp
@@ -15936,7 +15924,7 @@ Hh
 hz
 tg
 tg
-FD
+tg
 tg
 tg
 tg
@@ -15944,7 +15932,7 @@ tg
 tg
 Ia
 tg
-Hh
+SR
 hz
 cx
 hz
@@ -16066,15 +16054,15 @@ Hh
 tg
 tg
 hz
+hz
+hz
+hz
+hz
+hz
+hz
+hz
+hz
 Hh
-xK
-hz
-hz
-hz
-hz
-hz
-hz
-SR
 hz
 uw
 uw
@@ -16186,7 +16174,7 @@ oy
 hz
 Zk
 Hh
-rq
+wF
 tg
 tg
 tg
@@ -16201,9 +16189,9 @@ Hh
 Hh
 Hh
 Hh
-Hh
 dV
-Hh
+dV
+dV
 Hh
 Hh
 Hh
@@ -16847,7 +16835,7 @@ hz
 tg
 cx
 Hh
-cj
+dH
 tg
 tg
 Ia
@@ -17102,13 +17090,13 @@ ke
 xl
 OQ
 hz
-Hh
+Vv
 tg
 tg
 hz
 Hh
 xK
-SL
+hz
 Nh
 hz
 hz
@@ -17232,7 +17220,7 @@ ke
 xl
 OQ
 hz
-SR
+Vv
 tg
 Ia
 hz
@@ -17241,9 +17229,9 @@ Hh
 Hh
 Hh
 Hh
-Hh
-vE
-Hh
+dV
+dV
+dV
 Hh
 Hh
 Hh
@@ -17362,20 +17350,20 @@ ke
 xl
 OQ
 hz
-Hh
+Vv
 tg
 tg
 hz
-Hh
-xK
+hz
+hz
 hz
 hz
 hz
 hz
 cx
 hz
-SR
-hz
+Hh
+SL
 hz
 hz
 cx
@@ -17496,7 +17484,7 @@ Hh
 hz
 tg
 tg
-FD
+tg
 tg
 Ia
 tg
@@ -17504,7 +17492,7 @@ tg
 tg
 tg
 tg
-Hh
+SR
 Bv
 Fx
 Fx
@@ -17623,11 +17611,11 @@ Qo
 BR
 hz
 Hh
+xK
 hz
 hz
 hz
-Hh
-hz
+FD
 hz
 hz
 Nh
