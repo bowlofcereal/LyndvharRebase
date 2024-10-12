@@ -227,7 +227,7 @@
 /obj/item/reagent_containers/food/snacks/fat/salo
 	name = "salo"
 	icon_state = "salo4"
-	list_reagents = list(/datum/reagent/consumable/nutriment = 12)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
 	bitesize = 4
 	slice_path = /obj/item/reagent_containers/food/snacks/fat/salo/slice
 	slices_num = 4
@@ -258,7 +258,7 @@
 	bitesize = 2
 	slices_num = FALSE
 	slice_path = FALSE
-	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 
 
 
