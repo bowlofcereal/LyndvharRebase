@@ -22,13 +22,10 @@
 			return
 		if(HAS_TRAIT(H, TRAIT_NOBLE))
 			var/def_zone = "[(H.active_hand_index == 2) ? "r" : "l" ]_arm"
-			var/obj/item/bodypart/BP = H.get_bodypart(def_zone)
 			playsound(src, 'sound/items/beartrap.ogg', 100, TRUE)
 			to_chat(user, "<font color='red'>The meister craves my Noble blood!</font>")
 			loc.visible_message(span_warning("The meister snaps onto [H]'s arm!"))
 			H.Stun(80)
-			BP.add_wound(/datum/wound/fracture)
-			BP.update_disabled()
 			H.apply_damage(50, BRUTE, def_zone)
 			H.emote("agony")
 			spawn(5)
@@ -122,6 +119,7 @@
 					drill(src)
 					icon_state = "crown_meister"
 					qdel(P)
+					message_admins("[usr.key] has applied the Crustacean to a MEISTER.")
 					return
 		else
 			say("No account found. Submit your fingers for inspection.")
@@ -144,10 +142,10 @@
 
 /obj/structure/roguemachine/atm/proc/drill(obj/structure/roguemachine/atm)
 	if(silentrunning)
-		drillvol = 0
+		drillvol = 0 // This determines the sound volume while on SILENT and the amount withdrawn per interval
 		withdrawaldrill = 25
 	else
-		drillvol = 60
+		drillvol = 60 // Same as above but for LOUD
 		withdrawaldrill = 50
 	if(!drilling)
 		return
@@ -156,7 +154,7 @@
 		loc.visible_message(span_warning("The Crown grinds to a halt as the last of the treasury spills from the meister!"))
 		playsound(src, 'sound/misc/DrillDone.ogg', drillvol, TRUE)
 		return
-	if(mammonsiphoned >499)
+	if(mammonsiphoned >499) // The cap variable for siphoning. 
 		new /obj/item/coveter(loc)
 		loc.visible_message(span_warning("Maximum withdrawal reached! The meister weeps."))
 		playsound(src, 'sound/misc/DrillDone.ogg', drillvol, TRUE)
@@ -165,12 +163,13 @@
 	else
 		loc.visible_message(span_warning("A horrible scraping sound emanates from the Crown as it does its work..."))
 		playsound(src, 'sound/misc/TheDrill.ogg', drillvol, TRUE)
-		spawn(100)
+		spawn(100) // The time it takes to complete an interval. If you adjust this, please adjust the sound too. It's 'about' perfect at 100. Anything less It'll start overlapping.
 			loc.visible_message(span_warning("The meister spills its bounty!"))
-			SStreasury.treasury_value -= withdrawaldrill
+			SStreasury.treasury_value -= withdrawaldrill // Takes from the treasury
 			mammonsiphoned += withdrawaldrill
 			budget2change(withdrawaldrill, src, "SILVER")
 			playsound(src, 'sound/misc/coindispense.ogg', drillvol, TRUE)
+			SStreasury.log_to_steward("-[withdrawaldrill] exported mammon to the Freefolks!")
 			drill(src)
 
 /obj/structure/roguemachine/atm/attack_right(mob/living/carbon/human/user)
