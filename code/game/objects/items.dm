@@ -684,10 +684,10 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		else
 			ungrip(user)
 	
-	if (flags_inv && slot != ITEM_SLOT_HANDS)
-		user.hidden_flags[WEAKREF(src)] = flags_inv
-		user.obscured_flags = flatten_bitflag_list(user.hidden_flags)
-	
+	if (isliving(user) &&slot != ITEM_SLOT_HANDS)
+		var/mob/living/living_user = user
+		living_user.rebuild_obscured_flags() // AZURE EDIT: cache our equipped items `flags_inv` values
+
 	update_transform()
 
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.

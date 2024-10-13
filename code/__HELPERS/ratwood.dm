@@ -81,9 +81,12 @@
 	// replaced it by checking what hide slots are obscured at any given point in a /mob/'s `obscured_flags` var, so we check that instead
 	return !(human.obscured_flags & flags_inv)
 
-/proc/flatten_bitflag_list(var/list/L)
+/mob/living/proc/rebuild_obscured_flags()
+	// we do this when we equip and unequip anything to make sure all our flags are set properly
+	var/list/equipped_items = get_equipped_items(FALSE)
 	var/new_flags = NONE
-	for (var/flag_bearer in L)
-		new_flags |= L[flag_bearer]
+	for(var/obj/item/thing in equipped_items)
+		if (thing.flags_inv)
+			new_flags |= thing.flags_inv
 	
-	return new_flags
+	obscured_flags = new_flags
