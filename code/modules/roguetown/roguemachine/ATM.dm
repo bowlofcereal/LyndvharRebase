@@ -6,11 +6,35 @@
 	density = FALSE
 	blade_dulling = DULLING_BASH
 	pixel_y = 32
-
+	var/mammonsiphoned = 0
+	var/drilling = FALSE
+	var/drilled = FALSE
+	var/drillvol = 0
+	var/withdrawaldrill = 25
+	var/silentrunning = TRUE
+	
 /obj/structure/roguemachine/atm/attack_hand(mob/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
+	if(drilled)
+		if(HAS_TRAIT(H, TRAIT_COMMIE))
+			return
+		if(HAS_TRAIT(H, TRAIT_NOBLE))
+			var/def_zone = "[(H.active_hand_index == 2) ? "r" : "l" ]_arm"
+			var/obj/item/bodypart/BP = H.get_bodypart(def_zone)
+			playsound(src, 'sound/items/beartrap.ogg', 100, TRUE)
+			to_chat(user, "<font color='red'>The meister craves my Noble blood!</font>")
+			loc.visible_message(span_warning("The meister snaps onto [H]'s arm!"))
+			H.Stun(80)
+			BP.add_wound(/datum/wound/fracture)
+			BP.update_disabled()
+			H.apply_damage(50, BRUTE, def_zone)
+			H.emote("agony")
+			spawn(5)
+			say("Blueblood for the Freefolk!")
+			playsound(src, 'sound/vo/mobs/ghost/laugh (5).ogg', 100, TRUE)
+			return
 	if(H in SStreasury.bank_accounts)
 		var/amt = SStreasury.bank_accounts[H]
 		if(!amt)
@@ -83,11 +107,93 @@
 				qdel(P)
 				playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 				return
+		if(istype(P, /obj/item/coveter))
+			var/mob/living/carbon/human/H = user
+			if(!HAS_TRAIT(H, TRAIT_COMMIE))
+				to_chat(user, "<font color='red'>I don't know what I'm doing with this thing!</font>")
+				return
+			if(drilled)
+				to_chat(user, "<font color='red'>This one has already been siphoned dry...</font>")
 			else
-				say("No account found. Submit your fingers for inspection.")
+				user.visible_message(span_warning("[user] is mounting the Crown onto the meister!"))
+				if(do_after(user, 50))
+					user.visible_message(span_warning("[user] mounts the Crown atop the meister!"))
+					drilling = TRUE
+					drill(src)
+					icon_state = "crown_meister"
+					qdel(P)
+					return
+		else
+			say("No account found. Submit your fingers for inspection.")
 	return ..()
 
 /obj/structure/roguemachine/atm/examine(mob/user)
 	. += ..()
 	. += span_info("The current tax rate on deposits is [SStreasury.tax_value * 100] percent. Nobles exempt.")
+
+/obj/structure/roguemachine/atm/MiddleClick(mob/user)
+	if(drilling)
+		if(!HAS_TRAIT(user, TRAIT_COMMIE))
+			to_chat(user, "<font color='red'>I don't know what I'm doing with this thing!</font>")
+			return
+		else
+			silentrunning = !silentrunning
+			to_chat(user, span_info("I set the Coveter to [silentrunning ? "Quiet and slow" : "LOUD AND FAST"]"))
+	else
+		return
+
+/obj/structure/roguemachine/atm/proc/drill(obj/structure/roguemachine/atm)
+	if(silentrunning)
+		drillvol = 0
+		withdrawaldrill = 25
+	else
+		drillvol = 60
+		withdrawaldrill = 50
+	if(!drilling)
+		return
+	if(SStreasury.treasury_value <50)
+		new /obj/item/coveter(loc)
+		loc.visible_message(span_warning("The Crown grinds to a halt as the last of the treasury spills from the meister!"))
+		playsound(src, 'sound/misc/DrillDone.ogg', drillvol, TRUE)
+		return
+	if(mammonsiphoned >499)
+		new /obj/item/coveter(loc)
+		loc.visible_message(span_warning("Maximum withdrawal reached! The meister weeps."))
+		playsound(src, 'sound/misc/DrillDone.ogg', drillvol, TRUE)
+		icon_state = "meister_broken"
+		drilled = TRUE
+	else
+		loc.visible_message(span_warning("A horrible scraping sound emanates from the Crown as it does its work..."))
+		playsound(src, 'sound/misc/TheDrill.ogg', drillvol, TRUE)
+		spawn(100)
+			loc.visible_message(span_warning("The meister spills its bounty!"))
+			SStreasury.treasury_value -= withdrawaldrill
+			mammonsiphoned += withdrawaldrill
+			budget2change(withdrawaldrill, src, "SILVER")
+			playsound(src, 'sound/misc/coindispense.ogg', drillvol, TRUE)
+			drill(src)
+
+/obj/structure/roguemachine/atm/attack_right(mob/living/carbon/human/user)
+	if(drilling)
+		to_chat(user,"<font color='yellow'>I begin dismounting the Crown from the meister...</font>" )
+		if(do_after(user, 30))
+			new /obj/item/coveter(loc)
+			user.visible_message(span_warning("[user] dismounts the Crown!"))
+			icon_state = "atm"
+			drilling = !drilling
+	else
+		return
+
+/obj/item/coveter
+	name = "Covetous Crown"
+	desc = "A Crown which craves the brow of meisters. The Covetous Crab"
+	icon = 'icons/roguetown/items/misc.dmi'
+	icon_state = "crown_object"
+	force = 10
+	throwforce = 10
+	dropshrink = 0.8
+	w_class = WEIGHT_CLASS_HUGE
+	obj_flags = CAN_BE_HIT
+	sellprice = 100
+
 
