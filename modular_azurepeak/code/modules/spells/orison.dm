@@ -109,9 +109,13 @@
 	owner.light_flags = initial(owner.light_flags)
 	owner.update_light()
 
-/obj/item/melee/touch_attack/orison/proc/cast_light(thing, mob/living/carbon/human/user)
+/obj/item/melee/touch_attack/orison/proc/cast_light(atom/thing, mob/living/carbon/human/user)
 	var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
 	var/cast_time = 35 - (holy_skill * 3)
+	if (!thing.Adjacent(user))
+		to_chat(user, span_info("I need to be next to [thing] to channel a blessing of light!"))
+		return
+
 	if (isliving(thing))
 
 		if (thing != user)
@@ -213,6 +217,10 @@
 
 /obj/item/melee/touch_attack/orison/proc/create_water(atom/thing, mob/living/carbon/human/user)
 	// normally we wouldn't use fatigue here to keep in line w/ other holy magic, but we have to since water is a persistent resource
+	if (!thing.Adjacent(user))
+		to_chat(user, span_info("I need to be closer to [thing] in order to try filling it with water."))
+		return
+
 	if (thing.is_refillable())
 		if (thing.reagents.holder_full())
 			to_chat(user, span_warning("[thing] is full."))
@@ -250,3 +258,5 @@
 			the_cloth.wet += holy_skill * 5
 			user.visible_message(span_info("[user] closes [user.p_their()] eyes in prayer, beads of moisture coalescing in [user.p_their()] hands to moisten [the_cloth]."), span_notice("I utter forth a plea to [user.patron.name] for succour, and will moisture into [the_cloth]. I should be able to clean with it properly now."))
 			return water_moisten
+	else
+		to_chat(user, span_info("I'll need to find a container that can hold water."))
