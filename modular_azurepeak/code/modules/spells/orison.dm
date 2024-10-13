@@ -29,8 +29,8 @@
 	var/xp_interval = 150
 	var/xp_cooldown = 0
 	var/right_click = FALSE
-	var/thaumaturgy_devotion = 15
-	var/light_devotion = 15
+	var/thaumaturgy_devotion = 10
+	var/light_devotion = 5
 	var/water_moisten = 2
 
 /obj/item/melee/touch_attack/orison/attack_self()
