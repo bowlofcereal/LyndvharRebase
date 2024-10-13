@@ -192,7 +192,7 @@
 	force = 10
 	throwforce = 10
 	dropshrink = 0.8
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_NORMAL
 	obj_flags = CAN_BE_HIT
 	sellprice = 100
 
