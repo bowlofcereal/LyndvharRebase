@@ -9,29 +9,27 @@
 	var/mammonsiphoned = 0
 	var/drilling = FALSE
 	var/drilled = FALSE
-	var/drillvol = 0
-	var/withdrawaldrill = 25
-	var/silentrunning = TRUE
 	
 /obj/structure/roguemachine/atm/attack_hand(mob/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
 	if(drilled)
-		if(HAS_TRAIT(H, TRAIT_COMMIE))
-			return
 		if(HAS_TRAIT(H, TRAIT_NOBLE))
-			var/def_zone = "[(H.active_hand_index == 2) ? "r" : "l" ]_arm"
-			playsound(src, 'sound/items/beartrap.ogg', 100, TRUE)
-			to_chat(user, "<font color='red'>The meister craves my Noble blood!</font>")
-			loc.visible_message(span_warning("The meister snaps onto [H]'s arm!"))
-			H.Stun(80)
-			H.apply_damage(50, BRUTE, def_zone)
-			H.emote("agony")
-			spawn(5)
-			say("Blueblood for the Freefolk!")
-			playsound(src, 'sound/vo/mobs/ghost/laugh (5).ogg', 100, TRUE)
-			return
+			if(!HAS_TRAIT(H, TRAIT_COMMIE))
+				var/def_zone = "[(H.active_hand_index == 2) ? "r" : "l" ]_arm"
+				playsound(src, 'sound/items/beartrap.ogg', 100, TRUE)
+				to_chat(user, "<font color='red'>The meister craves my Noble blood!</font>")
+				loc.visible_message(span_warning("The meister snaps onto [H]'s arm!"))
+				H.Stun(80)
+				H.apply_damage(50, BRUTE, def_zone)
+				H.emote("agony")
+				spawn(5)
+				say("Blueblood for the Freefolk!")
+				playsound(src, 'sound/vo/mobs/ghost/laugh (5).ogg', 100, TRUE)
+				return
+			else
+				
 	if(H in SStreasury.bank_accounts)
 		var/amt = SStreasury.bank_accounts[H]
 		if(!amt)
@@ -129,47 +127,31 @@
 	. += ..()
 	. += span_info("The current tax rate on deposits is [SStreasury.tax_value * 100] percent. Nobles exempt.")
 
-/obj/structure/roguemachine/atm/MiddleClick(mob/user)
-	if(drilling)
-		if(!HAS_TRAIT(user, TRAIT_COMMIE))
-			to_chat(user, "<font color='red'>I don't know what I'm doing with this thing!</font>")
-			return
-		else
-			silentrunning = !silentrunning
-			to_chat(user, span_info("I set the Coveter to [silentrunning ? "Quiet and slow" : "LOUD AND FAST"]"))
-	else
-		return
 
 /obj/structure/roguemachine/atm/proc/drill(obj/structure/roguemachine/atm)
-	if(silentrunning)
-		drillvol = 0 // This determines the sound volume while on SILENT and the amount withdrawn per interval
-		withdrawaldrill = 25
-	else
-		drillvol = 60 // Same as above but for LOUD
-		withdrawaldrill = 50
-	if(!drilling)
-		return
 	if(SStreasury.treasury_value <50)
 		new /obj/item/coveter(loc)
 		loc.visible_message(span_warning("The Crown grinds to a halt as the last of the treasury spills from the meister!"))
-		playsound(src, 'sound/misc/DrillDone.ogg', drillvol, TRUE)
+		playsound(src, 'sound/misc/DrillDone.ogg', 70, TRUE)
+		drilling = FALSE
 		return
 	if(mammonsiphoned >499) // The cap variable for siphoning. 
 		new /obj/item/coveter(loc)
 		loc.visible_message(span_warning("Maximum withdrawal reached! The meister weeps."))
-		playsound(src, 'sound/misc/DrillDone.ogg', drillvol, TRUE)
+		playsound(src, 'sound/misc/DrillDone.ogg', 70, TRUE)
 		icon_state = "meister_broken"
 		drilled = TRUE
+		drilling = FALSE
 	else
 		loc.visible_message(span_warning("A horrible scraping sound emanates from the Crown as it does its work..."))
-		playsound(src, 'sound/misc/TheDrill.ogg', drillvol, TRUE)
+		playsound(src, 'sound/misc/TheDrill.ogg', 70, TRUE)
 		spawn(100) // The time it takes to complete an interval. If you adjust this, please adjust the sound too. It's 'about' perfect at 100. Anything less It'll start overlapping.
 			loc.visible_message(span_warning("The meister spills its bounty!"))
-			SStreasury.treasury_value -= withdrawaldrill // Takes from the treasury
-			mammonsiphoned += withdrawaldrill
-			budget2change(withdrawaldrill, src, "SILVER")
-			playsound(src, 'sound/misc/coindispense.ogg', drillvol, TRUE)
-			SStreasury.log_to_steward("-[withdrawaldrill] exported mammon to the Freefolks!")
+			SStreasury.treasury_value -= 50 // Takes from the treasury
+			mammonsiphoned += 50
+			budget2change(50, src, "SILVER")
+			playsound(src, 'sound/misc/coindispense.ogg', 70, TRUE)
+			SStreasury.log_to_steward("-[50] exported mammon to the Freefolks!")
 			drill(src)
 
 /obj/structure/roguemachine/atm/attack_right(mob/living/carbon/human/user)
