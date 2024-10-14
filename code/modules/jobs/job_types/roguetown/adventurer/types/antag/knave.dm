@@ -59,7 +59,7 @@
 		if("Bow & Sword") //Poacher
 			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 			beltl = /obj/item/rogueweapon/sword/short
-			beltr = /obj/item/quiver/arrows //steel sword like literally every adventurer gets
+			beltr = /obj/item/quiver/arrows 
 			head = /obj/item/clothing/head/roguetown/helmet/leather/volfhelm //cool hat
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/restraints/legcuffs/beartrap = 2) //poacher gets mantraps
