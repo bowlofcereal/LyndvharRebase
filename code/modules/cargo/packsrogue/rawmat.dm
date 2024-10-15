@@ -44,7 +44,7 @@
 
 /datum/supply_pack/rogue/rawmats/silver
 	name = "Silver Ore"
-	cost = 80
+	cost = 125
 	contains = list(/obj/item/rogueore/silver)
 
 /datum/supply_pack/rogue/rawmats/cloth
@@ -71,24 +71,3 @@
 	/obj/item/ash,
 	/obj/item/ash,
 	/obj/item/ash)
-
-/datum/supply_pack/rogue/rawmats/rontz
-	name = "Rontz"
-	cost = 101
-	contains = list(/obj/item/roguegem)
-
-/datum/supply_pack/rogue/rawmats/gemerald
-	name = "gemerald"
-	cost = 43
-	contains = list(/obj/item/roguegem/green)
-
-/datum/supply_pack/rogue/rawmats/gemerald
-	name = "blortz"
-	cost = 89
-	contains = list(/obj/item/roguegem/blue)
-
-/datum/supply_pack/rogue/rawmats/gemerald
-	name = "toper"
-	cost = 35
-	contains = list(/obj/item/roguegem/yellow)
-
