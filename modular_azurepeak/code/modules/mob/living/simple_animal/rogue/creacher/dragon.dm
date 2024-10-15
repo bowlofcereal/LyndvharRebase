@@ -197,4 +197,4 @@
 	projectilesound = 'sound/blank.ogg'
 	ranged = 1
 	ranged_message = "breathes fire"
-	ranged_cooldown_time = 15 SECONDS
+	ranged_cooldown_time = 20 SECONDS
