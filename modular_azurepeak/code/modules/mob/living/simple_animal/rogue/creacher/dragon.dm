@@ -20,8 +20,8 @@
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 20,
 						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 4)
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
-	health = 1000
-	maxHealth = 1000
+	health = 800
+	maxHealth = 800
 	melee_damage_lower = 45
 	melee_damage_upper = 70
 	vision_range = 7
@@ -190,8 +190,8 @@
         M.throw_at(throw_target, exp_light, EXPLOSION_THROW_SPEED)
     
 /mob/living/simple_animal/hostile/retaliate/rogue/dragon/broodmother
-	health = 3000
-	maxHealth = 3000
+	health = 1600
+	maxHealth = 1600
 	name = "dragon broodmother"
 	projectiletype = /obj/projectile/magic/aoe/dragon_breath
 	projectilesound = 'sound/blank.ogg'
