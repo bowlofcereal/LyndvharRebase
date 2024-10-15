@@ -102,8 +102,24 @@
 	else
 		r_hand = /obj/item/rogueweapon/stoneaxe/woodcut
 
+/datum/outfit/job/roguetown/npc/skeleton/duke/pre_equip(mob/living/carbon/human/H)
+	..()
+	head = /obj/item/clothing/head/roguetown/crown/fakecrown
+	r_hand = /obj/item/rogueweapon/sword/rapier/lord
+	H.STASPD = 8
+	H.STACON = 4
+	H.STAEND = 15
+	H.STAINT = 1
+
+
 /mob/living/carbon/human/species/skeleton/npc/no_equipment
     skel_outfit = null
 
 /mob/living/carbon/human/species/skeleton/no_equipment
     skel_outfit = null
+
+/mob/living/carbon/human/species/skeleton/npc/duke //secret lore skeleton
+	name = "the mad duke"
+	aggressive = 0
+	skel_outfit = /datum/outfit/job/roguetown/npc/skeleton/duke
+
