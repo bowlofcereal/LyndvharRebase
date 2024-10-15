@@ -118,7 +118,7 @@
 /mob/living/carbon/human/species/skeleton/no_equipment
     skel_outfit = null
 
-/mob/living/carbon/human/species/skeleton/npc/duke //secret lore skeleton
+/mob/living/carbon/human/species/skeleton/npc/ambush/duke //secret lore skeleton that WONT SPAWN FOR SOME REASON ill fix it later 
 	name = "the mad duke"
 	aggressive = 0
 	skel_outfit = /datum/outfit/job/roguetown/npc/skeleton/duke
