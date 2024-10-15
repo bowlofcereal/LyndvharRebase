@@ -250,7 +250,6 @@
 			update_action_buttons_icon() //certain action buttons may be usable again.
 		wear_armor = null
 		if(!QDELETED(src)) //no need to update we're getting deleted anyway
-			rebuild_obscured_flags()
 			if(I.flags_inv & HIDEJUMPSUIT)
 				update_inv_w_uniform()
 			update_inv_armor()
@@ -267,12 +266,10 @@
 		wear_pants = null
 		update_suit_sensors()
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_pants()
 	else if(I == gloves)
 		gloves = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_gloves()
 	else if(I == glasses)
 		glasses = null
@@ -287,17 +284,14 @@
 		if(G.vision_flags || G.darkness_view || G.invis_override || G.invis_view || !isnull(G.lighting_alpha))
 			update_sight()
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_glasses()
 	else if(I == ears)
 		ears = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_ears()
 	else if(I == shoes)
 		shoes = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_shoes()
 	else if(I == belt)
 		if(beltr || beltl)
@@ -305,68 +299,55 @@
 			dropItemToGround(beltl, TRUE, silent = FALSE)
 		belt = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_belt()
 	else if(I == wear_ring)
 		wear_ring = null
 		sec_hud_set_ID()
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_wear_id()
 	else if(I == wear_wrists)
 		wear_wrists = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_wrists()
 	else if(I == r_store)
 		r_store = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_pockets()
 	else if(I == l_store)
 		l_store = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_pockets()
 	else if(I == s_store)
 		s_store = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_s_store()
 	else if(I == wear_shirt)
 		wear_shirt = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_shirt()
 	else if(I == beltl)
 		beltl = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_belt()
 	else if(I == beltr)
 		beltr = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_belt()
 	else if(I == backl)
 		backl = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_back()
 	else if(I == backr)
 		backr = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_back()
 	else if(I == cloak)
 		cloak = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_cloak()
 	else if(I == mouth)
 		mouth = null
 		if(!QDELETED(src))
-			rebuild_obscured_flags()
 			update_inv_mouth()
 
 
