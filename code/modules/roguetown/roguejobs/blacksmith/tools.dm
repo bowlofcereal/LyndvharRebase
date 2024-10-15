@@ -38,10 +38,6 @@
 		else
 			repair_percent *= blacksmith_mind.get_skill_level(attacked_item.anvilrepair)
 
-		if(HAS_TRAIT(user, TRAIT_SQUIRE_REPAIR) && !blacksmith_mind.get_skill_level(attacked_item.anvilrepair) <= 0)
-			if(locate(/obj/machinery/anvil) in attacked_object.loc)
-				repair_percent = 0.035
-
 		playsound(src,'sound/items/bsmithfail.ogg', 100, FALSE)
 		if(repair_percent)
 			repair_percent *= attacked_item.max_integrity
