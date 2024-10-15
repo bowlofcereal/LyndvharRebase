@@ -69,6 +69,10 @@
 	desc = "Azure Peaks awaits."
 	icon = 'icons/roguetown/underworld/enigma_carriage.dmi'
 	icon_state = "carriage_normal"
+	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE_UPPER
+	anchored = TRUE
+	density = TRUE
 
 /obj/structure/underworld/carriage
 	name = "Carriage"
