@@ -108,6 +108,32 @@
 //		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade)), 29)
 		H.Fade()
 		mob_timers["lastdied"] = world.time
+		// AZURE EDIT BEGIN: necra acolyte/priest deathsight trait
+		// this was a player that just died, so do the honors
+		if (STALUC >= 7 && !gibbed) // if you're too unlucky, you pass beneath anyone's notice
+			for (var/mob/living/player in GLOB.player_list)
+				if (player.stat == DEAD || isbrain(player))
+					continue
+				if (HAS_TRAIT(player, TRAIT_DEATHSIGHT))
+					var/area_of_death = lowertext(get_area_name(src))
+
+					var/locale = "a locale wreathed in enigmatic fog"
+					switch (area_of_death) // we're deliberately obtuse with this.
+						if ("mountains", "mt decapitation")
+							locale = "a twisted tangle of soaring peaks"
+						if ("wilderness", "azure basin")
+							locale = "somewhere in the wilds"
+						if ("bog", "dense bog")
+							locale = "a wretched, fetid bog"
+						if ("coast", "coastforest")
+							locale = "somewhere betwixt Abyssor's realm and Dendor's bounty"
+						if ("indoors", "shop", "physician", "outdoors", "roofs", "manor", "wizard's tower", "garrison", "dungeon cell", "baths", "tavern")
+							locale = "the city of Azure Peak and all its bustling souls"
+						if ("church")
+							locale = "a hallowed place, sworn to the Ten" // special bit for the church since it's sacred ground
+					
+					to_chat(player, span_warning("Veiled whispers herald the Undermaiden's gaze in my mind's eye as it turn towards [locale] for but a brief, singular moment."))
+		// AZURE EDIT END
 		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade), TRUE), 100)
 //		addtimer(CALLBACK(client, PROC_REF(ghostize), 1, src), 150)
 		add_client_colour(/datum/client_colour/monochrome)
