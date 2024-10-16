@@ -93,7 +93,7 @@
 		/obj/item/rogueweapon/halberd = 1,
 		/obj/item/rogueweapon/woodstaff = 3,
 		/obj/item/rogueweapon/spear = 2,
-		/obj/item/rogueweapon/huntingknife/idagger/navaja = 2
+		/obj/item/rogueweapon/huntingknife/idagger/navaja = 2,
 		/obj/item/rogueweapon/sword/cutlass = 2,
 		/obj/item/rogueweapon/sword/long = 2,
 		/obj/item/rogueweapon/katar = 1,
@@ -262,7 +262,7 @@
 		/obj/item/rogueweapon/halberd = 1,
 		/obj/item/rogueweapon/woodstaff = 3,
 		/obj/item/rogueweapon/spear = 2,
-		/obj/item/rogueweapon/huntingknife/idagger/navaja = 2
+		/obj/item/rogueweapon/huntingknife/idagger/navaja = 2,
 		/obj/item/rogueweapon/sword/cutlass = 2,
 		/obj/item/rogueweapon/sword/long = 2,
 		/obj/item/rogueweapon/katar = 1,
