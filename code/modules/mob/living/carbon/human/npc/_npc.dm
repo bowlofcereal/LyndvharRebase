@@ -308,7 +308,8 @@
 					var/paine = get_complex_pain()
 					if(paine >= ((STAEND * 10)*0.9))
 //						mode = AI_FLEE
-						walk_away(src, target, 5, update_movespeed())
+						if (!restrained())
+							walk_away(src, target, 5, update_movespeed())
 				return TRUE
 			else								// not next to perp
 				frustration++
