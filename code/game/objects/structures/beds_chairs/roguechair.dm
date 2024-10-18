@@ -294,7 +294,8 @@
 	..()
 	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
-		new /obj/item/bedroll(get_turf(src))
+		var/obj/item/bedroll/new_bedroll = new /obj/item/bedroll(get_turf(src))
+		new_bedroll.color = src.color
 		qdel(src)
 
 /obj/item/bedroll
@@ -319,7 +320,8 @@
 			return
 	user.visible_message("<span class='notice'>[user] begins placing \the [src] down on the ground.</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
-		new /obj/structure/bed/rogue/bedroll(get_turf(src))
+		var/obj/structure/bed/rogue/bedroll/new_bedroll = new /obj/structure/bed/rogue/bedroll(get_turf(src))
+		new_bedroll.color = src.color
 		qdel(src)
 
 /obj/structure/bed/rogue/inn
