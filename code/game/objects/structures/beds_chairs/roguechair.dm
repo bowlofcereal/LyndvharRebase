@@ -290,7 +290,7 @@
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	sleepy = 2
 
-/obj/structure/bed/rogue/bedroll/MiddleClick(mob/user, params)
+/obj/structure/bed/rogue/bedroll/attack_hand(mob/user, params)
 	..()
 	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
@@ -305,7 +305,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 
-/obj/item/bedroll/MiddleClick(mob/user, params)
+/obj/item/bedroll/attack_self(mob/user, params)
 	..()
 	var/turf/T = get_turf(loc)
 	if(!isfloorturf(T))
