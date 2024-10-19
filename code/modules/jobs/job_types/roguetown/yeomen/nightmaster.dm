@@ -22,11 +22,11 @@
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 	beltr = /obj/item/storage/keyring/nightman
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
-	pants = /obj/item/clothing/under/roguetown/tights/black
+	pants = /obj/item/clothing/under/roguetown/trou/leather
 	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE) // Need the strongarm to wrestle people out of the baths
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)    // Don't make me regret these levels.
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
@@ -36,11 +36,10 @@
 		H.change_stat("strength", 1)
 		H.change_stat("intelligence", -1)
 		H.change_stat("constitution", 1)
-		H.change_stat("endurance", 1)
 		H.change_stat("perception", -1)
 
 	if(H.pronouns == HE_HIM)
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman
 		H.dna.species.soundpack_m = new /datum/voicepack/male/zeth()
 	else
-		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/purple
+		armor = /obj/item/clothing/suit/roguetown/armor/armordress/alt
