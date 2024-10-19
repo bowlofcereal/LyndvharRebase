@@ -142,6 +142,12 @@
 	icon_state = "hornkey"
 	lockid = "tavern"
 
+/obj/item/roguekey/tavernkeep
+	name = "innkeep's key"
+	desc = "This key opens and closes the innkeep's bedroom."
+	icon_state = "greenkey"
+	lockid = "innkeep"
+
 /obj/item/roguekey/velder
 	name = "elder's key"
 	desc = "This key should open and close the elder's home."
