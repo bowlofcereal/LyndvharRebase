@@ -325,7 +325,7 @@
 						qdel(P)
 						qdel(src)
 					else
-						if (prob(the_rock.magic_power)) // for reference, this is never higher than 15 and usually significantly lower
+						if (prob(the_rock.magic_power*5)) // for reference, this is never higher than 75 and usually significantly lower
 							playsound(loc, 'modular_azurepeak/sound/spellbooks/crystal.ogg', 100, TRUE)
 							user.visible_message(span_warning("[user] carefully sets down [the_rock] upon [src]. Nothing happens for a moment or three, then suddenly, the glow surrounding the stone becomes as liquid, seeps down and soaks into the tome!"), \
 							span_notice("I knew this stone was special! Its colourful magick has soaked into my tome and given me gift of mystery!"))
@@ -445,9 +445,11 @@
 	if(do_after(user, crafttime, target = src))
 		playsound(loc, 'modular_azurepeak/sound/spellbooks/bladescrape.ogg', 100, TRUE)
 		user.visible_message(span_warning("[user] carves an arcyne rune with [user.p_their()] [src]!"), \
-							span_notice("I drag the blade in symbols and circles, until it snaps, a rune now carved before me in iridiscent purple."))
+							span_notice("I drag the blade in symbols and circles, the manna powder falling into the crevices as I trace arcyne patterns. A rune now carved before me in iridiscent purple."))
 		new rune_to_scribe(Turf)
+		var/obj/silver_knife = new /obj/item/rogueweapon/huntingknife/idagger/silver/
 		qdel(src)
+		user.put_in_active_hand(silver_knife)
 	
 // helper proc
 /proc/isarcyne(mob/living/carbon/human/A)
