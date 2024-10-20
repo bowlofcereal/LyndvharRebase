@@ -49,7 +49,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltl = /obj/item/rogueweapon/sword/rapier
 	backr = /obj/item/rogue/instrument/guitar
-	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/lockpick = 1)
+	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/rogueweapon/huntingknife/idagger/navaja = 1, /obj/item/lockpick = 1)
 	H.change_stat("intelligence", 2)
 	H.change_stat("endurance", 2)
 	H.change_stat("speed", 2)
