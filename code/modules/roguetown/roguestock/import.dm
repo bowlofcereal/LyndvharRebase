@@ -146,7 +146,7 @@
 	name = "Cow"
 	desc = "Farmer's best friend, reliable provider of milk and meat."
 	item_type = /obj/structure/closet/crate/chest/steward/cow
-	export_price = 50
+	export_price = 100
 	importexport_amt = 1
 
 /obj/structure/closet/crate/chest/steward/cow/Initialize()
@@ -157,7 +157,7 @@
 	name = "Bull"
 	desc = "Horned and aggressive, required to start a herd."
 	item_type = /obj/structure/closet/crate/chest/steward/bull
-	export_price = 50
+	export_price = 100
 	importexport_amt = 1
 
 /obj/structure/closet/crate/chest/steward/bull/Initialize()
@@ -168,7 +168,7 @@
 	name = "Doe Goat"
 	desc = "An all-purpose source of milk, hide and fat."
 	item_type = /obj/structure/closet/crate/chest/steward/goat
-	export_price = 50
+	export_price = 100
 	importexport_amt = 1
 
 /obj/structure/closet/crate/chest/steward/goat/Initialize()
@@ -179,7 +179,7 @@
 	name = "Billy Goat"
 	desc = "Bearded, male goat capable of saddling."
 	item_type = /obj/structure/closet/crate/chest/steward/goatmale
-	export_price = 50
+	export_price = 100
 	importexport_amt = 1
 
 /obj/structure/closet/crate/chest/steward/goatmale/Initialize()
