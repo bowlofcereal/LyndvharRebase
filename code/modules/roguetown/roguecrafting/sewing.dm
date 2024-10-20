@@ -10,8 +10,8 @@
 	reqs = list(/obj/item/natural/cloth = 1)
 	craftdiff = 0
 
-/datum/crafting_recipe/roguetown/sewing/peasentcap
-	name = "peasent cap"
+/datum/crafting_recipe/roguetown/sewing/peasantcap
+	name = "peasant cap"
 	result = list(/obj/item/clothing/head/roguetown/armingcap)
 	reqs = list(/obj/item/natural/cloth = 1)
 	craftdiff = 0
