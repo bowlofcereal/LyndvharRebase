@@ -148,8 +148,8 @@
 			var/datum/status_effect/buff/healing/heal_effect = C.apply_status_effect(/datum/status_effect/buff/healing)
 			heal_effect.healing_on_tick = healing
 		else
-			target.adjustBruteLoss(-healing)
-			target.adjustFireLoss(-healing)
+			target.adjustBruteLoss(-healing*10)
+			target.adjustFireLoss(-healing*10)
 		return TRUE
 	return FALSE
 
