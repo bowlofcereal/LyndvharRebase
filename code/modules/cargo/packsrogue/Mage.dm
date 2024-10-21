@@ -53,6 +53,17 @@
 	cost = 200
 	contains = list(/obj/item/clothing/ring/active/nomag)
 
+/datum/supply_pack/rogue/Mage/talkstone
+	name = "Talkstone"
+	cost = 100
+	contains = list(/obj/item/clothing/neck/roguetown/talkstone)
+
+/datum/supply_pack/rogue/Mage/serfstone
+	name = "Azurian serfstone"
+	cost = 80
+	contains = list(/obj/item/scomstone/bad)
+
+
 /datum/supply_pack/rogue/Mage/scryorb
 	name = "Scrying Orb"
 	cost = 150
