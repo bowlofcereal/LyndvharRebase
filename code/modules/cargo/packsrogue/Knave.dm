@@ -115,10 +115,15 @@
 	contains = list(/obj/item/quiver/bolts)
 
 
+
+
 /datum/supply_pack/rogue/Knave/Parrows
 	name = "Poisoned Arrows"
-	cost = 20
+	cost = 60
 	contains = list(/obj/item/ammo_casing/caseless/rogue/arrow/poison,
+					/obj/item/ammo_casing/caseless/rogue/arrow/poison,
+					/obj/item/ammo_casing/caseless/rogue/arrow/poison,
+					/obj/item/ammo_casing/caseless/rogue/arrow/poison,
 					/obj/item/ammo_casing/caseless/rogue/arrow/poison,
 					/obj/item/ammo_casing/caseless/rogue/arrow/poison,
 					/obj/item/ammo_casing/caseless/rogue/arrow/poison,
@@ -136,6 +141,29 @@
 					/obj/item/ammo_casing/caseless/rogue/arrow/poison,
 					/obj/item/ammo_casing/caseless/rogue/arrow/poison)
 
+/datum/supply_pack/rogue/Knave/pyroarrows
+	name = "Pyroclastic Arrows"
+	cost = 60
+	contains = list(/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,
+					/obj/item/ammo_casing/caseless/rogue/arrow/pyro,)
 
 /datum/supply_pack/rogue/Knave/bolt
 	name = "Bolts"
@@ -162,6 +190,31 @@
 					/obj/item/ammo_casing/caseless/rogue/bolt,
 					/obj/item/ammo_casing/caseless/rogue/bolt,
 				)
+
+
+/datum/supply_pack/rogue/Knave/pyrobolts
+	name = "Pyroclastic bolts"
+	cost = 60
+	contains = list(/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,
+					/obj/item/ammo_casing/caseless/rogue/bolt/pyro,)
 
 /datum/supply_pack/rogue/Knave/Mancatcher
 	name = "Mancatcher"
