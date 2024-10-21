@@ -101,7 +101,7 @@
 	I.pixel_y = 0
 	client.images += I
 	client.hidden_images += I
-	I.appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
+	I.appearance_flags = RESET_TRANSFORM|KEEP_TOGETHER
 	if(buckled)
 		var/image/IB = image(buckled, buckled)
 		IB.override = 1
@@ -109,7 +109,7 @@
 		IB.layer = IB.layer
 		IB.pixel_x = 0
 		IB.pixel_y = 0
-		IB.appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE|RESET_TRANSFORM
+		IB.appearance_flags = RESET_TRANSFORM|KEEP_TOGETHER
 		client.hidden_images += IB
 		client.images += IB
 	if(pulling)
@@ -119,7 +119,7 @@
 		IB.layer = IB.layer
 		IB.pixel_x = 0
 		IB.pixel_y = 0
-		IB.appearance_flags = KEEP_TOGETHER|PIXEL_SCALE|TILE_BOUND|RESET_TRANSFORM
+		IB.appearance_flags = RESET_TRANSFORM|KEEP_TOGETHER
 		client.hidden_images += IB
 		client.images += IB
 /*	if(hud_used && hud_used.fov_blocker)
