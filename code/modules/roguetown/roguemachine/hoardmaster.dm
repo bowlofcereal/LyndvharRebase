@@ -41,6 +41,10 @@
 
 /obj/structure/roguemachine/Hoardmaster/Topic(href, href_list)
 	. = ..()
+	if(!HAS_TRAIT(usr, TRAIT_COMMIE))
+		return
+	if(!usr.canUseTopic(src, BE_CLOSE))
+		return
 	if(!ishuman(usr))
 		return
 	if(href_list["buy"])
@@ -65,6 +69,8 @@
 			var/obj/item/I = new pathi(get_turf(M))
 			if(shoplength == 1)
 				M.put_in_hands(I)
+			else
+				return
 	if(href_list["changecat"])
 		current_cat = href_list["changecat"]
 	return attack_hand(usr)

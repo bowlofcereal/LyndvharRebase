@@ -42,12 +42,21 @@
 	cost = 10
 	contains = list(/obj/item/reagent_containers/glass/bottle/waterskin)
 
-
-/datum/supply_pack/rogue/Things/sigs
-	name = "Pipe Weed Zig"
+/datum/supply_pack/rogue/Things/Lamp
+	name = "Lamptern"
 	cost = 5
+	contains = list(/obj/item/flashlight/flare/torch/lantern)
+
+
+/datum/supply_pack/rogue/Things/westleach
+	name = "Westleach Zig"
+	cost = 2
 	contains = list(/obj/item/clothing/mask/cigarette/rollie/nicotine)
 
+/datum/supply_pack/rogue/Things/swampweed
+	name = "Swampweed Zig"
+	cost = 5
+	contains = list(/obj/item/clothing/mask/cigarette/rollie/cannabis)
 
 /datum/supply_pack/rogue/Things/ozium
 	name = "Ozium"
@@ -61,7 +70,7 @@
 
 /datum/supply_pack/rogue/Things/spice
 	name = "Spice"
-	cost = 30
+	cost = 20
 	contains = list(/obj/item/reagent_containers/powder/spice)
 
 
