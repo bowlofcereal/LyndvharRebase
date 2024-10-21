@@ -54,7 +54,7 @@
 	bigboy = TRUE
 	gripsprite = TRUE
 	associated_skill = /datum/skill/combat/polearms
-	resistance_flags = NULL
+	resistance_flags = FLAMMABLE
 
 /obj/item/rogueweapon/woodstaff/getonmobprop(tag)
 	. = ..()
@@ -123,7 +123,7 @@
 	wdefense = 5
 	thrown_bclass = BCLASS_STAB
 	throwforce = 25
-	resistance_flags = NULL
+	resistance_flags = FLAMMABLE
 
 /obj/item/rogueweapon/spear/getonmobprop(tag)
 	. = ..()

@@ -163,7 +163,7 @@
 	gripped_intents = list(/datum/intent/mace/strike/wood, /datum/intent/mace/smash/wood)
 	smeltresult = /obj/item/ash
 	minstr = 7
-	resistance_flags = NULL
+	resistance_flags = FLAMMABLE
 
 /obj/item/rogueweapon/mace/woodclub/New()
 	..()
@@ -191,7 +191,7 @@
 	wbalance = 0
 	minstr = 7
 	wdefense = 3
-	resistance_flags = NULL
+	resistance_flags = FLAMMABLE
 
 /obj/item/rogueweapon/mace/cudgel/justice
 	name = "'Justice'"
@@ -230,7 +230,7 @@
 	wdefense = 5
 	wbalance = 0
 	associated_skill = /datum/skill/combat/swords
-	resistance_flags = NULL
+	resistance_flags = FLAMMABLE
 
 
 /obj/item/rogueweapon/mace/wsword/getonmobprop(tag)

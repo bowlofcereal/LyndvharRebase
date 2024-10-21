@@ -21,7 +21,7 @@
 	wlength = WLENGTH_SHORT
 	pickup_sound = 'sound/foley/equip/rummaging-03.ogg'
 	gripped_intents = list(/datum/intent/axe/chop/stone)
-	resistance_flags = NULL
+	resistance_flags = FLAMMABLE
 
 
 /obj/item/rogueweapon/stoneaxe/getonmobprop(tag)
@@ -255,7 +255,7 @@
 	wlength = WLENGTH_SHORT
 	pickup_sound = 'sound/foley/equip/rummaging-03.ogg'
 	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
-	resistance_flags = NULL
+	resistance_flags = FLAMMABLE
 
 /obj/item/rogueweapon/stoneaxe/boneaxe/getonmobprop(tag)
 	if(tag)
