@@ -34,7 +34,7 @@
 	beltl = /obj/item/storage/keyring/archivist
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
 	mask = /obj/item/clothing/mask/rogue/spectacles
-
+	id = /obj/item/scomstone/bad
 
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
@@ -45,7 +45,7 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/magic/arcane, rand(1,2), TRUE)
+		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 		H.mind.adjust_spellpoints(1)
 		H.grant_language(/datum/language/elvish)
 		H.grant_language(/datum/language/dwarvish)
@@ -53,7 +53,7 @@
 		H.grant_language(/datum/language/hellspeak)
 		H.grant_language(/datum/language/orcish)
 		H.grant_language(/datum/language/draconic) // All but beast, which is associated with werewolves.
-		ADD_TRAIT(H, TRAIT_SEEPRICES_SHITTY, "[type]")
+		ADD_TRAIT(H, TRAIT_SEEPRICES, "[type]")
 		H.change_stat("strength", -1)
 		H.change_stat("constitution", -1)
 		H.change_stat("intelligence", 4)
