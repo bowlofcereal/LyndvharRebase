@@ -141,7 +141,7 @@
 			H.change_stat("perception", 2)
 			H.change_stat("speed", 2)
 
-	var/weapons = list("Harp","Lute","Accordion","Guitar")
+	var/weapons = list("Harp","Lute","Accordion","Guitar", "Flute")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
@@ -153,6 +153,8 @@
 			backr = /obj/item/rogue/instrument/accord
 		if("Guitar")
 			backr = /obj/item/rogue/instrument/guitar
+		if("Flute")
+			backr = /obj/item/rogue/instrument/flute
 
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
