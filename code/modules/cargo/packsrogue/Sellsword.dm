@@ -4,6 +4,32 @@
 	crate_name = "Gifts of Coinspillers"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
+/datum/supply_pack/rogue/Sellsword/drider
+	name = "Old Zybantine package..."
+	cost = 70
+	contains = list(/obj/item/clothing/head/roguetown/roguehood/shalal,
+					/obj/item/storage/belt/rogue/leather/shalal,
+					/obj/item/rogueweapon/sword/long/rider,
+					/obj/item/clothing/suit/roguetown/armor/plate/scale,
+					/obj/item/clothing/under/roguetown/chainlegs/iron,
+					/obj/item/clothing/neck/roguetown/shalal,
+					/obj/item/clothing/suit/roguetown/armor/plate/scale,
+					/obj/item/storage/backpack/rogue/satchel/black,
+					/obj/item/clothing/gloves/roguetown/angle)
+
+/datum/supply_pack/rogue/Sellsword/Grenzel
+	name = "Old Grenzelhoft package..."
+	cost = 70
+	contains = list(/obj/item/clothing/suit/roguetown/shirt/grenzelhoft,
+					/obj/item/clothing/head/roguetown/grenzelhofthat,
+					/obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass,
+					/obj/item/clothing/under/roguetown/grenzelpants,
+					/obj/item/clothing/shoes/roguetown/grenzelhoft,
+					/obj/item/clothing/gloves/roguetown/grenzelgloves,
+					/obj/item/storage/backpack/rogue/satchel/black,
+					/obj/item/rogueweapon/halberd)
+
+
 /datum/supply_pack/rogue/Sellsword/coif/steel
 	name = "Steel Coif"
 	cost = 20
