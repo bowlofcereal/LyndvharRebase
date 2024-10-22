@@ -897,6 +897,12 @@
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	pixel_x = -32
 
+/obj/structure/fluff/statue/psybloody
+	icon_state = "psy_bloody"
+	icon = 'icons/roguetown/misc/96x96.dmi'
+	pixel_x = -32
+
+
 /obj/structure/fluff/statue/small
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "elfs"
@@ -912,6 +918,18 @@
 	pixel_y = -16
 
 /obj/structure/fluff/statue/femalestatue/Initialize()
+	. = ..()
+	var/matrix/M = new
+	M.Scale(0.7,0.7)
+	src.transform = M
+
+/obj/structure/fluff/statue/femalestatue/zizo
+	icon = 'icons/roguetown/misc/ay.dmi'
+	icon_state = "4"
+	pixel_x = -32
+	pixel_y = -16
+
+/obj/structure/fluff/statue/femalestatue/zizo/Initialize()
 	. = ..()
 	var/matrix/M = new
 	M.Scale(0.7,0.7)
@@ -1227,31 +1245,6 @@
 					A.burn()
 					return
 	return ..()
-
-/obj/structure/fluff/psycross/proc/check_prayer(mob/living/L,message)
-	if(!L || !message)
-		return FALSE
-	var/message2recognize = sanitize_hear_message(message)
-	if(findtext(message2recognize, "zizo"))
-		L.add_stress(/datum/stressevent/psycurse)
-		L.adjust_fire_stacks(100)
-		L.IgniteMob()
-		return FALSE
-	if(length(message2recognize) > 15)
-		if(L.has_flaw(/datum/charflaw/addiction/godfearing))
-			L.sate_addiction()
-		if(L.mob_timers[MT_PSYPRAY])
-			if(world.time < L.mob_timers[MT_PSYPRAY] + 1 MINUTES)
-				L.mob_timers[MT_PSYPRAY] = world.time
-				return FALSE
-		else
-			L.mob_timers[MT_PSYPRAY] = world.time
-		if(!prob(chance2hear))
-			return FALSE
-		else
-			L.playsound_local(L, 'sound/misc/notice (2).ogg', 100, FALSE)
-			L.add_stress(/datum/stressevent/psyprayer)
-			return TRUE
 
 /obj/structure/fluff/psycross/copper/Destroy()
 	addomen("psycross")
