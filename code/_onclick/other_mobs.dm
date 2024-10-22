@@ -398,7 +398,7 @@
 							to_chat(src, span_warning("What am I going to steal from there?"))
 							return
 						mobsbehind |= cone(V, list(turn(V.dir, 180)), list(src))
-						if(mobsbehind.Find(src))
+						if(mobsbehind.Find(src) || V.IsUnconscious() || V.eyesclosed || V.eye_blind || V.eye_blurry)
 							switch(U.zone_selected)
 								if("chest")
 									if (V.get_item_by_slot(SLOT_BACK_L))
@@ -418,11 +418,13 @@
 										stealpos.Add(V.get_item_by_slot(SLOT_RING))
 							if (length(stealpos) > 0)
 								var/obj/item/picked = pick(stealpos)
-								V.dropItemToGround(picked)
-								put_in_active_hand(picked)
+								V.dropItemToGround(picked, FALSE, TRUE)
+								put_in_active_hand(picked, FALSE, TRUE)
 								to_chat(src, span_green("I stole [picked]!"))
 								V.log_message("has had \the [picked] stolen by [key_name(U)]", LOG_ATTACK, color="black")
 								U.log_message("has stolen \the [picked] from [key_name(V)]", LOG_ATTACK, color="black")
+								if (picked.sellprice)
+									exp_to_gain += floor(picked.sellprice / 2)
 							else
 								exp_to_gain /= 2 // these can be removed or changed on reviewer's discretion
 								to_chat(src, span_warning("I didn't find anything there. Perhaps I should look elsewhere."))
