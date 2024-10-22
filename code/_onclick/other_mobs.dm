@@ -398,7 +398,7 @@
 							to_chat(src, span_warning("What am I going to steal from there?"))
 							return
 						mobsbehind |= cone(V, list(turn(V.dir, 180)), list(src))
-						if(mobsbehind.Find(src) || V.IsUnconscious() || V.eyesclosed || V.eye_blind || V.eye_blurry)
+						if(mobsbehind.Find(src) || V.IsUnconscious() || V.eyesclosed || V.eye_blind || V.eye_blurry || !(V.mobility_flags & MOBILITY_STAND))
 							switch(U.zone_selected)
 								if("chest")
 									if (V.get_item_by_slot(SLOT_BACK_L))
