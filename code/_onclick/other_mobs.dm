@@ -425,6 +425,11 @@
 								U.log_message("has stolen \the [picked] from [key_name(V)]", LOG_ATTACK, color="black")
 								if (picked.sellprice)
 									exp_to_gain += floor(picked.sellprice / 2)
+								if (picked.contents)
+									exp_to_gain += floor(get_mammons_in_atom(picked) / 2)
+									for(var/atom/movable/thing in picked.contents)
+										if (thing.sellprice)
+											exp_to_gain += floor(thing.sellprice / 2)
 							else
 								exp_to_gain /= 2 // these can be removed or changed on reviewer's discretion
 								to_chat(src, span_warning("I didn't find anything there. Perhaps I should look elsewhere."))
