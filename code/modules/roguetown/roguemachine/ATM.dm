@@ -106,18 +106,23 @@
 			if(!HAS_TRAIT(H, TRAIT_COMMIE))
 				to_chat(user, "<font color='red'>I don't know what I'm doing with this thing!</font>")
 				return
-			if(drilled)
+			if(SStreasury.treasury_value <50)
+				to_chat(user, "<font color='red'>These fools are completely broke. We'll get nothing out of this...</font>")
+				return
+			if(mammonsiphoned >499)
 				to_chat(user, "<font color='red'>This one has already been siphoned dry...</font>")
+				return
 			else
 				user.visible_message(span_warning("[user] is mounting the Crown onto the meister!"))
 				if(do_after(user, 50))
-					user.visible_message(span_warning("[user] mounts the Crown atop the meister!"))
-					drilling = TRUE
-					drill(src)
-					icon_state = "crown_meister"
-					qdel(P)
-					message_admins("[usr.key] has applied the Crustacean to a MEISTER.")
-					return
+					if(!drilling)
+						user.visible_message(span_warning("[user] mounts the Crown atop the meister!"))
+						icon_state = "crown_meister"
+						drilling = TRUE
+						drill(src)
+						qdel(P)
+						message_admins("[usr.key] has applied the Crustacean to a MEISTER.")
+						return
 		else
 			say("No account found. Submit your fingers for inspection.")
 	return ..()
@@ -128,10 +133,13 @@
 
 
 /obj/structure/roguemachine/atm/proc/drill(obj/structure/roguemachine/atm)
+	if(!drilling)
+		return
 	if(SStreasury.treasury_value <50)
 		new /obj/item/coveter(loc)
 		loc.visible_message(span_warning("The Crown grinds to a halt as the last of the treasury spills from the meister!"))
 		playsound(src, 'sound/misc/DrillDone.ogg', 70, TRUE)
+		icon_state = "atm"
 		drilling = FALSE
 		return
 	if(mammonsiphoned >499) // The cap variable for siphoning. 
@@ -141,25 +149,25 @@
 		icon_state = "meister_broken"
 		drilled = TRUE
 		drilling = FALSE
+		return
 	else
-		if(drilling)
-			loc.visible_message(span_warning("A horrible scraping sound emanates from the Crown as it does its work..."))
-			playsound(src, 'sound/misc/TheDrill.ogg', 70, TRUE)
-			spawn(100) // The time it takes to complete an interval. If you adjust this, please adjust the sound too. It's 'about' perfect at 100. Anything less It'll start overlapping.
-				loc.visible_message(span_warning("The meister spills its bounty!"))
-				SStreasury.treasury_value -= 50 // Takes from the treasury
-				mammonsiphoned += 50
-				budget2change(50, src, "SILVER")
-				playsound(src, 'sound/misc/coindispense.ogg', 70, TRUE)
-				SStreasury.log_to_steward("-[50] exported mammon to the Freefolks!")
-				drill(src)
-		else
-			return
+		loc.visible_message(span_warning("A horrible scraping sound emanates from the Crown as it does its work..."))
+		playsound(src, 'sound/misc/TheDrill.ogg', 70, TRUE)
+		spawn(100) // The time it takes to complete an interval. If you adjust this, please adjust the sound too. It's 'about' perfect at 100. Anything less It'll start overlapping.
+			loc.visible_message(span_warning("The meister spills its bounty!"))
+			SStreasury.treasury_value -= 50 // Takes from the treasury
+			mammonsiphoned += 50
+			budget2change(50, null, "SILVER")
+			playsound(src, 'sound/misc/coindispense.ogg', 70, TRUE)
+			SStreasury.log_to_steward("-[50] exported mammon to the Freefolks!")
+			drill(src)
 
 /obj/structure/roguemachine/atm/attack_right(mob/living/carbon/human/user)
 	if(drilling)
 		to_chat(user,"<font color='yellow'>I begin dismounting the Crown from the meister...</font>" )
-		if(do_after(user, 30))
+		if(do_after(user, 30, src))
+			if(!drilling)
+				return
 			new /obj/item/coveter(loc)
 			user.visible_message(span_warning("[user] dismounts the Crown!"))
 			icon_state = "atm"
