@@ -160,6 +160,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/iron
 	name = "iron breastplate"
+	desc = "A basic cuirass of iron, protective and moderately durable."
 	icon_state = "ibreastplate"
 	max_integrity = 200
 	smeltresult = /obj/item/ingot/iron
@@ -365,6 +366,12 @@
 	icon_state = "dgamb"
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = NON_DWARVEN_RACE_TYPES
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/shadowrobe
+	name = "stalker robe"
+	desc = "A thick robe in royal purple, befitting the hand, while remaining easy for them to slip about in.."
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	icon_state = "shadowrobe"
 
 /obj/item/clothing/suit/roguetown/armor/leather
 	name = "leather armor"
