@@ -108,9 +108,29 @@
 //		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade)), 29)
 		H.Fade()
 		mob_timers["lastdied"] = world.time
-		// AZURE EDIT BEGIN: necra acolyte/priest deathsight trait
-		// this was a player that just died, so do the honors
-		if (STALUC >= 7 && !gibbed) // if you're too unlucky, you pass beneath anyone's notice
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade), TRUE), 100)
+//		addtimer(CALLBACK(client, PROC_REF(ghostize), 1, src), 150)
+		add_client_colour(/datum/client_colour/monochrome)
+		client.verbs.Add(GLOB.ghost_verbs)
+
+	for(var/s in ownedSoullinks)
+		var/datum/soullink/S = s
+		S.ownerDies(gibbed)
+	for(var/s in sharedSoullinks)
+		var/datum/soullink/S = s
+		S.sharerDies(gibbed)
+
+//	for(var/datum/death_tracker/D in target.death_trackers)
+
+	if(!gibbed && rot_type)
+		LoadComponent(rot_type)
+
+	set_typing_indicator(FALSE)
+
+	// AZURE EDIT BEGIN: necra acolyte/priest deathsight trait
+	// this was a player that just died, so do the honors
+	if (client)
+		if (!gibbed)
 			for (var/mob/living/player in GLOB.player_list)
 				if (player.stat == DEAD || isbrain(player))
 					continue
@@ -131,26 +151,10 @@
 							locale = "the city of Azure Peak and all its bustling souls"
 						if ("church")
 							locale = "a hallowed place, sworn to the Ten" // special bit for the church since it's sacred ground
-					
-					to_chat(player, span_warning("Veiled whispers herald the Undermaiden's gaze in my mind's eye as it turn towards [locale] for but a brief, singular moment."))
-		// AZURE EDIT END
-		addtimer(CALLBACK(H, TYPE_PROC_REF(/atom/movable/screen/gameover, Fade), TRUE), 100)
-//		addtimer(CALLBACK(client, PROC_REF(ghostize), 1, src), 150)
-		add_client_colour(/datum/client_colour/monochrome)
-		client.verbs.Add(GLOB.ghost_verbs)
-
-	for(var/s in ownedSoullinks)
-		var/datum/soullink/S = s
-		S.ownerDies(gibbed)
-	for(var/s in sharedSoullinks)
-		var/datum/soullink/S = s
-		S.sharerDies(gibbed)
-
-//	for(var/datum/death_tracker/D in target.death_trackers)
-
-	if(!gibbed && rot_type)
-		LoadComponent(rot_type)
-
-	set_typing_indicator(FALSE)
+					if (HAS_TRAIT(player, TRAIT_CABAL))
+						to_chat(player, span_warning("I feel the faint passage of disjointed life essence as it flees [locale]."))
+					else
+						to_chat(player, span_warning("Veiled whispers herald the Undermaiden's gaze in my mind's eye as it turn towards [locale] for but a brief, singular moment."))
+	// AZURE EDIT END
 
 	return TRUE
