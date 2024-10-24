@@ -245,8 +245,6 @@
 /datum/status_effect/buff/healing/tick()
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal(get_turf(owner))
 	H.color = "#FF0000"
-	owner.adjustBruteLoss(-healing_on_tick)
-	owner.adjustFireLoss(-healing_on_tick)
 	var/list/wCount = owner.get_wounds()
 	if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
 		owner.blood_volume = min(owner.blood_volume+10, BLOOD_VOLUME_NORMAL)
@@ -259,7 +257,6 @@
 	owner.adjustToxLoss(-healing_on_tick, 0)
 	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
 	owner.adjustCloneLoss(-healing_on_tick, 0)
-	owner.updatehealth()
 
 /atom/movable/screen/alert/status_effect/buff/fortify
 	name = "Fortifying Miracle"
