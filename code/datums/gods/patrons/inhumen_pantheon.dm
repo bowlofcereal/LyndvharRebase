@@ -14,6 +14,7 @@
 	desc = "Snow Elf turned God, who in her endless pursuit of greatness sacrificed her kin for ascension. Zizo revolutionized many a science and magick and taught mortals to bend the natural world to their will."
 	worshippers = "Necromancers, Warlocks, and the Undead"
 	mob_traits = list(TRAIT_CABAL)
+	t1 = /obj/effect/proc_holder/spell/invoked/projectile/profane/miracle
 	confess_lines = list(
 		"PRAISE ZIZO!",
 		"LONG LIVE ZIZO!",
