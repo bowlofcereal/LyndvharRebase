@@ -1038,7 +1038,7 @@
 					break
 			if(proceed_with_offer)
 				playsound(loc,'sound/items/carvty.ogg', 50, TRUE)
-				for(var/mob/player =  in GLOB.player_list)
+				for(var/mob/player in GLOB.player_list)
 					if(player.mind.has_antag_datum(/datum/antagonist/bandit))
 						var/datum/antagonist/bandit/bandit_players = player.mind.has_antag_datum(/datum/antagonist/bandit)
 						bandit_players.favor += donatedamnt
