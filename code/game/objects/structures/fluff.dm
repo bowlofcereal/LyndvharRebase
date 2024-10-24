@@ -1365,3 +1365,8 @@
 	stake.forceMove(drop_location())
 	stake = null
 	qdel(src)
+
+
+/obj/structure/fluff/calamity
+	name = "enlightened rubble"
+	desc = "
