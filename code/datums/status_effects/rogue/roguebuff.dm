@@ -232,12 +232,12 @@
 	REMOVE_TRAIT(owner, TRAIT_LONGSTRIDER, MAGIC_TRAIT)
 
 /atom/movable/screen/alert/status_effect/buff/guardbuffone
-	name = "Vigilant Watch"
+	name = "Vigilant"
 	desc = "My home. I watch vigilantly and respond swiftly."
 	icon_state = "buff"
 
 /datum/status_effect/buff/guardboffone
-	id = "foodbuff"
+	id = "guardbuffone"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/guardbuffone
 	effectedstats = list("constitution" = 1,"endurance" = 1)
-	duration = 10 MINUTES
+	duration = 100 //permanent, removes when we're out of the area

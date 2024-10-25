@@ -16,10 +16,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	requires_power = FALSE
 //	var/previous_ambient = ""
 	var/guard_area = FALSE
-	var/keep_area = FALSE
 
-/area/rogue/Entered(/mob/living/carbon/human/M)
-	if(src.guard_buff = TRUE || HAS_TRAIT(HL, TRAIT_GUARD)
+/area/rogue/Entered(mob/living/carbon/human/guy)
+
+	. = ..()
+	if((src.guard_area == TRUE) && HAS_TRAIT(guy, TRAIT_GUARD) && guy.z == 3)
+		apply_status_effect(/datum/status_effect/buff/longstrider)
+	else
 
 
 /area/rogue/indoors
