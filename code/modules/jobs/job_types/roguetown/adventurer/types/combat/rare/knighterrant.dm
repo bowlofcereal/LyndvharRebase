@@ -4,7 +4,6 @@
 	allowed_races = RACES_ALL_KINDS
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/roguetown/adventurer/knighterrant
-	traits_applied = list(TRAIT_HEAVYARMOR, TRAIT_NOBLE)
 	category_tags = list(CTAG_ADVENTURER)
 
 	noble_income = 5
@@ -20,6 +19,8 @@
 	switch(classchoice)
 
 		if("Normal Knight")
+			ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/knight
 			gloves = /obj/item/clothing/gloves/roguetown/chain
 			pants = /obj/item/clothing/under/roguetown/chainlegs
@@ -65,6 +66,8 @@
 					r_hand = /obj/item/rogueweapon/spear
 
 		if("Black Knight")
+			ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/black
 			gloves = /obj/item/clothing/gloves/roguetown/chain/blk
 			pants = /obj/item/clothing/under/roguetown/chainlegs/blk
@@ -110,7 +113,7 @@
 					r_hand = /obj/item/rogueweapon/spear
 
 		if("Arcyne Knight") //Azure Peak Addition
-			REMOVE_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			head = /obj/item/clothing/head/roguetown/bardhat
 			gloves = /obj/item/clothing/gloves/roguetown/chain
