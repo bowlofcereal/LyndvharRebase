@@ -230,3 +230,14 @@
 	. = ..()
 	to_chat(owner, span_warning("The rough floors slow my travels once again."))
 	REMOVE_TRAIT(owner, TRAIT_LONGSTRIDER, MAGIC_TRAIT)
+
+/atom/movable/screen/alert/status_effect/buff/guardbuffone
+	name = "Vigilant Watch"
+	desc = "My home. I watch vigilantly and respond swiftly."
+	icon_state = "buff"
+
+/datum/status_effect/buff/guardboffone
+	id = "foodbuff"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/guardbuffone
+	effectedstats = list("constitution" = 1,"endurance" = 1)
+	duration = 10 MINUTES
