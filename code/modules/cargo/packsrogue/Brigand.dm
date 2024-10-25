@@ -59,7 +59,7 @@
 	contains = list(/obj/item/clothing/suit/roguetown/armor/gambeson/heavy)
 
 
-/datum/supply_pack/rogue/Brigand/steelcuirass
+/datum/supply_pack/rogue/Brigand/blksteelcuirass
 	name = "Blacksteel Cuirass"
 	cost = 60
 	contains = list(/obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass)
