@@ -25,6 +25,11 @@
 	cost = 5
 	contains = list(/obj/item/needle)
 
+/datum/supply_pack/rogue/Things/hknife
+	name = "Hunting Knife"
+	cost = 5
+	contains = list(/obj/item/rogueweapon/huntingknife)
+
 /datum/supply_pack/rogue/Things/cloth
 	name = "Cloth"
 	cost = 2
