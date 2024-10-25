@@ -15,6 +15,8 @@
 	worshippers = "Necromancers, Warlocks, and the Undead"
 	mob_traits = list(TRAIT_CABAL)
 	t1 = /obj/effect/proc_holder/spell/invoked/projectile/profane/miracle
+	t2 = /obj/effect/proc_holder/spell/invoked/raise_lesser_undead/miracle
+	t3 = /obj/effect/proc_holder/spell/invoked/rituos/miracle
 	confess_lines = list(
 		"PRAISE ZIZO!",
 		"LONG LIVE ZIZO!",
