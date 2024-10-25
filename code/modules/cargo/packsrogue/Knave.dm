@@ -113,7 +113,7 @@
 
 
 /datum/supply_pack/rogue/Knave/pyrobolts
-	name = "Pyroclastic bolts"
+	name = "Pyroclastic bolt"
 	cost = 12
 	contains = list(/obj/item/ammo_casing/caseless/rogue/bolt/pyro)
 
