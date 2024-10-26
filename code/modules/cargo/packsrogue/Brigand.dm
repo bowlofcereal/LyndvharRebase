@@ -98,11 +98,6 @@
 	cost = 10
 	contains = list(/obj/item/rogueweapon/flail)
 
-/datum/supply_pack/rogue/Brigand/repentaen
-	name = "Loyalty's Reward"
-	cost = 50
-	contains = list(/obj/item/rogueweapon/whip/antique)
-
 /datum/supply_pack/rogue/Brigand/mace
 	name = "Iron Mace"
 	cost = 10
