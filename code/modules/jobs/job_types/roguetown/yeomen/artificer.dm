@@ -14,7 +14,7 @@
 	outfit = /datum/outfit/job/roguetown/artificer
 	display_order = JDO_ARTIFICER
 	give_bank_account = 8
-	min_pq = 2 //This is a pretty complex, uncommon, and involved job and probably needs a little experience in the server first
+	min_pq = 1 //This is a pretty complex, uncommon, and involved job and probably needs a little experience in the server first
 	max_pq = null
 
 /datum/outfit/job/roguetown/artificer/pre_equip(mob/living/carbon/human/H)
