@@ -166,6 +166,17 @@
 	desc = ""
 	icon_state = "burning_eyes"
 
+/obj/item/organ/eyes/night_vision/wild_goblin
+	name = "wild goblin eyes"
+	desc = "What manner of madness have these reddened orbs espied in the darker places of the realm?"
+	icon_state = "burning_eyes"
+
+/obj/item/organ/eyes/night_vision/wild_goblin/on_life()
+	. = ..()
+	if (!istype(owner, /mob/living/carbon/human/species/goblin))
+		if (prob(10))
+			owner.adjustToxLoss(0.2)
+
 /obj/item/organ/eyes/night_vision/mushroom
 	name = "fung-eye"
 	desc = ""
