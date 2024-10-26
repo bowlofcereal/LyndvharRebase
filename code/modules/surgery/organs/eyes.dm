@@ -151,6 +151,12 @@
 	name = "undead eyes"
 	desc = ""
 
+/obj/item/organ/eyes/night_vision/zombie/on_life()
+	. = ..()
+	if (!(owner.mob_biotypes & MOB_UNDEAD))
+		if (prob(10))
+			owner.adjustToxLoss(0.2)
+
 /obj/item/organ/eyes/night_vision/werewolf
 	name = "moonlight eyes"
 	desc = ""
