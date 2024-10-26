@@ -14,7 +14,7 @@
 
 	display_order = JDO_MONK
 	give_bank_account = TRUE
-	min_pq = 1 //A step above Churchling, should funnel new players to the churchling role instead of having zero churchlings ever
+	min_pq = 0
 	max_pq = null
 
 /datum/outfit/job/roguetown/monk
