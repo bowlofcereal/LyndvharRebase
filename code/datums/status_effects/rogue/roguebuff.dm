@@ -232,7 +232,7 @@
 	REMOVE_TRAIT(owner, TRAIT_LONGSTRIDER, MAGIC_TRAIT)
 
 /atom/movable/screen/alert/status_effect/buff/guardbuffone
-	name = "guardbuffone"
+	name = "Vigilant Guardsman"
 	desc = "My home. I watch vigilantly and respond swiftly."
 	icon_state = "buff"
 
