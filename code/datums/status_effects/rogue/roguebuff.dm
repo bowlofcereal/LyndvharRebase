@@ -240,4 +240,11 @@
 	id = "guardbuffone"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/guardbuffone
 	effectedstats = list("constitution" = 1,"endurance" = 1)
-	duration = 100 //permanent, removes when we're out of the area
+	duration = 500 MINUTES //essentially permanent, removes when we're out of the area
+
+/datum/status_effect/buff/guardbuffone/process()
+
+	.=..()
+	var/area/rogue/our_area = get_area(owner)
+	if(!(our_area.town_area))
+		owner.remove_status_effect(/datum/status_effect/buff/guardbuffone)
