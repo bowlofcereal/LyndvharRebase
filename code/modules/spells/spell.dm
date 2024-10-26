@@ -184,6 +184,13 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	var/devotion_cost = 0
 	var/ignore_cockblock = FALSE //whether or not to ignore TRAIT_SPELLCOCKBLOCK
 
+	//AZURE EDIT: spell charging notifications
+	var/cast_start_msg // What we show when we start channeling (or don't)
+	var/cast_start_msg_self
+	var/cast_full_msg // What we show when we're fully charged
+	var/cast_full_msg_self
+	//AZURE EDIT END
+
 	action_icon_state = "spell0"
 	action_icon = 'icons/mob/actions/roguespells.dmi'
 	action_background_icon_state = ""
@@ -399,6 +406,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/spell/proc/start_recharge()
 	recharging = TRUE
+	//AZURE ADDITION: recharge/casting messages
+	if (cast_start_msg && cast_start_msg_self)
+		ranged_ability_user.visible_message(span_warning(cast_start_msg), span_notice(cast_start_msg_self))
+	//AZURE ADDITION END
 
 /obj/effect/proc_holder/spell/process()
 	if(recharging && charge_type == "recharge" && (charge_counter < charge_max))
@@ -407,6 +418,10 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			action.UpdateButtonIcon()
 			charge_counter = charge_max
 			recharging = FALSE
+			//AZURE ADDITION: recharge/casting messages
+			if (cast_full_msg && cast_full_msg_self)
+				ranged_ability_user.visible_message(span_warning(cast_full_msg), span_notice(cast_full_msg_self))
+			//AZURE ADDITION END
 
 /obj/effect/proc_holder/spell/proc/perform(list/targets, recharge = TRUE, mob/user = usr) //if recharge is started is important for the trigger spells
 	before_cast(targets, user = user)
