@@ -239,7 +239,7 @@
 /datum/status_effect/buff/guardboffone
 	id = "guardbuffone"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/guardbuffone
-	effectedstats = list("constitution" = 1,"endurance" = 1)
+	effectedstats = list("constitution" = 1,"endurance" = 1, "speed" = 1, "perception" = 3) //if they can't figure out how to ply this for winning chances i'm going to sob openly
 	duration = 500 MINUTES //essentially permanent, removes when we're out of the area
 
 /datum/status_effect/buff/guardbuffone/process()
