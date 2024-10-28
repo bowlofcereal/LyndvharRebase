@@ -259,13 +259,14 @@
 	name = ""
 	icon_state = "alarm"
 	pixel_y = 32
-	var/stop_yapping
+	var/stop_yapping = 0
 
 /obj/structure/fluff/walldeco/alarm/attack_hand(mob/living/user)
 
 	user.changeNext_move(CLICK_CD_MELEE)
 
 	if(!(HAS_TRAIT(user, TRAIT_NOBLE)))
+		playsound(src, 'sound/misc/machineno.ogg', 100, TRUE, -1)
 		return
 
 	if(!(user in SStreasury.bank_accounts))
@@ -304,8 +305,6 @@
 			return
 
 		if(HAS_TRAIT(user, TRAIT_NOBLE))
-			playsound(loc, 'sound/misc/gold_menu.ogg', 80, TRUE, -1)
-			say("Hail, [user.real_name]. Welcome, aristocrat.")
 			return
 
 		if((HU in SStreasury.bank_accounts)) //do we not have an account?

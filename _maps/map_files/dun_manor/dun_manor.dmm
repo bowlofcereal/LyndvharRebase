@@ -1446,14 +1446,8 @@
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town)
 "buT" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "garrison"
-	},
-/obj/structure/fluff/walldeco/alarm{
-	pixel_y = 0;
-	pixel_x = 32
-	},
+/obj/machinery/light/rogue/torchholder/r,
+/obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "bvK" = (
@@ -1482,6 +1476,10 @@
 /obj/structure/roguemachine/lottery_roguetown,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
+"bxf" = (
+/obj/structure/fluff/walldeco/alarm,
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors)
 "bxn" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/woods)
@@ -5049,8 +5047,14 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
 "fcJ" = (
-/obj/machinery/light/rogue/torchholder/r,
-/obj/structure/roguemachine/scomm,
+/obj/structure/mineral_door/bars{
+	locked = 1;
+	lockid = "garrison"
+	},
+/obj/structure/fluff/walldeco/alarm{
+	pixel_y = 0;
+	pixel_x = 32
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "fcW" = (
@@ -10862,6 +10866,19 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/manor)
+"kZm" = (
+/obj/structure/mineral_door/bars{
+	locked = 1;
+	lockid = "vault"
+	},
+/obj/structure/fluff/walldeco/alarm{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
+/area/rogue/under/town/basement)
 "kZU" = (
 /obj/effect/landmark/start/wapprentice,
 /turf/open/floor/carpet/stellar,
@@ -14501,19 +14518,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors)
-"oCa" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
-	lockid = "vault"
-	},
-/obj/structure/fluff/walldeco/alarm{
-	pixel_y = 0;
-	pixel_x = -32
-	},
-/turf/open/floor/rogue/tile{
-	icon_state = "chess"
-	},
-/area/rogue/under/town/basement)
 "oCg" = (
 /obj/structure/flora/roguetree/burnt,
 /turf/open/floor/rogue/grassyel,
@@ -15022,10 +15026,6 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel)
-"pdu" = (
-/obj/structure/fluff/walldeco/alarm,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors)
 "pdx" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/rope/chain,
@@ -40513,7 +40513,7 @@ uGe
 dAi
 onk
 xpt
-buT
+fcJ
 bBD
 qEa
 xpt
@@ -41141,7 +41141,7 @@ oGK
 vrR
 dIf
 dIf
-fcJ
+buT
 fvy
 bBD
 dIf
@@ -42998,7 +42998,7 @@ bup
 ruG
 ruG
 ruG
-oCa
+kZm
 ruG
 ruG
 ruG
@@ -61549,7 +61549,7 @@ hvn
 hvn
 oLW
 oLW
-pdu
+bxf
 oLW
 bYR
 oLW
