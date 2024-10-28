@@ -28,6 +28,15 @@
 		if (bonez.use(1))
 			projectile_type = /obj/projectile/magic/profane/major
 			big_cast = TRUE
+	else if (istype(held_item, /obj/item/natural/bone))
+		qdel(held_item)
+		projectile_type = /obj/projectile/magic/profane/major
+		big_cast = TRUE
+	else if (istype(held_item, /obj/item/natural/bundle/bone))
+		var/obj/item/natural/bundle/bone/boney_bundle = held_item
+		if (boney_bundle.use(1))
+			projectile_type = /obj/projectile/magic/profane/major
+			big_cast = TRUE
 
 	var/obj/projectile/P = new projectile_type(user.loc)
 	P.firer = user
@@ -96,7 +105,7 @@
 	no_early_release = TRUE
 	movement_interrupt = TRUE
 	charge_max = 2 MINUTES
-	var/excluded_bodyparts = list(/obj/item/bodypart/head)
+	var/list/excluded_bodyparts = list(/obj/item/bodypart/head)
 	var/list/obj/effect/proc_holder/spell/spell_choices = list(/obj/effect/proc_holder/spell/invoked/projectile/fireball,
 		/obj/effect/proc_holder/spell/invoked/projectile/lightningbolt,
 		/obj/effect/proc_holder/spell/invoked/projectile/fetch,
@@ -162,6 +171,7 @@
 			if (istype(BP, skeleton_part))
 				possible_parts -= BP
 				break
+
 	var/obj/item/bodypart/the_part = pick(possible_parts)
 	var/obj/item/bodypart/part_to_bonify = user.get_bodypart(the_part.body_zone)
 
