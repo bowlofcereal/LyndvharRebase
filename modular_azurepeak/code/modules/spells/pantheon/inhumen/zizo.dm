@@ -134,7 +134,7 @@
 		if (our_limb.type in excluded_bodyparts)
 			continue
 		if (our_limb.skeletonized)
-			skeletonized_parts += our_limb
+			skeletonized_parts += our_limb.type
 	
 	return skeletonized_parts
 
@@ -150,11 +150,18 @@
 		return FALSE
 
 	//hoo boy. here we go.
-	var/list/possible_parts = list()
+	var/list/possible_parts = user.bodyparts.Copy()
 	var/list/skeletonized_parts = get_skeletonized_bodyparts(user)
-	possible_parts += user.bodyparts
-	possible_parts -= excluded_bodyparts
-	possible_parts -= skeletonized_parts
+
+	for(var/obj/item/bodypart/BP in possible_parts)
+		for(var/bodypart_type in excluded_bodyparts)
+			if(istype(BP, bodypart_type))
+				possible_parts -= BP
+				break
+		for(var/skeleton_part in skeletonized_parts)
+			if (istype(BP, skeleton_part))
+				possible_parts -= BP
+				break
 	var/obj/item/bodypart/the_part = pick(possible_parts)
 	var/obj/item/bodypart/part_to_bonify = user.get_bodypart(the_part.body_zone)
 
