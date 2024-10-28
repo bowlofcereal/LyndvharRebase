@@ -260,6 +260,7 @@
 	icon_state = "alarm"
 	pixel_y = 32
 	var/stop_yapping = 0
+	var/onoff = 0
 
 /obj/structure/fluff/walldeco/alarm/attack_hand(mob/living/user)
 
@@ -275,14 +276,14 @@
 	else
 
 		playsound(src, 'sound/misc/bug.ogg', 100, FALSE, -1)
-		if(stop_yapping == 0)
-			stop_yapping = 1
+		if(onoff == 0)
+			onoff = 1
 			icon_state = "face"
-		if(stop_yapping == 1)
-			stop_yapping = 0
+		if(onoff == 1)
+			onoff = 0
 			icon_state = "alarm"
 		else
-			stop_yapping = 0
+			onoff = 0
 			icon_state = "alarm"
 
 /obj/structure/fluff/walldeco/alarm/Crossed(mob/living/user)
@@ -305,6 +306,9 @@
 			return
 
 		if(HAS_TRAIT(user, TRAIT_NOBLE))
+			stop_yapping = 1
+			sleep(200)
+			stop_yapping = 0
 			return
 
 		if((HU in SStreasury.bank_accounts)) //do we not have an account?
