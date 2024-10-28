@@ -270,9 +270,6 @@
 		playsound(src, 'sound/misc/machineno.ogg', 100, TRUE, -1)
 		return
 
-	if(!(user in SStreasury.bank_accounts))
-		return
-
 	else
 
 		playsound(src, 'sound/misc/bug.ogg', 100, FALSE, -1)
@@ -307,8 +304,10 @@
 
 		if(HAS_TRAIT(user, TRAIT_NOBLE))
 			stop_yapping = 1
+			icon_state = "face"
 			sleep(200)
 			stop_yapping = 0
+			icon_state = "alarm"
 			return
 
 		if((HU in SStreasury.bank_accounts)) //do we not have an account?
