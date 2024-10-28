@@ -1,24 +1,5 @@
 // see _DEFINES/is_helpers.dm for mob type checks
 
-GLOBAL_LIST_INIT(mob_zones, list(
-	BODY_ZONE_PRECISE_R_EYE = BODY_ZONE_HEAD,
-	BODY_ZONE_PRECISE_L_EYE = BODY_ZONE_HEAD,
-	BODY_ZONE_PRECISE_NOSE = BODY_ZONE_HEAD,
-	BODY_ZONE_PRECISE_MOUTH = BODY_ZONE_HEAD,
-	BODY_ZONE_PRECISE_SKULL = BODY_ZONE_HEAD,
-	BODY_ZONE_PRECISE_EARS = BODY_ZONE_HEAD,
-	BODY_ZONE_PRECISE_NECK = BODY_ZONE_HEAD,
-	BODY_ZONE_PRECISE_L_HAND = BODY_ZONE_L_ARM,
-	BODY_ZONE_PRECISE_R_HAND = BODY_ZONE_R_ARM,
-	BODY_ZONE_PRECISE_L_FOOT = BODY_ZONE_L_LEG,
-	BODY_ZONE_PRECISE_R_FOOT = BODY_ZONE_R_LEG,
-	BODY_ZONE_PRECISE_GROIN = BODY_ZONE_CHEST,
-	BODY_ZONE_PRECISE_STOMACH = BODY_ZONE_CHEST,
-	BODY_ZONE_PRECISE_R_INHAND = BODY_ZONE_R_ARM,
-	BODY_ZONE_PRECISE_L_INHAND = BODY_ZONE_L_ARM
-))
-
-
 ///Find the mob at the bottom of a buckle chain
 /mob/proc/lowest_buckled_mob()
 	. = src
@@ -26,46 +7,44 @@ GLOBAL_LIST_INIT(mob_zones, list(
 		var/mob/Buckled = buckled
 		. = Buckled.lowest_buckled_mob()
 
-/proc/check_zone(zone)
-	return GLOB.mob_zones[zone] || BODY_ZONE_CHEST
-
 ///Convert a PRECISE ZONE into the BODY_ZONE
-/*/proc/check_zone(zone)
+/proc/check_zone(zone)
 	if(!zone)
 		return BODY_ZONE_CHEST
+		
 	switch(zone)
 		if(BODY_ZONE_PRECISE_R_EYE)
-			zone = BODY_ZONE_HEAD
+			return BODY_ZONE_HEAD
 		if(BODY_ZONE_PRECISE_L_EYE)
-			zone = BODY_ZONE_HEAD
+			return BODY_ZONE_HEAD
 		if(BODY_ZONE_PRECISE_NOSE)
-			zone = BODY_ZONE_HEAD
+			return BODY_ZONE_HEAD
 		if(BODY_ZONE_PRECISE_MOUTH)
-			zone = BODY_ZONE_HEAD
+			return  BODY_ZONE_HEAD
 		if(BODY_ZONE_PRECISE_SKULL)
-			zone = BODY_ZONE_HEAD
+			return BODY_ZONE_HEAD
 		if(BODY_ZONE_PRECISE_EARS)
-			zone = BODY_ZONE_HEAD
+			return BODY_ZONE_HEAD
 		if(BODY_ZONE_PRECISE_NECK)
-			zone = BODY_ZONE_HEAD
+			return BODY_ZONE_HEAD
 		if(BODY_ZONE_PRECISE_L_HAND)
-			zone = BODY_ZONE_L_ARM
+			return BODY_ZONE_L_ARM
 		if(BODY_ZONE_PRECISE_R_HAND)
-			zone = BODY_ZONE_R_ARM
+			return BODY_ZONE_R_ARM
 		if(BODY_ZONE_PRECISE_L_FOOT)
-			zone = BODY_ZONE_L_LEG
+			return BODY_ZONE_L_LEG
 		if(BODY_ZONE_PRECISE_R_FOOT)
-			zone = BODY_ZONE_R_LEG
+			return BODY_ZONE_R_LEG
 		if(BODY_ZONE_PRECISE_GROIN)
-			zone = BODY_ZONE_CHEST
+			return BODY_ZONE_CHEST
 		if(BODY_ZONE_PRECISE_STOMACH)
-			zone = BODY_ZONE_CHEST
+			return BODY_ZONE_CHEST
 		if(BODY_ZONE_PRECISE_R_INHAND)
-			zone = BODY_ZONE_R_ARM
+			return BODY_ZONE_R_ARM
 		if(BODY_ZONE_PRECISE_L_INHAND)
-			zone = BODY_ZONE_L_ARM
+			return BODY_ZONE_L_ARM
 
-	return zone*/
+	return BODY_ZONE_CHEST
 
 /**
   * Return the zone or randomly, another valid zone
