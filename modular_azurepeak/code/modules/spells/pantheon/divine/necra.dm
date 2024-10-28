@@ -52,8 +52,6 @@
 		else
 			to_chat(span_warning("My devotion runs dry - the Intercession fades from my lips!"))
 			break
-		
-		health_adjust = get_health_bonus(living_target.health, living_target.maxHealth)
 	
 	REMOVE_TRAIT(living_target, TRAIT_NODEATH, "avert_spell")
 
