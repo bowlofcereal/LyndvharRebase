@@ -1448,11 +1448,13 @@
 "buT" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
-	lockid = "vault"
+	lockid = "garrison"
 	},
-/turf/open/floor/rogue/tile{
-	icon_state = "chess"
+/obj/structure/fluff/walldeco/alarm{
+	pixel_y = 0;
+	pixel_x = 32
 	},
+/turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "bvK" = (
 /obj/effect/decal/cobbleedge{
@@ -5047,8 +5049,9 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors)
 "fcJ" = (
+/obj/machinery/light/rogue/torchholder/r,
 /obj/structure/roguemachine/scomm,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "fcW" = (
 /obj/machinery/light/rogue/oven/north,
@@ -14498,6 +14501,19 @@
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors)
+"oCa" = (
+/obj/structure/mineral_door/bars{
+	locked = 1;
+	lockid = "vault"
+	},
+/obj/structure/fluff/walldeco/alarm{
+	pixel_y = 0;
+	pixel_x = -32
+	},
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
+/area/rogue/under/town/basement)
 "oCg" = (
 /obj/structure/flora/roguetree/burnt,
 /turf/open/floor/rogue/grassyel,
@@ -15006,6 +15022,10 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel)
+"pdu" = (
+/obj/structure/fluff/walldeco/alarm,
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors)
 "pdx" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/item/rope/chain,
@@ -40493,7 +40513,7 @@ uGe
 dAi
 onk
 xpt
-eeN
+buT
 bBD
 qEa
 xpt
@@ -40651,7 +40671,7 @@ dIf
 dIf
 dIf
 dIf
-fcJ
+bBD
 bBD
 xjB
 ugy
@@ -41121,7 +41141,7 @@ oGK
 vrR
 dIf
 dIf
-onk
+fcJ
 fvy
 bBD
 dIf
@@ -42978,7 +42998,7 @@ bup
 ruG
 ruG
 ruG
-jZD
+oCa
 ruG
 ruG
 ruG
@@ -43135,7 +43155,7 @@ ruG
 ruG
 ruG
 ruG
-buT
+jZD
 ruG
 ruG
 ruG
@@ -61529,7 +61549,7 @@ hvn
 hvn
 oLW
 oLW
-aoP
+pdu
 oLW
 bYR
 oLW
