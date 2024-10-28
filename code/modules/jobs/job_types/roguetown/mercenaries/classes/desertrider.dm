@@ -42,6 +42,9 @@
 			backl = /obj/item/rogueweapon/shield/wood
 			r_hand = /obj/item/rogueweapon/mace/steel
 			neck = /obj/item/clothing/neck/roguetown/chaincoif/full
+			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		if("Blade Dancer")
 			H.set_blindness(0)
 			to_chat(H, span_warning("Zybantian 'Blade Dancers' are famed and feared the world over. Their expertise in blades both long and short is well known..."))
@@ -65,19 +68,19 @@
 			H.change_stat("intelligence", 1)
 			H.change_stat("speed", 3)
 			backl = /obj/item/rogueweapon/sword/long/rider
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
+			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
+			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+		
 
 	shoes = /obj/item/clothing/shoes/roguetown/shalal
 	head = /obj/item/clothing/head/roguetown/roguehood/shalal
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	belt = /obj/item/storage/belt/rogue/leather/shalal
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	beltl = /obj/item/flashlight/flare/torch
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 
 	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger/navaja, /obj/item/clothing/neck/roguetown/shalal)
 
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
