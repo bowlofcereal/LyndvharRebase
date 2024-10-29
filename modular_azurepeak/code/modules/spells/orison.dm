@@ -249,7 +249,7 @@
 	
 	if (method == TOUCH)
 		if (M.mob_biotypes & MOB_UNDEAD)
-			M.adjustFireLoss(0.2*reac_volume, 0)
+			M.adjustFireLoss(2*reac_volume, 0)
 			M.visible_message(span_warning("[M] erupts into angry fizzling and hissing!"), span_warning("BLESSED WATER!!! IT BURNS!!!"))
 			M.emote("scream")
 	
