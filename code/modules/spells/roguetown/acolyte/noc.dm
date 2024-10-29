@@ -1,19 +1,19 @@
 // Noc Spells
 /obj/effect/proc_holder/spell/invoked/blindness
-    name = "Blindness"
+	name = "Blindness"
 	desc = "Direct a mote of living darkness to temporarily blind another."
-    overlay_state = "blindness"
-    clothes_req = FALSE
-    releasedrain = 30
-    chargedrain = 5
-    chargetime = 5
-    range = 7
-    warnie = "sydwarning"
-    movement_interrupt = FALSE
-    sound = 'sound/magic/churn.ogg'
-    associated_skill = /datum/skill/magic/arcane
-    antimagic_allowed = TRUE
-    charge_max = 15 SECONDS
+	overlay_state = "blindness"
+	clothes_req = FALSE
+	releasedrain = 30
+	chargedrain = 5
+	chargetime = 5
+	range = 7
+	warnie = "sydwarning"
+	movement_interrupt = FALSE
+	sound = 'sound/magic/churn.ogg'
+	associated_skill = /datum/skill/magic/arcane
+	antimagic_allowed = TRUE
+	charge_max = 15 SECONDS
 	cost = 1
 
 /obj/effect/proc_holder/spell/invoked/blindness/miracle
