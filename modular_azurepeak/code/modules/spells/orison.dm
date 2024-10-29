@@ -277,6 +277,14 @@
 			if (upd)
 				M.update_damage_overlays()
 	else
+		M.adjustBruteLoss(-0.1*REM)
+		M.adjustFireLoss(-0.1*REM)
+		M.adjustOxyLoss(-0.1, 0)
+		var/list/our_wounds = M.get_wounds()
+		if (LAZYLEN(our_wounds))
+			var/upd = M.heal_wounds(1)
+			if (upd)
+				M.update_damage_overlays()
 		M.rogfat_add(0.5*REM)
 
 /obj/item/melee/touch_attack/orison/proc/create_water(atom/thing, mob/living/carbon/human/user)
