@@ -197,7 +197,7 @@
 	fever_multiplier = 3
 
 /datum/reagent/infection/major/on_mob_life(mob/living/carbon/M)
-	if (prob(2))
+	if (M.badluck(1))
 		M.reagents.add_reagent(src, rand(1,3))
 		to_chat(M, span_small("I feel even worse..."))
 	return ..()
