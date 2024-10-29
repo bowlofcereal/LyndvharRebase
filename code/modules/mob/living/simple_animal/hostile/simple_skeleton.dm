@@ -104,16 +104,13 @@
 /mob/living/simple_animal/hostile/rogue/skeleton/Initialize(mapload, mob/user)
 	. = ..()
 	if(user)
-		friends += user
+		friends += user.name
 
 /mob/living/simple_animal/hostile/rogue/skeleton/Life()
 	. = ..()
 	if(!target)
 		if(prob(60))
 			emote(pick("idle"), TRUE)
-
-
-
 
 /mob/living/simple_animal/hostile/rogue/skeleton/taunted(mob/user)
 	emote("aggro")
