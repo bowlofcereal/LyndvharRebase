@@ -404,6 +404,9 @@
 	pixel_x = -16
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
+	slot_flags = ITEM_SLOT_BACK
+	equip_delay_self = 5 SECONDS
+	unequip_delay_self = 5 SECONDS
 	force = 12
 	force_wielded = 25
 	possible_item_intents = list(
