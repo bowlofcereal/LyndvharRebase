@@ -1,6 +1,7 @@
 // Noc Spells
 /obj/effect/proc_holder/spell/invoked/blindness
     name = "Blindness"
+	desc = "Direct a mote of living darkness to temporarily blind another."
     overlay_state = "blindness"
     clothes_req = FALSE
     releasedrain = 30
@@ -37,6 +38,7 @@
 /obj/effect/proc_holder/spell/invoked/invisibility
 	name = "Invisibility"
 	overlay_state = "invisibility"
+	desc = "Make another (or yourself) invisible for fifteen seconds."
 	releasedrain = 30
 	chargedrain = 5
 	chargetime = 5
