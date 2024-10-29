@@ -166,8 +166,13 @@
 					has_rot = TRUE
 					break
 		if(!has_rot)
-			to_chat(user, span_warning("Nothing happens."))
-			return FALSE
+			if (target.reagents.has_reagent(/datum/reagent/infection/major))
+				target.reagents.remove_reagent(/datum/reagent/infection/major, rand(5,10))
+				to_chat(user, span_notice("I settle some of [target]'s excess melancholic humour."))
+				return TRUE
+			else
+				to_chat(user, span_warning("Nothing happens."))
+				return FALSE
 		if(GLOB.tod == "night")
 			to_chat(user, span_warning("Let there be light."))
 		for(var/obj/structure/fluff/psycross/S in oview(5, user))
