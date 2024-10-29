@@ -90,6 +90,7 @@
 /obj/effect/proc_holder/spell/invoked/raise_lesser_undead/miracle
 	miracle = TRUE
 	devotion_cost = 75
+	cabal_affine = TRUE
 
 // T3: Rituos (usable once per sleep cycle, allows you to choose any 1 arcane spell to use for the duration w/ an associated devotion cost. each time you change it, 1 of your limbs is skeletonized, if all of your limbs are skeletonized, you gain access to arcane magic. continuing to use rituos after being fully skeletonized gives you additional spellpoints). Gives you the MOB_UNDEAD flag (needed for skeletonize to work) on first use.
 
