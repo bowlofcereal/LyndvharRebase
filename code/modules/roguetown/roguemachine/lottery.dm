@@ -239,7 +239,7 @@
 			playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 			sleep(30)
 			src.say("The father dies, but the son- the son yet lives! He's brought to the nearby village's physician.")
-			playsound(src, 'sound/misc/machinetalk', 100, FALSE, -1)
+			playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 			sleep(30)
 			src.say("Upon seeing him, the physician ga-...what do you mean, you've heard this one before?")
 			playsound(src, 'sound/misc/bug.ogg', 100, FALSE, -1)
