@@ -296,3 +296,17 @@
     var/mob/living/carbon/C = user.mob
     C.swap_rmb_intent(null, 6)
     return TRUE
+
+/datum/keybinding/carbon/cycle_rmb_intent
+	hotkey_keys = list("N")
+	name = "cycle_rmb_intent"
+	full_name = "Cycle RMB Intent"
+	description = "Cycle through available Right Mouse Button (RMB) intents."
+	category = CATEGORY_CARBON
+
+/datum/keybinding/carbon/cycle_rmb_intent/down(client/user)
+	if (!iscarbon(user.mob))
+		return FALSE
+	var/mob/living/carbon/C = user.mob
+	C.cycle_rmb_intent()
+	return TRUE
