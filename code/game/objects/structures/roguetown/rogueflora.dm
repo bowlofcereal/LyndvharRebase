@@ -101,10 +101,14 @@
 	var/datum/spacevine_controller/controller
 
 /obj/structure/flora/roguetree/wise
-	name = "wise tree"
+	name = "sacred tree"
 	desc = "A blessed primordial tree, ancient beyond years. Said to be the very embodiment of the Tree Father himself--its very presence imbuing his druids with wild energies."
 	icon_state = "mystical"
 	max_integrity = 400
+
+/obj/structure/flora/roguetree/wise/examine(mob/user)
+	. = ..()
+	desc = "A blessed primordial tree, ancient beyond years. Said to be the very embodiment of the Tree Father himself--its very presence imbuing his druids with wild energies."
 
 /obj/structure/flora/roguetree/wise/Initialize()
 	. = ..()
