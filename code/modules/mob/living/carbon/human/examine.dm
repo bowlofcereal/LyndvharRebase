@@ -457,6 +457,34 @@
 			if(-INFINITY to -5)
 				. += span_warning("<B>[t_He] look[p_s()] much weaker than I.</B>")
 
+		//The Nymphomaniac Underground
+		if((!appears_dead) && stat == CONSCIOUS && src.has_flaw(/datum/charflaw/addiction/lovefiend))
+			var/datum/charflaw/addiction/bonercheck = src.charflaw
+			if((bonercheck) && (bonercheck.sated == 0))
+				if(user.has_flaw(/datum/charflaw/addiction/lovefiend)) //Takes one to know one
+					switch(rand(1,5))
+						if(1)
+							. += span_love("I can sense [m2] <B>need</B> for a good time.")
+						if(2)
+							. += span_love("[m1] <B>aching</B> for a release.")
+						if(3)
+							. += span_love("A carnal hunger <B>stirs</B> within [m2] core.")
+						if(4)
+							. += span_love("I can practically hear the <B>thrum</B> of [m2] heartbeat.")
+						if(5)
+							. += span_love("Embers of desire <B>smolder</B> within [m2] eyes.")
+					user.advance_addiction(60) //Don't look now!
+				else if(Adjacent(user)) //No nympho, but close enough to notice.
+					switch(rand(1,4))
+						if(1)
+							. += span_love("[m1] blushing quite fiercely.")
+						if(2)
+							. += span_love("I can see [m2] face is flushed.")
+						if(3)
+							. += span_love("[m3] an odd way of breathing.")
+						if(4)
+							. += span_love("[m1] restless, for some reason.")
+
 	if(maniac)
 		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 		if(heart?.inscryption && (heart.inscryption_key in maniac.key_nums))
