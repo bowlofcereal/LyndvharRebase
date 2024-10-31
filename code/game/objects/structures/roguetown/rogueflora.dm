@@ -102,15 +102,13 @@
 
 /obj/structure/flora/roguetree/wise
 	name = "wise tree"
-	icon_state = "mystical"
 	desc = "A blessed primordial tree, ancient beyond years. Said to be the very embodiment of the Tree Father himself--its very presence imbuing his druids with wild energies."
-
+	icon_state = "mystical"
+	max_integrity = 400
 
 /obj/structure/flora/roguetree/wise/Initialize()
 	. = ..()
 	icon_state = "mystical"
-	desc = "A blessed primordial tree, ancient beyond years. Said to be the very embodiment of the Tree Father himself--its very presence imbuing his druids with wild energies."
-
 /*
 /obj/structure/flora/roguetree/wise/examine(mob/user)
 	. = ..()
@@ -131,7 +129,7 @@
 
 /obj/structure/flora/roguetree/stump/burnt
 	name = "tree stump"
-	desc = "This stump is burnt. Maybe someone is trying to get coal the easy way."
+	desc = "This stump is burnt. Maybe someone was trying to get coal the easy way."
 	icon_state = "st1"
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	stump_type = null
@@ -177,7 +175,7 @@
 
 /obj/structure/flora/roguetree/stump/log
 	name = "ancient log"
-	desc = "Rotten remains of a tree that sufered nature's cruelty ages ago."
+	desc = "Rotten remains of a tree that suffered nature's cruelty ages ago."
 	icon_state = "log1"
 	opacity = 0
 	max_integrity = 200
