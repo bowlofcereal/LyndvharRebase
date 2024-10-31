@@ -53,7 +53,7 @@
 						situational_bonus = min(situational_bonus + 0.1, 2)
 				for (var/obj/structure/flora/roguetree/wise/O in oview(5, user))
 					situational_bonus += 1.5
-				// Healing before the wooden avatar of Dendor in the Druid Grove supercharges their healing
+				// Healing before the oaken avatar of Dendor in the Druid Grove (exceptionally rare otherwise) supercharges their healing
 				if (situational_bonus > 0)
 					conditional_buff = TRUE
 			if(/datum/patron/divine/abyssor)
