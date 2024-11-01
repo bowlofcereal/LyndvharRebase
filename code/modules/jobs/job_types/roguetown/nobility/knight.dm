@@ -99,11 +99,11 @@
 	H.verbs |= /mob/proc/haltyell
 
 
-	H.change_stat("strength", 3) //more strength in exchange for speed and int debuffs and less con/end than foot knight - stats are still worse than templar, pls don't throw a tantrum over 1 extra point of strength
-	H.change_stat("constitution", 1)
+	H.change_stat("strength", 3) //more strength in exchange for heavy speed/perception debuff and less end/con than foot knight - stats are still worse than templar, pls don't throw a tantrum over 1 extra point of strength
+	H.change_stat("constitution", 2)
 	H.change_stat("endurance", 2)
 	H.change_stat("speed", -2)
-	H.change_stat("intelligence", -1)
+	h.change_stat ("perception", -1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Great Mace","Battle Axe", "Estoc")
@@ -159,9 +159,8 @@
 	H.verbs |= /mob/proc/haltyell
 
 	H.change_stat("strength", 2)
-	H.change_stat("constitution", 2)
-	H.change_stat("endurance", 3)
-	H.change_stat("intelligence", 1) // rounded starting stats, less strength than heavy knight but better con/end/int and no speed debuff
+	H.change_stat("constitution", 3)
+	H.change_stat("endurance", 3) // rounded starting stats, less strength than heavy knight but better end/con and no speed/per debuff
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Bastard Sword","Flail")
@@ -217,9 +216,10 @@
 	H.verbs |= /mob/proc/haltyell
 
 	H.change_stat("strength", 1)
-	H.change_stat("endurance", 1)
+	H.change_stat("constitution", 1)
+	H.change_stat("endurance", 2)
 	H.change_stat("perception", 3)
-	H.change_stat("speed", 1) //mounted class focused on polearms and/or archery, less strength/con/end than other classes, but higher perception and +1 speed
+	H.change_stat("speed", 1) //mounted class focused on polearms and/or archery, less strength/con than other classes, but higher perception and +1 speed
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Bastard Sword","Spear")
