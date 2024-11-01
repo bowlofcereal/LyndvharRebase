@@ -220,7 +220,7 @@
 	H.change_stat("speed", 1) //mounted class focused on archery and/or polearms, less strength/con than other classes, but higher perception and +1 speed
 
 	H.adjust_blindness(-3)
-	var/weapons = list("Bastard Sword","Spear")
+	var/weapons = list("Bastard Sword + Recurve Bow","Mace + Crossbow", "Spear + Shield")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
