@@ -6057,6 +6057,13 @@
 	icon_state = "horzw"
 	},
 /area/rogue/indoors)
+"ggH" = (
+/obj/structure/fluff/railing/border{
+	dir = 10;
+	icon_state = "border"
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "ggR" = (
 /obj/effect/decal/cleanable/blood/old,
 /obj/item/rogueweapon/thresher,
@@ -8393,8 +8400,8 @@
 /area/rogue/outdoors/town)
 "iAu" = (
 /obj/structure/fluff/railing/border{
-	icon_state = "border";
-	dir = 10
+	dir = 4;
+	icon_state = "border"
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town)
@@ -8839,7 +8846,12 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/shop)
 "iYk" = (
-/obj/machinery/light/rogue/torchholder/c,
+/obj/structure/fluff/railing/border{
+	icon_state = "border"
+	},
+/obj/machinery/light/rogue/torchholder/l{
+	dir = 8
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town)
 "iYA" = (
@@ -9979,6 +9991,7 @@
 /obj/structure/fluff/walldeco/customflag{
 	pixel_y = 32
 	},
+/obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town)
 "kob" = (
@@ -12232,9 +12245,10 @@
 	},
 /area/rogue/indoors/town/dwarfin)
 "mnG" = (
-/obj/structure/rack/rogue,
-/obj/item/natural/saddle,
-/obj/item/natural/saddle,
+/obj/structure/closet/crate/chest/wicker{
+	opened = 1
+	},
+/obj/item/reagent_containers/food/snacks/grown/wheat,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town)
 "moy" = (
@@ -19343,6 +19357,7 @@
 /area/rogue/outdoors/town)
 "tjy" = (
 /obj/structure/fluff/railing/border{
+	dir = 8;
 	icon_state = "border"
 	},
 /turf/open/floor/rogue/dirt/road,
@@ -65819,10 +65834,10 @@ cxb
 axE
 bvN
 tVC
-mbj
-xSN
-lpX
-ugU
+fBX
+pge
+dPj
+mnG
 jsn
 dZn
 dZn
@@ -65976,10 +65991,10 @@ cxb
 axE
 hvn
 mXm
-fBX
+nNw
 qyk
-tjy
-ugU
+qyk
+qyk
 jsn
 dZn
 dZn
@@ -66133,10 +66148,10 @@ cxb
 axE
 hvn
 hvn
-mbj
-iYk
+fBX
+qyk
+hcf
 iAu
-eKn
 jsn
 ett
 mjI
@@ -66292,8 +66307,8 @@ hvn
 hvn
 waT
 kni
-qyk
-qyk
+iYk
+ugU
 jsn
 wMD
 wMD
@@ -66447,10 +66462,10 @@ cxb
 axE
 hvn
 hvn
-nNw
-qyk
-qyk
-qyk
+waT
+mbj
+mbj
+waT
 jsn
 iCl
 spZ
@@ -66606,8 +66621,8 @@ hvn
 hvn
 waT
 kni
-qyk
-qyk
+lpX
+ugU
 jsn
 vIC
 spZ
@@ -66761,10 +66776,10 @@ cxb
 axE
 hvn
 hvn
-mbj
-iYk
+fBX
 qyk
-qyk
+ggH
+tjy
 jsn
 unf
 spZ
@@ -66918,7 +66933,7 @@ cxb
 axE
 hvn
 cHO
-fBX
+nNw
 qyk
 qyk
 qyk
@@ -67075,8 +67090,8 @@ gog
 axE
 hvn
 jQH
-mbj
-mnG
+fBX
+pge
 mxz
 lNY
 jsn
@@ -68167,7 +68182,7 @@ vcT
 vcT
 hvn
 hvn
-hrK
+cxb
 wze
 cxb
 rcN
