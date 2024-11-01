@@ -191,7 +191,7 @@
 					else if(bronzealloy == 7)
 						testing("BRONZE ALLOYED")
 						alloy = /obj/item/ingot/bronze
-					else if(blacksteelalloy == 7)
+					else if(blacksteelalloy == 15)
 						testing("BLACKSTEEL ALLOYED")
 						alloy = /obj/item/ingot/blacksteel
 					else
