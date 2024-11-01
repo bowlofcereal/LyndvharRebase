@@ -51,7 +51,7 @@
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 2)
 			H.change_stat("intelligence", 1)
-			H.change_stat("speed", 1)
+			H.change_stat("speed", -1)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 			var/weapons = list("Bastard Sword","Flail","Spear")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
@@ -96,7 +96,7 @@
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 2)
 			H.change_stat("intelligence", 1)
-			H.change_stat("speed", 1)
+			H.change_stat("speed", -1)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 			var/weapons = list("Bastard Sword","Flail","Spear")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
