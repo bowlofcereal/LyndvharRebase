@@ -59,8 +59,8 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
-	beltl = /obj/item/storage/keyring/guardcastle
 	belt = /obj/item/storage/belt/rogue/leather/black
+	beltl = /obj/item/storage/keyring/guardcastle
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(/obj/item/signal_horn = 1)
 
@@ -99,11 +99,11 @@
 	H.verbs |= /mob/proc/haltyell
 
 
-	H.change_stat("strength", 2) //HEY, YOU, BEFORE YOU CHANGE THIS BECAUSE SOMEONE TOOK A STAT PACK WITH -STR: this is specifically because people extremely oftenly broke the 15/16 str threshhold. don't do it.
-	H.change_stat("constitution", 2)
+	H.change_stat("strength", 3) //more strength in exchange for speed and int debuffs and less con/end than foot knight - stats are still worse than templar, pls don't throw a tantrum over 1 extra point of strength
+	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 2)
-	H.change_stat("perception", 1)
-	H.change_stat("speed", -2)		//Lower speed for more strength and con vs other knight, and to off-set endurance. (They need the end-stam for 2 handed.)
+	H.change_stat("speed", -2)
+	H.change_stat("intelligence", -1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Great Mace","Battle Axe", "Estoc")
@@ -112,7 +112,7 @@
 	switch(weapon_choice)
 		if("Zweihander") 	// A two-handed sword, but not the strongest one
 			r_hand = /obj/item/rogueweapon/greatsword/zwei
-		if("Great Mace")	// Great-mace, 2-handed (worse than normal steel but better than iron)
+		if("Great Mace")	// Great-mace, 2-handed
 			r_hand = /obj/item/rogueweapon/mace/goden/steel
 		if("Battle Axe")	// Why did heavy knights get a mace+shield combo if they're supposed to be the two-hander guys? Gives them a greataxe instead.
 			r_hand = /obj/item/rogueweapon/stoneaxe/battle
@@ -159,10 +159,9 @@
 	H.verbs |= /mob/proc/haltyell
 
 	H.change_stat("strength", 2)
-	H.change_stat("constitution", 1)
-	H.change_stat("endurance", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("speed", -1)			//Bit faster than a heavy knight, not as fast as a mounted knight.
+	H.change_stat("constitution", 2)
+	H.change_stat("endurance", 3)
+	H.change_stat("intelligence", 1) // rounded starting stats, less strength than heavy knight but better con/end/int and no speed debuff
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Bastard Sword","Flail")
@@ -217,25 +216,31 @@
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()		//For knightly voices; even though I despise them.
 	H.verbs |= /mob/proc/haltyell
 
-	H.change_stat("strength", 1)			//Worse strength than others, but bonus intel and no speed penalty.
-	H.change_stat("intelligence", 2)
-	H.change_stat("constitution", 1)
+	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1)
-	H.change_stat("perception", 2) //really? nobody gave the mounted class with bow/crossbow skill perception? ok, dude lmao
+	H.change_stat("perception", 3)
+	H.change_stat("speed", 1) //mounted class focused on polearms and/or archery, less strength/con/end than other classes, but higher perception and +1 speed
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Bastard Sword","Spear")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
-		if("Bastard Sword")
-			beltr = /obj/item/rogueweapon/sword/long
-			backl = /obj/item/rogueweapon/shield/tower/metal
-		if("Spear")
+		if("Bastard Sword + Recurve Bow")
+			r_hand = /obj/item/rogueweapon/sword/long
+			beltr = /obj/item/quiver/arrows
+			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+
+		if("Mace + Crossbow")
+			r_hand = /obj/item/rogueweapon/mace
+			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+			beltr = /obj/item/quiver/bolts
+		
+		if ("Spear + Shield")
 			r_hand = /obj/item/rogueweapon/spear
 			backl = /obj/item/rogueweapon/shield/tower/metal
 
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
-	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/coatplates		//given because it's less durability than the steel cuirass but is actually heavy, making use of their heavy skill, unlike cuirass
+	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/coatplates	//given because it's less durability than the steel cuirass but is actually heavy, making use of their heavy skill, unlike cuirass
 
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1)

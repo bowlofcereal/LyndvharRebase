@@ -6241,6 +6241,17 @@
 "goh" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/cell)
+"goi" = (
+/obj/structure/fluff/walldeco/customflag{
+	pixel_x = -32;
+	pixel_y = 0
+	},
+/obj/machinery/light/rogue/torchholder{
+	dir = 4;
+	icon_state = "torchwall1"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/town)
 "gou" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/structure/toilet,
@@ -8381,9 +8392,12 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "iAu" = (
-/obj/structure/flora/roguegrass/bush,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/outdoors/town)
+/obj/structure/fluff/railing/border{
+	icon_state = "border";
+	dir = 10
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "iAW" = (
 /obj/structure/fluff/statue/myth{
 	icon_state = "knightstatue_l"
@@ -8825,11 +8839,9 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/shop)
 "iYk" = (
-/obj/structure/fluff/walldeco/customflag{
-	pixel_y = 32
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/town)
+/obj/machinery/light/rogue/torchholder/c,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "iYA" = (
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/cobble,
@@ -9964,9 +9976,11 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/chapel)
 "kni" = (
-/obj/structure/bars/cemetery,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/outdoors/town)
+/obj/structure/fluff/walldeco/customflag{
+	pixel_y = 32
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "kob" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -11281,6 +11295,13 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
+"lpX" = (
+/obj/structure/fluff/railing/border{
+	icon_state = "border"
+	},
+/obj/machinery/light/rogue/torchholder/l,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "lql" = (
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/tile/masonic{
@@ -11608,6 +11629,13 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/dwarfin)
+"lJa" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 4;
+	icon_state = "torchwall1"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/town)
 "lJD" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/outdoors/rtfield)
@@ -12203,6 +12231,12 @@
 	icon_state = "plating2"
 	},
 /area/rogue/indoors/town/dwarfin)
+"mnG" = (
+/obj/structure/rack/rogue,
+/obj/item/natural/saddle,
+/obj/item/natural/saddle,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "moy" = (
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/rogue/cobblerock,
@@ -12350,12 +12384,11 @@
 	},
 /area/rogue/outdoors/mountains)
 "mxz" = (
-/obj/machinery/light/rogue/firebowl/stump,
-/obj/effect/decal/cobbleedge{
-	dir = 6
+/obj/machinery/light/rogue/torchholder/l{
+	dir = 8
 	},
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "mxK" = (
 /obj/structure/bars,
 /turf/open/floor/rogue/tile{
@@ -13623,13 +13656,9 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
 "nMv" = (
-/obj/structure/flora/roguegrass,
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-n"
-	},
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/outdoors/town)
+/obj/item/rogueweapon/sword/long,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement)
 "nMT" = (
 /obj/structure/flora/newleaf/corner{
 	dir = 10
@@ -13644,9 +13673,14 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "nNw" = (
-/obj/structure/mineral_door/bars,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/town)
+/obj/structure/mineral_door/swing_door{
+	name = "stables";
+	lockid = "manor";
+	locked = 1;
+	keylock = 1
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "nNJ" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -15916,13 +15950,7 @@
 /area/rogue/indoors/town/church/chapel)
 "pPS" = (
 /obj/machinery/light/rogue/torchholder/l,
-/obj/effect/decal/cobbleedge{
-	dir = 5
-	},
-/obj/effect/decal/cobbleedge{
-	dir = 9
-	},
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
 "pQl" = (
 /obj/structure/fluff/railing/wood{
@@ -19314,9 +19342,11 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "tjy" = (
-/obj/machinery/light/rogue/torchholder/c,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/outdoors/town)
+/obj/structure/fluff/railing/border{
+	icon_state = "border"
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "tkf" = (
 /obj/structure/fluff/canopy/booth/booth_green02,
 /obj/structure/mineral_door/wood/deadbolt/shutter,
@@ -40192,7 +40222,7 @@ qnd
 qnd
 pDE
 xpt
-xpt
+nMv
 iFg
 pTh
 xpt
@@ -65164,8 +65194,8 @@ hvn
 oUz
 bHt
 hRm
+hRm
 oUz
-dZn
 dZn
 dZn
 hRm
@@ -65317,12 +65347,12 @@ pJn
 gFH
 gSm
 hvn
-cHO
+hvn
 pPS
 hvn
 hvn
+hvn
 oUz
-prO
 dZn
 dZn
 hRm
@@ -65471,15 +65501,15 @@ pJn
 pJn
 pJn
 pJn
-cxb
-axE
+pJn
+gSm
 hvn
-jQH
+cHO
+hvn
 hvn
 hvn
 hvn
 iXt
-dZn
 dZn
 dZn
 oUz
@@ -65631,12 +65661,12 @@ pzz
 cxb
 axE
 fFN
-tVC
-pkG
-kni
-pkG
+jQH
+waT
+mbj
+mbj
+waT
 jsn
-dZn
 dZn
 hWO
 oUz
@@ -65787,13 +65817,13 @@ wze
 cxb
 cxb
 axE
-nMv
+bvN
 tVC
-wze
-tVC
-uHq
+mbj
+xSN
+lpX
+ugU
 jsn
-dZn
 dZn
 dZn
 wfx
@@ -65941,16 +65971,16 @@ tVC
 cxb
 uHq
 wze
-cxb
+jjX
 cxb
 axE
 hvn
 mXm
-wze
-tVC
-uHq
+fBX
+qyk
+tjy
+ugU
 jsn
-ett
 dZn
 dZn
 iXt
@@ -66103,11 +66133,11 @@ cxb
 axE
 hvn
 hvn
-wze
-tVC
-uHq
+mbj
+iYk
+iAu
+eKn
 jsn
-wfx
 ett
 mjI
 bqd
@@ -66253,18 +66283,18 @@ vcT
 tVC
 iiP
 tVC
+uHq
 pkG
-pkG
-cxb
+bOa
 cxb
 axE
 hvn
 hvn
-wze
-tVC
-uHq
+waT
+kni
+qyk
+qyk
 jsn
-wfx
 wMD
 wMD
 wfx
@@ -66410,17 +66440,17 @@ vcT
 tVC
 tVC
 tVC
+tVC
 wze
-jjX
 cxb
 cxb
 axE
 hvn
 hvn
-wze
-tVC
-uHq
-jsn
+nNw
+qyk
+qyk
+qyk
 jsn
 iCl
 spZ
@@ -66565,19 +66595,19 @@ fjC
 xfU
 vcT
 vcT
+kNe
 tVC
 tVC
 wze
-cxb
-cxb
+jjX
 cxb
 axE
 hvn
 hvn
-wze
-tVC
-tVC
-uHq
+waT
+kni
+qyk
+qyk
 jsn
 vIC
 spZ
@@ -66724,17 +66754,17 @@ jVR
 vcT
 uHq
 tVC
+tVC
 wze
-jjX
 cxb
-gog
+cxb
 axE
 hvn
 hvn
-wze
-tVC
-tVC
-iAu
+mbj
+iYk
+qyk
+qyk
 jsn
 unf
 spZ
@@ -66881,17 +66911,17 @@ vcT
 vcT
 uHq
 tVC
+tVC
 wze
 cxb
 cxb
-gog
 axE
 hvn
-hvn
-wze
-tVC
-tVC
-tVC
+cHO
+fBX
+qyk
+qyk
+qyk
 jsn
 jsn
 wMS
@@ -67038,18 +67068,18 @@ dev
 vcT
 vcT
 hvn
+hvn
 pkG
 pzz
-gog
 gog
 axE
 hvn
 jQH
-wze
-kNe
-tVC
-tVC
-uHq
+mbj
+mnG
+mxz
+lNY
+jsn
 jsn
 jsn
 wJI
@@ -67196,18 +67226,18 @@ dev
 vcT
 hvn
 hvn
-cxb
+hvn
 gog
 wAa
 axE
 hvn
 jQH
-pkG
-wze
-nNw
-wze
-wze
-wDh
+waT
+mbj
+mbj
+waT
+jsn
+jsn
 jsn
 jsn
 jsn
@@ -67352,29 +67382,29 @@ nJG
 nJG
 jSY
 hvn
-tVC
-ezZ
+hvn
+qHJ
 ezZ
 ezZ
 hvn
 hvn
-hvn
+mXm
 jQH
 hvn
 hvn
+lJa
 hvn
-hvn
-hvn
+mXm
 tVC
 jQH
 hvn
-rjw
+goi
 hvn
 rjw
 hIP
 pJn
 pJn
-pJn
+pIO
 pJn
 pJn
 pJn
@@ -67508,8 +67538,8 @@ oQd
 oQd
 oQd
 vcT
-tjy
-tVC
+iSL
+hvn
 nCN
 hvn
 hvn
@@ -67665,7 +67695,7 @@ boY
 boY
 boY
 jSY
-tVC
+hvn
 hvn
 rJM
 oCz
@@ -67683,7 +67713,7 @@ oCz
 oCz
 oCz
 oCz
-mxz
+fzp
 pJn
 bJK
 pJn
@@ -67823,10 +67853,10 @@ cFH
 fQc
 vcT
 hvn
-pkG
-iYk
-cxb
+hvn
+hvn
 gog
+pMK
 gog
 gog
 gog
@@ -67837,7 +67867,7 @@ djr
 eTM
 gog
 cxb
-cxb
+bOa
 kPr
 gqi
 gqi
@@ -67981,8 +68011,8 @@ vcT
 vcT
 hvn
 hvn
-hvn
-rcN
+pkG
+pzz
 cxb
 gog
 gog
@@ -68137,10 +68167,10 @@ vcT
 vcT
 hvn
 hvn
-hvn
+hrK
+wze
 cxb
-cxb
-cxb
+rcN
 cxb
 cxb
 cxb
@@ -68295,9 +68325,9 @@ vcT
 hvn
 hvn
 cxb
+wze
 cxb
-tiD
-tiD
+cxb
 cxb
 cxb
 cxb
@@ -68451,7 +68481,7 @@ trF
 vcT
 hvn
 hvn
-eCj
+bOa
 dQZ
 fJa
 fJa
@@ -91218,8 +91248,8 @@ vcT
 vcT
 xFr
 xRi
+sux
 vtR
-qhb
 qhb
 qhb
 qhb
@@ -91374,9 +91404,9 @@ dcq
 fUi
 vcT
 qlw
+xFr
 sWM
 atE
-qhb
 qhb
 qhb
 qhb
@@ -91531,9 +91561,9 @@ cZf
 dcq
 oDn
 xFr
+xFr
 sWM
 atE
-qhb
 qhb
 qhb
 qhb
@@ -91689,8 +91719,8 @@ fjC
 oDn
 xFr
 xFr
+xFr
 atE
-qhb
 qhb
 qhb
 qhb
@@ -91846,8 +91876,8 @@ eon
 vcT
 xFr
 xFr
+xFr
 atE
-qhb
 qhb
 qhb
 qhb
@@ -92003,8 +92033,8 @@ fjC
 oDn
 xFr
 xFr
+xFr
 atE
-qhb
 qhb
 qhb
 qhb
@@ -92159,9 +92189,9 @@ sQg
 dcq
 oDn
 xFr
+xFr
 sWM
 atE
-qhb
 qhb
 qhb
 qhb
@@ -92316,9 +92346,9 @@ dcq
 stT
 vcT
 qlw
+xFr
 sWM
 atE
-qhb
 qhb
 qhb
 qhb
@@ -92474,8 +92504,8 @@ vcT
 vcT
 xFr
 nRX
+rkX
 gzW
-qhb
 qhb
 qhb
 qhb
