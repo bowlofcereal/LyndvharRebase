@@ -99,7 +99,7 @@
 	H.verbs |= /mob/proc/haltyell
 
 
-	H.change_stat("strength", 3) //more strength in exchange for heavy speed/perception debuff and less end/con than foot knight - stats are still worse than templar, pls don't throw a tantrum over 1 extra point of strength
+	H.change_stat("strength", 3) //more strength in exchange for heavy speed debuff and less end/con than foot knight - stats are still worse than templar, pls don't throw a tantrum over 1 extra point of strength
 	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 2)
 	H.change_stat("speed", -2)
@@ -159,7 +159,7 @@
 
 	H.change_stat("strength", 2)
 	H.change_stat("constitution", 2)
-	H.change_stat("endurance", 3) // well-rounded starting stats, less strength than heavy knight but better end/con and no speed/perception debuff
+	H.change_stat("endurance", 3) // well-rounded starting stats, less strength than heavy knight but better end/con and no speed debuff
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Bastard Sword","Flail")
