@@ -8,7 +8,7 @@
 	allowed_races = RACES_ALL_KINDS
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
-	tutorial = "Having proven yourself both loyal and capable, you have been knighted to serve the realm as the monarch's personal guard. You listen to your Liege and the Captain of the Guard, defending your Lord and realm."
+	tutorial = "Having proven yourself both loyal and capable, you have been knighted to serve the realm as the Grand Duke's personal guard. You listen to your Liege and the Captain of the Guard, defending your Lord and realm."
 	display_order = JDO_KNIGHT
 	whitelist_req = TRUE
 	outfit = /datum/outfit/job/roguetown/knight
@@ -18,6 +18,7 @@
 	noble_income = 10
 	min_pq = 4
 	max_pq = null
+	round_contrib_points = 2
 
 	cmode_music = 'sound/music/combat_knight.ogg'
 
