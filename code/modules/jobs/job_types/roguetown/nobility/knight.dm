@@ -80,6 +80,8 @@
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)			//Heavy-knight so not as good at riding. Don't crush your mount!
+	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)		
+	H.mind.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)			//these guys suck with ranged weapons compared to other knights
 
 	//Normal shared skill section.
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
@@ -88,8 +90,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	//Knights should be used to the horrors of war if they're tride-and-true.
@@ -99,10 +99,12 @@
 	H.verbs |= /mob/proc/haltyell
 
 
-	H.change_stat("strength", 3) //more strength in exchange for heavy speed debuff and less end/con than foot knight - stats are still worse than templar, pls don't throw a tantrum over 1 extra point of strength
-	H.change_stat("constitution", 1)
-	H.change_stat("endurance", 2)
-	H.change_stat("speed", -2)
+	H.change_stat("strength", 2) //tanky, two-handed melee brutes. more endurance/con than other classes in exchange for a small speed/perception debuff and worse bow skills
+	H.change_stat("constitution", 3)
+	H.change_stat("endurance", 3)
+	H.change_stat("intelligence", 1)
+	H.change_stat("speed", -1)
+	H.change_stat("perception", -1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Great Mace","Battle Axe", "Estoc")
@@ -139,6 +141,8 @@
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)		//Mildly better shield skill due to less weapon options, kind of their specialty
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)			//Foot-knight so not as good at riding.
+	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 
 	//Normal shared skill section.
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
@@ -147,8 +151,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	//Knights should be used to the horrors of war if they're tride-and-true.
@@ -159,7 +161,8 @@
 
 	H.change_stat("strength", 2)
 	H.change_stat("constitution", 2)
-	H.change_stat("endurance", 3) // well-rounded starting stats, less strength than heavy knight but better end/con and no speed debuff
+	H.change_stat("endurance", 2) // generalist sword/shield infantry
+	H.change_stat("intelligence", 1) //was asked to give them each +1 intelligence
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Bastard Sword","Flail")
@@ -194,8 +197,8 @@
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)		//gave mounted knights maces instead of flails because we only have the one-handed flails currently and maces were more commonly used on horseback
 	H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)		//Mildly better shield skill due to less weapon options.
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)			//this is their THING
-	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 
 	//Normal shared skill section.
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
@@ -204,8 +207,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	//Knights should be used to the horrors of war if they're tride-and-true.
@@ -215,9 +216,11 @@
 	H.verbs |= /mob/proc/haltyell
 
 	H.change_stat("strength", 1)
-	H.change_stat("endurance", 2)
-	H.change_stat("perception", 3)
-	H.change_stat("speed", 1) //mounted class focused on archery and/or polearms, less strength/con than other classes, but higher perception and +1 speed
+	H.change_stat("endurance", 1)
+	H.change_stat("constitution", 1)
+	H.change_stat("perception", 2)
+	H.change_stat("speed", 1)
+	H.change_stat("intelligence", 1) // excels at riding, archery, and polearms - less strength/con/end than other classes, but higher perception/speed
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Sword + Recurve Bow","Mace + Crossbow","Spear + Shield")
