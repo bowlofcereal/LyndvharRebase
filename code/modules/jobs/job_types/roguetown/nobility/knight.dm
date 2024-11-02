@@ -216,9 +216,8 @@
 
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("perception", 2)
-	H.change_stat("speed", 1) //mounted class focused on archery and/or polearms, less strength/con than other classes, but higher perception/intelligence and +1 speed
+	H.change_stat("perception", 3)
+	H.change_stat("speed", 1) //mounted class focused on archery and/or polearms, less strength/con than other classes, but higher perception and +1 speed
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Sword + Recurve Bow","Mace + Crossbow","Spear + Shield")
