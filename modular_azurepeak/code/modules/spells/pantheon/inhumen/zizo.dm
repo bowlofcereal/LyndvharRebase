@@ -4,6 +4,7 @@
 	name = "Profane"
 	desc = "Fire forth a splinter of unholy bone, tearing flesh and causing bleeding. If you hold pieces of bone in your other hand, you will coax a much stronger lance of bone into being."
 	clothes_req = FALSE
+	overlay_state = "profane"
 	range = 8
 	associated_skill = /datum/skill/magic/arcane
 	projectile_type = /obj/projectile/magic/profane
@@ -90,6 +91,7 @@
 /obj/effect/proc_holder/spell/invoked/raise_lesser_undead/miracle
 	miracle = TRUE
 	devotion_cost = 75
+	cabal_affine = TRUE
 
 // T3: Rituos (usable once per sleep cycle, allows you to choose any 1 arcane spell to use for the duration w/ an associated devotion cost. each time you change it, 1 of your limbs is skeletonized, if all of your limbs are skeletonized, you gain access to arcane magic. continuing to use rituos after being fully skeletonized gives you additional spellpoints). Gives you the MOB_UNDEAD flag (needed for skeletonize to work) on first use.
 
@@ -97,6 +99,7 @@
 	name = "Rituos"
 	desc = "Draw upon the Lesser Work of She Who Is Z, and expunge the trappings of mortal flesh from your form in exchange for power unimaginable. Be warned: indulging in even the first step of this ritual will make you more deadite than not..."
 	clothes_req = FALSE
+	overlay_state = "rituos"
 	associated_skill = /datum/skill/magic/arcane
 	chargedloop = /datum/looping_sound/invokeholy
 	chargedrain = 0
@@ -193,6 +196,7 @@
 		to_chat(user, span_smallred("I have forsaken the living. I am now closer to a deadite than a mortal... but I still yet draw breath and bleed."))
 	
 	part_to_bonify.skeletonize(FALSE)
+	user.update_body_parts()
 	user.visible_message(span_warning("Faint runes flare beneath [user]'s skin before [user.p_their()] flesh suddenly slides away from [user.p_their()] [part_to_bonify.name]!"), span_notice("I feel arcyne power surge throughout my frail mortal form, as the Rituos takes its terrible price from my [part_to_bonify.name]."))
 
 	if (user.mind?.rituos_spell)
@@ -206,6 +210,7 @@
 	if (post_rituos)
 		//everything but our head is skeletonized now, so grant them journeyman rank and 3 extra spellpoints to grief people with
 		user.mind?.adjust_skillrank(/datum/skill/magic/arcane, 3, TRUE)
+		user.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 		user.mind?.adjust_spellpoints(3)
 		user.visible_message(span_boldwarning("[user]'s form swells with terrible power as they cast away almost all of the remnants of their mortal flesh, arcyne runes glowing upon their exposed bones..."), span_notice("I HAVE DONE IT! I HAVE COMPLETED HER LESSER WORK! I stand at the cusp of unspeakable power, but something is yet missing..."))
 		if (prob(33))
