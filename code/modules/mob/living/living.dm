@@ -1926,8 +1926,8 @@
 	if(!can_look_up())
 		return
 	changeNext_move(CLICK_CD_MELEE)
-	if(m_intent != MOVE_INTENT_SNEAK)
-		visible_message(span_info("[src] looks up."))
+	/*if(m_intent != MOVE_INTENT_SNEAK)
+		visible_message(span_info("[src] looks up."))*/
 	var/turf/ceiling = get_step_multiz(src, UP)
 	var/turf/T = get_turf(src)
 	if(!ceiling) //We are at the highest z-level.
@@ -1992,8 +1992,8 @@
 		ttime = 10 - (STAPER - 5)
 		if(ttime < 0)
 			ttime = 0
-	if(m_intent != MOVE_INTENT_SNEAK)
-		visible_message(span_info("[src] looks into the distance."))
+	/*if(m_intent != MOVE_INTENT_SNEAK)
+		visible_message(span_info("[src] looks into the distance."))*/
 	animate(client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, ttime)
 //	RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(stop_looking))
 	update_cone_show()

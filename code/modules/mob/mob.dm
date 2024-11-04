@@ -440,7 +440,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		to_chat(src, span_warning("Something is there but I can't see it!"))
 		return
 
-	if(isliving(src))
+	/*if(isliving(src))
 		var/message = "[src] looks at"
 		var/target = "\the [A]"
 		if(!isturf(A))
@@ -458,7 +458,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 					target = "\the [T.name]'s [T.simple_limb_hit(zone_selected)]"
 				if(iscarbon(T) && T != src)
 					target = "[T]'s [parse_zone(zone_selected)]"
-			visible_message(span_emote("[message] [target]."))
+			visible_message(span_emote("[message] [target]."))*/
 
 	var/list/result = A.examine(src)
 	if(result)
