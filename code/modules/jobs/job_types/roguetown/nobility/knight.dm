@@ -103,7 +103,7 @@
 	H.change_stat("constitution", 3)
 	H.change_stat("endurance", 3)
 	H.change_stat("intelligence", 1)
-	H.change_stat("speed", -2)
+	H.change_stat("speed", -1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Great Mace","Battle Axe", "Estoc")
