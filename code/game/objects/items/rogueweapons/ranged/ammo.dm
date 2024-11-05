@@ -35,7 +35,7 @@
 					to_chat(s_user, span_red("The silver projectile fails!"))
 					H.visible_message(H, span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
 			if(W && W.transformed == TRUE)
-				H.visible_message("<font color='white'>The silver projectile weakens the curse temporarily!</font>")
+				H.visible_message(span_info("The silver projectile weakens the curse temporarily!"))
 				to_chat(H, span_userdanger("I'm hit by my BANE!"))
 				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 				src.last_used = world.time
