@@ -32,7 +32,7 @@
 					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 					src.last_used = world.time
 				if(V_lord.vamplevel == 4 && !V)
-					to_chat(s_user, "<font color='red'> The silver projectile fails!</font>")
+					to_chat(s_user, span_red("The silver projectile fails!"))
 					H.visible_message(H, span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
 			if(W && W.transformed == TRUE)
 				H.visible_message("<font color='white'>The silver projectile weakens the curse temporarily!</font>")
