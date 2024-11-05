@@ -27,7 +27,7 @@
 					src.last_used = world.time
 			if(V_lord)
 				if(V_lord.vamplevel < 4 && !V)
-					H.visible_message("<font color='white'>The silver projectile weakens the curse temporarily!</font>")
+					H.visible_message(span_info("The silver projectile weakens the curse temporarily!"))
 					to_chat(H, span_userdanger("I'm hit by my BANE!"))
 					H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
 					src.last_used = world.time
