@@ -61,7 +61,7 @@
 					H.mind.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
 					backr = /obj/item/rogueweapon/stoneaxe/battle
 			H.change_stat("strength", 2)
-			H.change_stat("endurance", 2) // 7 stat points total as a low-skill martial role without magic. Compared to Pally with 5 points.
+			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 2)
 			H.change_stat("speed", 1)
 			armor = /obj/item/clothing/suit/roguetown/armor/plate
