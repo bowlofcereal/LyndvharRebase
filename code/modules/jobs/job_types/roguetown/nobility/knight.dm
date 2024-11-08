@@ -80,7 +80,7 @@
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)			//Heavy-knight so not as good at riding. Don't crush your mount!
-	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)		
+	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)			//these guys suck with ranged weapons compared to other knights
 
 	//Normal shared skill section.
@@ -100,9 +100,9 @@
 
 
 	H.change_stat("strength", 2) //tanky, two-handed melee brutes. more endurance/con than other classes in exchange for a heavy speed debuff and worse bow skills
-	H.change_stat("constitution", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("intelligence", 1)
+	H.change_stat("constitution", 2)
+	H.change_stat("endurance", 2)
+	H.change_stat("intelligence", 2)
 	H.change_stat("speed", -1)
 
 	H.adjust_blindness(-3)
@@ -159,7 +159,7 @@
 	H.verbs |= /mob/proc/haltyell
 
 	H.change_stat("strength", 2)
-	H.change_stat("constitution", 2)
+	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 2) // generalist sword/shield infantry
 	H.change_stat("intelligence", 1) //was asked to give them each +1 intelligence
 
@@ -235,7 +235,7 @@
 			r_hand = /obj/item/rogueweapon/mace
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 			beltr = /obj/item/quiver/bolts
-		
+
 		if ("Spear + Shield")
 			r_hand = /obj/item/rogueweapon/spear
 			backl = /obj/item/rogueweapon/shield/tower/metal
