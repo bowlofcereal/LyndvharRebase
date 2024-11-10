@@ -104,28 +104,19 @@
 	category_tags = list(CTAG_LADY)
 	
 /datum/outfit/job/roguetown/lady/consortintrigue/pre_equip(mob/living/carbon/human/H)
+	pants = /obj/item/clothing/under/roguetown/tights/black
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/white
+	belt = /obj/item/storage/belt/rogue/leather/steel
+	beltl = /obj/item/storage/keyring/royal
+	beltr = /obj/item/rogueweapon/sword/rapier
+	shoes = /obj/item/clothing/shoes/roguetown/boots
+	backr = /obj/item/storage/backpack/rogue/satchel
+	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
+	id = /obj/item/clothing/ring/silver
 	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
-		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = shirt = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
-		shoes = /obj/item/clothing/shoes/roguetown/boots
-		belt = /obj/item/storage/belt/rogue/leather/steel
-		beltl = /obj/item/storage/keyring/royal
-		beltr = /obj/item/rogueweapon/sword/rapier
-		backr = /obj/item/storage/backpack/rogue/satchel
-		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-		id = /obj/item/clothing/ring/silver
 	else
-		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
-		shoes = /obj/item/clothing/shoes/roguetown/boots
-		belt = /obj/item/storage/belt/rogue/leather/steel
-		beltl = /obj/item/storage/keyring/royal
-		beltr = /obj/item/rogueweapon/sword/rapier
-		backr = /obj/item/storage/backpack/rogue/satchel
-		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-		id = /obj/item/clothing/ring/silver
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
