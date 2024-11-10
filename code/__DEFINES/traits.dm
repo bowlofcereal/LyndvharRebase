@@ -165,6 +165,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_FORTITUDE = span_info("The typical drain I feel from day to day life is lessened, my athleticism greater."),
 	TRAIT_GUIDANCE = span_info("Arcyne assistance guides my weapons."),
 	TRAIT_DEPRAVED = span_info("The languid scent of Her debauchery is known to me, and I can detect its sordid presence upon others.")
+	TRAIT_LIMPDICK = span_warning("My little soldier isn't quite able to rise to the occasion...")
 ))
 
 // trait accessor defines
