@@ -46,10 +46,15 @@
 	category_tags = list(CTAG_LADY)
 	
 /datum/outfit/job/roguetown/lady/consortwar/pre_equip(mob/living/carbon/human/H)
+	beltl = /obj/item/storage/keyring/royal
+	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
+	belt = /obj/item/storage/belt/rogue/leather/steel
+	pants = /obj/item/clothing/under/roguetown/tights/black
+	id = /obj/item/clothing/ring/silver
+	beltr = /obj/item/rogueweapon/sword/sabre
+	backr = /obj/item/storage/backpack/rogue/satchel
+	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
-		beltl = /obj/item/storage/keyring/royal
-		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-		belt = /obj/item/storage/belt/rogue/leather/steel
 		if(isdwarf(H))
 			armor = /obj/item/clothing/suit/roguetown/shirt/dress
 		else
@@ -57,23 +62,10 @@
 				armor = /obj/item/clothing/suit/roguetown/armor/armordress/alt
 			else
 				armor = /obj/item/clothing/suit/roguetown/armor/armordress
-		pants = /obj/item/clothing/under/roguetown/tights/black
-		id = /obj/item/clothing/ring/silver
-		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 		shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-		beltr = /obj/item/rogueweapon/sword/sabre
-		backr = /obj/item/storage/backpack/rogue/satchel
 	else
-		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 		armor = /obj/item/clothing/suit/roguetown/armor/chainmail
-		shoes = /obj/item/clothing/shoes/roguetown/shortboots
-		belt = /obj/item/storage/belt/rogue/leather/steel
-		beltl = /obj/item/storage/keyring/royal
-		beltr = /obj/item/rogueweapon/sword/sabre
-		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-		backr = /obj/item/storage/backpack/rogue/satchel
-		id = /obj/item/clothing/ring/silver
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
@@ -147,36 +139,28 @@
 	category_tags = list(CTAG_LADY)
 	
 /datum/outfit/job/roguetown/lady/consortluxury/pre_equip(mob/living/carbon/human/H)
+	cloak = /obj/item/clothing/cloak/darkcloak/bear
+	backr = /obj/item/storage/backpack/rogue/satchel
+	backl = /obj/item/rogue/instrument/lute
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
+	belt = /obj/item/storage/belt/rogue/leather/plaquegold
+	beltl = /obj/item/storage/belt/rogue/pouch/coins/rich
+	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
+	backpack_contents = list(/obj/item/storage/keyring/royal = 1)
 	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		head = /obj/item/clothing/head/roguetown/nyle
-		cloak = /obj/item/clothing/cloak/darkcloak/bear
 		neck = /obj/item/listenstone
-		backr = /obj/item/storage/backpack/rogue/satchel
-		backl = /obj/item/rogue/instrument/lute
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/black
 		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random
 		id = /obj/item/clothing/ring/gold
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
-		belt = /obj/item/storage/belt/rogue/leather/plaquegold
-		beltl = /obj/item/storage/belt/rogue/pouch/coins/rich
-		beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
-		backpack_contents = list(/obj/item/storage/keyring/royal = 1)
 	else
 		head = /obj/item/clothing/head/roguetown/nightman
-		cloak = /obj/item/clothing/cloak/darkcloak/bear
 		neck = /obj/item/clothing/neck/roguetown/ornateamulet
-		backr = /obj/item/storage/backpack/rogue/satchel
-		backl = /obj/item/rogue/instrument/lute
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		id = /obj/item/scomstone
 		shoes = /obj/item/clothing/shoes/roguetown/nobleboot
-		belt = /obj/item/storage/belt/rogue/leather/plaquegold
-		beltl = /obj/item/storage/belt/rogue/pouch/coins/rich
-		beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
-		backpack_contents = list(/obj/item/storage/keyring/royal = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
