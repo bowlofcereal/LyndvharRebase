@@ -153,8 +153,9 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DECEIVING_MEEKNESS, TRAIT_GENERIC)
 	H.change_stat("strength", 1)
-	H.change_stat("speed", 2)
+	H.change_stat("speed", 3)
 	H.change_stat("intelligence", 1)
 	H.change_stat("perception", 1)
+	H.change_stat("endurance", 1)
 	H.cmode_music = 'sound/music/combat_duelist.ogg'
 	to_chat(H, span_info("I trained as a swashbuckler, flair and precision is my weapon... And some dirty tricks under my cape. I can fool people into underestimating me, their last mistake."))
