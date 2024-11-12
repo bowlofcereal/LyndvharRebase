@@ -54,8 +54,8 @@
 		H.change_stat("speed", 1)
 		H.change_stat("constitution", 1)
 		H.change_stat("perception", 2)
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
-	H.verbs |= /mob/living/carbon/human/proc/faith_test
+	//H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	//H.verbs |= /mob/living/carbon/human/proc/faith_test
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)

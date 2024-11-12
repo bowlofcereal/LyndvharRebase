@@ -69,8 +69,8 @@
 		H.change_stat("perception", 3)
 		H.change_stat("speed", 1)
 		H.change_stat("intelligence", 3)
-	H.verbs |= /mob/living/carbon/human/proc/faith_test
-	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	//H.verbs |= /mob/living/carbon/human/proc/faith_test
+	//H.verbs |= /mob/living/carbon/human/proc/torture_victim
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
