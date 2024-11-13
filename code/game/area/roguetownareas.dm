@@ -404,7 +404,6 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/cave/dungeon1
 	name = "smalldungeon1"
 	icon_state = "spider"
-	first_time_text = "THE ABANDONED FORTRESS"
 	droning_sound = 'sound/music/area/dungeon.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
@@ -671,6 +670,19 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = null
 	first_time_text = "SARGOTH"
 
+/area/rogue/outdoors/roofs
+	name = "wilderness roofs"
+	icon_state = "roofs"
+	ambientsounds = AMB_MOUNTAIN
+	ambientnight = AMB_MOUNTAIN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/field.ogg'
+	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	soundenv = 17
+	converted_type = /area/rogue/indoors/shelter/town/roofs
+
 /area/rogue/outdoors/town/roofs
 	name = "roofs"
 	icon_state = "roofs"
@@ -683,6 +695,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 	soundenv = 17
 	converted_type = /area/rogue/indoors/shelter/town/roofs
+	town_area = TRUE
 
 /area/rogue/outdoors/town/roofs/keep
 	name = "Keep Rooftops"
@@ -713,6 +726,17 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /// under
 
+area/rogue/under/basement
+	name = "wilderness basement"
+	icon_state = "basement"
+	ambientsounds = AMB_BASEMENT
+	ambientnight = AMB_BASEMENT
+	spookysounds = SPOOKY_DUNGEON
+	spookynight = SPOOKY_DUNGEON
+	droning_sound = 'sound/music/area/catacombs.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = null
+	converted_type = /area/rogue/outdoors/exposed/under/basement
 
 /area/rogue/under/town
 	name = "basement"
