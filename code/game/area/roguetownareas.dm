@@ -446,7 +446,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/cave/goblinfort
 	name = "goblinfort"
 	icon_state = "spidercave"
-	first_time_text = "GOBLIN FORT"
+	first_time_text = "GOBLIN FORTRESS"
 	droning_sound = 'sound/music/area/dungeon2.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
