@@ -726,7 +726,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 /// under
 
-area/rogue/under/basement
+/area/rogue/under/basement
 	name = "wilderness basement"
 	icon_state = "basement"
 	ambientsounds = AMB_BASEMENT
