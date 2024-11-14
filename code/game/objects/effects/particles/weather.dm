@@ -1,6 +1,6 @@
 /particles/rain
 		icon = 'icons/roguetown/misc/particles.dmi'
-		icon_state	= list("rain"=5, "rain2"=5, "rain3"=5, "rain4"=2, drop"=1)
+		icon_state	= list("rain"=5, "rain2"=5, "rain3"=5, "rain4"=2, "drop"=1)
 //		icon_state	= list("rain1"=5, "rain2"=6, "rain3"=5)
 		width 		= 928
 		height 		= 928
