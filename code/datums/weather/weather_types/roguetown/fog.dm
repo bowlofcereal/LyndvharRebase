@@ -1,9 +1,9 @@
-/* /datum/weather/fog
+ /datum/weather/fog
 	name = "fog"
 	desc = ""
 
 	telegraph_duration = 10 SECONDS
-	telegraph_message = span_warning("The fog is coming.")
+	telegraph_message = span_warning("The air chills as a dense fog rolls in.")
 	telegraph_sound = 'sound/blank.ogg'
 	weather_message = ""
 	weather_overlay = "rain1"
@@ -31,4 +31,4 @@
 	if(GLOB.forecast != "fog")
 		wind_down()
 		return
-#endif */
+#endif
