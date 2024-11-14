@@ -21,7 +21,8 @@
 	area_type = /area/rogue/outdoors
 	protected_areas = list(/area/rogue/indoors,/area/rogue/under)
 	impacted_z_levels = list()
-	var/lastlightning = 0
+	// var/lastlightning = 0
+	// This is not used but I'm sure it had a purpose at one point
 
 	particles = list(/atom/movable/screen/weather/fog)
 
