@@ -487,7 +487,7 @@
 	wbalance = 1
 
 /datum/intent/sword/cut/sabre
-	clickcd = 10
+	clickcd = 8
 
 /obj/item/rogueweapon/sword/sabre/dec
 	icon_state = "decsaber"
