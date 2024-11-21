@@ -52,3 +52,27 @@
 	additional_items = list(/obj/item/ingot/bronze, /obj/item/roguegear, /obj/item/roguegear)
 	created_item = /obj/item/bodypart/r_arm/prosthetic/bronzeright
 	craftdiff = 4
+
+// ------------ WEAPONS ----------------
+
+/datum/anvil_recipe/engineering/weapons
+	i_type = "Engineering (Weapons)"
+	craftdiff = 2
+
+/datum/anvil_recipe/engineering/ammo
+	i_type = "Engineering (Ammo)"
+	craftdiff = 1
+
+/// CROSSBOWS
+/datum/anvil_recipe/engineering/weapons/steel/xbow
+	req_bar = /obj/item/ingot/steel
+	name = "Crossbow (+1 Small Log) (+1 Fiber)"
+	additional_items = list(/obj/item/grown/log/tree/small, /obj/item/natural/fibers)
+	created_item = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+
+/datum/anvil_recipe/engineering/ammo/iron/bolts
+	name = "Crossbow Bolts 5x (+1 Stick)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/grown/log/tree/stick)
+	created_item = /obj/item/ammo_casing/caseless/rogue/bolt
+	createditem_num = 5

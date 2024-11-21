@@ -24,6 +24,7 @@
 		H.mind.adjust_skillrank(/datum/skill/labor/mining, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
@@ -50,7 +51,9 @@
 	mask = /obj/item/clothing/mask/rogue/spectacles/golden
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(/obj/item/rogueweapon/hammer/claw = 1)
+	// Same stat total as blacksmith (7). Not as much brawn as the blacksmith, but sharper eyes and mind!
 	H.change_stat("strength", 1)
 	H.change_stat("intelligence", 2)
 	H.change_stat("endurance", 1)
 	H.change_stat("constitution", 1)
+	H.change_stat("perception", 2)
