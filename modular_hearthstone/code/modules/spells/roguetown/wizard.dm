@@ -217,9 +217,13 @@
 		/obj/effect/proc_holder/spell/invoked/invisibility,
 		/obj/effect/proc_holder/spell/invoked/blindness,
 		/obj/effect/proc_holder/spell/invoked/projectile/acidsplash5e,
-		/obj/effect/proc_holder/spell/invoked/frostbite5e,
+//		/obj/effect/proc_holder/spell/invoked/frostbite5e,
 		/obj/effect/proc_holder/spell/invoked/guidance,
-		/obj/effect/proc_holder/spell/invoked/fortitude
+		/obj/effect/proc_holder/spell/invoked/fortitude,
+		/obj/effect/proc_holder/spell/invoked/snap_freeze,
+		/obj/effect/proc_holder/spell/invoked/projectile/frostbolt,
+		/obj/effect/proc_holder/spell/invoked/projectile/arcynebolt,
+		/obj/effect/proc_holder/spell/invoked/gravity
 	)
 	for(var/i = 1, i <= spell_choices.len, i++)
 		choices["[spell_choices[i].name]: [spell_choices[i].cost]"] = spell_choices[i]
@@ -265,7 +269,7 @@
 	associated_skill = /datum/skill/magic/arcane
 	var/wall_type = /obj/structure/forcefield_weak/caster
 	xp_gain = TRUE
-	cost = 2
+	cost = 1
 
 //adapted from forcefields.dm, this needs to be destructible
 /obj/structure/forcefield_weak
@@ -277,7 +281,7 @@
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
 	opacity = 0
 	density = TRUE
-	max_integrity = 80
+	max_integrity = 100
 	CanAtmosPass = ATMOS_PASS_DENSITY
 	var/timeleft = 20 SECONDS
 
@@ -333,7 +337,7 @@
 	range = 6
 	overlay_state = "ensnare"
 	var/area_of_effect = 1
-	var/duration = 2.5 SECONDS
+	var/duration = 5 SECONDS
 	var/delay = 0.8 SECONDS
 
 /obj/effect/proc_holder/spell/invoked/slowdown_spell_aoe/cast(list/targets, mob/user = usr)
@@ -428,14 +432,15 @@
 	xp_gain = TRUE
 	releasedrain = 50
 	chargedrain = 1
-	chargetime = 2 SECONDS
-	charge_max = 25 SECONDS
+	chargetime = 5
+	charge_max = 30 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
+	overlay_state = "repulse"
 	var/stun_amt = 5
 	var/maxthrow = 3
 	var/sparkle_path = /obj/effect/temp_visual/gravpush
@@ -487,7 +492,7 @@
 	releasedrain = 30
 	chargedrain = 1
 	chargetime = 20
-	charge_max = 10 SECONDS
+	charge_max = 15 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE
@@ -495,15 +500,15 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	overlay_state = "blade_burst"
-	var/delay = 7
-	var/damage = 120 //trust me, this is still way worse than you think it is
+	var/delay = 14
+	var/damage = 125 //if you get hit by this it's your fault
 	var/area_of_effect = 1
 
 /obj/effect/temp_visual/trap
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "trap"
 	light_range = 2
-	duration = 7
+	duration = 14
 	layer = MASSIVE_OBJ_LAYER
 
 /obj/effect/temp_visual/blade_burst
@@ -833,7 +838,7 @@
 /datum/status_effect/buff/acidsplash5e
 	id = "acid splash"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/acidsplash5e
-	duration = 10 SECONDS
+	duration = 20 SECONDS
 
 /datum/status_effect/buff/acidsplash5e/on_apply()
 	. = ..()
@@ -843,7 +848,7 @@
 
 /datum/status_effect/buff/acidsplash5e/tick()
 	var/mob/living/target = owner
-	target.adjustFireLoss(2)
+	target.adjustFireLoss(3)
 
 /atom/movable/screen/alert/status_effect/buff/acidsplash5e
 	name = "Acid Burn"
@@ -862,14 +867,14 @@
 
 /obj/effect/proc_holder/spell/invoked/frostbite5e
 	name = "Frostbite"
-	desc = "Reach out and touch your enemy with an icy grip that does low damage, but reduces the target's Speed for a considerable length of time."
+	desc = "Freeze your enemy with an icy blast that does low damage, but reduces the target's Speed for a considerable length of time."
 	overlay_state = "null"
 	releasedrain = 50
 	chargetime = 3
 	charge_max = 25 SECONDS
 	//chargetime = 10
 	//charge_max = 30 SECONDS
-	range = 2
+	range = 7
 	warnie = "spellwarning"
 	movement_interrupt = FALSE
 	no_early_release = FALSE
@@ -987,6 +992,241 @@
 		user.visible_message("[user] mutters an incantation and they briefly shine orange.")
 
 	return TRUE
+
+/obj/effect/proc_holder/spell/invoked/snap_freeze // to do: get scroll icon
+	name = "Snap Freeze"
+	desc = "Freeze the air in a small area in an instant, slowing and mildly damaging those affected."
+	cost = 2
+	xp_gain = TRUE
+	releasedrain = 30
+	overlay = 'icons/effects/effects.dmi'
+	overlay_state = "shieldsparkles"
+	chargedrain = 1
+	chargetime = 15
+	charge_max = 13 SECONDS
+	warnie = "spellwarning"
+	no_early_release = TRUE
+	movement_interrupt = FALSE
+	charging_slowdown = 2
+	chargedloop = /datum/looping_sound/invokegen
+	associated_skill = /datum/skill/magic/arcane
+	var/delay = 6
+	var/damage = 50 // less then fireball, more then lighting bolt
+	var/area_of_effect = 2
+
+/obj/effect/temp_visual/trapice
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "blueshatter"
+	light_range = 2
+	light_color = "#4cadee"
+	duration = 6
+	layer = MASSIVE_OBJ_LAYER
+
+/obj/effect/temp_visual/snap_freeze
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "shieldsparkles"
+	name = "rippeling arcyne ice"
+	desc = "Get out of the way!"
+	randomdir = FALSE
+	duration = 1 SECONDS
+	layer = MASSIVE_OBJ_LAYER
+
+
+/obj/effect/proc_holder/spell/invoked/snap_freeze/cast(list/targets, mob/user)
+	var/turf/T = get_turf(targets[1])
+
+	for(var/turf/affected_turf in view(area_of_effect, T))
+		if(affected_turf.density)
+			continue
+		new /obj/effect/temp_visual/trapice(affected_turf)
+	playsound(T, 'sound/combat/wooshes/blunt/wooshhuge (2).ogg', 80, TRUE, soundping = TRUE) // it kinda sounds like cold wind idk
+
+	sleep(delay)
+	var/play_cleave = FALSE
+
+	for(var/turf/affected_turf in view(area_of_effect, T))
+		new /obj/effect/temp_visual/snap_freeze(affected_turf)
+		for(var/mob/living/L in affected_turf.contents)
+			if(L.anti_magic_check())
+				visible_message(span_warning("The ice fades away around you. [L] "))  //antimagic needs some testing
+				playsound(get_turf(L), 'sound/magic/magic_nulled.ogg', 100)
+				return 
+			play_cleave = TRUE
+			L.adjustFireLoss(damage)
+			L.apply_status_effect(/datum/status_effect/buff/frostbite5e/)
+			playsound(affected_turf, "genslash", 80, TRUE)
+			to_chat(L, "<span class='userdanger'>The air chills your bones!</span>")
+
+	if(play_cleave)
+		playsound(T, 'sound/combat/newstuck.ogg', 80, TRUE, soundping = TRUE) // this also kinda sounds like ice ngl
+
+	return TRUE
+
+
+/obj/effect/proc_holder/spell/invoked/projectile/frostbolt // to do: get scroll icon
+	name = "Frost Bolt"
+	desc = "A ray of frozen energy, slowing the first thing it touches and lightly damaging it."
+	range = 8
+	projectile_type = /obj/projectile/magic/frostbolt
+	overlay_state = "null"
+	sound = list('sound/magic/whiteflame.ogg')
+	active = FALSE
+
+	releasedrain = 30
+	chargedrain = 1
+	chargetime = 3
+	charge_max = 13 SECONDS //cooldown
+
+	warnie = "spellwarning"
+	no_early_release = TRUE
+	movement_interrupt = FALSE
+	antimagic_allowed = FALSE //can you use it if you are antimagicked?
+	charging_slowdown = 3
+	chargedloop = /datum/looping_sound/invokegen
+	associated_skill = /datum/skill/magic/arcane //can be arcane, druidic, blood, holy
+	cost = 1
+
+	xp_gain = TRUE
+	miracle = FALSE
+
+/obj/effect/proc_holder/spell/self/frostbolt/cast(mob/user = usr)
+	var/mob/living/target = user
+	target.visible_message(span_warning("[target] hurls a frosty beam!"), span_notice("You hurl a frosty beam!"))
+	. = ..()
+
+/obj/projectile/magic/frostbolt
+	name = "Frost Dart"
+	icon_state = "ice_2"
+	damage = 25
+	damage_type = BURN
+	flag = "magic"
+	range = 10
+	speed = 12 //higher is slower
+	var/aoe_range = 0
+
+/obj/projectile/magic/frostbolt/on_hit(target)
+	. = ..()
+	if(ismob(target))
+		var/mob/M = target
+		if(M.anti_magic_check())
+			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
+			qdel(src)
+			return BULLET_ACT_BLOCK
+		if(isliving(target))
+			var/mob/living/L = target
+			L.apply_status_effect(/datum/status_effect/buff/frostbite5e)
+			new /obj/effect/temp_visual/snap_freeze(get_turf(L))
+	qdel(src)
+
+
+/obj/effect/proc_holder/spell/invoked/projectile/arcynebolt //makes you confused for 2 seconds,
+	name = "Arcyne Bolt"
+	desc = "Shoot out a rapid bolt of arcyne magic that hits on impact. Little damage, but disorienting."
+	clothes_req = FALSE
+	range = 12
+	projectile_type = /obj/projectile/energy/rogue3
+	overlay_state = "force_dart"
+	sound = list('sound/magic/vlightning.ogg')
+	active = FALSE
+	releasedrain = 20
+	chargedrain = 1
+	chargetime = 7
+	charge_max = 20 SECONDS
+	warnie = "spellwarning"
+	no_early_release = TRUE
+	movement_interrupt = FALSE
+	charging_slowdown = 3
+	chargedloop = /datum/looping_sound/invokegen
+	associated_skill = /datum/skill/magic/arcane
+	cost = 1
+
+/obj/projectile/energy/rogue3
+	name = "Arcyne Bolt"
+	icon_state = "arcane_barrage"
+	damage = 30
+	damage_type = BRUTE
+	armor_penetration = 10
+	woundclass = BCLASS_SMASH
+	nodamage = FALSE
+	flag = "bullet"
+	hitsound = 'sound/combat/hits/blunt/shovel_hit2.ogg'
+	speed = 1
+
+/obj/projectile/energy/rogue3/on_hit(target)
+	. = ..()
+	if(ismob(target))
+		var/mob/living/carbon/M = target
+		if(M.anti_magic_check())
+			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
+			qdel(src)
+			return BULLET_ACT_BLOCK
+		M.confused += 3
+		playsound(get_turf(target), 'sound/combat/hits/blunt/shovel_hit2.ogg', 100) //CLANG
+	else
+		return
+
+/obj/effect/proc_holder/spell/invoked/gravity // to do: get scroll icon
+	name = "Gravity"
+	desc = "Weighten space around someone, crushing them and knocking them to the floor. Stronger opponets will resist and be off-balanced."
+	cost = 1
+	xp_gain = TRUE
+	releasedrain = 20
+	chargedrain = 1
+	chargetime = 7
+	charge_max = 15 SECONDS
+	warnie = "spellwarning"
+	no_early_release = TRUE
+	movement_interrupt = FALSE
+	charging_slowdown = 2
+	chargedloop = /datum/looping_sound/invokegen
+	associated_skill = /datum/skill/magic/arcane
+	var/delay = 3
+	var/damage = 0 // damage based off your str 
+	var/area_of_effect = 0
+
+
+
+/obj/effect/proc_holder/spell/invoked/gravity/cast(list/targets, mob/user)
+	var/turf/T = get_turf(targets[1])
+
+	for(var/turf/affected_turf in view(area_of_effect, T))
+		if(affected_turf.density)
+			continue
+			
+
+	for(var/turf/affected_turf in view(area_of_effect, T))
+		new /obj/effect/temp_visual/gravity(affected_turf)
+		playsound(T, 'sound/magic/gravity.ogg', 80, TRUE, soundping = FALSE)
+		for(var/mob/living/L in affected_turf.contents) 
+			if(L.anti_magic_check())
+				visible_message(span_warning("The gravity fades away around you [L] "))  //antimagic needs some testing
+				playsound(get_turf(L), 'sound/magic/magic_nulled.ogg', 100)
+				return 
+
+			if(L.STASTR <= 13)
+				L.adjustBruteLoss(30)
+				L.Knockdown(5)
+				to_chat(L, "<span class='userdanger'>You're magically weighed down, losing your footing!</span>")
+			else
+				L.OffBalance(10)
+				L.adjustBruteLoss(15)
+				to_chat(L, "<span class='userdanger'>You're magically weighed down, and your strength resist!</span>")
+			
+			
+
+/obj/effect/temp_visual/gravity
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "hierophant_squares"
+	name = "gravity magic"
+	desc = "Get out of the way!"
+	randomdir = FALSE
+	duration = 3 SECONDS
+	layer = MASSIVE_OBJ_LAYER
+	light_range = 2
+	light_color = COLOR_PALE_PURPLE_GRAY
+
 
 #undef PRESTI_CLEAN
 #undef PRESTI_SPARK

@@ -50,6 +50,7 @@
 				if("Greatsword")
 					H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 					r_hand = /obj/item/rogueweapon/greatsword/zwei
+					backr = /obj/item/gwstrap
 				if("Mace & Shield")
 					H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 					beltr =/obj/item/rogueweapon/mace/spiked
@@ -104,6 +105,7 @@
 				if("Greatsword")
 					H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 					r_hand = /obj/item/rogueweapon/greatsword/zwei
+					backr = /obj/item/gwstrap
 				if("Mace & Shield")
 					H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 					beltr =/obj/item/rogueweapon/mace/spiked
@@ -115,6 +117,9 @@
 					H.mind.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
 					backr = /obj/item/rogueweapon/stoneaxe/battle
 	backl = /obj/item/storage/backpack/rogue/satchel
+	backpack_contents = list(
+						/obj/item/flashlight/flare/torch = 1,
+						)
 	beltl = /obj/item/rogueweapon/huntingknife
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	gloves = /obj/item/clothing/gloves/roguetown/leather

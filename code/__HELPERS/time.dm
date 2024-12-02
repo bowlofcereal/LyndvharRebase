@@ -1,3 +1,5 @@
+GLOBAL_LIST_INIT(time_change_tips, world.file2list("strings/rt/timechangetips.txt"))
+
 //Returns the world time in english
 /proc/worldtime2text()
 	return gameTimestamp("hh:mm:ss", world.time)
@@ -99,6 +101,9 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 		return null
 
 /mob/living/proc/do_time_change()
+
+//first - tips/lore
+
 	if(!mind)
 		return
 	if(GLOB.tod == "dawn")
@@ -136,11 +141,14 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 		playsound_local(src, 'sound/misc/newday.ogg', 100, FALSE)
 		animate(T, alpha = 255, time = 10, easing = EASE_IN)
 		addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
+		var/time_change_tips_random = pick(GLOB.time_change_tips)
+		to_chat(client, span_notice("<b>[time_change_tips_random]</b>"))
 	var/atom/movable/screen/daynight/D = new()
 	D.alpha = 0
 	client.screen += D
 	animate(D, alpha = 255, time = 20, easing = EASE_IN)
 	addtimer(CALLBACK(src, PROC_REF(clear_time_icon), D), 30)
+
 
 /proc/station_time_debug(force_set)
 	if(isnum(force_set))

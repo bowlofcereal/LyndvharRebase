@@ -9,7 +9,7 @@
 	possible_transfer_amounts = list(6)
 	volume = 48
 	fill_icon_thresholds = list(0, 25, 50, 75, 100)
-	dropshrink = 0.5
+	dropshrink = 0.8
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
 	obj_flags = CAN_BE_HIT
 	spillable = FALSE
@@ -20,6 +20,7 @@
 	fillsounds = list('sound/items/fillcup.ogg')
 	poursounds = list('sound/items/fillbottle.ogg')
 	experimental_onhip = TRUE
+	var/desc_uncorked = "An open bottle, hopefully a cork is close by."
 
 /obj/item/reagent_containers/glass/bottle/update_icon(dont_fill=FALSE)
 	if(!fill_icon_thresholds || dont_fill)
@@ -59,7 +60,7 @@
 		reagent_flags = OPENCONTAINER
 		reagents.flags = reagent_flags
 		playsound(user.loc,'sound/items/uncork.ogg', 100, TRUE)
-		desc = "An open bottle, hopefully a cork is close by."
+		desc = desc_uncorked
 		spillable = TRUE
 	update_icon()
 

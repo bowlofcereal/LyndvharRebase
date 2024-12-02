@@ -10,7 +10,7 @@
 	category_tags = list(CTAG_ADVENTURER)
 
 /datum/outfit/job/roguetown/adventurer/paladin
-	allowed_patrons = ALL_PALADIN_PATRONS
+	allowed_patrons = ALL_PATRONS
 
 /datum/outfit/job/roguetown/adventurer/paladin/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -43,6 +43,9 @@
 		if(/datum/patron/old_god)
 			neck = /obj/item/clothing/neck/roguetown/psicross/silver
 			cloak = /obj/item/clothing/cloak/tabard/crusader/psydon
+		if(/datum/patron/inhumen/zizo) 
+			H.cmode_music = 'sound/music/combat_cult.ogg'
+			neck = /obj/item/roguekey/inhumen
 
 	H.adjust_blindness(-3)
 	var/classes = list("Paladin","Battle Master",)
@@ -83,6 +86,9 @@
 			id = /obj/item/clothing/ring/silver
 			backr = /obj/item/rogueweapon/sword
 			backl = /obj/item/storage/backpack/rogue/satchel
+			backpack_contents = list(
+								/obj/item/flashlight/flare/torch = 1,
+								)
 		if("Battle Master")
 			H.set_blindness(0)
 			to_chat(H, span_warning("You are a battle-master."))
@@ -102,6 +108,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 			H.change_stat("perception", 1)
 			H.change_stat("strength", 2)
 			H.change_stat("constitution", 2)
@@ -117,6 +124,9 @@
 			backr = /obj/item/rogueweapon/flail
 			l_hand = /obj/item/rogueweapon/shield/tower/metal
 			backl = /obj/item/storage/backpack/rogue/satchel
+			backpack_contents = list(
+								/obj/item/flashlight/flare/torch = 1,
+								)
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()

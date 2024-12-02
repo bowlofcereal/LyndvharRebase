@@ -85,7 +85,7 @@
 		))))
 	if(!capped_pre && capped_post && !silent)
 		to_chat(mind.current, span_nicegreen(pick(list(
-			"My [lowertext(skillref.name)] is not gonna get any better without some rest...",
+			"My [lowertext(skillref.name)] can no longer improve without some rest and meditation...",
 		))))
 
 /datum/sleep_adv/proc/advance_cycle()
@@ -268,7 +268,7 @@
 		to_chat(mind.current, span_warning("My glimpse of [mind.rituos_spell.name] flees my slumbering mind..."))
 		mind.RemoveSpell(mind.rituos_spell)
 		mind.rituos_spell = null
-	to_chat(mind.current, span_notice("..and that's all I dreamt of"))
+	to_chat(mind.current, span_notice("...and that's all I dreamt of."))
 	close_ui()
 
 /datum/sleep_adv/Topic(href, list/href_list)

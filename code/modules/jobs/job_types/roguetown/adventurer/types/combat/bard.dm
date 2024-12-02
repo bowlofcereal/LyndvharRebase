@@ -11,6 +11,7 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/bard
 	traits_applied = list(TRAIT_MEDIUMARMOR, TRAIT_DODGEEXPERT)
 	category_tags = list(CTAG_ADVENTURER)
+	cmode_music = 'sound/music/combat_bard.ogg'
 
 /datum/outfit/job/roguetown/adventurer/bard/pre_equip(mob/living/carbon/human/H)
 	..() // The entertaining jack of all trades, uniquely handy with crossbows and swords. They're incredibly well travelled, can sneak, steal and survive on their own.
@@ -56,13 +57,17 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltr = /obj/item/rogueweapon/huntingknife/idagger/steel
-			backpack_contents = list(/obj/item/lockpickring/one = 1)
+			backpack_contents = list(
+							/obj/item/lockpickring/one = 1,
+							/obj/item/flashlight/flare/torch = 1,
+							)
 			H.change_stat("intelligence", 1)
 			H.change_stat("perception", 2)
 			H.change_stat("endurance", 1)
 			H.change_stat("speed", 2)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_SEEPRICES_SHITTY, TRAIT_GENERIC)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 		if("Skald") // Less skilled, better martial prowess. Also a sword!
 			to_chat(H, span_warning("Skalds are wandering storytellers, and for many villages they are local historians keeping the tales of great legends and heroes alive."))
 			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
@@ -97,7 +102,11 @@
 				cloak = /obj/item/clothing/cloak/raincloak/red
 			backl = /obj/item/storage/backpack/rogue/satchel
 			beltl = /obj/item/rogueweapon/sword/iron
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel, /obj/item/storage/belt/rogue/pouch/coins/mid)
+			backpack_contents = list(
+							/obj/item/rogueweapon/huntingknife/idagger/steel,
+							/obj/item/storage/belt/rogue/pouch/coins/mid,
+							/obj/item/flashlight/flare/torch = 1,
+							)
 			H.change_stat("constitution", 2)
 			H.change_stat("strength", 1)
 			H.change_stat("speed", 1)
@@ -134,12 +143,16 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/white
 			cloak = /obj/item/clothing/cloak/raincloak/purple
 			backl = /obj/item/storage/backpack/rogue/satchel
+			backpack_contents = list(
+								/obj/item/flashlight/flare/torch = 1,
+								)
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltr = /obj/item/rogueweapon/huntingknife/idagger
 			backpack_contents = list(/obj/item/lockpickring/one = 1)
 			H.change_stat("intelligence", 2)
 			H.change_stat("perception", 2)
 			H.change_stat("speed", 2)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 		if("Hymnist") //Azure Peak Update, Miracles and some utility skills, less combat prowess
 			to_chat(H, span_warning("The tales of the gods are mighty indeed, though your skill in their retelling through song has granted you a touch of their favor as thanks."))
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -168,6 +181,9 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/white
 			cloak = /obj/item/clothing/cloak/raincloak
 			backl = /obj/item/storage/backpack/rogue/satchel
+			backpack_contents = list(
+								/obj/item/flashlight/flare/torch = 1,
+								)
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltr = /obj/item/rogueweapon/huntingknife/idagger
 			switch(H.patron?.type)
@@ -197,7 +213,7 @@
 			H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 			H.mind.RemoveSpell(/obj/effect/proc_holder/spell/targeted/churn)//End of Azure Peak Update
 
-	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola")
+	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
@@ -213,6 +229,9 @@
 			backr = /obj/item/rogue/instrument/hurdygurdy
 		if("Viola")
 			backr = /obj/item/rogue/instrument/viola
+		if("Vocal Talisman")
+			backr = /obj/item/rogue/instrument/vocals
+
 
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

@@ -32,6 +32,7 @@
 			neck = /obj/item/clothing/neck/roguetown/psicross/eora
 		if(/datum/patron/inhumen/zizo)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
+			neck = /obj/item/roguekey/inhumen
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
@@ -127,7 +128,10 @@
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/shield/wood
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife)
+	backpack_contents = list(
+						/obj/item/rogueweapon/huntingknife,
+						/obj/item/flashlight/flare/torch = 1,
+						)
 	// everything about this sucks - we should really make a subclass datum or something
 
 	// HEARTHSTONE ADD: cloistered devout custom outfits
@@ -167,7 +171,7 @@
 				armor = /obj/item/clothing/suit/roguetown/shirt/robe/eora
 				// HEARTHSTONE ADDITION: cloistered devout devo regen & tier buff
 		var/datum/devotion/C = new /datum/devotion(H, H.patron)
-		C.passive_devotion_gain += 1
+		C.passive_devotion_gain += 0.25
 		C.grant_spells(H) // don't give churn as an extra spell to cloistered since they get their patron's full spell list (up to t3)
 		START_PROCESSING(SSobj, C)
 	else
