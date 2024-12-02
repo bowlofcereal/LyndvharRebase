@@ -402,7 +402,7 @@
 	max_integrity = 150
 	sellprice = 20
 	armor_class = ARMOR_CLASS_LIGHT
-	salvage_result = /obj/item/natural/leather
+	salvage_result = /obj/item/natural/hide
 
 /obj/item/clothing/suit/roguetown/armor/leather/hide
 	name = "hide armor"
