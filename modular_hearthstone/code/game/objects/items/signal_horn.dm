@@ -145,7 +145,7 @@
 			var/message = input(user, "The horn has made a connection. What are you trying to say?")
 			if(!message)
 				return
-			to_chat(HL, "A loud, booming voice echoes through my mind, resolving into the voice of [user]. <font color=#7246ff>[message]</font>")
+			to_chat(HL, "A loud, booming sound echoes through my mind, resolving into the voice of [user]. <font color=#7246ff>[message]</font>")
 			user.visible_message("[src] carries arcyne whispers through the air, before crumbling away to dust.")
 			user.whisper(message)
 			log_game("[key_name(user)] sent a message to [key_name(HL)] with contents [message]")
