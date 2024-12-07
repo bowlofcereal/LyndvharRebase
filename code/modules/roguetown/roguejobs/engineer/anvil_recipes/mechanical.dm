@@ -72,6 +72,13 @@
 	created_item = /obj/item/magic_horn
 	craftdiff = 4
 
+/datum/anvil_recipe/engineering/bronze/talkstone
+	name = "Talkstone (+1 Gold, +1 Dorpel)"
+	req_bar = /obj/item/ingot/bronze
+	additional_items = list(/obj/item/ingot/gold, /obj/item/roguegem/diamond)
+	created_item = /obj/item/clothing/neck/roguetown/talkstone
+	craftdiff = 4
+
 // ------------ PROSTHETICS ----------------
 
 /datum/anvil_recipe/engineering/bronze/prosthetic/bronzeleftarm
