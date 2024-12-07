@@ -125,7 +125,7 @@
 
 /obj/item/magic_horn/attack_self(mob/living/user)
 	. = ..()
-		user.visible_message(span_warning("[user] is about to sound [src]!"))
+	user.visible_message(span_warning("[user] is about to sound [src]!"))
 	if(do_after(user, 15))
 		sound_magic_horn(user)
 
