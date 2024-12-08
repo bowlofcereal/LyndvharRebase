@@ -67,10 +67,9 @@
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/magic_horn
-	name = "Enchanted Signal Horn (+1 Cog)"
+	name = "Enchanted Signal Horn"
 	req_bar = /obj/item/ingot/bronze
 	created_item = /obj/item/magic_horn
-	additional_items = list(/obj/item/roguegear)
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/talkstone
