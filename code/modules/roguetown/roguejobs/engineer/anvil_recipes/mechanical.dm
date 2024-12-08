@@ -67,9 +67,10 @@
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/magic_horn
-	name = "Enchanted Signal Horn"
+	name = "Enchanted Signal Horn (+1 Cog)"
 	req_bar = /obj/item/ingot/bronze
 	created_item = /obj/item/magic_horn
+	additional_items = list(/obj/item/roguegear)
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/talkstone
@@ -89,7 +90,7 @@
 /datum/anvil_recipe/engineering/bronze/musicbox
 	name = "Dwarven Music Box (+1 Riddle of Steel)"
 	req_bar = /obj/item/ingot/bronze
-	additional_items = list(/obj/item/riddleofsteel)
+	additional_items = list(/obj/item/riddleofsteel, /obj/item/roguegear, /obj/item/roguegear)
 	created_item = /obj/item/dmusicbox
 	craftdiff = 6
 

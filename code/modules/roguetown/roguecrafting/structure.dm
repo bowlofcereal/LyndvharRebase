@@ -610,7 +610,7 @@
 	name = "SCOM"
 	result = /obj/structure/roguemachine/scomm
 	reqs = list(/obj/item/ingot/iron = 1,
-					/obj/item/ingot/bronze = 1)
+					/obj/item/roguegear = 1)
 	verbage_simple = "assemble"
 	verbage = "assembles"
 	skillcraft = /datum/skill/craft/engineering
