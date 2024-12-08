@@ -30,7 +30,7 @@
 	req_bar = /obj/item/ingot/bronze
 	created_item = /obj/item/flashlight/flare/torch/lantern/bronzelamptern
 	createditem_num = 3
-	craftdiff = 3
+	craftdiff = 2
 
 /datum/anvil_recipe/engineering/bronze/waterpurifier
 	name = "Self-Purifying Waterskin (+1 Waterskin)"
@@ -79,6 +79,20 @@
 	created_item = /obj/item/clothing/neck/roguetown/talkstone
 	craftdiff = 4
 
+/datum/anvil_recipe/engineering/bronze/smokebomb
+	name = "Smoke Bomb (+1 Iron)"
+	req_bar = /obj/item/ingot/bronze
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/smokebomb
+	craftdiff = 4
+
+/datum/anvil_recipe/engineering/bronze/musicbox
+	name = "Dwarven Music Box (+1 Riddle of Steel)"
+	req_bar = /obj/item/ingot/bronze
+	additional_items = list(/obj/item/riddleofsteel)
+	created_item = /obj/item/dmusicbox
+	craftdiff = 6
+
 // ------------ PROSTHETICS ----------------
 
 /datum/anvil_recipe/engineering/bronze/prosthetic/bronzeleftarm
@@ -108,3 +122,30 @@
 	additional_items = list(/obj/item/ingot/bronze, /obj/item/roguegear, /obj/item/roguegear)
 	created_item = /obj/item/bodypart/r_leg/prosthetic/bronzeright
 	craftdiff = 4
+
+
+// ------------ SMOKE BOMB ------------
+
+/obj/item/smokebomb
+	name = "Smoke Bomb"
+	desc = "A strange, smooth round ball filled with a highly sensitive powder. Toss it onto the ground to ignite the powder inside and create a cloud of smoke around you!"
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "cball"
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/smokebomb/attack_self(mob/living/user)
+	. = ..()
+	user.visible_message(span_warning("[user] is about to toss the [src] onto the ground!"))
+	if(do_after(user, 5))
+		smokebomb(user)
+
+/obj/item/smokebomb/proc/smokebomb(mob/living/user)
+	new /obj/effect/particle_effect/smoke(get_turf(user))
+	user.visible_message(span_warning("[user] tosses a smokebomb to the ground and vanishes in a puff of smoke!"), span_notice("I toss a smokebomb to the ground and vanish in a puff of smoke!"))
+	playsound(user.loc, 'sound/misc/explode/incendiary (1).ogg', 50, FALSE, -1)
+	animate(user, alpha = 0.1, time = 0.5 SECONDS, easing = EASE_IN)
+	user.mob_timers[MT_INVISIBILITY] = world.time + 6 SECONDS
+	addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living, update_sneak_invis), TRUE), 6 SECONDS)
+	addtimer(CALLBACK(user, TYPE_PROC_REF(/atom/movable, visible_message), span_warning("[user] fades back into view."), span_warning("I become visible again.")), 6 SECONDS)
+	qdel(src)
+	return FALSE
