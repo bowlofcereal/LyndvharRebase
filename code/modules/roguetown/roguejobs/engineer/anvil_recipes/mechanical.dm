@@ -80,7 +80,7 @@
 	craftdiff = 4
 
 /datum/anvil_recipe/engineering/bronze/smokebomb
-	name = "Smoke Bomb (+1 Iron)"
+	name = "Smokepowder Ball (+1 Iron)"
 	req_bar = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/ingot/iron)
 	created_item = /obj/item/smokebomb
@@ -127,7 +127,7 @@
 // ------------ SMOKE BOMB ------------
 
 /obj/item/smokebomb
-	name = "Smoke Bomb"
+	name = "ball of smokepowder"
 	desc = "A strange, smooth round ball filled with a highly sensitive powder. Toss it onto the ground to ignite the powder inside and create a cloud of smoke around you!"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "cball"
@@ -141,7 +141,7 @@
 
 /obj/item/smokebomb/proc/smokebomb(mob/living/user)
 	new /obj/effect/particle_effect/smoke(get_turf(user))
-	user.visible_message(span_warning("[user] tosses a smokebomb to the ground and vanishes in a puff of smoke!"), span_notice("I toss a smokebomb to the ground and vanish in a puff of smoke!"))
+	user.visible_message(span_warning("[user] tosses smokepowder onto the ground and vanishes in a puff of smoke!"), span_notice("I toss smokepowder onto the ground and vanish in a puff of smoke!"))
 	playsound(user.loc, 'sound/misc/explode/incendiary (1).ogg', 50, FALSE, -1)
 	animate(user, alpha = 0.1, time = 0.5 SECONDS, easing = EASE_IN)
 	user.mob_timers[MT_INVISIBILITY] = world.time + 6 SECONDS
