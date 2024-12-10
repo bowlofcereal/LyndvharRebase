@@ -74,6 +74,7 @@ GLOBAL_LIST_INIT(noble_positions, list(
 GLOBAL_LIST_INIT(courtier_positions, list(
 	"Court Magician",
 	"Court Physician",
+	"Court Musician",
 	"Jester",
 	"Seneschal",
 ))
@@ -93,6 +94,7 @@ GLOBAL_LIST_INIT(church_positions, list(
 	"Acolyte",
 	"Mortician",
 	"Templar",
+	"Cantor",
 	"Druid",
 ))
 
