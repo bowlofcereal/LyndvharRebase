@@ -228,7 +228,9 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_MARSHAL		"CAT_MARSHAL"		// Marshal class
 #define CTAG_SENESCHAL		"CAT_SENESCHAL"		// Seneschal's aesthetic choices. 
 #define CTAG_SERVANT		"CAT_SERVANT"		// Servant's aesthetic choices.
-#define CTAG_CAPTAIN		"CAT_CAPTAIN"		// Handles Captain class selector 
+#define CTAG_CAPTAIN		"CAT_CAPTAIN"		// Handles Captain class selector
+#define CTAG_CANTOR 		"CAT_CANTOR"		// Cantor class - Handles Cantor class selector
+#define CTAG_MUSICIAN 		"CAT_MUSICIAN"		// Court Musician class - Handles Court Musician class selector
 
 /*
 	Defines for the triumph buy datum categories
