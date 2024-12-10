@@ -235,6 +235,7 @@
 #define JDO_JESTER 7
 #define JDO_BUTLER 7.1
 #define JDO_SERVANT 7.2
+#define JDO_MUSICIAN 7.3
 
 #define JDO_GUARD_CAPTAIN 8
 #define JDO_KNIGHT 8.1
@@ -251,6 +252,7 @@
 #define JDO_TEMPLAR 12
 #define JDO_MONK 13
 #define JDO_DRUID 13.1
+#define JDO_CANTOR 13.2
 #define JDO_CHURCHLING 14
 #define JDO_GRAVEMAN 15
 
