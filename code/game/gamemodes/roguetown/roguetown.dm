@@ -388,6 +388,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 	"Guard Captain",
 	"Court Magician",
 	"Templar",
+	"Cantor",
 	"Bog Guard",
 	"Bog Master",
 	"Royal Guard"
