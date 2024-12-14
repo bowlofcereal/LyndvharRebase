@@ -336,7 +336,7 @@
 	sellprice = 40
 
 /datum/intent/spear/thrust/eaglebeak
-	penfactor = 55
+	penfactor = 52
 	damfactor = 0.9
 
 /datum/intent/mace/smash/eaglebeak
