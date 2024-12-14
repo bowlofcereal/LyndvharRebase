@@ -18,7 +18,7 @@
 	blade_class = BCLASS_BLUNT
 	icon_state = "inbash"
 	attack_verb = list("bashes", "strikes")
-	penfactor = 50
+	penfactor = 55
 	damfactor = 0.9
 	item_d_type = "blunt"
 
@@ -336,7 +336,7 @@
 	sellprice = 40
 
 /datum/intent/spear/thrust/eaglebeak
-	penfactor = 20
+	penfactor = 55
 	damfactor = 0.9
 
 /datum/intent/mace/smash/eaglebeak
