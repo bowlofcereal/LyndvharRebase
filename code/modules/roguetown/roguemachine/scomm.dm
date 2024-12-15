@@ -119,10 +119,11 @@
 	if(.)
 		return
 	if((HAS_TRAIT(user, TRAIT_GUARDSMAN) || (HAS_TRAIT(user, TRAIT_KNIGHTSMAN)) || (HAS_TRAIT(user, TRAIT_WOODSMAN))))
-		if(alert("Would you like to swap lines or connect to a jabberline?",, "swap", "jabberline") != "jabber")
+		if(alert("Would you like to swap lines or connect to a jabberline?",, "swap", "jabberline") != "jabberline")
 			garrisonline = !garrisonline
 			to_chat(user, span_info("I [garrisonline ? "connect to the garrison SCOMline" : "connect to the general SCOMLINE"]"))
 			playsound(loc, 'sound/misc/garrisonscom.ogg', 100, FALSE, -1)
+			update_icon()
 			return
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
@@ -205,6 +206,9 @@
 /obj/structure/roguemachine/scomm/update_icon()
 	if(obj_broken)
 		set_light(0)
+		return
+	if(garrisonline)
+		icon_state = "scomm2"
 		return
 	if(calling)
 		icon_state = "scomm2"
