@@ -95,8 +95,8 @@
 /datum/species/elf/wood/get_span_language(datum/language/message_language)
 	if(!message_language)
 		return
-//	if(message_language.type == /datum/language/elvish)
-//		return list(SPAN_SELF)
+	if(message_language.type == /datum/language/elvish)
+		return list(SPAN_SELF)
 //	if(message_language.type == /datum/language/common)
 //		return list(SPAN_SELF)
 	return message_language.spans
