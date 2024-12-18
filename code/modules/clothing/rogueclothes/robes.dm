@@ -167,6 +167,9 @@
 	color = null
 	sellprice = 100
 
+/obj/item/clothing/suit/roguetown/shirt/robe/wizard/black
+	color = CLOTHING_BLACK
+
 /obj/item/clothing/suit/roguetown/shirt/robe/physician
 	name = "plague coat"
 	desc = "Medicum morbo adhibere."

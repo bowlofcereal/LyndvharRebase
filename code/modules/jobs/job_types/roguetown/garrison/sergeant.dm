@@ -114,6 +114,10 @@
 			if(!HAS_TRAIT(target, TRAIT_GUARDSMAN))
 				to_chat(user, span_alert("I cannot order one not of my ranks!"))
 				return
+		if(HAS_TRAIT(user, TRAIT_SIEGER)) // If we are the Grenzel Captain, we need to order other hofts.
+			if(!HAS_TRAIT(target, TRAIT_SIEGER))
+				to_chat(user, span_alert("I cannot order one not of my ranks!"))
+				return
 		if(user.job == "Guard Captain")
 			if(!HAS_TRAIT(target, TRAIT_KNIGHTSMAN))
 				to_chat(user, span_alert("I cannot order one not of my noble ranks!"))
@@ -176,6 +180,10 @@
 			if(!HAS_TRAIT(target, TRAIT_GUARDSMAN))
 				to_chat(user, span_alert("I cannot order one not of my ranks!"))
 				return
+		if(HAS_TRAIT(user, TRAIT_SIEGER)) // If we are the Grenzel Captain, we need to order other hofts.
+			if(!HAS_TRAIT(target, TRAIT_SIEGER))
+				to_chat(user, span_alert("I cannot order one not of my ranks!"))
+				return
 		if(user.job == "Guard Captain")
 			if(!HAS_TRAIT(target, TRAIT_KNIGHTSMAN))
 				to_chat(user, span_alert("I cannot order one not of my noble ranks!"))
@@ -205,6 +213,10 @@
 			return
 		if(HAS_TRAIT(user, TRAIT_GUARDSMAN))
 			if(!HAS_TRAIT(target, TRAIT_GUARDSMAN))
+				to_chat(user, span_alert("I cannot order one not of my ranks!"))
+				return
+		if(HAS_TRAIT(user, TRAIT_SIEGER)) // If we are the Grenzel Captain, we need to order other hofts.
+			if(!HAS_TRAIT(target, TRAIT_SIEGER))
 				to_chat(user, span_alert("I cannot order one not of my ranks!"))
 				return
 		if(user.job == "Guard Captain")
@@ -263,6 +275,10 @@
 			return
 		if(HAS_TRAIT(user, TRAIT_GUARDSMAN)) // If we are MAA, we need to order MAA. If we are GC, we need to order RG.
 			if(!HAS_TRAIT(target, TRAIT_GUARDSMAN))
+				to_chat(user, span_alert("I cannot order one not of my ranks!"))
+				return
+		if(HAS_TRAIT(user, TRAIT_SIEGER)) // If we are the Grenzel Captain, we need to order other hofts.
+			if(!HAS_TRAIT(target, TRAIT_SIEGER))
 				to_chat(user, span_alert("I cannot order one not of my ranks!"))
 				return
 		if(user.job == "Guard Captain")

@@ -205,6 +205,12 @@
 #define PURITAN		(1<<0)
 #define ORTHODOXIST	(1<<1)
 
+#define SIEGER (1<<11)
+
+#define RITTER (1<<0)
+#define ARBALEST (1<<1)
+#define GRENZELCAPTAIN (1<<2)
+#define GMAGICIAN (1<<3)
 
 #define JCOLOR_NOBLE "#aa83b9"
 #define JCOLOR_COURTIER "#81adc8"
@@ -214,6 +220,7 @@
 #define JCOLOR_PEASANT "#b09262"
 #define JCOLOR_MERCENARY "#c86e3a"
 #define JCOLOR_INQUISITION "#FF0000"
+#define JCOLOR_SIEGER "#dadada"
 
 // job display orders //
 
@@ -302,6 +309,10 @@
 #define JDO_TRIBALSMITH 39
 #define JDO_PURITAN 40
 #define JDO_ORTHODOXIST 40.1
+#define JDO_RITTER 41.1
+#define JDO_ARBALEST 41.2
+#define JDO_GRENZELCAPTAIN 41.3
+#define JDO_GMAGICIAN 41.4
 
 #define MANOR_ROLES \
 	/datum/job/roguetown/jester,\
@@ -387,3 +398,9 @@
 #define INQUISITION_ROLES \
 	/datum/job/roguetown/puritan,\
 	/datum/job/roguetown/orthodoxist
+
+#define SIEGER_ROLES \
+	/datum/job/roguetown/grenzelknight,\
+	/datum/job/roguetown/grenzelarbalest, \
+	/datum/job/roguetown/grenzelcaptain, \
+	/datum/job/roguetown/gmagician

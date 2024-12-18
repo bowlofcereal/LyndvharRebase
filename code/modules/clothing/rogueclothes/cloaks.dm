@@ -533,6 +533,44 @@
 /obj/item/clothing/cloak/stabard/surcoat/councillor
 	color = "#2d2d2d"
 
+/obj/item/clothing/cloak/stabard/surcoat/grenzelinvasion
+	desc = "A surcoat with the Empirate's colors"
+	color = CLOTHING_BLACK
+	detail_tag = "_dim"
+	detail_color = CLOTHING_WHITE
+
+/obj/item/clothing/cloak/stabard/surcoat/grenzelinvasion/attack_right(mob/user)
+	if(picked)
+		return
+	var/the_time = world.time
+	var/chosen = input(user, "Select a design.","Tabard Design") as null|anything in list("Split", "Quadrants", "Boxes", "Diamonds")
+	if(world.time > (the_time + 10 SECONDS))
+		return
+	if(!chosen)
+		return
+	switch(chosen)
+		if("Split")
+			detail_tag = "_spl"
+		if("Quadrants")
+			detail_tag = "_quad"
+		if("Boxes")
+			detail_tag = "_box"
+		if("Diamonds")
+			detail_tag = "_dim"
+	update_icon()
+	if(ismob(loc))
+		var/mob/L = loc
+		L.update_inv_cloak()
+	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+		detail_tag = initial(detail_tag)
+		update_icon()
+		if(ismob(loc))
+			var/mob/L = loc
+			L.update_inv_cloak()
+		return
+	picked = TRUE
+
+
 /obj/item/clothing/cloak/stabard/surcoat/attack_right(mob/user)
 	if(picked)
 		return
@@ -943,6 +981,10 @@
 
 /obj/item/clothing/cloak/cape/knight
 	color = CLOTHING_WHITE
+
+/obj/item/clothing/cloak/cape/black
+	color = CLOTHING_BLACK
+
 
 /obj/item/clothing/cloak/cape/guard
 	color = CLOTHING_AZURE

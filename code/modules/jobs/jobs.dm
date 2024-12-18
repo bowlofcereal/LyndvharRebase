@@ -102,6 +102,13 @@ GLOBAL_LIST_INIT(inquisition_positions, list(
 ))
 
 
+GLOBAL_LIST_INIT(sieger_positions, list(
+	"Ritter",
+	"Arbalest",
+	"Grenzelhoft Captain",
+	"Grenzelhoft Magos",
+))
+
 GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Merchant",
 	"Innkeeper",
@@ -193,6 +200,7 @@ GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())
 	sorting_order += GLOB.yeoman_positions
 	sorting_order += GLOB.peasant_positions
 	sorting_order += GLOB.youngfolk_positions
+	sorting_order += GLOB.sieger_positions
 	return sorting_order
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(
