@@ -66,17 +66,19 @@
 /obj/item/quiver/attack_right(mob/user)
 	if(arrows.len)
 		var/obj/O = arrows[arrows.len]
-		if(user.mind)
-			if(user.mind.get_skill_level(/datum/skill/combat/bows) > 3)
-				var/holding = user.get_active_held_item()
+		var/holding = user.get_active_held_item()
+		if(user.mind && holding)
+			if(user.mind.get_skill_level(/datum/skill/combat/bows))
 				if(istype(holding, /obj/item/gun/ballistic/revolver/grenadelauncher/bow))
 					var/obj/item/gun/ballistic/revolver/grenadelauncher/bow/B = holding
-					if(B.attackby(O, user))
+					if(!B.chambered)
+						B.attackby(O, user)
 						arrows -= O
-			else
-				O.forceMove(user.loc)
-				user.put_in_hands(O)
-				arrows -= O
+						return TRUE
+
+		O.forceMove(user.loc)
+		user.put_in_hands(O)
+		arrows -= O
 		update_icon()
 		return TRUE
 
