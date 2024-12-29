@@ -70,6 +70,8 @@
 		H.change_stat("speed", 1)
 		H.change_stat("intelligence", 1)
 		H.change_stat("perception", 2)
+	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
+
 
 /datum/advclass/servant/maid
 	name = "Maid"
@@ -111,6 +113,8 @@
 		H.change_stat("speed", 1)
 		H.change_stat("intelligence", 1)
 		H.change_stat("perception", 2)
+	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
+
 
 /datum/advclass/servant/butler
 	name = "Butler"
@@ -151,3 +155,5 @@
 		H.change_stat("speed", 1)
 		H.change_stat("intelligence", 1)
 		H.change_stat("perception", 2)
+	ADD_TRAIT(H, TRAIT_SQUIRE_REPAIR, TRAIT_GENERIC)
+
