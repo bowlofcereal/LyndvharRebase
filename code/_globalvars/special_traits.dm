@@ -49,7 +49,11 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 	apply_prefs_special(character, player)
 	apply_prefs_virtue(character, player)
 	if(player.prefs.loadout)
-		character.mind.special_items[player.prefs.loadout.name] = player.prefs.loadout.path
+		if(ispath(player.prefs.loadout.path, /obj/item/rogue/instrument))
+			for(var/instr in subtypesof(/obj/item/rogue/instrument))
+				var/obj/item/rogue/instrument/I = new instr()
+				character.mind.special_items[I.name] = instr
+		else character.mind.special_items[player.prefs.loadout.name] = player.prefs.loadout.path
 
 /proc/apply_prefs_virtue(mob/living/carbon/human/character, client/player)
 	if (!player)
