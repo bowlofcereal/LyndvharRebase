@@ -50,8 +50,14 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 	apply_prefs_virtue(character, player)
 	if(player.prefs.loadout)
 		if(ispath(player.prefs.loadout.path, /obj/item/rogue/instrument))
-			for(var/instr in subtypesof(/obj/item/rogue/instrument))
-				var/obj/item/rogue/instrument/I = new instr()
+			var/list/instruments = list()
+			for(var/path in subtypesof(/obj/item/rogue/instrument))
+				var/obj/item/rogue/instrument/instr = path
+				instruments[instr.name] = path
+			var/item = input(character, "What instrument did I stash?", "STASH") as null|anything in instruments
+			if(item)
+				var/instr = instruments[item]
+				var/obj/item/rogue/instrument/I = instr
 				character.mind.special_items[I.name] = instr
 		else character.mind.special_items[player.prefs.loadout.name] = player.prefs.loadout.path
 
