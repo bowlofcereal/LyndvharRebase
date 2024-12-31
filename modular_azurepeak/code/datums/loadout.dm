@@ -76,10 +76,6 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Halfcloak"
 	path = /obj/item/clothing/cloak/half
 
-/datum/loadout_item/cloak
-	name = "Cloak"
-	path = /obj/item/clothing/cloak
-
 /datum/loadout_item/desertcape
 	name = "Desert Cape"
 	path = /obj/item/clothing/cloak/cape/crusader
