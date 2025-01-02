@@ -18,6 +18,7 @@
 	min_pq = 0
 	max_pq = null
 	round_contrib_points = 2
+	cmode_music = 'sound/music/combat_druid.ogg'
 
 /datum/outfit/job/roguetown/druid
 	name = "Druid"
@@ -66,6 +67,7 @@
 		H.ambushable = FALSE
 
 	ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_OUTDOORSMAN, TRAIT_GENERIC)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_spells_priest(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)

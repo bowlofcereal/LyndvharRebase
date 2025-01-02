@@ -70,7 +70,7 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
 	head = /obj/item/clothing/head/roguetown/grenzelhofthat
-	armor = /obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate
 	pants = /obj/item/clothing/under/roguetown/grenzelpants
 	shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft
 	gloves = /obj/item/clothing/gloves/roguetown/grenzelgloves
@@ -80,3 +80,4 @@
 	backpack_contents = list(/obj/item/roguekey/mercenary)
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	H.grant_language(/datum/language/grenzelhoftian)

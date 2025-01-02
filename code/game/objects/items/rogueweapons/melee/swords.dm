@@ -90,6 +90,17 @@
 	if(icon_state == "sword1")
 		icon_state = "sword[rand(1,3)]"
 
+/obj/item/rogueweapon/sword/falchion
+	name = "falchion"
+	desc = "A blade with a quilloned crossguard."
+	parrysound = "bladedmedium"
+	force = 20
+	possible_item_intents = list(/datum/intent/sword/cut/short, /datum/intent/sword/thrust/short)
+	icon_state = "falchion"
+	gripped_intents = null
+	minstr = 4
+	wdefense = 6
+
 /obj/item/rogueweapon/sword/decorated
 	name = "engraved sword"
 	desc = "A valuable sword for celebrations and rites."
@@ -136,6 +147,7 @@
 	gripped_intents = null
 	minstr = 4
 	wdefense = 4
+	wlength = WLENGTH_SHORT
 
 /obj/item/rogueweapon/sword/long
 	force = 25
@@ -455,20 +467,23 @@
 	gripped_intents = null
 	minstr = 4
 	wdefense = 3
+	wlength = WLENGTH_SHORT
 
 /obj/item/rogueweapon/sword/iron/short/chipped
 	force = 17
 	desc = "An ancient-looking iron sword."
 	icon_state = "iswordshort_d"
 	max_integrity = 75
+	wlength = WLENGTH_SHORT
 
 /datum/intent/sword/cut/short
-	clickcd = 10
-	damfactor = 0.9
+	clickcd = 9
+	damfactor = 1
 
 /datum/intent/sword/thrust/short
-	clickcd = 10
+	clickcd = 8
 	damfactor = 1.1
+	penfactor = 30
 
 /obj/item/rogueweapon/sword/iron/messer
 	name = "iron messer"

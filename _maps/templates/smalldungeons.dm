@@ -50,7 +50,7 @@
 		// Garbage and Miscellanous
 		/obj/item/rogue/instrument/flute = 3,
 		/obj/item/ash = 5,
-		/obj/item/shard = 5,
+		/obj/item/natural/glass/shard = 5,
 		/obj/item/candle/yellow = 3,
 		/obj/item/flashlight/flare/torch = 3,
 		/obj/item/reagent_containers/glass/bowl = 4,
@@ -143,7 +143,7 @@
 		/obj/item/clothing/suit/roguetown/armor/plate/bikini = 1,
 		/obj/item/clothing/suit/roguetown/armor/plate = 1,
 		/obj/item/clothing/suit/roguetown/armor/longcoat = 2,
-		/obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass = 1,
+		/obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate = 1,
 
 
 		//food
@@ -208,7 +208,7 @@
 		/obj/item/rogue/instrument/lute = 3,
 		/obj/item/rogue/instrument/accord = 3,
 		/obj/item/ash = 5,
-		/obj/item/shard = 5,
+		/obj/item/natural/glass/shard = 5,
 		/obj/item/candle/yellow = 3,
 		/obj/item/flashlight/flare/torch = 3,
 		/obj/item/flashlight/flare/torch/lantern = 1,
@@ -322,8 +322,7 @@
 		/obj/item/clothing/suit/roguetown/armor/plate/bikini = 1,
 		/obj/item/clothing/suit/roguetown/armor/plate = 1,
 		/obj/item/clothing/suit/roguetown/armor/longcoat = 2,
-		/obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass = 1,
-
+		/obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate = 1,
 	)
 	lootcount = 1
 
