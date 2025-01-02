@@ -58,7 +58,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	belt = /obj/item/storage/belt/rogue/leather/black
 	backr = /obj/item/storage/backpack/rogue/satchel/black
-	backpack_contents = list(/obj/item/signal_horn = 1, /obj/item/storage/keyring/guardcastle = 1, obj/item/scomstone/bad/garrison)
+	backpack_contents = list(/obj/item/signal_horn = 1, /obj/item/storage/keyring/guardcastle = 1, /obj/item/scomstone/bad/garrison)
 
 /datum/advclass/knight/heavy
 	name = "Heavy Knight"
