@@ -23,10 +23,10 @@
 	beltr = /obj/item/reagent_containers/glass/bottle/rogue/manapot
 	beltl = /obj/item/rogueweapon/huntingknife
 	r_hand = /obj/item/rogueweapon/woodstaff
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)	
+	H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/magic/arcane, 4, TRUE)	
 	H.change_stat("strength", -1)
-	H.change_stat("intelligence", 3)
+	H.change_stat("intelligence", 2)
 	H.change_stat("constitution", -2)
 	H.change_stat("endurance", -1)
 	H.change_stat("speed", -1)
