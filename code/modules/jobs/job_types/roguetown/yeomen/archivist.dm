@@ -86,14 +86,21 @@
     /datum/skill/misc/music,
     /datum/skill/misc/medicine,
     /datum/skill/misc/sewing,
-    /datum/skill/magic/arcane,
     /datum/skill/labor/farming,
     /datum/skill/craft/crafting,
     /datum/skill/craft/blacksmithing,
     /datum/skill/craft/carpentry,
     /datum/skill/craft/masonry,
     /datum/skill/craft/cooking,
-    /datum/skill/craft/engineering
+    /datum/skill/craft/engineering,
+	/datum/skill/misc/sneaking,
+	/datum/skill/misc/climbing,
+	/datum/skill/misc/swimming,
+	/datum/skill/labor/butchering,
+	/datum/skill/labor/weaponsmithing,
+	/datum/skill/labor/armorsmithing,
+	/datum/skill/labor/tanning,
+	/datum/skill/craft/traps
     )
 	for(var/i = 1, i <= skill_choices.len, i++)
 		choices["[skill_choices[i].name]"] = skill_choices[i]
