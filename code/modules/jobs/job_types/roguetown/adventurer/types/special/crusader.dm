@@ -47,8 +47,8 @@
 	beltr = /obj/item/rogueweapon/sword/decorated
 	beltl = /obj/item/clothing/head/roguetown/helmet/heavy/crusader
 	neck = /obj/item/clothing/neck/roguetown/psicross/g
+	id = /obj/item/storage/belt/rogue/pouch/coins/rich
 	backpack_contents = list(
-						/obj/item/storage/belt/rogue/pouch/coins/rich = 1,
 						/obj/item/flashlight/flare/torch = 1,
 						)
 
@@ -75,7 +75,6 @@
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		backpack_contents = list(
 							/obj/item/rogueweapon/huntingknife/idagger/silver = 1,
-							/obj/item/storage/belt/rogue/pouch/coins/rich = 1,
 							/obj/item/flashlight/flare/torch = 1,
 							)
 		H.change_stat("strength", 1)

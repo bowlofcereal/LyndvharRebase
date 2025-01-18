@@ -4422,7 +4422,8 @@
 "dPn" = (
 /obj/structure/mineral_door/wood/donjon{
 	locked = 1;
-	lockid = "steward"
+	lockid = "steward";
+	dir = 1
 	},
 /obj/structure/fluff/walldeco/alarm{
 	pixel_y = 0;
@@ -26185,7 +26186,7 @@
 /area/rogue/indoors/town)
 "xnR" = (
 /obj/effect/landmark/start/clerk,
-/obj/structure/roguemachine/atm,
+/obj/structure/roguemachine/atm/master,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town)
 "xoh" = (

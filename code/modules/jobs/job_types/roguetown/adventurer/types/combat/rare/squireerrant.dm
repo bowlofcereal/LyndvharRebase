@@ -18,8 +18,8 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	backr = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/rogueweapon/sword/iron
+	id = /obj/item/storage/belt/rogue/pouch
 	backpack_contents = list(
-					/obj/item/storage/belt/rogue/pouch/coins/poor,
 					/obj/item/rogueweapon/hammer,
 					/obj/item/rogueweapon/tongs,
 					/obj/item/flashlight/flare/torch = 1,

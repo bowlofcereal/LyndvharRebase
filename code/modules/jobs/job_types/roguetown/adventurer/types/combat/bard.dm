@@ -99,13 +99,13 @@
 			belt = /obj/item/storage/belt/rogue/leather
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 			cloak = /obj/item/clothing/cloak/raincloak/blue
+			id = /obj/item/storage/belt/rogue/pouch/coins/mid
 			if(prob(50))
 				cloak = /obj/item/clothing/cloak/raincloak/red
 			backl = /obj/item/storage/backpack/rogue/satchel
 			beltl = /obj/item/rogueweapon/sword/iron
 			backpack_contents = list(
 						/obj/item/rogueweapon/huntingknife/idagger/steel,
-						/obj/item/storage/belt/rogue/pouch/coins/mid,
 						/obj/item/flashlight/flare/torch = 1,
 						)
 			H.change_stat("constitution", 2)
