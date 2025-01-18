@@ -1,6 +1,6 @@
 /obj/structure/roguemachine/atm
 	name = "MEISTER"
-	desc = "Stores and withdraws currency for accounts managed by the Grand Duchy of Azuria. Does not accept foreigners."
+	desc = "Stores and withdraws currency for accounts managed by the Grand Duchy of Azuria."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "atm"
 	density = FALSE
@@ -9,13 +9,7 @@
 	var/mammonsiphoned = 0
 	var/drilling = FALSE
 	var/drilled = FALSE
-	var/master = FALSE
-
-/obj/structure/roguemachine/atm/master
-	name = "MASTER MEISTER"
-	desc = "Master variant of the regular machine. It accepts foreign blood for accounts, otherwise functioning identically."
-	master = TRUE
-
+	
 /obj/structure/roguemachine/atm/attack_hand(mob/user)
 	if(!ishuman(user))
 		return
@@ -71,7 +65,7 @@
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			return
 		budget2change(coin_amt*mod, user, selection)
-	else if(HAS_TRAIT(H, TRAIT_NOBLE) || master)
+	else
 		to_chat(user, span_warning("The machine bites my finger."))
 		if(!drilled)
 			icon_state = "atm-b"
@@ -83,12 +77,8 @@
 			if(target_job && target_job.noble_income)
 				SStreasury.noble_incomes[H] = target_job.noble_income
 		spawn(5)
-			say("New account created. Welcome, Guest of Azuria. Do not soil our treasuries.")
+			say("New account created.")
 			playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
-	else
-		spawn(5)
-		say("Foreign hands touch me. Begone, filth!")
-		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 
 /*
 /obj/structure/roguemachine/atm/attack_right(mob/user)
