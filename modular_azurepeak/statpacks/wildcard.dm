@@ -18,6 +18,10 @@
 /datum/statpack/wildcard/austere
 	name = "Austere"
 	desc = "You've kept your humors balanced, your body honed and mind sharp enough. Fate has left you mostly unchanged, in every way."
+
+/datum/statpack/wildcard/vampirism
+	name = "Vampirism"
+	desc = "Noc shelters you. Astrata shuns you. The world hates you. Requires the virtue to function."
 /*
 /datum/statpack/wildcard/virtuous
 	name = "Virtuous"

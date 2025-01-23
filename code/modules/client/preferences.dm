@@ -1425,6 +1425,9 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						if (!istype(statpack, /datum/statpack/wildcard/virtuous) && virtue.type != /datum/virtue/none)
 							virtue = new /datum/virtue/none
 							to_chat(user, span_info("Your virtue has been removed due to taking a stat-altering statpack.")) */
+						if(istype(statpack, /datum/statpack/wildcard/vampirism) && virtue.type != /datum/virtue/utility/vampirism)
+							virtue = new /datum/virtue/utility/vampirism
+							to_chat(user, span_info("Your virtue has been set to Vampirism."))
 				// LETHALSTONE EDIT: add pronouns
 				if ("pronouns")
 					var pronouns_input = input(user, "Choose your character's pronouns", "Pronouns") as null|anything in GLOB.pronouns_list
@@ -1593,6 +1596,9 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						virtue = virtue_chosen
 						if (virtue.desc)
 							to_chat(user, span_purple(virtue.desc))
+						if(virtue.type == /datum/virtue/utility/vampirism && !istype(statpack, /datum/statpack/wildcard/vampirism))
+							statpack = new /datum/statpack/wildcard/vampirism
+							to_chat(user, span_info("Your statpack has been set to Vampirism."))
 					/*	if (statpack.type != /datum/statpack/wildcard/virtuous)
 							statpack = new /datum/statpack/wildcard/virtuous
 							to_chat(user, span_purple("Your statpack has been set to virtuous (no stats) due to selecting a virtue.")) */

@@ -562,7 +562,7 @@
 			to_chat(user, "<span class='warning'>I'm going to puke...</span>")
 			addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living/carbon, vomit), 0, TRUE), rand(8 SECONDS, 15 SECONDS))
 	else
-		if(user.mind)
+		if(user.mind && !(C.mind?.has_antag_datum(/datum/antagonist/vampirelord) || C.mind?.has_antag_datum(/datum/antagonist/werewolf)))
 			if(user.mind.has_antag_datum(/datum/antagonist/vampirelord))
 				var/datum/antagonist/vampirelord/VDrinker = user.mind.has_antag_datum(/datum/antagonist/vampirelord)
 				C.blood_volume = max(C.blood_volume-45, 0)
@@ -570,6 +570,12 @@
 					VDrinker.handle_vitae(300, 300)
 				else
 					VDrinker.handle_vitae(300)
+			if(user.mind.has_antag_datum(/datum/antagonist/vampire))
+				var/datum/antagonist/vampire/V = user.mind.has_antag_datum(/datum/antagonist/vampire)
+				C.blood_volume = max(C.blood_volume-45, 0)
+				if(V.vitae < 1666)
+					V.vitae += 200
+
 
 	C.blood_volume = max(C.blood_volume-5, 0)
 	C.handle_blood()

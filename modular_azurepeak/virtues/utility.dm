@@ -115,3 +115,15 @@
 		var/instr = instruments[item]
 		var/obj/item/rogue/instrument/I = instr
 		recipient.mind?.special_items[I.name] = instr
+
+/datum/virtue/utility/vampirism
+	name = "Vampirism"
+	desc = "Perhaps you were afflicted by a fraudulent physician or an ill-intended Ecclesial. Maybe you've escaped your master, or they perished. Or you were struck by a freak accident. Whatever it may be, you are a lesser vampire. You are a threat to the duchy, an aborration, and may be hunted down if uncovered by fire or blood starvation.\nYou must pick the Vampirism statpack for this to apply."
+
+/datum/virtue/utility/vampirism/apply_to_human(mob/living/carbon/human/recipient)
+	if(istype(recipient.statpack, /datum/statpack/wildcard/vampirism))
+		var/datum/antagonist/new_antag = new /datum/antagonist/vampire()
+		recipient.mind?.add_antag_datum(new_antag)
+	else
+		to_chat(recipient,span_warning("Vampirism Statpack not found! Vampirism aborted."))
+

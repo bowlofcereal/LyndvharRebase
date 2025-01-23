@@ -40,8 +40,7 @@
 
 	if(mind)
 		if(!gibbed)
-			var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
-			if(VD)
+			if(mind.has_antag_datum(/datum/antagonist/vampirelord) || mind.has_antag_datum(/datum/antagonist/vampire))
 				dust(just_ash=TRUE,drop_items=TRUE)
 				return
 

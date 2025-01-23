@@ -157,7 +157,7 @@
 			if(disguised)
 				to_chat(H, "<span class='warning'>My disguise fails!</span>")
 				H.vampire_undisguise(src)
-		vitae -= 1
+		vitae -= 0.3
 	else
 		to_chat(H, "<span class='userdanger'>I RAN OUT OF VITAE!</span>")
 		var/obj/shapeshift_holder/SS = locate() in H
@@ -171,38 +171,63 @@
 	set category = "VAMPIRE"
 
 	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
-	if(!VD)
+	var/datum/antagonist/vampire/V = mind.has_antag_datum(/datum/antagonist/vampire)
+	if(!VD && !V)
 		return
-	if(world.time < VD.last_transform + 30 SECONDS)
-		var/timet2 = (VD.last_transform + 30 SECONDS) - world.time
-		to_chat(src, span_warning("No.. not yet. [round(timet2/10)]s"))
-		return
-	if(VD.disguised)
-		VD.last_transform = world.time
+	if(VD)
+		if(world.time < VD.last_transform + 30 SECONDS)
+			var/timet2 = (VD.last_transform + 30 SECONDS) - world.time
+			to_chat(src, span_warning("No.. not yet. [round(timet2/10)]s"))
+			return
+	if(VD?.disguised || V?.disguised)
+		VD?.last_transform = world.time
+		V?.last_transform = world.time
 		vampire_undisguise(VD)
 	else
-		if(VD.vitae < 100)
+		if(VD)
+			if(VD.vitae < 100)
 			to_chat(src, span_warning("I don't have enough Vitae!"))
 			return
-		VD.last_transform = world.time
+		else if(V)
+			if(V.vitae < 100)
+			to_chat(src, span_warning("I don't have enough Vitae!"))
+			return
+		VD?.last_transform = world.time
+		V?.last_transform = world.time
 		vampire_disguise(VD)
 
-/mob/living/carbon/human/proc/vampire_disguise(datum/antagonist/vampirelord/VD)
+/mob/living/carbon/human/proc/vampire_disguise(datum/antagonist/VD)
 	if(!VD)
 		return
-	VD.disguised = TRUE
-	skin_tone = VD.cache_skin
-	hair_color = VD.cache_hair
-	eye_color = VD.cache_eyes
-	facial_hair_color = VD.cache_hair
+	var/datum/antagonist/vampirelord/VL = mind?.has_antag_datum(/datum/antagonist/vampirelord)
+	var/datum/antagonist/vampire/V = mind?.has_antag_datum(/datum/antagonist/vampire)
+	if(!VL && !V)
+		return
+	if(VL)
+		VL?.disguised = TRUE
+		skin_tone = VL.cache_skin
+		hair_color = VL.cache_hair
+		eye_color = VL.cache_eyes
+		facial_hair_color = VL.cache_hair
+	else
+		V?.disguised = TRUE
+		skin_tone = V.cache_skin
+		hair_color = V.cache_hair
+		eye_color = V.cache_eyes
+		facial_hair_color = V.cache_hair
 	update_body()
 	update_hair()
 	update_body_parts(redraw = TRUE)
 
-/mob/living/carbon/human/proc/vampire_undisguise(datum/antagonist/vampirelord/VD)
+/mob/living/carbon/human/proc/vampire_undisguise(datum/antagonist/VD)
 	if(!VD)
 		return
-	VD.disguised = FALSE
+	if(istype(VD, /datum/antagonist/vampirelord))
+		var/datum/antagonist/vampirelord/VL = VD
+		VL.disguised = FALSE
+	else
+		var/datum/antagonist/vampire/V = VD
+		V.disguised = FALSE
 //	VD.cache_skin = skin_tone
 //	VD.cache_eyes = eye_color
 //	VD.cache_hair = hair_color
@@ -216,7 +241,7 @@
 
 
 /mob/living/carbon/human/proc/blood_strength()
-	set name = "Night Muscles"
+	set name = "Night Muscles (Lord Only)"
 	set category = "VAMPIRE"
 
 	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
@@ -248,7 +273,7 @@
 	icon_state = "bleed1"
 
 /mob/living/carbon/human/proc/blood_celerity()
-	set name = "Quickening"
+	set name = "Quickening (Lord Only)"
 	set category = "VAMPIRE"
 
 	var/datum/antagonist/vampirelord/VD = mind.has_antag_datum(/datum/antagonist/vampirelord)
@@ -287,19 +312,21 @@
 	set name = "Armor of Darkness"
 	set category = "VAMPIRE"
 
-	var/datum/antagonist/vampire/VD = mind.has_antag_datum(/datum/antagonist/vampire)
-	if(!VD)
+	var/datum/antagonist/vampire/V = mind?.has_antag_datum(/datum/antagonist/vampire)
+	var/datum/antagonist/vampirelord/VD = mind?.has_antag_datum(/datum/antagonist/vampirelord)
+	if(!VD && !V)
 		return
-	if(VD.disguised)
+	if(VD?.disguised || V?.disguised)
 		to_chat(src, span_warning("My curse is hidden."))
 		return
-	if(VD.vitae < 100)
+	if(VD.vitae < 100 || V.vitae < 100)
 		to_chat(src, span_warning("Not enough vitae blood."))
 		return
 	if(has_status_effect(/datum/status_effect/buff/fortitude))
 		to_chat(src, span_warning("Already active."))
 		return
-	VD.vitae -= 100
+	VD?.vitae -= 100
+	V?.vitae -= 100
 	rogstam_add(2000)
 	apply_status_effect(/datum/status_effect/buff/fortitude)
 	to_chat(src, span_greentext("! ARMOR OF DARKNESS !"))
@@ -345,7 +372,7 @@
 	max_integrity = 0
 
 /mob/living/carbon/human/proc/vamp_regenerate()
-	set name = "Regenerate"
+	set name = "Regenerate (Lord Only)"
 	set category = "VAMPIRE"
 	var/silver_curse_status = FALSE
 	for(var/datum/status_effect/debuff/silver_curse/silver_curse in status_effects)
