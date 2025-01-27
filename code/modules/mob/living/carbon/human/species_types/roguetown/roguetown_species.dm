@@ -43,7 +43,7 @@
 
 	message = treat_message_accent(message, GLOB.string_cache[UNIVERSAL_ACCENT_FILENAME])
 
-	//message = treat_message_accent(message, get_accent(source))
+	message = treat_message_accent(message, get_accent(source))
 
 	message = autopunct_bare(message)
 
@@ -55,30 +55,30 @@
 		return message
 	if(message[1] == "*") //this is to ignore emotes
 		return message
-	message = "[message]"
+	message = html_decode(message)
 
 	var/list/tokens = splittext(message, " ")
 	var/list/modded_tokens = list()
-	var/num_tokens = length(tokens)
+	var/total_tokens = length(tokens)
 
-	var/regex/punct_check = regex("\\W+\\Z", "i")
+	var/regex/trailing_punct_check = regex("\\W+\\Z", "i")
 	var i = 1
 
-	while(i <= num_tokens)
+	while(i <= total_tokens)
 		var/original_word = tokens[i]
-		var/punct = ""
-		var/punct_index = findtext(original_word, punct_check)
+		var/trailing_punct = ""
+		var/trailing_punct_index = findtext(original_word, trailing_punct_check)
 
-		if (punct_index)
-			punct = copytext(original_word, punct_index)
-			original_word = copytext(original_word, 1, punct_index)
+		if(trailing_punct_index)
+			trailing_punct = copytext(original_word, trailing_punct_index)
+			original_word = copytext(original_word, 1, trailing_punct_index)
 		
 		var/modified_token = original_word
 		var/list/phrase_tokens = list(original_word)
 
 		// multi-words (max 2 words)
 		if(accent_list["multi"])
-			for (var/j = 1; j <= 2 && (i + j - 1) <= num_tokens; j++) 
+			for (var/j = 1; j <= 2 && (i + j - 1) <= total_tokens; j++) 
 				if (j > 1)
 					phrase_tokens += tokens[i + j - 1]
 				var/phrase = jointext(phrase_tokens, " ")
@@ -93,7 +93,7 @@
 					break
 		
 		// single words
-		if (modified_token == original_word)
+		if(modified_token == original_word)
 			var/matching_token = accent_list["full"][lowertext(original_word)] //full word match using dict, lowercase here but ignore case in regex
 			if(islist(matching_token)) //delete this and all corresponding list entries from json if perf is an issue
 				matching_token = pick(matching_token)
@@ -102,12 +102,12 @@
 				modified_token = replacement
 		
 		modified_token = apply_accent_modifications(modified_token, accent_list)
-		modified_token += punct
+		modified_token += trailing_punct
 		modded_tokens += modified_token
 		i++ 
 	// while end
-	var/modded = jointext(modded_tokens, " ")
-	return modded
+	var/final_text = jointext(modded_tokens, " ")
+	return html_encode(final_text)
 
 /proc/apply_accent_modifications(var/text, list/accent_list)
 	//These are barely okay because they aren't yet 1000 words like fullword. Use these sparingly or preferably not at all until we can offload regex to rustg

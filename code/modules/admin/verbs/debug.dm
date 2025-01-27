@@ -490,11 +490,11 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	if(alert(usr, "Are you absolutely sure you want to reload the configuration from the default path on the disk, wiping any in-round modificatoins?", "Really reset?", "No", "Yes") == "Yes")
 		config.admin_reload()
 
-/client/proc/spam_say_accent()
+/client/proc/stresstest_accent()
 	set category = "Debug"
 	set name = "Say a line"
 	set desc = "Says a line multiple times"
-	set hidden = FALSE
+	set hidden = TRUE
 
 
 	//for dwarf, the longest accent file
