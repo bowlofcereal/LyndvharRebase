@@ -333,8 +333,6 @@
 	if(known_skills[S] >= old_level)
 		if(known_skills[S] > old_level)
 			to_chat(current, span_nicegreen("My [S.name] grows to [SSskills.level_names[known_skills[S]]]!"))
-		//if(skill == /datum/skill/magic/arcane)
-			//adjust_spellpoints(1) old code for spell point per arcane level
 	else
 		to_chat(current, span_warning("My [S.name] has weakened to [SSskills.level_names[known_skills[S]]]!"))
 
