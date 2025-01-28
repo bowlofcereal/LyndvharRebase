@@ -351,8 +351,6 @@
 /datum/mind/proc/adjust_skillrank(skill, amt, silent = FALSE)
 	var/datum/skill/S = GetSkillRef(skill)
 	var/amt2gain = 0
-	//if(skill == /datum/skill/magic/arcane)
-		//adjust_spellpoints(amt) old code for spell point per arcane level
 	for(var/i in 1 to amt)
 		switch(skill_experience[S])
 			if(SKILL_EXP_MASTER to SKILL_EXP_LEGENDARY)
