@@ -71,7 +71,6 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-		H.mind.adjust_spellpoints(-6)
 		H.change_stat("strength", 3)
 		H.change_stat("speed", 2)
 		H.change_stat("endurance", 2)
