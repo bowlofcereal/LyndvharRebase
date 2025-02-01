@@ -465,6 +465,11 @@
 	I.funny_attack_effects(src, user)
 	if(I.force)
 		var/newforce = get_complex_damage(I, user)
+
+		
+		if(check_block(hit_by = I, damage = I.force, attack_text = "[I.name]", attack_type = MELEE_ATTACK, armour_penetration = user.used_intent.penfactor, damage_type = user.used_intent.blade_class))
+			//not shield block but other in mob/living
+			return
 		apply_damage(newforce, I.damtype, def_zone = hitlim)
 		if(I.damtype == BRUTE)
 			next_attack_msg.Cut()

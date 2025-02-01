@@ -115,6 +115,12 @@
 		var/obj/item/I = AM
 		var/zone = ran_zone(BODY_ZONE_CHEST, 65)//Hits a random part of the body, geared towards the chest
 		SEND_SIGNAL(I, COMSIG_MOVABLE_IMPACT_ZONE, src, zone)
+
+		if(check_block(AM, I.throwforce, "\the [I.name]", THROWN_PROJECTILE_ATTACK, I.armor_penetration, I.damtype))
+			hitpush = FALSE
+			skipcatch = TRUE
+			blocked = TRUE
+
 		if(!blocked)
 			var/armor = run_armor_check(zone, damage_type, "", "",I.armor_penetration, damage = I.throwforce)
 			next_attack_msg.Cut()
@@ -324,6 +330,9 @@
 
 	if(checkmiss(M))
 		return FALSE
+	
+	if(check_block(M, M.melee_damage_upper, "[M]'s [M.a_intent.attack_verb]", UNARMED_ATTACK, M.armor_penetration, BRUTE))
+		return FALSE
 
 	if(checkdefense(M.a_intent, M))
 		return FALSE
@@ -453,3 +462,12 @@
 		used_item = get_active_held_item()
 	..()
 	setMovetype(movement_type & ~FLOATING) // If we were without gravity, the bouncing animation got stopped, so we make sure we restart the bouncing after the next movement.
+
+/mob/living/proc/check_block(atom/hit_by, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0, damage_type = BRUTE)
+	if(SEND_SIGNAL(src, COMSIG_CHECK_BLOCK, hit_by, damage, attack_text, attack_type, armour_penetration, damage_type) & SUCCESSFUL_BLOCK)
+		return SUCCESSFUL_BLOCK
+	/*if(mind) from the carbon proc
+		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && in_throw_mode && !incapacitated(FALSE, TRUE))
+			return TRUE
+	return FALSE*/
+	return FAILED_BLOCK

@@ -102,6 +102,8 @@
 			if(!(martial_art_result == BULLET_ACT_HIT))
 				return martial_art_result
 
+	
+
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
 		retaliate(P.firer)
 		if(P.reflectable & REFLECT_NORMAL)
@@ -130,6 +132,8 @@
 					P.setAngle(new_angle_s)
 
 				return BULLET_ACT_FORCE_PIERCE // complete projectile permutation
+
+		
 
 		if(check_shields(P, P.damage, "the [P.name]", PROJECTILE_ATTACK, P.armor_penetration))
 			P.on_hit(src, 100, def_zone)
@@ -170,12 +174,6 @@
 		if(wear_neck.hit_reaction(src, AM, attack_text, final_block_chance, damage, attack_type))
 			return TRUE
   return FALSE
-
-/mob/living/carbon/human/proc/check_block()
-	if(mind)
-		if(mind.martial_art && prob(mind.martial_art.block_chance) && mind.martial_art.can_use(src) && in_throw_mode && !incapacitated(FALSE, TRUE))
-			return TRUE
-	return FALSE
 
 /mob/living/carbon/human/hitby(atom/movable/AM, skipcatch = FALSE, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum, damage_type = "blunt")
 	if(dna && dna.species)

@@ -23,3 +23,7 @@
 
 ///from the ranged_attacks component for basic mobs: (mob/living/basic/firer, atom/target, modifiers)
 #define COMSIG_SIMPLEMOB_POST_ATTACK_RANGED "basicmob_post_attack_ranged"
+
+#define COMSIG_CHECK_BLOCK "comsig_check_block"
+	#define FAILED_BLOCK NONE
+	#define SUCCESSFUL_BLOCK (1<<0)

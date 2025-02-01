@@ -227,7 +227,8 @@
 		/obj/effect/proc_holder/spell/invoked/projectile/arcynebolt,
 		/obj/effect/proc_holder/spell/invoked/gravity,
 		/obj/effect/proc_holder/spell/invoked/projectile/repel,
-		/obj/effect/proc_holder/spell/invoked/poisonspray5e
+		/obj/effect/proc_holder/spell/invoked/poisonspray5e,
+		/obj/effect/proc_holder/spell/invoked/spell_shield,
 	)
 	for(var/i = 1, i <= spell_choices.len, i++)
 		choices["[spell_choices[i].name]: [spell_choices[i].cost]"] = spell_choices[i]
