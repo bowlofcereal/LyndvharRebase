@@ -411,22 +411,22 @@
 #undef MIRACLE_HEALING_FILTER
 
 /atom/movable/screen/alert/status_effect/buff/spell_shield
-	name = "Spellshield"
+	name = "Spell shield"
 	desc = "I am surrounded by a magical shield."
 	icon_state = "buff"
 
 /datum/status_effect/buff/spell_shield
-	id = "spellshield"
+	id = "spell shield"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/spell_shield
-	duration = 1 MINUTES
+	duration = 45 SECONDS
 	var/spellshield = null
 
 /datum/status_effect/buff/spell_shield/on_apply()
 	. = ..()
 	to_chat(owner, span_warning("A magical energy coalesces around my body just at the edge of my perception."))
 	ADD_TRAIT(owner, TRAIT_SPELLSHIELD, MAGIC_TRAIT)
-//datum/component/barrier/Initialize(number_of_hits = 6, damage_threshold = 200, outline_color = "#FFFFFF", light_color = "#FFFFFF")
-	spellshield = owner.AddComponent(/datum/component/barrier, 6, 200, "#35ffee",	"#209e9e")
+//datum/component/barrier/Initialize(number_of_hits = 7, damage_threshold = 200, outline_color = "#FFFFFF", light_color = "#FFFFFF")
+	spellshield = owner.AddComponent(/datum/component/barrier, 7, 200, "#35ffee",	"#209e9e")
 
 
 /datum/status_effect/buff/spell_shield/on_remove()

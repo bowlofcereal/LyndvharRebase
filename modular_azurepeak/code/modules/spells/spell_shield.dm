@@ -5,12 +5,12 @@
 	xp_gain = TRUE
 	releasedrain = 60
 	chargedrain = 1
-	chargetime = 2 SECONDS
-	charge_max = 5 MINUTES
+	chargetime = 1 SECONDS
+	charge_max = 2 MINUTES + 30 SECONDS
 	warnie = "spellwarning"
 	school = "transmutation"
 	overlay_state = "spellshield"
-	cooldown_min = 3 MINUTES
+	cooldown_min = 2 MINUTES
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	charging_slowdown = 2

@@ -14,7 +14,7 @@
 	///the colour the barrier gives off
 	var/light_color = "#FFFFFF"
 
-/datum/component/barrier/Initialize(number_of_hits = 6, damage_threshold = 200, outline_color = "#FFFFFF", light_color = "#FFFFFF")
+/datum/component/barrier/Initialize(number_of_hits = 7, damage_threshold = 200, outline_color = "#FFFFFF", light_color = "#FFFFFF")
 	. = ..()
 
 	if(!isliving(parent))
