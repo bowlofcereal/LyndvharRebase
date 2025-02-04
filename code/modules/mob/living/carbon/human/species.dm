@@ -1069,7 +1069,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			to_chat(user, span_warning("I do not breathe, so you cannot perform CPR!"))*/
 
 /datum/species/proc/grab(mob/living/carbon/human/user, mob/living/carbon/human/target, datum/martial_art/attacker_style)
-	if(target.check_block())
+	if(target.check_block(user, 0, "[user] grabs", GRAB_ATTACK))
 		target.visible_message(span_warning("[target] blocks [user]'s grab!"), \
 						span_danger("I block [user]'s grab!"), span_hear("I hear a swoosh!"), COMBAT_MESSAGE_RANGE, user)
 		to_chat(user, span_warning("My grab at [target] was blocked!"))

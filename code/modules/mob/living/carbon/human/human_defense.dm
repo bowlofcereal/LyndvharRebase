@@ -106,6 +106,10 @@
 
 	if(!(P.original == src && P.firer == src)) //can't block or reflect when shooting yourself
 		retaliate(P.firer)
+		if(check_block(P, P.damage, "the [P.name]", PROJECTILE_ATTACK, P.armor_penetration, P.damage_type))
+			visible_message(span_danger("The [P.name] is blocked by [src]!"), \
+								span_danger("You block [P.name]!"))
+			return
 		if(P.reflectable & REFLECT_NORMAL)
 			if(check_reflect(def_zone)) // Checks if you've passed a reflection% check
 				visible_message(span_danger("The [P.name] gets reflected by [src]!"), \
