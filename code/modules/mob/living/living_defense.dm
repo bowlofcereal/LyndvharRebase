@@ -332,6 +332,8 @@
 		return FALSE
 	
 	if(check_block(M, M.melee_damage_upper, "[M]'s [M.a_intent.attack_verb]", UNARMED_ATTACK, M.armor_penetration, BRUTE))
+		visible_message(span_danger("[src] blocks [M]'s attack."), \
+						span_danger("[src] blocks [M]'s attack."))
 		return FALSE
 
 	if(checkdefense(M.a_intent, M))

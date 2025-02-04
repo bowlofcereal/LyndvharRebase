@@ -425,13 +425,13 @@
 	. = ..()
 	to_chat(owner, span_warning("A magical energy coalesces around my body just at the edge of my perception."))
 	ADD_TRAIT(owner, TRAIT_SPELLSHIELD, MAGIC_TRAIT)
-//datum/component/barrier/Initialize(number_of_hits = 7, damage_threshold = 200, outline_color = "#FFFFFF", light_color = "#FFFFFF")
-	spellshield = owner.AddComponent(/datum/component/barrier, 7, 200, "#35ffee",	"#209e9e")
+///datum/component/barrier/Initialize(number_of_hits = 7, damage_threshold = 50, barrier_health = 200, outline_color = "#FFFFFF", light_color = "#FFFFFF")
+	spellshield = owner.AddComponent(/datum/component/barrier, 7, 50, 200, "#35ffee",	"#209e9e")
 
 
 /datum/status_effect/buff/spell_shield/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("The magical energy dissipates."))
+	to_chat(owner, span_warning("The magical energy surrounding you dissipates."))
 	REMOVE_TRAIT(owner, TRAIT_SPELLSHIELD, MAGIC_TRAIT)
 	var/datum/component/spellshield = owner.GetComponent(/datum/component/barrier)
 	if(spellshield)

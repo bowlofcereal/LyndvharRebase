@@ -7,6 +7,8 @@
 	var/number_of_hits = 6
 	///the limit of the damage we can tank
 	var/damage_threshold
+	///the artificial health of the barrier
+	var/barrier_health
 	///the overlay of the shield
 	var/obj/effect/dummy/lighting_obj/moblight/mob_light_obj
 	///the colour of the outline on the mob
@@ -14,7 +16,7 @@
 	///the colour the barrier gives off
 	var/light_color = "#FFFFFF"
 
-/datum/component/barrier/Initialize(number_of_hits = 7, damage_threshold = 200, outline_color = "#FFFFFF", light_color = "#FFFFFF")
+/datum/component/barrier/Initialize(number_of_hits = 7, damage_threshold = 50, barrier_health = 200, outline_color = "#FFFFFF", light_color = "#FFFFFF")
 	. = ..()
 
 	if(!isliving(parent))
@@ -23,6 +25,7 @@
 	src.outline_color = outline_color
 	src.light_color = light_color
 	src.damage_threshold = damage_threshold
+	src.barrier_health = barrier_health
 
 	apply_filter_effects()
 
@@ -56,8 +59,9 @@
 
 	playsound(get_turf(parent), 'sound/items/stunstick_swing1.ogg', 20)
 	new /obj/effect/temp_visual/impact_effect/ion(get_turf(parent))
-	number_of_hits = max(0, number_of_hits - 1)
-	if(number_of_hits <= 0)
+	src.number_of_hits = max(0, number_of_hits - 1)
+	src.barrier_health -= damage
+	if(number_of_hits <= 0 || barrier_health <= 0)
 		disable_shield()
 	return SUCCESSFUL_BLOCK
 

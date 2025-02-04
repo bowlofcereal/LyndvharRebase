@@ -1525,7 +1525,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(H.check_block(I, I.force, "the [I.name]", MELEE_ATTACK, I.armor_penetration, I.d_type))
 			H.visible_message(span_warning("[H] blocks [I]!"), \
 						span_danger("I block [I]!"))
-		return 0
+			return 0
 	
 
 	var/hit_area
