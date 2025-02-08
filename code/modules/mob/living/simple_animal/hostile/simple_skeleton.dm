@@ -82,7 +82,7 @@
 	icon_state = "skeleton_bow"
 	icon_living = "skeleton_bow"
 	icon_dead = ""
-	projectiletype = /obj/projectile/bullet/reusable/arrow/ancient
+	projectiletype = /obj/projectile/bullet/arrow/ancient
 	projectilesound = 'sound/combat/Ranged/flatbow-shot-01.ogg'
 	ranged = 1
 	retreat_distance = 2

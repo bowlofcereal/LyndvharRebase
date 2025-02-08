@@ -294,33 +294,35 @@
 
 //mob projectiles
 
-/obj/projectile/bullet/reusable/arrow/orc
+/obj/projectile/bullet/arrow/orc
+	name = "stone arrow"
 	damage = 20
 	damage_type = BRUTE
 	armor_penetration = 25
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "arrow_proj"
-	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/stone
 	range = 15
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	woundclass = BCLASS_STAB
 	flag = "piercing"
 	speed = 2
+	impact_effect_type = null
 
-/obj/projectile/bullet/reusable/arrow/ancient
+/obj/projectile/bullet/arrow/ancient
+	name = "ancient arrow"
 	damage = 10
 	damage_type = BRUTE
 	armor_penetration = 25
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "arrow_proj"
-	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/stone
 	range = 15
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	woundclass = BCLASS_STAB
 	flag = "piercing"
 	speed = 2
+	impact_effect_type = null
 
 #undef ARROW_DAMAGE
 #undef BOLT_DAMAGE
