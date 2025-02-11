@@ -78,6 +78,12 @@
 	/datum/species/goblinp,\
 )
 
+#define CHURCH_FAVORED_RACES list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/aasimar,\
+)
+
 #define CLOTHED_RACES_TYPES list(\
 	/datum/species/human/northern,\
 	/datum/species/human/halfelf,\
