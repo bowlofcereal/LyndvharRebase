@@ -23,7 +23,13 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	/// Some gods have related confessions, if they're evil and such
 	var/list/confess_lines
 	/// Some patrons have related traits, why not?
-	var/list/mob_traits
+	var/list/mob_traits = list(
+		"t0" = null,
+		"t1" = null,
+		"t2" = null,
+		"t3" = null,
+		"t4" = null,
+	)
 	/// Tier 0 spell
 	var/t0
 	/// Tier 1 spell
