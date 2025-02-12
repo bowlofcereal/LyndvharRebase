@@ -24,6 +24,9 @@
 		"ZIZO IS QUEEN!",
 	)
 
+/datum/patron/inhumen/zizo/on_gain(mob/living/pious)
+	pious.faction |= "undead"
+
 /datum/patron/inhumen/graggar
 	name = "Graggar"
 	domain = "God of Conquest, War, Murder, Pillaging"
