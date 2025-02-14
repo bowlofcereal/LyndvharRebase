@@ -1,13 +1,10 @@
-// Meant for cave-races, less boons than other mercs but unique weapon + mining skill and helmet-torch combo.
+// less boons than other mercs but unique weapon + mining skill and helmet-torch combo.
 /datum/advclass/mercenary/underdweller
 	name = "Underdweller"
 	tutorial = "A member of the Underdwellers, you've taken many of the deadliest contracts known to man in literal underground circles. Drow or Dwarf, you've put your differences aside for coin and adventure."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		/datum/species/dwarf/mountain,
-		/datum/species/elf/dark,
-		/datum/species/kobold,
-	)
+	allowed_races = RACES_ALL_KINDS
+	
 	outfit = /datum/outfit/job/roguetown/mercenary/underdweller
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
