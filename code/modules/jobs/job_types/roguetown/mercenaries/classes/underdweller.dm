@@ -1,4 +1,4 @@
-// Meant for cave-races, some starting smithing skill, smelting, masonry and mining. For your industrial cave-beings.
+// Meant for cave-races, some starting smelting, masonry and mining. For your industrial cave-beings.
 /datum/advclass/mercenary/underdweller
 	name = "Underdweller"
 	tutorial = "A member of the Underdwellers, you've taken many of the deadliest contracts known to man in literal underground circles. Drow or Dwarf, you've put your differences aside for coin and adventure."
