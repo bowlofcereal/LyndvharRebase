@@ -45,7 +45,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 4,)
+		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/masonry, 3 TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/smelting, 3 TRUE)
 		H.change_stat("fortune", 1)
