@@ -178,6 +178,11 @@
     stressadd = -1
     desc = span_green("I'm just a bit cleaner.")
 
+/datum/stressevent/pacified
+	timer = 30 MINUTES
+	stressadd = -5
+	desc = span_green("All my problems have washed away!")
+  
 /datum/stressevent/ritualsuccess
 	timer = 999 MINUTES
 	stressadd = -3
