@@ -132,9 +132,9 @@
 		var/newspell = new spell_type
 		H.mind.AddSpell(newspell)
 		LAZYADD(granted_spells, newspell)
-	level = CLERIC_T0
-	max_devotion = CLERIC_REQ_1 //Max devotion limit - Paladins are stronger but cannot pray to gain all abilities beyond t1
-	max_progression = CLERIC_REQ_1
+	level = CLERIC_T1
+	max_devotion = CLERIC_REQ_2 //Max devotion limit - Paladins are stronger but cannot pray to gain all abilities beyond t2
+	max_progression = CLERIC_REQ_2
 
 /datum/devotion/proc/grant_spells_churchling(mob/living/carbon/human/H)
 	if(!H || !H.mind || !patron)
