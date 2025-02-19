@@ -3,7 +3,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/seamstress
-	category_tags = list(CTAG_PILGRIM)
+	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 
 /datum/outfit/job/roguetown/adventurer/seamstress/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -25,7 +25,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	belt = /obj/item/storage/belt/rogue/leather/cloth/lady
 	beltl = /obj/item/needle
-	beltr = /obj/item/rogueweapon/huntingknife/idagger
+	beltr = /obj/item/rogueweapon/huntingknife/scissors
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 						/obj/item/natural/cloth = 2,

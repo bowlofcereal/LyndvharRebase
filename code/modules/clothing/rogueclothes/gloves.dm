@@ -22,6 +22,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+	salvage_result = /obj/item/natural/hide
 
 /obj/item/clothing/gloves/roguetown/leather/black
 	color = CLOTHING_BLACK
@@ -58,6 +59,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+	salvage_result = /obj/item/natural/fur
 
 /obj/item/clothing/gloves/roguetown/fingerless_leather
 	name = "fingerless leather gloves"
@@ -74,6 +76,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+	salvage_result = /obj/item/natural/hide
 
 /obj/item/clothing/gloves/roguetown/chain
 	name = "chain gauntlets"
@@ -124,6 +127,7 @@
 	desc = "Masterfully crafted leather gloves, psycross included."
 	icon_state = "inqgloves"
 	item_state = "inqgloves"
+	salvage_result = /obj/item/natural/hide
 
 //rogtodo sprites for this
 /obj/item/clothing/gloves/roguetown/plate
@@ -166,7 +170,7 @@
 //---------------- BLACKSTEEL ---------------------
 
 /obj/item/clothing/gloves/roguetown/blacksteel/plategloves
-	name = "Blacksteel Plate Gauntlets"
+	name = "blacksteel plate gauntlets"
 	desc = "A set of plate gauntlets forged of blacksteel."
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'

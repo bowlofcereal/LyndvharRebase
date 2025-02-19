@@ -99,11 +99,11 @@
 	bloody_icon_state = "bodyblood"
 	sewrepair = TRUE
 	resistance_flags = FIRE_PROOF
+	grid_height = 64
+	grid_width = 32
 	component_type = /datum/component/storage/concrete/roguetown/coin_pouch
 
 /obj/item/storage/belt/rogue/pouch/coins
-	grid_height = 64
-	grid_width = 32
 
 /obj/item/storage/belt/rogue/pouch/coins/mid/Initialize()
 	. = ..()
@@ -143,6 +143,13 @@
 		if(istype(H))
 			if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, H, null, TRUE, TRUE))
 				qdel(H)
+
+/obj/item/storage/belt/rogue/pouch/coins/virtuepouch/Initialize()
+	. = ..()
+	var/obj/item/roguecoin/gold/virtuepile/H = new(loc)
+	if(istype(H))
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, H, null, TRUE, TRUE))
+			qdel(H)
 
 /obj/item/storage/belt/rogue/pouch/food/PopulateContents()
 	new /obj/item/reagent_containers/food/snacks/rogue/crackerscooked(src)

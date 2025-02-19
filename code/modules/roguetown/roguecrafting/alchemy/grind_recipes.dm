@@ -117,27 +117,27 @@
 /datum/alch_grind_recipe/iron_ore
 	valid_input = /obj/item/rogueore/iron
 	valid_outputs = list(/obj/item/alch/irondust = 1)
-	bonus_chance_outputs = list(/obj/item/alch/irondust = 33)
+	bonus_chance_outputs = list(/obj/item/alch/irondust = 33, /obj/item/alch/runedust = 25)
 
 /datum/alch_grind_recipe/coal_ore
 	valid_input = /obj/item/rogueore/coal
 	valid_outputs = list(/obj/item/alch/coaldust = 1)
-	bonus_chance_outputs = list(/obj/item/alch/coaldust = 33)
+	bonus_chance_outputs = list(/obj/item/alch/coaldust = 33, /obj/item/alch/firedust = 25)
 
 /datum/alch_grind_recipe/gold_bar
 	valid_input = /obj/item/ingot/gold
 	valid_outputs = list(/obj/item/alch/golddust = 1)
-	bonus_chance_outputs = list(/obj/item/alch/golddust = 33)
+	bonus_chance_outputs = list(/obj/item/alch/golddust = 33, /obj/item/alch/firedust = 25)
 
 /datum/alch_grind_recipe/silver_bar
 	valid_input = /obj/item/ingot/silver
 	valid_outputs = list(/obj/item/alch/silverdust = 1)
-	bonus_chance_outputs = list(/obj/item/alch/silverdust = 33)
+	bonus_chance_outputs = list(/obj/item/alch/silverdust = 33, /obj/item/alch/firedust = 25)
 
 /datum/alch_grind_recipe/iron_bar
 	valid_input = /obj/item/ingot/iron
 	valid_outputs = list(/obj/item/alch/irondust = 1)
-	bonus_chance_outputs = list(/obj/item/alch/irondust = 33)
+	bonus_chance_outputs = list(/obj/item/alch/irondust = 33, /obj/item/alch/runedust = 25, /obj/item/alch/firedust = 25)
 
 //Herb -> Herbseed
 /datum/alch_grind_recipe/atropa_seed
@@ -195,6 +195,10 @@
 /datum/alch_grind_recipe/artemisia_seed
 	valid_input = /obj/item/alch/artemisia
 	valid_outputs = list(/obj/item/herbseed/artemisia = 1)
+
+/datum/alch_grind_recipe/rosa_seed
+	valid_input = /obj/item/alch/rosa
+	valid_outputs = list(/obj/item/herbseed/rosa = 1)
 
 /datum/alch_grind_recipe/transistus
 	valid_input = list(/obj/item/alch/artemisia,/obj/item/alch/benedictus,/obj/item/alch/hypericum,/obj/item/alch/salvia,/obj/item/alch/atropa,/obj/item/alch/taraxacum)

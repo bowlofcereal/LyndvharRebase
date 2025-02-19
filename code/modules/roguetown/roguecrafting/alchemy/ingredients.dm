@@ -70,7 +70,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/antidote
 
 /obj/item/alch/waterdust
-	name = "water rune dust"
+	name = "water essentia"
 	icon_state = "water_runedust"
 	major_pot = /datum/alch_cauldron_recipe/int_potion
 	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
@@ -91,7 +91,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/disease_cure
 
 /obj/item/alch/runedust
-	name = "rune dust"
+	name = "raw essentia"
 	icon_state = "runedust"
 	major_pot = /datum/alch_cauldron_recipe/int_potion
 	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
@@ -112,14 +112,14 @@
 	minor_pot = /datum/alch_cauldron_recipe/big_health_potion
 
 /obj/item/alch/magicdust
-	name = "magic dust"
+	name = "pure essentia"
 	icon_state = "magic_runedust"
 	major_pot = /datum/alch_cauldron_recipe/big_mana_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
 /obj/item/alch/firedust
-	name = "fire rune dust"
+	name = "fire essentia"
 	icon_state = "fire_runedust"
 	major_pot = /datum/alch_cauldron_recipe/str_potion
 	med_pot = /datum/alch_cauldron_recipe/con_potion
@@ -141,7 +141,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/str_potion
 
 /obj/item/alch/airdust
-	name = "air rune dust"
+	name = "air essentia"
 	icon_state = "air_runedust"
 	major_pot = /datum/alch_cauldron_recipe/spd_potion
 	med_pot = /datum/alch_cauldron_recipe/stamina_potion
@@ -162,7 +162,7 @@
 	minor_pot = /datum/alch_cauldron_recipe/spd_potion
 
 /obj/item/alch/earthdust
-	name = "earth rune dust"
+	name = "earth essentia"
 	icon_state = "earth_runedust"
 	major_pot = /datum/alch_cauldron_recipe/con_potion
 	med_pot = /datum/alch_cauldron_recipe/end_potion
@@ -175,6 +175,8 @@
 	force = 7
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 32
+	grid_height = 64
 
 	major_pot = /datum/alch_cauldron_recipe/disease_cure
 	med_pot = /datum/alch_cauldron_recipe/health_potion
@@ -187,6 +189,8 @@
 	force = 7
 	throwforce = 5
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 64
+	grid_height = 64
 
 	major_pot = /datum/alch_cauldron_recipe/str_potion
 	med_pot = /datum/alch_cauldron_recipe/con_potion
@@ -303,6 +307,11 @@
 /obj/item/alch/salvia
 	name = "salvia"
 	icon_state = "salvia"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	body_parts_covered = NONE
+	w_class = WEIGHT_CLASS_TINY
+	alternate_worn_layer  = 8.9 //On top of helmet
 
 	major_pot = /datum/alch_cauldron_recipe/con_potion
 	med_pot = /datum/alch_cauldron_recipe/str_potion
@@ -340,6 +349,31 @@
 	med_pot = /datum/alch_cauldron_recipe/spd_potion
 	minor_pot = /datum/alch_cauldron_recipe/health_potion
 
+/obj/item/alch/rosa
+	name = "rosa"
+	icon_state = "rosa"
+	item_state = "rosa"
+	icon = 'icons/roguetown/misc/alchemy.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK|ITEM_SLOT_MOUTH
+	body_parts_covered = NONE
+	w_class = WEIGHT_CLASS_TINY
+	spitoutmouth = FALSE
+	alternate_worn_layer  = 8.9 //On top of helmet
+
+	major_pot = /datum/alch_cauldron_recipe/rosewater_potion
+	med_pot = /datum/alch_cauldron_recipe/end_potion
+	minor_pot = /datum/alch_cauldron_recipe/antidote
+
+/obj/item/alch/rosa/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == SLOT_MOUTH)
+		icon_state = "rosa_mouth"
+		user.update_inv_mouth()
+	else
+		icon_state = "rosa"
+		user.update_icon()
+
 //dust mix crafting
 /datum/crafting_recipe/roguetown/alch/feaudust
 	name = "feau dust"
@@ -354,7 +388,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/alch/magicdust
-	name = "magic dust"
+	name = "pure essentia"
 	result = list(/obj/item/alch/magicdust)
 	reqs = list(/obj/item/alch/waterdust = 1, /obj/item/alch/firedust = 1,
 				/obj/item/alch/airdust = 1, /obj/item/alch/earthdust = 1)

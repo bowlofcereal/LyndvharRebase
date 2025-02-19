@@ -29,7 +29,8 @@
 		TRAIT_CRITICAL_RESISTANCE,
 		TRAIT_HEAVYARMOR,
 		TRAIT_CABAL,
-		TRAIT_DEATHSIGHT
+		TRAIT_DEATHSIGHT,
+		TRAIT_COUNTERCOUNTERSPELL
 		)
 
 	var/STASTR = 10
@@ -133,6 +134,7 @@
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/suicidebomb)
 	H.ambushable = FALSE
 
