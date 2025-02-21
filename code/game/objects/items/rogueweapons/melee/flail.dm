@@ -101,7 +101,7 @@
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
 	recovery = 7
-	penfactor = 10
+	penfactor = -20
 	reach = 2
 	icon_state = "inlash"
 	item_d_type = "slash"
@@ -113,7 +113,7 @@
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
 	recovery = 10
-	penfactor = 40
+	penfactor = -20
 	reach = 3
 	icon_state = "incrack"
 	item_d_type = "slash"
@@ -125,13 +125,13 @@
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
 	recovery = 10
-	penfactor = 0
+	penfactor = -20
 	reach = 2
 	icon_state = "inpunish"
 	item_d_type = "blunt"
 
 /obj/item/rogueweapon/whip
-	force = 21
+	force = 10
 	possible_item_intents = list(/datum/intent/whip/crack, /datum/intent/whip/lash, /datum/intent/whip/punish)
 	name = "whip"
 	desc = "A leather whip. Built to last, with a sharp stone for a tip."
