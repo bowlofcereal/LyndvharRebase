@@ -47,6 +47,7 @@
 
 	var/spell_points
 	var/used_spell_points
+	var/max_spell_points = 0 // anything above 0 limits the max amount of spell points a person can possibly acquire
 	var/movemovemovetext = "Move!!"
 	var/takeaimtext = "Take aim!!"
 	var/holdtext = "Hold!!"
@@ -400,7 +401,15 @@
 
 // adjusts the amount of available spellpoints
 /datum/mind/proc/adjust_spellpoints(points)
-	spell_points += points
+	var/points_to_add = points
+	
+	if(max_spell_points) // there is an actual limit to the amount of spell points someone can earn
+		var/total_earned_points = spell_points + used_spell_points
+		var/total_potential_points = total_earned_points + points
+		if(max_spell_points > total_potential_points)
+			points_to_add = points - (total_potential_points - max_spell_points) // subtract whatever amount that would take points over max_spell_points
+
+	spell_points += points_to_add
 	check_learnspell() //check if we need to add or remove the learning spell
 
 ///Gets the skill's singleton and returns the result of its get_skill_speed_modifier
