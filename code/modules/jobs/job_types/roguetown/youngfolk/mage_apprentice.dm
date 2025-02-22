@@ -51,6 +51,7 @@
 	head = /obj/item/clothing/head/roguetown/roguehood/mage
 	backpack_contents = list(/obj/item/roguegem/amethyst = 1, /obj/item/spellbook_unfinished/pre_arcyne = 1)
 	if(H.mind)
+		H.mind.max_spell_points = 0
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
@@ -87,6 +88,7 @@
 /datum/outfit/job/roguetown/wapprentice/alchemist/pre_equip(mob/living/carbon/human/H)
 	backpack_contents = list(/obj/item/roguegem/amethyst = 1, /obj/item/seeds/sweetleaf = 1, /obj/item/seeds/pipeweed = 1)
 	if(H.mind)
+		H.mind.max_spell_points = 0
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 4, TRUE)
@@ -125,6 +127,7 @@
 /datum/outfit/job/roguetown/wapprentice/apprentice/pre_equip(mob/living/carbon/human/H)
 	backpack_contents = list(/obj/item/roguegem/amethyst = 1)
 	if(H.mind)
+		H.mind.max_spell_points = 0
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)

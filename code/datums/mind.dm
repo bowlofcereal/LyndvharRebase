@@ -47,7 +47,7 @@
 
 	var/spell_points
 	var/used_spell_points
-	var/max_spell_points = 0 // anything above 0 limits the max amount of spell points a person can possibly acquire
+	var/max_spell_points = 4 // anything above 0 limits the max amount of spell points a person can possibly acquire
 	var/movemovemovetext = "Move!!"
 	var/takeaimtext = "Take aim!!"
 	var/holdtext = "Hold!!"

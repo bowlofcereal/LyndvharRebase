@@ -37,6 +37,7 @@
 	id = /obj/item/scomstone/bad
 
 	if(H.mind)
+		H.mind.max_spell_points = 0
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 6, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)

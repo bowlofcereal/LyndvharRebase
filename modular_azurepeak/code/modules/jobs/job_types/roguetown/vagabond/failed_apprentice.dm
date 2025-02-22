@@ -25,6 +25,7 @@
 	r_hand = /obj/item/rogueweapon/woodstaff
 
 	if (H.mind)
+		H.mind.max_spell_points = 0
 		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 1, TRUE)

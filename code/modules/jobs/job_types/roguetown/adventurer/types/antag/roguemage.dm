@@ -28,6 +28,7 @@
 
 	r_hand = /obj/item/rogueweapon/woodstaff
 	if(H.mind)
+		H.mind.max_spell_points = 0
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
