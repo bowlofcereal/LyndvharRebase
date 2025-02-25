@@ -86,7 +86,6 @@
 		H.change_stat("intelligence", 3)
 		H.change_stat("perception", 2)
 		H.change_stat("speed", 2)
-		H.change_stat("fortune", 5)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 
@@ -99,8 +98,8 @@
 
 /datum/outfit/job/roguetown/lady/warrior/pre_equip(mob/living/carbon/human/H)
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
@@ -112,7 +111,6 @@
 		H.change_stat("perception", 3)
 		H.change_stat("strength", 2)
 		H.change_stat("endurance", 3)
-		H.change_stat("fortune", 5)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
 /obj/effect/proc_holder/spell/self/convertrole/servant
