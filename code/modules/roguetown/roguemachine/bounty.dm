@@ -263,7 +263,7 @@
 
 	var/obj/item/clothing/neck/old_neck = M.get_item_by_slot(SLOT_NECK)
 	if(old_neck)
-		if(istype(old_neck, /obj/item/clothing/neck/rogue/gorget/prisoner))
+		if(istype(old_neck, /obj/item/clothing/neck/roguetown/gorget/prisoner))
 			say("ERROR: UNLAWFUL SYSTEM TAMPERING DETECTED... ENGAGING SELF DESTRUCT...")
 			sleep(1 SECONDS)
 			explosion(src, light_impact_range = 1, flame_range = 1)
@@ -294,7 +294,7 @@
 
 	var/obj/item/clothing/neck/old_neck = M.get_item_by_slot(SLOT_NECK)
 	if(old_neck)
-		if(istype(old_neck, /obj/item/clothing/neck/rogue/gorget/prisoner))
+		if(istype(old_neck, /obj/item/clothing/neck/roguetown/gorget/prisoner))
 			say("COLLAR DISCARDED. FREEDOM, AT LAST...")
 			M.dropItemToGround(old_neck, TRUE)
 	else
@@ -377,7 +377,7 @@
 		var/obj/item/clothing/neck/old_neck = M.get_item_by_slot(SLOT_NECK)
 		if(old_neck)
 			M.dropItemToGround(old_neck, TRUE)
-		var/obj/item/clothing/neck/rogue/gorget/prisoner/prisoncollar = new(get_turf(M))
+		var/obj/item/clothing/neck/roguetown/gorget/prisoner/prisoncollar = new(get_turf(M))
 		prisoncollar.bounty_amount = reward_amount
 		M.equip_to_slot_or_del(prisoncollar, SLOT_NECK, TRUE)
 		playsound(src.loc, 'sound/items/beartrap.ogg', 100, TRUE, -1)

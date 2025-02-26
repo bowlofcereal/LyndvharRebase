@@ -190,7 +190,7 @@
 	max_integrity = 300
 	icon_state = "sgorget"
 
-/obj/item/clothing/neck/rogue/gorget/prisoner
+/obj/item/clothing/neck/roguetown/gorget/prisoner
 	name = "cursed collar"
 	desc = "An iron collar that seals around the neck, making it impossible to remove without specialized equipment. It seems to be enchanted with some kind of vile magic..."
 	var/active_item
@@ -202,11 +202,11 @@
 		return
 	qdel(src)
 
-/obj/item/clothing/neck/rogue/gorget/prisoner/Initialize()
+/obj/item/clothing/neck/roguetown/gorget/prisoner/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
-/obj/item/clothing/neck/rogue/gorget/prisoner/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/neck/roguetown/gorget/prisoner/dropped(mob/living/carbon/human/user)
 	. = ..()
 	REMOVE_TRAIT(user, TRAIT_PACIFISM, "cursedmask")
 	REMOVE_TRAIT(user, TRAIT_SPELLCOCKBLOCK, "cursedmask")
@@ -214,7 +214,7 @@
 		return
 	qdel(src)
 
-/obj/item/clothing/neck/rogue/gorget/prisoner/proc/timerup(mob/living/carbon/human/user)
+/obj/item/clothing/neck/roguetown/gorget/prisoner/proc/timerup(mob/living/carbon/human/user)
 	REMOVE_TRAIT(user, TRAIT_PACIFISM, "cursedmask")
 	REMOVE_TRAIT(user, TRAIT_SPELLCOCKBLOCK, "cursedmask")
 	visible_message(span_warning("The cursed collar opens with a click, falling off of [user]'s face and clambering apart on the ground, their penance complete."))
@@ -229,7 +229,7 @@
 	qdel(src)
 	
 
-/obj/item/clothing/neck/rogue/gorget/prisoner/equipped(mob/living/user, slot)
+/obj/item/clothing/neck/roguetown/gorget/prisoner/equipped(mob/living/user, slot)
 	. = ..()
 	if(active_item)
 		return
