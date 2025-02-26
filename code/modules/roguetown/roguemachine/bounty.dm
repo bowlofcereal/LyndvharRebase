@@ -231,7 +231,7 @@
 
 /obj/structure/chair/freedomchair
 	name = "LIBERTAS"
-	desc = "A chair-shaped machine normally used to place cursed masks onto a prisoner's head. This one's been tampered with, and now does the opposite - re-purposed to remove those wretched iron masks."
+	desc = "A chair-shaped machine normally used to place cursed collars onto a prisoner's neck. This one's been tampered with, and now does the opposite - re-purposed to remove those wretched iron collars."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "evilchair"
 	blade_dulling = DULLING_BASH
@@ -240,7 +240,7 @@
 	anchored = TRUE
 
 /obj/structure/chair/freedomchair/crafted
-	desc = "A chair-shaped machine normally used to place cursed masks onto a prisoner's head. This one's clearly been tampered with, and looks suspicious."
+	desc = "A chair-shaped machine normally used to place cursed collars onto a prisoner's neck. This one's clearly been tampered with, and looks suspicious."
 
 /obj/structure/chair/freedomchair/crafted/attack_right(mob/living/carbon/human/A)
 	var/mob/living/carbon/human/M = null
@@ -261,16 +261,16 @@
 	playsound(src.loc, 'sound/items/pickgood1.ogg', 100, TRUE, -1)
 	M.Paralyze(3 SECONDS)
 
-	var/obj/item/clothing/mask/old_mask = M.get_item_by_slot(SLOT_WEAR_MASK)
-	if(old_mask)
-		if(istype(old_mask, /obj/item/clothing/mask/rogue/facemask/prisoner))
+	var/obj/item/clothing/neck/old_neck = M.get_item_by_slot(SLOT_NECK)
+	if(old_neck)
+		if(istype(old_neck, /obj/item/clothing/neck/rogue/gorget/prisoner))
 			say("ERROR: UNLAWFUL SYSTEM TAMPERING DETECTED... ENGAGING SELF DESTRUCT...")
 			sleep(1 SECONDS)
 			explosion(src, light_impact_range = 1, flame_range = 1)
-			M.dropItemToGround(old_mask, TRUE)
+			M.dropItemToGround(old_neck, TRUE)
 			qdel(src)
 	else
-		say("ANALYSIS COMPLETE. NO CURSED MASK FOUND. ABORT.")
+		say("ANALYSIS COMPLETE. NO CURSED COLLAR FOUND. ABORT.")
 		return
 
 /obj/structure/chair/freedomchair/attack_right(mob/living/carbon/human/A)
@@ -292,13 +292,13 @@
 	playsound(src.loc, 'sound/items/pickgood1.ogg', 100, TRUE, -1)
 	M.Paralyze(3 SECONDS)
 
-	var/obj/item/clothing/mask/old_mask = M.get_item_by_slot(SLOT_WEAR_MASK)
-	if(old_mask)
-		if(istype(old_mask, /obj/item/clothing/mask/rogue/facemask/prisoner))
-			say("MASK DISCARDED. FREEDOM, AT LAST...")
-			M.dropItemToGround(old_mask, TRUE)
+	var/obj/item/clothing/neck/old_neck = M.get_item_by_slot(SLOT_NECK)
+	if(old_neck)
+		if(istype(old_neck, /obj/item/clothing/neck/rogue/gorget/prisoner))
+			say("COLLAR DISCARDED. FREEDOM, AT LAST...")
+			M.dropItemToGround(old_neck, TRUE)
 	else
-		say("ANALYSIS COMPLETE. NO CURSED MASK FOUND. ABORT.")
+		say("ANALYSIS COMPLETE. NO CURSED COLLAR FOUND. ABORT.")
 		return
 
 /obj/structure/chair/arrestchair
@@ -374,12 +374,12 @@
 		say("A bounty has been sated.")
 		budget2change((reward_amount))
 
-		var/obj/item/clothing/mask/old_mask = M.get_item_by_slot(SLOT_WEAR_MASK)
-		if(old_mask)
-			M.dropItemToGround(old_mask, TRUE)
-		var/obj/item/clothing/mask/rogue/facemask/prisoner/prisonmask = new(get_turf(M))
-		prisonmask.bounty_amount = reward_amount
-		M.equip_to_slot_or_del(prisonmask, SLOT_WEAR_MASK, TRUE)
+		var/obj/item/clothing/neck/old_neck = M.get_item_by_slot(SLOT_NECK)
+		if(old_neck)
+			M.dropItemToGround(old_neck, TRUE)
+		var/obj/item/clothing/neck/rogue/gorget/prisoner/prisoncollar = new(get_turf(M))
+		prisoncollar.bounty_amount = reward_amount
+		M.equip_to_slot_or_del(prisoncollar, SLOT_NECK, TRUE)
 		playsound(src.loc, 'sound/items/beartrap.ogg', 100, TRUE, -1)
 	else
 		say("This skull carries no reward, you fool.")
