@@ -111,7 +111,7 @@
 			used_hand = 2
 			if(next_rmove > world.time)
 				return
-		if(used_intent.get_chargetime())
+		if(istype(used_intent, /datum/intent) && used_intent.get_chargetime())
 			if(used_intent.no_early_release && client?.chargedprog < 100)
 				var/adf = used_intent.clickcd
 				if(istype(rmb_intent, /datum/rmb_intent/aimed))
