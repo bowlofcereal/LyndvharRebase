@@ -1460,13 +1460,10 @@
 	show_runechat = FALSE
 
 /mob/living/carbon/human/verb/emote_cackle()
-	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
+	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE)))
 		set name = "Cackle"
 		set category = "Noises"
 		emote("cackle", intentional = TRUE)
-	else
-		to_chat(usr, span_warning("Your tongue doesn't do that"))
-		return
 
 /datum/emote/living/whine
 	key = "whine"
