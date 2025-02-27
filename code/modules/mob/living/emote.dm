@@ -1460,10 +1460,10 @@
 	show_runechat = FALSE
 
 /mob/living/carbon/human/verb/emote_cackle()
-	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE)))
-		set name = "Cackle"
-		set category = "Noises"
-		emote("cackle", intentional = TRUE)
+	set name = "Cackle"
+	set category = "Noises"
+	emote("cackle", intentional = TRUE)
+
 
 /datum/emote/living/whine
 	key = "whine"
