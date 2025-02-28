@@ -7,9 +7,9 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/wretch
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER)
 	category_tags = list(CTAG_ADVENTURER)
-	classes = list("Deserter" = "You were once a venerated and revered knight - now, a traitor who abandoned your liege. You live the life of an outlaw, shunned and looked down upon by society.",
+	classes = list("War criminal" = "You are a war criminal, a traitor to your own people and a butcher of the innocnet.",
 					"Outlaw" = "You're a seasoned criminal known for your heinous acts, your face plastered on wanted posters across the region. A life of theft, robbery, and ill-gotten-gains comes naturally to you.",
-					"Poacher" = "You have rejected society and its laws, choosing life in the wilderness instead. Simple thieving highwayman or freedom fighter, you take from those who have and give to the have-nots. Fancy, how the latter includes yourself!",
+					"Cannibal" = "You are a predator of the wilds.",
 					"Heretic" = "You are a heretic, spurned by the church, cast out from society - frowned upon by Psydon and his children for your faith.",
 					"Necromancer" = "You have been ostracized and hunted by society for your dark magics and perversion of life.")
 
@@ -17,13 +17,13 @@
 /datum/outfit/job/roguetown/adventurer/wretch/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_blindness(-3)
-	var/classes = list("Deserter","Outlaw","Poacher","Heretic","Necromancer")
+	var/classes = list("War criminal","Outlaw","Cannibal","Heretic","Necromancer")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
 
-		if("Deserter")
-			to_chat(H, span_warning("You were once a venerated and revered knight - now, a traitor who abandoned your liege. You live the life of an outlaw, shunned and looked down upon by society."))
+		if("War criminal")
+			to_chat(H, span_warning("You are a war criminal, a traitor to your own people and a butcher of the innocnet."))
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
@@ -143,8 +143,8 @@
 
 
 
-		if("Poacher")
-			to_chat(H, span_warning("You have rejected society and its laws, choosing life in the wilderness instead. Simple thieving highwayman or freedom fighter, you take from those who have and give to the have-nots. Fancy, how the latter includes yourself!"))
+		if("Cannibal")
+			to_chat(H, span_warning("You are a predator of the wilds."))
 			head = /obj/item/clothing/head/roguetown/roguehood/darkgreen
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
