@@ -7,11 +7,11 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/wretch
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER)
 	category_tags = list(CTAG_ADVENTURER)
-	classes = list("War criminal" = "You are a war criminal, a traitor to your own people and a butcher of the innocnet.",
-					"Outlaw" = "You're a seasoned criminal known for your heinous acts, your face plastered on wanted posters across the region. A life of theft, robbery, and ill-gotten-gains comes naturally to you.",
-					"Cannibal" = "You are a predator of the wilds.",
-					"Heretic" = "You are a heretic, spurned by the church, cast out from society - frowned upon by Psydon and his children for your faith.",
-					"Necromancer" = "You have been ostracized and hunted by society for your dark magics and perversion of life.")
+	classes = list("War criminal" = "A merciless butcher of the innocent, your hands forever stained with the blood of civilians. Even hardened soldiers recoil at the mention of your atrocities.",
+					"Outlaw" = "A ruthless criminal who revels in violence and cruelty. Your brutality is legendary - mothers warn their children of the monster who stalks the shadows, and your wanted posters promise hefty rewards.",
+					"Cannibal" = "A depraved hunter who preys on your own kind, stalking the wilderness to satisfy your twisted hunger for human flesh. The civilized world rightly fears the monster that lurks in the dark woods.",
+					"Heretic" = "A blasphemous apostate who has embraced dark powers, rejecting the true faith for forbidden knowledge and demonic pacts. Your very existence is an affront to the divine order.",
+					"Necromancer" = "A wicked practitioner of forbidden magic who defiles the sanctity of death itself. Your dark experiments in raising and corrupting the dead have earned you the hatred of all righteous people.")
 
 
 /datum/outfit/job/roguetown/adventurer/wretch/pre_equip(mob/living/carbon/human/H)
@@ -23,7 +23,7 @@
 	switch(classchoice)
 
 		if("War criminal")
-			to_chat(H, span_warning("You are a war criminal, a traitor to your own people and a butcher of the innocnet."))
+			to_chat(H, span_warning("You are a merciless butcher of the innocent, your hands forever stained with the blood of civilians. Even hardened soldiers recoil at the mention of your atrocities."))
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
@@ -81,10 +81,10 @@
 			GLOB.outlawed_players += H.real_name
 			var/bounty_total
 			bounty_total = rand(151, 250)
-			add_bounty(H.real_name, bounty_total, FALSE, "Desertion", "The Justiciary of Azuria")
+			add_bounty(H.real_name, bounty_total, FALSE, "War crimes against civilians", "The Justiciary of Azuria")
 
 		if("Outlaw")
-			to_chat(H, span_warning("You're a seasoned criminal known for your heinous acts, your face plastered on wanted posters across the region. A life of theft, robbery, and ill-gotten-gains comes naturally to you."))
+			to_chat(H, span_warning("You are a ruthless criminal who revels in violence and cruelty. Your brutality is legendary - mothers warn their children of the monster who stalks the shadows, and your wanted posters promise hefty rewards."))
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
@@ -134,7 +134,7 @@
 			H.change_stat("endurance", 2)
 			H.change_stat("speed", 3)
 			GLOB.outlawed_players += H.real_name
-			var/my_crime = input(H, "What is your crime?", "Crime") as text|null
+			var/my_crime = input(H, "What is your crime?", "Stealing from the vunerable") as text|null
 			if (!my_crime)
 				my_crime = "crimes against the Crown"
 			var/bounty_total
@@ -144,7 +144,7 @@
 
 
 		if("Cannibal")
-			to_chat(H, span_warning("You are a predator of the wilds."))
+			to_chat(H, span_warning("You are a depraved hunter who preys on your own kind, stalking the wilderness to satisfy your twisted hunger for human flesh. The civilized world rightly fears the monster that lurks in the dark woods."))
 			head = /obj/item/clothing/head/roguetown/roguehood/darkgreen
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
@@ -203,10 +203,10 @@
 			GLOB.outlawed_players += H.real_name
 			var/bounty_total
 			bounty_total = rand(151, 250)
-			add_bounty(H.real_name, bounty_total, FALSE, "Poaching", "The Justiciary of Azuria")
+			add_bounty(H.real_name, bounty_total, FALSE, "Cannibalism", "The Justiciary of Azuria")
 
 		if("Heretic")
-			to_chat(H, span_warning("You are a heretic, spurned by the church, cast out from society - frowned upon by Psydon and his children for your faith."))
+			to_chat(H, span_warning("You are a blasphemous apostate who has embraced dark powers, rejecting the true faith for forbidden knowledge and demonic pacts. Your very existence is an affront to the divine order."))
 			if (!(istype(H.patron, /datum/patron/inhumen/zizo) || istype(H.patron, /datum/patron/inhumen/matthios)))
 				to_chat(H, span_warning("My former deity frowned upon my practices. I have since turned to a new god."))
 				H.set_patron(pick(/datum/patron/inhumen/zizo, /datum/patron/inhumen/matthios))
@@ -265,7 +265,7 @@
 
 		if("Necromancer")
 			H.set_patron(/datum/patron/inhumen/zizo)
-			to_chat(H, span_warning("You have been ostracized and hunted by society for your dark magics and perversion of life."))
+			to_chat(H, span_warning("You are a wicked practitioner of forbidden magic who defiles the sanctity of death itself. Your dark experiments in raising and corrupting the dead have earned you the hatred of all righteous people."))
 			head = /obj/item/clothing/head/roguetown/roguehood/black
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			pants = /obj/item/clothing/under/roguetown/trou/leather
