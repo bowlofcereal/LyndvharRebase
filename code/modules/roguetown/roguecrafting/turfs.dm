@@ -2,7 +2,7 @@
 /// WOOD
 
 /datum/crafting_recipe/roguetown/turfs/woodfloor
-	name = "wooden floor"
+	name = "wooden floor [Sm Log]"
 	result = /turf/open/floor/rogue/ruinedwood
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	skillcraft = /datum/skill/craft/carpentry
@@ -18,7 +18,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/woodplatform
-	name = "wooden platform"
+	name = "wooden platform [Sm Log|Fiber]"
 	result = /turf/open/floor/rogue/ruinedwood/platform
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/fibers = 1)
@@ -36,7 +36,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/woodwall
-	name = "wooden wall"
+	name = "wooden wall [2xSm Log]"
 	result = /turf/closed/wall/mineral/rogue/wood
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	skillcraft = /datum/skill/craft/carpentry
@@ -52,7 +52,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/fancywwall
-	name = "fancy wooden wall"
+	name = "fancy wooden wall [2xSm Log]"
 	result = /turf/closed/wall/mineral/rogue/decowood
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	skillcraft = /datum/skill/craft/carpentry
@@ -68,7 +68,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/woodwindow
-	name = "wooden murder hole"
+	name = "wooden murder hole [2xSm Log]"
 	result = /turf/closed/wall/mineral/rogue/wood/window
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	skillcraft = /datum/skill/craft/carpentry
@@ -86,7 +86,7 @@
 /// STONE
 
 /datum/crafting_recipe/roguetown/turfs/stonefloor
-	name = "stone floor"
+	name = "stone floor [Stone]"
 	result = /turf/open/floor/rogue/blocks
 	reqs = list(/obj/item/natural/stone = 1)
 	skillcraft = /datum/skill/craft/masonry
@@ -102,7 +102,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/stoneplatform
-	name = "stone platform"
+	name = "stone platform [Stone|Fiber]"
 	result = /turf/open/floor/rogue/blocks/platform
 	reqs = list(/obj/item/natural/stone = 1,
 				/obj/item/natural/fibers = 1)
@@ -122,7 +122,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/stonewall
-	name = "stone wall"
+	name = "stone wall [2xStone]"
 	result = /turf/closed/wall/mineral/rogue/stone
 	reqs = list(/obj/item/natural/stone = 2)
 	skillcraft = /datum/skill/craft/masonry
@@ -138,7 +138,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/fancyswall
-	name = "fancy stone wall"
+	name = "fancy stone wall [2xStone]"
 	result = /turf/closed/wall/mineral/rogue/decostone
 	reqs = list(/obj/item/natural/stone = 2)
 	skillcraft = /datum/skill/craft/masonry
@@ -154,7 +154,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/craftstone
-	name = "craftstone wall"
+	name = "craftstone wall [3xStone]"
 	result = /turf/closed/wall/mineral/rogue/craftstone
 	reqs = list(/obj/item/natural/stone = 3)
 	skillcraft = /datum/skill/craft/masonry
@@ -170,7 +170,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/stonewindow
-	name = "stone murder hole"
+	name = "stone murder hole [2xStone]"
 	result = /turf/closed/wall/mineral/rogue/stone/window
 	reqs = list(/obj/item/natural/stone = 2)
 	skillcraft = /datum/skill/craft/masonry
@@ -188,7 +188,7 @@
 /// WINDOWS
 
 /datum/crafting_recipe/roguetown/turfs/roguewindow
-	name = "wooden window"
+	name = "wooden window [2xSm Log]"
 	result = /obj/structure/roguewindow
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	skillcraft = /datum/skill/craft/carpentry
@@ -198,7 +198,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/turfs/fancywindow/openclose
-	name = "fancy window"
+	name = "fancy window [2xSm Log|Stone|Ash|Clod]"
 	result = /obj/structure/roguewindow/openclose
 	reqs = list(
 	  /obj/item/grown/log/tree/small = 2,
@@ -213,7 +213,7 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/turfs/reinforcedwindow/openclose
-	name = "reinforced window"
+	name = "reinforced window [2xSm Log|IronIng|Ash|Clod]"
 	result = /obj/structure/roguewindow/openclose/reinforced
 	reqs = list(
 	  /obj/item/grown/log/tree/small = 2,
@@ -230,7 +230,7 @@
 /// HAY, TWIG AND TENT
 
 /datum/crafting_recipe/roguetown/turfs/hay
-	name = "hay"
+	name = "hay [2xWheat]"
 	result = /turf/open/floor/rogue/hay
 	reqs = list(/obj/item/natural/chaff/wheat = 2)
 	skillcraft = /datum/skill/craft/crafting
@@ -239,7 +239,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/turfs/twig
-	name = "twig floor"
+	name = "twig floor [2xStick]"
 	result = /turf/open/floor/rogue/twig
 	reqs = list(/obj/item/grown/log/tree/stick = 2)
 	skillcraft = /datum/skill/craft/crafting
@@ -256,7 +256,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/twigplatform
-	name = "twig platform"
+	name = "twig platform [3xStick]"
 	result = /turf/open/floor/rogue/twig/platform
 	reqs = list(/obj/item/grown/log/tree/stick = 3)
 	skillcraft = /datum/skill/craft/crafting
@@ -273,7 +273,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/tentwall
-	name = "tent wall"
+	name = "tent wall [Stick|Cloth]"
 	result = /turf/closed/wall/mineral/rogue/tent
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/cloth = 1)
@@ -290,7 +290,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/tentdoor
-	name = "tent door"
+	name = "tent door [Stick|Cloth]"
 	result = /obj/structure/roguetent
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/cloth = 1)

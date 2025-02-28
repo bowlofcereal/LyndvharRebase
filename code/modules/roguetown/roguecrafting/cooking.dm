@@ -5,7 +5,7 @@
 	skillcraft = /datum/skill/craft/cooking
 
 /datum/crafting_recipe/roguetown/cooking/hearth_tallow
-	name = "render tallow over the hearth"
+	name = "render tallow [Hearth|Fat]"
 	result = list(
 				/obj/item/reagent_containers/food/snacks/tallow,
 				/obj/item/reagent_containers/food/snacks/tallow,
@@ -22,7 +22,7 @@
 	verbage = "renders"
 
 /datum/crafting_recipe/roguetown/cooking/campfire_tallow
-	name = "render tallow over the campfire"
+	name = "render tallow [Campfire|Fat]"
 	result = list(
 				/obj/item/reagent_containers/food/snacks/tallow,
 				/obj/item/reagent_containers/food/snacks/tallow,
