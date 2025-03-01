@@ -19,7 +19,7 @@
 	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/alchemy/ozium_3x
-	name = "Ozium (x3) [3xAsh|3xPoiBerry|2xSwampweed]"
+	name = "Ozium (x3) [3xAsh|3xBerryPois|2xSwampweed]"
 	result = list(/obj/item/reagent_containers/powder/ozium,
 					/obj/item/reagent_containers/powder/ozium,
 					/obj/item/reagent_containers/powder/ozium)
