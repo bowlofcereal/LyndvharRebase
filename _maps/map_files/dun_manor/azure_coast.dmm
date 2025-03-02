@@ -1328,6 +1328,11 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/beach/forest)
+"iw" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/rogue/skeleton/guard,
+/turf/open/floor/rogue/wood,
+/area/rogue/under/cave/dukecourt)
 "iA" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1";
@@ -3378,6 +3383,16 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest)
+"yI" = (
+/obj/structure/closet/crate/roguecloset,
+/obj/effect/spawner/lootdrop/roguetown/dungeon,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/item/clothing/suit/roguetown/shirt/dress/royal,
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/prince,
+/obj/item/clothing/suit/roguetown/shirt/dress/royal/princess,
+/obj/item/clothing/wrists/roguetown/royalsleeves,
+/turf/open/floor/rogue/wood,
+/area/rogue/under/cave/dukecourt)
 "yL" = (
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/cobble,
@@ -4251,7 +4266,6 @@
 /area/rogue/under/cave/dukecourt)
 "Fn" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/powder/mana,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "Fo" = (
@@ -5037,6 +5051,10 @@
 /obj/structure/closet/crate/chest/lootbox,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/cave)
+"KJ" = (
+/mob/living/simple_animal/hostile/rogue/haunt,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/beach/forest)
 "KK" = (
 /obj/structure/bars/passage/steel{
 	redstone_id = "duke"
@@ -5079,6 +5097,12 @@
 /obj/structure/composter/full,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest)
+"KZ" = (
+/obj/structure/chair/wood/rogue,
+/obj/effect/decal/cleanable/dirt/dust,
+/mob/living/simple_animal/hostile/rogue/skeleton/bow,
+/turf/open/floor/rogue/wood,
+/area/rogue/under/cave/dukecourt)
 "La" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/orc/ranged,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -5151,6 +5175,10 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter)
+"LI" = (
+/mob/living/simple_animal/hostile/rogue/skeleton/guard,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/beach/forest)
 "LO" = (
 /obj/structure/flora/roguegrass/bush/wall,
 /turf/open/floor/rogue/dirt,
@@ -6756,6 +6784,10 @@
 /turf/open/floor/rogue/tile/masonic{
 	dir = 1
 	},
+/area/rogue/under/cave/dukecourt)
+"Ym" = (
+/mob/living/simple_animal/hostile/rogue/dragger,
+/turf/open/floor/carpet/red,
 /area/rogue/under/cave/dukecourt)
 "Yo" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
@@ -24937,7 +24969,7 @@ FP
 oP
 oP
 Ku
-gp
+yI
 QH
 On
 qi
@@ -25068,7 +25100,7 @@ oP
 oP
 Ku
 yP
-QH
+KZ
 Yh
 Mm
 RU
@@ -25609,7 +25641,7 @@ vu
 sT
 sT
 sT
-ms
+TF
 tk
 tk
 tk
@@ -26368,7 +26400,7 @@ tk
 oP
 Ku
 yP
-QH
+KZ
 Yh
 Mm
 mZ
@@ -41970,7 +42002,7 @@ tk
 tQ
 zC
 zC
-yP
+iw
 ac
 nZ
 jP
@@ -42750,7 +42782,7 @@ tk
 ff
 zC
 zC
-yP
+iw
 ac
 nZ
 jP
@@ -57963,7 +57995,7 @@ pZ
 uR
 hg
 ax
-ax
+Ym
 hg
 uR
 xa
@@ -58362,7 +58394,7 @@ WZ
 uR
 qj
 pz
-pz
+LI
 mz
 Mb
 pz
@@ -58883,7 +58915,7 @@ Vi
 Vi
 Vi
 LO
-pz
+tD
 Hs
 ci
 pz
@@ -59269,7 +59301,7 @@ uR
 Qj
 pz
 pz
-pz
+LI
 pz
 pz
 Vi
@@ -59388,7 +59420,7 @@ pZ
 pZ
 pZ
 rb
-XK
+KJ
 pz
 uR
 QW
@@ -59913,7 +59945,7 @@ pz
 uR
 hg
 ax
-ax
+Ym
 hg
 uR
 OL
