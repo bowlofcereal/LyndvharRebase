@@ -85,7 +85,7 @@
 /obj/structure/flora/roguetree/evil/Initialize()
 	. = ..()
 	icon_state = "wv[rand(1,2)]"
-	soundloop = new(list(src), FALSE)
+	soundloop = new(src, FALSE)
 	soundloop.start()
 
 /obj/structure/flora/roguetree/evil/Destroy()
@@ -162,7 +162,7 @@
 	layer = TABLE_LAYER
 	plane = GAME_PLANE
 	blade_dulling = DULLING_CUT
-	debris = list(/obj/item/grown/log/tree/stick = 1)
+	// debris = list(/obj/item/grown/log/tree/stick = 1) // Removed for lumberjacking/handcart upgrade PR
 	static_debris = list(/obj/item/grown/log/tree/small = 1)
 	alpha = 255
 	pixel_x = -16

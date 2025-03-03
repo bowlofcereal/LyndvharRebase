@@ -8,7 +8,7 @@
 
 /datum/outfit/job/roguetown/vagabond/excommunicated/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.gender == FEMALE)
+	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		armor = /obj/item/clothing/suit/roguetown/shirt/rags
 	else
 		pants = /obj/item/clothing/under/roguetown/tights/vagrant
@@ -36,5 +36,6 @@
 
 		var/datum/devotion/C = new /datum/devotion(H, H.patron)
 		C.grant_spells(H)
+		START_PROCESSING(SSobj, C)
 		H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 		GLOB.excommunicated_players += H.real_name // john roguetown, you are EXCOMMUNICADO.

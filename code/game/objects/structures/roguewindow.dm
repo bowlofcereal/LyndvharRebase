@@ -25,6 +25,17 @@
 	update_icon()
 	..()
 
+/obj/structure/roguewindow/obj_destruction(damage_flag)
+	message_admins("Window destroyed. [ADMIN_JMP(src)]")
+	log_admin("Window destroyed at X:[src.x] Y:[src.y] Z:[src.z] in area: [get_area(src)]")
+	..()
+
+/obj/structure/roguewindow/attacked_by(obj/item/I, mob/living/user)
+	..()
+	if(obj_broken || obj_destroyed)
+		var/obj/effect/track/structure/new_track = new(get_turf(src))
+		new_track.handle_creation(user)
+
 /obj/structure/roguewindow/update_icon()
 	if(brokenstate)
 		icon_state = "[base_state]br"
@@ -167,6 +178,9 @@
 	if(brokenstate)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
+	if(HAS_TRAIT(user, TRAIT_BASHDOORS))
+		src.take_damage(15)
+		return
 	src.visible_message(span_info("[user] knocks on [src]."))
 	add_fingerprint(user)
 	playsound(src, 'sound/misc/glassknock.ogg', 100)
@@ -174,7 +188,10 @@
 /obj/structure/roguewindow/obj_break(damage_flag)
 	if(!brokenstate)
 		attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-		new /obj/item/shard (get_turf(src))
+		message_admins("Window broken. [ADMIN_JMP(src)]")
+		log_admin("Window broken at X:[src.x] Y:[src.y] Z:[src.z] in area: [get_area(src)]")
+		new /obj/item/natural/glass/shard (get_turf(src))
+		new /obj/effect/decal/cleanable/glass(get_turf(src))
 		climbable = TRUE
 		brokenstate = TRUE
 		opacity = FALSE

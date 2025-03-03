@@ -40,7 +40,7 @@
 			H.mind.adjust_skillrank(/datum/skill/labor/fishing, 5, TRUE)
 		else
 			H.mind.adjust_skillrank(/datum/skill/labor/fishing, 4, TRUE)
-	if(H.pronouns == HE_HIM || H.pronouns == THEY_THEM)
+	if(H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS)
 		pants = /obj/item/clothing/under/roguetown/tights/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
@@ -53,7 +53,11 @@
 		backr = /obj/item/fishingrod
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/flint
-		backpack_contents = list(/obj/item/natural/worms = 2,/obj/item/rogueweapon/shovel/small=1)
+		backpack_contents = list(
+							/obj/item/natural/worms = 2,
+							/obj/item/rogueweapon/shovel/small = 1,
+							/obj/item/flashlight/flare/torch = 1,
+							)
 	else
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
@@ -65,4 +69,8 @@
 		backr = /obj/item/fishingrod
 		beltr = /obj/item/cooking/pan
 		beltl = /obj/item/flint
-		backpack_contents = list(/obj/item/natural/worms = 2,/obj/item/rogueweapon/shovel/small=1)
+		backpack_contents = list(
+							/obj/item/natural/worms = 2,
+							/obj/item/rogueweapon/shovel/small = 1,
+							/obj/item/flashlight/flare/torch = 1,
+							)

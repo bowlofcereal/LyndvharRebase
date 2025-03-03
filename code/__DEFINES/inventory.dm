@@ -165,6 +165,7 @@
 #define HIDEBELT		(1<<12)
 #define HIDECROTCH		(1<<13)
 #define HIDETAIL		(1<<14)
+#define HIDESNOUT		(1<<15)
 
 //blocking_behavior var on clothing items
 #define BLOCKBOOTS		(1<<0)
@@ -250,73 +251,3 @@
 #define CAN_CADJUST 1
 #define CADJUSTED 2
 #define CADJUSTED_MORE 3
-
-//Allowed equipment lists for security vests and hardsuits.
-
-GLOBAL_LIST_INIT(advanced_hardsuit_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/flashlight,
-	/obj/item/gun,
-	/obj/item/melee/baton,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	/obj/item/tank/internals)))
-
-GLOBAL_LIST_INIT(security_hardsuit_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/flashlight,
-	/obj/item/gun/ballistic,
-	/obj/item/gun/energy,
-	/obj/item/melee/baton,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	/obj/item/tank/internals)))
-
-GLOBAL_LIST_INIT(detective_vest_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/detective_scanner,
-	/obj/item/flashlight,
-	/obj/item/taperecorder,
-	/obj/item/gun/ballistic,
-	/obj/item/gun/energy,
-	/obj/item/lighter,
-	/obj/item/melee/baton,
-	/obj/item/melee/classic_baton,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	/obj/item/storage/fancy/cigarettes,
-	/obj/item/tank/internals/emergency_oxygen,
-	/obj/item/tank/internals/plasmaman)))
-
-GLOBAL_LIST_INIT(security_vest_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/flashlight,
-	/obj/item/gun/ballistic,
-	/obj/item/gun/energy,
-	/obj/item/kitchen/knife/combat,
-	/obj/item/melee/baton,
-	/obj/item/melee/classic_baton/telescopic,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	/obj/item/tank/internals/emergency_oxygen,
-	/obj/item/tank/internals/plasmaman)))
-
-GLOBAL_LIST_INIT(security_wintercoat_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/flashlight,
-	/obj/item/storage/fancy/cigarettes,
-	/obj/item/gun/ballistic,
-	/obj/item/gun/energy,
-	/obj/item/lighter,
-	/obj/item/melee/baton,
-	/obj/item/melee/classic_baton/telescopic,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	/obj/item/tank/internals/emergency_oxygen,
-	/obj/item/tank/internals/plasmaman,
-	/obj/item/toy)))

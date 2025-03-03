@@ -1,7 +1,7 @@
 	///////////////////////
 	//UPDATE_ICONS SYSTEM//
 	///////////////////////
-/* Keep these comments up-to-da/sprite_accessory/earste if you -insist- on hurting my code-baby ;_;
+/* Keep these comments up-to-date if you -insist- on hurting my code-baby ;_;
 This system allows you to update individual mob-overlays, without regenerating them all each time.
 When we generate overlays we generate the standing version and then rotate the mob as necessary..
 
@@ -282,8 +282,6 @@ There are several things that need to be remembered:
 		update_inv_shirt()
 		update_inv_mouth()
 		update_transform()
-		//mutations
-		update_mutations_overlay()
 		//damage overlays
 		update_damage_overlays()
 
@@ -1068,6 +1066,7 @@ There are several things that need to be remembered:
 	remove_overlay(CLOAK_LAYER)
 	remove_overlay(CLOAK_BEHIND_LAYER)
 	remove_overlay(TABARD_LAYER)
+	remove_overlay(UNDER_ARMOR_LAYER)
 
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[SLOT_CLOAK]
@@ -1104,6 +1103,8 @@ There are several things that need to be remembered:
 					cloak_overlay.pixel_y += dna.species.offset_features[OFFSET_CLOAK_F][2]
 			if(cloak.alternate_worn_layer == TABARD_LAYER)
 				overlays_standing[TABARD_LAYER] = cloak_overlay
+			if(cloak.alternate_worn_layer == UNDER_ARMOR_LAYER)
+				overlays_standing[UNDER_ARMOR_LAYER] = cloak_overlay	
 			if(cloak.alternate_worn_layer == CLOAK_BEHIND_LAYER)
 				overlays_standing[CLOAK_BEHIND_LAYER] = cloak_overlay
 			if(!cloak.alternate_worn_layer)
@@ -1180,6 +1181,7 @@ There are several things that need to be remembered:
 	apply_overlay(TABARD_LAYER)
 	apply_overlay(CLOAK_BEHIND_LAYER)
 	apply_overlay(CLOAK_LAYER)
+	apply_overlay(UNDER_ARMOR_LAYER)
 
 /mob/living/carbon/human/update_inv_shirt()
 	remove_overlay(SHIRT_LAYER)
@@ -1752,9 +1754,8 @@ generate/load female uniform sprites matching all previously decided variables
 /mob/living/carbon/human/generate_icon_render_key()
 	. = "[dna.species.limbs_id]"
 
-	if(dna.check_mutation(HULK))
-		. += "-coloured-hulk"
-	else if(dna.species.use_skintones)
+
+	if(dna.species.use_skintones)
 		. += "-coloured-[skin_tone]"
 	else if(dna.species.fixed_mut_color)
 		. += "-coloured-[dna.species.fixed_mut_color]"

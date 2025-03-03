@@ -73,7 +73,6 @@
 
 /atom/movable/screen/skills
 	name = "skills"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "skills"
 	screen_loc = ui_skill_menu
 
@@ -87,7 +86,7 @@
 		if(ishuman(usr))
 			var/mob/living/carbon/human/M = usr
 			if(M.charflaw)
-				to_chat(M, span_info("[M.charflaw.desc]"))
+				to_chat(M, "<span class='info'>[M.charflaw.desc]</span>")
 				to_chat(M, "*----*")
 			if(M.mind)
 				if(M.mind.language_holder)
@@ -95,16 +94,16 @@
 					for(var/X in M.mind.language_holder.languages)
 						var/datum/language/LA = new X()
 						finn = TRUE
-						to_chat(M, span_info("[LA.name] - ,[LA.key]"))
+						to_chat(M, "<span class='info'>[LA.name] - ,[LA.key]</span>")
 					if(!finn)
-						to_chat(M, span_warning("I don't know any languages."))
+						to_chat(M, "<span class='warning'>I don't know any languages.</span>")
 					to_chat(M, "*----*")
 		for(var/X in GLOB.roguetraits)
 			if(HAS_TRAIT(L, X))
 				to_chat(L, "[X] - <span class='info'>[GLOB.roguetraits[X]]</span>")
 				ht = TRUE
 		if(!ht)
-			to_chat(L, span_warning("I have no special traits."))
+			to_chat(L, "<span class='warning'>I have no special traits.</span>")
 		to_chat(L, "*----*")
 		return
 
@@ -114,7 +113,6 @@
 
 /atom/movable/screen/craft
 	name = "crafting menu"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "craft"
 	screen_loc = rogueui_craft
 	var/last_craft
@@ -144,7 +142,6 @@
 
 /atom/movable/screen/area_creator
 	name = "create new area"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "area_edit"
 	screen_loc = ui_building
 
@@ -153,13 +150,12 @@
 		return TRUE
 	var/area/A = get_area(usr)
 	if(!A.outdoors)
-		to_chat(usr, span_warning("There is already a defined structure here."))
+		to_chat(usr, "<span class='warning'>There is already a defined structure here.</span>")
 		return TRUE
 	create_area(usr)
 
 /atom/movable/screen/language_menu
 	name = "language menu"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "talk_wheel"
 	screen_loc = ui_language_menu
 
@@ -188,8 +184,6 @@
 		return TRUE
 
 	if(usr.incapacitated())
-		return TRUE
-	if(ismecha(usr.loc)) // stops inventory actions in a mech
 		return TRUE
 
 	if(hud?.mymob && slot_id)
@@ -298,10 +292,6 @@
 		return TRUE
 	if(world.time <= user.next_move)
 		return TRUE
-//	if(user.incapacitated())
-//		return TRUE
-	if (ismecha(user.loc)) // stops inventory actions in a mech
-		return TRUE
 
 	if(user.active_hand_index == held_index)
 		var/obj/item/I = user.get_active_held_item()
@@ -328,7 +318,6 @@
 
 /atom/movable/screen/drop
 	name = "drop"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "act_drop"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -633,77 +622,8 @@
 			L.toggle_cmode()
 			update_icon()
 
-/atom/movable/screen/act_intent/alien
-	icon = 'icons/mob/screen_alien.dmi'
-	screen_loc = ui_movi
-
-/atom/movable/screen/act_intent/robot
-	icon = 'icons/mob/screen_cyborg.dmi'
-	screen_loc = ui_borg_intents
-
-/atom/movable/screen/internals
-	name = "toggle internals"
-	icon_state = "internal0"
-	screen_loc = null
-
-/atom/movable/screen/internals/Click(location, control, params)
-	if(!iscarbon(usr))
-		return
-	var/mob/living/carbon/C = usr
-	if(C.incapacitated())
-		return
-
-	if(C.internal)
-		C.internal = null
-		to_chat(C, span_notice("I are no longer running on internals."))
-		icon_state = "internal0"
-	else
-		if(!C.getorganslot(ORGAN_SLOT_BREATHING_TUBE))
-			if(!istype(C.wear_mask, /obj/item/clothing/mask))
-				to_chat(C, span_warning("I are not wearing an internals mask!"))
-				return 1
-			else
-				var/obj/item/clothing/mask/M = C.wear_mask
-				if(M.mask_adjusted) // if mask on face but pushed down
-					M.adjustmask(C) // adjust it back
-				if( !(M.clothing_flags & MASKINTERNALS) )
-					to_chat(C, span_warning("I are not wearing an internals mask!"))
-					return
-
-		var/obj/item/I = C.is_holding_item_of_type(/obj/item/tank)
-		if(I)
-			to_chat(C, span_notice("I are now running on internals from [I] in your [C.get_held_index_name(C.get_held_index_of_item(I))]."))
-			C.internal = I
-		else if(ishuman(C))
-			var/mob/living/carbon/human/H = C
-			if(istype(H.s_store, /obj/item/tank))
-				to_chat(H, span_notice("I are now running on internals from [H.s_store] on your [H.wear_armor.name]."))
-				H.internal = H.s_store
-			else if(istype(H.belt, /obj/item/tank))
-				to_chat(H, span_notice("I are now running on internals from [H.belt] on your belt."))
-				H.internal = H.belt
-			else if(istype(H.l_store, /obj/item/tank))
-				to_chat(H, span_notice("I are now running on internals from [H.l_store] in your left pocket."))
-				H.internal = H.l_store
-			else if(istype(H.r_store, /obj/item/tank))
-				to_chat(H, span_notice("I are now running on internals from [H.r_store] in your right pocket."))
-				H.internal = H.r_store
-
-		//Separate so CO2 jetpacks are a little less cumbersome.
-		if(!C.internal && istype(C.back, /obj/item/tank))
-			to_chat(C, span_notice("I are now running on internals from [C.back] on your back."))
-			C.internal = C.back
-
-		if(C.internal)
-			icon_state = "internal1"
-		else
-			to_chat(C, span_warning("I don't have an oxygen tank!"))
-			return
-	C.update_action_buttons_icon()
-
 /atom/movable/screen/mov_intent
 	name = "run/walk toggle"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "running"
 
 /atom/movable/screen/mov_intent/Click(location, control, params)
@@ -793,11 +713,6 @@
 		qdel(src)
 		return
 	var/mob/living/carbon/human/H = hud.mymob
-	if(H.mind && H.mind.antag_datums)
-		for(var/datum/antagonist/D in H.mind.antag_datums)
-			if(istype(D, /datum/antagonist/vampirelord) || istype(D, /datum/antagonist/vampire) || istype(D, /datum/antagonist/bandit) || istype(D, /datum/antagonist/lich))
-				qdel(src)
-				return
 	if(H.advsetup)
 		alpha = 0
 		icon = 'icons/mob/advsetup.dmi'
@@ -893,7 +808,6 @@
 
 /atom/movable/screen/pull
 	name = "stop pulling"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "pull"
 
 /atom/movable/screen/pull/Click()
@@ -909,7 +823,6 @@
 
 /atom/movable/screen/rest
 	name = "rest"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "act_rest"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -931,27 +844,40 @@
 
 /atom/movable/screen/restup
 	name = "stand up"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "act_rest_up"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
 
-/atom/movable/screen/restup/Click()
+/atom/movable/screen/restup/Click(location, control, params)
+	var/paramslist = params2list(params)
+
 	if(isliving(usr))
 		var/mob/living/L = usr
-		L.stand_up()
+		if(paramslist["right"])
+			L.look_up()
+		else
+			L.stand_up()
 
 /atom/movable/screen/restdown
 	name = "lay down"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "act_rest_down"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
 
-/atom/movable/screen/restdown/Click()
+/atom/movable/screen/restdown/Click(location, control, params)
+	var/paramslist = params2list(params)
+
 	if(isliving(usr))
 		var/mob/living/L = usr
-		L.lay_down()
+		if(paramslist["right"])
+			var/turf/O
+			for(var/turf/T in range(1, L))
+				if(istransparentturf(T))
+					O = T
+					break
+			L.look_down(O)
+		else
+			L.lay_down()
 
 /atom/movable/screen/storage
 	name = "storage"
@@ -965,21 +891,31 @@
 	master = new_master
 
 /atom/movable/screen/storage/Click(location, control, params)
+	var/list/modifiers = params2list(params)
+	if(modifiers["right"])
+		if(master)
+			var/obj/item/flipper = usr.get_active_held_item()
+			if((!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated())
+				return
+			var/old_width = flipper.grid_width
+			var/old_height = flipper.grid_height
+			flipper.grid_height = old_width
+			flipper.grid_width = old_height
+			update_hovering(location, control, params)
+			return
+
 	if(world.time <= usr.next_move)
 		return TRUE
 	if(usr.incapacitated())
 		return TRUE
-	if (ismecha(usr.loc)) // stops inventory actions in a mech
-		return TRUE
 	if(master)
 		var/obj/item/I = usr.get_active_held_item()
 		if(I)
-			master.attackby(null, I, usr, params)
+			master.attackby(src, I, usr, params, TRUE)
 	return TRUE
 
 /atom/movable/screen/throw_catch
 	name = "throw/catch"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "catch0"
 	var/throwy = 0
 
@@ -1364,10 +1300,6 @@
 	. += mutable_appearance(overlay_icon, "[hud.mymob.gender == "male" ? "m" : "f"]_[hud.mymob.zone_selected]")
 //	. += mutable_appearance(overlay_icon, "height_arrow[hud.mymob.aimheight]")
 
-/atom/movable/screen/zone_sel/alien
-	icon = 'icons/mob/screen_alien.dmi'
-	overlay_icon = 'icons/mob/screen_alien.dmi'
-
 /atom/movable/screen/zone_sel/robot
 	icon = 'icons/mob/screen_cyborg.dmi'
 
@@ -1394,60 +1326,10 @@
 	icon_state = "health0"
 	screen_loc = ui_health
 
-/atom/movable/screen/healths/alien
-	icon = 'icons/mob/screen_alien.dmi'
-	screen_loc = ui_alien_health
-
-/atom/movable/screen/healths/robot
-	icon = 'icons/mob/screen_cyborg.dmi'
-	screen_loc = ui_borg_health
-
-/atom/movable/screen/healths/blob
-	name = "blob health"
-	icon_state = "block"
-	screen_loc = ui_internal
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/atom/movable/screen/healths/blob/naut
-	name = "health"
-	icon = 'icons/mob/blob.dmi'
-	icon_state = "nauthealth"
-
-/atom/movable/screen/healths/blob/naut/core
-	name = "overmind health"
-	screen_loc = ui_health
-	icon_state = "corehealth"
-
-/atom/movable/screen/healths/guardian
-	name = "summoner health"
-	icon = 'icons/mob/guardian.dmi'
-	icon_state = "base"
-	screen_loc = ui_health
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/atom/movable/screen/healths/revenant
-	name = "essence"
-	icon = 'icons/mob/actions/backgrounds.dmi'
-	icon_state = "bg_revenant"
-	screen_loc = ui_health
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
 /atom/movable/screen/healths/construct
 	icon = 'icons/mob/screen_construct.dmi'
 	icon_state = "artificer_health0"
 	screen_loc = ui_construct_health
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/atom/movable/screen/healths/slime
-	icon = 'icons/mob/screen_slime.dmi'
-	icon_state = "slime_health0"
-	screen_loc = ui_slime_health
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/atom/movable/screen/healths/lavaland_elite
-	icon = 'icons/mob/screen_elite.dmi'
-	icon_state = "elite_health0"
-	screen_loc = ui_health
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /atom/movable/screen/healthdoll
@@ -1482,7 +1364,7 @@
 			if(length(H.mind.known_people))
 				H.mind.display_known_people(H)
 			else
-				to_chat(H, span_warning("I don't know anyone."))
+				to_chat(H, "<span class='warning'>I don't know anyone.</span>")
 
 /atom/movable/screen/splash
 	icon = 'icons/blank_title.png'
@@ -1672,6 +1554,7 @@
 			state2use = "mood_dead"
 	add_overlay(state2use)
 
+
 /atom/movable/screen/stress/Click(location,control,params)
 	var/list/modifiers = params2list(params)
 
@@ -1762,9 +1645,9 @@
 				show_intents(M)
 		if(modifiers["right"])
 			if(M.rmb_intent)
-				to_chat(M, span_info("* --- *"))
-				to_chat(M, span_info("[name]: [desc]"))
-				to_chat(M, span_info("* --- *"))
+				to_chat(M, "<span class='info'>* --- *</span>")
+				to_chat(M, "<span class='info'>[name]: [desc]</span>")
+				to_chat(M, "<span class='info'>* --- *</span>")
 
 /atom/movable/screen/rmbintent/proc/collapse_intents()
 	if(!showing)
@@ -1833,9 +1716,9 @@
 			if(stored_intent)
 				M.swap_rmb_intent(type = stored_intent)
 		if(modifiers["right"])
-			to_chat(M, span_info("* --- *"))
-			to_chat(M, span_info("[name]: [desc]"))
-			to_chat(M, span_info("* --- *"))
+			to_chat(M, "<span class='info'>* --- *</span>")
+			to_chat(M, "<span class='info'>[name]: [desc]</span>")
+			to_chat(M, "<span class='info'>* --- *</span>")
 
 /mob/living/proc/swap_rmb_intent(type, num)
 	if(!possible_rmb_intents?.len)
@@ -1902,16 +1785,14 @@
 		if(R.stage == 2)
 			add_overlay("rainlay")
 
-/atom/movable/screen/rogfat //Fatigue and stamina have their names switched in the code. I love roguedevs.
+/atom/movable/screen/rogfat
 	name = "stamina"
-	desc = "How winded I am. I need only a moment to catch my breath."
 	icon_state = "fat100"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = rogueui_fat
 
 /atom/movable/screen/rogstam
 	name = "fatigue"
-	desc = "My long-term weariness. Rest will be needed to recover this."
 	icon_state = "stam100"
 	icon = 'icons/mob/rogueheat.dmi'
 	screen_loc = rogueui_fat
@@ -1930,9 +1811,7 @@
 	name = ""
 	screen_loc = "1,1"
 	mouse_opacity = 0
-	alpha = 55 // I DO SEE NOTHING WITH 70 ALPHA
-//	layer = 20.5
-//	plane = 20
+	alpha = 0
 	layer = 13
 	plane = 0
 	blend_mode = 4

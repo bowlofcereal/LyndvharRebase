@@ -15,10 +15,10 @@
 	whitelist_req = TRUE
 	give_bank_account = 44
 	noble_income = 22
-	min_pq = 6 //The second most powerful person in the realm...is Mhelping where the keep is
+	min_pq = 9 //The second most powerful person in the realm...
 	max_pq = null
 	round_contrib_points = 3
-	cmode_music = 'sound/music/combat_fancy.ogg'
+	cmode_music = 'sound/music/combat_noble.ogg'
 
 /*
 /datum/job/roguetown/hand/special_job_check(mob/dead/new_player/player)
@@ -43,6 +43,18 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
+	
+		addtimer(CALLBACK(src, PROC_REF(know_agents), H), 50)
+
+/datum/job/roguetown/hand/proc/know_agents(var/mob/living/carbon/human/H)
+	if(!GLOB.court_agents.len)
+		to_chat(H, span_notice("You begun the week with no agents."))
+	else
+		to_chat(H, span_notice("We begun the week with these agents:"))
+		for(var/name in GLOB.court_agents)
+			to_chat(H, span_notice(name))
+
+
 
 /datum/advclass/hand/hand
 	name = "Hand"
@@ -59,6 +71,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	beltr = /obj/item/rogueweapon/sword/rapier/dec
+	id = /obj/item/scomstone/garrison
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
@@ -95,12 +108,14 @@
 		gloves = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
 		mask = /obj/item/clothing/mask/rogue/shepherd/shadowmask
 		pants = /obj/item/clothing/under/roguetown/trou/shadowpants
+		id = /obj/item/scomstone/garrison
 	else
 		cloak = /obj/item/clothing/cloak/raincloak/mortus //cool spymaster cloak
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 		backr = /obj/item/storage/backpack/rogue/satchel/black
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 		pants = /obj/item/clothing/under/roguetown/tights/black
+		id = /obj/item/scomstone/garrison
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
@@ -125,6 +140,7 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 
 /datum/advclass/hand/advisor
 	name = "Advisor"
@@ -140,6 +156,7 @@
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/storage/keyring/hand = 1, /obj/item/reagent_containers/glass/bottle/rogue/poison = 1) //starts with a vial of poison, like all wizened evil advisors do!
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 	pants = /obj/item/clothing/under/roguetown/tights/black
+	id = /obj/item/scomstone/garrison
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
@@ -153,13 +170,18 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 		H.change_stat("intelligence", rand(4,5))
 		H.change_stat("perception", 3)
+		H.mind.adjust_spellpoints(2)
+		ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 	if(H.age == AGE_OLD)
 		H.change_stat("speed", -1)
 		H.change_stat("strength", -1)
 		H.change_stat("intelligence", 1)
 		H.change_stat("perception", 1)
+		H.mind.adjust_spellpoints(1)
 
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 

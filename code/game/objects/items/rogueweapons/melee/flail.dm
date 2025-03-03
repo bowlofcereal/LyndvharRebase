@@ -8,7 +8,7 @@
 	sharpness = IS_BLUNT
 	//dropshrink = 0.75
 	wlength = WLENGTH_NORMAL
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
 	associated_skill = /datum/skill/combat/whipsflails
 	anvilrepair = /datum/skill/craft/weaponsmithing
@@ -18,6 +18,8 @@
 	throwforce = 5
 	wdefense = 0
 	minstr = 4
+	grid_width = 32
+	grid_height = 96
 
 /datum/intent/flail/strike
 	name = "strike"
@@ -44,10 +46,10 @@
 /datum/intent/flail/strike/smash
 	name = "smash"
 	chargetime = 5
+	chargedrain = 2
 	no_early_release = TRUE
 	penfactor = 80
 	recovery = 10
-	swingdelay = 7
 	damfactor = 1.2
 	chargedloop = /datum/looping_sound/flailswing
 	keep_looping = TRUE
@@ -60,12 +62,12 @@
 /datum/intent/flail/strike/smashrange
 	name = "ranged smash"
 	chargetime = 25
+	chargedrain = 2
 	no_early_release = TRUE
 	penfactor = 50
 	recovery = 30
-	damfactor = 1.5
+	damfactor = 1.2
 	reach = 2
-	swingdelay = 8
 	chargedloop = /datum/looping_sound/flailswing
 	keep_looping = TRUE
 	icon_state = "insmash"
@@ -90,6 +92,11 @@
 	desc = "This is a swift, steel flail. Strikes hard and far."
 	smeltresult = /obj/item/ingot/steel
 	minstr = 5
+
+/obj/item/rogueweapon/flail/necraflail
+	name = "swift journey"
+	desc = "The striking head is full of teeth, rattling viciously with ever strike, with every rotation. Each set coming from one the wielder has laid to rest. Carried alongside them as a great show of respect."
+	icon_state = "necraflail"
 
 
 /datum/intent/whip/lash
@@ -132,7 +139,7 @@
 	force = 21
 	possible_item_intents = list(/datum/intent/whip/crack, /datum/intent/whip/lash, /datum/intent/whip/punish)
 	name = "whip"
-	desc = "A leather whip, built to last with an sharp stone for a tip"
+	desc = "A leather whip. Built to last, with a sharp stone for a tip."
 	icon_state = "whip"
 	icon = 'icons/roguetown/weapons/32.dmi'
 	sharpness = IS_BLUNT
@@ -147,6 +154,8 @@
 	throwforce = 5
 	wdefense = 0
 	minstr = 6
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/rogueweapon/whip/getonmobprop(tag)
 	. = ..()
@@ -158,6 +167,12 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 
+/obj/item/rogueweapon/whip/xylix
+	name = "cackle lash"
+	desc = "The chimes of this whip are said to sound as the trickster's laughter itself."
+	icon_state = "xylixwhip"
+	force = 24
+
 /obj/item/rogueweapon/whip/antique
 	force = 29
 	name = "Repenta En"
@@ -165,6 +180,11 @@
 	minstr = 11
 	icon_state = "gwhip"
 
+/obj/item/rogueweapon/whip/antique/psywhip
+	name = "Daybreak"
+	desc = "I am wrath. I am silver. I am the mercy of HIM."
+	icon_state = "psywhip"
+	is_silver = TRUE
 
 /obj/item/rogueweapon/flail/peasantwarflail
 	force = 10

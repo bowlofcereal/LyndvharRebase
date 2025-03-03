@@ -112,8 +112,10 @@
 				target.visible_message(span_info("Vital energies are sapped towards [target]!"), span_notice("The life around me pales as I am restored!"))
 				// set up a ritual pile of bones (or just cast near a stack of bones whatever) around us for massive bonuses, cap at 50 for 75 healing total (wowie)
 				situational_bonus = 0
-				for (var/obj/item/stack/sheet/bone/O in oview(5, user))
-					situational_bonus += (O.amount * 0.5)
+				for (var/obj/item/natural/bone/O in oview(5, user))
+					situational_bonus += (0.5)
+				for (var/obj/item/natural/bundle/bone/S in oview(5, user))
+					situational_bonus += (S.amount * 0.5)
 				if (situational_bonus > 0)
 					conditional_buff = TRUE
 					situational_bonus = min(situational_bonus, 5)
@@ -149,13 +151,7 @@
 			to_chat(user, "Channeling my patron's power is easier in these conditions!")
 			healing += situational_bonus
 
-		if(iscarbon(target))
-			var/mob/living/carbon/C = target
-			var/datum/status_effect/buff/healing/heal_effect = C.apply_status_effect(/datum/status_effect/buff/healing)
-			heal_effect.healing_on_tick = healing
-		else
-			target.adjustBruteLoss(-healing*10)
-			target.adjustFireLoss(-healing*10)
+		target.apply_status_effect(/datum/status_effect/buff/healing, healing)
 		return TRUE
 	revert_cast()
 	return FALSE

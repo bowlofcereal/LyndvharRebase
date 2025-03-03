@@ -40,6 +40,9 @@
 		return TRUE
 	return FALSE //return TRUE to avoid calling attackby after this proc does stuff
 
+/atom/proc/pre_attack_right(atom/A, mob/living/user, params)
+	return FALSE
+
 // No comment
 /atom/proc/attackby(obj/item/W, mob/user, params)
 	if(user.used_intent.tranged)
@@ -49,7 +52,13 @@
 	return FALSE
 
 /obj/attackby(obj/item/I, mob/living/user, params)
-	return ..() || ((obj_flags & CAN_BE_HIT) && I.attack_obj(src, user))
+	if(I.obj_flags_ignore)
+		return I.attack_obj(src, user)
+	else
+		return ..() || ((obj_flags & CAN_BE_HIT) && I.attack_obj(src, user))
+
+/turf/attackby(obj/item/I, mob/living/user, params)
+	return ..() || (max_integrity && I.attack_turf(src, user))
 
 /mob/living/attackby(obj/item/I, mob/living/user, params)
 	if(..())
@@ -64,13 +73,14 @@
 
 /mob/living
 	var/tempatarget = null
+	var/pegleg = 0			//Handles check & slowdown for peglegs. Fuckin' bootleg, literally, but hey it at least works.
 
 /obj/item/proc/attack(mob/living/M, mob/living/user)
 	if(SEND_SIGNAL(src, COMSIG_ITEM_ATTACK, M, user) & COMPONENT_ITEM_NO_ATTACK)
 		return FALSE
 	SEND_SIGNAL(user, COMSIG_MOB_ITEM_ATTACK, M, user)
 	if(item_flags & NOBLUDGEON)
-		return FALSE
+		return FALSE	
 
 	if(force && HAS_TRAIT(user, TRAIT_PACIFISM))
 		to_chat(user, span_warning("I don't want to harm other living beings!"))
@@ -94,7 +104,8 @@
 	var/datum/intent/cached_intent = user.used_intent
 	if(user.used_intent.swingdelay)
 		if(!user.used_intent.noaa)
-			user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
+			if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
+				user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
 		sleep(user.used_intent.swingdelay)
 	if(user.a_intent != cached_intent)
 		return
@@ -109,7 +120,8 @@
 	if((M.mobility_flags & MOBILITY_STAND))
 		if(M.checkmiss(user))
 			if(!user.used_intent.swingdelay)
-				user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
+				if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
+					user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
 			return
 	if(istype(user.rmb_intent, /datum/rmb_intent/strong))
 		user.rogfat_add(10)
@@ -133,7 +145,8 @@
 				add_fingerprint(user)
 		if(M.d_intent == INTENT_DODGE)
 			if(!user.used_intent.swingdelay)
-				user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
+				if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
+					user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
 		return
 
 	if(user.zone_selected == BODY_ZONE_PRECISE_R_INHAND)
@@ -283,7 +296,9 @@
 			if(!cont)
 				return 0
 		if(DULLING_PICK) //cannot deal damage if not a pick item. aka rock walls
-
+			if(!(user.mobility_flags & MOBILITY_STAND))
+				to_chat(user, span_warning("I need to stand up to get a proper swing."))
+				return 0
 			if(user.used_intent.blade_class != BCLASS_PICK)
 				return 0
 			var/mob/living/miner = user
@@ -503,7 +518,8 @@
 			if(istype(user.rmb_intent, /datum/rmb_intent/swift))
 				adf = round(adf * 0.6)
 			user.changeNext_move(adf)
-			user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+			if(get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
+				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 		if(!proximity_flag && ismob(target) && !user.used_intent?.noaa) //this block invokes miss cost clicking on seomone who isn't adjacent to you
@@ -513,7 +529,8 @@
 			if(istype(user.rmb_intent, /datum/rmb_intent/swift))
 				adf = round(adf * 0.6)
 			user.changeNext_move(adf)
-			user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
+			if(get_dist(get_turf(user), get_turf(target)) <= user.used_intent.reach)
+				user.do_attack_animation(target, visual_effect_icon = user.used_intent.animname)
 			playsound(get_turf(src), pick(swingsound), 100, FALSE, -1)
 			user.aftermiss()
 

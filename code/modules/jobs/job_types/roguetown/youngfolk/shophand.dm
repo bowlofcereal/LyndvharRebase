@@ -19,8 +19,6 @@
 	max_pq = null
 	round_contrib_points = 2
 
-	cmode_music = 'sound/music/combat_fancy.ogg'
-
 /datum/outfit/job/roguetown/shophand/pre_equip(mob/living/carbon/human/H)
 	..()
 	ADD_TRAIT(H, TRAIT_SEEPRICES_SHITTY, "[type]")
@@ -55,6 +53,7 @@
 		H.change_stat("speed", 1)
 		H.change_stat("intelligence", 1)
 		H.change_stat("fortune", 1)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/appraise/secular)
 		if(prob(33))
 			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
 		else if(prob(33))

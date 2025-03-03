@@ -8,9 +8,10 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
-	tutorial = "Picked out of your political value rather than likely any form of love, you have become the Grand Duke's most trusted confidant--and likely friend--throughout your marriage. Your loyalty and perhaps even your love will be tested this day...for the daggers that threaten your beloved are as equally pointed at your own throat."
+	tutorial = "Picked out of your political value rather than likely any form of love, you have become the Grand Duke's most trusted confidant--and likely friend--throughout your marriage. Your loyalty and perhaps even your love will be tested this day... for the daggers that threaten your beloved are as equally pointed at your own throat."
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant)
+	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant,
+	/obj/effect/proc_holder/spell/self/grant_nobility)
 	outfit = /datum/outfit/job/roguetown/lady
 
 	display_order = JDO_LADY
@@ -40,21 +41,16 @@
 		beltl = /obj/item/storage/keyring/royal
 		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 		belt = /obj/item/storage/belt/rogue/leather/cloth/lady
-		if(isdwarf(H))
-			armor = /obj/item/clothing/suit/roguetown/shirt/dress
-		else
-			if(prob(66))
-				armor = /obj/item/clothing/suit/roguetown/armor/armordress/alt
-			else
-				armor = /obj/item/clothing/suit/roguetown/armor/armordress
-		head = /obj/item/clothing/head/roguetown/hennin
+		head = /obj/item/clothing/head/roguetown/nyle/consortcrown
+		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/winterdress
 		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random	//Added Silk Stockings for the female nobles
 		id = /obj/item/clothing/ring/silver
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	else
+		head = /obj/item/clothing/head/roguetown/nyle/consortcrown
 		pants = /obj/item/clothing/under/roguetown/tights
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
-		armor = /obj/item/clothing/suit/roguetown/armor/chainmail
+		armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 		belt = /obj/item/storage/belt/rogue/leather
 		beltl = /obj/item/storage/keyring/royal
@@ -70,6 +66,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 		H.change_stat("intelligence", 3)
 		H.change_stat("endurance", 3)
 		H.change_stat("speed", 2)
@@ -85,3 +82,20 @@
 	accept_message = "FOR THE CROWN!"
 	refuse_message = "I refuse."
 	charge_max = 100
+
+/obj/effect/proc_holder/spell/self/convertrole/mercenary
+	name = "Recruit Mercenary"
+	new_role = "Mercenary"
+	recruitment_faction = "MERCENARIES"
+	recruitment_message = "Serve the Guild, %RECRUIT!"
+	accept_message = "FOR THE GUILD!"
+	refuse_message = "I refuse."
+	charge_max = 100
+
+/obj/effect/proc_holder/spell/self/convertrole/bog
+	name = "Recruit Warden"
+	new_role = "Warden"
+	recruitment_faction = "Bog Guard"
+	recruitment_message = "Serve the Wardens, %RECRUIT!"
+	accept_message = "FOR THE GROVE!"
+	refuse_message = "I refuse."

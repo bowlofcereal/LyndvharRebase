@@ -64,6 +64,30 @@
 	organ_type = /obj/item/organ/ears/cat
 	sprite_accessories = list(/datum/sprite_accessory/ears/cat)
 
+/datum/customizer_choice/organ/ears/elf
+	name = "Elf Ears"
+	organ_type = /obj/item/organ/ears
+	sprite_accessories = list(
+		/datum/sprite_accessory/ears/elf,
+		/datum/sprite_accessory/ears/elfw)
+
+/datum/customizer/organ/ears/elf
+	customizer_choices = list(/datum/customizer_choice/organ/ears/elf)
+	allows_disabling = TRUE
+
+/datum/customizer_choice/organ/ears/goblin
+	name = "Goblin Ears"
+	organ_type = /obj/item/organ/ears
+	sprite_accessories = list(
+		/datum/sprite_accessory/ears/goblin,
+		/datum/sprite_accessory/ears/goblin_alt,
+		/datum/sprite_accessory/ears/goblin_small,
+		/datum/sprite_accessory/ears/halforc)
+
+/datum/customizer/organ/ears/goblin 
+	customizer_choices = list(/datum/customizer_choice/organ/ears/goblin)
+	allows_disabling = FALSE
+
 /datum/customizer/organ/ears/demihuman
 	customizer_choices = list(/datum/customizer_choice/organ/ears/demihuman)
 	allows_disabling = TRUE
@@ -114,6 +138,9 @@
 		/datum/sprite_accessory/ears/possum,
 		/datum/sprite_accessory/ears/raccoon,
 		/datum/sprite_accessory/ears/mouse,
+		/datum/sprite_accessory/ears/big/acrador_long,
+		/datum/sprite_accessory/ears/big/acrador_short,
+		/datum/sprite_accessory/ears/big/sandfox_large,
 		)
 
 /datum/customizer/organ/ears/anthro
@@ -174,4 +201,22 @@
 		/datum/sprite_accessory/ears/possum,
 		/datum/sprite_accessory/ears/raccoon,
 		/datum/sprite_accessory/ears/mouse,
+		/datum/sprite_accessory/ears/big/acrador_long,
+		/datum/sprite_accessory/ears/big/acrador_short,
+		/datum/sprite_accessory/ears/big/sandfox_large,
+		)
+
+/datum/customizer/organ/ears/lizard
+	name = "Hood"
+	customizer_choices = list(/datum/customizer_choice/organ/ears/lizard)
+	allows_disabling = TRUE
+	default_disabled = TRUE
+
+/datum/customizer_choice/organ/ears/lizard
+	name = "Sissean Hood"
+	organ_type = /obj/item/organ/ears/anthro
+	generic_random_pick = TRUE
+	sprite_accessories = list(
+		/datum/sprite_accessory/ears/cobrahood,
+		/datum/sprite_accessory/ears/cobrahoodears,
 		)

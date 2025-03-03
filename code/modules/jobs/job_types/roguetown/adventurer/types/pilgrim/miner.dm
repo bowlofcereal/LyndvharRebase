@@ -17,11 +17,14 @@
 	beltl = /obj/item/rogueweapon/pick
 	beltr = /obj/item/rogueweapon/huntingknife
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(/obj/item/flint = 1)
-	if(H.gender == FEMALE)
+	backpack_contents = list(
+						/obj/item/flint = 1,
+						/obj/item/flashlight/flare/torch = 1,
+						)
+	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/brown
-	if(H.gender == MALE)
+	if(H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS)
 		armor = /obj/item/clothing/suit/roguetown/armor/workervest
 		pants = /obj/item/clothing/under/roguetown/trou
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random

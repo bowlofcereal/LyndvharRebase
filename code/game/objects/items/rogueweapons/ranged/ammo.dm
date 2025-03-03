@@ -1,3 +1,16 @@
+#define ARROW_DAMAGE		50
+#define BOLT_DAMAGE			70
+#define BULLET_DAMAGE		80
+#define ARROW_PENETRATION	40
+#define BOLT_PENETRATION	50
+#define BULLET_PENETRATION	100
+
+//parent of all bolts and arrows ฅ^•ﻌ•^ฅ
+/obj/item/ammo_casing/caseless/rogue/
+	firing_effect_type = null
+
+//bolts ฅ^•ﻌ•^ฅ
+
 /obj/item/ammo_casing/caseless/rogue/bolt
 	name = "bolt"
 	desc = "A durable iron bolt that will pierce a skull easily."
@@ -9,13 +22,7 @@
 	dropshrink = 0.6
 	max_integrity = 10
 	force = 10
-/*
-/obj/item/ammo_casing/caseless/rogue/bolt/poison
-	name = "poisoned bolt"
-	desc = "A durable iron bolt that will pierce a skull easily. This one is coated in a clear liquid."
-	projectile_type = /obj/projectile/bullet/reusable/bolt/poison
-	icon_state = "arrow_poison"
-*/
+
 /obj/projectile/bullet/reusable/bolt
 	name = "bolt"
 	damage = 70
@@ -28,7 +35,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	woundclass = BCLASS_STAB
-	flag = "bullet"
+	flag = "piercing"
 	speed = 0.5
 
 /obj/projectile/bullet/reusable/bolt/on_hit(atom/target)
@@ -47,42 +54,28 @@
 	if(skill_multiplier && can_train_combat_skill(L, /datum/skill/combat/crossbows, SKILL_LEVEL_EXPERT))
 		L.mind.add_sleep_experience(/datum/skill/combat/crossbows, L.STAINT * skill_multiplier)
 
-/*
-/obj/projectile/bullet/reusable/bolt/poison
-	name = "poisoned bolt"
-	damage = 50
-	ammo_type = /obj/item/ammo_casing/caseless/rogue/bolt/poison
+//arrows ฅ^•ﻌ•^ฅ
 
-
-/obj/projectile/bullet/reusable/bolt/poison/on_hit(atom/target, blocked = FALSE)
-	. = ..()
-	if(iscarbon(target))
-		var/mob/living/carbon/M = target
-		M.reagents.add_reagent(/datum/reagent/toxin/mutetoxin, 7) //not gonna kill anyone, but they will be quite quiet
-*/
 /obj/item/ammo_casing/caseless/rogue/arrow
 	name = "arrow"
-	desc = "A wooden shaft with a pointy iron end."
+	desc = "Some devices are so simple in their nature and austere in their scope \
+	that they feel as if they've sprung into being without mortal intervention. \
+	Consult your gods."
 	projectile_type = /obj/projectile/bullet/reusable/arrow
 	caliber = "arrow"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "arrow"
-	force = 30
+	force = 10
 	dropshrink = 0.6
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
 	max_integrity = 20
 
 /obj/item/ammo_casing/caseless/rogue/arrow/iron
 	name = "iron arrow"
-	desc = "A wooden shaft with a pointy iron end."
+	desc = "Bundles of steam straightened dowels are notched at one end and fastened \
+	to razor heads on another. With flight feathers lashed it will fly true to its \
+	shooters will."
 	projectile_type = /obj/projectile/bullet/reusable/arrow/iron
-	caliber = "arrow"
-	icon = 'icons/roguetown/weapons/ammo.dmi'
-	icon_state = "arrow"
-	force = 30
-	dropshrink = 0.6
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
-	max_integrity = 20
 
 /obj/projectile/bullet/reusable/arrow
 	name = "arrow"
@@ -96,7 +89,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	woundclass = BCLASS_STAB
-	flag = "bullet"
+	flag = "piercing"
 	speed = 0.4
 
 /obj/projectile/bullet/reusable/arrow/on_hit(atom/target)
@@ -125,21 +118,25 @@
 
 /obj/item/ammo_casing/caseless/rogue/arrow/stone
 	name = "stone arrow"
-	desc = "A wooden shaft with a jagged rock on the end."
+	desc = "A simple dowel sports lashed flint knapped and honed to a razor edge. Folk \
+	wisdom holds that these cut finer than iron heads, but they tend to shatter \
+	on impact with armor."
 	icon_state = "stonearrow"
 	max_integrity = 5
 	projectile_type = /obj/projectile/bullet/reusable/arrow/stone
 
 /obj/item/ammo_casing/caseless/rogue/arrow/poison
 	name = "poisoned arrow"
-	desc = "A wooden shaft with a pointy iron end. This one is stained green with floral toxins."
+	desc = "Bundles of steam straightened dowels are notched at one end and fastened \
+	to razor heads on another. Furrels cut into "
 	projectile_type = /obj/projectile/bullet/reusable/arrow/poison
 	icon_state = "arrow_poison"
 	max_integrity = 20 // same as normal arrow; usually breaks on impact with a mob anyway
 
 /obj/item/ammo_casing/caseless/rogue/arrow/stone/poison
 	name = "poisoned stone arrow"
-	desc = "A wooden shaft with a jagged rock on the end. This one is stained green with floral toxins."
+	desc = "A simple dowel sports lashed flint honed to a razor edge and knapped \
+	with furrels for carrying poison residue."
 	projectile_type = /obj/projectile/bullet/reusable/arrow/poison/stone
 	icon_state = "stonearrow_poison"
 
@@ -182,7 +179,7 @@
 	hitsound = 'sound/blank.ogg'
 	embedchance = 0
 	woundclass = BCLASS_BLUNT
-	flag = "bullet"
+	flag = "piercing"
 	speed = 0.3
 
 	var/explode_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
@@ -207,6 +204,7 @@
 	explosion(T, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, soundin = explode_sound)
 
 //pyro arrows
+
 /obj/item/ammo_casing/caseless/rogue/arrow/pyro
 	name = "pyroclastic arrow"
 	desc = "An arrow with its tip drenched in a flammable tincture."
@@ -231,7 +229,7 @@
 	hitsound = 'sound/blank.ogg'
 	embedchance = 0
 	woundclass = BCLASS_BLUNT
-	flag = "bullet"
+	flag = "piercing"
 	speed = 0.4
 
 	var/explode_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
@@ -278,7 +276,7 @@
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	woundclass = BCLASS_STAB
-	flag = "bullet"
+	flag = "piercing"
 	armor_penetration = 200
 	speed = 0.1
 
@@ -292,3 +290,140 @@
 	dropshrink = 0.5
 	possible_item_intents = list(/datum/intent/use)
 	max_integrity = 0.1
+
+
+//mob projectiles
+
+/obj/projectile/bullet/reusable/arrow/orc
+	damage = 20
+	damage_type = BRUTE
+	armor_penetration = 25
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "arrow_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/stone
+	range = 15
+	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
+	embedchance = 100
+	woundclass = BCLASS_STAB
+	flag = "piercing"
+	speed = 2
+
+/obj/projectile/bullet/reusable/arrow/ancient
+	damage = 10
+	damage_type = BRUTE
+	armor_penetration = 25
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "arrow_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/stone
+	range = 15
+	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
+	embedchance = 100
+	woundclass = BCLASS_STAB
+	flag = "piercing"
+	speed = 2
+//deep one stone
+/obj/projectile/bullet/reusable/deepone
+	name = "stone"
+	damage = 25
+	damage_type = BRUTE
+	armor_penetration = 30
+	icon = 'icons/roguetown/items/natural.dmi'
+	icon_state = "stone1"
+	ammo_type = /obj/item/natural/stone
+	range = 15
+	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
+	embedchance = 50
+	woundclass = BCLASS_STAB
+	flag = "piercing"
+	speed = 10
+
+//Javelins - Basically spears, but to get them working as proper javelins and able to fit in a bag, they are 'ammo'. (Maybe make an atlatl later?)
+//Only ammo casing, no 'projectiles'. You throw the casing, as weird as it is.
+/obj/item/ammo_casing/caseless/rogue/javelin
+	force = 14
+	throw_speed = 3		//1 lower than throwing knives, it hits harder + embeds more.
+	name = "iron javelin"
+	desc = "A tool used for centuries, as early as recorded history. This one is tipped with a iron head; standard among militiamen and irregulars alike."
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "ijavelin"
+	wlength = WLENGTH_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
+	armor_penetration = 35					//Redfined because.. it's not a weapon, it's an 'arrow' basically.
+	max_integrity = 50						//Breaks semi-easy, stops constant re-use. 
+	wdefense = 3							//Worse than a spear
+	thrown_bclass = BCLASS_STAB				//Knives are slash, lets try out stab and see if it's too strong in terms of wounding.
+	throwforce = 25							//throwing knife is 22, slightly better for being bulkier.
+	possible_item_intents = list(/datum/intent/sword/thrust, /datum/intent/spear/bash, /datum/intent/spear/cut)	//Sword-thrust to avoid having 2 reach.
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 35, "embedded_fall_chance" = 10)	//Better than iron throwing knife by 10%
+	anvilrepair = /datum/skill/craft/weaponsmithing
+	smeltresult = /obj/item/ingot/iron
+	associated_skill = /datum/skill/combat/polearms
+	heavy_metal = FALSE					//Stops spin animation, maybe.
+
+/obj/item/ammo_casing/caseless/rogue/javelin/steel
+	force = 16
+	armor_penetration = 50
+	name = "steel javelin"
+	desc = "A tool used for centuries, as early as recorded history. This one is tipped with a steel head; perfect for piercing armor!"
+	icon_state = "javelin"
+	max_integrity = 100						//In-line with other stabbing weapons.
+	throwforce = 28							//Equal to steel knife BUT this has peircing damage type so..
+	thrown_bclass = BCLASS_PICK				//Bypasses crit protection better than stabbing. Makes it better against heavy-targets.
+	embedding = list("embedded_pain_multiplier" = 4, "embed_chance" = 45, "embedded_fall_chance" = 10) //Better than steel throwing knife by 10%
+	smeltresult = /obj/item/ingot/steel
+
+/obj/item/ammo_casing/caseless/rogue/javelin/silver
+	name = "silver javelin"
+	desc = "A tool used for centuries, as early as recorded history. This one appears to be tipped with a silver head. Decorative, perhaps.. or for some sort of specialized hunter."
+	icon_state = "sjavelin"
+	is_silver = TRUE
+	throwforce = 25							//Less than steel because it's.. silver. Good at killing vampires/WW's still.
+	thrown_bclass = BCLASS_PICK				//Bypasses crit protection better than stabbing. Makes it better against heavy-targets.
+	smeltresult = /obj/item/ingot/silver
+
+//Snowflake code to make sure the silver-bane is applied on hit to targeted mob. Thanks to Aurorablade for getting this code to work.
+/obj/item/ammo_casing/caseless/rogue/javelin/silver/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	..() 
+	if(!iscarbon(hit_atom))
+		return//abort
+	check_dmg(hit_atom)//apply effects and damages
+		
+/obj/item/ammo_casing/caseless/rogue/javelin/silver/proc/check_dmg(mob/living/hit_atom)
+	var/mob/living/carbon/human/H = hit_atom
+	if(H.mind)
+		var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
+		var/datum/antagonist/vampirelord/lesser/V = H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser)
+		var/datum/antagonist/vampirelord/V_lord = H.mind.has_antag_datum(/datum/antagonist/vampirelord/)
+		if(V)
+			if(V.disguised)
+				H.visible_message("<font color='white'>The silver weapon weakens the curse temporarily!</font>")
+				to_chat(H, span_userdanger("I'm hit by my BANE!"))
+				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+				src.last_used = world.time
+			else
+				H.visible_message("<font color='white'>The silver weapon weakens the curse temporarily!</font>")
+				to_chat(H, span_userdanger("I'm hit by my BANE!"))
+				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+				src.last_used = world.time
+		if(V_lord)
+			if(V_lord.vamplevel < 4 && !V)
+				H.visible_message("<font color='white'>The silver weapon weakens the curse temporarily!</font>")
+				to_chat(H, span_userdanger("I'm hit by my BANE!"))
+				H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+				src.last_used = world.time
+			if(V_lord.vamplevel == 4 && !V)
+				to_chat(H, "<font color='red'> The silver weapon fails!</font>")
+				H.visible_message(H, span_userdanger("This feeble metal can't hurt me, I AM ANCIENT!"))
+		if(W && W.transformed == TRUE)
+			H.visible_message("<font color='white'>The silver weapon weakens the curse temporarily!</font>")
+			to_chat(H, span_userdanger("I'm hit by my BANE!"))
+			H.apply_status_effect(/datum/status_effect/debuff/silver_curse)
+			src.last_used = world.time
+	return
+
+#undef ARROW_DAMAGE
+#undef BOLT_DAMAGE
+#undef BULLET_DAMAGE
+#undef ARROW_PENETRATION
+#undef BOLT_PENETRATION
+#undef BULLET_PENETRATION

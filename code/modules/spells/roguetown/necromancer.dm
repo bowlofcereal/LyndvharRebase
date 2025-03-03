@@ -43,7 +43,6 @@
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	chargedloop = null
-	req_items = list(/obj/item/clothing/suit/roguetown/shirt/robe/necromancer)
 	sound = 'sound/items/beartrap.ogg'
 	associated_skill = /datum/skill/magic/arcane
 	antimagic_allowed = TRUE
@@ -115,7 +114,7 @@
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
-	charge_max = 60 SECONDS
+	charge_max = 30 SECONDS
 	var/cabal_affine = FALSE
 
 /obj/effect/proc_holder/spell/invoked/raise_lesser_undead/cast(list/targets, mob/living/user)
@@ -138,6 +137,10 @@
 	else
 		to_chat(user, span_warning("The targeted location is blocked. My summon fails to come forth."))
 		return FALSE
+
+/obj/effect/proc_holder/spell/invoked/raise_lesser_undead/necromancer
+	cabal_affine = TRUE
+	charge_max = 45 SECONDS
 
 /obj/effect/proc_holder/spell/invoked/projectile/sickness
 	name = "Ray of Sickness"
@@ -194,7 +197,8 @@
 	var/datum/antagonist/lich/lichman = user.mind.has_antag_datum(/datum/antagonist/lich)
 	if(lichman)
 		if(user.stat != DEAD)
-			lichman.consume_phylactery(0)
+			if(!lichman.consume_phylactery(0)) //Use phylactery at 0 timer. Returns false if none left.
+				user.death() // If no more phylacteries, die
 	else
 		user.death()
 

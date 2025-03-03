@@ -147,7 +147,8 @@
 				qdel(G)
 				if(isliving(user))
 					var/mob/living/L = user
-					L.apply_status_effect(/datum/status_effect/debuff/cursed)
+					if(!HAS_TRAIT(L, TRAIT_GRAVEROBBER))
+						L.apply_status_effect(/datum/status_effect/debuff/cursed)
 		update_icon()
 		attacking_shovel.heldclod = new(attacking_shovel)
 		attacking_shovel.update_icon()
@@ -197,9 +198,6 @@
 			user.visible_message(span_notice("[user] stuffs [O] into [src]."), \
 							 	 span_notice("I stuff [O] into [src]."), \
 							 	 span_hear("I hear a loud bang."))
-			var/mob/living/L = O
-			if(!issilicon(L))
-				L.Paralyze(40)
 			O.forceMove(T)
 			user_buckle_mob(O, user)
 	else
@@ -235,7 +233,7 @@
 			var/mob/living/carbon/human/B = A
 			B.buried = FALSE
 	..()
-	
+
 /obj/structure/closet/dirthole/open(mob/living/user)
 	if(opened)
 		return

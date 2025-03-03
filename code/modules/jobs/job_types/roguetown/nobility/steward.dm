@@ -16,20 +16,19 @@
 	min_pq = 3 //Please don't give the vault keys to somebody that's going to lock themselves in on accident
 	max_pq = null
 	round_contrib_points = 3
+	cmode_music = 'sound/music/combat_noble.ogg'
 
 /datum/outfit/job/roguetown/steward/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/green
-		cloak = /obj/item/clothing/cloak/tabard/knight
+		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/steward
 		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/random	//Added Silk Stockings for the female nobles
 	else
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 		pants = /obj/item/clothing/under/roguetown/tights/random
-		armor = /obj/item/clothing/cloak/tabard/knight
+		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/silktunic
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
-	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
+	belt = /obj/item/storage/belt/rogue/leather/plaquegold/steward
 	beltr = /obj/item/storage/keyring/steward
 	backr = /obj/item/storage/backpack/rogue/satchel
 	id = /obj/item/scomstone
@@ -51,6 +50,6 @@
 		H.change_stat("intelligence", 2)
 		H.change_stat("perception", 2)
 		H.change_stat("speed", -1)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/appraise/secular)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
-

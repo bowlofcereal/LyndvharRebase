@@ -4,7 +4,6 @@
 #ifdef MATURESERVER
 	message_param = "%t"
 #endif
-	restraint_check = TRUE
 
 /datum/emote/living/subtle/can_run_emote(mob/user, status_check, intentional)
 	. = ..() && intentional
@@ -39,7 +38,8 @@
 		var/T = get_turf(user)
 		if(M.stat == DEAD && M.client && (M.client.prefs?.chat_toggles & CHAT_GHOSTSIGHT) && !(M in viewers(T, null)))
 			M.show_message(message)*/
-	var/list/ghostless = get_hearers_in_view(1, user) - GLOB.dead_mob_list
+	var/list/ghostless = get_hearers_in_view(1, user)
 	for(var/mob/living/L in ghostless)
-		to_chat(L, "<i>[message]</i>")
+		if(L.stat == CONSCIOUS) // To those conscious only. Slightly more expensive but subtle is not spammed
+			to_chat(L, "<i>[message]</i>")
 

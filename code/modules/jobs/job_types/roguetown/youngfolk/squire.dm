@@ -22,10 +22,11 @@
 
 /datum/outfit/job/roguetown/squire
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
-	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/keyring/guardcastle
+	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
+	id = /obj/item/scomstone/bad/garrison
 
 /datum/job/roguetown/squire/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	. = ..()
@@ -34,6 +35,14 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
+		if(istype(H.cloak, /obj/item/clothing/cloak/stabard/surcoat/guard))
+			var/obj/item/clothing/S = H.cloak
+			var/index = findtext(H.real_name, " ")
+			if(index)
+				index = copytext(H.real_name, 1,index)
+			if(!index)
+				index = H.real_name
+			S.name = "squire's tabard ([index])"
 
 /datum/advclass/squire/lancer
 	name = "Lancer Squire"
@@ -48,6 +57,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch,
@@ -85,6 +95,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch,
@@ -131,6 +142,7 @@
 /datum/outfit/job/roguetown/squire/skirmisher/pre_equip(mob/living/carbon/human/H)
 	beltr = /obj/item/quiver/arrows
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
+	pants = /obj/item/clothing/under/roguetown/trou/leather
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather

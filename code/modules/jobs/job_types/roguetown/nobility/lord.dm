@@ -17,7 +17,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		/obj/effect/proc_holder/spell/self/grant_title,
 		/obj/effect/proc_holder/spell/self/convertrole/servant,
 		/obj/effect/proc_holder/spell/self/convertrole/guard,
-		/obj/effect/proc_holder/spell/self/convertrole/bog,
+		/obj/effect/proc_holder/spell/self/grant_nobility,
+		/obj/effect/proc_holder/spell/self/convertrole/bog
 	)
 	outfit = /datum/outfit/job/roguetown/lord
 	visuals_only_outfit = /datum/outfit/job/roguetown/lord/visuals
@@ -30,7 +31,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	round_contrib_points = 4
 	give_bank_account = 1000
 	required = TRUE
-	cmode_music = 'sound/music/combat_fancy.ogg'
+	cmode_music = 'sound/music/combat_noble.ogg'
 
 /datum/job/roguetown/exlord //just used to change the lords title
 	title = "Duke Emeritus"
@@ -78,7 +79,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
+		armor = /obj/item/clothing/suit/roguetown/shirt/dress/royal
+		cloak = /obj/item/clothing/cloak/lordcloak/ladycloak
+		wrists = /obj/item/clothing/wrists/roguetown/royalsleeves
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 		if(H.mind)
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
@@ -215,4 +218,57 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		return FALSE
 	recruiter.say("I HEREBY GRANT YOU, [uppertext(recruit.name)], THE TITLE OF [uppertext(granted_title)]!")
 	GLOB.lord_titles[recruit.real_name] = granted_title
+	return TRUE
+
+/obj/effect/proc_holder/spell/self/grant_nobility
+	name = "Grant Nobility"
+	desc = "Make someone a noble, or strip them of their nobility."
+	overlay_state = "recruit_titlegrant"
+	antimagic_allowed = TRUE
+	charge_max = 100
+	/// Maximum range for nobility granting
+	var/nobility_range = 3
+
+/obj/effect/proc_holder/spell/self/grant_nobility/cast(list/targets, mob/user = usr)
+	. = ..()
+	var/list/recruitment = list()
+	for(var/mob/living/carbon/human/village_idiot in (get_hearers_in_view(nobility_range, user) - user))
+		//not allowed
+		if(!can_nobility(village_idiot))
+			continue
+		recruitment[village_idiot.name] = village_idiot
+	if(!length(recruitment))
+		to_chat(user, span_warning("There are no potential honoraries in range."))
+		return
+	var/inputty = input(user, "Select an honorary!", "[name]") as anything in recruitment
+	if(inputty)
+		var/mob/living/carbon/human/recruit = recruitment[inputty]
+		if(!QDELETED(recruit) && (recruit in get_hearers_in_view(nobility_range, user)))
+			INVOKE_ASYNC(src, PROC_REF(grant_nobility), recruit, user)
+		else
+			to_chat(user, span_warning("Honorific failed!"))
+	else
+		to_chat(user, span_warning("Honorific cancelled."))
+
+/obj/effect/proc_holder/spell/self/grant_nobility/proc/can_nobility(mob/living/carbon/human/recruit)
+	//wtf
+	if(QDELETED(recruit))
+		return FALSE
+	//need a mind
+	if(!recruit.mind)
+		return FALSE
+	//need to see their damn face
+	if(!recruit.get_face_name(null))
+		return FALSE
+	return TRUE
+
+/obj/effect/proc_holder/spell/self/grant_nobility/proc/grant_nobility(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
+	if(QDELETED(recruit) || QDELETED(recruiter))
+		return FALSE
+	if(HAS_TRAIT(recruit, TRAIT_NOBLE))
+		recruiter.say("I HEREBY STRIP YOU, [uppertext(recruit.name)], OF NOBILITY!!")
+		REMOVE_TRAIT(recruit, TRAIT_NOBLE, TRAIT_GENERIC)
+		return FALSE
+	recruiter.say("I HEREBY GRANT YOU, [uppertext(recruit.name)], NOBILITY!")
+	ADD_TRAIT(recruit, TRAIT_NOBLE, TRAIT_GENERIC)
 	return TRUE

@@ -4,7 +4,7 @@
 	possible_item_intents = list(/datum/intent/lordbash, /datum/intent/lord_electrocute, /datum/intent/lord_silence)
 	gripped_intents = list(/datum/intent/lordbash)
 	name = "master's rod"
-	desc = "Bend the knee."
+	desc = "Bend the knee. Can't be used outside of the manor."
 	icon_state = "scepter"
 	icon = 'icons/roguetown/weapons/32.dmi'
 	sharpness = IS_BLUNT
@@ -17,6 +17,9 @@
 	swingsound = BLUNTWOOSH_MED
 	minstr = 5
 	blade_dulling = DULLING_BASHCHOP
+
+	grid_height = 96
+	grid_width = 32
 
 /datum/intent/lordbash
 	name = "bash"
@@ -66,27 +69,34 @@
 
 		if(ishuman(target))
 			var/mob/living/carbon/human/H = target
+			var/area/target_area = get_area(H)
+
+			if(!istype(target_area, /area/rogue/indoors/town/manor))
+				to_chat(user, span_danger("The rod cannot be used on targets outside of the manor!"))
+				return
 
 			if(H == HU)
 				return
 
 			if(H.anti_magic_check())
+				to_chat(user, span_danger("Something is disrupting the rod's power!"))
 				return
 		
 			if(!(H in SStreasury.bank_accounts))
+				to_chat(user, span_danger("The target must have a Meister account!"))
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
 				HU.visible_message(span_warning("[HU] electrocutes [H] with the [src]."))
+				user.Beam(target,icon_state="lightning[rand(1,12)]",time=5)
 				H.electrocute_act(5, src)
 				to_chat(H, span_danger("I'm electrocuted by the scepter!"))
 				return
 
 			if(istype(user.used_intent, /datum/intent/lord_silence))
-				HU.visible_message(span_warning("[HU] silences [H] with the [src]."))
-				H.dna.add_mutation(/datum/mutation/human/mute)
-				addtimer(CALLBACK(H.dna, TYPE_PROC_REF(/datum/dna/, remove_mutation), /datum/mutation/human/mute), 20 SECONDS)
-				to_chat(H, span_danger("I'm silenced by the scepter!"))
+				HU.visible_message("<span class='warning'>[HU] silences [H] with \the [src].</span>")
+				H.set_silence(20 SECONDS)
+				to_chat(H, "<span class='danger'>I'm silenced by the scepter!</span>")
 				return
 
 /obj/item/rogueweapon/mace/stunmace
@@ -256,3 +266,74 @@
 				return list("shrink" = 0.4,"sx" = -7,"sy" = -4,"nx" = 7,"ny" = -4,"wx" = -3,"wy" = -4,"ex" = 1,"ey" = -4,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 110,"sturn" = -110,"wturn" = -110,"eturn" = 110,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+
+/obj/item/rogueweapon/katar/abyssor
+	name = "barotrauma"
+	desc = "A gift from a creature of the sea. The claw is sharpened to a wicked edge."
+	icon_state = "abyssorclaw"
+	force = 20
+
+
+/obj/item/rogueweapon/knuckles // no actual sprite for this yet so its just the basis for the eora knuckles + for later futureproofing
+	name = "iron knuckles"
+	desc = "A mean looking pair of iron knuckles."
+	force = 15
+	possible_item_intents = list(/datum/intent/knuckles/strike,/datum/intent/knuckles/smash)
+	icon = 'icons/roguetown/weapons/32.dmi'
+	gripsprite = FALSE
+	wlength = WLENGTH_SHORT
+	w_class = WEIGHT_CLASS_SMALL
+	parrysound = list('sound/combat/parry/pugilism/unarmparry (1).ogg','sound/combat/parry/pugilism/unarmparry (2).ogg','sound/combat/parry/pugilism/unarmparry (3).ogg')
+	max_blade_int = 150
+	max_integrity = 300
+	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
+	associated_skill = /datum/skill/combat/unarmed
+	throwforce = 12
+	wdefense = 4
+	wbalance = 1
+	blade_dulling = DULLING_BASHCHOP
+	anvilrepair = /datum/skill/craft/weaponsmithing
+	smeltresult = /obj/item/ingot/steel
+
+/obj/item/rogueweapon/knuckles/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("gen")
+				return list("shrink" = 0.2,"sx" = -7,"sy" = -4,"nx" = 7,"ny" = -4,"wx" = -3,"wy" = -4,"ex" = 1,"ey" = -4,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 110,"sturn" = -110,"wturn" = -110,"eturn" = 110,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
+			if("onbelt")
+				return list("shrink" = 0.1,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+/datum/intent/knuckles
+	clickcd = 8
+
+/datum/intent/knuckles/strike
+	name = "punch"
+	blade_class = BCLASS_BLUNT
+	attack_verb = list("punches", "clocks")
+	hitsound = list('sound/combat/hits/punch/punch_hard (1).ogg', 'sound/combat/hits/punch/punch_hard (2).ogg', 'sound/combat/hits/punch/punch_hard (3).ogg')
+	chargetime = 0
+	penfactor = 15
+	swingdelay = 0
+	icon_state = "inpunch"
+	item_d_type = "blunt"
+
+
+/datum/intent/knuckles/smash
+	name = "smash"
+	blade_class = BCLASS_SMASH
+	attack_verb = list("smashes")
+	hitsound = list('sound/combat/hits/punch/punch_hard (1).ogg', 'sound/combat/hits/punch/punch_hard (2).ogg', 'sound/combat/hits/punch/punch_hard (3).ogg')
+	penfactor = 40
+	damfactor = 1.1
+	swingdelay = 6
+	icon_state = "insmash"
+	item_d_type = "blunt"
+
+
+/obj/item/rogueweapon/knuckles/eora
+	name = "close caress"
+	desc = "Some times call for a more intimate approach."
+	force = 20
+	icon_state = "eoraknuckle"

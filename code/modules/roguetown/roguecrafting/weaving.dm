@@ -24,6 +24,14 @@
 	craftdiff = 3
 	sellprice = 19
 
+/datum/crafting_recipe/roguetown/weaving/puritan
+
+	name = "puritan's cape"
+	result = list(/obj/item/clothing/cloak/cape/puritan)
+	reqs = list(/obj/item/natural/silk = 4)
+	craftdiff = 3
+	sellprice = 35
+
 /datum/crafting_recipe/roguetown/weaving/shirt
 	name = "formal silks"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/undershirt/puritan)
@@ -46,6 +54,23 @@
 				/obj/item/natural/silk = 1)
 	craftdiff = 4
 	sellprice = 25
+
+/datum/crafting_recipe/roguetown/weaving/abyssorrobe
+	name = "abyssor robes"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/abyssor)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/silk = 1)
+	craftdiff = 4
+	sellprice = 25
+
+/datum/crafting_recipe/roguetown/weaving/abyssorhood
+	name = "abyssor hood"
+	result = list(/obj/item/clothing/head/roguetown/roguehood/abyssor)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/silk = 1)
+	craftdiff = 3
+	sellprice = 25
+
 
 /datum/crafting_recipe/roguetown/weaving/astratahood
 	name = "solar hood"

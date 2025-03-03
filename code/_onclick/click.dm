@@ -186,10 +186,6 @@
 	if(dir == get_dir(A,src)) //they are behind us and we are not facing them
 		return
 
-	if(ismecha(loc))
-		var/obj/mecha/M = loc
-		return M.click_action(A,src,params)
-
 	if(restrained())
 		changeNext_move(CLICK_CD_HANDCUFFED)   //Doing shit in cuffs shall be vey slow
 		RestrainedClickOn(A)
@@ -219,9 +215,17 @@
 		resolveAdjacentClick(A,W,params)
 		return
 
+	if (A.loc && ismob(A.loc.loc))
+		// we're inside a container inside a mob, so we're almost certainly a saddle, a box, or someone's organs. check if we're adjacent
+		if (src.Adjacent(A.loc.loc))
+			resolveAdjacentClick(A,W,params)
+			return
+
 	if(W)
 		if(ismob(A))
 			if(CanReach(A,W))
+				if(get_dist(get_turf(src), get_turf(A)) <= used_intent.reach)
+					do_attack_animation(get_turf(A), visual_effect_icon = used_intent.animname)
 				resolveAdjacentClick(A,W,params)
 				return
 
@@ -289,7 +293,8 @@
 						resolveAdjacentClick(T,W,params,used_hand) //hit the turf
 					if(!used_intent.noaa)
 						changeNext_move(CLICK_CD_MELEE)
-						do_attack_animation(T, visual_effect_icon = used_intent.animname)
+						if(get_dist(get_turf(src), T) <= used_intent.reach)
+							do_attack_animation(T, visual_effect_icon = used_intent.animname)
 						if(W)
 							playsound(get_turf(src), pick(W.swingsound), 100, FALSE)
 							var/adf = used_intent.clickcd
@@ -403,7 +408,7 @@
 				if(user.used_intent)
 					usedreach = user.used_intent.reach
 			if(isturf(target) || isturf(target.loc) || (target in direct_access)) //Directly accessible atoms
-				if(Adjacent(target) || (tool && CheckToolReach(src, target, usedreach))) //Adjacent or reaching attacks
+				if(Adjacent(target) || ( (tool || (!iscarbon(src) && usedreach >= 2)) && CheckToolReach(src, target, usedreach))) //Adjacent or reaching attacks
 					return TRUE
 
 			if (!target.loc)

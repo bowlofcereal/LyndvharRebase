@@ -19,14 +19,16 @@
 	var/keycontrol = "steward"
 	var/current_tab = TAB_MAIN
 	var/compact = FALSE
+	var/list/excluded_jobs = list("Wretch","Vagabond","Adventurer")
 
 
 /obj/structure/roguemachine/steward/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/roguekey))
 		var/obj/item/roguekey/K = P
-		if(K.lockid == keycontrol)
+		if(K.lockid == keycontrol || istype(K, /obj/item/roguekey/lord)) //Master key
 			locked = !locked
 			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
+			(locked) ? (icon_state = "steward_machine_off") : (icon_state = "steward_machine")
 			update_icon()
 			return
 		else
@@ -34,10 +36,14 @@
 			return
 	if(istype(P, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/K = P
-		for(var/obj/item/roguekey/KE in K.keys)
+		if(!K.contents.len)
+			return
+		var/list/keysy = K.contents.Copy()
+		for(var/obj/item/roguekey/KE in keysy)
 			if(KE.lockid == keycontrol)
 				locked = !locked
 				playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
+				(locked) ? (icon_state = "steward_machine_off") : (icon_state = "steward_machine")
 				update_icon()
 				return
 		to_chat(user, span_warning("Wrong key."))
@@ -173,7 +179,7 @@
 				SStreasury.give_money_account(-newtax, A, "NERVE MASTER")
 				break
 	if(href_list["payroll"])
-		var/list/L = list(GLOB.noble_positions) + list(GLOB.garrison_positions) + list(GLOB.courtier_positions) + list(GLOB.church_positions) + list(GLOB.yeoman_positions) + list(GLOB.peasant_positions) + list(GLOB.youngfolk_positions)
+		var/list/L = list(GLOB.noble_positions) + list(GLOB.garrison_positions) + list(GLOB.courtier_positions) + list(GLOB.church_positions) + list(GLOB.yeoman_positions) + list(GLOB.peasant_positions) + list(GLOB.youngfolk_positions) + list(GLOB.inquisition_positions)
 		var/list/things = list()
 		for(var/list/category in L)
 			for(var/A in category)
@@ -254,7 +260,7 @@
 				for(var/mob/living/carbon/human/A in SStreasury.bank_accounts)
 					if(ishuman(A))
 						var/mob/living/carbon/human/tmp = A
-						contents += "[tmp.real_name] ([tmp.advjob ? tmp.advjob : tmp.job]) - [SStreasury.bank_accounts[A]]m"
+						contents += "[tmp.real_name] ([job_filter(tmp.advjob, tmp.job)]) - [SStreasury.bank_accounts[A]]m"
 					else
 						contents += "[A.real_name] - [SStreasury.bank_accounts[A]]m"
 					contents += " / <a href='?src=\ref[src];givemoney=\ref[A]'>\[PAY\]</a> <a href='?src=\ref[src];fineaccount=\ref[A]'>\[FINE\]</a><BR><BR>"
@@ -262,7 +268,7 @@
 				for(var/mob/living/carbon/human/A in SStreasury.bank_accounts)
 					if(ishuman(A))
 						var/mob/living/carbon/human/tmp = A
-						contents += "[tmp.real_name] ([tmp.advjob ? tmp.advjob : tmp.job]) - [SStreasury.bank_accounts[A]]m<BR>"
+						contents += "[tmp.real_name] ([job_filter(tmp.advjob, tmp.job)]) - [SStreasury.bank_accounts[A]]m<BR>"
 					else
 						contents += "[A.real_name] - [SStreasury.bank_accounts[A]]m<BR>"
 					contents += "<a href='?src=\ref[src];givemoney=\ref[A]'>\[Give Money\]</a> <a href='?src=\ref[src];fineaccount=\ref[A]'>\[Fine Account\]</a><BR><BR>"
@@ -344,6 +350,17 @@
 	var/datum/browser/popup = new(user, "VENDORTHING", "", 500, 800)
 	popup.set_content(contents)
 	popup.open()
+
+/obj/structure/roguemachine/steward/proc/job_filter(advj, j)
+	if(advj in excluded_jobs)
+		return "Adventurer"
+	if(j in excluded_jobs)
+		return "Adventurer"
+	if(advj)
+		return advj
+	else
+		return j
+
 
 #undef TAB_MAIN
 #undef TAB_BANK

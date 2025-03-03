@@ -88,13 +88,13 @@
 /datum/supply_pack/rogue/Sellsword/steelcuirass
 	name = "Blacksteel Cuirass"
 	cost = 50
-	contains = list(/obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass)
+	contains = list(/obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate)
 
 
 /datum/supply_pack/rogue/Sellsword/Bevor
 	name = "Bevor"
 	cost = 20
-	contains = /obj/item/clothing/neck/roguetown/bevor
+	contains = list(/obj/item/clothing/neck/roguetown/bevor)
 
 
 /datum/supply_pack/rogue/Sellsword/gorget
@@ -118,6 +118,11 @@
 	name = "Visored Sallet"
 	cost = 30
 	contains = list(/obj/item/clothing/head/roguetown/helmet/sallet/visored)
+
+/datum/supply_pack/rogue/Sellsword/wolfhelm
+	name = "Volf Plate Helm"
+	cost = 30
+	contains = list(/obj/item/clothing/head/roguetown/helmet/heavy/volfplate)
 
 
 /datum/supply_pack/rogue/Sellsword/ssword
@@ -166,7 +171,7 @@
 	cost = 20
 	contains = list(/obj/item/rogueweapon/eaglebeak/lucerne)
 
-/datum/supply_pack/rogue/weapons/Sellsword/bolts
+/datum/supply_pack/rogue/Sellsword/bolts
 	name = "Quiver of Bolts"
 	cost = 20
 	contains = list(/obj/item/quiver/bolts)

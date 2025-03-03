@@ -15,6 +15,11 @@
 	cost = 60
 	contains = list(/obj/item/clothing/head/roguetown/helmet/heavy/frogmouth)
 
+/datum/supply_pack/rogue/Knight/wolfhelm
+	name = "Volf Plate Helm"
+	cost = 30
+	contains = list(/obj/item/clothing/head/roguetown/helmet/heavy/volfplate)
+
 /datum/supply_pack/rogue/Knight/pigface
 	name = "Pigface Bascinet"
 	cost = 40
@@ -31,7 +36,7 @@
 	contains = list(/obj/item/clothing/head/roguetown/helmet/heavy/bucket)
 
 
-/datum/supply_pack/rogue/Knight/bhelm
+/datum/supply_pack/rogue/Knight/blkstelbuckhelm
 	name = "Blacksteel Bucket Helm"
 	cost = 100
 	contains = list(/obj/item/clothing/head/roguetown/helmet/blacksteel/bucket)
@@ -44,7 +49,7 @@
 /datum/supply_pack/rogue/Knight/blacksteelfullplate
 	name = "Blacksteel Full plate"
 	cost = 150
-	contains = list(/obj/item/clothing/suit/roguetown/armor/blacksteel/platechest)
+	contains = list(/obj/item/clothing/suit/roguetown/armor/plate/blacksteel_full_plate)
 
 /datum/supply_pack/rogue/Knight/hauberk
 	name = "Hauberk"
@@ -95,7 +100,7 @@
 /datum/supply_pack/rogue/Knight/blkplatechausses
 	name = "Blacksteel Plate Chausses"
 	cost = 100
-	contains = list(/obj/item/clothing/under/roguetown/blacksteel/platelegs)
+	contains = list(/obj/item/clothing/under/roguetown/platelegs/blacksteel)
 
 /datum/supply_pack/rogue/Knight/plateboots
 	name = "Plated boots"

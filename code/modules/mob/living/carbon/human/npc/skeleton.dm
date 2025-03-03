@@ -10,8 +10,13 @@
 	var/skel_fragile = FALSE
 	ambushable = FALSE
 	rot_type = null
+	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
+	a_intent = INTENT_HELP
+	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE)
+	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/aimed, /datum/rmb_intent/strong, /datum/rmb_intent/weak)
 	possible_rmb_intents = list()
-	cmode_music = 'sound/music/combat_weird.ogg'
+	stand_attempts = 4
+	cmode_music = FALSE
 
 /mob/living/carbon/human/species/skeleton/npc
 	aggressive = 1
@@ -26,7 +31,8 @@
 /mob/living/carbon/human/species/skeleton/Initialize()
 	. = ..()
 	cut_overlays()
-	addtimer(CALLBACK(src, PROC_REF(after_creation)), 10)
+	spawn(10)
+		after_creation()
 
 /mob/living/carbon/human/species/skeleton/after_creation()
 	..()
@@ -52,6 +58,7 @@
 	faction = list("undead")
 	name = "Skeleton"
 	real_name = "Skeleton"
+	voice_type = VOICE_TYPE_MASC //So that "Unknown Man" properly substitutes in with face cover
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOROGSTAM, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -94,10 +101,7 @@
 		head = /obj/item/clothing/head/roguetown/helmet/leather
 	if(prob(10))
 		head = /obj/item/clothing/head/roguetown/roguehood
-	if(H.gender == FEMALE)
-		H.STASTR = rand(9,12)
-	else
-		H.STASTR = rand(14,16)
+	H.STASTR = rand(14,16)
 	H.STASPD = 8
 	H.STACON = 4
 	H.STAEND = 15

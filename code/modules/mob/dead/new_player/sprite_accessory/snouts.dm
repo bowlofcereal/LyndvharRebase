@@ -5,7 +5,7 @@
 	relevant_layers = list(BODY_ADJ_LAYER)
 
 /datum/sprite_accessory/snout/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
-	return is_human_part_visible(owner, HIDEFACE)
+	return is_human_part_visible(owner, HIDESNOUT)
 
 /datum/sprite_accessory/snout/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_FACE, OFFSET_FACE_F)
@@ -452,5 +452,17 @@
 /datum/sprite_accessory/snout/shortnosed
 	name = "Short Nosed"
 	icon_state = "shortnosed"
+	color_keys = 2
+	color_key_names = list("Snout", "Nose")
+
+/datum/sprite_accessory/snout/stubby
+	name = "Stubby"
+	icon_state = "stubby"
+	color_keys = 2
+	color_key_names = list("Mask", "Snout")
+
+/datum/sprite_accessory/snout/stubbyalt
+	name = "Stubby ALT"
+	icon_state = "stubbyalt"
 	color_keys = 2
 	color_key_names = list("Snout", "Nose")

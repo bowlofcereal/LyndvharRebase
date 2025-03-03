@@ -5,6 +5,7 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/mercenary/grenzelhoft
 	category_tags = list(CTAG_MERCENARY)
+	traits_applied = list(TRAIT_OUTLANDER)
 	cmode_music = 'sound/music/combat_grenzelhoft.ogg'
 
 /datum/outfit/job/roguetown/mercenary/grenzelhoft/pre_equip(mob/living/carbon/human/H)
@@ -70,12 +71,14 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
 	head = /obj/item/clothing/head/roguetown/grenzelhofthat
-	armor = /obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate
 	pants = /obj/item/clothing/under/roguetown/grenzelpants
 	shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft
 	gloves = /obj/item/clothing/gloves/roguetown/grenzelgloves
 	backr = /obj/item/storage/backpack/rogue/satchel/black
+	backl = /obj/item/gwstrap
 
 	backpack_contents = list(/obj/item/roguekey/mercenary)
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	H.grant_language(/datum/language/grenzelhoftian)
