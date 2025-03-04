@@ -105,22 +105,15 @@
 	cost = 20
 	contains = list(/obj/item/quiver/bolts)
 
-
-
-/datum/supply_pack/rogue/Knave/Parrows
-	name = "Poisoned Arrow"
-	cost = 3
-	contains = list(/obj/item/ammo_casing/caseless/rogue/arrow/poison)
-
 /datum/supply_pack/rogue/Knave/pyroarrows
 	name = "Pyroclastic Arrow"
-	cost = 8
+	cost = 10
 	contains = list(/obj/item/ammo_casing/caseless/rogue/arrow/pyro)
 
 
 /datum/supply_pack/rogue/Knave/pyrobolts
 	name = "Pyroclastic bolt"
-	cost = 12
+	cost = 15
 	contains = list(/obj/item/ammo_casing/caseless/rogue/bolt/pyro)
 
 /datum/supply_pack/rogue/Knave/Mancatcher
