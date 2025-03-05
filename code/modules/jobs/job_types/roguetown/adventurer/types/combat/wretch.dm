@@ -336,7 +336,7 @@
 			H.mind.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -359,9 +359,8 @@
 					ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 			H.change_stat("strength", 3)
 			H.change_stat("endurance", 1)
-			H.change_stat("constitution", 2)
-			H.change_stat("intelligence", -2)
-			H.change_stat("perception", -2)
+			H.change_stat("constitution", 1)
+			H.change_stat("intelligence", -4)
 			H.change_stat("speed", 2)
 			if(H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS)
 				H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
@@ -392,6 +391,12 @@
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_spells_templar(H)
 			START_PROCESSING(SSobj, C)
+			var/my_crime = input(H, "What is your crime?", "Crime") as text|null
+			if (!my_crime)
+				my_crime = "crimes against the Crown"
+			var/bounty_total
+			bounty_total = rand(151, 250)
+			add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azure Peak")
 
 /obj/item/clothing/gloves/roguetown/chain/blk
 		color = CLOTHING_GREY
