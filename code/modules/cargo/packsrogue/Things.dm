@@ -64,15 +64,15 @@
 
 /datum/supply_pack/rogue/Things/ozium
 	name = "Ozium"
-	cost = 60
+	cost = 15
 	contains = list(/obj/item/reagent_containers/powder/ozium)
 
 /datum/supply_pack/rogue/Things/moondust
 	name = "Moon Dust"
-	cost = 80
+	cost = 15
 	contains = list(/obj/item/reagent_containers/powder/moondust)
 
 /datum/supply_pack/rogue/Things/spice
 	name = "Spice"
-	cost = 40
+	cost = 15
 	contains = list(/obj/item/reagent_containers/powder/spice)

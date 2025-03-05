@@ -39,7 +39,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/plate
 	beltr = /obj/item/rogueweapon/katar
 	id = /obj/item/mattcoin
-	H.change_stat("strength", 1) 
+	H.change_stat("strength", 2) 
 	H.change_stat("endurance", 3) // This is our Go Big stat, we want lots of stamina for miracles.
 	H.change_stat("constitution", 1)
 	H.change_stat("fortune", 2) 
