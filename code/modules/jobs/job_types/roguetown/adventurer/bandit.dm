@@ -3,8 +3,8 @@
 	flag = BANDIT
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 3
+	spawn_positions = 3
 	antag_job = TRUE
 	display_order = JDO_BANDIT
 	allowed_races = RACES_ALL_KINDS
