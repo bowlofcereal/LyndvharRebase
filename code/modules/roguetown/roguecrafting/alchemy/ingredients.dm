@@ -399,3 +399,18 @@
 	craftsound = 'sound/foley/scribble.ogg'
 	skillcraft = /datum/skill/craft/alchemy
 	craftdiff = 0
+
+/datum/crafting_recipe/alch/transistus
+	name = "transis dust"
+	result = /obj/item/alch/transisdust
+	reqs = list(/obj/item/alch/artemisia = 1,
+		/obj/item/alch/benedictus = 1,
+		/obj/item/alch/hypericum = 1,
+		/obj/item/alch/salvia = 1,
+		/obj/item/alch/atropa = 1,
+		/obj/item/alch/taraxacum =1)
+	structurecraft = /obj/structure/table
+	verbage = "mix"
+	verbage_tp = "mixes"
+	skillcraft = /datum/skill/craft/alchemy
+	craftdiff = 4
