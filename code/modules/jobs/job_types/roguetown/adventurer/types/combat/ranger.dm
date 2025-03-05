@@ -16,8 +16,6 @@
 	var/classes = list("Sentinel","Assassin","Bombadier")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/conjure_item/conjure_bait)
-
 	switch(classchoice)
 	
 		if("Sentinel")
@@ -53,6 +51,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_OUTDOORSMAN, TRAIT_GENERIC)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/conjure_item/conjure_bait)
 			var/weapons = list("Recurve Bow","Crossbow")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			H.set_blindness(0)
