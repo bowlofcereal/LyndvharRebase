@@ -107,13 +107,13 @@
 
 /datum/supply_pack/rogue/Knave/pyroarrows
 	name = "Pyroclastic Arrow"
-	cost = 10
+	cost = 30
 	contains = list(/obj/item/ammo_casing/caseless/rogue/arrow/pyro)
 
 
 /datum/supply_pack/rogue/Knave/pyrobolts
 	name = "Pyroclastic bolt"
-	cost = 15
+	cost = 45
 	contains = list(/obj/item/ammo_casing/caseless/rogue/bolt/pyro)
 
 /datum/supply_pack/rogue/Knave/Mancatcher
