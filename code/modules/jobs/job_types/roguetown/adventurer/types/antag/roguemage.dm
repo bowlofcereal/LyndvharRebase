@@ -19,7 +19,6 @@
 	backpack_contents = list(
 					/obj/item/needle/thorn = 1,
 					/obj/item/natural/cloth = 1,
-					/obj/item/flashlight/flare/torch = 1,
 					)
 	mask = /obj/item/clothing/mask/rogue/facemask/steel //idk if this makes it so they cant cast but i want all of the bandits to have the same mask
 	neck = /obj/item/clothing/neck/roguetown/coif
@@ -48,13 +47,13 @@
 			head = /obj/item/clothing/head/roguetown/wizhat/gen
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe
 			H.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
-			H.change_stat("intelligence", 1)
+			H.change_stat("intelligence", 2)
 			H.change_stat("perception", 1)
 			H.mind.adjust_spellpoints(1)
-		H.change_stat("intelligence", 3)
-		H.change_stat("constitution", 1)
+		H.change_stat("intelligence", 2)
+		H.change_stat("constitution", -1)
 		H.change_stat("endurance", -1)
 		H.change_stat("fortune", 2)
-		H.change_stat("speed", 1) //ohhh sweetie this is NOT gonna help
+		H.change_stat("speed", 0) 
 		H.mind.adjust_spellpoints(1)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)

@@ -84,13 +84,6 @@
 	cost = 20
 	contains = list(/obj/item/clothing/suit/roguetown/armor/gambeson/heavy)
 
-
-/datum/supply_pack/rogue/Sellsword/steelcuirass
-	name = "Blacksteel Cuirass"
-	cost = 50
-	contains = list(/obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate)
-
-
 /datum/supply_pack/rogue/Sellsword/Bevor
 	name = "Bevor"
 	cost = 20

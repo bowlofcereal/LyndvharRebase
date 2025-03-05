@@ -23,7 +23,6 @@
 	backpack_contents = list(
 					/obj/item/natural/worms/leech/cheele = 1,
 					/obj/item/natural/cloth = 2,
-					/obj/item/flashlight/flare/torch = 1,
 					/obj/item/bedroll = 1,
 					)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -44,7 +43,7 @@
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DECEIVING_MEEKNESS, TRAIT_GENERIC)
 	H.change_stat("speed", 3)
-	H.change_stat("intelligence", 4)
+	H.change_stat("intelligence", 2)
 	H.change_stat("fortune", 3)
 	if(H.age == AGE_OLD)
 		H.change_stat("speed", -1)

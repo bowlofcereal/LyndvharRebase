@@ -39,8 +39,8 @@
 	neck = /obj/item/clothing/neck/roguetown/coif
 	armor = /obj/item/clothing/suit/roguetown/armor/leather
 	id = /obj/item/mattcoin
-	H.change_stat("strength", 1)
-	H.change_stat("constitution", 1)
+	H.change_stat("strength", 0)
+	H.change_stat("constitution", 0)
 	H.change_stat("endurance", 1)
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 3) //It's all about speed and perception
@@ -61,7 +61,6 @@
 						/obj/item/needle/thorn = 1,
 						/obj/item/natural/cloth = 1,
 						/obj/item/lockpickring/mundane = 1,
-						/obj/item/flashlight/flare/torch = 1,
 						) //rogue gets lockpicks
 			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
 		if("Bow & Sword") //Poacher

@@ -34,16 +34,15 @@
 	backpack_contents = list(
 					/obj/item/needle/thorn = 1,
 					/obj/item/natural/cloth = 1,
-					/obj/item/flashlight/flare/torch = 1,
 					)
 	head = /obj/item/clothing/head/roguetown/roguehood
 	armor = /obj/item/clothing/suit/roguetown/armor/plate
 	beltr = /obj/item/rogueweapon/katar
 	id = /obj/item/mattcoin
-	H.change_stat("strength", 3) // LETS WRASSLE
-	H.change_stat("endurance", 3) // This is our Go Big stat, we want lots of stamina for miracles and WRASSLIN.
+	H.change_stat("strength", 1) 
+	H.change_stat("endurance", 3) // This is our Go Big stat, we want lots of stamina for miracles.
 	H.change_stat("constitution", 1)
-	H.change_stat("fortune", 2) //We have a total of +12 in stats. 
+	H.change_stat("fortune", 2) 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC) // We are going to be the lord's first heavy armor unarmed class
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
