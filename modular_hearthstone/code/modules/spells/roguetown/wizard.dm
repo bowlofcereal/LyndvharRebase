@@ -1549,6 +1549,8 @@
 	cost = 5
 	xp_gain = TRUE
 	charge_max = 3 MINUTES
+	invocation = "RISE AND SERVE YOUR MASTER!"
+	invocation_type = "shout"
 	
 	// Charged spell variables
 	chargedloop = /datum/looping_sound/invokegen
