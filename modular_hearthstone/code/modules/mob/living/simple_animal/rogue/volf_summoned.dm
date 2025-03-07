@@ -34,6 +34,12 @@
     
     // Behavior control
     var/was_attacked = FALSE
+    
+    // Prevent corpse/gibbing
+    del_on_death = TRUE
+    loot = list() // No loot drops
+    remains_type = null // No remains
+    butcher_results = null // Can't be butchered
 
 /mob/living/simple_animal/hostile/retaliate/summoned_volf/Initialize()
     . = ..()
@@ -89,3 +95,7 @@
         LoseTarget()
         return
     return ..() 
+
+/mob/living/simple_animal/hostile/retaliate/summoned_volf/death(gibbed)
+    visible_message(span_notice("[src] fades away into mist..."))
+    ..() // This will trigger the del_on_death
