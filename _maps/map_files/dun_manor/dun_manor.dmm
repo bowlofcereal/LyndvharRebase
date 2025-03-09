@@ -339,6 +339,10 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave)
+"akL" = (
+/obj/structure/mineral_door/wood/deadbolt,
+/turf/closed,
+/area/rogue/under/town/basement/keep)
 "akR" = (
 /obj/structure/fluff/railing/border{
 	dir = 10
@@ -5806,16 +5810,6 @@
 /obj/item/chair/stool/bar/rogue,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/rtfield)
-"ecQ" = (
-/obj/structure/closet/crate/drawer/random{
-	pixel_y = 0
-	},
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
-/obj/machinery/light/rogue/wallfire/candle/r,
-/turf/open/floor/carpet/inn,
-/area/rogue/under/town/basement/keep)
 "edf" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -9023,11 +9017,6 @@
 /obj/structure/fluff/statue/knight/r,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
-"gDA" = (
-/obj/structure/table/wood,
-/obj/item/book/rogue/law,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/town/basement/keep)
 "gDG" = (
 /obj/structure/roguemachine/vendor{
 	keycontrol = "farm"
@@ -9280,13 +9269,6 @@
 /obj/structure/fluff/walldeco/alarm,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/basement/keep)
-"gMQ" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "manor"
-	},
-/turf/closed,
-/area/rogue/under/town/basement/keep)
 "gNm" = (
 /obj/structure/roguewindow/openclose/reinforced{
 	dir = 1
@@ -9336,8 +9318,11 @@
 	},
 /area/rogue/indoors/town/shop)
 "gOL" = (
-/obj/structure/mirror,
-/turf/open/floor/rogue/tile/masonic/inverted,
+/obj/structure/mineral_door/wood{
+	locked = 1;
+	lockid = "manor"
+	},
+/turf/closed,
 /area/rogue/under/town/basement/keep)
 "gPG" = (
 /obj/structure/rack/rogue/shelf/biggest{
@@ -9466,8 +9451,8 @@
 /area/rogue/indoors/town)
 "gUU" = (
 /obj/structure/table/wood,
-/obj/item/book/rogue/tales1,
-/turf/open/floor/rogue/tile/masonic/inverted,
+/obj/item/book/rogue/law,
+/turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
 "gVe" = (
 /obj/structure/bars,
@@ -12903,6 +12888,13 @@
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/church/chapel)
+"jDx" = (
+/obj/structure/table/wood,
+/obj/item/paper,
+/obj/item/paper,
+/obj/item/paper,
+/turf/open/floor/rogue/tile/masonic/inverted,
+/area/rogue/under/town/basement/keep)
 "jDA" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/machinery/light/rogue/firebowl/standing/blue,
@@ -13750,13 +13742,6 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
-"kgX" = (
-/obj/structure/table/wood,
-/obj/item/paper,
-/obj/item/paper,
-/obj/item/paper,
-/turf/open/floor/rogue/tile/masonic/inverted,
-/area/rogue/under/town/basement/keep)
 "kha" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -14702,13 +14687,6 @@
 /obj/item/rogueweapon/shovel,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/basement)
-"kNE" = (
-/obj/structure/table/wood,
-/obj/structure/fluff/walldeco/rpainting{
-	pixel_y = 32
-	},
-/turf/open/floor/rogue/tile/masonic/inverted,
-/area/rogue/under/town/basement/keep)
 "kNF" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/cobblerock,
@@ -16390,10 +16368,6 @@
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/church/chapel)
-"lUJ" = (
-/obj/structure/mineral_door/wood/deadbolt,
-/turf/closed,
-/area/rogue/under/town/basement/keep)
 "lUR" = (
 /obj/structure/roguemachine/vendor,
 /turf/closed/wall/mineral/rogue/wooddark,
@@ -18403,6 +18377,9 @@
 	},
 /area/rogue/indoors/town/manor)
 "nqz" = (
+/obj/structure/fluff/walldeco/rpainting{
+	pixel_y = 32
+	},
 /obj/structure/closet/crate/roguecloset/dark,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/under/town/basement/keep)
@@ -19888,6 +19865,11 @@
 /obj/structure/roguemachine/vendor/bathhouse,
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/indoors/town/bath)
+"org" = (
+/obj/structure/table/wood,
+/obj/item/book/rogue/tales1,
+/turf/open/floor/rogue/tile/masonic/inverted,
+/area/rogue/under/town/basement/keep)
 "orw" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -22483,6 +22465,11 @@
 	icon_state = "roofg"
 	},
 /area/rogue/indoors/town/tavern)
+"qiD" = (
+/obj/structure/toilet,
+/obj/machinery/light/rogue/wallfire/candle/r,
+/turf/open/floor/rogue/tile/masonic/inverted,
+/area/rogue/under/town/basement/keep)
 "qiH" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/paper,
@@ -23694,10 +23681,6 @@
 /obj/item/book/rogue/cardgame,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor)
-"rbZ" = (
-/obj/structure/roguemachine/scomm,
-/turf/open/floor/carpet/red,
-/area/rogue/under/town/basement/keep)
 "rch" = (
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/transparent/openspace,
@@ -25728,6 +25711,10 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/manor)
+"sAw" = (
+/obj/structure/mirror,
+/turf/open/floor/rogue/tile/masonic/inverted,
+/area/rogue/under/town/basement/keep)
 "sAF" = (
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/whip,
@@ -29212,9 +29199,8 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/basement)
 "vcM" = (
-/obj/structure/toilet,
-/obj/machinery/light/rogue/wallfire/candle/r,
-/turf/open/floor/rogue/tile/masonic/inverted,
+/obj/structure/roguemachine/scomm,
+/turf/open/floor/carpet/red,
 /area/rogue/under/town/basement/keep)
 "vcT" = (
 /turf/closed/wall/mineral/rogue/stonebrick,
@@ -31239,6 +31225,16 @@
 /obj/structure/fluff/walldeco/bsmith,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
+"wHT" = (
+/obj/structure/closet/crate/drawer/random{
+	pixel_y = 0
+	},
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/machinery/light/rogue/wallfire/candle/r,
+/turf/open/floor/carpet/inn,
+/area/rogue/under/town/basement/keep)
 "wIc" = (
 /obj/structure/table/wood,
 /obj/item/rogueore/coal,
@@ -54684,7 +54680,7 @@ ixc
 dCX
 dCX
 dCX
-gMQ
+gOL
 dCX
 dCX
 dCX
@@ -54844,9 +54840,9 @@ rbl
 iuO
 iuO
 dCX
-kNE
-obw
 nqz
+obw
+pQF
 dCX
 pNQ
 pNQ
@@ -55001,7 +54997,7 @@ tml
 iuO
 iuO
 dCX
-gOL
+sAw
 oNb
 oNb
 dCX
@@ -55159,7 +55155,7 @@ ehu
 ehu
 sMe
 hMt
-ecQ
+wHT
 pNY
 ixc
 jHu
@@ -55311,7 +55307,7 @@ dCX
 dCX
 dCX
 dCX
-rbZ
+vcM
 ehu
 ehu
 dCX
@@ -55471,7 +55467,7 @@ sMe
 ehu
 ehu
 ehu
-lUJ
+akL
 hMt
 hMt
 hMt
@@ -55626,12 +55622,12 @@ oNb
 obw
 dCX
 tzi
-gDA
+gUU
 tzi
 dCX
-kgX
-vcM
-gUU
+jDx
+qiD
+org
 dCX
 pmA
 cVE
