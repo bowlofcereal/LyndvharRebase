@@ -83,3 +83,71 @@
 	name = "Vicious Mockery"
 	desc = "<span class='warning'>THAT ARROGANT BARD! ARGH!</span>\n"
 	icon_state = "muscles"
+
+/obj/effect/proc_holder/spell/invoked/curse_of_woe
+	name = "Curse of Woe"
+	desc = "A powerful curse that makes the target vulnerable to ambushes anywhere they go. The curse is lifted once an ambush successfully triggers."
+	releasedrain = 100
+	chargedrain = 0
+	chargetime = 5
+	range = 5
+	no_early_release = TRUE
+	movement_interrupt = TRUE
+	chargedloop = /datum/looping_sound/invokeholy
+	sound = 'sound/magic/curse.ogg'
+	associated_skill = /datum/skill/magic/holy
+	antimagic_allowed = TRUE
+	charge_max = 5 MINUTES
+
+/obj/effect/proc_holder/spell/invoked/curse_of_woe/cast(list/targets, mob/user = usr)
+	if(isliving(targets[1]))
+		var/mob/living/target = targets[1]
+		if(target.anti_magic_check(TRUE, TRUE))
+			to_chat(user, span_warning("The target is protected from your magic!"))
+			return FALSE
+		
+		// Apply the curse status effect
+		target.apply_status_effect(/datum/status_effect/curse_of_woe)
+		user.visible_message(span_warning("[user] points at [target], cursing them with Xylix's Woe!"), 
+							span_notice("You curse [target] with Xylix's Woe. They will be hunted wherever they go."))
+		
+		// Visual effects
+		var/obj/effect/temp_visual/curse_visuals = new /obj/effect/temp_visual/curse(get_turf(target))
+		curse_visuals.color = "#800080" // Purple for Xylix
+		
+		return TRUE
+	revert_cast()
+	return FALSE
+
+/obj/effect/proc_holder/spell/invoked/curse_of_woe/invocation(mob/user = usr)
+	if(ishuman(user))
+		user.say("By Xylix's whim, I curse thee to be hunted! The Laughing God's woe be upon you!", forced = "spell")
+
+/datum/status_effect/curse_of_woe
+	id = "curse_of_woe"
+	status_type = STATUS_EFFECT_UNIQUE
+	duration = -1 // Infinite duration until removed
+	alert_type = /atom/movable/screen/alert/status_effect/curse_of_woe
+	
+/datum/status_effect/curse_of_woe/on_apply()
+	if(ishuman(owner))
+		to_chat(owner, span_danger("You feel a chill down your spine. Something is watching you..."))
+		return TRUE
+	return FALSE
+	
+/datum/status_effect/curse_of_woe/on_remove()
+	to_chat(owner, span_notice("You feel the weight of Xylix's curse lift from your shoulders."))
+
+/atom/movable/screen/alert/status_effect/curse_of_woe
+	name = "Curse of Woe"
+	desc = "Xylix has cursed you. You are vulnerable to ambushes anywhere you go."
+	icon_state = "curse"
+
+// Hook into the ambush system to remove the curse when an ambush triggers
+// This will be called from the ambush code when an ambush successfully triggers
+/mob/living/proc/check_curse_of_woe_ambush()
+	if(has_status_effect(/datum/status_effect/curse_of_woe))
+		remove_status_effect(/datum/status_effect/curse_of_woe)
+		visible_message(span_warning("The curse upon [src] seems to fade away!"))
+		return TRUE
+	return FALSE
