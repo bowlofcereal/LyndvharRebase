@@ -94,7 +94,7 @@
 	no_early_release = TRUE
 	movement_interrupt = TRUE
 	chargedloop = /datum/looping_sound/invokeholy
-	sound = 'sound/magic/curse.ogg'
+	sound = 'sound/misc/letsgogambling.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	charge_max = 5 MINUTES
