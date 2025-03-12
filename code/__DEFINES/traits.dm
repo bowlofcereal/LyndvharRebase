@@ -58,7 +58,7 @@
 #define TRAIT_PURITAN "Puritan"
 #define TRAIT_MIRROR_MAGIC "Mirror Magic"
 #define TRAIT_WITCH "They fear me, but I am useful to them."
-#define XYLIX_TRAIT "I am his plaything." // Traits granted by Xylix, the Trickster God
+#define TRAIT_XYLIX "I am his plaything." // Traits granted by Xylix, the Trickster God
 
 
 //Hearthstone port (Tracking)
