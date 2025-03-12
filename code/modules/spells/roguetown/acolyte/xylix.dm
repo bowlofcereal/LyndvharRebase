@@ -97,7 +97,8 @@
 	sound = 'sound/misc/letsgogambling.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 5 MINUTES
+	charge_max = 1 MINUTES
+	devotion_cost = 90 // Added devotion cost
 
 /obj/effect/proc_holder/spell/invoked/curse_of_woe/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))
@@ -107,13 +108,20 @@
 			return FALSE
 		
 		// Apply the curse status effect
-		target.apply_status_effect(/datum/status_effect/curse_of_woe)
+		var/datum/status_effect/debuff/curse_of_woe/curse = target.apply_status_effect(/datum/status_effect/debuff/curse_of_woe)
+		if(!curse)
+			to_chat(user, span_warning("The curse failed to take hold!"))
+			return FALSE
+			
 		user.visible_message(span_warning("[user] points at [target], cursing them with Xylix's Woe!"), 
 							span_notice("You curse [target] with Xylix's Woe. They will be hunted wherever they go."))
 		
 		// Visual effects
 		var/obj/effect/temp_visual/curse_visuals = new /obj/effect/temp_visual/curse(get_turf(target))
 		curse_visuals.color = "#800080" // Purple for Xylix
+		
+		// Force an ambush check soon after being cursed
+		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living, consider_ambush)), rand(50, 150))
 		
 		return TRUE
 	revert_cast()
@@ -123,31 +131,117 @@
 	if(ishuman(user))
 		user.say("By Xylix's whim, I curse thee to be hunted! The Laughing God's woe be upon you!", forced = "spell")
 
-/datum/status_effect/curse_of_woe
+/datum/status_effect/debuff/curse_of_woe
 	id = "curse_of_woe"
 	status_type = STATUS_EFFECT_UNIQUE
 	duration = -1 // Infinite duration until removed
-	alert_type = /atom/movable/screen/alert/status_effect/curse_of_woe
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/curse_of_woe
 	
-/datum/status_effect/curse_of_woe/on_apply()
-	if(ishuman(owner))
-		to_chat(owner, span_danger("You feel a chill down your spine. Something is watching you..."))
-		return TRUE
-	return FALSE
+/datum/status_effect/debuff/curse_of_woe/on_apply()
+	if(!isliving(owner))
+		return FALSE
+	to_chat(owner, span_danger("<b>You feel a chill down your spine. Something is watching you...</b>"))
+	owner.visible_message(span_warning("A dark aura briefly flashes around [owner]!"))
+	playsound(owner, 'sound/misc/letsgogambling.ogg', 50, TRUE)
 	
-/datum/status_effect/curse_of_woe/on_remove()
+	// Add a visual effect to the cursed character
+	owner.add_filter("curse_outline", 2, list("type" = "outline", "color" = "#800080", "size" = 1))
+	
+	// Set ambushable to 1 for NPCs that might not have it set
+	if(istype(owner, /mob/living))
+		owner.ambushable = 1
+	
+	// Periodically check for ambushes
+	addtimer(CALLBACK(src, PROC_REF(periodic_ambush_check)), rand(100, 300))
+	
+	return TRUE
+	
+/datum/status_effect/debuff/curse_of_woe/on_remove()
 	to_chat(owner, span_notice("You feel the weight of Xylix's curse lift from your shoulders."))
+	owner.visible_message(span_notice("The dark aura around [owner] fades away!"))
+	
+	// Remove the visual effect
+	owner.remove_filter("curse_outline")
 
-/atom/movable/screen/alert/status_effect/curse_of_woe
+/datum/status_effect/debuff/curse_of_woe/proc/periodic_ambush_check()
+	if(!owner || QDELETED(src))
+		return
+	
+	// Force an ambush check
+	owner.consider_ambush()
+	
+	// For NPCs, we need to be more aggressive with ambush checks
+	if(!ishuman(owner) && prob(40))
+		trigger_npc_ambush()
+	
+	// Schedule the next check
+	addtimer(CALLBACK(src, PROC_REF(periodic_ambush_check)), rand(300, 600))
+
+/datum/status_effect/debuff/curse_of_woe/proc/trigger_npc_ambush()
+	if(!owner || QDELETED(src))
+		return
+		
+	var/turf/T = get_turf(owner)
+	if(!T)
+		return
+		
+	var/area/AR = get_area(owner)
+	
+	// For areas with no ambush mobs defined, use a default set
+	if(!AR.ambush_mobs || !length(AR.ambush_mobs))
+		AR.ambush_mobs = list(
+			/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
+			/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 60
+		)
+	
+	// Create a list of possible spawn points
+	var/list/possible_targets = list()
+	for(var/turf/F in view(7, owner))
+		if(F != T) // Don't spawn on the target's tile
+			possible_targets += F
+			
+	if(length(possible_targets))
+		// Set the ambush cooldown
+		owner.mob_timers["ambushlast"] = world.time
+		
+		var/spawnedtype = pickweight(AR.ambush_mobs)
+		
+		// Spawn 2-3 attackers
+		var/spawn_count = rand(2, 3)
+		
+		for(var/i in 1 to spawn_count)
+			var/spawnloc = pick(possible_targets)
+			if(spawnloc)
+				var/mob/spawnedmob = new spawnedtype(spawnloc)
+				if(istype(spawnedmob, /mob/living/simple_animal/hostile))
+					var/mob/living/simple_animal/hostile/M = spawnedmob
+					M.attack_same = FALSE
+					M.del_on_deaggro = 44 SECONDS
+					M.GiveTarget(owner)
+					
+					// Make ambush mobs more dangerous
+					M.melee_damage_lower = round(M.melee_damage_lower * 1.2)
+					M.melee_damage_upper = round(M.melee_damage_upper * 1.2)
+					M.maxHealth = round(M.maxHealth * 1.2)
+					M.health = M.maxHealth
+		
+		// Special effects
+		owner.visible_message(span_warning("Creatures emerge from the shadows to attack [owner]!"))
+		playsound(owner, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
+		
+		// Remove the curse after a successful ambush
+		owner.remove_status_effect(/datum/status_effect/debuff/curse_of_woe)
+
+/atom/movable/screen/alert/status_effect/debuff/curse_of_woe
 	name = "Curse of Woe"
-	desc = "Xylix has cursed you. You are vulnerable to ambushes anywhere you go."
+	desc = "I am Xylix's plaything. Ambushes can find me anywhere I go."
 	icon_state = "curse"
 
 // Hook into the ambush system to remove the curse when an ambush triggers
 // This will be called from the ambush code when an ambush successfully triggers
 /mob/living/proc/check_curse_of_woe_ambush()
-	if(has_status_effect(/datum/status_effect/curse_of_woe))
-		remove_status_effect(/datum/status_effect/curse_of_woe)
+	if(has_status_effect(/datum/status_effect/debuff/curse_of_woe))
+		remove_status_effect(/datum/status_effect/debuff/curse_of_woe)
 		visible_message(span_warning("The curse upon [src] seems to fade away!"))
 		return TRUE
 	return FALSE

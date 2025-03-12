@@ -3,16 +3,25 @@ GLOBAL_VAR_INIT(ambush_global_cooldown, 3 MINUTES) // Cooldown for the game spaw
 GLOBAL_VAR_INIT(ambush_mobconsider_cooldown, 15 SECONDS) // Cooldown for each individual mob being considered for an ambush
 
 /mob/living/proc/ambushable()
+	// If the mob has the Curse of Woe, they are always ambushable
+	if(has_status_effect(/datum/status_effect/debuff/curse_of_woe))
+		return TRUE
+		
 	if(mob_timers["ambushlast"])
 		if(world.time < mob_timers["ambushlast"] + GLOB.ambush_global_cooldown)
 			return FALSE
 	if(stat)
 		return FALSE
+	
+	// For NPCs, check if they have the ambushable var set
+	if(!istype(src, /mob/living/carbon/human))
+		return ambushable ? TRUE : FALSE
+		
 	return ambushable
 
 /mob/living/proc/consider_ambush()
 	// Check if the mob has the Curse of Woe
-	var/has_woe = has_status_effect(/datum/status_effect/curse_of_woe)
+	var/has_woe = has_status_effect(/datum/status_effect/debuff/curse_of_woe)
 	var/ambush_chance = has_woe ? 40 : GLOB.ambush_chance_pct // 40% chance for those with Curse of Woe
 	
 	if(prob(100 - ambush_chance))
@@ -21,20 +30,22 @@ GLOBAL_VAR_INIT(ambush_mobconsider_cooldown, 15 SECONDS) // Cooldown for each in
 		if(world.time < mob_timers["ambush_check"] + GLOB.ambush_mobconsider_cooldown)
 			return
 	mob_timers["ambush_check"] = world.time
-	if(!ambushable())
+	
+	// For those with Curse of Woe, skip the ambushable check
+	if(!has_woe && !ambushable())
 		return
+		
 	var/area/AR = get_area(src)
 	var/turf/T = get_turf(src)
 	if(!T)
 		return
 	
-	// Skip area check for those with Curse of Woe
+	// For those with Curse of Woe, skip the turf type check
 	if(!has_woe && !(T.type in AR.ambush_types))
 		return
 		
-	// For town areas, ensure we have ambush mobs defined for those with Curse of Woe
-	if(has_woe && (!AR.ambush_mobs || !length(AR.ambush_mobs)))
-		// If we're in a town area with no ambush mobs defined, use a default set
+	// For areas with no ambush mobs defined, use a default set
+	if(!AR.ambush_mobs || !length(AR.ambush_mobs))
 		AR.ambush_mobs = list(
 			/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
 			/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 60
@@ -58,38 +69,29 @@ GLOBAL_VAR_INIT(ambush_mobconsider_cooldown, 15 SECONDS) // Cooldown for each in
 				return
 	var/list/possible_targets = list()
 	
-	// For those with Curse of Woe, we'll use any nearby open tiles as spawn points
+	// For those with Curse of Woe, ANY tile can be a spawn point
 	if(has_woe)
-		// ANY open tile can be a spawn point
-		for(var/turf/open/F in view(7, src))
-			if(F != T && !F.density)
+		for(var/turf/F in view(7, src))
+			if(F != T) // Don't spawn on the target's tile
 				possible_targets += F
-		
-		// Also use any dense object as a potential spawn point
-		for(var/obj/O in view(5, src))
-			if(O.density && isturf(O.loc))
-				possible_targets += O.loc
-	
-	// Regular spawn points for normal ambushes or as additional options for Curse of Woe
-	for(var/obj/structure/flora/roguetree/RT in view(5, src))
-		if(istype(RT,/obj/structure/flora/roguetree/stump))
-			continue
-		if(isturf(RT.loc))
-			testing("foundtree")
-			possible_targets += RT.loc
-//	for(var/obj/structure/flora/roguegrass/bush/RB in range(7, src))
-//		if(can_see(src, RB))
-//			possible_targets += RB
-	for(var/obj/structure/flora/rogueshroom/RX in view(5, src))
-		if(isturf(RX.loc))
-			testing("foundshroom")
-			possible_targets += RX.loc
-	for(var/obj/structure/flora/newtree/RS in view(5, src))
-		if(!RS.density)
-			continue
-		if(isturf(RS.loc))
-			testing("foundshroom")
-			possible_targets += RS.loc
+	else
+		// Regular spawn points for normal ambushes
+		for(var/obj/structure/flora/roguetree/RT in view(5, src))
+			if(istype(RT,/obj/structure/flora/roguetree/stump))
+				continue
+			if(isturf(RT.loc))
+				testing("foundtree")
+				possible_targets += RT.loc
+		for(var/obj/structure/flora/rogueshroom/RX in view(5, src))
+			if(isturf(RX.loc))
+				testing("foundshroom")
+				possible_targets += RX.loc
+		for(var/obj/structure/flora/newtree/RS in view(5, src))
+			if(!RS.density)
+				continue
+			if(isturf(RS.loc))
+				testing("foundshroom")
+				possible_targets += RS.loc
 			
 	if(length(possible_targets))
 		mob_timers["ambushlast"] = world.time
