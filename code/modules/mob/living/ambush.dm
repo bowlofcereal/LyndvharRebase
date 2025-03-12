@@ -98,43 +98,58 @@ GLOBAL_VAR_INIT(ambush_mobconsider_cooldown, 15 SECONDS) // Cooldown for each in
 		for(var/mob/living/V in victimsa)
 			V.mob_timers["ambushlast"] = world.time
 		
-		var/spawnedtype = pickweight(AR.ambush_mobs)
 		var/mustype = 1
 		
 		// Those with Curse of Woe get more attackers
 		var/spawn_count = has_woe ? CLAMP(victims*1.5, 2, 4) : CLAMP(victims*1, 2, 3)
 		
-		for(var/i in 1 to spawn_count)
-			var/spawnloc = pick(possible_targets)
-			if(spawnloc)
-				var/mob/spawnedmob = new spawnedtype(spawnloc)
-				if(istype(spawnedmob, /mob/living/simple_animal/hostile))
-					var/mob/living/simple_animal/hostile/M = spawnedmob
-					M.attack_same = FALSE
-					M.del_on_deaggro = 44 SECONDS
-					M.GiveTarget(src)
-					
-					// Make ambush mobs for Curse of Woe victims more dangerous
-					if(has_woe)
-						M.melee_damage_lower = round(M.melee_damage_lower * 1.2)
-						M.melee_damage_upper = round(M.melee_damage_upper * 1.2)
-						M.maxHealth = round(M.maxHealth * 1.2)
-						M.health = M.maxHealth
-						
-				if(istype(spawnedmob, /mob/living/carbon/human))
-					var/mob/living/carbon/human/H = spawnedmob
-					H.del_on_deaggro = 44 SECONDS
-					H.last_aggro_loss = world.time
-					H.retaliate(src)
-					mustype = 2
-					
-		// Special effects for those with Curse of Woe
+		// For those with Curse of Woe, spawn jester raiders instead of normal ambush mobs
 		if(has_woe)
+			for(var/i in 1 to spawn_count)
+				var/spawnloc = pick(possible_targets)
+				if(spawnloc)
+					var/mob/living/carbon/human/species/human/northern/jester_raider/jester = new(spawnloc)
+					jester.is_silent = FALSE // Allow them to speak their lines
+					jester.target = src
+					jester.mode = AI_HUNT
+					jester.aggressive = 1
+					jester.wander = TRUE
+					
+					// Make them say something when they spawn
+					addtimer(CALLBACK(jester, TYPE_PROC_REF(/mob/living/carbon/human/species/human/northern/jester_raider, retaliate), src), 5)
+			
+			// Special effects for jester raiders
+			to_chat(src, span_warning("<b>Xylix's jesters emerge to claim you!</b>"))
+			playsound_local(src, pick('sound/vo/male/jester/laugh (1).ogg','sound/vo/male/jester/laugh (2).ogg','sound/vo/male/jester/laugh (3).ogg'), 100, vary = TRUE)
+			mustype = 3 // Special mustype for jesters
+		else
+			// Regular ambush mobs for those without the curse
+			var/spawnedtype = pickweight(AR.ambush_mobs)
+			
+			for(var/i in 1 to spawn_count)
+				var/spawnloc = pick(possible_targets)
+				if(spawnloc)
+					var/mob/spawnedmob = new spawnedtype(spawnloc)
+					if(istype(spawnedmob, /mob/living/simple_animal/hostile))
+						var/mob/living/simple_animal/hostile/M = spawnedmob
+						M.attack_same = FALSE
+						M.del_on_deaggro = 44 SECONDS
+						M.GiveTarget(src)
+						
+					if(istype(spawnedmob, /mob/living/carbon/human))
+						var/mob/living/carbon/human/H = spawnedmob
+						H.del_on_deaggro = 44 SECONDS
+						H.last_aggro_loss = world.time
+						H.retaliate(src)
+						mustype = 2
+		
+		// Special effects for those with Curse of Woe
+		if(has_woe && mustype != 3)
 			to_chat(src, span_warning("<b>Xylix's curse draws enemies to you...</b>"))
 			
 		if(mustype == 1)
 			playsound_local(src, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
-		else
+		else if(mustype == 2)
 			playsound_local(src, pick('sound/misc/jumphumans (1).ogg','sound/misc/jumphumans (2).ogg','sound/misc/jumphumans (3).ogg'), 100)
 		shake_camera(src, 2, 2)
 		if(iscarbon(src))

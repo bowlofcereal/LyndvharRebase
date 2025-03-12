@@ -167,16 +167,21 @@
 	if(!owner || QDELETED(src))
 		return
 	
-	// Force an ambush check
-	owner.consider_ambush()
-	
 	// For NPCs, we need to be more aggressive with ambush checks
 	if(!ishuman(owner) && prob(40))
 		trigger_npc_ambush()
+		return
+		
+	// For players, we'll use a modified version of the ambush system
+	if(ishuman(owner) && prob(40))
+		trigger_player_ambush()
+	else
+		// Force a regular ambush check as fallback
+		owner.consider_ambush()
 	
 	// Schedule the next check
 	addtimer(CALLBACK(src, PROC_REF(periodic_ambush_check)), rand(300, 600))
-
+	
 /datum/status_effect/debuff/curse_of_woe/proc/trigger_npc_ambush()
 	if(!owner || QDELETED(src))
 		return
@@ -185,15 +190,6 @@
 	if(!T)
 		return
 		
-	var/area/AR = get_area(owner)
-	
-	// For areas with no ambush mobs defined, use a default set
-	if(!AR.ambush_mobs || !length(AR.ambush_mobs))
-		AR.ambush_mobs = list(
-			/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
-			/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 60
-		)
-	
 	// Create a list of possible spawn points
 	var/list/possible_targets = list()
 	for(var/turf/F in view(7, owner))
@@ -204,33 +200,74 @@
 		// Set the ambush cooldown
 		owner.mob_timers["ambushlast"] = world.time
 		
-		var/spawnedtype = pickweight(AR.ambush_mobs)
-		
-		// Spawn 2-3 attackers
+		// Spawn 2-3 jester raiders
 		var/spawn_count = rand(2, 3)
 		
 		for(var/i in 1 to spawn_count)
 			var/spawnloc = pick(possible_targets)
 			if(spawnloc)
-				var/mob/spawnedmob = new spawnedtype(spawnloc)
-				if(istype(spawnedmob, /mob/living/simple_animal/hostile))
-					var/mob/living/simple_animal/hostile/M = spawnedmob
-					M.attack_same = FALSE
-					M.del_on_deaggro = 44 SECONDS
-					M.GiveTarget(owner)
-					
-					// Make ambush mobs more dangerous
-					M.melee_damage_lower = round(M.melee_damage_lower * 1.2)
-					M.melee_damage_upper = round(M.melee_damage_upper * 1.2)
-					M.maxHealth = round(M.maxHealth * 1.2)
-					M.health = M.maxHealth
+				var/mob/living/carbon/human/species/human/northern/jester_raider/jester = new(spawnloc)
+				jester.is_silent = FALSE // Allow them to speak their lines
+				jester.target = owner
+				jester.mode = AI_HUNT
+				jester.aggressive = 1
+				jester.wander = TRUE
+				
+				// Make them say something when they spawn
+				addtimer(CALLBACK(jester, TYPE_PROC_REF(/mob/living/carbon/human/species/human/northern/jester_raider, retaliate), owner), 5)
 		
 		// Special effects
-		owner.visible_message(span_warning("Creatures emerge from the shadows to attack [owner]!"))
-		playsound(owner, pick('sound/misc/jumpscare (1).ogg','sound/misc/jumpscare (2).ogg','sound/misc/jumpscare (3).ogg','sound/misc/jumpscare (4).ogg'), 100)
+		owner.visible_message(span_warning("Cackling jesters emerge from the shadows to attack [owner]!"))
+		playsound(owner, pick('sound/vo/male/jester/laugh (1).ogg','sound/vo/male/jester/laugh (2).ogg','sound/vo/male/jester/laugh (3).ogg'), 100, vary = TRUE)
 		
 		// Remove the curse after a successful ambush
 		owner.remove_status_effect(/datum/status_effect/debuff/curse_of_woe)
+
+/datum/status_effect/debuff/curse_of_woe/proc/trigger_player_ambush()
+	if(!owner || QDELETED(src))
+		return
+		
+	var/turf/T = get_turf(owner)
+	if(!T)
+		return
+		
+	// Create a list of possible spawn points
+	var/list/possible_targets = list()
+	for(var/turf/F in view(7, owner))
+		if(F != T) // Don't spawn on the target's tile
+			possible_targets += F
+			
+	if(length(possible_targets))
+		// Set the ambush cooldown
+		owner.mob_timers["ambushlast"] = world.time
+		
+		// Spawn 2-4 jester raiders
+		var/spawn_count = rand(2, 4)
+		
+		for(var/i in 1 to spawn_count)
+			var/spawnloc = pick(possible_targets)
+			if(spawnloc)
+				var/mob/living/carbon/human/species/human/northern/jester_raider/jester = new(spawnloc)
+				jester.is_silent = FALSE // Allow them to speak their lines
+				jester.target = owner
+				jester.mode = AI_HUNT
+				jester.aggressive = 1
+				jester.wander = TRUE
+				
+				// Make them say something when they spawn
+				addtimer(CALLBACK(jester, TYPE_PROC_REF(/mob/living/carbon/human/species/human/northern/jester_raider, retaliate), owner), 5)
+		
+		// Special effects
+		to_chat(owner, span_warning("<b>Xylix's jesters emerge to claim you!</b>"))
+		owner.visible_message(span_warning("Cackling jesters emerge from the shadows to attack [owner]!"))
+		playsound(owner, pick('sound/vo/male/jester/laugh (1).ogg','sound/vo/male/jester/laugh (2).ogg','sound/vo/male/jester/laugh (3).ogg'), 100, vary = TRUE)
+		shake_camera(owner, 2, 2)
+		
+		// Remove the curse after a successful ambush
+		owner.remove_status_effect(/datum/status_effect/debuff/curse_of_woe)
+		return TRUE
+	
+	return FALSE
 
 /atom/movable/screen/alert/status_effect/debuff/curse_of_woe
 	name = "Curse of Woe"
