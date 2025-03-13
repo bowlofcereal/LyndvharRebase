@@ -1,4 +1,4 @@
-// Six statpacks, each giving +2 to a different stat, plus Virtuous which gives no stat bonuses
+// Seven statpacks, each giving +2 to a different stat, plus Virtuous which gives no stat bonuses
 
 /datum/statpack/strength
 	name = "Mighty"
@@ -24,6 +24,11 @@
 	name = "Enduring"
 	desc = "Your stamina is unmatched, allowing you to push on long after others would have given up."
 	stat_array = list(STAT_ENDURANCE = 2)
+
+/datum/statpack/speed
+	name = "Swift"
+	desc = "Your exceptional agility and quickness give you an edge in mobility, allowing you to move with unmatched speed."
+	stat_array = list(STAT_SPEED = 2)
 
 /datum/statpack/fortune
 	name = "Fortunate"
