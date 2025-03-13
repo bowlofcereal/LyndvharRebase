@@ -45,7 +45,6 @@
 	var/heal_timer = addtimer(CALLBACK(src, PROC_REF(heal_oxygen_tick), C, healing_per_tick, ticks_remaining), 1 SECONDS, TIMER_STOPPABLE)
 	
 	user.visible_message(span_notice("[user] injects [M] with [src]."), span_notice("You inject [M] with [src]."))
-	playsound(loc, 'sound/items/hypospray.ogg', 100, TRUE)
 	
 	if(heal_timer)
 		icon_state = "15"
