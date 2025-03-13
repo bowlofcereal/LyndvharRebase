@@ -68,7 +68,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/gender = MALE					//gender of character (well duh) (LETHALSTONE EDIT: this no longer references anything but whether the masculine or feminine model is used)
 	var/pronouns = HE_HIM				// LETHALSTONE EDIT: character's pronouns (well duh)
 	var/voice_type = VOICE_TYPE_MASC	// LETHALSTONE EDIT: the type of soundpack the mob should use
-	var/datum/statpack/statpack	= new /datum/statpack/wildcard/fated // LETHALSTONE EDIT: the statpack we're giving our char instead of racial bonuses
+	var/datum/statpack/statpack	= new /datum/statpack/virtuous // LETHALSTONE EDIT: the statpack we're giving our char instead of racial bonuses
 	var/datum/virtue/virtue = new /datum/virtue/none // LETHALSTONE EDIT: the virtue we get for not picking a statpack
 	var/datum/virtue/virtuetwo = new /datum/virtue/none
 	var/age = AGE_ADULT						//age of character
@@ -1473,7 +1473,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						to_chat(user, "<font color='purple'>[statpack.name]</font>")
 						to_chat(user, "<font color='purple'>[statpack.description_string()]</font>")
 						/* also, unset our virtue if we're not a virtuous statpack.
-						if (!istype(statpack, /datum/statpack/wildcard/virtuous) && virtue.type != /datum/virtue/none)
+						if (!istype(statpack, /datum/statpack/virtuous) && virtue.type != /datum/virtue/none)
 							virtue = new /datum/virtue/none
 							to_chat(user, span_info("Your virtue has been removed due to taking a stat-altering statpack.")) */
 				// LETHALSTONE EDIT: add pronouns
@@ -1797,8 +1797,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						virtuetwo = virtue_chosen
 						if (virtuetwo.desc)
 							to_chat(user, span_purple(virtuetwo.desc))
-					/*	if (statpack.type != /datum/statpack/wildcard/virtuous)
-							statpack = new /datum/statpack/wildcard/virtuous
+					/*	if (statpack.type != /datum/statpack/strength)
+							statpack = new /datum/statpack/strength
 							to_chat(user, span_purple("Your statpack has been set to virtuous (no stats) due to selecting a virtue.")) */
 
 				if("charflaw")
