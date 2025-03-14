@@ -26,9 +26,6 @@
 			H.set_blindness(0)
 			apostle_equip(H)
 
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
-
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_spells_templar(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
