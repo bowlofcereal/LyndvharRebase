@@ -37,6 +37,8 @@
 	woundclass = BCLASS_STAB
 	flag = "piercing"
 	speed = 0.5
+	candodge = TRUE
+	canparry = TRUE
 
 /obj/projectile/bullet/reusable/bolt/on_hit(atom/target)
 	. = ..()
@@ -91,6 +93,8 @@
 	woundclass = BCLASS_STAB
 	flag = "piercing"
 	speed = 0.4
+	candodge = TRUE
+	canparry = TRUE
 
 /obj/projectile/bullet/reusable/arrow/on_hit(atom/target)
 	. = ..()
@@ -181,6 +185,8 @@
 	woundclass = BCLASS_BLUNT
 	flag = "piercing"
 	speed = 0.3
+	candodge = TRUE
+	canparry = TRUE
 
 	var/explode_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
 
@@ -231,6 +237,8 @@
 	woundclass = BCLASS_BLUNT
 	flag = "piercing"
 	speed = 0.4
+	candodge = TRUE
+	canparry = TRUE
 
 	var/explode_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
 
@@ -464,6 +472,8 @@
 	woundclass = BCLASS_BLUNT
 	flag = "piercing"
 	speed = 0.4
+	candodge = TRUE
+	canparry = TRUE
 
 /obj/projectile/bullet/sling_bullet/on_hit(atom/target)
 	. = ..()
@@ -481,7 +491,7 @@
 	if(skill_multiplier && can_train_combat_skill(L, /datum/skill/combat/slings, SKILL_LEVEL_LEGENDARY))
 		L.mind.add_sleep_experience(/datum/skill/combat/slings, L.STAINT * skill_multiplier)
 		
-/obj/projectile/bullet/reusable/sling_bullet //parent for proper reusable sling bullets
+/obj/projectile/bullet/reusable/sling_bullet
 	name = "sling bullet"
 	desc = "If you're reading this: duck."
 	damage = 25
@@ -495,7 +505,9 @@
 	embedchance = 0
 	woundclass = BCLASS_BLUNT
 	flag = "piercing"
-	speed = 0.4		
+	speed = 0.4
+	candodge = TRUE
+	canparry = TRUE
 
 /obj/projectile/bullet/reusable/sling_bullet/on_hit(atom/target)
 	. = ..()

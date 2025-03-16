@@ -1,4 +1,3 @@
-
 #define MOVES_HITSCAN -1		//Not actually hitscan but close as we get without actual hitscan.
 #define MUZZLE_EFFECT_PIXEL_INCREMENT 17	//How many pixels to move the muzzle flash up so your character doesn't look like they're shitting out lasers.
 
@@ -120,6 +119,8 @@
 
 	var/accuracy = 65 //How likely the project will hit it's intended target area. Decreases over distance moved, increased from perception.
 	var/bonus_accuracy = 0 //bonus accuracy that cannot be affected by range drop off.
+	var/candodge = FALSE //Whether this projectile can be dodged
+	var/canparry = FALSE //Whether this projectile can be parried
 
 /obj/projectile/proc/handle_drop()
 	return
