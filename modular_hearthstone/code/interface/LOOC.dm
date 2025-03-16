@@ -74,5 +74,14 @@
 				var/turf/speakturf = get_turf(M)
 				var/turf/sourceturf = get_turf(usr)
 				if((speakturf in get_hear(7, sourceturf)) || wp == 1)
-					to_chat(C, "<font color='["#6699CC"]'><b><span class='prefix'>[prefix]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]</span></b></font>")
-	to_chat(usr, "<font color='["#6699CC"]'><b><span class='prefix'>[prefix]:</span> <EM>[src.mob.name]:</EM> <span class='message'>[msg]</span></b></font>")
+					var/display_name = src.mob.name
+					if(ishuman(src.mob))
+						var/mob/living/carbon/human/H = src.mob
+						display_name = H.real_name
+					to_chat(C, "<font color='["#6699CC"]'><b><span class='prefix'>[prefix]:</span> <EM>[display_name]:</EM> <span class='message'>[msg]</span></b></font>")
+	
+	var/display_name = src.mob.name
+	if(ishuman(src.mob))
+		var/mob/living/carbon/human/H = src.mob
+		display_name = H.real_name
+	to_chat(usr, "<font color='["#6699CC"]'><b><span class='prefix'>[prefix]:</span> <EM>[display_name]:</EM> <span class='message'>[msg]</span></b></font>")
