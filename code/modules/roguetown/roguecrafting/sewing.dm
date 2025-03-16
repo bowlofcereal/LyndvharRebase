@@ -417,6 +417,33 @@
 	craftdiff = 4
 	sellprice = 14
 
+/datum/crafting_recipe/roguetown/sewing/spellcasterrobe
+	name = "spellcaster robe"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/spellcaster)
+	reqs = list(/obj/item/natural/cloth = 4,
+				/obj/item/natural/fibers = 2,
+				/obj/item/natural/silk = 2)
+	craftdiff = 4
+	sellprice = 35
+
+/datum/crafting_recipe/roguetown/sewing/spellcasterboots
+	name = "spellcaster boots"
+	result = list(/obj/item/clothing/shoes/roguetown/boots/spellcaster)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/silk = 1)
+	craftdiff = 4
+	sellprice = 25
+
+/datum/crafting_recipe/roguetown/sewing/spellcasterhat
+	name = "spellcaster hat"
+	result = list(/obj/item/clothing/head/roguetown/spellcaster)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/silk = 1)
+	craftdiff = 4
+	sellprice = 30
+
 /datum/crafting_recipe/roguetown/sewing/bucklehat
 	name = "buckle hat"
 	result = list(/obj/item/clothing/head/roguetown/bucklehat)

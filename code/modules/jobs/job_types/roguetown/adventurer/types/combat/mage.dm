@@ -7,16 +7,48 @@
 	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
 	traits_applied = list(TRAIT_OUTLANDER)
 	classes = list("Sorcerer" = "You are a learned mage and a scholar, having spent your life studying the arcane and its ways.", 
-					"Spellsinger" = "You belong to a school of bards renowned for their study of both the arcane and the arts.")
+					"Spellsinger" = "You belong to a school of bards renowned for their study of both the arcane and the arts.",
+					"Charlatan" = "A cunning deceiver who uses tricks and illusions to pose as a powerful spellcaster. Your elaborate costumes and cursed artifacts help maintain the facade.")
 
 /datum/outfit/job/roguetown/adventurer/mage/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_blindness(-3)
-	var/classes = list("Sorcerer","Spellsinger")
+	var/classes = list("Sorcerer","Spellsinger","Charlatan")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
 	
+		if("Charlatan")
+			to_chat(H, span_warning("You are a cunning deceiver who uses tricks and illusions to pose as a powerful spellcaster. Your elaborate costumes and cursed artifacts help maintain the facade."))
+			head = /obj/item/clothing/head/roguetown/spellcaster
+			shoes = /obj/item/clothing/shoes/roguetown/boots/spellcaster
+			pants = /obj/item/clothing/under/roguetown/tights/purple
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/spellcaster
+			belt = /obj/item/storage/belt/rogue/leather
+			neck = /obj/item/clothing/neck/roguetown/cursed_collar
+			beltl = /obj/item/rogueweapon/huntingknife
+			backl = /obj/item/storage/backpack/rogue/satchel
+			backr = /obj/item/rogueweapon/woodstaff
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/reagent_containers/glass/bottle/rogue/manapot = 2,
+				/obj/item/reagent_containers/powder/moondust = 1
+			)
+			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+			H.change_stat("intelligence", 2)
+			H.change_stat("perception", 2)
+			H.change_stat("speed", 2)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+			ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
+
 		if("Sorcerer")
 			to_chat(H, span_warning("You are a learned mage and a scholar, having spent your life studying the arcane and its ways."))
 			head = /obj/item/clothing/head/roguetown/roguehood/mage

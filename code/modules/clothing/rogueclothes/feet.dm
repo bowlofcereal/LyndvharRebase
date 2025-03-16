@@ -273,3 +273,13 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
 	resistance_flags = FIRE_PROOF
+
+/obj/item/clothing/shoes/roguetown/boots/spellcaster
+	name = "spellcaster boots"
+	desc = "Elegant boots worn by practitioners of the arcane arts."
+	icon = 'icons/roguetown/clothing/feet.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/feet.dmi'
+	icon_state = "spellcasterboots"
+	item_state = "spellcasterboots"
+	armor = list("blunt" = 5, "slash" = 5, "stab" = 5, "piercing" = 5, "fire" = 15, "acid" = 15)
+	sewrepair = TRUE

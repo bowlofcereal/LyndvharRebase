@@ -1790,3 +1790,17 @@
 					var/mob/living/carbon/H = user
 					H.update_inv_head()
 		user.update_fov_angles()
+
+/obj/item/clothing/head/roguetown/spellcaster
+	name = "spellcaster hat"
+	desc = "A mystical hat worn by practitioners of the arcane arts."
+	icon = 'icons/roguetown/clothing/head.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
+	icon_state = "spellcasterhat"
+	item_state = "spellcasterhat"
+	flags_inv = NONE  // Allow hair to show
+	body_parts_covered = HEAD
+	slot_flags = ITEM_SLOT_HEAD
+	dynamic_hair_suffix = "+generic"
+	armor = list("blunt" = 5, "slash" = 5, "stab" = 5, "piercing" = 5, "fire" = 15, "acid" = 15)
+	sewrepair = TRUE

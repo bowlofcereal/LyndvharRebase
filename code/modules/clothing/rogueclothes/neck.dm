@@ -191,12 +191,23 @@
 	max_integrity = 300
 	icon_state = "sgorget"
 
-/obj/item/clothing/neck/roguetown/gorget/prisoner/Initialize()
-	. = ..()
+/obj/item/clothing/neck/roguetown/cursed_collar
 	name = "cursed collar"
+	desc = "A sinister collar that binds to its wearer with dark magic."
+	icon_state = "cursed_collar"
+	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 50, "fire" = 0, "acid" = 0)
+	max_integrity = 300
+	resistance_flags = FIRE_PROOF
+	slot_flags = ITEM_SLOT_NECK
+	body_parts_covered = NECK
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
+	blocksound = PLATEHIT
+
+/obj/item/clothing/neck/roguetown/cursed_collar/Initialize()
+	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
-/obj/item/clothing/neck/roguetown/gorget/prisoner/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/neck/roguetown/cursed_collar/dropped(mob/living/carbon/human/user)
 	. = ..()
 	if(QDELETED(src))
 		return
