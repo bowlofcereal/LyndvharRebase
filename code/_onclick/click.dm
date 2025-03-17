@@ -50,6 +50,20 @@
 /atom/Click(location,control,params)
 	if(flags_1 & INITIALIZED_1)
 		SEND_SIGNAL(src, COMSIG_CLICK, location, control, params, usr)
+		
+		// Handle fully charged spells
+		if(ismob(usr))
+			var/mob/M = usr
+			if(M.client && M.is_spell_fully_charged())
+				if(istype(M.ranged_ability, /obj/effect/proc_holder/spell/invoked))
+					var/obj/effect/proc_holder/spell/invoked/spell = M.ranged_ability
+					// Only allow direct clicks for non-projectile spells
+					if(!istype(spell, /obj/effect/proc_holder/spell/invoked/projectile))
+						if(spell.cast_check(FALSE, M))
+							if(spell.perform(list(src), TRUE, user = M))
+								spell.deactivate(M)
+								return // Skip normal click handling
+		
 		usr.ClickOn(src, params)
 	return
 
@@ -775,13 +789,27 @@
 /mob/proc/check_click_intercept(params,A)
 	//Client level intercept
 	if(client && client.click_intercept)
-		if(call(client.click_intercept, "InterceptClickOn")(src, params, A))
-			return TRUE
+		if(istype(client.click_intercept, /obj/effect/proc_holder))
+			var/obj/effect/proc_holder/P = client.click_intercept
+			if(P.InterceptClickOn(src, params, A))
+				return TRUE
 
 	//Mob level intercept
 	if(click_intercept)
-		if(call(click_intercept, "InterceptClickOn")(src, params, A))
-			return TRUE
+		if(istype(click_intercept, /obj/effect/proc_holder))
+			var/obj/effect/proc_holder/P = click_intercept
+			if(P.InterceptClickOn(src, params, A))
+				return TRUE
+
+	// Special handling for fully charged spells
+	if(client && is_spell_fully_charged())
+		var/obj/effect/proc_holder/spell/invoked/spell = ranged_ability
+		if(istype(spell) && !istype(spell, /obj/effect/proc_holder/spell/invoked/projectile))
+			// Only allow direct clicks for non-projectile spells
+			if(spell.cast_check(FALSE, src))
+				if(spell.perform(list(A), TRUE, user = src))
+					spell.deactivate(src)
+					return TRUE // Skip normal click handling
 
 	return FALSE
 
