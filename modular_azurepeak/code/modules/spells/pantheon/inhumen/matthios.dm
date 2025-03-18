@@ -100,15 +100,15 @@
 			var/mob/living/carbon/C = target
 			var/obj/item/bodypart/most_damaged_limb = get_most_damaged_limb(C)
 			
+			// Always apply the status effect for visual effects
+			var/datum/status_effect/buff/healing/heal_effect = C.apply_status_effect(/datum/status_effect/buff/healing)
+			heal_effect.healing_on_tick = helditemvalue/2
+			
 			if(most_damaged_limb && most_damaged_limb.get_damage() > 0)
 				// Apply healing to the most damaged limb
 				most_damaged_limb.heal_damage(helditemvalue/2, helditemvalue/2, helditemvalue/2)
 				C.update_damage_overlays()
 				to_chat(C, span_notice("The transaction mends my [most_damaged_limb.name]!"))
-			else
-				// If no particular limb is damaged, apply general healing effect
-				var/datum/status_effect/buff/healing/heal_effect = C.apply_status_effect(/datum/status_effect/buff/healing)
-				heal_effect.healing_on_tick = helditemvalue/2
 			playsound(user, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
 			qdel(held_item)
 		else
