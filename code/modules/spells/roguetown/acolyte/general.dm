@@ -5,7 +5,7 @@
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
-	range = 4
+	range = 2
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/heal.ogg'
@@ -14,16 +14,20 @@
 	antimagic_allowed = TRUE
 	charge_max = 10 SECONDS
 	miracle = TRUE
-	devotion_cost = 10
+	devotion_cost = 33
 
 /obj/effect/proc_holder/spell/invoked/lesser_heal/cast(list/targets, mob/living/user)
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
+		if(get_dist(user, target) > 2) //courtesy of @ppooch, works as a proximity check
+			to_chat(user, "I must get closer before I can invoke a miracle!")
+			revert_cast()
+			return FALSE
 		if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD)) //positive energy harms the undead
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
-			target.adjustFireLoss(10)
-			target.fire_act(1,10)
+			target.adjustFireLoss(20)
+			target.fire_act(1,20)
 			return TRUE
 		var/conditional_buff = FALSE
 		var/situational_bonus = 1
