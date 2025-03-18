@@ -813,8 +813,19 @@
 	// Special handling for fully charged spells
 	if(client && is_spell_fully_charged())
 		var/obj/effect/proc_holder/spell/invoked/spell = ranged_ability
-		if(istype(spell) && !istype(spell, /obj/effect/proc_holder/spell/invoked/projectile))
-			// Only allow direct clicks for non-projectile spells
+		if(istype(spell))
+			// Check if this is a projectile spell or has projectile behavior - with safe fallback
+			var/is_projectile_behavior = FALSE
+			if(istype(spell, /obj/effect/proc_holder/spell/invoked/projectile))
+				is_projectile_behavior = TRUE
+			else if(spell.vars && ("projectile_behavior" in spell.vars))
+				is_projectile_behavior = spell.vars["projectile_behavior"]
+			
+			// Let projectile spells handle their own click behavior
+			if(is_projectile_behavior)
+				return FALSE
+			
+			// For non-projectile spells, allow direct clicks when fully charged
 			if(spell.cast_check(FALSE, src))
 				if(spell.perform(list(A), TRUE, user = src))
 					spell.deactivate(src)

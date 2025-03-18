@@ -184,25 +184,44 @@
 	var/datum/intent/curplaying
 
 /client/MouseUp(object, location, control, params)
-	charging = 0
-//	mob.update_warning()
+	// For non-primed spells, reset charging state
+	if(!doneset)
+		charging = 0
+	//	mob.update_warning()
 
 	// Special handling for fully charged spells
 	if(mob && mob.is_spell_fully_charged() && istype(mob.ranged_ability, /obj/effect/proc_holder/spell/invoked))
 		var/obj/effect/proc_holder/spell/invoked/spell = mob.ranged_ability
-		// For non-projectile spells, keep the charged icon - they're cast with direct clicks
-		if(doneset && !istype(spell, /obj/effect/proc_holder/spell/invoked/projectile))
+		
+		// Check if this spell has the projectile behavior flag, with a safe fallback
+		var/is_projectile_behavior = FALSE
+		if(istype(spell, /obj/effect/proc_holder/spell/invoked/projectile))
+			is_projectile_behavior = TRUE
+		else if(spell.vars && ("projectile_behavior" in spell.vars))
+			is_projectile_behavior = spell.vars["projectile_behavior"]
+		
+		// For non-projectile spells that are fully charged, keep the charged mouse icon
+		if(doneset && !is_projectile_behavior)
+			// Keep the charged mouse icon for non-projectile spells
+			mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
+			// Always ensure the sound is stopped on mouse up
+			if(mob.curplaying)
+				mob.curplaying.on_mouse_up()
+				mob.curplaying = null
 			return
 			
 		// For projectile spells, allow the standard click release behavior
-		if(istype(spell, /obj/effect/proc_holder/spell/invoked/projectile))
+		// but don't auto-deactivate - let the click handler manage this
+		if(is_projectile_behavior)
 			mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 	else
 		// Default behavior - reset mouse icon
 		mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 
+	// Always ensure the sound is stopped on mouse up
 	if(mob.curplaying)
 		mob.curplaying.on_mouse_up()
+		mob.curplaying = null
 
 	if(!mob.fixedeye)
 		mob.tempfixeye = FALSE
@@ -293,32 +312,73 @@
 	if(!isliving(mob))
 		return PROCESS_KILL
 	var/mob/living/L = mob
-	if(!L?.client || !update_to_mob(L))
-		if(L.curplaying)
+	
+	// Only kill the process if the client or mob is invalid, or if charging is explicitly set to 0
+	if(!L?.client || (charging == 0 && doneset == 0))
+		if(L && L.curplaying)
 			L.curplaying.on_mouse_up()
-		L.update_charging_movespeed()
+		if(L)
+			L.update_charging_movespeed()
 		return PROCESS_KILL
+		
+	// Always call update_to_mob to drain stamina even if we're fully charged
+	update_to_mob(L)
+	
+	// Return normally to keep the process running
+	return
 
 /client/proc/update_to_mob(mob/living/L)
-	if(charging)
-		if(progress < goal)
+	if(charging || doneset)  // Keep processing if charging or fully charged
+		if(progress < goal && charging)  // Only increase progress if still charging
 			progress++
 			chargedprog = text2num("[((progress / goal) * 100)]")
-	//		mouseprog = round(text2num("[((progress / goal) * 20)]"), 1)
-	//		mouse_pointer_icon = GLOB.mouseicons_human[mouseprog]
-	//		testing("mouse[mouseprog]")
-//			if(sections && chargedprog > lastplayed) //used for changing icon based on action progress
-//				L.say(L.used_intent.charge_invocation[part])
-//				part++
-//				lastplayed = sections * part
+			
+			// Set the charging cursor while charging
+			mouse_pointer_icon = 'icons/effects/mousemice/swang/acharging.dmi'
+			
+			// Apply fatigue drain during charging - get drain amount from the spell or intent
+			var/drain_amount = 1 // Default minimum drain
+			
+			// Start with the intent's drain value if available
+			if(L.used_intent && !isnull(L.used_intent.chargedrain))
+				drain_amount = L.used_intent.chargedrain
+			
+			// If we have a ranged ability (spell), try to use its value
+			if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
+				var/obj/effect/proc_holder/spell/spell = L.ranged_ability
+				// All spells should have chargedrain defined in the parent class
+				if(!isnull(spell.chargedrain))
+					drain_amount = max(1, spell.chargedrain)
+			
+			// Apply fatigue drain at a consistent rate
+			// Only apply drain once every few ticks to match projectile spell behavior
+			if(world.time % 5 == 0) // Only drain stamina once every 5 world ticks
+				// Apply the fatigue drain - DIRECT implementation to ensure drain
+				if(istype(L, /mob/living/carbon))
+					var/mob/living/carbon/C = L
+					// Make sure fatigue doesn't exceed max
+					if(C.rogfat < C.maxrogfat)
+						C.rogfat = min(C.maxrogfat, C.rogfat + max(1, drain_amount))
+						C.update_health_hud() // Update the HUD to show the new fatigue
+						
+						// Force stop if we hit max fatigue
+						if(C.rogfat >= C.maxrogfat)
+							C.stop_attack()
+							charging = 0  // Reset charging flag
+							return FALSE
+				else if(!L.rogfat_add(max(1, drain_amount)))
+					L.stop_attack()
+					charging = 0  // Reset charging flag
+					return FALSE
 		else //Fully charged spell
+			// Set charging to 0 but keep doneset as 1
+			charging = 0
+			
 			if(!doneset) 
 				doneset = 1
-//				if(sections)
-//					L.say(L.used_intent.charge_invocation[L.used_intent.charge_invocation.len])
-				if(L.curplaying && !L.used_intent.keep_looping)
-					playsound(L, 'sound/magic/charged.ogg', 100, TRUE)
-					L.curplaying.on_mouse_up()
+				
+				// Play charged sound but don't stop the loop
+				playsound(L, 'sound/magic/charged.ogg', 100, TRUE)
 				
 				// Notify the user that the spell is fully charged and ready to use
 				if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
@@ -326,10 +386,45 @@
 					to_chat(L, span_notice("Your [spell.name] is fully charged! Click to cast."))
 				
 				chargedprog = 100
+				
+				// Always set the fully charged cursor
 				mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
-			else
-				if(!L.rogfat_add(L.used_intent.chargedrain))
+			
+			// Apply fatigue drain when fully charged - make it cost stamina to hold a charged spell
+			// Get the drain amount from the spell or intent - use the same value as during charging
+			var/drain_amount = 1 // Default minimum drain
+			
+			// Start with the intent's drain value if available
+			if(L.used_intent && !isnull(L.used_intent.chargedrain))
+				drain_amount = L.used_intent.chargedrain
+			
+			// If we have a ranged ability (spell), try to use its value
+			if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
+				var/obj/effect/proc_holder/spell/spell = L.ranged_ability
+				// All spells should have chargedrain defined in the parent class
+				if(!isnull(spell.chargedrain))
+					drain_amount = max(1, spell.chargedrain)
+			
+			// Apply the same drain logic as during charging to ensure consistent drain rates
+			// Only modify fatigue once every few ticks to match the behavior during charging
+			if(world.time % 5 == 0) // Apply the drain at a reduced rate
+				// GUARANTEED drain for fully charged spells - bypass rogfat_add completely
+				if(istype(L, /mob/living/carbon))
+					var/mob/living/carbon/C = L
+					// Make sure fatigue doesn't exceed max
+					if(C.rogfat < C.maxrogfat)
+						C.rogfat = min(C.maxrogfat, C.rogfat + max(1, drain_amount))
+						C.update_health_hud() // Update the HUD to show the new fatigue
+						
+						// Force stop if we hit max fatigue
+						if(C.rogfat >= C.maxrogfat)
+							C.stop_attack()
+							doneset = 0  // Reset doneset flag
+							return FALSE
+				else if(!L.rogfat_add(max(1, drain_amount)))
 					L.stop_attack()
+					doneset = 0  // Reset doneset flag
+					return FALSE
 		return TRUE
 	else
 		return FALSE

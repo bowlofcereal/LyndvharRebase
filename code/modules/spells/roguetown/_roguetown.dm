@@ -10,6 +10,7 @@
 	charge_type = "recharge"
 	invocation_type = "shout"
 	var/active_sound
+	// Note: chargedrain is inherited from the parent spell class
 
 /obj/effect/proc_holder/spell/update_icon()
 	if(!action)
@@ -82,16 +83,24 @@
 		deactivate(caller)
 		return TRUE
 	
-	// Projectile spells use the old hold/release behavior
+	// Check if this is a projectile spell or has projectile behavior
+	var/is_projectile_behavior = FALSE
 	if(istype(src, /obj/effect/proc_holder/spell/invoked/projectile))
+		is_projectile_behavior = TRUE
+	else if(vars && ("projectile_behavior" in vars))
+		is_projectile_behavior = vars["projectile_behavior"]
+	
+	// Projectile spells use the hold/release behavior
+	if(is_projectile_behavior)
 		// For projectile spells, make sure it's fully charged if no_early_release is true
 		if(no_early_release && !caller.is_spell_fully_charged())
 			to_chat(caller, span_warning("[src.name] was not finished charging! It fizzles."))
 			revert_cast(caller)
 			return FALSE
 			
-		// Cast the projectile spell
+		// Cast the projectile spell and deactivate
 		if(perform(list(target), TRUE, user = ranged_ability_user))
+			deactivate(caller)
 			return TRUE
 	else
 		// Non-projectile spells can use click-to-cast when fully charged
