@@ -787,6 +787,15 @@
 		add_view_range(view)*/
 
 /mob/proc/check_click_intercept(params,A)
+	var/list/modifiers = params2list(params)
+	
+	// Handle right-click dismissal for any spell (charged or not)
+	if(modifiers["right"] && ranged_ability && istype(ranged_ability, /obj/effect/proc_holder/spell))
+		var/obj/effect/proc_holder/spell/spell = ranged_ability
+		to_chat(src, span_warning("You dismiss the [spell.name] spell."))
+		spell.deactivate(src)
+		return TRUE
+
 	//Client level intercept
 	if(client && client.click_intercept)
 		if(istype(client.click_intercept, /obj/effect/proc_holder))
@@ -822,6 +831,13 @@
 	return
 
 /mob/proc/RightClickOn(atom/A, params)
+	// Special handling for ranged abilities - right-click dismisses
+	if(ranged_ability && istype(ranged_ability, /obj/effect/proc_holder/spell))
+		var/obj/effect/proc_holder/spell/spell = ranged_ability
+		to_chat(src, span_warning("You dismiss the [spell.name] spell."))
+		spell.deactivate(src)
+		return
+		
 	if(A.Adjacent(src))
 		if(A.loc == src && (A == get_active_held_item()) )
 			A.rmb_self(src)
