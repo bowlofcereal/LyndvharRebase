@@ -53,6 +53,17 @@
 	miracle = TRUE
 	devotion_cost = 20
 
+/obj/effect/proc_holder/spell/invoked/transact/proc/get_most_damaged_limb(mob/living/carbon/C)
+	var/obj/item/bodypart/most_damaged_limb = null
+	var/highest_damage = 0
+
+	for(var/obj/item/bodypart/BP in C.bodyparts)
+		var/total_damage = BP.get_damage()
+		if(total_damage > highest_damage)
+			highest_damage = total_damage
+			most_damaged_limb = BP
+
+	return most_damaged_limb
 
 /obj/effect/proc_holder/spell/invoked/transact/cast(list/targets, mob/living/user)
 	. = ..()
@@ -73,13 +84,22 @@
 		to_chat(user, "<font color='yellow'>[held_item] burns into the air suddenly, my Transaction is accepted.</font>")
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
-			var/datum/status_effect/buff/healing/heal_effect = C.apply_status_effect(/datum/status_effect/buff/healing)
-			heal_effect.healing_on_tick = helditemvalue/2
+			var/obj/item/bodypart/most_damaged_limb = get_most_damaged_limb(C)
+			
+			if(most_damaged_limb && most_damaged_limb.get_damage() > 0)
+				// Apply healing to the most damaged limb
+				most_damaged_limb.heal_damage(helditemvalue/2, helditemvalue/2, helditemvalue/2)
+				C.update_damage_overlays()
+				to_chat(C, span_notice("The transaction mends my [most_damaged_limb.name]!"))
+			else
+				// If no particular limb is damaged, apply general healing effect
+				var/datum/status_effect/buff/healing/heal_effect = C.apply_status_effect(/datum/status_effect/buff/healing)
+				heal_effect.healing_on_tick = helditemvalue/2
 			playsound(user, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
 			qdel(held_item)
 		else
-			target.adjustBruteLoss(helditemvalue/2)
-			target.adjustFireLoss(helditemvalue/2)
+			target.adjustBruteLoss(-helditemvalue/2)
+			target.adjustFireLoss(-helditemvalue/2)
 			playsound(user, 'sound/combat/hits/burn (2).ogg', 100, TRUE)
 			qdel(held_item)
 		return TRUE

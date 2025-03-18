@@ -16,6 +16,18 @@
 	miracle = TRUE
 	devotion_cost = 10
 
+/obj/effect/proc_holder/spell/invoked/lesser_heal/proc/get_most_damaged_limb(mob/living/carbon/C)
+	var/obj/item/bodypart/most_damaged_limb = null
+	var/highest_damage = 0
+
+	for(var/obj/item/bodypart/BP in C.bodyparts)
+		var/total_damage = BP.get_damage()
+		if(total_damage > highest_damage)
+			highest_damage = total_damage
+			most_damaged_limb = BP
+
+	return most_damaged_limb
+
 /obj/effect/proc_holder/spell/invoked/lesser_heal/cast(list/targets, mob/living/user)
 	. = ..()
 	if(isliving(targets[1]))
@@ -151,7 +163,20 @@
 			to_chat(user, "Channeling my patron's power is easier in these conditions!")
 			healing += situational_bonus
 
-		target.apply_status_effect(/datum/status_effect/buff/healing, healing)
+		if(iscarbon(target))
+			var/mob/living/carbon/C = target
+			var/obj/item/bodypart/most_damaged_limb = get_most_damaged_limb(C)
+			
+			if(most_damaged_limb && most_damaged_limb.get_damage() > 0)
+				// Apply healing to the most damaged limb
+				most_damaged_limb.heal_damage(healing * 2, healing * 2, healing * 2)
+				C.update_damage_overlays()
+				to_chat(C, span_notice("The miracle mends my [most_damaged_limb.name]!"))
+			else
+				// If no particular limb is damaged, apply general healing effect
+				C.apply_status_effect(/datum/status_effect/buff/healing, healing)
+		else
+			target.apply_status_effect(/datum/status_effect/buff/healing, healing)
 		return TRUE
 	revert_cast()
 	return FALSE
