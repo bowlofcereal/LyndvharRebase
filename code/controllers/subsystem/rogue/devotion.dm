@@ -219,6 +219,19 @@
 		return FALSE
 
 	var/prayersesh = 0
+	var/mob/living/carbon/human/prayerbuddy = null //Adjacency bonus - pray next to others to get a gain
+	for(var/mob/living/carbon/human/H in orange(1, src))
+		if(prayerbuddy == null)
+			if(H.devotion && H.devotion.level > 0 && H.stat == CONSCIOUS)
+				prayerbuddy = H
+		else if(H.devotion && H.devotion.level > prayerbuddy.devotion.level && H.stat == CONSCIOUS)
+			prayerbuddy = H
+			
+	if(prayerbuddy)
+		to_chat(src, "<font color='purple'>I am praying with [prayerbuddy.name] for a bonus of [prayerbuddy.devotion.level].</font>")
+	else
+		to_chat(src, "<font color='purple'>I am praying alone.</font>")
+
 	visible_message("[src] kneels their head in prayer to the Gods.", "I kneel my head in prayer to [devotion.patron.name].")
 	for(var/i in 1 to 50)
 		if(devotion.devotion >= devotion.max_devotion)
@@ -230,6 +243,11 @@
 		if(mind)
 			devotion_multiplier += (mind.get_skill_level(/datum/skill/magic/holy) / SKILL_LEVEL_LEGENDARY)
 		var/prayer_effectiveness = round(devotion.prayer_effectiveness * devotion_multiplier)
+		if(prayerbuddy && (!usr.Adjacent(prayerbuddy) || prayerbuddy.stat != CONSCIOUS))
+			prayerbuddy = null
+			to_chat(src, "<font color='purple'>I have lost my prayer buddy.</font>")
+		if(prayerbuddy)
+			prayer_effectiveness += prayerbuddy.devotion.level
 		devotion.update_devotion(prayer_effectiveness, prayer_effectiveness)
 		prayersesh += prayer_effectiveness
 	visible_message("[src] concludes their prayer.", "I conclude my prayer.")
