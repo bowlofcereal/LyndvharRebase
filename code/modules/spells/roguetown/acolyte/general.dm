@@ -15,6 +15,7 @@
 	charge_max = 10 SECONDS
 	miracle = TRUE
 	devotion_cost = 30
+	devotion_self_refund = 20 //Total cost of 10 if casting on self
 
 /obj/effect/proc_holder/spell/invoked/lesser_heal/cast(list/targets, mob/living/user)
 	. = ..()
