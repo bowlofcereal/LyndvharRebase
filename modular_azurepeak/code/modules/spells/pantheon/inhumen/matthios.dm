@@ -56,7 +56,21 @@
 /obj/effect/proc_holder/spell/invoked/transact/proc/get_most_damaged_limb(mob/living/carbon/C)
 	var/obj/item/bodypart/most_damaged_limb = null
 	var/highest_damage = 0
+	var/obj/item/bodypart/bleeding_limb = null
+	var/highest_bleed_rate = 0
 
+	// First check for bleeding limbs
+	for(var/obj/item/bodypart/BP in C.bodyparts)
+		var/bleed_rate = BP.get_bleed_rate()
+		if(bleed_rate > highest_bleed_rate)
+			highest_bleed_rate = bleed_rate
+			bleeding_limb = BP
+
+	// If we found a bleeding limb, return it
+	if(bleeding_limb)
+		return bleeding_limb
+		
+	// If no bleeding limbs, find the most damaged limb
 	for(var/obj/item/bodypart/BP in C.bodyparts)
 		var/total_damage = BP.get_damage()
 		if(total_damage > highest_damage)
