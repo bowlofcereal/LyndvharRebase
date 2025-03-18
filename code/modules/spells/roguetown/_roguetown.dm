@@ -102,19 +102,28 @@
 			revert_cast(caller)
 			return FALSE
 			
-		// Cast the projectile spell and deactivate
-		if(perform(list(target), TRUE, user = ranged_ability_user))
+		// Cast the projectile spell and deactivate only if we have a valid target
+		if(target && target != caller && perform(list(target), TRUE, user = ranged_ability_user))
 			deactivate(caller)
 			// Reset the primed_spell flag after casting
 			caller.primed_spell = FALSE
 			return TRUE
+		
+		// If clicking on nothing or self, don't deactivate - keep spell primed
+		if(!target || target == caller)
+			return TRUE
 	else
 		// Non-projectile spells can use click-to-cast when fully charged
 		if(caller.is_spell_fully_charged() || !no_early_release)
-			if(perform(list(target), TRUE, user = ranged_ability_user))
+			// Only cast if we have a valid target
+			if(target && target != caller && perform(list(target), TRUE, user = ranged_ability_user))
 				deactivate(caller)
 				// Reset the primed_spell flag after casting
 				caller.primed_spell = FALSE
+				return TRUE
+			
+			// If clicking on nothing or self, don't deactivate - keep spell primed
+			if(!target || target == caller)
 				return TRUE
 		else
 			to_chat(caller, span_warning("[src.name] is not fully charged yet!"))

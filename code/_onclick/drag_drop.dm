@@ -337,8 +337,19 @@
 			// Set the charging cursor while charging
 			mouse_pointer_icon = 'icons/effects/mousemice/swang/acharging.dmi'
 			
-			// Apply fatigue drain during charging (original behavior)
-			if(!L.rogfat_add(L.used_intent.chargedrain))
+			// Apply fatigue drain during charging
+			// Check for spell drain value first
+			var/drain_amount = L.used_intent.chargedrain
+			if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
+				var/obj/effect/proc_holder/spell/spell = L.ranged_ability
+				// Check for both variable names due to inconsistency in the codebase
+				if(spell.vars && ("chargedrain" in spell.vars) && !isnull(spell.vars["chargedrain"]))
+					drain_amount = spell.vars["chargedrain"]
+				else if(spell.vars && ("chargedrain" in spell.vars) && !isnull(spell.vars["chargedrain"]))
+					drain_amount = spell.vars["chargedrain"]
+			
+			// Apply the drain
+			if(!L.rogfat_add(drain_amount))
 				L.stop_attack()
 				return FALSE
 		else //Fully charged spell
@@ -361,10 +372,21 @@
 				// Always set the fully charged cursor
 				mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
 			
-			// Apply fatigue drain when fully charged (original behavior)
-			if(!L.rogfat_add(L.used_intent.chargedrain))
+			// Apply fatigue drain when fully charged - same logic as during charging
+			var/drain_amount = L.used_intent.chargedrain
+			if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
+				var/obj/effect/proc_holder/spell/spell = L.ranged_ability
+				// Check for both variable names due to inconsistency in the codebase
+				if(spell.vars && ("chargeddrain" in spell.vars) && !isnull(spell.vars["chargeddrain"]))
+					drain_amount = spell.vars["chargeddrain"]
+				else if(spell.vars && ("chargedrain" in spell.vars) && !isnull(spell.vars["chargedrain"]))
+					drain_amount = spell.vars["chargedrain"]
+			
+			// Apply the drain 
+			if(!L.rogfat_add(drain_amount))
 				L.stop_attack()
 				return FALSE
+				
 		return TRUE
 	else
 		return FALSE
