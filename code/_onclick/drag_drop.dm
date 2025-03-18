@@ -8,7 +8,6 @@
 
 // Component defines for click handling
 #define COMPONENT_CANCEL_CLICK 1
-#define COMPONENT_NO_MOUSEDROP 1
 
 /atom/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
 	if(!usr || !over)
@@ -320,6 +319,12 @@
 				if(L.curplaying && !L.used_intent.keep_looping)
 					playsound(L, 'sound/magic/charged.ogg', 100, TRUE)
 					L.curplaying.on_mouse_up()
+				
+				// Notify the user that the spell is fully charged and ready to use
+				if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
+					var/obj/effect/proc_holder/spell/spell = L.ranged_ability
+					to_chat(L, span_notice("Your [spell.name] is fully charged! Click to cast."))
+				
 				chargedprog = 100
 				mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
 			else
