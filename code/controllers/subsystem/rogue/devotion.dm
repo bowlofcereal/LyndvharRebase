@@ -229,6 +229,7 @@
 			
 	if(prayerbuddy)
 		to_chat(src, "<font color='purple'>I am praying with [prayerbuddy.name] for a bonus of [prayerbuddy.devotion.level].</font>")
+		to_chat(prayerbuddy, "<font color='purple'>[src.name] is praying alongside me.</font>")
 	else
 		to_chat(src, "<font color='purple'>I am praying alone.</font>")
 
