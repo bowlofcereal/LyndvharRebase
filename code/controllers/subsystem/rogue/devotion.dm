@@ -123,7 +123,7 @@
 	if(!H || !H.mind || !patron)
 		return
 		
-	var/list/spelllist = list(patron.extra_spell, /obj/effect/proc_holder/spell/targeted/touch/orison, patron.t0)
+	var/list/spelllist = list(patron.extra_spell, /obj/effect/proc_holder/spell/targeted/touch/orison, patron.t0, patron.t1)
 	if(istype(patron,/datum/patron/divine))
 		spelllist += /obj/effect/proc_holder/spell/targeted/abrogation
 	for(var/spell_type in spelllist)
@@ -132,9 +132,10 @@
 		var/newspell = new spell_type
 		H.mind.AddSpell(newspell)
 		LAZYADD(granted_spells, newspell)
-	level = CLERIC_T0
+	level = CLERIC_T1
 	max_devotion = CLERIC_REQ_1 //Max devotion limit - Paladins are stronger but cannot pray to gain all abilities beyond t1
 	max_progression = CLERIC_REQ_1
+	devotion = CLERIC_REQ_1
 
 /datum/devotion/proc/grant_spells_churchling(mob/living/carbon/human/H)
 	if(!H || !H.mind || !patron)
