@@ -313,67 +313,35 @@
 		return PROCESS_KILL
 	var/mob/living/L = mob
 	
-	// Only kill the process if the client or mob is invalid, or if charging is explicitly set to 0
-	if(!L?.client || (charging == 0 && doneset == 0))
+	// Only kill the process if we're missing basic dependencies
+	if(!L?.client)
 		if(L && L.curplaying)
 			L.curplaying.on_mouse_up()
 		if(L)
 			L.update_charging_movespeed()
 		return PROCESS_KILL
-		
-	// Always call update_to_mob to drain stamina even if we're fully charged
+	
+	// Always call update_to_mob regardless of ranged ability status
+	// This ensures stamina drains even for non-ranged ability spells
 	update_to_mob(L)
 	
 	// Return normally to keep the process running
 	return
 
 /client/proc/update_to_mob(mob/living/L)
-	if(charging || doneset)  // Keep processing if charging or fully charged
-		if(progress < goal && charging)  // Only increase progress if still charging
+	if(charging || doneset)
+		if(progress < goal && charging)
 			progress++
 			chargedprog = text2num("[((progress / goal) * 100)]")
 			
 			// Set the charging cursor while charging
 			mouse_pointer_icon = 'icons/effects/mousemice/swang/acharging.dmi'
 			
-			// Apply fatigue drain during charging - get drain amount from the spell or intent
-			var/drain_amount = 1 // Default minimum drain
-			
-			// Start with the intent's drain value if available
-			if(L.used_intent && !isnull(L.used_intent.chargedrain))
-				drain_amount = L.used_intent.chargedrain
-			
-			// If we have a ranged ability (spell), try to use its value
-			if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
-				var/obj/effect/proc_holder/spell/spell = L.ranged_ability
-				// All spells should have chargedrain defined in the parent class
-				if(!isnull(spell.chargedrain))
-					drain_amount = max(1, spell.chargedrain)
-			
-			// Apply fatigue drain at a consistent rate
-			// Only apply drain once every few ticks to match projectile spell behavior
-			if(world.time % 5 == 0) // Only drain stamina once every 5 world ticks
-				// Apply the fatigue drain - DIRECT implementation to ensure drain
-				if(istype(L, /mob/living/carbon))
-					var/mob/living/carbon/C = L
-					// Make sure fatigue doesn't exceed max
-					if(C.rogfat < C.maxrogfat)
-						C.rogfat = min(C.maxrogfat, C.rogfat + max(1, drain_amount))
-						C.update_health_hud() // Update the HUD to show the new fatigue
-						
-						// Force stop if we hit max fatigue
-						if(C.rogfat >= C.maxrogfat)
-							C.stop_attack()
-							charging = 0  // Reset charging flag
-							return FALSE
-				else if(!L.rogfat_add(max(1, drain_amount)))
-					L.stop_attack()
-					charging = 0  // Reset charging flag
-					return FALSE
+			// Apply fatigue drain during charging (original behavior)
+			if(!L.rogfat_add(L.used_intent.chargedrain))
+				L.stop_attack()
+				return FALSE
 		else //Fully charged spell
-			// Set charging to 0 but keep doneset as 1
-			charging = 0
-			
 			if(!doneset) 
 				doneset = 1
 				
@@ -384,47 +352,19 @@
 				if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
 					var/obj/effect/proc_holder/spell/spell = L.ranged_ability
 					to_chat(L, span_notice("Your [spell.name] is fully charged! Click to cast."))
+					
+					// Set a flag on the mob to prevent stamina regeneration while spell is primed
+					L.primed_spell = TRUE
 				
 				chargedprog = 100
 				
 				// Always set the fully charged cursor
 				mouse_pointer_icon = 'icons/effects/mousemice/swang/acharged.dmi'
 			
-			// Apply fatigue drain when fully charged - make it cost stamina to hold a charged spell
-			// Get the drain amount from the spell or intent - use the same value as during charging
-			var/drain_amount = 1 // Default minimum drain
-			
-			// Start with the intent's drain value if available
-			if(L.used_intent && !isnull(L.used_intent.chargedrain))
-				drain_amount = L.used_intent.chargedrain
-			
-			// If we have a ranged ability (spell), try to use its value
-			if(istype(L.ranged_ability, /obj/effect/proc_holder/spell))
-				var/obj/effect/proc_holder/spell/spell = L.ranged_ability
-				// All spells should have chargedrain defined in the parent class
-				if(!isnull(spell.chargedrain))
-					drain_amount = max(1, spell.chargedrain)
-			
-			// Apply the same drain logic as during charging to ensure consistent drain rates
-			// Only modify fatigue once every few ticks to match the behavior during charging
-			if(world.time % 5 == 0) // Apply the drain at a reduced rate
-				// GUARANTEED drain for fully charged spells - bypass rogfat_add completely
-				if(istype(L, /mob/living/carbon))
-					var/mob/living/carbon/C = L
-					// Make sure fatigue doesn't exceed max
-					if(C.rogfat < C.maxrogfat)
-						C.rogfat = min(C.maxrogfat, C.rogfat + max(1, drain_amount))
-						C.update_health_hud() // Update the HUD to show the new fatigue
-						
-						// Force stop if we hit max fatigue
-						if(C.rogfat >= C.maxrogfat)
-							C.stop_attack()
-							doneset = 0  // Reset doneset flag
-							return FALSE
-				else if(!L.rogfat_add(max(1, drain_amount)))
-					L.stop_attack()
-					doneset = 0  // Reset doneset flag
-					return FALSE
+			// Apply fatigue drain when fully charged (original behavior)
+			if(!L.rogfat_add(L.used_intent.chargedrain))
+				L.stop_attack()
+				return FALSE
 		return TRUE
 	else
 		return FALSE

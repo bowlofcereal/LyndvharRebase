@@ -55,6 +55,10 @@
 		user.client.progress = 0
 		user.client.mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 		STOP_PROCESSING(SSmousecharge, user.client)
+		
+		// Reset the primed_spell flag to allow stamina regeneration again
+		user.primed_spell = FALSE
+		
 	on_deactivation(user)
 
 /obj/effect/proc_holder/spell/invoked/proc/on_activation(mob/user)
@@ -101,12 +105,16 @@
 		// Cast the projectile spell and deactivate
 		if(perform(list(target), TRUE, user = ranged_ability_user))
 			deactivate(caller)
+			// Reset the primed_spell flag after casting
+			caller.primed_spell = FALSE
 			return TRUE
 	else
 		// Non-projectile spells can use click-to-cast when fully charged
 		if(caller.is_spell_fully_charged() || !no_early_release)
 			if(perform(list(target), TRUE, user = ranged_ability_user))
 				deactivate(caller)
+				// Reset the primed_spell flag after casting
+				caller.primed_spell = FALSE
 				return TRUE
 		else
 			to_chat(caller, span_warning("[src.name] is not fully charged yet!"))
