@@ -112,3 +112,4 @@
 	beltl = /obj/item/rogueweapon/sword
 	beltr = /obj/item/quiver/arrows
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)				//Nobleman at da gate, what he gonna do???
