@@ -100,7 +100,7 @@
 	category_tags = list(CTAG_GATEMASTER)
 
 /datum/outfit/job/roguetown/gatemaster/noble/pre_equip(mob/living/carbon/human/H)
-..()
+	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)		//Your main skill for this. Equal to MAA.
 	H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)			//Still not great bow skill but stops aggression. Defense still good.
 	H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
