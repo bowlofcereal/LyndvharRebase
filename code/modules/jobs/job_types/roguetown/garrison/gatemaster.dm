@@ -50,7 +50,7 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	belt = /obj/item/storage/belt/rogue/leather/black
 	backr = /obj/item/storage/backpack/rogue/satchel/black
-	backpack_contents = list(/obj/item/keyring/gatemaster = 1, /obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1)
+	backpack_contents = list(/obj/item/storage/keyring/guardcastle = 1, /obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1)
 	if(H.mind)		//Stuff here is universal. Some skills are what will differ.
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
@@ -94,7 +94,7 @@
 // Royal Guard / Courtier Gatemaster - Shares skill-stats similar to Royal Guard, mostly in sword and bows
 /datum/advclass/gatemaster/noble
 	name = "Noble Gatemaster"
-	tutorial = "Perhaps you are a royal guard assigned to see to gate duties, or a courtier unlucky enough to be forced "
+	tutorial = "Perhaps you are a royal guard assigned to see to gate duties, or a courtier unlucky enough to be forced to do so. Your post may not be as noble as you, but you serve your purpose."
 	outfit = /datum/outfit/job/roguetown/gatemaster/noble
 
 	category_tags = list(CTAG_GATEMASTER)
