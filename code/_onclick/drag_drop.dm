@@ -378,24 +378,13 @@
 				if(spell.vars && ("chargedrain" in spell.vars) && !isnull(spell.vars["chargedrain"]))
 					drain_amount = spell.vars["chargedrain"]
 				
-				// Halve the drain amount if the spell is primed (fully charged)
+				// For primed spells, only apply drain every other tick to match charging rate
 				if(doneset)
+					if(progress % 2 != 0)
+						return TRUE
 					drain_amount *= 0.5
 			
-			// Only apply drain every other tick for primed spells to match charging rate
-			if(doneset && progress % 2 != 0)
-				// Apply the drain even on odd ticks
-				if(!L.rogfat_add(drain_amount))
-					// If stamina is depleted and spell is primed, automatically release it
-					if(doneset && istype(L.ranged_ability, /obj/effect/proc_holder/spell))
-						var/obj/effect/proc_holder/spell/spell = L.ranged_ability
-						spell.deactivate(L)
-						to_chat(L, span_warning("You lose concentration and release the spell as you become exhausted!"))
-					L.stop_attack()
-					return FALSE
-				return TRUE
-			
-			// Apply the drain 
+			// Apply the drain
 			if(!L.rogfat_add(drain_amount))
 				// If stamina is depleted and spell is primed, automatically release it
 				if(doneset && istype(L.ranged_ability, /obj/effect/proc_holder/spell))
