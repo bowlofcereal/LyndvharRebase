@@ -417,7 +417,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/buff/healing
 	duration = 10 SECONDS
 	examine_text = "SUBJECTPRONOUN is bathed in a restorative aura!"
-	var/healing_on_tick = 1
+	var/healing_on_tick = 2
 	var/outline_colour = "#c42424"
 
 /datum/status_effect/buff/healing/on_creation(mob/living/new_owner, new_healing_on_tick)
@@ -436,7 +436,7 @@
 	var/list/wCount = owner.get_wounds()
 	if(!owner.construct)
 		if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
-			owner.blood_volume = min(owner.blood_volume+10, BLOOD_VOLUME_NORMAL)
+			owner.blood_volume = min(owner.blood_volume+20, BLOOD_VOLUME_NORMAL)
 		if(wCount.len > 0)
 			owner.heal_wounds(healing_on_tick)
 			owner.update_damage_overlays()
