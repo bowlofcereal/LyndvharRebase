@@ -135,6 +135,8 @@
 	charge_max = 3 MINUTES
 	miracle = TRUE
 	devotion_cost = 70
+	invocation = "By Astrata's burning gaze, let divine judgment rain!"
+	invocation_type = "shout"
 	var/smite_active = FALSE
 	var/smite_target = null
 	var/warning_stage = 0
