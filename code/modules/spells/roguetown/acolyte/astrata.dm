@@ -1,3 +1,6 @@
+// Define the fire immunity trait at the top of the file
+#define TRAIT_FIRE_IMMUNE "fire_immune"
+
 /obj/effect/proc_holder/spell/invoked/sacred_flame_rogue
 	name = "Sacred Flame"
 	overlay_state = "sacredflame"
@@ -42,6 +45,20 @@
 	revert_cast()
 	return FALSE
 
+// Define a basic fireball projectile if it doesn't exist elsewhere
+/obj/projectile/magic/fireball
+	name = "fireball"
+	icon_state = "fireball"
+	damage = 20
+	damage_type = BURN
+	
+/obj/projectile/magic/fireball/on_hit(target)
+	. = ..()
+	if(isliving(target))
+		var/mob/living/L = target
+		L.adjust_fire_stacks(2)
+		L.IgniteMob()
+
 /obj/effect/proc_holder/spell/targeted/astrata_projectile
 	name = "Astrata's Wrath"
 	desc = "Launches a projectile that changes based on the time of day."
@@ -50,36 +67,18 @@
 	invocation = "Astrata's fury, manifest!"
 	invocation_type = "shout"
 	range = 20
+	charge_max = 30 SECONDS
 	cooldown_min = 30 SECONDS
 	selection_type = "view"
 	sound = 'sound/magic/fireball.ogg'
 	var/fireball_damage = 20
 	var/spitfire_damage = 15
 	var/spitfire_burn = 10
-	active_msg = "You prepare to channel Astrata's wrath!"
 	action_icon = 'icons/mob/actions/actions_spells.dmi'
 	action_icon_state = "fireball"
 	action_background_icon_state = "bg_spell"
 	antimagic_allowed = TRUE
 	
-/obj/effect/proc_holder/spell/targeted/astrata_projectile/cast(list/targets, mob/living/user)
-	for(var/mob/living/target in targets)
-		if(GLOB.tod == "night")
-			// At night, cast spitfire
-			var/obj/projectile/magic/spitfire/SF = new(get_turf(user))
-			SF.damage = spitfire_damage
-			SF.burn = spitfire_burn
-			SF.firer = user
-			SF.fire(target)
-			user.visible_message(span_danger("[user] spits a stream of blue fire at [target]!"))
-		else
-			// During day, cast fireball
-			var/obj/projectile/magic/fireball/FB = new(get_turf(user))
-			FB.damage = fireball_damage
-			FB.firer = user
-			FB.fire(target)
-			user.visible_message(span_danger("[user] casts a fireball at [target]!"))
-
 /obj/projectile/magic/spitfire
 	name = "spitfire"
 	icon_state = "fireball"
@@ -94,6 +93,24 @@
 		L.adjust_fire_stacks(1)
 		L.IgniteMob()
 		L.adjustFireLoss(burn)
+
+/obj/effect/proc_holder/spell/targeted/astrata_projectile/cast(list/targets, mob/living/user)
+	for(var/mob/living/target in targets)
+		if(GLOB.tod == "night")
+			// At night, cast spitfire
+			var/obj/projectile/magic/spitfire/SF = new(get_turf(user))
+			SF.damage = spitfire_damage
+			SF.burn = spitfire_burn
+			SF.firer = user
+			SF.fire(target)
+			user.visible_message(span_danger("[user] spits a stream of blue fire at [target]!"))
+		else
+			// During day, cast the fireball
+			var/obj/projectile/magic/fireball/FB = new(get_turf(user))
+			FB.damage = fireball_damage
+			FB.firer = user
+			FB.fire(target)
+			user.visible_message(span_danger("[user] casts a fireball at [target]!"))
 
 /obj/effect/proc_holder/spell/invoked/flame_shield
 	name = "Flame Shield"
@@ -132,7 +149,7 @@
 	// Apply fire stacks but prevent them from hurting the target
 	L.adjust_fire_stacks(15)
 	L.IgniteMob()
-	ADD_TRAIT(L, TRAIT_FIRE_IMMUNE, "flame_shield")
+	ADD_TRAIT(L, TRAIT_NOFIRE, "flame_shield")
 	
 	// Create a flame shield effect
 	var/obj/effect/flame_shield_effect/shield = new(get_turf(L))
@@ -170,7 +187,7 @@
 /obj/effect/flame_shield_effect/Destroy()
 	if(target)
 		to_chat(target, span_warning("Your flame shield dissipates!"))
-		REMOVE_TRAIT(target, TRAIT_FIRE_IMMUNE, "flame_shield")
+		REMOVE_TRAIT(target, TRAIT_NOFIRE, "flame_shield")
 		target.ExtinguishMob()
 		target = null
 	attached_user = null
@@ -199,6 +216,7 @@
 	// If shield depleted or fire stacks gone, remove it
 	if(shield_health <= 0 || target.fire_stacks <= 0)
 		qdel(src)
+		return
 
 // When the shielded mob takes damage, reduce shield health instead
 /obj/effect/flame_shield_effect/Crossed(atom/movable/AM)
