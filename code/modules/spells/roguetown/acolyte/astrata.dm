@@ -122,12 +122,12 @@
 	overlay_state = "smite"
 	releasedrain = 60
 	chargedrain = 0
-	chargetime = 100
+	chargetime = 0
 	range = 15
 	warnie = "sydwarning"
-	no_early_release = TRUE
-	movement_interrupt = TRUE
-	chargedloop = /datum/looping_sound/invokeholy
+	no_early_release = FALSE
+	movement_interrupt = FALSE
+	chargedloop = null
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	sound = 'sound/magic/heal.ogg'
 	associated_skill = /datum/skill/magic/holy
@@ -224,7 +224,7 @@
 			return
 	// After 10 seconds, start applying fire stacks
 	else if(world.time >= last_stack_time + 2 SECONDS)  // Apply fire every 2 seconds after the warning phase
-		L.adjust_fire_stacks(2)
+		L.adjust_fire_stacks(10)  // Changed from 2 to 10 for more intense burning
 		L.IgniteMob()
 		last_stack_time = world.time
 		L.visible_message(span_danger("Divine flames engulf [L] as Astrata's judgment rains down!"))
