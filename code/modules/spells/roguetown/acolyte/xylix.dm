@@ -157,8 +157,8 @@
 	layer = MASSIVE_OBJ_LAYER
 	
 	// Override the Initialize to ensure it stays visible for exactly the same duration as the slip effect
-	Initialize()
-		. = ..()
-		// Clear any existing timer and set our own to exactly match the wet floor duration
-		deltimer(timerid)
-		timerid = QDEL_IN(src, 15 SECONDS)
+/obj/effect/temp_visual/slick_warning/Initialize()
+	. = ..()
+	// Clear any existing timer and set our own to exactly match the wet floor duration
+	deltimer(timerid)
+	timerid = QDEL_IN(src, 15 SECONDS)
