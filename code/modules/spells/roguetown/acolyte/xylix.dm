@@ -140,7 +140,7 @@
 /datum/status_effect/debuff/curse_of_woe/on_apply()
 	if(!isliving(owner))
 		return FALSE
-	to_chat(owner, span_danger("<b>You feel a chill down your spine. Something is watching you...</b>"))
+	to_chat(owner, span_danger("<b>You feel a shiver running down your spine. Something is watching you...</b>"))
 	owner.visible_message(span_warning("A dark aura briefly flashes around [owner]!"))
 	playsound(owner, 'sound/misc/letsgogambling.ogg', 50, TRUE)
 	
