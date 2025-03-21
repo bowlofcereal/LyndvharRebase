@@ -19,12 +19,16 @@ GLOBAL_VAR_INIT(ambush_mobconsider_cooldown, 15 SECONDS) // Cooldown for each in
 		
 	return ambushable
 
+/mob/living/proc/consider_ambush(always = FALSE)
+	if(prob(100 - GLOB.ambush_chance_pct))
 /mob/living/proc/consider_ambush()
 	// Check if the mob has the Curse of Woe
 	var/has_woe = has_status_effect(/datum/status_effect/debuff/curse_of_woe)
 	var/ambush_chance = has_woe ? 40 : GLOB.ambush_chance_pct // 40% chance for those with Curse of Woe
 	
 	if(prob(100 - ambush_chance))
+		return
+	if(HAS_TRAIT(src, TRAIT_AZURENATIVE) && !always)
 		return
 	if(mob_timers["ambush_check"])
 		if(world.time < mob_timers["ambush_check"] + GLOB.ambush_mobconsider_cooldown)
