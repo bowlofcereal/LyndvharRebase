@@ -100,8 +100,8 @@
 	worshippers = "Gamblers, Bards, Artists, and the Silver-Tongued"
 	mob_traits = list(TRAIT_XYLIX)
 	t0 = /obj/effect/proc_holder/spell/invoked/wheel
-	t1 = /obj/effect/proc_holder/spell/invoked/slick_trick
-	t2 = /obj/effect/proc_holder/spell/invoked/mockery
+	t1 = /obj/effect/proc_holder/spell/invoked/mockery
+	t2 = /obj/effect/proc_holder/spell/invoked/slick_trick
 	confess_lines = list(
 		"ASTRATA IS MY LIGHT!",
 		"NOC IS NIGHT!",

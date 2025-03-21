@@ -86,7 +86,7 @@
 
 /obj/effect/proc_holder/spell/invoked/slick_trick
 	name = "Slick Trick"
-	releasedrain = 20
+	releasedrain = 30
 	chargedrain = 0
 	chargetime = 2
 	range = 12
@@ -96,30 +96,38 @@
 	sound = 'sound/magic/antimagic.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 30 SECONDS
+	charge_max = 45 SECONDS
 
 /obj/effect/proc_holder/spell/invoked/slick_trick/cast(list/targets, mob/user = usr)
 	var/turf/T = get_turf(targets[1])
-	if(istype(T, /turf/open))
-		var/turf/open/O = T
-		playsound(O, 'sound/foley/waterenter.ogg', 25, TRUE)
+	
+	// Get all turfs in a 3x3 area
+	var/list/affected_turfs = list()
+	for(var/turf/open/O in range(1, T))
+		affected_turfs += O
+	
+	if(affected_turfs.len)
+		user.visible_message("<span class='warning'>[user] creates slick patches on the floor!</span>")
 		
-		// First, clear any existing wet floor
-		O.ClearWet()
+		// Apply effect to all open turfs in range
+		for(var/turf/open/O in affected_turfs)
+			playsound(O, 'sound/foley/waterenter.ogg', 25, TRUE)
+			
+			// First, clear any existing wet floor
+			O.ClearWet()
+			
+			// Create a new one with our custom callback for slipping
+			O.AddComponent(/datum/component/wet_floor, TURF_WET_LUBE, 15 SECONDS, 0, 120 SECONDS, FALSE)
+			
+			// Replace the slippery component with our own that has a custom callback
+			var/datum/component/slippery/S = O.GetComponent(/datum/component/slippery)
+			if(S)
+				qdel(S)
+			O.LoadComponent(/datum/component/slippery, 80, SLIDE | GALOSHES_DONT_HELP, CALLBACK(src, PROC_REF(after_slip)))
+			
+			// Create a visual indicator
+			new /obj/effect/temp_visual/slick_warning(O)
 		
-		// Create a new one with our custom callback for slipping
-		O.AddComponent(/datum/component/wet_floor, TURF_WET_LUBE, 15 SECONDS, 0, 120 SECONDS, FALSE)
-		
-		// Replace the slippery component with our own that has a custom callback
-		var/datum/component/slippery/S = O.GetComponent(/datum/component/slippery)
-		if(S)
-			qdel(S)
-		O.LoadComponent(/datum/component/slippery, 80, SLIDE | GALOSHES_DONT_HELP, CALLBACK(src, PROC_REF(after_slip)))
-		
-		// Create a visual indicator
-		new /obj/effect/temp_visual/slick_warning(O)
-		
-		user.visible_message("<span class='warning'>[user] creates a slick patch on the floor!</span>")
 		return TRUE
 	revert_cast()
 	return FALSE
