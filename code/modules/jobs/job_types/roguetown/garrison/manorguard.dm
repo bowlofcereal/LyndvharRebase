@@ -182,7 +182,7 @@
 
 /datum/outfit/job/roguetown/manorguard/cavalry/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE) // Still have a cugel.
@@ -194,6 +194,7 @@
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE) // Like the other horselords.
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
@@ -212,14 +213,13 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 
 	H.adjust_blindness(-3)
-	var/weapons = list("Glaive","Sword & Shield")
+	var/weapons = list("Flail","Sword & Shield")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
-		if("Glaive")
-			r_hand = /obj/item/rogueweapon/halberd/glaive // Better then a halberd, but the only other polearm that makes sense is the spear, which is iron-tier.
-			backl = /obj/item/gwstrap
-			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+		if("Flail")
+			r_hand = /obj/item/rogueweapon/flail
+			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
 		if("Sword & Shield")
 			beltr = /obj/item/rogueweapon/sword/sabre
 			backl = /obj/item/rogueweapon/shield/wood
