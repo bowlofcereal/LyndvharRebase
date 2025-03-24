@@ -89,6 +89,9 @@
 	var/success_sound //Sound played if the step succeeded
 	var/failure_sound //Sound played if the step fails
 
+	/// Required trait for the surgery step
+	var/required_trait
+
 /datum/surgery_step/proc/can_do_step(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, try_to_fail = FALSE)
 	if(!user || !target)
 		return FALSE
@@ -102,6 +105,10 @@
 		return FALSE
 	if(!validate_target(user, target, target_zone, intent))
 		return FALSE
+	if(required_trait)
+		if(!HAS_TRAIT(user, required_trait))
+			to_chat(user, "I do not have the necessary trait for this step.")
+			return FALSE
 
 	return TRUE
 
@@ -290,8 +297,7 @@
 	if(success && success(user, target, target_zone, tool, intent))
 		if(ishuman(user))
 			var/mob/living/carbon/human/doctor = user
-			if(doctor.mind?.get_skill_level(/datum/skill/misc/medicine != SKILL_LEVEL_JOURNEYMAN))
-				user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/2))//ghetto XP cap to Jman while allowing xp above Jman
+			user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/2))
 		play_success_sound(user, target, target_zone, tool)
 		if(repeating && can_do_step(user, target, target_zone, tool, intent, try_to_fail))
 			initiate(user, target, target_zone, tool, intent, try_to_fail)
