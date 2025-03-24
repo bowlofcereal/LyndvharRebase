@@ -291,7 +291,7 @@
 		if(ishuman(user))
 			var/mob/living/carbon/human/doctor = user
 			if(doctor.mind?.get_skill_level(/datum/skill/misc/medicine != SKILL_LEVEL_JOURNEYMAN))
-				user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/2))
+				user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/2))//ghetto XP cap to Jman while allowing xp above Jman
 		play_success_sound(user, target, target_zone, tool)
 		if(repeating && can_do_step(user, target, target_zone, tool, intent, try_to_fail))
 			initiate(user, target, target_zone, tool, intent, try_to_fail)
