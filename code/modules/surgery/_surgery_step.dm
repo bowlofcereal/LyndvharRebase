@@ -290,7 +290,8 @@
 	if(success && success(user, target, target_zone, tool, intent))
 		if(ishuman(user))
 			var/mob/living/carbon/human/doctor = user
-			user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/2))
+			if(can_train_combat_skill(doctor, /datum/skill/misc/medicine, SKILL_LEVEL_EXPERT))
+				user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/2))
 		play_success_sound(user, target, target_zone, tool)
 		if(repeating && can_do_step(user, target, target_zone, tool, intent, try_to_fail))
 			initiate(user, target, target_zone, tool, intent, try_to_fail)
