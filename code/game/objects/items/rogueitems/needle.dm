@@ -148,7 +148,7 @@
 		if(target_wound.sew_progress < target_wound.sew_threshold)
 			continue
 		if(doctor.mind)
-			if(can_train_combat_skill(doctor, /datum/skill/misc/medicine, SKILL_LEVEL_EXPERT))
+			if(doctor.mind?.get_skill_level(/datum/skill/misc/medicine != SKILL_LEVEL_JOURNEYMAN))
 				doctor.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * 2.5)
 		use(1)
 		target_wound.sew_wound()
