@@ -110,7 +110,7 @@
 		return FALSE
 	if(required_trait)
 		if(!HAS_TRAIT(user, required_trait))
-			to_chat(user, [trait_failure_message ? trait_failure_message : "I do not have the necessary trait for this step."])
+			to_chat(user, "[trait_failure_message ? trait_failure_message : "I do not have the necessary trait for this step."]")
 			return FALSE
 
 	return TRUE
