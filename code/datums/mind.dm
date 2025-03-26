@@ -96,6 +96,7 @@
 	var/mugshot_set = FALSE
 
 	var/heretic_nickname   // Nickname used for heretic commune
+	var/has_bred = FALSE
 
 /datum/mind/New(key)
 	src.key = key

@@ -70,7 +70,7 @@
 	var/obj/item/organ/vagina/vag = wife.getorganslot(ORGAN_SLOT_VAGINA)
 	if(!vag)
 		return
-	if(prob(25) && wife.is_fertile() && is_virile())
+	if(prob(99) && wife.is_fertile() && is_virile())
 		vag.be_impregnated(src)
 
 /mob/living/carbon/human/proc/get_highest_grab_state_on(mob/living/carbon/human/victim)

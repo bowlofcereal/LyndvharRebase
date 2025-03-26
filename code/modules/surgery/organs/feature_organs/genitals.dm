@@ -99,6 +99,18 @@
 		return
 	if(owner.stat == DEAD)
 		return
+	var/datum/antagonist/elf/B = father.mind?.has_antag_datum(/datum/antagonist/elf)
+	if(B)
+		if(ishumannorthern(owner))
+			if(!father.mind?.has_bred)
+				to_chat(father, span_notice("I've successfully bred with a human!"))
+				father.mind?.has_bred = TRUE
+	var/datum/antagonist/elf/R = owner.mind?.has_antag_datum(/datum/antagonist/elf)
+	if(R)
+		if(ishumannorthern(father))
+			if(!owner.mind?.has_bred)
+				to_chat(owner, span_notice("I've successfully bred with a human!"))
+				owner.mind?.has_bred = TRUE
 	to_chat(owner, span_love("I feel a surge of warmth in my belly, I’m definitely pregnant!"))
 	pregnant = TRUE
 

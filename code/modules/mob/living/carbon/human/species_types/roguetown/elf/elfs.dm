@@ -174,3 +174,18 @@
 
 /datum/species/elf/wood/random_surname()
 	return " [pick(world.file2list("strings/rt/names/elf/elfwlast.txt"))]"
+
+/datum/species/elf/wood/after_creation(mob/living/carbon/C)
+	var/datum/antagonist/new_antag = new /datum/antagonist/elf()
+	C.mind.add_antag_datum(new_antag)
+
+/datum/objective/breed
+	name = "breed"
+	explanation_text = "Breed with a human."
+	team_explanation_text = "Breed with a human."
+
+/datum/objective/breed/check_completion()
+	var/list/datum/mind/owners = get_owners()
+	for(var/datum/mind/M in owners)
+		if(M.has_bred)
+			return TRUE

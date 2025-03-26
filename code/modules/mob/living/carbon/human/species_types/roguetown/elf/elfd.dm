@@ -165,3 +165,7 @@
 
 /datum/species/elf/dark/random_surname()
 	return " [pick(world.file2list("strings/rt/names/elf/elfsnf.txt"))]"
+
+/datum/species/elf/dark/after_creation(mob/living/carbon/C)
+	var/datum/antagonist/new_antag = new /datum/antagonist/elf()
+	C.mind.add_antag_datum(new_antag)
