@@ -348,6 +348,13 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		var/atom/movable/AM = _AM
 		var/turf/listener_turf = get_turf(AM)
 		var/turf/listener_ceiling = get_step_multiz(listener_turf, UP)
+
+		//Thieves cant language is not sent to those who don't know it.
+		if(message_language)
+			var/datum/language/L = GLOB.language_datum_instances[message_language]
+			if(istype(L, /datum/language/thievescant) && !AM.has_language(/datum/language/thievescant))
+				continue
+
 		if(listener_ceiling)
 			listener_has_ceiling = TRUE
 			if(istransparentturf(listener_ceiling))
