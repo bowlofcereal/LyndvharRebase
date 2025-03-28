@@ -49,6 +49,9 @@
 	damfactor = 1.0
 	item_d_type = "slash"
 
+/datum/intent/sword/chop/halberd
+	reach = 2
+
 /datum/intent/sword/chop/falx
 	penfactor = 40
 //sword objs ฅ^•ﻌ•^ฅ
