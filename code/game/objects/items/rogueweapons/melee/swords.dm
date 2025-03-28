@@ -71,7 +71,7 @@
 	swingsound = BLADEWOOSH_MED
 	associated_skill = /datum/skill/combat/swords
 	max_blade_int = 100
-	max_integrity = 150
+	max_integrity = 400
 	wlength = WLENGTH_NORMAL
 	w_class = WEIGHT_CLASS_BULKY
 	pickup_sound = 'sound/foley/equip/swordlarge1.ogg'
@@ -112,7 +112,7 @@
 	possible_item_intents = list(/datum/intent/sword/cut/falx,  /datum/intent/sword/chop/falx, /datum/intent/sword/strike)
 	icon_state = "falx"
 	max_blade_int = 100
-	max_integrity = 125
+	max_integrity = 400
 	gripped_intents = null
 	minstr = 4
 	wdefense = 6
@@ -188,6 +188,7 @@
 	bigboy = 1
 	wlength = WLENGTH_LONG
 	gripsprite = TRUE
+	max_integrity = 500
 	pixel_y = -16
 	pixel_x = -16
 	inhand_x_dimension = 64
@@ -214,13 +215,14 @@
 	name = "forgefiend"
 	desc = "This sword's creation took a riddle in its own making. A great sacrifice for perfect quality."
 	icon_state = "malumflamberge"
-	max_integrity = 200
+	max_integrity = 600
 
 /obj/item/rogueweapon/sword/long/zizo
 	name = "darksteel longsword"
 	desc = "A wicked and red blade. Called forth from the edge of what should be known. In Her name."
 	force = 30
 	force_wielded = 35
+	max_integrity = 700
 	icon_state = "zizosword"
 
 /obj/item/rogueweapon/sword/long/zizo/pickup(mob/living/user)
@@ -254,6 +256,7 @@
 	pixel_x = -16
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
+	max_integrity = 250
 	associated_skill = /datum/skill/combat/swords
 	throwforce = 15
 	thrown_bclass = BCLASS_CUT
@@ -406,6 +409,7 @@
 	pixel_x = -16
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
+	max_integrity = 400
 	dropshrink = 0.75
 	smeltresult = /obj/item/ingot/steel
 	
@@ -476,7 +480,7 @@
 	name = "solar judge"
 	desc = "This wicked executioner's blade calls for order."
 	icon_state = "astratasword"
-	max_integrity = 200
+	max_integrity = 700
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/axe/chop)
 
@@ -506,7 +510,7 @@
 	name = "psydonian sword"
 	desc = "a silver bastard sword, for the Inquisiton. For when you need to make a point."
 	icon_state = "psysword"
-	max_blade_int = 200
+	max_blade_int = 600
 	wdefense = 5
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silver
@@ -517,7 +521,7 @@
 	icon_state = "isword"
 	minstr = 6
 	smeltresult = /obj/item/ingot/iron
-	max_integrity = 100
+	max_integrity = 300
 	sellprice = 10
 
 /obj/item/rogueweapon/sword/iron/short
@@ -537,7 +541,7 @@
 	force = 17
 	desc = "An ancient-looking iron sword."
 	icon_state = "iswordshort_d"
-	max_integrity = 75
+	max_integrity = 100
 	wlength = WLENGTH_SHORT
 
 /datum/intent/sword/cut/short
@@ -564,6 +568,7 @@
 	icon_state = "saber"
 	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust/sabre)
 	gripped_intents = null
+	max_integrity = 400
 	parrysound = list('sound/combat/parry/bladed/bladedthin (1).ogg', 'sound/combat/parry/bladed/bladedthin (2).ogg', 'sound/combat/parry/bladed/bladedthin (3).ogg')
 	swingsound = BLADEWOOSH_SMALL
 	minstr = 5
@@ -605,6 +610,7 @@
 	pixel_x = -16
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
+	max_integrity = 300
 	dropshrink = 0.75
 	possible_item_intents = list(/datum/intent/sword/thrust/rapier, /datum/intent/sword/cut/rapier)
 	gripped_intents = null
@@ -742,6 +748,7 @@
 	icon_state = "cutlass"
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust)
 	gripped_intents = null
+	max_integrity = 350
 	wdefense = 6
 	wbalance = 1
 
@@ -754,7 +761,7 @@
 	smeltresult = /obj/item/ingot/bronze
 	smelt_bar_num = 2
 	max_blade_int = 100
-	max_integrity = 200
+	max_integrity = 350
 	dropshrink = 0.80
 	wdefense = 2
 
@@ -768,6 +775,7 @@
 	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 	last_used = 0
 	is_silver = TRUE
+	max_integrity = 400
 	smeltresult = /obj/item/ingot/silver
 	smelt_bar_num = 2
 
@@ -780,7 +788,7 @@
 	smeltresult = /obj/item/ingot/silver
 	smelt_bar_num = 2
 	max_blade_int = 150
-	max_integrity = 200
+	max_integrity = 400
 
 /obj/item/rogueweapon/sword/long/blackflamb
 	force = 20
@@ -789,7 +797,7 @@
 	name = "blacksteel flamberge"
 	desc = "A strange sword with a winding blade forged of blacksteel and a rontz pommel."
 	smeltresult = /obj/item/ingot/blacksteel
-	max_integrity = 200
+	max_integrity = 500
 
 /obj/item/rogueweapon/sword/long/blackflamb/getonmobprop(tag)
 	. = ..()
@@ -897,7 +905,7 @@
 	name = "romphaia"
 	desc = "A longsword with a hooked end for punching through armour."
 	smeltresult = /obj/item/ingot/steel
-	max_integrity = 175
+	max_integrity = 400
 
 /obj/item/rogueweapon/sword/long/romphaia/getonmobprop(tag)
 	. = ..()
