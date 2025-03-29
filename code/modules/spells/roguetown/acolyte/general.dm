@@ -234,7 +234,7 @@
 	revert_cast()
 	return FALSE
 
-/obj/effect/proc_holder/spell/invoked/psydon_endurance
+/* /obj/effect/proc_holder/spell/invoked/psydon_endurance
     name = "Revengeance"
     overlay_state = "astrata"
     releasedrain = 30
@@ -271,3 +271,4 @@
         return TRUE
     revert_cast()
     return FALSE
+*/
