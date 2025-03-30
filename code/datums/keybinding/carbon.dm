@@ -297,21 +297,6 @@
     C.swap_rmb_intent(null, 6)
     return TRUE
 
-/datum/keybinding/carbon/rmb_intent_7
-    hotkey_keys = list("Shift7")
-    name = "rmb_intent_7"
-    full_name = "Select Bait Intent"
-    description = "Selects the Bait RMB intent."
-    category = CATEGORY_CARBON
-
-/datum/keybinding/carbon/rmb_intent_7/down(client/user)
-    if (!iscarbon(user.mob))
-        return FALSE
-    var/mob/living/carbon/C = user.mob
-    C.swap_rmb_intent(null, 7)
-    return TRUE
-
-
 /datum/keybinding/carbon/cycle_rmb_intent
 	hotkey_keys = list("N")
 	name = "cycle_rmb_intent"

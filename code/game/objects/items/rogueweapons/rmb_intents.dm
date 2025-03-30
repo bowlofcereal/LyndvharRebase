@@ -97,7 +97,7 @@
 
 /datum/rmb_intent/riposte
 	name = "defend"
-	desc = "No delay between dodge and parry rolls."
+	desc = "No delay between dodge and parry rolls.\n(RMB WHILE COMBAT MODE IS ACTIVE) Bait out your targeted limb to the enemy. If it matches where they're aiming, they will be thrown off balance."
 	icon_state = "rmbdef"
 
 /datum/rmb_intent/guard
@@ -110,12 +110,7 @@
 	desc = "Your attacks have -1 strength and will never critically-hit. Useful for longer punishments, play-fighting, and bloodletting."
 	icon_state = "rmbweak"
 
-/datum/rmb_intent/bait
-	name = "bait"
-	desc = "(RMB WHILE COMBAT MODE IS ACTIVE) Bait out your targeted limb to the enemy. If it matches where they're aiming, they will be thrown off balance."
-	icon_state = "rmbbait"
-
-/datum/rmb_intent/bait/special_attack(mob/living/user, atom/target)
+/datum/rmb_intent/riposte/special_attack(mob/living/user, atom/target)
 	if(!isliving(target))
 		return
 	if(!user)
