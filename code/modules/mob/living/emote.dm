@@ -1562,14 +1562,14 @@
 	set category = "Noises"
 
 	emote("snap", intentional = TRUE)
-
+/* Everybody keeps complaining about blink for some reason
 /datum/emote/living/blink
 	key = "blink"
 	key_third_person = "blinks."
 	message = "blinks."
 	emote_type = EMOTE_VISIBLE
 	show_runechat = FALSE
-
+*/
 /mob/living/carbon/human/verb/emote_blink()
 	set name = "Blink"
 	set category = "Noises"
