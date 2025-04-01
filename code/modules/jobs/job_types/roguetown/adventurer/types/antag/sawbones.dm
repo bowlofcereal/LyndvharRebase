@@ -43,6 +43,7 @@
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DECEIVING_MEEKNESS, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC) // just to be sure they get it
 	H.change_stat("speed", 3)
 	H.change_stat("intelligence", 4)
 	H.change_stat("fortune", 3)
