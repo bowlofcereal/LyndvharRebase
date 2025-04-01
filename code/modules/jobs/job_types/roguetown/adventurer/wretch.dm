@@ -43,7 +43,7 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/deserter
 	category_tags = list(CTAG_WRETCH)
-	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_HEAVYARMOR, TRAIT_OUTLAW, TRAIT_GOODLOVER))
+	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_HEAVYARMOR, TRAIT_OUTLAW, TRAIT_GOODLOVER)
 
 /datum/outfit/job/roguetown/wretch/deserter/pre_equip(mob/living/carbon/human/H)
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
