@@ -130,6 +130,7 @@
 		user.visible_message(span_danger("[user] baits an attack from [target]!"))
 		if(target_zone == user_zone && !(target_zone == BODY_ZONE_CHEST) || (user_zone == BODY_ZONE_CHEST)) //Our zones match and it's not the chest
 			HT.apply_status_effect(/datum/status_effect/debuff/baited)
+			HT.apply_status_effect(/datum/status_effect/debuff/feinted)	//cheeky workaround, this will prevent defending during this period w/o adding extra baited status checks
 			HT.changeNext_move(20)
 			HT.Immobilize(20)
 			to_chat(user, span_notice("[HT] fell for my bait <b>perfectly</b>!"))
@@ -165,7 +166,6 @@
 
 			if(prob(probbait))
 				HT.changeNext_move(10)
-				HT.Immobilize(5)
 				to_chat(user, span_notice("[HT] fell for my bait!"))
 				to_chat(HT, span_danger("I fall for [user]'s bait!"))
 				HT.rogfat_add(10)
@@ -173,6 +173,8 @@
 			else
 				to_chat(user, span_notice("[HT] did not fall for my bait!"))
 				to_chat(HT, span_notice("I saw through the bait!"))
+				user.changeNext_move(10)
+				user.Immobilize(5)
 				user.rogfat_add(10)
 
 		user.rogfat_add(10)
@@ -185,4 +187,4 @@
 
 /datum/status_effect/debuff/baitcd
 	id = "baitcd"
-	duration = 80
+	duration = 100
