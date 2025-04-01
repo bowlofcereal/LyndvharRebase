@@ -64,37 +64,37 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	"Consort",
 	"Prince",
 	"Hand",
-	"Knight Captain",
+//	"Knight Captain",
 	"Marshal",
 	"Councillor",
 	"Steward",
-	"Knight",
+//	"Knight",
 ))
 
 GLOBAL_LIST_INIT(courtier_positions, list(
-	"Court Magician",
+//	"Court Magician",
 	"Court Physician",
 	"Jester",
 	"Seneschal",
 ))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
-	"Watchman",
-	"Warden",
-	"Sergeant",
-	"Man at Arms",
-	"Dungeoneer",
-	"Gatemaster",
+//	"Watchman",
+//	"Warden",
+//	"Sergeant",
+//	"Man at Arms",
+//	"Dungeoneer",
+//	"Gatemaster",
 ))
 
 GLOBAL_LIST_INIT(church_positions, list(
-	"Priest",
+//	"Priest",
 	"Confessor",
-	"Acolyte",
-	"Mortician",
+//	"Acolyte",
+//	"Mortician",
 	"Templar",
-	"Druid",
-	"Martyr",
+//	"Druid",
+//	"Martyr",
 ))
 
 GLOBAL_LIST_INIT(inquisition_positions, list(
@@ -106,7 +106,7 @@ GLOBAL_LIST_INIT(inquisition_positions, list(
 GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Merchant",
 	"Innkeeper",
-	"Archivist",
+//	"Archivist",
 	"Blacksmith",
 	"Armorer",
 	"Weaponsmith",
@@ -134,18 +134,18 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	"Docker",
 	"Prisoner",
 	"Beggar",
-	"Adventurer",
-	"Pilgrim",
+//	"Adventurer",
+//	"Pilgrim",
 	"Bandit",
-	"Court Agent",
+//	"Court Agent",
 	"Wretch",
 ))
 
 GLOBAL_LIST_INIT(mercenary_positions, list(
-	"Mercenary",
-	"Grenzelhoft Mercenary",
-	"Desert Rider Mercenary",
-	"Veteran",
+//	"Mercenary",
+//	"Grenzelhoft Mercenary",
+//	"Desert Rider Mercenary",
+//	"Veteran",
 ))
 
 GLOBAL_LIST_INIT(youngfolk_positions, list(
@@ -153,7 +153,7 @@ GLOBAL_LIST_INIT(youngfolk_positions, list(
 	"Clerk",
 	"Apothecary",
 	"Smithy Apprentice",
-	"Magicians Associate",
+//	"Magicians Associate",
 	"Churchling",
 	"Servant",
 	"Shophand",
@@ -161,12 +161,12 @@ GLOBAL_LIST_INIT(youngfolk_positions, list(
 ))
 
 GLOBAL_LIST_INIT(allmig_positions, list(
-	"Adventurer",
-	"Pilgrim",
+//	"Adventurer",
+//	"Pilgrim",
 ))
 
 GLOBAL_LIST_INIT(roguewar_positions, list(
-	"Adventurer",
+//	"Adventurer",
 ))
 
 GLOBAL_LIST_INIT(roguefight_positions, list(
