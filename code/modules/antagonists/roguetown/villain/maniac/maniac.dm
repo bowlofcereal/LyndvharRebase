@@ -33,6 +33,7 @@
 		TRAIT_ANTIMAGIC,
 		TRAIT_SCHIZO_AMBIENCE,
 		TRAIT_BLOODLOSS_IMMUNE,
+		TRAIT_GOODLOVER,
 	)
 	/// Traits that only get applied in the final sequence
 	var/static/list/final_traits = list(
