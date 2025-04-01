@@ -47,6 +47,7 @@
 	H.change_stat("fortune", 2) //We have a total of +12 in stats. 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC) // We are going to be the lord's first heavy armor unarmed class
 	ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC) // just to be sure they get it
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_spells_monk(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
