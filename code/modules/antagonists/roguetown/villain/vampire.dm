@@ -59,6 +59,7 @@
 		owner.adjust_skillrank(/datum/skill/combat/wrestling, 6, TRUE)
 		owner.adjust_skillrank(/datum/skill/combat/unarmed, 6, TRUE)
 		ADD_TRAIT(owner.current, TRAIT_NOBLE, TRAIT_GENERIC)
+		ADD_TRAIT(owner.current, TRAIT_GOODLOVER, TRAIT_GENERIC)
 	owner.special_role = name
 	ADD_TRAIT(owner.current, TRAIT_STRONGBITE, TRAIT_GENERIC)
 	ADD_TRAIT(owner.current, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -66,6 +67,7 @@
 	ADD_TRAIT(owner.current, TRAIT_NOPAIN, TRAIT_GENERIC)
 	ADD_TRAIT(owner.current, TRAIT_TOXIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(owner.current, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(owner.current, TRAIT_GOODLOVER, TRAIT_GENERIC)
 	owner.current.cmode_music = 'sound/music/combat_vamp2.ogg'
 	var/obj/item/organ/eyes/eyes = owner.current.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
