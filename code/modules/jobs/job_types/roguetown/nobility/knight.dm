@@ -369,8 +369,8 @@
 			beltr = /obj/item/quiver/bolts
 
 		if("Judgement + Crimson Fang")
-		beltl = /obj/item/rogueweapon/sword/long/vlord
-		backl = /obj/item/rogueweapon/sword/long/judgement
+			beltl = /obj/item/rogueweapon/sword/long/vlord
+			backl = /obj/item/rogueweapon/sword/long/judgement
 
 	switch(armor_choice)
 		if("Light Armor")
