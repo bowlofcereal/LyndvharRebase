@@ -53,7 +53,9 @@
 	/obj/structure/flora/roguegrass/herb/calendula,/obj/structure/flora/roguegrass/herb/mentha,
 	/obj/structure/flora/roguegrass/herb/urtica,/obj/structure/flora/roguegrass/herb/salvia,
 	/obj/structure/flora/roguegrass/herb/hypericum,/obj/structure/flora/roguegrass/herb/benedictus,
-	/obj/structure/flora/roguegrass/herb/valeriana,/obj/structure/flora/roguegrass/herb/artemisia,/obj/structure/flora/roguegrass/herb/rosa,/obj/structure/flora/roguegrass/swampweed))
+	/obj/structure/flora/roguegrass/herb/valeriana,/obj/structure/flora/roguegrass/herb/artemisia,
+	/obj/structure/flora/roguegrass/herb/rosa,/obj/structure/flora/roguegrass/swampweed,
+	/obj/structure/flora/roguegrass/herb/brocflower,/obj/structure/flora/roguegrass/herb/xanderroot,/obj/structure/flora/roguegrass/herb/barrelcactus))
 
 	var/obj/structure/flora/roguegrass/herb/boi = new type
 	boi.forceMove(get_turf(src))
@@ -152,3 +154,21 @@
 	icon_state = "rosa"
 
 	herbtype = /obj/item/alch/rosa
+
+/obj/structure/flora/roguegrass/herb/brocflower
+	name = "broc flower"
+	icon_state = "brocflower"
+
+	herbtype = /obj/item/alch/brocflower
+
+/obj/structure/flora/roguegrass/herb/xanderroot
+	name = "xander root"
+	icon_state = "xanderroot"
+
+	herbtype = /obj/item/alch/xanderroot
+
+/obj/structure/flora/roguegrass/herb/barrelcactus
+	name = "barrel cactus"
+	icon_state = "barrelcactus"
+
+	herbtype = /obj/item/alch/barrelcactus

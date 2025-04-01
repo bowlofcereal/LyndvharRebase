@@ -107,6 +107,39 @@
 	M.regenerate_icons()
 	..()
 
+/datum/reagent/medicine/bitterdrink
+	name = "Bitter Drink"
+	description = "An herbal healing concoction which enables wounded soldiers and travelers to tend to their wounds without stopping during journeys. It derives its name from curing the wounds but leaving the 'bitter' pain from them."
+	color = "#773c00"
+	taste_description = "unbearable herbal bitterness"
+	metabolization_rate = 0.5*REAGENTS_METABOLISM
+	var/damage_offset = 0
+	var/affecting_tribal = FALSE
+
+/datum/reagent/medicine/bitterdrink/on_mob_add(mob/living/carbon/M)
+	if(HAS_TRAIT(M, TRAIT_HERBAL_AFFINITY))
+		damage_offset =  5.4 * REM
+		affecting_tribal = TRUE
+	else
+		damage_offset = 4 * REM
+	..()
+
+/datum/reagent/medicine/bitterdrink/on_mob_life(mob/living/carbon/M)
+	if(affecting_tribal)
+		var/list/wCount = M.get_wounds()
+		if(wCount.len > 0)
+			M.heal_wounds(10)
+	else
+		M.add_nausea(9)
+		if (prob(5))
+			to_chat(M, span_warning("[pick("I can't bear the bitterness...","My stomach is upset by the foul drink...","I'm going to throw up...!")]"))
+
+	M.adjustBruteLoss(-damage_offset, FALSE) //100% of damage_offset (5.4 / 4)
+	M.adjustFireLoss(-damage_offset * 0.75, FALSE) //75% of damage_offset (4 / 3)
+	M.adjustOxyLoss(-damage_offset * 0.66, FALSE) //66% of damage_offset (3.6 / 2.64)
+	M.adjustCloneLoss(-damage_offset * 0.66, FALSE) //66% of damage_offset (3.6 / 2.64)
+	. = TRUE
+
 //Someone please remember to change this to actually do mana at some point?
 /datum/reagent/medicine/manapot
 	name = "Mana Potion"

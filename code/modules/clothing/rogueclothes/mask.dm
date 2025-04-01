@@ -341,3 +341,68 @@
 /obj/item/clothing/mask/rogue/blindfold/dropped(mob/living/carbon/human/user)
 	..()
 	user.cure_blind("blindfold_[REF(src)]")
+
+///////////////////
+//LEGION BANDANAS//
+///////////////////
+
+/obj/item/clothing/mask/rogue/legion
+	name = "legion mask template"
+	desc = "Should not exist."
+	flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	body_parts_covered = NECK|MOUTH
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	adjustable = CAN_CADJUST
+	toggle_icon_state = TRUE
+	experimental_onhip = TRUE
+	sewrepair = TRUE
+
+/obj/item/clothing/mask/rogue/legion/AdjustClothes(mob/user)
+	if(loc == user)
+		if(adjustable == CAN_CADJUST)
+			adjustable = CADJUSTED
+			if(toggle_icon_state)
+				icon_state = "[initial(icon_state)]_t"
+			flags_inv = null
+			body_parts_covered = NECK
+			if(ishuman(user))
+				var/mob/living/carbon/H = user
+				H.update_inv_wear_mask()
+		else if(adjustable == CADJUSTED)
+			ResetAdjust(user)
+			flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+			body_parts_covered = NECK|MOUTH
+			if(user)
+				if(ishuman(user))
+					var/mob/living/carbon/H = user
+					H.update_inv_wear_mask()
+
+/obj/item/clothing/mask/rogue/legion/camp
+	name = "camp duty bandana"
+	desc = "Simple black cloth intended for men on camp duty."
+	icon_state = "legaux"
+
+/obj/item/clothing/mask/rogue/legion/legrecruit
+	name = "recruit bandana"
+	desc = "A coarse dark recruit bandana."
+	icon_state = "legrecruit"
+
+/obj/item/clothing/mask/rogue/legion/legprime
+	name = "prime bandana"
+	desc = "A dark linen bandana worn by primes"
+	icon_state = "legdecan"
+
+/obj/item/clothing/mask/rogue/legion/legvet
+	name = "veteran bandana"
+	desc = "A veterans bandana in red."
+	icon_state = "legvet"
+
+/obj/item/clothing/mask/rogue/legion/legdecan
+	name = "decanus bandana"
+	desc = "A fine decan bandana in dark red."
+	icon_state = "legdecan"
+
+/obj/item/clothing/mask/rogue/legion/legcenturion
+	name = "centurion bandana"
+	desc = "A high quality bandana made for a centurion."
+	icon_state = "legcenturion"

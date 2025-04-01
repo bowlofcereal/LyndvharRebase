@@ -1928,3 +1928,226 @@
 					H.update_inv_head()
 		user.update_fov_angles()
  
+//////////
+//LEGION// HEAD
+//////////
+
+/obj/item/clothing/head/roguetown/helmet/marsheaddress
+	name = "priestess headdress"
+	desc = "A headdress made of feathers and decorated with two golden tassles."
+	icon_state = "legion-priestess"
+	item_state = "legion-priestess"
+
+/obj/item/clothing/head/roguetown/helmet/legrecruit
+	name = "legion recruit helmet"
+	desc = "It's a leather skullcap issued to recruits."
+	icon_state = "legion-recruit"
+	item_state = "legion-recruit"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legprime
+	name = "legion prime helmet"
+	desc = "A helmet from reinforced leather with a red peak."
+	item_state = "legion-prime"
+	icon_state = "legion-prime"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legvet
+	name = "legion veteran helmet"
+	desc = "It's a metal legion veteran helmet, clearly inspired by old world sports uniforms."
+	icon_state = "legion-veteran"
+	item_state = "legion-veteran"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legexplorer
+	name = "legion scout hood"
+	desc = "It's a leather hood with metal reinforcements."
+	icon_state = "legion-explorer"
+	item_state = "legion-explorer"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legcombvexil
+	name = "legion bear vexillarius helmet"
+	desc = "This helmet is decorated with the pelt of a ashland bear."
+	icon_state = "legion-vex"
+	item_state = "legion-vex"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legvexil
+	name = "legion fox vexillarius helmet"
+	desc = "This helmet is decorated with the pelt of a desert fox."
+	icon_state = "legion-vex-alt"
+	item_state = "legion-vex-alt"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legnightvexil
+	name = "legion nightstalker vexillarius helmet"
+	desc = "This helmet is decorated with the pelt of a nightstalker."
+	icon_state = "legion-vex-night"
+	item_state = "legion-vex-night"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legvenator
+	name = "legion explorer hood"
+	desc = "A leather hood with a sturdy metal skullcap and a gold bull insignia in the front."
+	icon_state = "legion-venator"
+	item_state = "legion-venator"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legrecruit/decan
+	name = "legion recruit decanus helmet"
+	desc = "This reinforced leather helmet has a plume of black and dark red feathers."
+	icon_state = "legion-decrec"
+	item_state = "legion-decrec"
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legprime/decan
+	name = "legion prime decanus helmet"
+	desc = "This reinforced leather helmet with a red peak has a plume of black feathers."
+	item_state = "legion-decprime"
+	icon_state = "legion-decprime"
+	max_integrity = 200
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = null
+	smeltresult = null
+	sewrepair = TRUE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legdecan
+	name = "legion veteran decanus helmet"
+	desc = "It's a metal helmet with an array of red, white and black feathers, unmistakably a Veteran Decanus."
+	icon_state = "legion-decvet-alt"
+	item_state = "legion-decvet-alt"
+	max_integrity = 300
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = null
+	sewrepair = FALSE
+	blocksound = SOFTHIT
+	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEEARS|HIDEHAIR
+
+/obj/item/clothing/head/roguetown/helmet/legcenturion
+	name = "legion centurion helmet"
+	desc = "A sturdy helmet from steel and brass with a red horizontal plume."
+	icon_state = "legion-centurion"
+	item_state = "legion-centurion"
+	body_parts_covered = FULL_HEAD
+	body_parts_covered = HEAD|EARS|HAIR
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/steel
+	blocksound = PLATEHIT
+	sewrepair = FALSE
+	blocksound = SOFTHIT
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	max_integrity = 450
+	resistance_flags = LAVA_PROOF | FIRE_PROOF
+	
+
+/obj/item/clothing/head/roguetown/legion/servant
+	name = "servant headwear"
+	desc = "A simple uncoloured linen cloth wrapped around the head, the mark of a servant slave trained in household work."
+	icon_state = "legion-servant"
+	item_state = "legion-servant"
+	flags_inv = HIDEEARS
+	flags_cover = null
+
+/obj/item/clothing/head/f13/auxilia
+	name = "auxilia headwear"
+	desc = "A soft red cap with a black band, used by female Auxilia outside camp."
+	icon_state = "legion-aux"
+	item_state = "legion-aux"
+	flags_inv = HIDEEARS
+	flags_cover = null

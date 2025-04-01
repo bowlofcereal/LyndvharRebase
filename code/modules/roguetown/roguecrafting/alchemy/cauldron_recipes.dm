@@ -57,6 +57,11 @@
 	skill_required = SKILL_LEVEL_JOURNEYMAN // If it has "Strong", lock it roundstart for Apothecary or above
 	output_reagents = list(/datum/reagent/medicine/healthpot = 81,/datum/reagent/additive = 81)
 
+/datum/alch_cauldron_recipe/bitter_drink
+	recipe_name = "Bitter Drink"
+	smells_like = "bitterness and sarsaparilla"
+	output_reagents = list(/datum/reagent/medicine/bitterdrink = 81)
+
 /datum/alch_cauldron_recipe/rosewater_potion
 	recipe_name = "Rose Water"
 	smells_like = "roses"

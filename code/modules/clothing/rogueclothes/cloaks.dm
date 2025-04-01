@@ -1627,3 +1627,12 @@
 /obj/item/clothing/cloak/forrestercloak/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
+/obj/item/clothing/cloak/legion
+	name = "Legion Cape"
+	desc = "A deep crimson cape woven by fine legionnaire craftsmanship. A shoulder pocket is added beneath for utility."
+	icon_state = "legion"
+
+/obj/item/clothing/cloak/forrestercloak/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)

@@ -200,6 +200,18 @@
 	valid_input = /obj/item/alch/rosa
 	valid_outputs = list(/obj/item/herbseed/rosa = 1)
 
+/datum/alch_grind_recipe/brocflower_seed
+	valid_input = /obj/item/alch/brocflower
+	valid_outputs = list(/obj/item/herbseed/brocflower = 1)
+
+/datum/alch_grind_recipe/xanderroot_seed
+	valid_input = /obj/item/alch/xanderroot
+	valid_outputs = list(/obj/item/herbseed/xanderroot = 1)
+
+/datum/alch_grind_recipe/barrelcactus_seed
+	valid_input = /obj/item/alch/barrelcactus
+	valid_outputs = list(/obj/item/herbseed/barrelcactus = 1)
+
 /datum/alch_grind_recipe/puresalt
 	valid_input = /obj/item/reagent_containers/powder/salt
 	valid_outputs = list(/obj/item/alch/puresalt = 1)

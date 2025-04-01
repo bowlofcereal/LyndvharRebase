@@ -403,6 +403,32 @@
 		icon_state = "rosa"
 		user.update_icon()
 
+//HOO HAA HOO HAA
+
+/obj/item/alch/brocflower
+	name = "broc flower"
+	icon_state = "brocflower"
+
+	major_pot = /datum/alch_cauldron_recipe/bitter_drink
+	med_pot = /datum/alch_cauldron_recipe/stamina_potion
+	minor_pot = /datum/alch_cauldron_recipe/health_potion
+
+/obj/item/alch/xanderroot
+	name = "xander root"
+	icon_state = "xanderroot"
+
+	major_pot = /datum/alch_cauldron_recipe/health_potion
+	med_pot = /datum/alch_cauldron_recipe/antidote
+	minor_pot = /datum/alch_cauldron_recipe/bitter_drink
+
+/obj/item/alch/barrelcactus
+	name = "barrel cactus fruit"
+	icon_state = "barrelcactus"
+
+	major_pot = /datum/alch_cauldron_recipe/stam_poison
+	med_pot = /datum/alch_cauldron_recipe/berrypoison
+	minor_pot = /datum/alch_cauldron_recipe/bitter_drink
+
 //dust mix crafting
 /datum/crafting_recipe/roguetown/alch/feaudust
 	name = "feau dust"
@@ -426,3 +452,4 @@
 	craftsound = 'sound/foley/scribble.ogg'
 	skillcraft = /datum/skill/craft/alchemy
 	craftdiff = 0
+

@@ -118,3 +118,15 @@
 /obj/item/herbseed/rosa
 	makes_herb = /obj/structure/flora/roguegrass/herb/rosa
 	seed_identity = "rosa seeds"
+
+/obj/item/herbseed/brocflower
+	makes_herb = /obj/structure/flora/roguegrass/herb/brocflower
+	seed_identity = "broc flower seeds"
+
+/obj/item/herbseed/xanderroot
+	makes_herb = /obj/structure/flora/roguegrass/herb/xanderroot
+	seed_identity = "xander root seeds"
+
+/obj/item/herbseed/barrelcactus
+	makes_herb = /obj/structure/flora/roguegrass/herb/barrelcactus
+	seed_identity = "barrel cactus seeds"

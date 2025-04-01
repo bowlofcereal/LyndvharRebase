@@ -970,3 +970,123 @@
 /obj/item/clothing/suit/roguetown/armor/plate/elven_plate/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_WOOD_ARMOR)
+
+//////////
+//LEGION//
+//////////
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion
+	blocksound = SOFTHIT
+	blade_dulling = DULLING_BASHCHOP
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sewrepair = TRUE
+	nodismemsleeves = TRUE
+	max_integrity = 300
+	sellprice = 20
+	salvage_result = /obj/item/natural/hide/cured
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/recruit
+	name = "legion recruit armor"
+	desc = "Well, it's better than nothing."
+	icon_state = "legion_recruit"
+	item_state = "legion_recruit"
+	body_parts_covered = CHEST|VITALS|GROIN
+	armor = list("blunt" = 60, "slash" = 50, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CUT,BCLASS_BLUNT)
+	max_integrity = 200
+	armor_class = ARMOR_CLASS_LIGHT
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/recruit/decan
+	name = "legion recruit decanus armor"
+	desc = "Recruit Decani receive slightly better protection than regular recruits. Slightly."
+	armor = list("blunt" = 70, "slash" = 55, "stab" = 45, "piercing" = 25, "fire" = 0, "acid" = 0)
+	max_integrity = 225
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/prime
+	name = "legion prime armor"
+	desc = "Legion Primes have survived some skirmishes, and when promoted often recieve a set of armor, padded leather modeled on ancient baseball catcher uniforms and various plates of metal or boiled leather."
+	icon_state = "legion_prime"
+	item_state = "legion_prime"
+	body_parts_covered = CHEST|VITALS|GROIN
+	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT)
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 60, "piercing" = 20, "fire" = 0, "acid" = 0)
+	armor_class = ARMOR_CLASS_LIGHT
+	max_integrity = 275
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/prime/decan
+	name = "legion prime decanus armor"
+	desc = "Legion prime decanus armor-an extra reinforced baseball uniform."
+	armor = list("blunt" = 90, "slash" = 90, "stab" = 70, "piercing" = 40, "fire" = 0, "acid" = 0)
+	max_integrity = 300
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/vet
+	name = "legion veteran armor"
+	desc = "Armor worn by veterans, salvaged bits of enemy armor and scrap metal often reinforcing the armor."
+	icon_state = "legion_veteran"
+	item_state = "legion_veteran"
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
+	body_parts_covered = CHEST|VITALS|GROIN|LEGS
+	armor = list("blunt" = 80, "slash" = 100, "stab" = 80, "piercing" = 10, "fire" = 0, "acid" = 0)
+	armor_class = ARMOR_CLASS_MEDIUM
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/vet/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_COAT_STEP)
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/heavy
+	name = "legion veteran decan armor"
+	desc = "A Legion veterans armor reinforced with a patched boltproof vest, the wearer has the markings of a Decanus."
+	icon_state = "legion_heavy"
+	item_state = "legion_heavy"
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
+	body_parts_covered = CHEST|VITALS|GROIN|LEGS
+	armor = list("blunt" = 80, "slash" = 100, "stab" = 80, "piercing" = 80, "fire" = 0, "acid" = 0)
+	armor_class = ARMOR_CLASS_MEDIUM
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/heavy/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_COAT_STEP)
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/explorer
+	name = "legion explorer armor"
+	desc = "Armor based on layered strips of laminated linen and leather, the technique giving it surprising resilience for low weight."
+	icon_state = "legion_explorer"
+	item_state = "legion_explorer"
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
+	body_parts_covered = CHEST|VITALS|GROIN
+	armor = list("blunt" = 80, "slash" = 80, "stab" = 60, "piercing" = 20, "fire" = 0, "acid" = 0)
+	armor_class = ARMOR_CLASS_LIGHT
+	max_integrity = 300
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/vexil
+	name = "legion vexillarius armor"
+	desc = " Worn by Vexillarius, this armor has been reinforced with circular metal plates on the chest and a back mounted pole for the flag of the Bull, making the wearer easy to see at a distance."
+	icon_state = "legion_vex"
+	item_state = "legion_vex"
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
+	body_parts_covered = CHEST|VITALS|GROIN
+	armor = list("blunt" = 80, "slash" = 100, "stab" = 80, "piercing" = 10, "fire" = 0, "acid" = 0)
+	armor_class = ARMOR_CLASS_MEDIUM
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/vexil/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_COAT_STEP)
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/centurion
+	name = "legion centurion armor"
+	desc = "Every Centurion is issued some of the best armor available in the Legion, and adds better pieces from slain opponents over time."
+	icon_state = "legion_centurion"
+	item_state = "legion_centurion"
+	body_parts_covered = CHEST|VITALS|GROIN|ARMS|LEGS
+	armor = list("blunt" = 80, "slash" = 100, "stab" = 80, "piercing" = 30, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/steel
+	equip_delay_self = 4 SECONDS
+	unequip_delay_self = 4 SECONDS
+	armor_class = ARMOR_CLASS_HEAVY
+
+/obj/item/clothing/suit/roguetown/armor/f13/legion/centurion/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP)
