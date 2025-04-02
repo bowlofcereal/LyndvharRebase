@@ -79,7 +79,7 @@
 "abF" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/skull{
-	list_reagents = list(/datum/reagent/consumable/ethanol/beer/voddena = 20);
+	list_reagents = list(/datum/reagent/consumable/ethanol/beer/voddena=20);
 	pixel_x = 6;
 	pixel_y = 7
 	},
@@ -5841,6 +5841,12 @@
 "cxA" = (
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/outdoors/mountains)
+"cxQ" = (
+/obj/structure/roguewindow/openclose/reinforced{
+	dir = 1
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town)
 "cyh" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 1
@@ -23638,7 +23644,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/bath)
 "jOX" = (
-/obj/structure/roguewindow,
+/obj/structure/roguewindow/openclose/reinforced{
+	dir = 8
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town)
 "jPc" = (
@@ -31501,7 +31509,9 @@
 	},
 /area/rogue/indoors/town/manor)
 "njq" = (
-/obj/structure/roguewindow,
+/obj/structure/roguewindow/openclose/reinforced{
+	dir = 8
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/dwarfin)
 "njs" = (
@@ -33121,6 +33131,12 @@
 /obj/item/paper,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church/basement)
+"nPM" = (
+/obj/structure/roguewindow/openclose/reinforced{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood/herringbone,
+/area/rogue/indoors/town)
 "nPN" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/swamp,
@@ -50715,6 +50731,10 @@
 /obj/item/roguestatue/iron,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cavewet/bogcaves/sunkencity)
+"vdq" = (
+/obj/structure/roguewindow/openclose/reinforced,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/dwarfin)
 "vdy" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/manor)
@@ -51356,6 +51376,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter/woods)
+"vtM" = (
+/obj/structure/roguewindow/openclose/reinforced{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood/herringbone,
+/area/rogue/indoors/town)
 "vtN" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10;
@@ -244993,7 +245019,7 @@ dQI
 kkc
 kzT
 gyu
-iJD
+nPM
 cDX
 gyu
 fpx
@@ -245449,7 +245475,7 @@ ucq
 mwc
 lKo
 gyu
-iJD
+nPM
 gyu
 cDX
 xpk
@@ -246808,7 +246834,7 @@ bSA
 kRg
 kkB
 bPS
-iJD
+jrn
 enk
 bUt
 bUt
@@ -247249,7 +247275,7 @@ ocX
 wSP
 njB
 sns
-iJD
+paa
 xtN
 kRg
 arJ
@@ -247260,7 +247286,7 @@ tVf
 kRg
 iBM
 waZ
-iJD
+jrn
 enk
 bUt
 eNp
@@ -248155,7 +248181,7 @@ nJH
 sns
 cDX
 gyu
-iJD
+vtM
 gyu
 fsO
 cDX
@@ -252230,7 +252256,7 @@ acE
 sBu
 kfC
 ass
-njq
+vdq
 kaR
 eyK
 eyK
@@ -252682,7 +252708,7 @@ puO
 phl
 sBu
 qfA
-njq
+vdq
 fyu
 eyK
 eyK
@@ -253132,7 +253158,7 @@ buN
 puO
 puO
 eeI
-jOX
+cxQ
 ygS
 smL
 uDM
@@ -255392,7 +255418,7 @@ eTN
 nas
 oHv
 tbm
-jOX
+cxQ
 sns
 vaz
 iAy
@@ -256298,7 +256324,7 @@ aWT
 aWT
 exD
 sns
-njq
+vdq
 fyu
 eyK
 eyK
@@ -256750,7 +256776,7 @@ pxc
 vAX
 exD
 ehB
-njq
+vdq
 kaR
 eyK
 eyK
