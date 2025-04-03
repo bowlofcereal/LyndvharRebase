@@ -192,7 +192,7 @@
 				user.start_pulling(pulling,supress_message = TRUE)
 				if(user.m_intent != MOVE_INTENT_SNEAK)
 					playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
-				if(L.mind) // idk just following whats going on above
+				if(L.mind)
 					L.mind.add_sleep_experience(/datum/skill/misc/climbing, (L.STAINT/2), FALSE)
 	else
 		..()
