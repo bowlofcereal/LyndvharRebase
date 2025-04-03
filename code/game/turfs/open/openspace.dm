@@ -124,9 +124,9 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
 		user.visible_message(span_warning("[user] starts to climb down."), span_warning("I start to climb down."))
 		var/climbtime = 30
+		var/heavy = FALSE
 		if(ishuman(L))
 			var/mob/living/carbon/human/H = L
-			var/heavy = FALSE
 			if(istype(H.wear_armor, /obj/item/clothing))
 				var/obj/item/clothing/CL = H.wear_armor
 				switch(CL.armor_class)

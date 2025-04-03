@@ -167,9 +167,9 @@
 					return
 				var/mintime = 30
 				var/maxtime = 70
+				var/heavy = FALSE
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
-					var/heavy = FALSE
 					if(istype(H.wear_armor, /obj/item/clothing))
 						var/obj/item/clothing/CL = H.wear_armor
 						switch(CL.armor_class)
