@@ -169,6 +169,7 @@
 				var/maxtime = 70
 				if(ishuman(L))
 					var/mob/living/carbon/human/H = L
+					var/heavy = FALSE
 					if(istype(H.wear_armor, /obj/item/clothing))
 						var/obj/item/clothing/CL = H.wear_armor
 						switch(CL.armor_class)
@@ -177,8 +178,12 @@
 							if(3)	//ARMOR_CLASS_HEAVY
 								mintime = 40
 								maxtime = 115
+								heavy = TRUE
 				if(HAS_TRAIT(L, TRAIT_CLIMBING_EXPERT))
-					mintime = 15
+					if(!heavy)
+						mintime = 15
+					else
+						mintime = 25
 					maxtime = 70
 				used_time = max(maxtime - (myskill * 10) - (L.STASPD * 3), mintime)
 			if(user.m_intent != MOVE_INTENT_SNEAK)
