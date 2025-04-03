@@ -38,6 +38,7 @@
 			if(!index)
 				index = H.real_name
 			S.name = "man-at-arms jupon ([index])"
+		ADD_TRAIT(H, TRAIT_CLIMBING_EXPERT, TRAIT_GENERIC)
 
 /datum/outfit/job/roguetown/manorguard
 	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
