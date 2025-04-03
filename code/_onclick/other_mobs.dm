@@ -339,11 +339,11 @@
 				var/jextra = FALSE
 				if(m_intent == MOVE_INTENT_RUN)
 					OffBalance(30)
-					jadded = max(((maxrogfat / 10) * 1.5), 20)	//15% of green bar
+					jadded = max(((maxrogfat / 10) * 2), 20)	//20% of green bar
 					jrange = 3
 					if(!HAS_TRAIT(src, TRAIT_LEAPER))// The Jester lands where the Jester wants.
 						jextra = TRUE
-						jadded += max(((maxrogfat / 10) * 1.5), 20) //15% extra (30% total) if no Acrobatic virtue
+						jadded += max(((maxrogfat / 10) * 2), 20) //20% extra (40% total) if no Acrobatic virtue
 				else
 					OffBalance(20)
 					jadded = 10
