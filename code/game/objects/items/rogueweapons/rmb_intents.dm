@@ -30,7 +30,8 @@
 	if(L.has_status_effect(/datum/status_effect/debuff/feinted))
 		perc = 0
 	if(user.has_status_effect(/datum/status_effect/debuff/feintcd))
-		perc -= 200 // no chain feinting
+		to_chat(user, span_danger("[L] is too on guard for another so soon!"))
+		return
 	if(HAS_TRAIT(L,TRAIT_DECEIVING_MEEKNESS))
 		perc -= 30
 	if(HAS_TRAIT(user,TRAIT_DECEIVING_MEEKNESS))
