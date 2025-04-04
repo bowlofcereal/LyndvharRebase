@@ -90,11 +90,11 @@
 
 /datum/status_effect/debuff/feinted
 	id = "nofeint"
-	duration = 100
+	duration = 10 SECONDS
 
 /datum/status_effect/debuff/feintcd
 	id = "feintcd"
-	duration = 300
+	duration = 30 SECONDS
 
 /datum/status_effect/debuff/riposted
 	id = "riposted"
