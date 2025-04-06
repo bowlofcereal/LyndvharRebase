@@ -40,16 +40,27 @@
 	perc = CLAMP(perc, 0, 90)
 	if(prob(perc)) //feint intent increases the immobilize duration significantly
 		if(istype(user.rmb_intent, /datum/rmb_intent/feint))
+			if(L.pulling)
+				L.changeNext_move(20)
+				L.stop_pulling()
+				to_chat(user, span_notice("[L] fell for my dirty trick! I am loose!"))
+				to_chat(L, span_danger("I fall for [user]'s dirty trick! My hold is broken!"))
+				L.Immobilize(20)
+				return
 			L.apply_status_effect(/datum/status_effect/debuff/feinted)
 			L.changeNext_move(20)
 			L.Immobilize(30)
-			if(L.pulling)
-				L.changeNext_move(CLICK_CD_GRABBING)
-				L.stop_pulling()
 			to_chat(user, span_notice("[L] fell for my feint attack!"))
 			to_chat(L, span_danger("I fall for [user]'s feint attack!"))
 			playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
 		else
+			if(L.pulling)
+				L.changeNext_move(10)
+				L.stop_pulling()
+				to_chat(user, span_notice("[L] fell for my dirty trick! I am loose!"))
+				to_chat(L, span_danger("I fall for [user]'s dirty trick! My hold is broken!"))
+				L.Immobilize(10)
+				return
 			L.apply_status_effect(/datum/status_effect/debuff/feinted)
 			L.changeNext_move(10)
 			L.Immobilize(15)
@@ -91,7 +102,7 @@
 
 /datum/status_effect/debuff/feinted
 	id = "nofeint"
-	duration = 10 SECONDS
+	duration = 7.5 SECONDS
 
 /datum/status_effect/debuff/feintcd
 	id = "feintcd"
