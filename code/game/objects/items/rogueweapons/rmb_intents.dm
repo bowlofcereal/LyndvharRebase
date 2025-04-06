@@ -46,6 +46,7 @@
 				to_chat(user, span_notice("[L] fell for my dirty trick! I am loose!"))
 				to_chat(L, span_danger("I fall for [user]'s dirty trick! My hold is broken!"))
 				L.Immobilize(20)
+				playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
 				return
 			L.apply_status_effect(/datum/status_effect/debuff/feinted)
 			L.changeNext_move(20)
@@ -101,10 +102,20 @@
 /datum/status_effect/debuff/feinted
 	id = "nofeint"
 	duration = 7.5 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/feinted
+
+/atom/movable/screen/alert/status_effect/debuff/feinted
+	name = "Feinted"
+	desc = "I cannot defend myself for a time!"
 
 /datum/status_effect/debuff/feintcd
 	id = "feintcd"
 	duration = 30 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/feintcd
+
+/atom/movable/screen/alert/status_effect/debuff/feintcd
+	name = "Feint cooldown"
+	desc = "I cannot feint again for some time."
 
 /datum/status_effect/debuff/riposted
 	id = "riposted"
