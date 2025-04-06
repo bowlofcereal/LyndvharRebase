@@ -60,6 +60,7 @@
 				to_chat(user, span_notice("[L] fell for my dirty trick! I am loose!"))
 				to_chat(L, span_danger("I fall for [user]'s dirty trick! My hold is broken!"))
 				L.Immobilize(10)
+				playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
 				return
 			L.apply_status_effect(/datum/status_effect/debuff/feinted)
 			L.changeNext_move(10)
