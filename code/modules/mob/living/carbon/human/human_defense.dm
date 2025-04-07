@@ -42,7 +42,8 @@
 			blade_dulling = BCLASS_BLUNT
 		if(used.blocksound)
 			playsound(loc, get_armor_sound(used.blocksound, blade_dulling), 100)
-		used.take_damage(damage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
+		damage = damage + STASTR/2
+		used.take_damage(damage, BRUTE, d_type, FALSE, null, armor_penetration)
 	if(physiology)
 		protection += physiology.armor.getRating(d_type)
 	return protection
