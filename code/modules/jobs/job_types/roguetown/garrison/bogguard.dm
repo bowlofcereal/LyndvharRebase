@@ -44,7 +44,7 @@ Also given some non-combat skills that a peasent would have, just to support the
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
@@ -52,7 +52,7 @@ Also given some non-combat skills that a peasent would have, just to support the
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)// Environmental advantages are key to setting a tone and actual place for the Warden's skill set
