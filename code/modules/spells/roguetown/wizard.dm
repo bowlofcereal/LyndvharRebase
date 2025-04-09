@@ -50,7 +50,7 @@
 			var/immobduration = 2 SECONDS
 			if(L.STACON >= 10)
 				var/extra_con = L.STACON - 10
-				immobduration = max(0, 2 SECONDS - extra_con * 5)
+				immobduration = max(0, 2 SECONDS - extra_con * 5) //Default immobilization duration is 2 seconds (20), for each point of con above 1 on the target, the duration is reduced by 5 ticks.
 				L.Immobilize(immobduration)
 				if(immobduration >= 1)
 					L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
