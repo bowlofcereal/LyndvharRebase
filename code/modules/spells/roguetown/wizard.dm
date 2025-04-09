@@ -47,12 +47,11 @@
 			return BULLET_ACT_BLOCK
 		if(isliving(target))
 			var/mob/living/L = target
-			if(L.STACON <= 14)
-				L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
-				L.Paralyze(10)
-			else
+			if(L.STACON >= 14)
 				L.electrocute_act(1, src, 1, SHOCK_NOSTUN)
-				L.Paralyze(10)
+			else
+				L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
+				L.Immobilize(10)
 	qdel(src)
 
 /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning
