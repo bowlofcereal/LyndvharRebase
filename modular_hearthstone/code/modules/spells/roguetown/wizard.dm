@@ -753,7 +753,7 @@ GLOBAL_LIST_EMPTY(wizard_spells_list)
 	damage_type = BURN
 	flag = "magic"
 	range = 15
-	speed = 15 //higher is slower
+	speed = 5 //higher is slower
 	var/aoe_range = 1
 
 /obj/projectile/magic/acidsplash/on_hit(atom/target, blocked = FALSE)
