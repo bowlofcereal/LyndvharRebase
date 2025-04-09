@@ -47,11 +47,17 @@
 			return BULLET_ACT_BLOCK
 		if(isliving(target))
 			var/mob/living/L = target
-			if(L.STACON >= 14)
-				L.electrocute_act(1, src, 1, SHOCK_NOSTUN)
-			else
-				L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
-				L.Immobilize(10)
+			var/immobduration = 2 SECONDS
+			if(L.STACON >= 10)
+				var/extra_con = L.STACON - 10
+				immobduration = max(0, 2 SECONDS - extra_con * 5)
+				L.Immobilize(immobduration)
+				if(immobduration >= 1)
+					L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
+				else
+					to_chat(L, span_warning("I shrug off the lightning bolt!"))
+					L.visible_message(span_warningbig("[L] mogs the lightning bolt!"))
+					playsound(src, 'sound/misc/mogging.ogg', 100, FALSE)
 	qdel(src)
 
 /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning
