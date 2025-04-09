@@ -1012,7 +1012,7 @@ GLOBAL_LIST_EMPTY(wizard_spells_list)
 	icon_state = "arcane_barrage"
 	damage = 30
 	damage_type = BRUTE
-	armor_penetration = 10
+	armor_penetration = 100
 	woundclass = BCLASS_SMASH
 	nodamage = FALSE
 	flag = "magic"
