@@ -17,7 +17,7 @@
 	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokelightning
 	associated_skill = /datum/skill/magic/arcane
-	cost = 2
+	cost = 1
 	xp_gain = TRUE
 
 /obj/projectile/magic/lightning
@@ -55,9 +55,9 @@
 				if(immobduration >= 1)
 					L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
 				else
+					L.electrocute_act(1, src, 1, SHOCK_NOSTUN)
 					to_chat(L, span_warning("I shrug off the lightning bolt!"))
-					L.visible_message(span_warningbig("[L] mogs the lightning bolt!"))
-					playsound(src, 'sound/misc/mogging.ogg', 100, FALSE)
+					L.visible_message(span_danger("[L] shrugs off the lightning bolt!"))
 	qdel(src)
 
 /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning
