@@ -48,16 +48,22 @@
 		if(isliving(target))
 			var/mob/living/L = target
 			var/immobduration = 2 SECONDS
-			if(L.STACON >= 10)
-				var/extra_con = L.STACON - 10
-				immobduration = max(0, 2 SECONDS - extra_con * 5) //Default immobilization duration is 2 seconds (20), for each point of con above 1 on the target, the duration is reduced by 5 ticks.
-				L.Immobilize(immobduration)
-				if(immobduration >= 1)
-					L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
-				else
-					L.electrocute_act(1, src, 1, SHOCK_NOSTUN)
-					to_chat(L, span_warning("I shrug off the lightning bolt!"))
-					L.visible_message(span_danger("[L] shrugs off the lightning bolt!"))
+			if(L.client)
+				continue
+					if(L.STACON >= 10)
+						var/extra_con = L.STACON - 10
+						immobduration = max(0, 2 SECONDS - extra_con * 5) //Default immobilization duration is 2 seconds (20), for each point of con above 1 on the target, the duration is reduced by 5 ticks.
+						L.Immobilize(immobduration)
+						if(immobduration >= 1)
+							L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
+						else
+							L.electrocute_act(1, src, 1, SHOCK_NOSTUN)
+							to_chat(L, span_warning("I shrug off the lightning bolt!"))
+							L.visible_message(span_danger("[L] shrugs off the lightning bolt!"))
+			else
+				L.Paralyze(10)
+				L.electrocute_act(2, src, 2, SHOCK_NOSTUN)
+				qdel(src)
 	qdel(src)
 
 /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning
