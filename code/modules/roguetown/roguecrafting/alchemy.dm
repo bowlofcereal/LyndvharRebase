@@ -139,6 +139,13 @@
 	craftdiff = 4
 	verbage_simple = "transmute"
 
+/datum/crafting_recipe/roguetown/alchemy/gold2silver
+	name = "gold to silver"
+	result = list(/obj/item/rogueore/silver = 1)
+	reqs = list(/obj/item/rogueore/gold = 2)
+	craftdiff = 4
+	verbage_simple = "transmute"
+
 /datum/crafting_recipe/roguetown/alchemy/g2top
 	name = "gold to toper"
 	result = list(/obj/item/roguegem/yellow = 1)
