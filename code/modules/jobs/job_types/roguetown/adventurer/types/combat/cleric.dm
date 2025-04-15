@@ -367,7 +367,7 @@
 			to_chat(H, span_warning("You are a pacifistic zealot blessed with uncannily titanic constituion, dedicated to taking the burdens from others as a walking, pain-blinded dynamo of self-sacrifce. Traditonally, flagellants are rare even among the most zealous of Psydon's worshippers, each eager to quest to take a burden worthy of the Weeping God themselves... But, your penance may vary in reason."))
 			if (!(istype(H.patron, /datum/patron/old_god) || istype(H.patron, /datum/patron/divine/eora) || istype(H.patron, /datum/patron/divine/xylix) || istype(H.patron, /datum/patron/inhumen/baotha)))
 			to_chat(H, span_warning("My former deity frowned upon my odd practices. I have since turned to a new god."))
-			H.set_patron(pick(/datum/patron/old_god, /datum/patron/inhumen/eora, /datum/patron/inhumen/xylix, /datum/patron/inhumen/baotha))
+			H.set_patron(pick(/datum/patron/old_god, /datum/patron/divine/eora, /datum/patron/divine/xylix, /datum/patron/inhumen/baotha))
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
