@@ -206,7 +206,7 @@
 						/obj/item/reagent_containers/glass/alchemical/lucpot)
 
 		if("Flagellant")
-			to_chat(H, span_warning("You are a pacifistic warrior who embraces suffering, believing pain is the path to enlightenment. You take the suffering of others upon yourself."))
+			to_chat(H, span_warning("You are a pacifistic zealot blessed with uncannily titanic constituion, dedicated to taking the burdens from others as a walking, pain-blinded dynamo of self-sacrifce. Traditonally, flagellants are common among the most zealous of Psydon's worshippers, each eager to quest to take a burden worthy of the Weeping God themselves, but your reasons may vary."))
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
@@ -224,7 +224,7 @@
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_NOFALLDAMAGE1, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC
 			ADD_TRAIT(H, TRAIT_IGNORESLOWDOWN, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_BREADY, TRAIT_GENERIC)
 			
