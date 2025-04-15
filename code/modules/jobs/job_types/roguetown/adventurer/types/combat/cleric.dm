@@ -365,6 +365,9 @@
 
 		if("Flagellant")
 			to_chat(H, span_warning("You are a pacifistic zealot blessed with uncannily titanic constituion, dedicated to taking the burdens from others as a walking, pain-blinded dynamo of self-sacrifce. Traditonally, flagellants are rare even among the most zealous of Psydon's worshippers, each eager to quest to take a burden worthy of the Weeping God themselves... But, your penance may vary in reason."))
+			if (!(istype(H.patron, /datum/patron/old_god) || istype(H.patron, /datum/patron/divine/eora) || istype(H.patron, /datum/patron/divine/xylix) || istype(H.patron, /datum/patron/inhumen/baotha)))
+			to_chat(H, span_warning("My former deity frowned upon my odd practices. I have since turned to a new god."))
+			H.set_patron(pick(/datum/patron/old_god, /datum/patron/inhumen/eora, /datum/patron/inhumen/xylix, /datum/patron/inhumen/baotha))
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
@@ -381,7 +384,7 @@
 			ADD_TRAIT(H, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_NOFALLDAMAGE1, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+			// ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) You are an empath. Try enduring watching this shit
 			ADD_TRAIT(H, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC
 			ADD_TRAIT(H, TRAIT_IGNORESLOWDOWN, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_BREADY, TRAIT_GENERIC)
@@ -389,7 +392,7 @@
 			H.change_stat("constitution", 15)
 			H.change_stat("intelligence", -2)
 			H.change_stat("perception", -2)
-			H.change_stat("endurance", -2)
+			H.change_stat("endurance", 2) // ENDURE.
 			H.change_stat("strength", -2)
 			
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
