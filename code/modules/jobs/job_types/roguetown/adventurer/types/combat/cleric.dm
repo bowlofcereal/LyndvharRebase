@@ -11,7 +11,8 @@
 	classes = list("Monk" = "You are a wandering acolyte, versed in both miracles and martial arts. You forego the heavy armor paladins wear in favor of a more nimble approach to combat, utilizing your fists.",
 					"Paladin" = "A holy warrior. Where others of the clergy may have spent their free time studying scriptures, you have instead honed your skills with a blade.",
 					"Missionary" = "You are a devout worshipper of the divine with a strong connection to your patron god. You've spent years studying scriptures and serving your deity - now you wander into foreign lands, spreading the word of your faith.",
-					"Cantor" = "You were a bard once - but you've found a new calling. Your eyes have been opened to the divine, now you wander from city to city singing songs and telling tales of your patron's greatness.")
+					"Cantor" = "You were a bard once - but you've found a new calling. Your eyes have been opened to the divine, now you wander from city to city singing songs and telling tales of your patron's greatness.",
+					"Flagellant" = "You are a pacifistic zealot blessed with uncannily titanic constituion, dedicated to taking the burdens from others as a walking, pain-blinded dynamo of self-sacrifce. Traditonally, flagellants are rare even among the most zealous of Psydon's worshippers, each eager to quest to take a burden worthy of the Weeping God themselves... But, your penance may vary in reason.")
 
 /datum/outfit/job/roguetown/adventurer/cleric
 	allowed_patrons = ALL_PATRONS
@@ -26,7 +27,7 @@
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
-	var/classes = list("Monk","Paladin","Cantor","Missionary")
+	var/classes = list("Monk","Paladin","Cantor","Missionary","Flagellant")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
@@ -361,5 +362,46 @@
 			/obj/item/clothing/neck/roguetown/psicross/eora
 			)
 			neck = pick(psicross_options)
+
+		if("Flagellant")
+			to_chat(H, span_warning("You are a pacifistic zealot blessed with uncannily titanic constituion, dedicated to taking the burdens from others as a walking, pain-blinded dynamo of self-sacrifce. Traditonally, flagellants are rare even among the most zealous of Psydon's worshippers, each eager to quest to take a burden worthy of the Weeping God themselves... But, your penance may vary in reason."))
+			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+			H.set_blindness(0)
+			
+			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_PACIFISM, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_NOPAIN, TRAIT_GENERIC) 
+			ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_NOFALLDAMAGE1, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC
+			ADD_TRAIT(H, TRAIT_IGNORESLOWDOWN, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_BREADY, TRAIT_GENERIC)
+			
+			H.change_stat("constitution", 15)
+			H.change_stat("intelligence", -2)
+			H.change_stat("perception", -2)
+			H.change_stat("endurance", -2)
+			H.change_stat("strength", -2)
+			
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/damage_transfer)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/affliction_transfer)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/burden_exchange)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/damage_link)
+			
+			pants = /obj/item/clothing/under/roguetown/tights/black
+			shirt = /obj/item/clothing/suit/roguetown/shirt/tunic
+			backl = /obj/item/storage/backpack/rogue/satchel   
+			belt = /obj/item/storage/belt/rogue/leather        
+			beltr = /obj/item/rogueweapon/whip       
 
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
