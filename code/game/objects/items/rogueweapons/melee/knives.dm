@@ -77,7 +77,7 @@
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
 	name = "hunting knife"
-	desc = "This survival knife might be able to get you through the wild."
+	desc = "A heavy knife meant for dressing animals and shaving wood for kindling. The heft makes chopping through tissue and bone much easier."
 	icon_state = "huntingknife"
 	icon = 'icons/roguetown/weapons/32.dmi'
 	item_state = "bone_dagger"
