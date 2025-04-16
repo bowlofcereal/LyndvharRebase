@@ -395,7 +395,7 @@
 			H.change_stat("endurance", 2) // ENDURE.
 			H.change_stat("strength", -2)
 			
-			user.mob_spell_list.Remove(src)
+			H.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/lesser_heal)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/damage_transfer)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/affliction_transfer)
