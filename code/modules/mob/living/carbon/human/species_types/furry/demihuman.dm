@@ -113,6 +113,10 @@
 		foreign.grant_language(/datum/language/etruscan)
 	if(foreign.skin_tone == SKIN_COLOR_GRONN)
 		foreign.grant_language(/datum/language/gronnic)
+	if(foreign.skin_tone == SKIN_COLOR_NALEDI)
+		foreign.grant_language(/datum/language/celestial)
+	if(foreign.skin_tone == SKIN_COLOR_KAZENGUN)
+		foreign.grant_language(/datum/language/kazengunese)
 
 /datum/species/demihuman/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST

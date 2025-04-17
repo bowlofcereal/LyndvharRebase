@@ -86,6 +86,10 @@
 		foreign.grant_language(/datum/language/etruscan)
 	if(foreign.skin_tone == SKIN_COLOR_GRONN)
 		foreign.grant_language(/datum/language/gronnic)
+	if(foreign.skin_tone == SKIN_COLOR_NALEDI)
+		foreign.grant_language(/datum/language/celestial)
+	if(foreign.skin_tone == SKIN_COLOR_KAZENGUN)
+		foreign.grant_language(/datum/language/kazengunese)
 
 /datum/species/human/northern/get_skin_list()
 	return list(
