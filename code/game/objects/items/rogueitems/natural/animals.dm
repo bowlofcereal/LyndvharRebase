@@ -23,6 +23,13 @@
 	color = "#5c5243"
 	sellprice = 18
 
+/obj/item/natural/fur/direbear
+	name = "direbear fur"
+	icon_state = "wool2"
+	desc = "Fur from one of Dendor's mightiest creachers."
+	color = "#1d1b18"
+	sellprice = 28
+
 /obj/item/natural/head/volf
 	name = "volf head"
 	desc = "the head of a fearsome volf."

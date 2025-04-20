@@ -381,7 +381,7 @@
 /datum/crafting_recipe/roguetown/leather/bearcloak
 	name = "direbear cloak (4 leather, 2 fur)"
 	result = list(/obj/item/clothing/cloak/darkcloak/bear)
-	reqs = list(/obj/item/natural/fur = 2,
+	reqs = list(/obj/item/natural/fur/direbear = 1,
 				/obj/item/natural/hide/cured = 4)
 	craftdiff = 3
 	sellprice = 80
