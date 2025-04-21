@@ -149,10 +149,10 @@
 	H.set_patron(/datum/patron/inhumen/zizo)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 
+	//Removed swift - reason: Infinate stamina, this is a solution to that without adding stamina back. Makes them still parry/dodge/swimmers, but not spam-weapons as much.
 	H.possible_rmb_intents = list(/datum/rmb_intent/feint,\
 	/datum/rmb_intent/aimed,\
 	/datum/rmb_intent/strong,\
-	/datum/rmb_intent/swift,\
 	/datum/rmb_intent/riposte,\
 	/datum/rmb_intent/weak)
 	H.swap_rmb_intent(num=1) //dont want to mess with base NPCs too much out of fear of breaking them so I assigned the intents in the outfit

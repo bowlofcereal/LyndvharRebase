@@ -87,6 +87,14 @@
 
 	var/mob/living/carbon/human/L = owner.current
 
+	//Gives Lich swift back incase removed by being a skeleton. This way they can still stand a chance in a fight.
+	owner.current.possible_rmb_intents = list(/datum/rmb_intent/feint,\
+	/datum/rmb_intent/aimed,\
+	/datum/rmb_intent/strong,\
+	/datum/rmb_intent/swift,\
+	/datum/rmb_intent/riposte,\
+	/datum/rmb_intent/weak)
+
 	L.cmode_music = 'sound/music/combat_cult.ogg'
 	L.faction = list("undead")
 
