@@ -242,7 +242,6 @@
 	var/newcolor = input(src, "Choose your character's SECOND voice color:", "VIRTUE","#a0a0a0") as color|null
 	if(newcolor)
 		second_voice = sanitize_hexcolor(newcolor)
-		src.verbs -= /mob/living/carbon/human/proc/changevoice
 		return TRUE
 	else
 		return FALSE
