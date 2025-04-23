@@ -1,7 +1,7 @@
 //Bobcats are a faster, still hostile, version of a wolf. 
 /mob/living/simple_animal/hostile/retaliate/rogue/wolf/bobcat
 	icon = 'icons/roguetown/mob/monster/bobcat.dmi'
-	name = "bobcat"
+	name = "lynx"
 	desc = "An adorable albiet hated creacher of Azuria's northern coast, hunting livestock and vulnrable people alike.."
 	icon_state = "bobcat"
 	icon_living = "bobcat"
