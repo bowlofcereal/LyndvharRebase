@@ -16,8 +16,10 @@
 	base_intents = list(/datum/intent/simple/bite/volf)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
 						/obj/item/natural/hide = 2,
-						/obj/item/natural/fur = 1, /obj/item/natural/bone = 4, /obj/item/alch/sinew = 2, /obj/item/alch/bone = 1, /obj/item/alch/viscera = 1,
-						/obj/item/natural/fur = 1, 
+						/obj/item/alch/sinew = 2, 
+						/obj/item/alch/bone = 1, 
+						/obj/item/alch/viscera = 1,
+						/obj/item/natural/fur = 2, 
 						/obj/item/natural/bone = 4,
 						/obj/item/natural/head/volf = 1)
 	faction = list("wolfs", "zombie")
@@ -41,7 +43,7 @@
 	pooptype = null
 	STACON = 7
 	STASTR = 7
-	STASPD = 13
+	STASPD = 12
 	simple_detect_bonus = 20
 	deaggroprob = 0
 	defprob = 40
