@@ -72,7 +72,7 @@
 
 /datum/skill/misc/music
 	name = "Music"
-	desc = "Increases the effects of your music on reducing stresses per level. At Level 4 or above, allows you to play a custom song."
+	desc = "Increases the effects of your music on reducing stresses per level. At Level 3 or above, allows you to play a custom song."
 	dreams = list(
 		"...offstage, anxiety grips you, sweat beading on your brow. But onstage, you are as still as a winter night, your voice steady and clear. Curiosity pulls your audience in as you begin to sing...",
 		"...you raise your hands to the strings and draw the crowds attention unto yourself. The music comes easily out of you, and your lyre is like a second voice...",
