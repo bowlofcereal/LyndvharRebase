@@ -57,9 +57,9 @@
 	sound = 'sound/magic/revive.ogg'
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 2 MINUTES
+	charge_max = 20 MINUTES
 	miracle = TRUE
-	devotion_cost = 80
+	devotion_cost = 250
 	/// Amount of PQ gained for reviving people
 	var/revive_pq = PQ_GAIN_REVIVE
 
