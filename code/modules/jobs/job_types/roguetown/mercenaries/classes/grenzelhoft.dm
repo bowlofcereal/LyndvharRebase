@@ -8,7 +8,8 @@
 	traits_applied = list(TRAIT_OUTLANDER)
 	cmode_music = 'sound/music/combat_grenzelhoft.ogg'
 	classes = list("Doppelsoldner" = "You are a Doppelsoldner of Grenzelhoft, a swordsman experienced with long-length blades.",
-					"Halberdier" = "You are a Halberdier from Grenzelhoft, a skilled user of poleamrs and axes. Though you prefer them combined.")
+					"Halberdier" = "You are a Halberdier from Grenzelhoft, a skilled user of poleamrs and axes. Though you prefer them combined.",
+					"Axt-Ritter" = "You are an Axt-Ritter from Grenzelhoft, a skilled user of shields and axes. specializing in a more aggressive and close style.")
 
 /datum/outfit/job/roguetown/mercenary/grenzelhoft/pre_equip(mob/living/carbon/human/H)
 	..()
