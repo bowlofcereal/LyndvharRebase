@@ -15,7 +15,7 @@
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
-	var/classes = list("Doppelsoldner","Halberdier")
+	var/classes = list("Doppelsoldner","Halberdier","Axt-Ritter")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
@@ -44,7 +44,7 @@
 			r_hand = /obj/item/rogueweapon/greatsword/grenz
 		if("Halberdier")
 			H.set_blindness(0)
-			to_chat(H, span_warning("You are a Halberdier from Grenzelhoft, a skilled user of poleamrs and axes. Though you prefer them combined."))
+			to_chat(H, span_warning("You are a Halberdier from Grenzelhoft, a skilled user of polearms and axes. Though you prefer them combined."))
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -64,6 +64,27 @@
 			H.change_stat("perception", -1)
 			H.change_stat("speed", 1)
 			r_hand = /obj/item/rogueweapon/halberd
+		if("Axt-Ritter")
+			H.set_blindness(0)
+			to_chat(H, span_warning("You are an Axt-Ritter from Grenzelhoft, a skilled user of shields and axes. specializing in a more aggressive and close style."))
+			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE) // Covered in training, but never quite got the hang of it.
+			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+			H.change_stat("strength", 2) //same str, lower end, but no cost.
+			H.change_stat("endurance", 2)
+			H.change_stat("constitution", 2)
+			r_hand = /obj/item/rogueweapon/greataxe/steel
 
 	//General gear regardless of class.
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
