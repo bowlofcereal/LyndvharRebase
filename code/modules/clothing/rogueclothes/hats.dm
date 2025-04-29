@@ -417,12 +417,19 @@
 
 
 /obj/item/clothing/head/roguetown/chaperon
-	name = "chaperon hat"
-	desc = "A fancy hat worn by nobles."
+	name = "chaperon"
+	desc = "An expensive hood worn by commoners and burghers alike."
 	icon_state = "chaperon"
 	item_state = "chaperon"
 	sewrepair = TRUE
 	//dropshrink = 0.75
+
+/obj/item/clothing/head/roguetown/chaperon/noble
+	name = "noble's chaperon"
+	desc = "A decorated chaperon worn by those more influential in society."
+	icon_state = "chaperon_n"
+	item_state = "chaperon_n"
+	detail_tag = "_detail"
 
 /obj/item/clothing/head/roguetown/cookhat
 	name = "cook hat"
@@ -432,21 +439,21 @@
 	sewrepair = TRUE
 
 /obj/item/clothing/head/roguetown/chaperon/greyscale
-	name = "chaperon hat"
+	name = "chaperon"
 	desc = "A fancy hat worn by nobles."
 	icon_state = "chap_alt"
 	item_state = "chap_alt"
 	color = "#cf99e3"
 
 /obj/item/clothing/head/roguetown/chaperon/bailiff
-	name = "chaperon hat"
+	name = "Marshal's chaperon"
 	desc = "A fancy hat worn by nobles."
 	icon_state = "chap_alt"
 	item_state = "chap_alt"
 	color = "#C0392B"
 
 /obj/item/clothing/head/roguetown/chaperon/councillor
-	name = "chaperon hat"
+	name = "Councillor's chaperon"
 	desc = "A fancy hat worn by nobles."
 	icon_state = "chap_alt"
 	item_state = "chap_alt"
