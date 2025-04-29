@@ -427,8 +427,8 @@
 /obj/item/clothing/head/roguetown/chaperon/noble
 	name = "noble's chaperon"
 	desc = "A decorated chaperon worn by those more influential in society."
-	icon_state = "chaperon_n"
-	item_state = "chaperon_n"
+	icon_state = "noblechaperon"
+	item_state = "noblechaperon"
 	detail_tag = "_detail"
 	color = CLOTHING_WHITE
 	detail_color = COLOR_ASSEMBLY_GOLD
