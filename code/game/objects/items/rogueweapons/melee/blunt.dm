@@ -6,7 +6,8 @@
 	attack_verb = list("strikes", "hits")
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	chargetime = 0
-	penfactor = 15
+	penfactor = 20
+	damfactor = 1
 	swingdelay = 0
 	icon_state = "instrike"
 	item_d_type = "blunt"
@@ -16,8 +17,8 @@
 	blade_class = BCLASS_SMASH
 	attack_verb = list("smashes")
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
-	penfactor = 80
-	damfactor = 1.1
+	penfactor = -50
+	damfactor = 1.3
 	swingdelay = 10
 	icon_state = "insmash"
 	item_d_type = "blunt"
@@ -43,7 +44,7 @@
 	force = 20
 	force_wielded = 25
 	possible_item_intents = list(/datum/intent/mace/strike)
-	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash)
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/effect/daze)
 	name = "mace"
 	desc = "Helps anyone fall asleep."
 	icon_state = "mace"
@@ -59,14 +60,13 @@
 	associated_skill = /datum/skill/combat/maces
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/iron
-	gripped_intents = list(/datum/intent/mace/strike,/datum/intent/mace/smash)
 	parrysound = list('sound/combat/parry/parrygen.ogg')
 	swingsound = BLUNTWOOSH_MED
 	minstr = 7
 	wdefense = 2
 	wbalance = -1
 	blade_dulling = DULLING_BASHCHOP
-	intdamage_factor = 0.7
+	intdamage_factor = 1.3
 
 /obj/item/rogueweapon/mace/church
 	force = 25
@@ -97,7 +97,7 @@
 	icon_state = "silverhammer"
 	force = 24
 	gripped_intents = null
-	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash)
+	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/effect/daze)
 	wdefense = 4
 	smeltresult = /obj/item/ingot/silver
 	smelt_bar_num = 2
@@ -297,7 +297,7 @@
 	force = 15
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/mace/strike)
-	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/rangedthrust)
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/rangedthrust, /datum/intent/effect/daze)
 	name = "Goedendag"
 	desc = "Good morning."
 	icon_state = "goedendag"
@@ -318,7 +318,6 @@
 	dropshrink = 0.6
 	bigboy = TRUE
 	gripsprite = TRUE
-	intdamage_factor = 0.5
 
 /obj/item/rogueweapon/mace/goden/getonmobprop(tag)
 	. = ..()
@@ -392,7 +391,7 @@
 	smeltresult = /obj/item/ingot/iron
 	blade_dulling = DULLING_BASH
 	wdefense = 3
-	intdamage_factor = 0.3
+	intdamage_factor = 1
 
 /obj/item/rogueweapon/mace/warhammer/steel
 	force = 25

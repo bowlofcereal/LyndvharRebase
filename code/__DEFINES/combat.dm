@@ -193,6 +193,7 @@
 #define BCLASS_BITE			"bite"
 #define BCLASS_BURN			"charring"
 #define BCLASS_PEEL			"peel"
+#define BCLASS_EFFECT		"effect"
 
 //Material class (what material is striking)
 #define MCLASS_GENERIC		1

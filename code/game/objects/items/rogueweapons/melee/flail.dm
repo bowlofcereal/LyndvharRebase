@@ -48,9 +48,9 @@
 	chargetime = 5
 	chargedrain = 2
 	no_early_release = TRUE
-	penfactor = 80
+	penfactor = -30
 	recovery = 10
-	damfactor = 1.2
+	damfactor = 1.6
 	chargedloop = /datum/looping_sound/flailswing
 	keep_looping = TRUE
 	icon_state = "insmash"
@@ -60,7 +60,7 @@
 	item_d_type = "blunt"
 
 /datum/intent/flail/strike/smash/militia
-	penfactor = 50
+	damfactor = 1.4
 
 /datum/intent/flail/strike/smash/golgotha
 	hitsound = list('sound/items/beartrap2.ogg')
@@ -70,9 +70,8 @@
 	chargetime = 10
 	chargedrain = 2
 	no_early_release = TRUE
-	penfactor = 50
 	recovery = 30
-	damfactor = 1.2
+	damfactor = 1.6
 	reach = 2
 	chargedloop = /datum/looping_sound/flailswing
 	keep_looping = TRUE

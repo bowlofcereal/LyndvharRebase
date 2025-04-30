@@ -24,7 +24,7 @@
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	obj_flags = CAN_BE_HIT | UNIQUE_RENAME
 	blade_dulling = DULLING_BASH
-	max_integrity = 200
+	max_integrity = 250
 	integrity_failure = 0.2
 	wdefense = 3
 	experimental_onhip = TRUE
@@ -113,3 +113,14 @@
 	wdefense = initial(wdefense)
 	sharpness = initial(sharpness)
 	can_parry = initial(can_parry)
+
+/obj/item/rogueweapon/rmb_self(mob/user)
+	if(length(alt_intents))
+		if(altgripped)
+			ungrip(user)
+			return
+		if(wielded)
+			ungrip(user)
+		altgrip(user)
+		user.update_inv_hands()
+	..()
