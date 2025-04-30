@@ -162,24 +162,6 @@
 	var/mutable_appearance/M = mutable_appearance(icon, "woodhole", layer = ABOVE_NORMAL_TURF_LAYER)
 	add_overlay(M)
 
-/turf/closed/wall/mineral/rogue/wood/tudor
-	name = "timber-framed wall"
-	desc = "A wall made using squared-off and carefully fitted and joined timbers with joints secured by large wooden pegs."
-	icon = 'icons/turf/walls/tudor.dmi'
-	icon_state = "tudor"
-	smooth = SMOOTH_MORE
-	blade_dulling = DULLING_BASHCHOP
-	max_integrity = 1100
-	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
-	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-	canSmoothWith = list(/turf/closed/wall/mineral/rogue/wood, /obj/structure/roguewindow, /obj/structure/roguetent, /turf/closed/wall/mineral/rogue/wooddark)
-//	sheet_type = /obj/item/grown/log/tree/lumber
-	above_floor = /turf/open/floor/rogue/ruinedwood
-	baseturfs = list(/turf/open/floor/rogue/ruinedwood)
-	neighborlay = "dirtedge"
-	climbdiff = 3
-
-
 /turf/closed/wall/mineral/rogue/tent
 	name = "tent"
 	desc = "Made from durable fabric and wooden branches."
