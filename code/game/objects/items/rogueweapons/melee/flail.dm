@@ -20,6 +20,7 @@
 	minstr = 4
 	grid_width = 32
 	grid_height = 96
+	intdamage_factor = 1.1
 
 /datum/intent/flail/strike
 	name = "strike"
@@ -48,7 +49,7 @@
 	chargetime = 5
 	chargedrain = 2
 	no_early_release = TRUE
-	penfactor = -30
+	penfactor = -60
 	recovery = 10
 	damfactor = 1.6
 	chargedloop = /datum/looping_sound/flailswing
