@@ -391,7 +391,6 @@
 	smeltresult = /obj/item/ingot/iron
 	blade_dulling = DULLING_BASH
 	wdefense = 3
-	intdamage_factor = 1
 
 /obj/item/rogueweapon/mace/warhammer/steel
 	force = 25
