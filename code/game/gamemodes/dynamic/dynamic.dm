@@ -642,7 +642,16 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 		if (M.stat != DEAD)
 			current_players[CURRENT_LIVING_PLAYERS].Add(M)
 			if (M.mind && (M.mind.special_role || M.mind.antag_datums?.len > 0))
-				current_players[CURRENT_LIVING_ANTAGS].Add(M)
+				// AZURE PEAK ADDITION START: Check if player has any antags that use an antag slot
+				var/counts_as_antag = FALSE
+				for(var/datum/antagonist/A in M.mind.antag_datums || list())
+					if(A.uses_antag_slot)
+						counts_as_antag = TRUE
+						break
+				if(counts_as_antag)
+					current_players[CURRENT_LIVING_ANTAGS].Add(M)
+				// AZURE PEAK ADDITION END
+				// current_players[CURRENT_LIVING_ANTAGS].Add(M) // AZURE PEAK: Commented out original code
 		else
 			if (istype(M,/mob/dead/observer))
 				var/mob/dead/observer/O = M

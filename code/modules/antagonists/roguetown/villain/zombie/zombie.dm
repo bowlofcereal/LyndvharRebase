@@ -7,6 +7,7 @@
 	antag_hud_name = "zombie"
 	show_in_roundend = FALSE
 	rogue_enabled = TRUE
+	uses_antag_slot = FALSE  // Prevents zombie/deadite from taking up antag slots
 	/// SET TO FALSE IF WE DON'T TURN INTO ROTMEN WHEN REMOVED
 	var/become_rotman = FALSE
 	var/zombie_start

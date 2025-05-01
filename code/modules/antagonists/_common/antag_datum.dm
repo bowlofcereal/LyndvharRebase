@@ -18,6 +18,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	var/antag_hud_type
 	var/antag_hud_name
 	var/list/confess_lines
+	var/uses_antag_slot = TRUE // AZURE PEAK: Whether this antag type counts toward the antag limit
 
 	//Antag panel properties
 	var/show_in_antagpanel = TRUE	//This will hide adding this antag type in antag panel, use only for internal subtypes that shouldn't be added directly but still show if possessed by mind
