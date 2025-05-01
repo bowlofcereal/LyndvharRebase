@@ -635,7 +635,7 @@
 	sleevetype = null
 	sleeved = null
 	resistance_flags = FIRE_PROOF
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 20, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 50, "slash" = 100, "stab" = 80, "piercing" = 20, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	clothing_flags = CANT_SLEEP_IN
 	dynamic_hair_suffix = "+generic"
@@ -686,7 +686,7 @@
 	desc = "A steel helmet which protects the top and sides of the head."
 	icon_state = "kettle"
 	body_parts_covered = HEAD|HAIR|EARS
-	armor = list("blunt" = 80, "slash" = 90, "piercing" = 30, "stab" = 70, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 70, "slash" = 90, "piercing" = 30, "stab" = 70, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/head/roguetown/helmet/kettle/wide
 	name = "wide kettle helmet"
@@ -788,7 +788,7 @@
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|EYES
 	block2add = FOV_BEHIND
 	smelt_bar_num = 2
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 40, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 100, "stab" = 80, "piercing" = 40, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/head/roguetown/helmet/sallet/visored/attackby(obj/item/W, mob/living/user, params)
 	..()
@@ -913,7 +913,7 @@
 	item_state = "barbute"
 	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 50, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 100, "stab" = 80, "piercing" = 50, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_TWIST, BCLASS_PICK)
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
@@ -2110,7 +2110,7 @@
 	item_state = "bkhelm"
 	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 65, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 100, "stab" = 80, "piercing" = 65, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_TWIST, BCLASS_PICK)
 	block2add = FOV_BEHIND
 	max_integrity = 425
@@ -2203,7 +2203,7 @@
 	max_integrity = 250
 	body_parts_covered = HEAD|EARS|HAIR|NOSE
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
-	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 90, "slash" = 60, "stab" = 30, "piercing" = 20, "fire" = 0, "acid" = 0)
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
 	anvilrepair = null
 	smeltresult = null
@@ -2215,7 +2215,7 @@
 	name = "woad elven helm"
 	desc = "An assembly of woven trunk, kept alive by ancient song, now twisted and warped for battle and scorn."
 	body_parts_covered = FULL_HEAD | NECK
-	armor = list("blunt" = 120, "slash" = 20, "stab" = 110, "piercing" = 40, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 100, "slash" = 20, "stab" = 110, "piercing" = 40, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_SMASH, BCLASS_TWIST, BCLASS_PICK)
 	icon = 'icons/roguetown/clothing/special/race_armor.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/race_armor.dmi'

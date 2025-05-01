@@ -368,7 +368,7 @@
 	id = "dazed"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/dazed
 	effectedstats = list("perception" = -2, "intelligence" = -2)
-	duration = 45 SECONDS
+	duration = 15 SECONDS
 	status_type = STATUS_EFFECT_REFRESH
 
 /atom/movable/screen/alert/status_effect/debuff/dazed

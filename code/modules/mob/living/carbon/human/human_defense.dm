@@ -42,7 +42,13 @@
 			blade_dulling = BCLASS_BLUNT
 		if(used.blocksound)
 			playsound(loc, get_armor_sound(used.blocksound, blade_dulling), 100)
-		used.take_damage((intdamfactor ? damage * intdamfactor : damage), damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
+		var/intdamage = damage
+		if(intdamfactor)
+			intdamage *= intdamfactor
+		if(used.armor?.getRating("blunt") > 0)
+			var/bluntrating = used.armor.getRating("blunt")
+			intdamage -= intdamage * ((bluntrating / 2) / 100)	//Half of the blunt rating reduces blunt damage taken by %-age.
+		used.take_damage(intdamage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
 		if(damage)
 			if(blade_dulling == BCLASS_PEEL)
 				used.peel_coverage(def_zone, peeldivisor)

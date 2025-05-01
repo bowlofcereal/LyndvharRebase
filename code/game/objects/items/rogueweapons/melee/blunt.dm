@@ -6,7 +6,7 @@
 	attack_verb = list("strikes", "hits")
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	chargetime = 0
-	penfactor = 20
+	penfactor = -70
 	damfactor = 1
 	swingdelay = 0
 	icon_state = "instrike"
@@ -17,8 +17,8 @@
 	blade_class = BCLASS_SMASH
 	attack_verb = list("smashes")
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
-	penfactor = -50
-	damfactor = 1.3
+	penfactor = -100
+	damfactor = 1.35
 	swingdelay = 10
 	icon_state = "insmash"
 	item_d_type = "blunt"
@@ -176,11 +176,11 @@
 
 /datum/intent/mace/strike/wood
 	hitsound = list('sound/combat/hits/blunt/woodblunt (1).ogg', 'sound/combat/hits/blunt/woodblunt (2).ogg')
-	penfactor = 10
+	penfactor = -60
 
 /datum/intent/mace/smash/wood
 	hitsound = list('sound/combat/hits/blunt/woodblunt (1).ogg', 'sound/combat/hits/blunt/woodblunt (2).ogg')
-	penfactor = 20
+	penfactor = -100
 
 
 /obj/item/rogueweapon/mace/cudgel
