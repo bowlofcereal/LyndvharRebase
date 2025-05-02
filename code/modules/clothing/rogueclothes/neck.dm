@@ -506,7 +506,7 @@
 
 /obj/item/clothing/neck/roguetown/luckcharm
 	name = "luck charm"
-	desc = "A rabbit's foot necklace. Some say it brings good luck."
+	desc = "A cabbit's foot necklace. Some say it brings good luck."
 	icon_state = "luckcharm"
 	sellprice = 15
 	slot_flags = ITEM_SLOT_NECK
