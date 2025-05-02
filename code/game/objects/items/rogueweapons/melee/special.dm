@@ -299,6 +299,7 @@
 	smeltresult = /obj/item/ingot/steel
 	grid_width = 64
 	grid_height = 32
+	intdamage_factor = 45
 
 /obj/item/rogueweapon/knuckles/getonmobprop(tag)
 	. = ..()
@@ -331,6 +332,7 @@
 	blade_dulling = DULLING_BASHCHOP
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/bronze
+	intdamage_factor = 30
 
 /datum/intent/knuckles
 	clickcd = 8
@@ -341,7 +343,8 @@
 	attack_verb = list("punches", "clocks")
 	hitsound = list('sound/combat/hits/punch/punch_hard (1).ogg', 'sound/combat/hits/punch/punch_hard (2).ogg', 'sound/combat/hits/punch/punch_hard (3).ogg')
 	chargetime = 0
-	penfactor = 15
+	penfactor = -40
+	damfactor = 1
 	swingdelay = 0
 	icon_state = "inpunch"
 	item_d_type = "blunt"
@@ -352,8 +355,8 @@
 	blade_class = BCLASS_SMASH
 	attack_verb = list("smashes")
 	hitsound = list('sound/combat/hits/punch/punch_hard (1).ogg', 'sound/combat/hits/punch/punch_hard (2).ogg', 'sound/combat/hits/punch/punch_hard (3).ogg')
-	penfactor = 40
-	damfactor = 1.1
+	penfactor = -80
+	damfactor = 1.3
 	swingdelay = 6
 	icon_state = "insmash"
 	item_d_type = "blunt"
