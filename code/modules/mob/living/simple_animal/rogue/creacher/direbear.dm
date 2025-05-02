@@ -50,7 +50,7 @@
 	deaggroprob = 0
 	defprob = 40
 	defdrain = 10
-	del_on_deaggro = 44 SECONDS
+	del_on_deaggro = 2 MINUTES
 	retreat_health = 0.3
 	food = 0
 	remains_type = /obj/effect/decal/remains/bear
