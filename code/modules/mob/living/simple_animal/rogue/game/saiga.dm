@@ -24,7 +24,7 @@
 	butcher_results = list(
 						/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
 						/obj/item/reagent_containers/food/snacks/fat = 1,
-						/obj/item/natural/hide = 1,
+						/obj/item/natural/hide = 2,
 						/obj/item/natural/bundle/bone/full = 1,
 						/obj/item/alch/sinew = 3, 
 						/obj/item/alch/bone = 1, 
@@ -32,7 +32,7 @@
 						)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 3,
 						/obj/item/reagent_containers/food/snacks/fat = 2,
-						/obj/item/natural/hide = 2,
+						/obj/item/natural/hide = 4,
 						/obj/item/natural/bundle/bone/full = 1,
 						/obj/item/alch/sinew = 3, 
 						/obj/item/alch/bone = 1, 
