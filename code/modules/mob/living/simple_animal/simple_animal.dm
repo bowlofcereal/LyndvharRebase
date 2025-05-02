@@ -419,9 +419,19 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		var/list/butcher = list()
 
 		if(butcher_results)
-			if(user.mind.get_skill_level(/datum/skill/labor/butchering) <= 1)
+			if(user.mind.get_skill_level(/datum/skill/labor/butchering) == 0)
+				if(prob(70))
+					butcher = botched_butcher_results // high chance to get shit result
+				else
+					butcher = butcher_results
+			if(user.mind.get_skill_level(/datum/skill/labor/butchering) == 1)
 				if(prob(50))
 					butcher = botched_butcher_results // chance to get shit result
+				else
+					butcher = butcher_results
+			if(user.mind.get_skill_level(/datum/skill/labor/butchering) == 2)
+				if(prob(30))
+					butcher = botched_butcher_results // lower chance to get shit result
 				else
 					butcher = butcher_results
 			if(user.mind.get_skill_level(/datum/skill/labor/butchering) == 3)
@@ -436,7 +446,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 					butcher = butcher_results
 			else
 				if(user.mind.get_skill_level(/datum/skill/labor/butchering) == 5)
-					butcher = perfect_butcher_results
+					butcher = perfect_butcher_results // only get the best results
 				else
 					butcher = butcher_results		// fallback incase skill doesn't get called
 
