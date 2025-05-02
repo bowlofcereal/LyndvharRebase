@@ -11,10 +11,16 @@
 	faction = list("cabbits")	//Snowflake code
 	emote_hear = list("meows.", "clucks.")
 	emote_see = list("brings their ears alert.", "scratches their ear with a hindleg.")
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1, 
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/rabbit = 1)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/rabbit = 1, 
 							/obj/item/alch/sinew = 1,
 							/obj/item/alch/bone = 1,
-							/obj/item/natural/fur = 1)
+							/obj/item/natural/fur/rabbit = 1)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/rabbit = 1, 
+							/obj/item/alch/sinew = 1,
+							/obj/item/alch/bone = 1,
+							/obj/item/natural/fur/rabbit = 1,
+							/obj/item/natural/rabbitsfoot = 1)	//Rare rabbits foot for luck charm.
 
 /mob/living/simple_animal/hostile/retaliate/rogue/mudcrab/cabbit/get_sound(input)
 	switch(input)

@@ -14,12 +14,20 @@
 	see_in_dark = 6
 	move_to_delay = 3
 	base_intents = list(/datum/intent/simple/bite/volf)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/wolf = 1, /obj/item/alch/viscera = 1, /obj/item/alch/sinew = 1, /obj/item/natural/bone = 2)
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/wolf = 2,
 						/obj/item/natural/hide = 2,
 						/obj/item/alch/sinew = 2, 
 						/obj/item/alch/bone = 1, 
 						/obj/item/alch/viscera = 1,
-						/obj/item/natural/fur = 2, 
+						/obj/item/natural/fur/wolf = 1, 
+						/obj/item/natural/bone = 3)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/wolf = 2,
+						/obj/item/natural/hide = 2,
+						/obj/item/alch/sinew = 2, 
+						/obj/item/alch/bone = 1, 
+						/obj/item/alch/viscera = 1,
+						/obj/item/natural/fur/wolf = 2, 
 						/obj/item/natural/bone = 4,
 						/obj/item/natural/head/volf = 1)
 	faction = list("wolfs", "zombie")

@@ -101,7 +101,7 @@
 							/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab/cabbit = 40, 	// Rabbits love sweet things
 							/mob/living/simple_animal/hostile/retaliate/rogue/saiga = 20,
 							/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck = 20,
-							/mob/living/simple_animal/hostile/retaliate/rogue/wolf/fox = 20,		//Scavenger, so lower chance
+							/mob/living/simple_animal/hostile/retaliate/rogue/fox = 20,				//Scavenger, so lower chance
 							/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 10,			//Scavenger, so lower chance
 							/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 5)				//Predator, doesn't eat berries but attacted to prey
 
@@ -112,7 +112,7 @@
 	icon_state = "baitb"
 	attracted_types = list(/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 35,
 							/mob/living/simple_animal/hostile/retaliate/rogue/mole = 20,
-							/mob/living/simple_animal/hostile/retaliate/rogue/wolf/fox = 20,	
+							/mob/living/simple_animal/hostile/retaliate/rogue/fox = 20,	
 							/mob/living/simple_animal/hostile/retaliate/rogue/wolf/bobcat = 15,		//Annoying bastards
 							/mob/living/simple_animal/hostile/retaliate/rogue/wolf/direbear = 15,
 							/mob/living/simple_animal/hostile/retaliate/rogue/trollbog = 5)			//RUH-ROH

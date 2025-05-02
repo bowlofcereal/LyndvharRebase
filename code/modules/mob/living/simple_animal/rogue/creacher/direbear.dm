@@ -1,18 +1,29 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/wolf/direbear	//This way don't need new unqiue AI controller. Wolves are modular anyway.
 	icon = 'icons/roguetown/mob/monster/direbear.dmi'
 	name = "direbear"
-	icon_state = "vv"
-	icon_living = "vv"
-	icon_dead = "vvd"
+	icon_state = "direbear"
+	icon_living = "direbear"
+	icon_dead = "direbear_dead"
 	base_intents = list(/datum/intent/simple/bite/bear)
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1, 
+									/obj/item/natural/hide = 1, 
+									/obj/item/natural/fur/direbear = 1, 
+									/obj/item/natural/bone = 3)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
-						/obj/item/natural/hide = 2,
-						/obj/item/natural/fur/direbear = 1,
-						/obj/item/natural/fur = 2, 
-						/obj/item/alch/sinew = 2, 
-						/obj/item/alch/bone = 2, 
-						/obj/item/alch/viscera = 2,
-						/obj/item/natural/bone = 4,)
+									/obj/item/natural/hide = 2,
+									/obj/item/natural/fur/direbear = 1,
+									/obj/item/alch/sinew = 2, 
+									/obj/item/alch/bone = 1, 
+									/obj/item/alch/viscera = 2,
+									/obj/item/natural/bone = 4)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 3,
+									/obj/item/natural/hide = 3,
+									/obj/item/natural/fur/direbear = 2,
+									/obj/item/alch/sinew = 2, 
+									/obj/item/alch/bone = 1, 
+									/obj/item/alch/viscera = 2,
+									/obj/item/natural/bone = 4,
+									/obj/item/natural/head/direbear = 1)
 	health = 250	//Wolf is 120
 	maxHealth = 250
 	vision_range = 7
@@ -41,7 +52,7 @@
 	name = "remains"
 	gender = PLURAL
 	icon_state = "bones"
-	icon = 'icons/roguetown/mob/monster/vol.dmi'
+	icon = 'icons/roguetown/mob/monster/direbear.dmi'
 
 /datum/intent/simple/bite/bear
 	clickcd = RAT_ATTACK_SPEED	//Slightly slower than wolfs by .1
