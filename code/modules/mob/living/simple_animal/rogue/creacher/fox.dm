@@ -23,7 +23,7 @@
 						/obj/item/alch/viscera = 1,
 						/obj/item/natural/fur/fox = 1, 
 						/obj/item/natural/bone = 4)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 3,
 						/obj/item/natural/hide = 2,
 						/obj/item/alch/sinew = 2, 
 						/obj/item/alch/bone = 1, 
