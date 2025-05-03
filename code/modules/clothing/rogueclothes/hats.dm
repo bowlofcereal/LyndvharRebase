@@ -64,20 +64,6 @@
 	max_integrity = 100
 	sewrepair = TRUE
 
-/obj/item/clothing/head/roguetown/roguehood/phys
-	name = "physicker's hood"
-	desc = "Aid ensures lengthy life, but not necessarily healthy life."
-	icon_state = "surghood"
-	item_state = "surghood"
-	icon = 'icons/roguetown/clothing/head.dmi'
-	body_parts_covered = NECK
-	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
-	dynamic_hair_suffix = ""
-	edelay_type = 1
-	adjustable = CAN_CADJUST
-	toggle_icon_state = TRUE
-	max_integrity = 100
-
 /obj/item/clothing/head/roguetown/roguehood/shalal
 	name = "keffiyeh"
 	desc = "A protective covering worn by those native to the desert."
