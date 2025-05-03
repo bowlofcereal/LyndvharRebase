@@ -98,6 +98,12 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 
+/obj/item/clothing/shirt/robe/phys
+	name = "physicker's robe"
+	desc = "Part robe, part butcher's apron."
+	icon_state = "surgrobe"
+	item_state = "surgrobe"
+
 /obj/item/clothing/suit/roguetown/shirt/robe/black
 	color = CLOTHING_BLACK
 
