@@ -43,9 +43,9 @@
 	blade_class = BCLASS_BLUNT
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	chargetime = 0
-	penfactor = 10
+	penfactor = -60
 	swingdelay = 5
-	damfactor = 0.8
+	damfactor = 1.1
 	item_d_type = "blunt"
 
 //axe objs ฅ^•ﻌ•^ฅ

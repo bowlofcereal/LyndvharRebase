@@ -26,7 +26,7 @@
 	blade_class = BCLASS_BLUNT
 	icon_state = "inbash"
 	attack_verb = list("bashes", "strikes")
-	penfactor = 10
+	penfactor = -100
 	item_d_type = "blunt"
 
 /datum/intent/lord_electrocute

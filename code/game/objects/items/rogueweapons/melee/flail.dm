@@ -28,7 +28,7 @@
 	attack_verb = list("strikes", "hits")
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
-	penfactor = 5
+	penfactor = -40
 	icon_state = "instrike"
 	item_d_type = "slash"
 
@@ -39,7 +39,7 @@
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
 	recovery = 15
-	penfactor = 5
+	penfactor = -40
 	reach = 2
 	icon_state = "instrike"
 	item_d_type = "slash"
@@ -121,7 +121,8 @@
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
 	recovery = 7
-	penfactor = 10
+	penfactor = -60
+	damfactor = 1.1
 	reach = 2
 	icon_state = "inlash"
 	item_d_type = "slash"
@@ -145,7 +146,7 @@
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
 	recovery = 10
-	penfactor = 0
+	penfactor = -100
 	reach = 2
 	icon_state = "inpunish"
 	item_d_type = "blunt"

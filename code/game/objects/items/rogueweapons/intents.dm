@@ -632,8 +632,8 @@
 	animname = "strike"
 	hitsound = list('sound/combat/hits/blunt/daze_hit.ogg')
 	chargetime = 0
-	penfactor = 20
-	swingdelay = 0.6
+	penfactor = -50
+	swingdelay = 6
 	damfactor = 1
 	item_d_type = "blunt"
 	intent_effect = /datum/status_effect/debuff/dazed

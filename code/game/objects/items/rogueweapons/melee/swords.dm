@@ -43,9 +43,9 @@
 	blade_class = BCLASS_BLUNT
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	chargetime = 0
-	penfactor = 30
+	penfactor = -50
 	swingdelay = 0
-	damfactor = 0.6
+	damfactor = 1
 	item_d_type = "blunt"
 
 /datum/intent/sword/peel
