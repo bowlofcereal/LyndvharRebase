@@ -1,16 +1,16 @@
 /obj/effect/proc_holder/spell/invoked/projectile/guided_bolt
 	name = "Guided Bolt"
-	desc = "Shoot out a bolt of arcyne magic in an indirect arc. Difficult to hit, but quick to recharge and able to arc over friendly."
+	desc = "Shoot out a bolt of arcyne magic in an indirect arc. Difficult to hit, but quick to recharge and able to arc over friendly. Inflicts blunt damage."
 	clothes_req = FALSE
 	range = 12
 	projectile_type = /obj/projectile/energy/guided_bolt
 	overlay_state = "force_dart"
 	sound = list('sound/magic/vlightning.ogg')
 	active = FALSE
-	releasedrain = 20
+	releasedrain = 15
 	chargedrain = 1
 	chargetime = 3
-	recharge_time = 5 SECONDS
+	recharge_time = 4 SECONDS // This has to be aimed unlike Arcyne Bolt.
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE
@@ -29,7 +29,7 @@
 	icon_state = "arcane_barrage"
 	damage = 40
 	damage_type = BRUTE
-	armor_penetration = 10
+	armor_penetration = 0
 	woundclass = BCLASS_BLUNT
 	arcshot = TRUE
 	nodamage = FALSE
