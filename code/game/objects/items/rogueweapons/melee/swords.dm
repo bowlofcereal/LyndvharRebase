@@ -94,7 +94,7 @@
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/peel)
 	armor = list("blunt" = 60, "slash" = 50, "stab" = 50, "piercing" = 0)
-	damage_deflection = 20
+	damage_deflection = 14
 	name = "sword"
 	desc = "A simple steel sword, clean and effective."
 	icon_state = "sword1"
