@@ -20,6 +20,7 @@
 					/obj/item/needle/thorn = 1,
 					/obj/item/natural/cloth = 1,
 					/obj/item/flashlight/flare/torch = 1,
+					/obj/item/book/spellbook = 1, // Spell resetting is a key identity of good mage
 					)
 	mask = /obj/item/clothing/mask/rogue/facemask/steel //idk if this makes it so they cant cast but i want all of the bandits to have the same mask
 	neck = /obj/item/clothing/neck/roguetown/coif
@@ -28,7 +29,7 @@
 
 	r_hand = /obj/item/rogueweapon/woodstaff
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE) // They'll have to get polearms themselves but expert let them parry + actually do well as a spellblade + grinding associates can get the same
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
@@ -44,6 +45,7 @@
 		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 4, TRUE)
 		ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC) // Antag class, get Dexpert to help them survive
 		ADD_TRAIT(H, TRAIT_ARCYNE_T3, TRAIT_GENERIC)
 		if(H.age == AGE_OLD)
 			head = /obj/item/clothing/head/roguetown/wizhat/gen
@@ -56,6 +58,6 @@
 		H.change_stat("constitution", 1)
 		H.change_stat("endurance", -1)
 		H.change_stat("fortune", 2)
-		H.change_stat("speed", 1) //ohhh sweetie this is NOT gonna help
-		H.mind.adjust_spellpoints(5)
+		H.change_stat("speed", 1)
+		H.mind.adjust_spellpoints(6) // On par with Mage Associate
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
