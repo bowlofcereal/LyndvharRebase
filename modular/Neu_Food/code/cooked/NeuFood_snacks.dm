@@ -642,6 +642,7 @@
 
 /* .............   Fried Volf   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
+	eat_effect = null
 	slices_num = 0
 	name = "fried volf"
 	desc = "A slab of volf, fried to a perfect medium rare. A bit gamey and chewy, but tasty."
@@ -653,6 +654,7 @@
 
 /* .............   Fried Cabbit   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/rabbit/fried
+	eat_effect = null
 	slices_num = 0
 	name = "fried cabbit"
 	desc = "A slab of cabbit, fried to a perfect crispy texture."

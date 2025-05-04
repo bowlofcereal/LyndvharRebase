@@ -228,5 +228,6 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef		//Honestly, we don't need our own minced type on this one.
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
-	slices_num = 1
 	ingredient_size = 1
+	slices_num = 2
+	slice_bclass = BCLASS_CHOP
