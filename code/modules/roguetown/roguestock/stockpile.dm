@@ -263,7 +263,7 @@
 /datum/roguestock/stockpile/meat
 	name = "Cabbit Meat"
 	desc = "Edible flesh harvested from cabbits."
-	item_type = /obj/item/reagent_containers/food/snacks/rogue/meat/cabbit
+	item_type = /obj/item/reagent_containers/food/snacks/rogue/meat/rabbit
 	held_items = list(0, 0)
 	payout_price = 3
 	withdraw_price = 5
