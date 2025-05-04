@@ -204,7 +204,7 @@
 	see_in_dark = 6
 	move_to_delay = 8
 	base_intents = list(/datum/intent/simple/headbutt)
-		botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
 									/obj/item/reagent_containers/food/snacks/fat = 1,
 									/obj/item/alch/viscera = 1,
 									/obj/item/alch/sinew = 2)
