@@ -659,7 +659,7 @@
 	name = "fried cabbit"
 	desc = "A slab of cabbit, fried to a perfect crispy texture."
 	icon_state = "frycabbit"
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEATSLAB_NUTRITION)
+	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)	//It's easier and cheaper than normal meat to find.
 	faretype = FARE_NEUTRAL
 	rotprocess = SHELFLIFE_DECENT
 	tastes = list("warm cabbit" = 1)

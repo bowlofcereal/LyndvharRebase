@@ -248,6 +248,30 @@
 	importexport_amt = 5
 	passive_generation = 1
 
+/datum/roguestock/stockpile/meat
+	name = "Volf Meat"
+	desc = "Edible flesh harvested from volves."
+	item_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf
+	held_items = list(0, 0)
+	payout_price = 5
+	withdraw_price = 8
+	transport_fee = 2
+	export_price = 8
+	importexport_amt = 5
+	passive_generation = 1
+
+/datum/roguestock/stockpile/meat
+	name = "Cabbit Meat"
+	desc = "Edible flesh harvested from cabbits."
+	item_type = /obj/item/reagent_containers/food/snacks/rogue/meat/cabbit
+	held_items = list(0, 0)
+	payout_price = 3
+	withdraw_price = 5
+	transport_fee = 1
+	export_price = 5
+	importexport_amt = 5
+	passive_generation = 2
+
 /datum/roguestock/stockpile/egg
 	name = "Egg"
 	desc = "Egg laid by a hen."
