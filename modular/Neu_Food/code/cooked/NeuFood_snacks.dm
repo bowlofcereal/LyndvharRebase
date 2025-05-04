@@ -641,7 +641,7 @@
 	rotprocess = SHELFLIFE_DECENT
 
 /* .............   Fried Volf   ................ */
-/obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried
 	eat_effect = null
 	slices_num = 0
 	name = "fried volf"
@@ -650,7 +650,6 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEATSLAB_NUTRITION)
 	faretype = FARE_NEUTRAL
 	rotprocess = SHELFLIFE_DECENT
-	tastes = list("warm steak" = 1)
 
 /* .............   Fried Cabbit   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/rabbit/fried

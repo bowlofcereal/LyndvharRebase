@@ -222,12 +222,9 @@
 	ingredient_size = 1
 
 /* ............. Volf Meat ................*/
-/obj/item/reagent_containers/food/snacks/rogue/meat/wolf
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf
 	name = "raw volf meat"
 	icon_state = "volfstrip"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef		//Honestly, we don't need our own minced type on this one.
-	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/wolf/fried
-	ingredient_size = 1
-	slices_num = 2
-	slice_bclass = BCLASS_CHOP
+	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried
