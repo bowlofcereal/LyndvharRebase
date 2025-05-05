@@ -138,6 +138,42 @@
 	icon_state = "walldec1"
 	mouse_opacity = 0
 
+/obj/structure/fluff/walldeco/stone/stone2
+	name = ""
+	desc = ""
+	icon_state = "walldec2"
+	mouse_opacity = 0
+
+/obj/structure/fluff/walldeco/stone/stone2/bronze
+	color = "#ff9c1a"
+
+/obj/structure/fluff/walldeco/stone/stone3/
+	name = ""
+	desc = ""
+	icon_state = "walldec3"
+	mouse_opacity = 0
+
+/obj/structure/fluff/walldeco/stone/stone3/bronze
+	color = "#ff9c1a"
+
+/obj/structure/fluff/walldeco/stone/stone4
+	name = ""
+	desc = ""
+	icon_state = "walldec4"
+	mouse_opacity = 0
+
+/obj/structure/fluff/walldeco/stone/stone5
+	name = ""
+	desc = ""
+	icon_state = "walldec5"
+	mouse_opacity = 0
+
+/obj/structure/fluff/walldeco/stone/stone6
+	name = ""
+	desc = ""
+	icon_state = "walldec6"
+	mouse_opacity = 0
+
 /obj/structure/fluff/walldeco/church/line
 	name = ""
 	desc = ""
