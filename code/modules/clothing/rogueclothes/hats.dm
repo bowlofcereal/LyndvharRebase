@@ -37,8 +37,8 @@
 	body_parts_covered = HEAD|HAIR|EARS|NECK
 	slot_flags = ITEM_SLOT_HEAD
 	dynamic_hair_suffix = ""
-	max_integrity = 100
-	armor = list("blunt" = 16, "slash" = 19, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 0)
+	max_integrity = 80
+	armor = list("blunt" = 10, "slash" = 19, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_TWIST)
 	anvilrepair = null
 	sewrepair = TRUE
@@ -78,7 +78,7 @@
 	alternate_worn_layer  = 8.9 //On top of helmet
 	body_parts_covered = HEAD|HAIR|EARS|NECK
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
-	armor = list("blunt" = 15, "slash" = 20, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 0, "slash" = 20, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 0)
 	dynamic_hair_suffix = ""
 	edelay_type = 1
 	adjustable = CAN_CADJUST
@@ -391,7 +391,7 @@
 	item_state = "papakha"
 	sewrepair = TRUE
 	flags_inv = HIDEEARS
-	armor = list("blunt" = 15, "slash" = 15, "stab" = 20, "piercing" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 0, "slash" = 15, "stab" = 20, "piercing" = 0, "fire" = 0, "acid" = 0)
 	blocksound = SOFTHIT
 
 /obj/item/clothing/head/roguetown/hatblu
@@ -634,7 +634,7 @@
 	sleeved = null
 	body_parts_covered = HEAD|HAIR|EARS
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_NECK|ITEM_SLOT_HEAD
-	armor = list("blunt" = 35, "slash" = 15, "stab" = 25, "piercing" = 10, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 50, "slash" = 15, "stab" = 25, "piercing" = 10, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT)
 	blocksound = SOFTHIT
 	max_integrity = 75
@@ -1808,7 +1808,7 @@
 	desc = "A helmet made of leather."
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	icon_state = "leatherhelm"
-	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "piercing" = 17, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 30, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
 	anvilrepair = null
 	smeltresult = null
@@ -1823,7 +1823,8 @@
 	body_parts_covered = HEAD|HAIR|EARS
 	icon_state = "volfhead"
 	item_state = "volfhead"
-	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "piercing" = 17, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 10, "slash" = 30, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
+	max_integrity = 100
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
 	anvilrepair = null
 	sewrepair = TRUE
@@ -1838,7 +1839,8 @@
 	worn_x_dimension = 64
 	worn_y_dimension = 64
 	bloody_icon = 'icons/effects/blood64.dmi'
-	armor = list("blunt" = 60, "slash" = 40, "stab" = 45, "piercing" = 15, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 40, "stab" = 45, "piercing" = 15, "fire" = 0, "acid" = 0)
+	max_integrity = 120
 	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT
 	flags_cover = HEADCOVERSEYES
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|EYES
@@ -2011,7 +2013,7 @@
 	detail_tag = "_detail"
 	dynamic_hair_suffix = ""
 	max_integrity = 150
-	armor = list("blunt" = 15, "slash" = 20, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 10, "slash" = 20, "stab" = 20, "piercing" = 0, "fire" = 0, "acid" = 0)
 	sewrepair = TRUE
 	var/picked = FALSE
 
@@ -2093,7 +2095,8 @@
 	desc = ""
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	icon_state = "tricorn"
-	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "piercing" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 10, "slash" = 30, "stab" = 40, "piercing" = 0, "fire" = 0, "acid" = 0)
+	max_integrity = 100
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
 	anvilrepair = null
 	smeltresult = null
@@ -2115,8 +2118,8 @@
 	desc = ""
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	icon_state = "bandana"
-	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "piercing" = 0, "fire" = 0, "acid" = 0)
-	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 0, "slash" = 30, "stab" = 40, "piercing" = 0, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_TWIST)
 	anvilrepair = null
 	smeltresult = null
 	sewrepair = TRUE
