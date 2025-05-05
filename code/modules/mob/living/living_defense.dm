@@ -44,6 +44,8 @@
 	return BULLET_ACT_HIT
 
 /mob/living/bullet_act(obj/projectile/P, def_zone = BODY_ZONE_CHEST)
+	if(!prob(P.accuracy + P.bonus_accuracy))
+    def_zone = BODY_ZONE_CHEST
 	var/ap = (P.flag == "blunt") ? -100 : P.armor_penetration
 	var/armor = run_armor_check(def_zone, P.flag, "", "",armor_penetration = ap, damage = P.damage)
 
