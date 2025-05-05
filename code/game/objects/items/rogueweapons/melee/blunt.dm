@@ -7,7 +7,7 @@
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	chargetime = 0
 	penfactor = -70
-	damfactor = 1
+	damfactor = 1.1
 	swingdelay = 0
 	icon_state = "instrike"
 	item_d_type = "blunt"
@@ -18,7 +18,7 @@
 	attack_verb = list("smashes")
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	penfactor = -100
-	damfactor = 1.35
+	damfactor = 1.5
 	swingdelay = 10
 	icon_state = "insmash"
 	item_d_type = "blunt"
@@ -66,7 +66,7 @@
 	wdefense = 2
 	wbalance = -1
 	blade_dulling = DULLING_BASHCHOP
-	intdamage_factor = 1.3
+	intdamage_factor = 1.35
 
 /obj/item/rogueweapon/mace/church
 	force = 25
