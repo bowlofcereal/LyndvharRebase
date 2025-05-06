@@ -87,7 +87,7 @@
 	damage = 10
 
 /obj/projectile/energy/rogue3
-	speed = 13
+	speed = 12
 
 /obj/projectile/magic/baroness/lightning/on_hit(target)
 	. = ..()
