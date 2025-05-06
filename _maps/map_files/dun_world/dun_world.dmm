@@ -394,11 +394,11 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "agO" = (
-/obj/machinery/light/rogue/firebowl/off,
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
 	dir = 4
 	},
+/obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "agZ" = (
@@ -744,6 +744,10 @@
 "amJ" = (
 /obj/effect/decal/remains/human,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-w"
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "amM" = (
@@ -1826,14 +1830,8 @@
 	dir = 10;
 	icon_state = "cobbleedge-w"
 	},
-/obj/structure/glowshroom,
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-e"
-	},
-/obj/structure/roguerock,
-/turf/open/water/swamp,
-/area/rogue/outdoors/mountains/decap/gunduzirak)
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/outdoors/bog)
 "aIf" = (
 /obj/structure/plasticflaps/opaque,
 /turf/open/floor/rogue/dirt,
@@ -6670,6 +6668,7 @@
 /obj/structure/fluff/walldeco/stone/bronze{
 	pixel_y = 32
 	},
+/obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/swamp,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "cvS" = (
@@ -6787,10 +6786,9 @@
 	icon_state = "cobbleedge-w"
 	},
 /obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-e"
+	dir = 6
 	},
-/turf/open/water/swamp,
+/turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "cxZ" = (
 /turf/open/water/river{
@@ -10543,6 +10541,10 @@
 /area/rogue/indoors/town)
 "dTZ" = (
 /obj/structure/roguerock,
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-w"
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/bog)
 "dUd" = (
@@ -15052,13 +15054,9 @@
 /area/rogue/indoors/cave)
 "fvU" = (
 /obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-w"
+	dir = 1
 	},
-/obj/structure/fluff/walldeco/stone/bronze{
-	pixel_x = 32
-	},
-/turf/open/water/swamp,
+/turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "fwa" = (
 /obj/item/natural/stone{
@@ -19159,6 +19157,9 @@
 /obj/item/compost,
 /obj/item/compost,
 /obj/item/compost,
+/obj/effect/decal/cobbleedge{
+	dir = 6
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "gZI" = (
@@ -19670,12 +19671,9 @@
 "hiD" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10;
-	icon_state = "cobbleedge-n"
+	pixel_y = 1
 	},
-/obj/effect/decal/cobbleedge{
-	dir = 10
-	},
-/turf/open/water/swamp,
+/turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "hiF" = (
 /obj/structure/closet/crate/roguecloset,
@@ -22637,7 +22635,8 @@
 	dir = 10;
 	icon_state = "cobbleedge-e"
 	},
-/turf/open/water/swamp,
+/obj/structure/roguerock,
+/turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "inP" = (
 /obj/effect/decal/cleanable/blood/tracks{
@@ -28243,14 +28242,8 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap/stepbelow)
 "ksG" = (
-/obj/effect/decal/cobbleedge{
-	dir = 6
-	},
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-w"
-	},
-/turf/open/water/swamp,
+/obj/structure/roguerock,
+/turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "ksH" = (
 /turf/open/floor/rogue/dirt/road,
@@ -37004,6 +36997,9 @@
 /area/rogue/indoors/cave)
 "nHS" = (
 /obj/structure/fermenting_barrel/beer,
+/obj/effect/decal/cobbleedge{
+	dir = 10
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "nHY" = (
@@ -39693,6 +39689,7 @@
 	icon_state = "tablewood1"
 	},
 /obj/item/storage/belt/rogue/leather/plaquegold,
+/obj/machinery/light/rogue/wallfire/candle/off,
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "oJZ" = (
@@ -46451,13 +46448,6 @@
 /area/rogue/under/cavewet/bogcaves/sunkencity)
 "rif" = (
 /obj/machinery/light/rogue/wallfire/candle/off/l,
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-n"
-	},
-/obj/effect/decal/cobbleedge{
-	dir = 6
-	},
 /turf/open/water/swamp,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "rij" = (
@@ -53056,13 +53046,12 @@
 /area/rogue/outdoors/rtfield)
 "tGm" = (
 /obj/effect/decal/cobbleedge{
-	dir = 6
+	dir = 10
 	},
-/obj/machinery/light/rogue/firebowl/off,
-/obj/structure/fluff/walldeco/stone/bronze{
-	pixel_y = -32
+/obj/effect/decal/cobbleedge{
+	dir = 5
 	},
-/turf/open/water/swamp,
+/turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "tGn" = (
 /obj/structure/fluff/walldeco/stone{
@@ -56061,10 +56050,6 @@
 	},
 /area/rogue/indoors/town)
 "uJL" = (
-/obj/structure/fluff/railing/border,
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
 /obj/structure/stairs{
 	dir = 4
 	},
@@ -58097,6 +58082,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 9
 	},
+/obj/machinery/light/rogue/firebowl/off,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "vxQ" = (
@@ -62103,14 +62089,6 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/town/sewer)
 "wWT" = (
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-w"
-	},
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-e"
-	},
 /obj/structure/fluff/walldeco/stone/bronze{
 	pixel_y = -32
 	},
@@ -301126,7 +301104,7 @@ nlH
 nlH
 pKo
 nlH
-nlH
+lJY
 nlH
 xlC
 nlH
@@ -302012,7 +301990,7 @@ gtH
 lJY
 tFt
 nlH
-fvU
+xTc
 nlH
 nlH
 xjy
@@ -304273,8 +304251,8 @@ dWU
 aln
 som
 iJY
-izu
-cdT
+eAp
+inO
 xjy
 nlH
 fSu
@@ -306102,9 +306080,9 @@ qaj
 pRG
 pRG
 gFZ
-tGq
-uJL
 agO
+uJL
+tGq
 gFZ
 ujz
 arD
@@ -307866,7 +307844,7 @@ oyf
 dWU
 cYn
 xjy
-atk
+bJY
 dRL
 dWU
 nbj
@@ -307920,12 +307898,12 @@ rJq
 gFZ
 rJq
 nud
-sKO
+fvU
 gFZ
 iZC
 rJq
 rJq
-sKO
+cdT
 gFZ
 rJq
 iZC
@@ -308840,7 +308818,7 @@ iZC
 wXJ
 dTZ
 wXJ
-wXJ
+aIa
 sLh
 czH
 vvB
@@ -309246,7 +309224,7 @@ dWU
 iZC
 dWU
 dRL
-ksG
+bJY
 xjy
 iZC
 dRL
@@ -309276,7 +309254,7 @@ sKO
 nlH
 sKO
 cdT
-sKO
+hiD
 rJq
 sKO
 nlH
@@ -309284,7 +309262,7 @@ rJq
 rJq
 rJq
 iZC
-sKO
+tFt
 rJq
 rJq
 iZC
@@ -309696,13 +309674,13 @@ iJY
 bJY
 cdT
 eLr
-cxX
+bJY
 gQq
 bYi
 xjy
 nlH
 gQq
-aIa
+izu
 iZC
 ftb
 mrS
@@ -309731,7 +309709,7 @@ nlH
 nlH
 gFZ
 rJq
-sKO
+pAA
 sKO
 sKO
 gFZ
@@ -310179,8 +310157,8 @@ aiG
 rJq
 adR
 rJq
-sKO
-sKO
+ghC
+pAA
 iZC
 rJq
 rJq
@@ -311062,7 +311040,7 @@ dWU
 dRL
 nlH
 xjy
-inO
+bJY
 dRL
 dWU
 dWU
@@ -311480,7 +311458,7 @@ lWo
 jbJ
 jbJ
 dRL
-inO
+vOK
 xjy
 nlH
 dRL
@@ -312416,7 +312394,7 @@ gFZ
 gFZ
 iZC
 dWU
-atk
+bJY
 xjy
 nlH
 iZC
@@ -312859,7 +312837,7 @@ iJY
 iZC
 dWU
 fmb
-tFt
+cxX
 sKO
 iJY
 gFZ
@@ -313780,7 +313758,7 @@ iJY
 som
 sKO
 sKO
-sKO
+rJq
 sKO
 rJq
 rJq
@@ -314233,7 +314211,7 @@ dWU
 dWU
 dWU
 dWU
-sKO
+rJq
 ize
 sKO
 rJq
@@ -314678,7 +314656,7 @@ cvu
 dWU
 rSQ
 xjy
-mpT
+tGm
 nlH
 dWU
 nOP
@@ -316034,7 +316012,7 @@ ask
 dWU
 nlH
 xjy
-atk
+bJY
 bJY
 dRL
 dWU
@@ -317390,7 +317368,7 @@ xjy
 xjy
 xjy
 xjy
-tGm
+wWT
 dWU
 iZC
 iZC
@@ -319181,7 +319159,7 @@ nlH
 nlH
 nlH
 lJY
-hiD
+bJY
 dWU
 iZC
 iZC
@@ -321432,8 +321410,8 @@ jbJ
 oyf
 iZC
 dWU
-bJY
-bJY
+eAp
+ksG
 xjy
 nlH
 uqw
