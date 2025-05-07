@@ -44,7 +44,7 @@
 	force = 20
 	force_wielded = 25
 	possible_item_intents = list(/datum/intent/mace/strike)
-	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/effect/daze)
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash)
 	name = "mace"
 	desc = "Helps anyone fall asleep."
 	icon_state = "mace"
@@ -95,7 +95,7 @@
 	icon_state = "silverhammer"
 	force = 24
 	gripped_intents = null
-	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/effect/daze)
+	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash)
 	wdefense = 4
 	smeltresult = /obj/item/ingot/silver
 	smelt_bar_num = 2
@@ -298,7 +298,7 @@
 	force = 15
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/mace/strike)
-	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/rangedthrust, /datum/intent/effect/daze)
+	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/rangedthrust)
 	name = "Goedendag"
 	desc = "Good morning."
 	icon_state = "goedendag"
