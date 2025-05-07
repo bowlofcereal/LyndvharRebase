@@ -341,7 +341,7 @@
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/iron
 	associated_skill = /datum/skill/combat/axes
-	blade_dulling = DULLING_BASHCHOP
+	blade_dulling = DULLING_SHAFT_WOOD
 	wdefense = 6
 
 /obj/item/rogueweapon/greataxe/getonmobprop(tag)

@@ -117,6 +117,7 @@
 	flags_1 = CONDUCT_1
 	throwforce = 10
 	thrown_bclass = BCLASS_CUT
+	blade_dulling = DULLING_SHAFT_METAL
 	//dropshrink = 0.75
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -259,6 +260,7 @@
 	force = 30
 	force_wielded = 35
 	icon_state = "zizosword"
+	blade_dulling = DULLING_SHAFT_GRAND
 
 /obj/item/rogueweapon/sword/long/zizo/pickup(mob/living/user)
 	if(!HAS_TRAIT(user, TRAIT_CABAL))
@@ -403,6 +405,7 @@
 	max_integrity = 9999
 	throwforce = 15
 	thrown_bclass = BCLASS_CUT
+	blade_dulling = DULLING_SHAFT_GRAND
 	dropshrink = 0.75
 	smeltresult = /obj/item/ingot/steel
 	sellprice = 363
