@@ -677,7 +677,9 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	
 	if((invocation_type == "whisper" || invocation_type == "shout") && isliving(user))
 		var/mob/living/living_user = user
-		if(!living_user.can_speak_vocal() || !living_user.getorganslot(ORGAN_SLOT_TONGUE))
+		if(!living_user.can_speak_vocal())
+			return FALSE
+		if(ishuman(user) && !living_user.getorganslot(ORGAN_SLOT_TONGUE)) // Shapeshifter has no tongue yeah
 			return FALSE
 
 	if(HAS_TRAIT(user, TRAIT_PARALYSIS))
