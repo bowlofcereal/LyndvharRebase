@@ -1032,7 +1032,8 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/reinforcedshaft
-	name = "Reinforced Shaft x2"
+	name = "Reinforced Shaft"
+	result = /obj/item/shaft/reinforced
 	tools = list(/obj/item/rogueweapon/hammer)
 	reqs = list(/obj/item/shaft/wood = 1,
 				/obj/item/natural/whetstone = 2)
