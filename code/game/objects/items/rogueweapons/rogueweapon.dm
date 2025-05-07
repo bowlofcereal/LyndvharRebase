@@ -44,7 +44,7 @@
 		destroy_message = span_warning("\The [src] shatters!")
 
 /obj/item/rogueweapon/get_examine_string(mob/user, thats = FALSE)
-	return "[thats? "That's ":""]<b>[get_examine_name(user)]</b> <font size = 2>[get_blade_dulling_text(src)]</font>"
+	return "[thats? "That's ":""]<b>[get_examine_name(user)]</b> <font size = 1>[get_blade_dulling_text(src)]</font>"
 
 /obj/item/rogueweapon/get_dismemberment_chance(obj/item/bodypart/affecting, mob/user)
 	if(!get_sharpness() || !affecting.can_dismember(src))
@@ -124,3 +124,53 @@
 		altgrip(user)
 		user.update_inv_hands()
 	..()
+
+/obj/item/shaft
+	name = "debug shaft"
+	desc = "you should not see this"
+	icon = 'icons/roguetown/misc/shafts.dmi'
+	icon_state = "woodshaft"
+
+/obj/item/shaft/wood
+	name = "wood shaft"
+	desc = "standard, reliable, easy to produce. Weak to slashes, but strong against blunt forces."
+
+/obj/item/shaft/reinforced
+	name = "reinforced wood shaft"
+	desc = "A wooden beam with studs and plates. Will hold up considerably well against slashes, but will suffer against stabs."
+	icon_state = "reinforcedshaft"
+
+/obj/item/shaft/metal
+	name = "metal shaft"
+	desc = "A hefty, forged shaft. Exceptionally difficult to cut, but easier to bend with blunt force."
+	icon_state = "metalshaft"
+
+/obj/item/rogueweapon/attackby(obj/item/W, mob/living/user, params)
+	if(istype(W, /obj/item/shaft) && blade_dulling != DULLING_SHAFT_GRAND && (blade_dulling > DULLING_FLOOR))	//hacky
+		user.visible_message(span_info("[user] begins to replace the shaft on [src]..."))
+		if(do_after(user, 50))
+			user.visible_message(span_info("[user] replaces the shaft with [W]."))
+			replace_shaft(W)
+			playsound(user, 'sound/foley/Building-01.ogg', 100)
+
+
+/obj/item/rogueweapon/proc/replace_shaft(obj/item/shaft/S)
+	var/new_shaft
+	var/obj/item/shaft/replaced_shaft
+	switch(S.type)
+		if(/obj/item/shaft/wood)
+			new_shaft = DULLING_SHAFT_WOOD
+		if(/obj/item/shaft/reinforced)
+			new_shaft = DULLING_SHAFT_REINFORCED
+		if(/obj/item/shaft/metal)
+			new_shaft = DULLING_SHAFT_METAL
+	switch(blade_dulling)
+		if(DULLING_SHAFT_WOOD)
+			replaced_shaft = /obj/item/shaft/wood
+		if(DULLING_SHAFT_REINFORCED)
+			replaced_shaft = /obj/item/shaft/reinforced
+		if(DULLING_SHAFT_METAL)
+			replaced_shaft = /obj/item/shaft/metal
+	blade_dulling = new_shaft
+	qdel(S)
+	new replaced_shaft(src.drop_location())
