@@ -440,6 +440,10 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		if(alt_intents)
 			inspec += "\n<b>ALT-GRIP (RIGHT CLICK WHILE IN HAND)</b>"
 
+		var/shafttext = get_blade_dulling_text(src, verbose = TRUE)
+		if(shafttext)
+			inspec += "\n<b>SHAFT:</b> [shafttext]"
+
 		if(gripped_intents)
 			inspec += "\n<b>TWO-HANDED</b>"
 

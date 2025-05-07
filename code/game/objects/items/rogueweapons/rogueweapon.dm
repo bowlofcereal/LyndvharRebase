@@ -23,7 +23,7 @@
 	break_sound = 'sound/foley/breaksound.ogg'
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	obj_flags = CAN_BE_HIT | UNIQUE_RENAME
-	blade_dulling = DULLING_BASH
+	blade_dulling = DULLING_SHAFT_WOOD
 	max_integrity = 250
 	integrity_failure = 0.2
 	wdefense = 3
@@ -44,7 +44,7 @@
 		destroy_message = span_warning("\The [src] shatters!")
 
 /obj/item/rogueweapon/get_examine_string(mob/user, thats = FALSE)
-	return "[thats? "That's ":""]<b>[get_examine_name(user)]</b>"
+	return "[thats? "That's ":""]<b>[get_examine_name(user)]</b> <font size = 2>[get_blade_dulling_text(src)]</font>"
 
 /obj/item/rogueweapon/get_dismemberment_chance(obj/item/bodypart/affecting, mob/user)
 	if(!get_sharpness() || !affecting.can_dismember(src))

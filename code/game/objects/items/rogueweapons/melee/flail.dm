@@ -15,6 +15,7 @@
 	smeltresult = /obj/item/ingot/iron
 	parrysound = list('sound/combat/parry/parrygen.ogg')
 	swingsound = BLUNTWOOSH_MED
+	blade_dulling = DULLING_SHAFT_WOOD
 	throwforce = 5
 	wdefense = 0
 	minstr = 4
@@ -235,7 +236,7 @@
 	associated_skill = /datum/skill/combat/polearms
 	anvilrepair = /datum/skill/craft/carpentry
 	dropshrink = 0.9
-	blade_dulling = DULLING_BASHCHOP
+	blade_dulling = DULLING_SHAFT_WOOD
 	wdefense = 4
 	resistance_flags = FLAMMABLE
 
