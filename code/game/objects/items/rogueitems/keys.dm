@@ -48,7 +48,7 @@
 	associated_skill = /datum/skill/misc/lockpicking	//Doesn't do anything, for tracking purposes only
 
 	grid_width = 32
-	grid_height = 64
+	grid_height = 32
 
 /obj/item/roguekey/lord
 	name = "master key"
