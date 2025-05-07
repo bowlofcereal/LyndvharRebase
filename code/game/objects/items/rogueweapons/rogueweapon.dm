@@ -152,6 +152,7 @@
 			user.visible_message(span_info("[user] replaces the shaft with [W]."))
 			replace_shaft(W)
 			playsound(user, 'sound/foley/Building-01.ogg', 100)
+	. = ..()
 
 
 /obj/item/rogueweapon/proc/replace_shaft(obj/item/shaft/S)
