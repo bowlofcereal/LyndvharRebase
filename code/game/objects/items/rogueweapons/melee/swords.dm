@@ -12,6 +12,17 @@
 	damfactor = 1.1
 	item_d_type = "slash"
 
+/datum/intent/sword/cut/militia
+	penfactor = 30
+	damfactor = 1.2
+	chargetime = 0.2
+
+/datum/intent/sword/chop/militia
+	penfactor = 50
+	chargetime = 0.5
+	swingdelay = 0
+	damfactor = 1.0
+
 /datum/intent/sword/thrust
 	name = "stab"
 	icon_state = "instab"
@@ -47,7 +58,7 @@
 	chargetime = 0
 	penfactor = 200
 	swingdelay = 0
-	damfactor = 0.1
+	damfactor = 0.05
 	item_d_type = "slash"
 	peel_divisor = 4
 
@@ -68,8 +79,12 @@
 	damfactor = 1.0
 	item_d_type = "slash"
 
+/datum/intent/sword/cut/falx
+	penfactor = 20
+
 /datum/intent/sword/chop/falx
 	penfactor = 40
+
 //sword objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/sword
@@ -118,9 +133,9 @@
 
 /obj/item/rogueweapon/sword/falchion
 	name = "falchion"
-	desc = "A blade with a quilloned crossguard."
+	desc = "A single-edged military sword that is similar to a messer in appearance. It's good for cutting and thrusting."
 	force = 20
-	possible_item_intents = list(/datum/intent/sword/cut/short, /datum/intent/sword/thrust/short)
+	possible_item_intents = list(/datum/intent/sword/cut/short, /datum/intent/sword/thrust/short, /datum/intent/sword/peel)
 	icon_state = "falchion"
 	gripped_intents = null
 	minstr = 4
@@ -195,7 +210,7 @@
 	force = 25
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/sword/chop)
 	icon_state = "longsword"
 	icon = 'icons/roguetown/weapons/64.dmi'
 	item_state = "longsword"
@@ -366,7 +381,7 @@
 /obj/item/rogueweapon/sword/long/vlord
 	force = 40
 	force_wielded = 55
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
 	icon_state = "vlord"
 	icon = 'icons/roguetown/weapons/64.dmi'
@@ -408,14 +423,14 @@
 
 /obj/item/rogueweapon/sword/sabre/shamshir
 	force = 24
-	minstr = 5
-	wdefense = 5
+	wdefense = 6	//Has chop mode, so slightly less defense. Slightly.
 	wbalance = 1
 	name = "shamshir"
 	desc = "A one-handed sword with elegant curves and deadly sharpness."
 	icon_state = "tabi"
 	icon = 'icons/roguetown/weapons/64.dmi'
 	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/sword/chop)
+	alt_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/sword/chop)
 	gripped_intents = null
 	parrysound = list('sound/combat/parry/bladed/bladedthin (1).ogg', 'sound/combat/parry/bladed/bladedthin (2).ogg', 'sound/combat/parry/bladed/bladedthin (3).ogg')
 	swingsound = BLADEWOOSH_SMALL
@@ -441,8 +456,8 @@
 /obj/item/rogueweapon/sword/long/marlin
 	force = 26
 	force_wielded = 31
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike, /datum/intent/sword/chop)
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike, /datum/intent/sword/peel)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike, /datum/intent/sword/chop, /datum/intent/sword/peel)
 	icon_state = "marlin"
 	icon = 'icons/roguetown/weapons/64.dmi'
 	item_state = "marlin"
@@ -480,15 +495,19 @@
 			if("onbelt")
 				return list("shrink" = 0.5,"sx" = -4,"sy" = -6,"nx" = 5,"ny" = -6,"wx" = 0,"wy" = -6,"ex" = -1,"ey" = -6,"nturn" = 100,"sturn" = 156,"wturn" = 90,"eturn" = 180,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+//Slightly more expensive than a longsword by 1 iron, so gets to be slightly better.
 /obj/item/rogueweapon/sword/long/exe
-	possible_item_intents = list(/datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/axe/chop)
+	name = "executioners sword"
+	desc = "A longsword with extra heft to its blade, reinforced."
+	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/sword/strike)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/axe/chop)
 	icon_state = "exe"
-	name = "execution sword"
-	desc = ""
-	minstr = 10
+	minstr = 12
 	slot_flags = ITEM_SLOT_BACK //Too big for hip
 
+/datum/intent/sword/thrust/exe
+	swingdelay = 4	//Slight delay to stab; big and heavy.
+	penfactor = 30	//Slightly better pen than base longsword, which is 20. It's a heavy blade so.
 
 /obj/item/rogueweapon/sword/long/exe/astrata
 	name = "solar judge"
@@ -496,7 +515,7 @@
 	icon_state = "astratasword"
 	max_integrity = 200
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike, /datum/intent/axe/chop)
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/axe/chop)
 
 /obj/item/rogueweapon/sword/long/exe/getonmobprop(tag)
 	. = ..()
@@ -542,7 +561,7 @@
 	name = "short sword"
 	desc = "An archaic iron sword."
 	icon_state = "iswordshort"
-	possible_item_intents = list(/datum/intent/sword/cut/short, /datum/intent/sword/thrust/short)
+	possible_item_intents = list(/datum/intent/sword/cut/short, /datum/intent/sword/thrust/short, /datum/intent/sword/peel)
 	gripped_intents = null
 	minstr = 4
 	wdefense = 3
@@ -550,6 +569,13 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_width = 32
 	grid_height = 96
+
+/obj/item/rogueweapon/sword/iron/short/gladius
+	name = "gladius"
+	desc = "A bronze short sword with a slightly wider end, and no guard. Best used together with a shield, thrusted directly into your enemy's guts."
+	icon_state = "gladius"
+	max_integrity = 200
+	wdefense = 3
 
 /obj/item/rogueweapon/sword/iron/short/chipped
 	force = 17
@@ -568,29 +594,52 @@
 	penfactor = 30
 
 /obj/item/rogueweapon/sword/iron/messer
-	name = "iron messer"
-	desc = "A single edged blade to slice and chop with."
+	name = "hunting sword"
+	desc = "A basic single-edge sword that is usually used to finish off hunted game. It excels at slicing and chopping, and it's made of iron. \
+	It's a fairly reliable and affordable self-defense weapon."
 	icon_state = "imesser"
 	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust, /datum/intent/axe/chop, /datum/intent/sword/peel)
 	gripped_intents = null
 	minstr = 4
 	wdefense = 2
 
+// This typepath is so fucked bruh but I am not repeating code and not dropping a massive merge conflict for now
+/obj/item/rogueweapon/sword/iron/messer/copper 
+	name = "copper messer"
+	desc = "A copper hunting sword. Less durable than its iron counterpart."
+	force = 20 // Slightly worse
+	icon_state = "cmesser"
+	max_integrity = 150
+	minstr = 4
+	wdefense = 2
+	smeltresult = /obj/item/ingot/copper
+
+/obj/item/rogueweapon/sword/short/messer
+	name = "messer"
+	desc = "A \"Großesmesser\" of disputed Grenzel origin, meaning greatknife. It's a basic single-edge sword for civilian and military use. It excels at slicing and chopping, and it's made of steel. \
+	It can fill the exact function of a hunting sword, this one is more durable."
+	icon_state = "smesser"
+	force = 22	//Same damage as the iron messer
+	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust, /datum/intent/axe/chop, /datum/intent/sword/peel)
+	gripped_intents = null
+	minstr = 5
+
 /obj/item/rogueweapon/sword/sabre
 	name = "sabre"
 	desc = "A swift saber. Parries realiantly and strikes swiftly"
 	icon_state = "saber"
-	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust/sabre, /datum/intent/sword/peel)
+	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust/sabre, /datum/intent/sword/peel, /datum/intent/sword/strike)
 	gripped_intents = null
 	parrysound = list('sound/combat/parry/bladed/bladedthin (1).ogg', 'sound/combat/parry/bladed/bladedthin (2).ogg', 'sound/combat/parry/bladed/bladedthin (3).ogg')
 	swingsound = BLADEWOOSH_SMALL
 	minstr = 5
-	wdefense = 6
+	wdefense = 7		//Same as rapier
 	wbalance = 1
 
 /datum/intent/sword/cut/sabre
 	clickcd = 10		//Faster than sword by 2, slower than rapier stab by 2
-	damfactor = 1.15	//Opposite of rapier, 15% better than base
+	damfactor = 1.25	//Opposite of rapier, 15% better than base (Base is 1.1 for swords)
+	penfactor = 10		//Very slight buff to pen on cut mode. Still weaker then sword-chop mode.
 
 /datum/intent/sword/thrust/sabre
 	clickcd = 9			//Fast but still not as fast as rapier n' shittier.
@@ -600,17 +649,27 @@
 	icon_state = "decsaber"
 	sellprice = 140
 
+//Unique church sword - slightly better than regular sabre due to falx chop.
 /obj/item/rogueweapon/sword/sabre/nockhopesh
 	name = "moonlight khopesh"
 	icon_state = "nockhopesh"
 	desc = "Glittering moonlight upon blued steel."
-	wdefense = 7
-	force = 25
+	force = 25	//Base is 22
 	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust, /datum/intent/sword/chop/falx, /datum/intent/sword/peel)
 	max_integrity = 200
 
-/datum/intent/sword/cut/falx
-	penfactor = 20
+/obj/item/rogueweapon/sword/sabre/elf
+	name = "elvish saber"
+	desc = "This finely crafted saber is of elven design."
+	icon_state = "esaber"
+	item_state = "esaber"
+	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	force = 25	//Base is 22
+	last_used = 0
+	is_silver = TRUE
+	smeltresult = /obj/item/ingot/silver
+	smelt_bar_num = 2
 
 /obj/item/rogueweapon/sword/rapier
 	name = "rapier"
@@ -763,32 +822,6 @@
 	wdefense = 6
 	wbalance = 1
 
-/obj/item/rogueweapon/sword/gladius
-	force = 22
-	name = "gladius"
-	desc = "A bronze short sword with a slightly wider end, and no guard. Compliments a shield."
-	icon_state = "gladius"
-	gripped_intents = null
-	smeltresult = /obj/item/ingot/bronze
-	smelt_bar_num = 2
-	max_blade_int = 100
-	max_integrity = 200
-	dropshrink = 0.80
-	wdefense = 2
-
-/obj/item/rogueweapon/sword/sabre/elf
-	force = 25
-	name = "elvish saber"
-	desc = "This finely crafted saber is of elven design."
-	icon_state = "esaber"
-	item_state = "esaber"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
-	last_used = 0
-	is_silver = TRUE
-	smeltresult = /obj/item/ingot/silver
-	smelt_bar_num = 2
-
 /obj/item/rogueweapon/sword/silver
 	force = 24
 	name = "silver sword"
@@ -906,18 +939,18 @@
 				"westabove" = 0,
 				)
 
-/obj/item/rogueweapon/sword/long/romphaia
+/obj/item/rogueweapon/sword/long/rhomphaia
 	force = 25
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/sword/cut/falx, /datum/intent/sword/strike, /datum/intent/sword/chop/falx, /datum/intent/sword/peel)
 	gripped_intents = list(/datum/intent/sword/cut/falx, /datum/intent/sword/strike, /datum/intent/sword/chop/falx, /datum/intent/sword/peel)
-	icon_state = "romphaia"
-	name = "romphaia"
+	icon_state = "rhomphaia"
+	name = "rhomphaia"
 	desc = "A longsword with a hooked end for punching through armour."
 	smeltresult = /obj/item/ingot/steel
 	max_integrity = 125
 
-/obj/item/rogueweapon/sword/long/romphaia/getonmobprop(tag)
+/obj/item/rogueweapon/sword/long/rhomphaia/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
@@ -1013,6 +1046,16 @@
 				"eastabove" = 1,
 				"westabove" = 0,
 				)
+
+/obj/item/rogueweapon/sword/long/rhomphaia/copper
+	name = "copper rhomphaia"
+	desc = "A rhomphaia made of copper. Less durable and powerful than its steel counterpart. It has great cutting power."
+	icon_state = "crhomphaia"
+	force = 22
+	force_wielded = 26
+	max_integrity = 100
+	smeltresult = /obj/item/ingot/copper
+
 /obj/item/rogueweapon/sword/long/oathkeeper
 	name = "Oathkeeper"
 	desc = "An ornate golden blade with a ruby embedded in the hilt. Granted to the Knight Commander for their valiant service to the crown."

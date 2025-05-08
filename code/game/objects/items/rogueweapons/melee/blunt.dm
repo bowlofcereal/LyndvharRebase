@@ -70,6 +70,7 @@
 	wdefense = 2
 	wbalance = -1
 	blade_dulling = DULLING_BASHCHOP
+	intdamage_factor = 0.7
 
 /obj/item/rogueweapon/mace/church
 	force = 25
@@ -169,6 +170,7 @@
 	possible_item_intents = list(/datum/intent/mace/strike/wood)
 	gripped_intents = list(/datum/intent/mace/strike/wood, /datum/intent/mace/smash/wood)
 	smeltresult = /obj/item/ash
+	anvilrepair = /datum/skill/craft/carpentry
 	minstr = 7
 	resistance_flags = FLAMMABLE
 
@@ -184,6 +186,8 @@
 	hitsound = list('sound/combat/hits/blunt/woodblunt (1).ogg', 'sound/combat/hits/blunt/woodblunt (2).ogg')
 	penfactor = 20
 
+/datum/intent/mace/smash/wood/ranged
+	reach = 2
 
 /obj/item/rogueweapon/mace/cudgel
 	name = "cudgel"
@@ -202,6 +206,15 @@
 	resistance_flags = FLAMMABLE
 	grid_width = 32
 	grid_height = 96
+
+/obj/item/rogueweapon/mace/cudgel/copper
+	name = "copper bludgeon"
+	desc = "An extremely crude weapon for cruder bastards."
+	force = 15
+	icon_state = "cbludgeon"
+	force_wielded = 20
+	smeltresult = /obj/item/ingot/copper
+	wdefense = 2
 
 /obj/item/rogueweapon/mace/cudgel/justice
 	name = "'Justice'"
@@ -240,6 +253,7 @@
 	wdefense = 5
 	wbalance = 0
 	associated_skill = /datum/skill/combat/swords
+	anvilrepair = /datum/skill/craft/carpentry
 	resistance_flags = FLAMMABLE
 
 
@@ -320,6 +334,7 @@
 	dropshrink = 0.6
 	bigboy = TRUE
 	gripsprite = TRUE
+	intdamage_factor = 0.5
 
 /obj/item/rogueweapon/mace/goden/getonmobprop(tag)
 	. = ..()
@@ -339,6 +354,18 @@
 	force = 15
 	force_wielded = 35
 	smeltresult = /obj/item/ingot/steel
+	smelt_bar_num = 2
+
+/obj/item/rogueweapon/mace/goden/deepduke
+	name = "deep duke's staff"
+	desc = "A staff made of seaglass and sturdy but unusual metal, holding no power after its misled owner's death. More useful as a bashing tool than a magic focus."
+	icon = 'icons/roguetown/mob/monster/pufferboss.dmi'
+	icon_state = "pufferprod"
+	force = 15
+	force_wielded = 35
+	minstr = 11
+	max_integrity = 900
+	smeltresult = /obj/item/ingot/steelholy
 	smelt_bar_num = 2
 
 /obj/item/rogueweapon/mace/goden/steel/ravox
@@ -381,6 +408,7 @@
 	smeltresult = /obj/item/ingot/iron
 	blade_dulling = DULLING_BASH
 	wdefense = 3
+	intdamage_factor = 0.3
 
 /obj/item/rogueweapon/mace/warhammer/steel
 	force = 25
@@ -421,10 +449,10 @@
 	icon_state = "inpick"
 	blade_class = BCLASS_PICK
 	attack_verb = list("picks", "impales")
+	animname = "stab"
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
-	chargetime = 14
 	misscost = 1
-	no_early_release = TRUE
+	swingdelay = 15
 	penfactor = 80
 	damfactor = 0.9
 	item_d_type = "stab"
