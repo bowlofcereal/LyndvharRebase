@@ -241,6 +241,7 @@
 	wbalance = 0
 	associated_skill = /datum/skill/combat/swords
 	anvilrepair = /datum/skill/craft/carpentry
+	blade_dulling = DULLING_SHAFT_REINFORCED
 	resistance_flags = FLAMMABLE
 
 

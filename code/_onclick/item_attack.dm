@@ -324,7 +324,7 @@
 				if(BCLASS_SMASH)
 					dullfactor = 0.5
 				if(BCLASS_PICK)
-					cont = FALSE
+					dullfactor = 0.5
 		if(DULLING_SHAFT_REINFORCED)	//Weak to stab. No changes vs blunt, resistant to cut / chop
 			switch(user.used_intent.blade_class)
 				if(BCLASS_CUT)
@@ -344,25 +344,25 @@
 				if(BCLASS_SMASH)
 					dullfactor = 1
 				if(BCLASS_PICK)
-					cont = FALSE
+					dullfactor = 0.7
 		if(DULLING_SHAFT_METAL)	//Very weak to blunt. No changes vs stab, highly resistant to cut / chop. Pick can actually damage it.
 			switch(user.used_intent.blade_class)
 				if(BCLASS_CUT)
 					if(!I.remove_bintegrity(1))
 						cont = FALSE
 					else
-						dullfactor = 0.4
+						dullfactor = 0.25
 				if(BCLASS_CHOP)
 					if(!I.remove_bintegrity(1))
 						cont = FALSE
 					else
-						dullfactor = 0.5
+						dullfactor = 0.4
 				if(BCLASS_STAB)
-					dullfactor = 1
+					dullfactor = 0.75
 				if(BCLASS_BLUNT)
-					dullfactor = 1.5
+					dullfactor = 1.3
 				if(BCLASS_SMASH)
-					dullfactor = 1.7
+					dullfactor = 1.5
 				if(BCLASS_PICK)
 					dullfactor = 1
 		if(DULLING_SHAFT_GRAND)	//Resistant to all
@@ -384,7 +384,7 @@
 				if(BCLASS_SMASH)
 					dullfactor = 1
 				if(BCLASS_PICK)
-					cont = FALSE
+					dullfactor = 0.5
 	newforce = (newforce * user.used_intent.damfactor) * dullfactor
 	if(user.used_intent.get_chargetime() && user.client?.chargedprog < 100)
 		newforce = newforce * 0.5
