@@ -13,7 +13,6 @@ GLOBAL_LIST_INIT(dwarfskeleton_aggro, world.file2list("strings/rt/dskeletonaggro
 	cmode = 1
 	setparrytime = 30
 	a_intent = INTENT_HELP
-	mmb_intent = INTENT_KICK
 	d_intent = INTENT_PARRY //even in undeath dwarves parry. Dodging aint proper dorf behavior
 	var/is_silent = FALSE
 	selected_default_language = /datum/language/dwarvish
