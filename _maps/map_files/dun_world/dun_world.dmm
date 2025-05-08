@@ -13833,6 +13833,10 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/dwarfin)
+"eZJ" = (
+/obj/item/rogueweapon/huntingknife/copper,
+/turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/mountains/decap/gunduzirak)
 "eZW" = (
 /obj/structure/fluff/statue/knight/interior,
 /turf/open/floor/rogue/tile/masonic/single,
@@ -26875,8 +26879,12 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "jMk" = (
-/obj/item/cooking/pan,
+/obj/item/reagent_containers/glass/bucket/pot/copper,
 /turf/open/floor/rogue/naturalstone,
+/area/rogue/outdoors/mountains/decap/gunduzirak)
+"jMo" = (
+/obj/item/cooking/platter/copper,
+/turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "jMr" = (
 /obj/structure/table/wood{
@@ -30122,7 +30130,7 @@
 	dir = 1;
 	icon_state = "churchtable_end_alt"
 	},
-/obj/item/reagent_containers/glass/bowl,
+/obj/item/cooking/platter/copper,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "laQ" = (
@@ -30628,6 +30636,7 @@
 /area/rogue/under/town/basement/keep)
 "lkw" = (
 /obj/structure/table/wood/crafted,
+/obj/item/cooking/platter/gold,
 /turf/open/floor/rogue/carpet,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "lkA" = (
@@ -39613,7 +39622,7 @@
 /area/rogue/indoors/shelter)
 "oDf" = (
 /obj/structure/rack/rogue,
-/obj/item/flashlight/flare/torch/lantern,
+/obj/item/flashlight/flare/torch/lantern/copper,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "oDi" = (
@@ -47025,7 +47034,7 @@
 /area/rogue/indoors/town)
 "rjO" = (
 /obj/structure/rack/rogue,
-/obj/item/rogueweapon/sickle,
+/obj/item/rogueweapon/sickle/copper,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "rjR" = (
@@ -51642,7 +51651,7 @@
 /area/rogue/outdoors/beach/forest)
 "sUa" = (
 /obj/structure/rack/rogue,
-/obj/item/rogueweapon/spear/stone,
+/obj/item/rogueweapon/spear/stone/copper,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "sUi" = (
@@ -52827,6 +52836,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
+/obj/item/cooking/platter/silver,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "tpt" = (
@@ -55230,7 +55240,7 @@
 /area/rogue/under/cave/goblindungeon)
 "ujl" = (
 /obj/structure/closet/crate/chest/neu,
-/obj/item/reagent_containers/glass/alchemical/perpot,
+/obj/item/reagent_containers/glass/bottle/alchemical/perpot,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "ujm" = (
@@ -60335,6 +60345,11 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town/roofs)
+"wdb" = (
+/obj/effect/decal/remains/human,
+/obj/item/roguecoin/copper/pile,
+/turf/open/floor/rogue/blocks,
+/area/rogue/outdoors/mountains/decap/gunduzirak)
 "wdn" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/natural/stone,
@@ -60769,6 +60784,10 @@
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/mountains/decap)
+"wko" = (
+/obj/item/cooking/platter/copper,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/outdoors/mountains/decap/gunduzirak)
 "wkv" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8
@@ -300692,7 +300711,7 @@ oXB
 kEi
 oXB
 xPe
-xPe
+cKE
 xPe
 xPe
 kEi
@@ -305219,7 +305238,7 @@ fez
 oMA
 xPe
 aXo
-iWV
+wdb
 pAU
 aXo
 xUJ
@@ -306138,7 +306157,7 @@ lpu
 lpu
 nXY
 sdZ
-aIc
+xvv
 qSv
 bsm
 gmZ
@@ -307503,7 +307522,7 @@ xPe
 xyM
 xPe
 xyM
-xPe
+wko
 lpu
 xUJ
 xUJ
@@ -307951,7 +307970,7 @@ qQN
 bsm
 gmZ
 xUJ
-qjj
+jMo
 jCx
 xUJ
 rCu
@@ -308845,7 +308864,7 @@ rCu
 xUJ
 lpu
 lpu
-hpy
+eZJ
 rBF
 fkG
 yeH
@@ -322404,7 +322423,7 @@ nXY
 hpy
 ktA
 lpu
-hpy
+qcY
 ktA
 hpy
 ntL
