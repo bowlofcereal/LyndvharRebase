@@ -134,18 +134,7 @@
 				if(get_dist(get_turf(user), get_turf(M)) <= user.used_intent.reach)
 					user.do_attack_animation(M, visual_effect_icon = user.used_intent.animname)
 		return
-	else
-		if(istype(user.used_intent, /datum/intent/effect))
-			var/datum/intent/effect/int = user.used_intent
-			var/do_effect = FALSE
-			if(length(int.target_parts))
-				var/zone = check_zone(user.zone_selected)
-				if(zone in int.target_parts)
-					do_effect = TRUE
-			else
-				do_effect = TRUE
-			if(do_effect)
-				M.apply_status_effect(int.intent_effect)
+
 
 
 	if(user.zone_selected == BODY_ZONE_PRECISE_R_INHAND)

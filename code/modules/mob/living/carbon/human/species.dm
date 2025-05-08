@@ -1544,7 +1544,16 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	if(!affecting)
 		return
-
+	if(istype(user.used_intent, /datum/intent/effect) && selzone)
+		var/datum/intent/effect/int = user.used_intent
+		var/do_effect = FALSE
+		if(length(int.target_parts))
+			if(selzone in int.target_parts)
+				do_effect = TRUE
+		else
+			do_effect = TRUE
+		if(do_effect)
+			H.apply_status_effect(int.intent_effect)
 	hit_area = affecting.name
 	var/def_zone = affecting.body_zone
 
