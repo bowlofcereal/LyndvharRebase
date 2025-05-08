@@ -90,8 +90,8 @@ GLOBAL_LIST_INIT(dwarfskeleton_aggro, world.file2list("strings/rt/dskeletonaggro
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
 	if(prob(50))
 		cloak = /obj/item/clothing/cloak/raincloak/mortus
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/copper
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/copper
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	if(prob(60))
 		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
@@ -106,7 +106,7 @@ GLOBAL_LIST_INIT(dwarfskeleton_aggro, world.file2list("strings/rt/dskeletonaggro
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	mask = /obj/item/clothing/mask/rogue/facemask
 	if(prob(40))
-		mask = /obj/item/clothing/mask/rogue/skullmask
+		mask = /obj/item/clothing/mask/rogue/facemask/copper
 		if(prob(10))
 			mask = /obj/item/clothing/mask/rogue/facemask/steel
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
