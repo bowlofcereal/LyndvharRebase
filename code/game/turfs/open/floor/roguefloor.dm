@@ -337,6 +337,21 @@
 	bloodiness = 20
 	dirt_amt = 3
 
+/turf/open/floor/rogue/dirt/snow
+	name = "dirt-s"
+	desc = "The dirt is pocked with the scars of countless wars."
+	icon_state = "dirt-s"
+	layer = MID_TURF_LAYER
+	footstep = FOOTSTEP_GRASS
+	barefootstep = FOOTSTEP_SOFT_BAREFOOT
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	landsound = 'sound/foley/jumpland/dirtland.wav'
+	slowdown = 2
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(/turf/open/floor/rogue/grass)
+	neighborlay = "dirtedge"
+
 /turf/open/floor/rogue/dirt
 	name = "dirt"
 	desc = "The dirt is pocked with the scars of countless wars."
@@ -365,7 +380,6 @@
 /turf/open/floor/rogue/dirt/get_slowdown(mob/user)
 	var/returned = slowdown
 	var/negate_slowdown = FALSE
-
 	for(var/obj/item/I in user.held_items)
 		if(I.walking_stick)
 			if(!I.wielded)
@@ -375,7 +389,6 @@
 
 	if(HAS_TRAIT(user, TRAIT_LONGSTRIDER))
 		negate_slowdown = TRUE
-
 	if(negate_slowdown)
 		returned = max(returned-2, 0)
 
@@ -985,6 +998,9 @@
 /turf/open/floor/rogue/cobble/Initialize()
 	. = ..()
 	icon_state = "cobblestone[rand(1,3)]"
+///turf/open/floor/rogue/cobble/Initialize()
+//	. = ..()
+//	icon_state = "cobblestone[rand(1,3)]"
 
 /turf/open/floor/rogue/cobble/mossy
 	icon_state = "mossystone1"
@@ -993,7 +1009,7 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
-	neighborlay = "mossystone_edges"
+	neighborlay = "cobbleedge"
 	smooth = SMOOTH_TRUE
 	canSmoothWith = list(/turf/open/floor/rogue/dirt, 
 						/turf/open/floor/rogue/grass,
@@ -1011,20 +1027,6 @@
 	. = ..()
 	icon_state = "mossystone[rand(1,3)]"
 
-/obj/effect/decal/mossy
-	name = ""
-	desc = ""
-	icon = 'icons/turf/roguefloor.dmi'
-	icon_state = "mossyedge"
-	mouse_opacity = 0
-
-/obj/effect/decal/cobble/mossy
-	name = ""
-	desc = ""
-	icon = 'icons/turf/roguefloor.dmi'
-	icon_state = "mossystone_edges"
-	mouse_opacity = 0
-
 /turf/open/floor/rogue/cobblerock
 	icon_state = "cobblerock"
 	footstep = FOOTSTEP_STONE
@@ -1032,11 +1034,9 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
-//	neighborlay = "cobblerock"
-	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/rogue, 
-						/turf/closed/mineral, 
-						/turf/closed/wall/mineral)
+	neighborlay = "cobblerock"
+	smooth = SMOOTH_TRUE
+	canSmoothWith = list(/turf/open/floor/rogue/dirt, /turf/open/floor/rogue/grass, /turf/open/floor/rogue/dirt/road)
 
 /turf/open/floor/rogue/cobblerock/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)
@@ -1047,6 +1047,242 @@
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "cobblestone_edges"
 	mouse_opacity = 0
+
+///Add my stuff here, remove note when done
+/// Decal section
+
+/obj/effect/decal/stone/blockedge
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "blocks_edges"
+	mouse_opacity = 0
+
+/obj/effect/decal/stone/blockedge/blockedgeinvert
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "blocks_edgesinv"
+	mouse_opacity = 0
+
+/obj/effect/decal/stone/mossy
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "mossyedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/stone/mossy/big
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "mossystone_edges"
+	mouse_opacity = 0
+
+/obj/effect/decal/stone/chess
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "chessedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/stone/chess/inv
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "chessedgeinv"
+	mouse_opacity = 0
+
+/obj/effect/decal/stone/hex
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "hexstoneedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/herringbone
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "herringedge"
+	mouse_opacity = 0
+
+
+/obj/effect/decal/dirt
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "dirtedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/dirt/road
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "roadedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/dirt/grass
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "grassedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/dirt/grass/hell
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "hellgrassedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/wood/herringbone
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "herringbonewoodedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/wood/herringbone2
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "herringbonewood2edge"
+	mouse_opacity = 0
+
+/obj/effect/decal/wood/
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "wooden_floor2edge"
+	mouse_opacity = 0
+
+/obj/effect/decal/wood/turnd
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "wooden_floor2tedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/wood/ruinedwood
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "wooden_flooredge"
+	mouse_opacity = 0
+
+/obj/effect/decal/wood/ruinedwood/turned
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "wooden_floortedge"
+	mouse_opacity = 0
+
+/obj/effect/decal/border
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "woodenborder"
+	mouse_opacity = 0
+
+/obj/effect/decal/border/ruinedwood
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "woodenborder"
+	mouse_opacity = 0
+
+/obj/effect/decal/border/ruinedwood/inverted
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "woodenborderinv"
+	mouse_opacity = 0
+
+/obj/effect/decal/border/wood
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "woodenborder2"
+	mouse_opacity = 0
+
+/obj/effect/decal/border/wood/inverted
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "woodenborder2inv"
+	mouse_opacity = 0
+
+/obj/effect/decal/border/stone
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "stoneborder"
+	mouse_opacity = 0
+
+/obj/effect/decal/border/stone/inverted
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "stoneborderinv"
+	mouse_opacity = 0
+
+/obj/effect/decal/border/stone/stonepattern1
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "stone1edge"
+	mouse_opacity = 0
+
+/obj/effect/decal/border/stone/stonepattern2
+	name = ""
+	desc = ""
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "stone2edge"
+	mouse_opacity = 0
+
+//floors
+
+/turf/open/floor/rogue/ruinedwood/herringbone
+	footstep = FOOTSTEP_WOOD
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_WOOD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	landsound = 'sound/foley/jumpland/woodland.wav'
+	icon_state = "herringbonewood"
+
+/turf/open/floor/rogue/wood/herringbone
+	footstep = FOOTSTEP_WOOD
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_WOOD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	landsound = 'sound/foley/jumpland/woodland.wav'
+	icon_state = "herringbonewood2"
+
+/turf/open/floor/rogue/grass/hell
+	icon_state = "hellgrass"
+
+/turf/open/floor/rogue/blocks/stone
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "stone1"
+	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	landsound = 'sound/foley/jumpland/tileland.wav'
+	footstepstealth = TRUE
+
+/turf/open/floor/rogue/blocks/stone/stonepattern2
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "stone2"
+
+/turf/open/floor/rogue/blocks/stone/stonepattern3
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "stone3"
+
+/// End of my adds
 
 /turf/open/floor/rogue/tile
 	icon_state = "chess"
@@ -1085,8 +1321,6 @@
 
 /turf/open/floor/rogue/tile/bath
 	icon_state = "bathtile"
-/turf/open/floor/rogue/tile/brick
-	icon_state = "bricktile"
 /turf/open/floor/rogue/tile/bfloorz
 	icon_state = "bfloorz"
 /turf/open/floor/rogue/tile/tilerg
