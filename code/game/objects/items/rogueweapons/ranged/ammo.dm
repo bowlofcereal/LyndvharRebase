@@ -203,6 +203,51 @@
 		T = get_turf(target)
 	explosion(T, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, soundin = explode_sound)
 
+
+/obj/item/ammo_casing/caseless/rogue/bolt/water
+	name = "pyroclastic bolt"
+	desc = "A bolt smeared with a flammable tincture."
+	projectile_type = /obj/projectile/bullet/bolt/water
+	possible_item_intents = list(/datum/intent/mace/strike)
+	caliber = "regbolt"
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "bolt_water"
+	dropshrink = 0.8
+	max_integrity = 10
+	force = 10
+
+/obj/projectile/bullet/bolt/water
+	name = "pyroclastic bolt"
+	desc = "A bolt smeared with a flammable tincture."
+	damage = 20
+	damage_type = BRUTE
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "boltwater_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/bolt/water
+	range = 15
+	hitsound = 'sound/blank.ogg'
+	embedchance = 0
+	woundclass = BCLASS_BLUNT
+	flag = "piercing"
+	speed = 0.3
+
+	var/explode_sound = list('sound/misc/explode/incendiary (1).ogg','sound/misc/explode/incendiary (2).ogg')
+
+	//explosion values
+	var/exp_heavy = 0
+	var/exp_light = 0
+	var/exp_flash = 0
+	var/exp_fire = 1
+
+/obj/projectile/bullet/bolt/water/on_hit(target)
+	. = ..()
+	if(ismob(target))
+		var/mob/living/M = target
+		for(var/obj/O in M.contents) //Checks for light sources in the mob's inventory
+			O.extinguish() //Extinguishes light sources on the mob you hit with the arrow.
+	var/turf/T = get_turf(target)
+	for(var/obj/O in T)
+		O.extinguish()
 //pyro arrows
 
 /obj/item/ammo_casing/caseless/rogue/arrow/pyro
@@ -285,7 +330,7 @@
 	. = ..()
 	if(ismob(target))
 		var/mob/living/M = target
-		for(var/obj/O in M.contents) //Checks for light sources
+		for(var/obj/O in M.contents) //Checks for light sources in the mob's inventory.
 			O.extinguish() //Extinguishes light sources on the mob you hit with the arrow.
 	var/turf/T = get_turf(target)
 	for(var/obj/O in T)
