@@ -18,17 +18,27 @@
 	glow_intensity = GLOW_INTENSITY_LOW
 	no_early_release = TRUE
 	movement_interrupt = FALSE
+	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	range = 7
 
 /obj/effect/proc_holder/spell/invoked/stoneskin/cast(list/targets, mob/user)
-	playsound(get_turf(user), 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
+	var/atom/A = targets[1]
+	if(!isliving(A))
+		revert_cast()
+		return
 
-	user.visible_message("[user] mutters an incantation and a pulse of grey light radiates out from them.")
-	for(var/mob/living/L in range(1, usr))
-		L.apply_status_effect(/datum/status_effect/buff/stoneskin)
+	var/mob/living/spelltarget = A
+	playsound(get_turf(spelltarget), 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
 
+	if(spelltarget != user)
+		user.visible_message("[user] mutters an incantation and [spelltarget] 's skin hardens like stone.")
+		to_chat(user, span_notice("With another person as a conduit, my spell's duration is doubled."))
+		spelltarget.apply_status_effect(/datum/status_effect/buff/stoneskin/other)
+	else
+		user.visible_message("[user] mutters an incantation and their skin hardens.")
+		spelltarget.apply_status_effect(/datum/status_effect/buff/stoneskin)
 
 	return TRUE
 
@@ -43,6 +53,10 @@
 	id = "stoneskin"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/stoneskin
 	effectedstats = list("constitution" = 5)
+	var/hadcritres = FALSE
+	duration = 1 MINUTES
+
+/datum/status_effect/buff/stoneskin/other
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/stoneskin/on_apply()

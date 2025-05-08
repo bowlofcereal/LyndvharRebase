@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/fortitude
 	name = "Fortitude"
-	desc = "Harden one's humors to the fatigues of the body. (-50% Stamina Usage). Applies to yourself and anyone next to you."
+	desc = "Harden one's humors to the fatigues of the body. (-50% Stamina Usage)"
 	cost = 1
 	xp_gain = TRUE
 	releasedrain = 60
@@ -15,16 +15,27 @@
 	invocation = "Tenax"
 	invocation_type = "whisper"
 	glow_color = GLOW_COLOR_BUFF
-	glow_intensity = GLOW_INTENSITY_MEDIUM
+	glow_intensity = GLOW_INTENSITY_LOW
+	charging_slowdown = 2
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 
 /obj/effect/proc_holder/spell/invoked/fortitude/cast(list/targets, mob/user)
-	playsound(get_turf(user), 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
+	var/atom/A = targets[1]
+	if(!isliving(A))
+		revert_cast()
+		return
 
-	user.visible_message("[user] mutters an incantation and a pulse of green light radiates out from them.")
-	for(var/mob/living/L in range(1, usr))
-		L.apply_status_effect(/datum/status_effect/buff/fortitude)
+	var/mob/living/spelltarget = A
+	playsound(get_turf(spelltarget), 'sound/magic/haste.ogg', 80, TRUE, soundping = TRUE)
+
+	if(spelltarget != user)
+		user.visible_message("[user] mutters an incantation and [spelltarget] briefly shines green.")
+		to_chat(user, span_notice("With another person as a conduit, my spell's duration is doubled."))
+		spelltarget.apply_status_effect(/datum/status_effect/buff/fortitude/other)
+	else
+		user.visible_message("[user] mutters an incantation and they briefly shine green.")
+		spelltarget.apply_status_effect(/datum/status_effect/buff/fortitude)
 
 	return TRUE
 
@@ -38,6 +49,9 @@
 	var/outline_colour ="#008000" // Forest green to avoid le sparkle mage
 	id = "fortitude"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/fortitude
+	duration = 1 MINUTES
+
+/datum/status_effect/buff/fortitude/other
 	duration = 2 MINUTES
 
 /datum/status_effect/buff/fortitude/on_apply()
