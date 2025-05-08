@@ -253,6 +253,43 @@
 		T = get_turf(target)
 	explosion(T, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, soundin = explode_sound)
 
+/obj/item/ammo_casing/caseless/rogue/arrow/water
+	name = "water arrow"
+	desc = "An arrow with its tip containing a glass ampule filled with water. It will shatter on impact, useful for taking out pesky lights."
+	projectile_type = /obj/projectile/bullet/arrow/water
+	possible_item_intents = list(/datum/intent/mace/strike)
+	caliber = "arrow"
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "arrow_water"
+	dropshrink = 0.8
+	max_integrity = 10
+	force = 0
+
+/obj/projectile/bullet/arrow/water
+	name = "water arrow"
+	desc = "An arrow with its tip containing a glass ampule filled with water. It will shatter on impact, useful for taking out pesky lights."
+	damage = 0
+	damage_type = BRUTE
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "arrowwater_proj"
+	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow
+	range = 15
+	hitsound = 'sound/blank.ogg'
+	embedchance = 0
+	woundclass = BCLASS_BLUNT
+	flag = "piercing"
+	speed = 0.4
+
+
+/obj/projectile/bullet/arrow/water/on_hit(target)
+	. = ..()
+	if(ismob(target))
+		var/mob/living/M = target
+		for(var/obj/O in M.contents) //Checks for light sources
+			O.extinguish() //Extinguishes light sources on the mob you hit with the arrow.
+	var/turf/T = get_turf(target)
+	for(var/obj/O in T)
+		O.extinguish()
 /obj/projectile/bullet/reusable/arrow/poison/stone
 	name = "stone arrow"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/stone

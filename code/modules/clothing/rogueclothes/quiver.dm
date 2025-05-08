@@ -115,6 +115,12 @@
 		arrows += A
 	update_icon()
 */
+/obj/item/quiver/Warrows/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/ammo_casing/caseless/rogue/arrow/water/A = new()
+		arrows += A
+	update_icon()
 
 
 /obj/item/quiver/javelin
