@@ -273,6 +273,7 @@
 	light_outer_range = 6
 	fuel = 120 MINUTES
 	should_self_destruct = TRUE
+	extinguishable = TRUE
 
 /obj/item/flashlight/flare/torch/metal/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()
@@ -304,6 +305,7 @@
 	should_self_destruct = FALSE
 	grid_width = 32
 	grid_height = 64
+	extinguishable = FALSE
 
 /obj/item/flashlight/flare/torch/lantern/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()

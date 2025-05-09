@@ -218,7 +218,7 @@
 	if(!isobj(AM))
 		return
 	var/obj/O = AM
-	if(istype(O, /obj/item/flashlight/flare/torch/lantern))
+	if(!O.extinguishable)
 		return
 	O.extinguish()
 
