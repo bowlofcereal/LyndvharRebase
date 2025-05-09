@@ -1342,6 +1342,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_meow()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1360,6 +1361,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_caw()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1378,6 +1380,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_peep()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1396,6 +1399,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_hoot()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1414,6 +1418,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_squeak()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1432,6 +1437,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_hiss()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1450,6 +1456,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_phiss()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1486,6 +1493,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_howl()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1504,6 +1512,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_cackle()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1522,6 +1531,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_whine()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1540,6 +1550,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_trill()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1610,6 +1621,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_purr()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1628,6 +1640,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_moo()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1646,6 +1659,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_bark()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1664,6 +1678,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_growl()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1682,6 +1697,7 @@
 	message_muffled = "makes a muffled sound!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_bleat()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/wild_tongue))
@@ -1700,6 +1716,7 @@
 	message_muffled = "makes a muffled chitter!"
 	vary = TRUE
 	show_runechat = FALSE
+	is_animal = TRUE
 
 /mob/living/carbon/human/verb/emote_chitter()
 	if(istype(usr.getorganslot(ORGAN_SLOT_TONGUE), /obj/item/organ/tongue/moth))
@@ -1725,3 +1742,38 @@
 	else
 		to_chat(usr, span_warning("Your back doesn't do that"))
 		return
+
+/datum/emote/living/fsalute
+	key = "fsalute"
+	key_third_person = "salutes their faith."
+	message = "salutes their faith."
+	emote_type = EMOTE_AUDIBLE
+	show_runechat = TRUE
+
+/datum/emote/living/fsalute/run_emote(mob/living/user, params, type_override, intentional, targetted, animal)
+	. = ..()
+	if(. && !isnull(user.patron) && !HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS))	//Guarded doesn't show an icon to anyone.
+		user.play_overhead_indicator('icons/mob/overhead_effects.dmi', "stress", 15, MUTATIONS_LAYER, private = user.patron.type, soundin = 'sound/magic/holyshield.ogg', y_offset = 32)
+
+/mob/living/carbon/human/verb/emote_fsalute()
+	set name = "Faith Salute"
+	set category = "Emotes"
+
+	emote("fsalute", intentional =  TRUE)
+
+/datum/emote/living/ffsalute
+	key = "ffsalute"
+	key_third_person = "salutes their faith."
+	message = "salutes their faith."
+	emote_type = EMOTE_AUDIBLE
+	show_runechat = TRUE
+
+/datum/emote/living/ffsalute/run_emote(mob/living/user, params, type_override, intentional, targetted, animal)
+	if(HAS_TRAIT(user, TRAIT_XYLIX))
+		. = ..()
+
+/mob/living/carbon/human/proc/emote_ffsalute()
+	set name = "Fake Faith Salute"
+	set category = "Emotes"
+
+	emote("ffsalute", intentional =  TRUE)
