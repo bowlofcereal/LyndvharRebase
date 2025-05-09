@@ -1090,12 +1090,11 @@
 				I.extinguish() //extinguishes our clothes
 			I.acid_level = 0 //washes off the acid on our clothes
 		var/obj/item/I = get_active_held_item()
-		if(istype(I, /obj/item/flashlight/flare/torch) && I.extinguishable)
+		if(I && I.extinguishable)
 			I.extinguish()
 		I = get_inactive_held_item()
-		if(istype(I, /obj/item/flashlight/flare/torch) && I.extinguishable)
+		if(I && I.extinguishable)
 			I.extinguish()
-		return
 	..()
 
 /mob/living/carbon/fakefire(fire_icon = "Generic_mob_burning")
