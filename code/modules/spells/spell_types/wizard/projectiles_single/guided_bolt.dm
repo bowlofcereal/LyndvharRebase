@@ -1,6 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/projectile/guided_bolt
 	name = "Guided Bolt"
-	desc = "Shoot out a bolt of arcyne magic in an indirect arc. Difficult to hit, but quick to recharge and able to arc over friendly. Inflicts blunt damage."
+	desc = "Shoot out a bolt of arcyne magic in an indirect arc. Difficult to hit, but quick to recharge and able to arc over friendly. Inflicts blunt damage. \n\
+	Damage is increased by 50% versus simple-minded creechurs."
 	clothes_req = FALSE
 	range = 12
 	projectile_type = /obj/projectile/energy/guided_bolt
@@ -28,12 +29,11 @@
 	name = "Guided Bolt"
 	icon_state = "arcane_barrage"
 	damage = 40
-	damage_type = BRUTE
-	armor_penetration = 0
 	woundclass = BCLASS_BLUNT
 	arcshot = TRUE
 	nodamage = FALSE
-	flag = "magic"
+	flag = "blunt"
+	hitsound = 'sound/combat/hits/blunt/shovel_hit2.ogg'
 	speed = 1
 
 /obj/projectile/energy/guided_bolt/on_hit(target)

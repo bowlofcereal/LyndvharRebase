@@ -1,6 +1,7 @@
 /obj/effect/proc_holder/spell/invoked/projectile/arcynebolt
 	name = "Arcyne Bolt"
-	desc = "Shoot out a rapid bolt of arcyne magic. Inflicts blunt damage similar to a slingstone."
+	desc = "Shoot out a rapid bolt of arcyne magic. Inflicts blunt damage similar to a slingstone. \n\
+	Damage is increased by 50% versus simple-minded creechurs."
 	clothes_req = FALSE
 	range = 12
 	projectile_type = /obj/projectile/energy/rogue3
@@ -28,11 +29,10 @@
 	name = "Arcyne Bolt"
 	icon_state = "arcane_barrage"
 	damage = 40
-	damage_type = BRUTE
-	armor_penetration = 0
 	woundclass = BCLASS_BLUNT
 	nodamage = FALSE
-	flag = "magic"
+	flag = "blunt"
+	npc_damage_mult = 1.5 // Makes it more effective against NPCs.
 	hitsound = 'sound/combat/hits/blunt/shovel_hit2.ogg'
 	speed = 1
 
