@@ -306,6 +306,7 @@
 	grid_width = 32
 	grid_height = 64
 	extinguishable = FALSE
+	weather_resistant = TRUE
 
 /obj/item/flashlight/flare/torch/lantern/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()
