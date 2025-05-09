@@ -33,6 +33,7 @@
 	arcshot = TRUE
 	nodamage = FALSE
 	flag = "blunt"
+	npc_damage_mult = 1.5 
 	hitsound = 'sound/combat/hits/blunt/shovel_hit2.ogg'
 	speed = 1
 
