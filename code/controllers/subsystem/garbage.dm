@@ -236,7 +236,7 @@ SUBSYSTEM_DEF(garbage)
 	++totaldels
 	var/type = D.type
 	var/refID = "\ref[D]"
-	log_qdel("Harddeleting type: [type], refID: [refID] at tick: [ticktime].")
+	log_qdel("Harddeleting: [D] of [type], refID: [refID] at tick: [ticktime].")
 	del(D)
 
 	tick = (TICK_USAGE-tick+((world.time-ticktime)/world.tick_lag*100))
