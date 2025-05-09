@@ -1085,15 +1085,17 @@
 /mob/living/carbon/ExtinguishMob(itemz = TRUE)
 	if(itemz)
 		for(var/X in get_equipped_items())
-			var/obj/item/I = X
+			var/obj/item/clothing/I = X
+			if(!istype(I, /obj/item/flashlight/flare/torch/lantern))
+				I.extinguish() //extinguishes our clothes
 			I.acid_level = 0 //washes off the acid on our clothes
-			I.extinguish() //extinguishes our clothes
 		var/obj/item/I = get_active_held_item()
-		if(I)
+		if(istype(I, /obj/item/flashlight/flare/torch) && !istype(I, /obj/item/flashlight/flare/torch/lantern))
 			I.extinguish()
 		I = get_inactive_held_item()
-		if(I)
+		if(istype(I, /obj/item/flashlight/flare/torch) && !istype(I, /obj/item/flashlight/flare/torch/lantern))
 			I.extinguish()
+		return
 	..()
 
 /mob/living/carbon/fakefire(fire_icon = "Generic_mob_burning")
