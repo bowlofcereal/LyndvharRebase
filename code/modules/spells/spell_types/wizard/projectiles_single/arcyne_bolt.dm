@@ -29,7 +29,7 @@
 	icon_state = "arcane_barrage"
 	damage = 25
 	damage_type = BRUTE
-	armor_penetration = 100
+	armor_penetration = 40
 	woundclass = BCLASS_SMASH
 	nodamage = FALSE
 	flag = "magic"
