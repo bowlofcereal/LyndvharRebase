@@ -250,12 +250,12 @@
 	icon_state = "bolt_water"
 	dropshrink = 0.8
 	max_integrity = 10
-	force = 10
+	force = 0
 
 /obj/projectile/bullet/bolt/water
 	name = "water bolt"
 	desc = "A bolt with its tip containing a glass ampule filled with water. It will shatter on impact, useful for taking out pesky lights."
-	damage = 20
+	damage = 0
 	damage_type = BRUTE
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "boltwater_proj"

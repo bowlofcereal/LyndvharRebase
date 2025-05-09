@@ -322,10 +322,6 @@
 		turn_off()
 		STOP_PROCESSING(SSobj, src)
 
-/obj/item/flashlight/flare/torch/lantern/extinguish()
-	if(on)
-		turn_off()
-
 /obj/item/flashlight/flare/torch/lantern/getonmobprop(tag)
 	. = ..()
 	if(tag)
