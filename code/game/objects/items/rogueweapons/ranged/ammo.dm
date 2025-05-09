@@ -241,8 +241,8 @@
 
 
 /obj/item/ammo_casing/caseless/rogue/bolt/water
-	name = "pyroclastic bolt"
-	desc = "A bolt smeared with a flammable tincture."
+	name = "water bolt"
+	desc = "A bolt with its tip containing a glass ampule filled with water. It will shatter on impact, useful for taking out pesky lights."
 	projectile_type = /obj/projectile/bullet/bolt/water
 	possible_item_intents = list(/datum/intent/mace/strike)
 	caliber = "regbolt"
@@ -253,8 +253,8 @@
 	force = 10
 
 /obj/projectile/bullet/bolt/water
-	name = "pyroclastic bolt"
-	desc = "A bolt smeared with a flammable tincture."
+	name = "water bolt"
+	desc = "A bolt with its tip containing a glass ampule filled with water. It will shatter on impact, useful for taking out pesky lights."
 	damage = 20
 	damage_type = BRUTE
 	icon = 'icons/roguetown/weapons/ammo.dmi'
