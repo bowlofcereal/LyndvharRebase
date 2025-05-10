@@ -23,9 +23,6 @@
 	icon_state = "insmash"
 	item_d_type = "blunt"
 
-/datum/intent/mace/smash/cudgel
-	swingdelay = 5
-	penfactor = 85
 
 /datum/intent/mace/rangedthrust
 	name = "thrust"
@@ -194,8 +191,8 @@
 	force = 25
 	icon_state = "cudgel"
 	force_wielded = 25
-	possible_item_intents = list(/datum/intent/mace/smash/cudgel)
-	gripped_intents = list(/datum/intent/mace/smash/cudgel, /datum/intent/mace/strike)
+	possible_item_intents = list(/datum/intent/mace/strike)
+	gripped_intents = list(/datum/intent/mace/smash, /datum/intent/mace/strike)
 	smeltresult = /obj/item/ash
 	wlength = WLENGTH_SHORT
 	w_class = WEIGHT_CLASS_NORMAL
