@@ -13,18 +13,19 @@ SUBSYSTEM_DEF(ParticleWeather)
 
 /datum/controller/subsystem/ParticleWeather/fire()
 	// process active weather
-	if(runningWeather)
+	/*if(runningWeather)
 		if(runningWeather.running)
 			runningWeather.tick()
 			for(var/mob/act_on as anything in GLOB.mob_living_list) //yikes. this should probably be a client scan not all mobs. it already checks for minds
 				runningWeather.try_weather_act(act_on)
 			for(var/obj/act_on as anything in GLOB.weather_act_upon_list)
 				runningWeather.weather_obj_act(act_on)
+	*/
 
 
 //This has been mangled - currently only supports 1 weather effect serverwide so I can finish this
 /datum/controller/subsystem/ParticleWeather/Initialize(start_timeofday)
-	for(var/V in subtypesof(/datum/particle_weather))
+	/*for(var/V in subtypesof(/datum/particle_weather))
 		var/datum/particle_weather/W = V
 		var/probability = initial(W.probability)
 		var/target_trait = initial(W.target_trait)
@@ -32,11 +33,12 @@ SUBSYSTEM_DEF(ParticleWeather)
 		// any weather with a probability set may occur at random
 		if (probability && (target_trait in GLOB.vanderlin_weather)) //TODO VANDERLIN: Map trait this.
 			LAZYINITLIST(elligble_weather)
-			elligble_weather[W] = probability
+			elligble_weather[W] = probability*/
 	return ..()
 
 /datum/controller/subsystem/ParticleWeather/proc/run_weather(datum/particle_weather/weather_datum_type, force = 0, color)
-	if(runningWeather)
+	return
+	/*if(runningWeather)
 		if(force)
 			runningWeather.end()
 		else
@@ -57,6 +59,7 @@ SUBSYSTEM_DEF(ParticleWeather)
 	else
 		var/randTime = rand(0, 6000) + initial(runningWeather.weather_duration_upper)
 		addtimer(CALLBACK(runningWeather, /datum/particle_weather/proc/start), randTime, TIMER_UNIQUE|TIMER_STOPPABLE) //Around 0-10 minutes between weathers
+		*/
 
 
 /datum/controller/subsystem/ParticleWeather/proc/make_eligible(possible_weather)
@@ -64,15 +67,18 @@ SUBSYSTEM_DEF(ParticleWeather)
 // 	next_hit = null
 
 /datum/controller/subsystem/ParticleWeather/proc/getweatherEffect()
-	if(!weatherEffect)
+	return
+	/*if(!weatherEffect)
 		weatherEffect = new /obj()
 		weatherEffect.particles = particleEffect
 		weatherEffect.filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
 		weatherEffect.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	return weatherEffect
+	*/
 
 /datum/controller/subsystem/ParticleWeather/proc/SetparticleEffect(particles/P, blend_type, filter_type, color)
-	particleEffect = P
+	return
+	/*particleEffect = P
 	weatherEffect.particles = particleEffect
 	if(color)
 		weatherEffect.color = color
@@ -84,10 +90,12 @@ SUBSYSTEM_DEF(ParticleWeather)
 	weatherEffect.filters += filter(type="alpha", render_source=WEATHER_RENDER_TARGET)
 	if(filter_type)
 		weatherEffect.filters += filter_type
+		*/
 
 /datum/controller/subsystem/ParticleWeather/proc/stopWeather()
-	for(var/obj/act_on as anything in GLOB.weather_act_upon_list)
+	return
+	/*for(var/obj/act_on as anything in GLOB.weather_act_upon_list)
 		act_on.weather = FALSE
 	weatherEffect.particles = null
 	QDEL_NULL(runningWeather)
-	QDEL_NULL(particleEffect)
+	QDEL_NULL(particleEffect)*/
