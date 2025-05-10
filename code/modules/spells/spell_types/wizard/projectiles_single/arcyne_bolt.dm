@@ -12,7 +12,7 @@
 	chargetime = 0
 	recharge_time = 3.5 SECONDS
 	warnie = "spellwarning"
-	no_early_release = TRUE
+	no_early_release = TRU
 	movement_interrupt = FALSE
 	spell_tier = 3
 	invocation = "Magicae Sagitta!"
