@@ -73,7 +73,7 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/leather
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
-			backl = /obj/item/storage/backpack/rogue/satchel
+			backl = /obj/item/storage/backpack/rogue/backpack
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 			belt = /obj/item/storage/belt/rogue/leather/knifebelt/iron
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless
