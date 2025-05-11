@@ -44,7 +44,7 @@
 /obj/effect/proc_holder/spell/invoked/invisibility
 	name = "Invisibility"
 	overlay_state = "invisibility"
-	desc = "Make another (or yourself) invisible for fifteen seconds."
+	desc = "Make another (or yourself) invisible for some time. Duration scales with the arcyne skill. Casting, attacking or being attacked will cancel the duration."
 	releasedrain = 30
 	chargedrain = 5
 	chargetime = 5
@@ -53,16 +53,17 @@
 	range = 3
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
-	spell_tier = 2
+	spell_tier = 1
 	invocation_type = "none"
 	sound = 'sound/misc/area.ogg' //This sound doesnt play for some reason. Fix me.
 	associated_skill = /datum/skill/magic/arcane
 	antimagic_allowed = TRUE
 	hide_charge_effect = TRUE
-	cost = 2
+	cost = 1
 
 /obj/effect/proc_holder/spell/invoked/invisibility/miracle
 	miracle = TRUE
+	desc = "Make another (or yourself) invisible for some time. Duration scales with the holy skill. Casting, attacking or being attacked will cancel the duration."
 	devotion_cost = 25
 	chargetime = 0
 	chargedrain = 0
