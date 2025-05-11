@@ -85,6 +85,7 @@
 	return FALSE
 
 /obj/effect/proc_holder/spell/self/noc_spell_bundle
+	name = "Spell Bundle"
 	miracle = TRUE
 	devotion_cost = 200
 	chargetime = 0
@@ -114,7 +115,6 @@
 		/obj/effect/proc_holder/spell/invoked/guidance,
 		/obj/effect/proc_holder/spell/invoked/haste,
 		/obj/effect/proc_holder/spell/invoked/fortitude,
-		/obj/effect/proc_holder/spell/invoked/forcewall/greater,
 	)
 /obj/effect/proc_holder/spell/self/noc_spell_bundle/cast(list/targets, mob/user)
 	. = ..()
