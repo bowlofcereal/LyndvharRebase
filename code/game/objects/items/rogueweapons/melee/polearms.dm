@@ -96,7 +96,7 @@
 	blade_class = BCLASS_BLUNT
 	icon_state = "inbash"
 	attack_verb = list("bashes", "strikes")
-	penfactor = -30
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 	damfactor = 1.3
 	item_d_type = "blunt"
 
@@ -108,7 +108,7 @@
 	animname = "cut"
 	blade_class = BCLASS_CHOP
 	reach = 1
-	penfactor = -60
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 	damfactor = 2.5
 	chargetime = 10
 	no_early_release = TRUE
@@ -118,7 +118,7 @@
 
 /datum/intent/rend/reach
 	name = "long rend"
-	penfactor = -30
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 	misscost = 5
 	chargetime = 5
 	damfactor = 2
@@ -761,6 +761,8 @@
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 3
 	max_blade_int = 300
+	force = 14
+	force_wielded = 35
 
 /obj/item/rogueweapon/greatsword/psygsword
 	name = "Apocrypha"
@@ -907,6 +909,7 @@
 	gripped_intents = list(/datum/intent/spear/bash/ranged/quarterstaff, /datum/intent/spear/thrust/quarterstaff/metal)
 	icon_state = "quarterstaff_iron"
 	max_integrity = 300
+	blade_dulling = DULLING_SHAFT_REINFORCED
 
 /obj/item/rogueweapon/woodstaff/quarterstaff/steel
 	name = "steel quarterstaff"
@@ -916,3 +919,4 @@
 	gripped_intents = list(/datum/intent/spear/bash/ranged/quarterstaff, /datum/intent/spear/thrust/quarterstaff/metal)
 	icon_state = "quarterstaff_steel"
 	max_integrity = 500
+	blade_dulling = DULLING_SHAFT_REINFORCED
