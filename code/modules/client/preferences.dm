@@ -441,7 +441,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 			dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
 			if(headshot_link != null)
-				dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+				dat += "<br><img src='[headshot_link]'class='image100'>"
 			if(is_legacy)
 				dat += "<br><i><font size = 1>(Legacy)<a href='?_src_=prefs;preference=legacyhelp;task=input'>(?)</a></font></i>"
 
@@ -1692,7 +1692,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(is_legacy)
 						dat += "<center><i><font color = '#b9b9b9'; font size = 1>This is a LEGACY Profile from naive days of Psydon.</font></i></center>"
 					if(valid_headshot_link(null, headshot_link, TRUE))
-						dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='325px'></div>")
+						dat += ("<div align='center'><img src='[headshot_link]' class = 'image325'></div>")
 					if(flavortext && flavortext_display)
 						dat += "<div align='left'>[flavortext_display]</div>"
 					if(ooc_notes && ooc_notes_display)
