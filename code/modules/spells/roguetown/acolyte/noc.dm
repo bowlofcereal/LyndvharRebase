@@ -152,11 +152,12 @@
 		var/choice_count_visual = choice_count
 		for(var/i in 1 to choice_count)
 			var/choice = input(user, "Choose a spell! Choices remaining: [choice_count_visual]") as null|anything in spells
-			var/picked_spell = spells[choice]
-			var/obj/effect/proc_holder/spell/new_spell = new picked_spell
-			user?.mind.AddSpell(new_spell)
-			choice_count_visual--
-			spells.Remove(choice)
+			if(!isnull(choice))
+				var/picked_spell = spells[choice]
+				var/obj/effect/proc_holder/spell/new_spell = new picked_spell
+				user?.mind.AddSpell(new_spell)
+				choice_count_visual--
+				spells.Remove(choice)
 	else
 		for(var/spell_type in spells)
 			var/obj/effect/proc_holder/spell/new_spell = new spell_type
