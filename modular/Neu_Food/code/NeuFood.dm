@@ -176,13 +176,16 @@
 	var/in_use // so you can't spam eating with spoon
 
 /obj/item/reagent_containers/glass/bowl/iron
+	name = "iron bowl"
 	icon_state = "bowl_iron"
 
 /obj/item/reagent_containers/glass/bowl/gold
+	name = "gold bowl"
 	icon_state = "bowl_gold"
 	sellprice = 40
 
 /obj/item/reagent_containers/glass/bowl/silver
+	name = "silver bowl"
 	icon_state = "bowl_silver"
 	sellprice = 60
 
