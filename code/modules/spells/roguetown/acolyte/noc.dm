@@ -98,7 +98,7 @@
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	associated_skill = /datum/skill/magic/holy
 	var/chosen_bundle
-	var/list/utility_bundle = list(
+	var/list/utility_bundle = list(	//Utility means exactly that. Nothing offensive and nothing that can affect another person negatively. (Barring Fetch)
 		/obj/effect/proc_holder/spell/self/message::name 				= /obj/effect/proc_holder/spell/self/message,
 		/obj/effect/proc_holder/spell/invoked/leap::name 				= /obj/effect/proc_holder/spell/invoked/leap,
 		/obj/effect/proc_holder/spell/targeted/touch/lesserknock::name 	= /obj/effect/proc_holder/spell/targeted/touch/lesserknock,
@@ -108,12 +108,12 @@
 		/obj/effect/proc_holder/spell/invoked/blink::name 				= /obj/effect/proc_holder/spell/invoked/blink,
 		/obj/effect/proc_holder/spell/targeted/touch/darkvision::name	= /obj/effect/proc_holder/spell/targeted/touch/darkvision,
 	)
-	var/list/offensive_bundle = list(
+	var/list/offensive_bundle = list(	//This is not meant to make them combat-capable. A weak offensive, and mostly defensive option.
 		/obj/effect/proc_holder/spell/invoked/projectile/guided_bolt,
 		/obj/effect/proc_holder/spell/invoked/conjure_armor/miracle,
 		/obj/effect/proc_holder/spell/invoked/conjure_weapon/miracle
 	)
-	var/list/buff_bundle = list(
+	var/list/buff_bundle = list(	//Buffs! An Acolyte being a supportive caster is 100% what they already are, so this fits neatly. No debuffs -- every patron already has a plethora of those.
 		/obj/effect/proc_holder/spell/invoked/hawks_eyes::name 			= /obj/effect/proc_holder/spell/invoked/hawks_eyes,
 		/obj/effect/proc_holder/spell/invoked/giants_strength::name 	= /obj/effect/proc_holder/spell/invoked/giants_strength,
 		/obj/effect/proc_holder/spell/invoked/longstrider::name 		= /obj/effect/proc_holder/spell/invoked/longstrider,
@@ -125,7 +125,7 @@
 	. = ..()
 	var/choice = chosen_bundle
 	if(!chosen_bundle)
-		choice = alert(user, "What type of spells has Noc blessed you with?", "CHOOSE BUNDLE", "Utility", "Offense", "Buffs")
+		choice = alert(user, "What type of spells has Noc blessed you with?", "CHOOSE PATH", "Utility", "Offense", "Buffs")
 		chosen_bundle = choice
 	switch(choice)
 		if("Utility")
