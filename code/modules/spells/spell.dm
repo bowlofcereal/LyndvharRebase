@@ -441,7 +441,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 		user.log_message(span_danger("cast the spell [name]."), LOG_ATTACK)
 	if(user.mob_timers[MT_INVISIBILITY] > world.time)			
 		user.mob_timers[MT_INVISIBILITY] = world.time
-		user.update_sneak_invis()
+		user.update_sneak_invis(reset = TRUE)
 	if(cast(targets, user = user))
 		invocation(user)
 		start_recharge()

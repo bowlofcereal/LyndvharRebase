@@ -21,7 +21,7 @@
 //			to_chat(src, span_warning("My armor softens the blow!"))
 	if(mob_timers[MT_INVISIBILITY] > world.time)			
 		mob_timers[MT_INVISIBILITY] = world.time
-		update_sneak_invis()
+		update_sneak_invis(reset = TRUE)
 	return armor
 
 
