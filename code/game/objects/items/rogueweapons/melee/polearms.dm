@@ -114,6 +114,32 @@
 	damfactor = 2
 	reach = 2
 
+/datum/intent/rend/reach/partizan
+	name = "rending thrust"
+	attack_verb = list("skewers")
+	blade_class = BCLASS_STAB
+	chargetime = 10
+	swingdelay = 6
+	misscost = 15
+	damfactor = 2
+	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
+	item_d_type = "stab"
+
+/datum/intent/partizan/peel
+	name = "armor peel"
+	icon_state = "inpeel"
+	attack_verb = list("peels", "snags")
+	animname = "cut"
+	blade_class = BCLASS_PEEL
+	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
+	chargetime = 0
+	penfactor = 200
+	swingdelay = 4
+	damfactor = 0.05
+	item_d_type = "slash"
+	peel_divisor = 5
+	reach = 2
+
 //polearm objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/woodstaff
@@ -848,3 +874,27 @@
 				return list("shrink" = 0.8,"sx" = -9,"sy" = 5,"nx" = 9,"ny" = 5,"wx" = -4,"wy" = 4,"ex" = 4,"ey" = 4,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 37,"wturn" = 32,"eturn" = -23,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 			if("wielded")
 				return list("shrink" = 0.8,"sx" = 8,"sy" = 0,"nx" = -1,"ny" = 0,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+
+/obj/item/rogueweapon/spear/partizan
+	name = "partizan"
+	desc = "A reinforced spear-like polearm of disputed origin, a studded shaft fitted with a steel spearhead with protrusions to aid in parrying. An extremely recent invention that is seeing increasingly more usage in Etrusca, Otava, and Grenzelhoft."
+	force = 10	//Not a possible one-handed weapon. Also too heavy!
+	force_wielded = 30
+	possible_item_intents = list(SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+	gripped_intents = list(SPEAR_THRUST, PARTIZAN_REND, PARTIZAN_PEEL)
+	icon_state = "partizan"
+	icon = 'icons/roguetown/weapons/64.dmi'
+	pixel_y = -16
+	pixel_x = -16
+	inhand_x_dimension = 64
+	inhand_y_dimension = 64
+	bigboy = TRUE
+	gripsprite = TRUE
+	wlength = WLENGTH_GREAT
+	w_class = WEIGHT_CLASS_BULKY
+	minstr = 10
+	max_blade_int = 200
+	wdefense = 7
+	thrown_bclass = BCLASS_STAB
+	throwforce = 15	//Not a throwing weapon. Too heavy!
+	max_integrity = 250
