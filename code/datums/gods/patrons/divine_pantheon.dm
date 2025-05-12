@@ -43,7 +43,7 @@
 	t2 = /obj/effect/proc_holder/spell/targeted/shapeshift/dendor
 	t3 = /obj/effect/proc_holder/spell/targeted/conjure_glowshroom
 	t4 = /obj/effect/proc_holder/spell/self/howl/call_of_the_moon
-	extra_spells = list(/obj/effect/proc_holder/spell/invoked/spiderspeak = 0)
+	extra_spells = list(/obj/effect/proc_holder/spell/invoked/spiderspeak = CLERIC_T0)
 	confess_lines = list(
 		"DENDOR PROVIDES!",
 		"THE TREEFATHER BRINGS BOUNTY!",
@@ -89,7 +89,7 @@
 	t1 = /obj/effect/proc_holder/spell/invoked/avert
 	t2 = /obj/effect/proc_holder/spell/targeted/abrogation
 	t3 = /obj/effect/proc_holder/spell/targeted/churn
-	extra_spells = list(/obj/effect/proc_holder/spell/targeted/soulspeak = 0)
+	extra_spells = list(/obj/effect/proc_holder/spell/targeted/soulspeak = CLERIC_T0)
 	confess_lines = list(
 		"ALL SOULS FIND THEIR WAY TO NECRA!",
 		"THE UNDERMAIDEN IS OUR FINAL REPOSE!",
@@ -144,7 +144,7 @@
 	t2 = /obj/effect/proc_holder/spell/invoked/heatmetal
 	t3 = /obj/effect/proc_holder/spell/invoked/hammerfall
 	t4 = /obj/effect/proc_holder/spell/invoked/craftercovenant
-	extra_spells = list(/obj/effect/proc_holder/spell/invoked/malum_flame_rogue = 0)
+	extra_spells = list(/obj/effect/proc_holder/spell/invoked/malum_flame_rogue = CLERIC_T0)
 	confess_lines = list(
 		"MALUM IS MY MUSE!",
 		"TRUE VALUE IS IN THE TOIL!",
