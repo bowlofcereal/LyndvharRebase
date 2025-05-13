@@ -140,31 +140,45 @@
 	..()
 	. = 1
 
+/** Design Note: Antidotes are meant to last as long as the poison, and purge them much quicker
+ Having a 1 to 1 antidote to poison where you have to tailor defense to an increasing amount of attack
+ is a bad idea, since that just means no one will use antidotes and the weapon win the race vs defense.
+ This means pre ingesting antidote when expecting poison is a viable strategy.
+ Previously, antidote did not have a dylovene-like effect and just purged toxin damage while poison will outlast them.
+**/
 /datum/reagent/medicine/antidote
 	name = "Poison Antidote"
 	description = ""
 	reagent_state = LIQUID
 	color = "#00ff00"
 	taste_description = "sickly sweet"
-	metabolization_rate = REAGENTS_METABOLISM
+	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 
 /datum/reagent/medicine/antidote/on_mob_life(mob/living/carbon/M)
 	if(volume > 0.99)
 		M.adjustToxLoss(-4, 0)
+	for(var/datum/reagent/R in M.reagents.reagent_list)
+		if(R.harmful)
+			holder.remove_reagent(R.type, 1)
+
 	..()
 	. = 1
 
+// About 3 time as potent as antidote
 /datum/reagent/medicine/diseasecure
 	name = "Disease Cure"
 	description = ""
 	reagent_state = LIQUID
 	color = "#004200"
 	taste_description = "dirt"
-	metabolization_rate = REAGENTS_METABOLISM * 3
+	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 
 /datum/reagent/medicine/diseasecure/on_mob_life(mob/living/carbon/M)
 	if(volume > 0.99)
-		M.adjustToxLoss(-16, 0)
+		M.adjustToxLoss(-12, 0)
+	for(var/datum/reagent/R in M.reagents.reagent_list)
+		if(R.harmful)
+			holder.remove_reagent(R, 3)
 	..()
 	. = 1
 

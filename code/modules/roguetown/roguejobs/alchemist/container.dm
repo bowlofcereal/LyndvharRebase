@@ -24,6 +24,12 @@
 /obj/item/reagent_containers/glass/bottle/rogue/strongstampot
 	list_reagents = list(/datum/reagent/medicine/strongstam = 45)
 
+/obj/item/reagent_containers/glass/bottle/rogue/antidote
+	list_reagents = list(/datum/reagent/medicine/antidote = 45)
+
+/obj/item/reagent_containers/glass/bottle/rogue/diseasecure
+	list_reagents = list(/datum/reagent/medicine/diseasecure = 45)
+
 /obj/item/reagent_containers/glass/bottle/rogue/strongpoison
 	list_reagents = list(/datum/reagent/strongpoison = 15)
 
