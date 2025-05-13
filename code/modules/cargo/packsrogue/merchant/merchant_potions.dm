@@ -61,17 +61,6 @@
 					/obj/item/reagent_containers/glass/bottle/rogue/antidote,
 				)
 
-/datum/supply_pack/rogue/potions/antidote
-	name = "Poison Antidote"
-	cost = 100
-	contains = list(
-					/obj/item/reagent_containers/glass/bottle/rogue/antidote,
-					/obj/item/reagent_containers/glass/bottle/rogue/antidote,
-					/obj/item/reagent_containers/glass/bottle/rogue/antidote,
-					/obj/item/reagent_containers/glass/bottle/rogue/antidote,
-					/obj/item/reagent_containers/glass/bottle/rogue/antidote,
-				)
-
 // Stat potion are bought in packs of 2
 /datum/supply_pack/rogue/potions/strpot
 	name = "Strength Potion"
