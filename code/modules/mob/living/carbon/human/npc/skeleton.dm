@@ -107,9 +107,9 @@
 	H.STAEND = 15
 	H.STAINT = 1
 	if(prob(50))
-		r_hand = /obj/item/rogueweapon/sword
+		r_hand = /obj/item/rogueweapon/sword/iron/messer/copper 
 	else
-		r_hand = /obj/item/rogueweapon/stoneaxe/woodcut
+		r_hand = /obj/item/rogueweapon/sword/long/rhomphaia/copper
 
 /datum/outfit/job/roguetown/greater_skeleton/pre_equip(mob/living/carbon/human/H) //equipped onto Summon Greater Undead player skeletons only after the mind is added
 	..()
