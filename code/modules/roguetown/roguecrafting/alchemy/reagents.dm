@@ -198,6 +198,12 @@
 	metabolization_rate = REAGENTS_METABOLISM * 0.1
 	overdose_threshold = 30
 
+/datum/reagent/buff/overdose_process(mob/living/carbon/M)
+	. = ..()
+	M.Jitter(2)
+	if(!HAS_TRAIT(M, TRAIT_CRACKHEAD)) // Baothan get to stack more of one potion in their body, but not multiple
+		M.adjustToxLoss(3)
+
 /datum/reagent/buff/strength
 	name = "Strength"
 	color = "#ff9000"

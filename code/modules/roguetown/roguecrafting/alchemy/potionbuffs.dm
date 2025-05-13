@@ -1,3 +1,14 @@
+/datum/status_effect/buff/alch/tick()
+	if(owner.status_effects)
+		for(var/datum/status_effect in owner.status_effects)
+			if(status_effect == src)
+				return
+			else if(istype(status_effect, /datum/status_effect/buff/alch))
+				owner.adjustToxLoss(2) // No Baothan exemption here
+				if(prob(10))
+					to_chat(owner, span_warning("My humor churns violently from the multiple potions in my body!"))
+				return
+
 /atom/movable/screen/alert/status_effect/buff/alch
 	desc = "Power rushes through your veins."
 	icon_state = "buff"

@@ -165,6 +165,8 @@
 			if(initial(S1.id) == S.id)
 				. += S
 
+/mob/living/proc/has_subtypes_of_status_effect(effect) //				
+
 //////////////////////
 // STACKING EFFECTS //
 //////////////////////
