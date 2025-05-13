@@ -286,6 +286,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	color = "#47b2e0"
 	taste_description = "bitterness"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
+	harmful = TRUE
 
 /datum/reagent/berrypoison/on_mob_life(mob/living/carbon/M)
 	if(volume > 0.09)
@@ -305,6 +306,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	color = "#1a1616"
 	taste_description = "burning"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
+	harmful = TRUE
 
 /datum/reagent/strongpoison/on_mob_life(mob/living/carbon/M)
 	testing("Someone was poisoned")
@@ -324,6 +326,8 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	color = "#2c1818"
 	taste_description = "sour meat"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
+	harmful = TRUE
+
 
 /datum/reagent/organpoison/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M, TRAIT_NASTY_EATER) && !HAS_TRAIT(M, TRAIT_ORGAN_EATER))
@@ -338,6 +342,8 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	color = "#083b1c"
 	taste_description = "breathlessness"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM * 3
+	harmful = TRUE
+
 
 /datum/reagent/stampoison/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOROGSTAM))
@@ -351,26 +357,26 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	color = "#041d0e"
 	taste_description = "frozen air"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM * 9
+	harmful = TRUE
+
 
 /datum/reagent/strongstampoison/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M,TRAIT_NOROGSTAM))
 		M.rogstam_add(-180) //Rapidly leech stamina
 	return ..()
 
-
-/datum/reagent/killersice
+/datum/reagent/toxin/killersice
 	name = "Killer's Ice"
-	description = ""
+	description = "c8c9e9"
 	reagent_state = LIQUID
-	color = "#c8c9e9"
-	taste_description = "cold needles"
-	metabolization_rate = 0.1 * REAGENTS_METABOLISM
+	color = "#FFFFFF"
+	metabolization_rate = 0.1
+	toxpwr = 0
+	harmful = TRUE
 
-/datum/reagent/killersice/on_mob_life(mob/living/carbon/M)
-	if(!HAS_TRAIT(M, TRAIT_NASTY_EATER) && !HAS_TRAIT(M, TRAIT_ORGAN_EATER))
-		M.adjustToxLoss(5)
+/datum/reagent/toxin/killersice/on_mob_life(mob/living/carbon/M)
+	M.adjustToxLoss(10, 0)
 	return ..()
-
 
 //Potion reactions
 /datum/chemical_reaction/alch/stronghealth
@@ -427,6 +433,7 @@ If you want to expand on poisons theres tons of fun effects TG chemistry has tha
 	reagent_state = LIQUID
 	color = "#ffc400"
 	metabolization_rate = 0.5
+	harmful = TRUE
 
 /datum/reagent/toxin/fyritiusnectar/on_mob_life(mob/living/carbon/M)
 	if(volume > 0.49)
