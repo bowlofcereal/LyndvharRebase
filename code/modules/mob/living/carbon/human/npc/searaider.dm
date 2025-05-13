@@ -75,10 +75,11 @@ GLOBAL_LIST_INIT(searaider_aggro, world.file2list("strings/rt/searaideraggroline
 			emote("rage")
 	. = ..()
 
+ // Searaider have mostly copper / leather gears as they are too farmable otherwise
 /datum/outfit/job/roguetown/human/species/human/northern/searaider/pre_equip(mob/living/carbon/human/H)
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	if(prob(50))
-		wrists = /obj/item/clothing/wrists/roguetown/bracers
+		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant
 	if(prob(50))
@@ -88,9 +89,9 @@ GLOBAL_LIST_INIT(searaider_aggro, world.file2list("strings/rt/searaideraggroline
 		pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	head = /obj/item/clothing/head/roguetown/helmet/leather
 	if(prob(50))
-		head = /obj/item/clothing/head/roguetown/helmet/horned
+		head = /obj/item/clothing/head/roguetown/helmet/coppercap
 	if(prob(50))
-		neck = /obj/item/clothing/neck/roguetown/gorget
+		neck = /obj/item/clothing/neck/roguetown/leather
 	if(prob(50))
 		gloves = /obj/item/clothing/gloves/roguetown/leather
 	H.STASPD = 9
@@ -99,10 +100,10 @@ GLOBAL_LIST_INIT(searaider_aggro, world.file2list("strings/rt/searaideraggroline
 	H.STAPER = 10
 	H.STAINT = 1
 	if(prob(50))
-		r_hand = /obj/item/rogueweapon/sword
+		r_hand = /obj/item/rogueweapon/sword/iron/messer/copper
+		l_hand = /obj/item/rogueweapon/shield/wood
 	else
-		r_hand = /obj/item/rogueweapon/stoneaxe/battle
-	l_hand = /obj/item/rogueweapon/shield/wood
+		r_hand = /obj/item/rogueweapon/sword/long/rhomphaia/copper
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	if(prob(30))
 		neck = /obj/item/clothing/neck/roguetown/chaincoif
