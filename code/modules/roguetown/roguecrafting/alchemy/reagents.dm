@@ -190,7 +190,7 @@
 	Roughly tested. At Metabolization Rate 1. 9 units sip (1/3 of a vial) last 20 seconds.
 	To make this somewhat equal to the old system, base metabolization rate is 0.1 - making it last 200 seconds - 600 seconds if you sip an entire vial.
 	This is 2x on weaker potions (Intelligence, Fortune). However, overdose threshold is now 30 units so you can only drink one vial at once.
-	And potion stacking is not possible without killing yourself.
+	And potion stacking is not possible without neutralizing itself.
 */
 /datum/reagent/buff
 	description = ""
@@ -203,6 +203,12 @@
 	M.Jitter(2)
 	if(!HAS_TRAIT(M, TRAIT_CRACKHEAD)) // Baothan get to stack more of one potion in their body, but not multiple
 		M.adjustToxLoss(3)
+
+/datum/reagent/buff/on_mob_life(mob/living/carbon/M)
+	for(var/datum/reagent/R in M.reagents.reagent_list)
+		if(istype(R, /datum/reagent/buff) && R != src)
+			holder.remove_reagent(R.type, 10)
+			// Rapidly purge stacking buffs
 
 /datum/reagent/buff/strength
 	name = "Strength"
