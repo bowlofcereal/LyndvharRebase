@@ -27,8 +27,8 @@
 /obj/item/reagent_containers/glass/bottle/rogue/antidote
 	list_reagents = list(/datum/reagent/medicine/antidote = 48)
 
-/obj/item/reagent_containers/glass/bottle/rogue/diseasecure
-	list_reagents = list(/datum/reagent/medicine/diseasecure = 48)
+/obj/item/reagent_containers/glass/bottle/rogue/strong_antidote
+	list_reagents = list(/datum/reagent/medicine/strong_antidote = 48)
 
 /obj/item/reagent_containers/glass/bottle/rogue/berrypoison
 	list_reagents = list(/datum/reagent/berrypoison = 15)

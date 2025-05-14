@@ -165,15 +165,15 @@
 	. = 1
 
 // About 3 time as potent as antidote
-/datum/reagent/medicine/diseasecure
-	name = "Disease Cure"
+/datum/reagent/medicine/strong_antidote
+	name = "Strong Antidote"
 	description = ""
 	reagent_state = LIQUID
 	color = "#004200"
 	taste_description = "dirt"
 	metabolization_rate = 0.1 * REAGENTS_METABOLISM
 
-/datum/reagent/medicine/diseasecure/on_mob_life(mob/living/carbon/M)
+/datum/reagent/medicine/strong_antidote/on_mob_life(mob/living/carbon/M)
 	if(volume > 0.99)
 		M.adjustToxLoss(-12, 0)
 	for(var/datum/reagent/R in M.reagents.reagent_list)
