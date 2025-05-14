@@ -1,19 +1,15 @@
 #define DEFAULT_DURATION 15 MINUTES
-#define SEARING_BLADE_ENCHANT 1
-#define FORCE_BLADE_ENCHANT 2
-#define DURABILITY_ENCHANT 3
-#define SEARING_BLADE_DAMAGE 8
+#define FORCE_BLADE_ENCHANT 1
+#define DURABILITY_ENCHANT 2
 #define FORCE_BLADE_FORCE 5
 #define DURABILITY_INCREASE 100
-#define SEARING_FILTER "searing_blade"
 #define FORCE_FILTER "force_blade"
 #define DURABILITY_FILTER "durability_enchant"
 
 /* Component used for adding enchantment from the enchant weapon spell
  Three types of enchantments are available:
- 1. Searing Blade: Applies 8 burn damage through armor, per strike
- 2. Force Blade: Increases the force of the weapon by 5.
- 3. Durability: Increases the integrity and max integrity of the weapon by 100.
+ 1. Force Blade: Increases the force of the weapon by 5.
+ 2. Durability: Increases the integrity and max integrity of the weapon by 100.
  The enchantment will lasts for 15 minutes, and will automatically refresh in the hand of an Arcyne user.
  There used to be a concept for a blade to set people on fire - but it was too broken if people didn't insta pat
 */
@@ -51,10 +47,6 @@
 		var/force_blade_filter = I.get_filter(FORCE_FILTER)
 		if(!force_blade_filter)
 			I.add_filter(FORCE_FILTER, 2, list("type" = "outline", "color" = GLOW_COLOR_DISPLACEMENT, "alpha" = 200, "size" = 1))
-	else if(enchant_type == SEARING_BLADE_ENCHANT)
-		var/searing_blade_filter = I.get_filter(SEARING_FILTER)
-		if(!searing_blade_filter)
-			I.add_filter(SEARING_FILTER, 2, list("type" = "outline", "color" = GLOW_COLOR_FIRE, "alpha" = 200, "size" = 1))
 	else if(enchant_type == DURABILITY_ENCHANT)
 		I.max_integrity += DURABILITY_INCREASE
 		I.obj_integrity += DURABILITY_INCREASE
@@ -65,7 +57,6 @@
 	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(on_examine))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_unequip))
-	RegisterSignal(parent, COMSIG_ITEM_AFTERATTACK, PROC_REF(item_afterattack))
 
 	START_PROCESSING(SSdcs, src)
 
@@ -99,8 +90,6 @@
 		I.force -= FORCE_BLADE_FORCE
 		I.force_wielded -= FORCE_BLADE_FORCE
 		I.remove_filter(FORCE_FILTER)
-	else if(enchant_type == SEARING_BLADE_ENCHANT)
-		I.remove_filter(SEARING_FILTER)
 	else if(enchant_type == DURABILITY_ENCHANT)
 		I.max_integrity -= DURABILITY_INCREASE
 		I.obj_integrity -= DURABILITY_INCREASE
@@ -113,22 +102,11 @@
 	. = ..()
 
 /datum/component/enchanted_weapon/proc/on_examine(datum/source, mob/user, list/examine_list)
-	if(enchant_type == SEARING_BLADE_ENCHANT)
-		examine_list += "This weapon is enchanted with a searing blade enchantment."
-	else if(enchant_type == FORCE_BLADE_ENCHANT)
+	if(enchant_type == FORCE_BLADE_ENCHANT)
 		examine_list += "This weapon is enchanted with a force blade enchantment."
 	else if(enchant_type == DURABILITY_ENCHANT)
 		examine_list += "This weapon is enchanted with a durability enchantment."
 	var/remaining_minutes = round((endtime - world.time) / 600)
 	examine_list += "The enchantment will last for [remaining_minutes] more minutes."
-
-/datum/component/enchanted_weapon/proc/item_afterattack(obj/item/source, atom/target, mob/user, proximity_flag, click_parameters)
-	if(enchant_type == SEARING_BLADE_ENCHANT)
-		if(isliving(target))
-			var/mob/living/M = target
-			M.adjustFireLoss(SEARING_BLADE_DAMAGE)
-			to_chat(M, span_warning("Flames leaps from [source] and singes you!"))
-			// Permanent temporary solution until I figure out how to hack a dynamic on mob sprites
-			// Bypass parry & dodge btw.
 
 #undef DEFAULT_DURATION
