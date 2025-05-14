@@ -119,7 +119,7 @@
 	name = "fireplace"
 	icon_state = "wallfire1"
 	base_state = "wallfire"
-	brightness = 5 //same as a campfire
+	light_outer_range = 4 //slightly weaker than a torch
 	bulb_colour = "#ffa35c"
 	density = FALSE
 	fueluse = 0
