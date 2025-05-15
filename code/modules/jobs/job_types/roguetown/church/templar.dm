@@ -147,17 +147,19 @@
 	switch(weapon_choice)
 		if("Katar")
 			H.put_in_hands(new /obj/item/rogueweapon/katar(H), TRUE)
+			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 		if("Knuckle Dusters")
 			H.put_in_hands(new /obj/item/rogueweapon/knuckles(H), TRUE)
+			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 		if("Close Caress")
 			H.put_in_hands(new /obj/item/rogueweapon/knuckles/eora(H), TRUE)
+			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 		if("Barotrauma")
 			H.put_in_hands(new /obj/item/rogueweapon/katar/abyssor(H), TRUE)
+			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 		if("Quarterstaff")
 			H.put_in_hands(new /obj/item/rogueweapon/woodstaff/quarterstaff/steel(H), TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/staves, 1, TRUE)
-		else
-			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 
 /datum/advclass/templar/crusader
 	name = "Templar"
