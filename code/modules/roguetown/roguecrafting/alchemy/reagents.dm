@@ -147,7 +147,7 @@
  Previously, antidote did not have a dylovene-like effect and just purged toxin damage while poison will outlast them.
 **/
 /datum/reagent/medicine/antidote
-	name = "Poison Antidote"
+	name = "Antidote"
 	description = ""
 	reagent_state = LIQUID
 	color = "#00ff00"
