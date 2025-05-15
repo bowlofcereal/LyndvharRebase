@@ -5497,6 +5497,16 @@
 	dir = 1
 	},
 /area/rogue/outdoors/beach)
+"bWn" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "tablewood1"
+	},
+/obj/item/candle/silver/lit{
+	pixel_y = 6
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/outdoors/town/roofs)
 "bWx" = (
 /obj/structure/glowshroom,
 /turf/open/floor/rogue/cobblerock,
@@ -7711,11 +7721,11 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/candle/candlestick/gold/single/lit{
+/obj/item/candle/candlestick/silver/lit{
 	pixel_y = 9
 	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/tavern)
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town)
 "cNl" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/tile{
@@ -8543,6 +8553,15 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/mountains/decap/stepbelow)
+"daV" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/candle/candlestick/gold/single/lit{
+	pixel_y = 9
+	},
+/turf/open/floor/rogue/ruinedwood/herringbone,
+/area/rogue/indoors/town)
 "daY" = (
 /obj/structure/roguewindow/openclose/reinforced,
 /turf/open/floor/rogue/blocks/newstone/alt,
@@ -9566,15 +9585,6 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
-"duP" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/item/candle/candlestick/gold/single/lit{
-	pixel_y = 9
-	},
-/turf/open/floor/carpet/inn,
-/area/rogue/indoors/town/tavern)
 "duT" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -13623,7 +13633,8 @@
 /obj/item/reagent_containers/glass/cup/silver{
 	name = "pewter goblet";
 	pixel_x = 9;
-	pixel_y = 10
+	pixel_y = 10;
+	desc = "A pewter goblet, cheaper than silver, but with a similar shine!"
 	},
 /obj/item/candle/silver/lit{
 	pixel_y = 5;
@@ -20030,19 +20041,6 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
-"hhA" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/item/reagent_containers/glass/cup/silver/small{
-	pixel_x = 8
-	},
-/obj/item/kitchen/spoon/gold{
-	pixel_y = 5;
-	pixel_x = -10
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town)
 "hhE" = (
 /obj/structure/closet/crate/roguecloset/dark,
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
@@ -25637,6 +25635,13 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/chapel)
+"jdB" = (
+/obj/structure/table/wood,
+/obj/item/candle/candlestick/gold/lit{
+	pixel_y = 12
+	},
+/turf/open/floor/carpet/royalblack,
+/area/rogue/indoors/town)
 "jdF" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4;
@@ -26535,13 +26540,9 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/silver{
 	name = "pewter goblet";
-	pixel_x = 9;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/glass/cup/silver{
-	name = "pewter goblet";
 	pixel_x = -10;
-	pixel_y = 4
+	pixel_y = 4;
+	desc = "A pewter goblet, cheaper than silver, but with a similar shine!"
 	},
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/indoors/town/manor)
@@ -27784,15 +27785,6 @@
 	},
 /obj/structure/fluff/railing/border,
 /turf/open/transparent/openspace,
-/area/rogue/indoors/town)
-"jTd" = (
-/obj/structure/table/wood,
-/obj/item/cooking/platter/gold,
-/obj/item/kitchen/fork/silver{
-	pixel_x = 14;
-	pixel_y = 6
-	},
-/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town)
 "jTi" = (
 /obj/item/rogueweapon/huntingknife/chefknife,
@@ -39112,8 +39104,10 @@
 /area/rogue/indoors/town)
 "ocm" = (
 /obj/structure/table/wood,
-/obj/item/candle/candlestick/gold/lit{
-	pixel_y = 12
+/obj/item/cooking/platter/gold,
+/obj/item/kitchen/fork/silver{
+	pixel_x = 14;
+	pixel_y = 6
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town)
@@ -41706,9 +41700,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/candle/candlestick/silver/lit{
-	pixel_y = 9
-	},
+/obj/item/kitchen/spoon/tin,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "oWV" = (
@@ -48752,6 +48744,15 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town)
+"rtm" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/candle/candlestick/gold/single/lit{
+	pixel_y = 9
+	},
+/turf/open/floor/carpet/inn,
+/area/rogue/indoors/town/tavern)
 "rty" = (
 /obj/effect/landmark/mapGenerator/rogue/decap,
 /turf/closed/mineral/rogue/bedrock,
@@ -49182,6 +49183,15 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/exposed/town/keep)
+"rAU" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/candle/gold/lit{
+	pixel_y = 6
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/shop)
 "rBl" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 4
@@ -51636,7 +51646,8 @@
 	},
 /obj/item/reagent_containers/glass/cup/silver{
 	name = "pewter goblet";
-	pixel_x = -11
+	pixel_x = -11;
+	desc = "A pewter goblet, cheaper than silver, but with a similar shine!"
 	},
 /obj/item/candle/silver/lit,
 /turf/open/floor/carpet/royalblack,
@@ -54202,12 +54213,8 @@
 	},
 /obj/item/reagent_containers/glass/cup/silver{
 	name = "pewter goblet";
-	pixel_x = -11
-	},
-/obj/item/reagent_containers/glass/cup/silver{
-	name = "pewter goblet";
-	pixel_x = 11;
-	pixel_y = 10
+	pixel_x = -11;
+	desc = "A pewter goblet, cheaper than silver, but with a similar shine!"
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/manor)
@@ -54405,15 +54412,6 @@
 /obj/structure/closet/dirthole/closed/loot,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
-"tqr" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/item/candle/gold/lit{
-	pixel_y = 6
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/shop)
 "tqt" = (
 /obj/structure/fluff/walldeco/psybanner/red,
 /turf/closed/wall/mineral/rogue/stone,
@@ -56445,16 +56443,6 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/shelter/woods)
-"uaR" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "tablewood1"
-	},
-/obj/item/candle/silver/lit{
-	pixel_y = 6
-	},
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/outdoors/town/roofs)
 "uaU" = (
 /obj/structure/flora/roguetree,
 /turf/open/water/swamp,
@@ -59538,7 +59526,13 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/item/kitchen/spoon/tin,
+/obj/item/reagent_containers/glass/cup/silver/small{
+	pixel_x = 8
+	},
+/obj/item/kitchen/spoon/gold{
+	pixel_y = 5;
+	pixel_x = -10
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "vfu" = (
@@ -64904,15 +64898,6 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town)
-"xcP" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/item/candle/candlestick/gold/single/lit{
-	pixel_y = 9
-	},
-/turf/open/floor/rogue/ruinedwood/herringbone,
-/area/rogue/indoors/town)
 "xcR" = (
 /obj/structure/rack/rogue{
 	density = 0;
@@ -67847,6 +67832,15 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town)
+"ygG" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/candle/candlestick/gold/single/lit{
+	pixel_y = 9
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors/town/tavern)
 "ygS" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8
@@ -370284,9 +370278,9 @@ kSK
 tvR
 lUf
 uyR
-duP
+rtm
 eVJ
-duP
+rtm
 tvR
 qfx
 udU
@@ -371168,7 +371162,7 @@ lKo
 nxt
 kRg
 aoW
-xcP
+daV
 lKo
 kSK
 kSK
@@ -378880,7 +378874,7 @@ kSK
 ikL
 lAs
 oNu
-tqr
+rAU
 ikL
 ikL
 ikL
@@ -379777,7 +379771,7 @@ xWk
 xWk
 pCd
 rtL
-hhA
+vfl
 eKH
 kSK
 kSK
@@ -380228,8 +380222,8 @@ rUb
 xWk
 xWk
 pCd
-vfl
 oWO
+cNi
 eKH
 kSK
 kSK
@@ -477875,7 +477869,7 @@ jlW
 qcy
 kUG
 kUG
-cNi
+ygG
 tvR
 kSK
 bGf
@@ -481937,7 +481931,7 @@ tvR
 dJN
 dzd
 pvg
-duP
+rtm
 tvR
 qEt
 tCw
@@ -487349,7 +487343,7 @@ bGf
 bGf
 mCk
 yet
-uaR
+bWn
 wnA
 wnA
 oEG
@@ -498196,8 +498190,8 @@ bGf
 kSK
 paa
 kRg
+jdB
 ocm
-jTd
 umt
 kRg
 jrn
