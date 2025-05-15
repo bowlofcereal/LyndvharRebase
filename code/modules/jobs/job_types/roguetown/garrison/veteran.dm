@@ -163,7 +163,7 @@
 
 /datum/outfit/job/roguetown/vet/calvaryman/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/	////Former knights should have knightly armour. 
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/	////Former knights should have knightly armour.
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight
 	pants = /obj/item/clothing/under/roguetown/chainlegs
@@ -234,7 +234,7 @@
 
 /datum/advclass/veteran/merc
 	name = "Retired Mercenary"
-	tutorial = "You were a sell-sword, a warrior of coin. Your pockets were never light, you always had a warm place to stay and food in your belly, but you knew that every battle could be your last. You're the last of your unit, and you can't help but regret it. You specialize in swords and polearms, or axes and polearms."
+	tutorial = "You were a sell-sword of a Freitrupp, hard men gambling their lives for pay and glory. You and your comrades threw the dice one time too many; now only you remain, retained by your former employer in gratitude for fighting to the bitter end."
 	outfit = /datum/outfit/job/roguetown/vet/merc
 
 	category_tags = list(CTAG_VETERAN)
@@ -244,12 +244,12 @@
 /datum/outfit/job/roguetown/vet/merc/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
-	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft // You do NOT get the BLACKSTEEL CUIRASS because yours BROKE & I hate you. Go on a personal quest to replace it or something.
-	head = /obj/item/clothing/head/roguetown/grenzelhofthat
+	shirt = /obj/item/clothing/suit/roguetown/shirt/freishirt // You do NOT get the BLACKSTEEL CUIRASS because yours BROKE & I hate you. Go on a personal quest to replace it or something.
+	head = /obj/item/clothing/head/roguetown/freihat
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half
-	pants = /obj/item/clothing/under/roguetown/grenzelpants
-	shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft
-	gloves = /obj/item/clothing/gloves/roguetown/grenzelgloves
+	pants = /obj/item/clothing/under/roguetown/freipants
+	shoes = /obj/item/clothing/shoes/roguetown/freiboots
+	gloves = /obj/item/clothing/gloves/roguetown/freigloves
 	beltl = /obj/item/rogueweapon/sword/short
 	beltr = /obj/item/storage/keyring/guardcastle
 	backr = /obj/item/storage/backpack/rogue/satchel/black
@@ -312,7 +312,7 @@
 	category_tags = list(CTAG_VETERAN)
 
 // Originally was meant to be a horse archer. I decided that was a bad idea.
-// Former Bogmaster maybe? I feel like that'd be cooler than just an archer guy. 
+// Former Bogmaster maybe? I feel like that'd be cooler than just an archer guy.
 
 /datum/outfit/job/roguetown/vet/scout/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/roguetown/gorget

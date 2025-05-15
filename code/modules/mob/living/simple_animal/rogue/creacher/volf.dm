@@ -2,7 +2,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/wolf
 	icon = 'icons/roguetown/mob/monster/vol.dmi'
-	name = "volf"
+	name = "wolf"
 	icon_state = "vv"
 	icon_living = "vv"
 	icon_dead = "vvd"
@@ -17,9 +17,9 @@
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
 						/obj/item/natural/hide = 2,
 						/obj/item/natural/fur = 1, /obj/item/natural/bone = 4, /obj/item/alch/sinew = 2, /obj/item/alch/bone = 1, /obj/item/alch/viscera = 1,
-						/obj/item/natural/fur = 1, 
+						/obj/item/natural/fur = 1,
 						/obj/item/natural/bone = 4,
-						/obj/item/natural/head/volf = 1)
+						/obj/item/natural/head/wolf = 1)
 	faction = list("wolfs", "zombie")
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	health = WOLF_HEALTH
@@ -32,10 +32,10 @@
 	retreat_distance = 0
 	minimum_distance = 0
 	milkies = FALSE
-	food_type = list(/obj/item/reagent_containers/food/snacks, 
-					//obj/item/bodypart, 
-					//obj/item/organ, 
-					/obj/item/natural/bone, 
+	food_type = list(/obj/item/reagent_containers/food/snacks,
+					//obj/item/bodypart,
+					//obj/item/organ,
+					/obj/item/natural/bone,
 					/obj/item/natural/hide)
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	pooptype = null

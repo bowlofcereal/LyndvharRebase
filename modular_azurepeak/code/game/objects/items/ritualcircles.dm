@@ -1,3 +1,5 @@
+/*	As neat as this is, all the rituals will require reflavoring since none of these gods exist in Helmsguard.
+
 /obj/structure/ritualcircle
 	name = "ritual circle"
 	desc = ""
@@ -14,14 +16,14 @@
 		playsound(loc, 'sound/foley/cloth_wipe (1).ogg', 100, TRUE)
 		qdel(src)
 
-// This'll be our tutorial ritual for those who want to make more later, let's go into details in comments, mm? - Onutsio 
+// This'll be our tutorial ritual for those who want to make more later, let's go into details in comments, mm? - Onutsio
 /obj/structure/ritualcircle/astrata
 	name = "Rune of the Sun" // defines name of the circle itself
-	icon_state = "astrata_chalky" // the icon state, so, the sprite the runes use on the floor. As of making, we have 6, each needs an active/inactive state. 
+	icon_state = "astrata_chalky" // the icon state, so, the sprite the runes use on the floor. As of making, we have 6, each needs an active/inactive state.
 	desc = "A Holy Rune of Astrata" // description on examine
 	var/solarrites = list("Guiding Light") // This is important - This is the var which stores every ritual option available to a ritualist - Ideally, we'd have like, 3 for each God. Right now, just 1.
 
-/obj/structure/ritualcircle/astrata/attack_hand(mob/living/user) 
+/obj/structure/ritualcircle/astrata/attack_hand(mob/living/user)
 	if((user.patron?.type) != /datum/patron/divine/astrata)
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
 		return
@@ -291,7 +293,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/ritualtargets = view(7, loc)
 	for(var/mob/living/carbon/human/target in ritualtargets)
 		target.apply_status_effect(/datum/status_effect/buff/undermaidenbargain)
-	
+
 
 /obj/structure/ritualcircle/eora
 	name = "Rune of Love"
@@ -334,7 +336,6 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 		target.apply_status_effect(/datum/status_effect/buff/pacify)
 
 // TIME FOR THE ASCENDANT. These can be stronger. As they are pretty much antag exclusive - Iconoclast for Matthios, Lich for ZIZO. ZIZO!
-
 
 /obj/structure/ritualcircle/zizo
 	name = "Rune of Progress"
@@ -477,3 +478,4 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	gloves = /obj/item/clothing/gloves/roguetown/plate/matthios
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/matthios
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/chainmantle
+*/

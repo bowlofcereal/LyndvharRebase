@@ -1,14 +1,14 @@
 /datum/advclass/mercenary/grenzelhoft
-	name = "Grenzelhoft"
-	tutorial = "Experts, Professionals, Expensive. Those are the first words that come to mind when the emperiate Grenzelhoft mercenary guild is mentioned. While you may work for coin like any common sellsword, maintaining the prestige of the guild will be of utmost priority."
+	name = "Freitrupp"
+	tutorial = "Hailing from across the Eisler confederacy, Freitrupp mercenaries demand pay in accordance to their troop's reputation. While you may work for coin like any common sellsword, maintaining the prestige of your comrades will be of utmost priority."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/mercenary/grenzelhoft
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
 	cmode_music = 'sound/music/combat_grenzelhoft.ogg'
-	classes = list("Doppelsoldner" = "You are a Doppelsoldner of Grenzelhoft, a swordsman experienced with long-length blades.",
-					"Halberdier" = "You are a Halberdier from Grenzelhoft, a skilled user of poleamrs and axes. Though you prefer them combined.")
+	classes = list("Doppelsoldner" = "You are a Doppelsoldner in your Freitrupp, a swordsman experienced with long-length blades.",
+					"Halberdier" = "You are a Halberdier in your Freitrupp, a skilled user of polearms and axes. Though you prefer them combined.")
 
 /datum/outfit/job/roguetown/mercenary/grenzelhoft/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -21,7 +21,7 @@
 	switch(classchoice)
 		if("Doppelsoldner")
 			H.set_blindness(0)
-			to_chat(H, span_warning("You are a Doppelsoldner of Grenzelhoft, a swordsman experienced with long-length blades."))
+			to_chat(H, span_warning("You are a Doppelsoldner in your Freitrupp, a swordsman experienced with long-length blades."))
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -44,7 +44,7 @@
 			r_hand = /obj/item/rogueweapon/greatsword/grenz
 		if("Halberdier")
 			H.set_blindness(0)
-			to_chat(H, span_warning("You are a Halberdier from Grenzelhoft, a skilled user of poleamrs and axes. Though you prefer them combined."))
+			to_chat(H, span_warning("You are a Halberdier in your Freitrupp, a skilled user of polearms and axes."))
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -54,6 +54,7 @@
 			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
@@ -71,12 +72,12 @@
 	beltl = /obj/item/flashlight/flare/torch
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
-	head = /obj/item/clothing/head/roguetown/grenzelhofthat
+	shirt = /obj/item/clothing/suit/roguetown/shirt/freishirt
+	head = /obj/item/clothing/head/roguetown/freihat
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate
-	pants = /obj/item/clothing/under/roguetown/grenzelpants
-	shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft
-	gloves = /obj/item/clothing/gloves/roguetown/grenzelgloves
+	pants = /obj/item/clothing/under/roguetown/freipants
+	shoes = /obj/item/clothing/shoes/roguetown/freiboots
+	gloves = /obj/item/clothing/gloves/roguetown/freigloves
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/gwstrap
 

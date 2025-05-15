@@ -123,7 +123,7 @@
 					var/mob/living/carbon/H = user
 					H.update_inv_head()
 					H.update_inv_wear_mask() //Snowflake case for Desert Merc hood
-	
+
 
 /obj/item/clothing/head/roguetown/roguehood/shalal/heavyhood
 	name = "heavy hood"
@@ -667,7 +667,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -713,7 +713,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -764,7 +764,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1005,7 +1005,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1033,7 +1033,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet
 	name = "armet"
-	desc = "Holy lamb, sacrificial hero, blessed idiot - Psydon endures. Will you endure alongside Him, as a knight of humenity, or crumble before temptation?"
+	desc = "A close helm of articulated plates, closing tight with the twist of a disc at the base of the neck."
 	icon_state = "armet"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet/AdjustClothes(mob/user)
@@ -1074,7 +1074,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1101,7 +1101,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1168,7 +1168,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1258,7 +1258,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1285,7 +1285,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1426,7 +1426,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1497,7 +1497,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1524,7 +1524,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1676,7 +1676,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1727,13 +1727,13 @@
 	blocksound = SOFTHIT
 	salvage_result = /obj/item/natural/hide/cured
 
-/obj/item/clothing/head/roguetown/helmet/leather/volfhelm
+/obj/item/clothing/head/roguetown/helmet/leather/wolfhelm
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
-	name = "volf helmet"
-	desc = "A leather helmet fashioned from a volf's pelt."
+	name = "wolf helmet"
+	desc = "A leather helmet fashioned from a wolf's pelt."
 	body_parts_covered = HEAD|HAIR|EARS
-	icon_state = "volfhead"
-	item_state = "volfhead"
+	icon_state = "wolfhead"
+	item_state = "wolfhead"
 	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "piercing" = 17, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
 	anvilrepair = null
@@ -1909,11 +1909,11 @@
 	desc = "My cure is most effective."
 	icon_state = "physhat"
 
-/obj/item/clothing/head/roguetown/grenzelhofthat
-	name = "grenzelhoft plume hat"
-	desc = "Slaying monsters or fair maidens: Grenzelhoft stands."
-	icon_state = "grenzelhat"
-	item_state = "grenzelhat"
+/obj/item/clothing/head/roguetown/freihat
+	name = "freitrupp plume hat"
+	desc = "Fear the mercenary who wears this to battle and lives to collect their pay."
+	icon_state = "freihat"
+	item_state = "freihat"
 	icon = 'icons/roguetown/clothing/head.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	slot_flags = ITEM_SLOT_HEAD
@@ -1924,7 +1924,7 @@
 	sewrepair = TRUE
 	var/picked = FALSE
 
-/obj/item/clothing/head/roguetown/grenzelhofthat/attack_right(mob/user)
+/obj/item/clothing/head/roguetown/freihat/attack_right(mob/user)
 	..()
 	if(!picked)
 		var/list/colors = list(
@@ -1937,13 +1937,13 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
 		"Cornflower Blue"="#749EE8",
 		"Blacksteel Grey"="#404040",)
-		var/choice = input(user, "Choose a color.", "Grenzelhoft colors") as anything in colors
+		var/choice = input(user, "Choose a color.", "Freitrupp Colors") as anything in colors
 		var/playerchoice = colors[choice]
 		picked = TRUE
 		detail_color = playerchoice
@@ -2093,11 +2093,11 @@
 	salvage_result = /obj/item/natural/hide/cured
 
 
-/obj/item/clothing/head/roguetown/helmet/heavy/volfplate
-	name = "volf-face helm"
-	desc = "A steel bascinet helmet with a volfish visor protecting the head, ears, eyes, nose and mouth."
-	icon_state = "volfplate"
-	item_state = "volfplate"
+/obj/item/clothing/head/roguetown/helmet/heavy/wolfplate
+	name = "wolf-face helm"
+	desc = "A steel bascinet helmet with a wolfish visor protecting the head, ears, eyes, nose and mouth."
+	icon_state = "wolfplate"
+	item_state = "wolfplate"
 	adjustable = CAN_CADJUST
 	emote_environment = 3
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
@@ -2105,12 +2105,12 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 
-/obj/item/clothing/head/roguetown/helmet/heavy/volfplate/AdjustClothes(mob/user)
+/obj/item/clothing/head/roguetown/helmet/heavy/wolfplate/AdjustClothes(mob/user)
 	if(loc == user)
 		playsound(user, "sound/items/visor.ogg", 100, TRUE, -1)
 		if(adjustable == CAN_CADJUST)
 			adjustable = CADJUSTED
-			icon_state = "volfplate_visor_raised"
+			icon_state = "wolfplate_visor_raised"
 			body_parts_covered = HEAD|EARS|HAIR
 			flags_inv = HIDEEARS
 			flags_cover = null
@@ -2222,4 +2222,4 @@
 					var/mob/living/carbon/H = user
 					H.update_inv_head()
 		user.update_fov_angles()
- 
+

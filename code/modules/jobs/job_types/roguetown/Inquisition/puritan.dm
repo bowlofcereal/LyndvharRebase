@@ -36,7 +36,7 @@
 		H.become_blind("advsetup")
 
 
-////Classic Inquisitor with a much more underground twist. Use listening devices, sneak into places to gather evidence, track down suspicious individuals. Has relatively the same utility stats as Confessor, but fulfills a different niche in terms of their combative job as the head honcho. 
+////Classic Inquisitor with a much more underground twist. Use listening devices, sneak into places to gather evidence, track down suspicious individuals. Has relatively the same utility stats as Confessor, but fulfills a different niche in terms of their combative job as the head honcho.
 
 /datum/advclass/puritan/inspector
 	name = "Inquisitor"
@@ -94,7 +94,7 @@
 	backpack_contents = list(/obj/item/storage/keyring/puritan = 1, /obj/item/lockpickring/mundane = 1, /obj/item/rogueweapon/huntingknife/idagger/silver/psydagger, /obj/item/grapplinghook = 1, /obj/item/storage/belt/rogue/pouch/coins/rich = 1)
 
 
-///The dirty, violent side of the Inquisition. Meant for confrontational, conflict-driven situations as opposed to simply sneaking around and asking questions. Templar with none of the miracles, but with all the muscles and more. 
+///The dirty, violent side of the Inquisition. Meant for confrontational, conflict-driven situations as opposed to simply sneaking around and asking questions. Templar with none of the miracles, but with all the muscles and more.
 
 /datum/advclass/puritan/ordinator
 	name = "Ordinator"
@@ -138,12 +138,12 @@
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PURITAN, JOB_TRAIT)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/half
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/chainmantle
 	shoes = /obj/item/clothing/shoes/roguetown/boots/otavan/inqboots
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
-	pants = /obj/item/clothing/under/roguetown/chainlegs/kilt
+	pants = /obj/item/clothing/under/roguetown/chainlegs/skirt
 	cloak = /obj/item/clothing/cloak/psydontabard
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/rogueweapon/shield/tower/metal

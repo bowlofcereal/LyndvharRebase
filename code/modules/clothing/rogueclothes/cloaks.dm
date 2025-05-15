@@ -82,7 +82,7 @@
 	open_wear = TRUE
 
 
-/obj/item/clothing/cloak/psydontabard/MiddleClick(mob/user) 
+/obj/item/clothing/cloak/psydontabard/MiddleClick(mob/user)
 	overarmor = !overarmor
 	to_chat(user, span_info("I [overarmor ? "wear the tabard over my armor" : "wear the tabard under my armor"]."))
 	if(overarmor)
@@ -419,7 +419,7 @@
 	var/picked
 	var/overarmor = TRUE
 
-/obj/item/clothing/cloak/stabard/MiddleClick(mob/user) 
+/obj/item/clothing/cloak/stabard/MiddleClick(mob/user)
 	overarmor = !overarmor
 	to_chat(user, span_info("I [overarmor ? "wear the tabard over my armor" : "wear the tabard under my armor"]."))
 	if(overarmor)
@@ -953,7 +953,7 @@
 
 /obj/item/clothing/cloak/raincloak/furcloak/black
 	color = "#2b292e"
-	
+
 /obj/item/clothing/cloak/raincloak/furcloak/darkgreen
 	color = "#264d26"
 
@@ -1279,12 +1279,12 @@
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	flags_inv = HIDECROTCH|HIDEBOOB
 
-/obj/item/clothing/cloak/volfmantle
-	name = "volf mantle"
-	desc = "A warm cloak made using the hide and head of a slain volf. A status symbol if ever there was one."
+/obj/item/clothing/cloak/wolfmantle
+	name = "wolf mantle"
+	desc = "A warm cloak made using the hide and head of a slain wolf. A status symbol if ever there was one."
 	color = null
-	icon_state = "volfpelt"
-	item_state = "volfpelt"
+	icon_state = "wolfpelt"
+	item_state = "wolfpelt"
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
@@ -1357,8 +1357,8 @@
 	alternate_worn_layer = TABARD_LAYER
 	body_parts_covered = CHEST|GROIN
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
-	
-/obj/item/clothing/cloak/templar/MiddleClick(mob/user) 
+
+/obj/item/clothing/cloak/templar/MiddleClick(mob/user)
 	overarmor = !overarmor
 	to_chat(user, span_info("I [overarmor ? "wear the tabard over my armor" : "wear the tabard under my armor"]."))
 	if(overarmor)

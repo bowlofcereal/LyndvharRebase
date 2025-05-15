@@ -13,7 +13,7 @@
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/wolfplate
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	gloves = /obj/item/clothing/gloves/roguetown/leather/black
 	belt = /obj/item/storage/belt/rogue/leather
@@ -43,5 +43,5 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 		H.change_stat("strength", 2)
 		H.change_stat("endurance", 3) // tuff boys
-		H.change_stat("constitution", 2) 
+		H.change_stat("constitution", 2)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)

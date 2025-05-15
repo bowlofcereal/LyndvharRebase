@@ -88,7 +88,7 @@
 
 /obj/item/clothing/under/roguetown/webs
 	name = "webbing"
-	desc = "a fine webbing made from spidersilk, popular fashion within the underdark"
+	desc = "A fine webbing made from spidersilk, worn on those who really wear nothing at all."
 	gender = PLURAL
 	icon_state = "webs"
 	item_state = "webs"
@@ -123,8 +123,7 @@
 
 /obj/item/clothing/under/roguetown/heavy_leather_pants
 	name = "hardened leather trousers"
-	desc = "Thick hide cut and sewn into a pair of very protective trousers. The dense leather can \
-	turn away errant chops."
+	desc = "Thick hide cut and sewn into a pair of very protective trousers."
 	gender = PLURAL
 	icon_state = "roguepants"
 	item_state = "roguepants"
@@ -143,17 +142,16 @@
 
 /obj/item/clothing/under/roguetown/heavy_leather_pants/shorts
 	name = "hardened leather shorts"
-	desc = "A thick hide pair of shorts, favored by some for their ease of motion in spite of \
-	being less protective than full trousers."
+	desc = "A thick hide pair of shorts, for those who hate hot summers."
 	icon_state = "rogueshorts"
 	item_state = "rogueshorts"
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	body_parts_covered = GROIN
 
-/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan
-	name = "otavan leather trousers"
-	desc = "padded leather armor made by Otavan tailors, its quality is remarkable."
-	icon_state = "fencerpants"
+/obj/item/clothing/under/roguetown/heavy_leather_pants/deerskinpants
+	name = "deerskin leather trousers"
+	desc = "Fashionable leather trousers made with the thick hide of wild game, tough enough to withstand the teeth of wolves."
+	icon_state = "deerskinpants"
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
 /obj/item/clothing/under/roguetown/trou/leather/mourning
@@ -163,7 +161,7 @@
 
 /obj/item/clothing/under/roguetown/trou/shadowpants
 	name = "silk tights"
-	desc = "Form-fitting legwear. Almost too form-fitting."
+	desc = "Form-fitting legwear for well-turned legs with deep pockets."
 	icon_state = "shadowpants"
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
@@ -174,20 +172,20 @@
 	item_state = "beltpants"
 
 /obj/item/clothing/under/roguetown/trou/apothecary
-	name = "apothecary trousers"
-	desc = "Heavily padded trousers. They're stained by countless herbs."
+	name = "gardener's trousers"
+	desc = "Trousers with padding over the knees. They're stained by countless herbs."
 	icon_state = "apothpants"
 	item_state = "apothpants"
 
-/obj/item/clothing/under/roguetown/trou/artipants
-	name = "tinker trousers"
-	desc = "Thick leather trousers to protect from sparks or stray gear projectiles. Judging by the wear, its had plenty of use."
-	icon_state = "artipants"
-	item_state = "artipants"
+/obj/item/clothing/under/roguetown/trou/padleatherpants
+	name = "padded leather trousers"
+	desc = "Linen padded trousers under a smooth leather shell."
+	icon_state = "padleatherpants"
+	item_state = "padleatherpants"
 
 /obj/item/clothing/under/roguetown/trou/leathertights
 	name = "leather tights"
-	desc = "Classy leather tights, form-fitting but tasteful."
+	desc = "Classy leather tights, for those with a well-turned leg."
 	icon_state = "leathertights"
 	item_state = "leathertights"
 	salvage_result = /obj/item/natural/hide/cured
@@ -216,8 +214,8 @@
 	color = CLOTHING_RED
 
 /obj/item/clothing/under/roguetown/chainlegs
-	name = "steel chain chausses"
-	desc = "Chain leggings composed of interlinked metal rings."
+	name = "steel mail chausses"
+	desc = "Mail leggings composed of interlinked metal rings."
 	gender = PLURAL
 	icon_state = "chain_legs"
 	item_state = "chain_legs"
@@ -239,8 +237,8 @@
 	AddComponent(/datum/component/item_equipped_movement_rustle)
 
 /obj/item/clothing/under/roguetown/splintlegs
-	name = "brigandine chausses"
-	desc = "Splint mail and brigandine chausses, designed to protect the legs while still providing almost complete free range of movement."
+	name = "splint leggings"
+	desc = "Leg armor of steel bars over padded linen hose, designed to protect the legs while still providing almost complete free range of movement."
 	icon_state = "splintlegs"
 	item_state = "splintlegs"
 	max_integrity = 250
@@ -263,7 +261,7 @@
 
 /obj/item/clothing/under/roguetown/brayette
 	name = "brayette"
-	desc = "Maille groin protection ideal for answering Dendor's call without removing your plate armor."
+	desc = "Mail groin protection ideal for answering nature's call without removing the rest of your armor."
 	gender = PLURAL
 	icon_state = "chain_bootyshorts"
 	item_state = "chain_bootyshorts"
@@ -282,7 +280,7 @@
 	armor_class = ARMOR_CLASS_LIGHT
 
 /obj/item/clothing/under/roguetown/chainlegs/iron
-	name = "iron chain chausses"
+	name = "iron mail chausses"
 	icon_state = "ichain_legs"
 	max_integrity = 250
 	anvilrepair = /datum/skill/craft/armorsmithing
@@ -355,11 +353,11 @@
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP)
 
 /obj/item/clothing/under/roguetown/chainlegs/skirt
-	name = "steel chain skirt"
-	desc = "A knee-length maille skirt, warding cuts against the thighs without slowing the feet."
+	name = "steel mail skirt"
+	desc = "A knee-length mail skirt, warding cuts against the thighs without slowing the feet."
 	icon_state = "chain_skirt"
 	item_state = "chain_skirt"
-	body_parts_covered = GROIN
+	body_parts_covered = LEGS
 	armor_class = ARMOR_CLASS_LIGHT
 
 /obj/item/clothing/under/roguetown/platelegs/skirt
@@ -368,12 +366,12 @@
 	gender = PLURAL
 	icon_state = "plate_skirt"
 	item_state = "plate_skirt"
-	body_parts_covered = GROIN
+	body_parts_covered = LEGS
 	armor_class = ARMOR_CLASS_LIGHT
 
 /obj/item/clothing/under/roguetown/loincloth
 	name = "loincloth"
-	desc = ""
+	desc = "A cloth for your loins; for swimming, sleeping, or the occasional desperate scramble out a window."
 	icon_state = "loincloth"
 	item_state = "loincloth"
 //	adjustable = CAN_CADJUST
@@ -386,11 +384,11 @@
 /obj/item/clothing/under/roguetown/loincloth/pink
 	color = "#b98ae3"
 
-/obj/item/clothing/under/roguetown/grenzelpants
-	name = "grenzelhoftian paumpers"
-	desc = "Padded pants for extra comfort and protection, adorned in vibrant colors."
-	icon_state = "grenzelpants"
-	item_state = "grenzelpants"
+/obj/item/clothing/under/roguetown/freipants
+	name = "freitrupp hose"
+	desc = "Padded hose for extra comfort and protection, adorned in the vibrant colors of mercenary troops."
+	icon_state = "freipants"
+	item_state = "freipants"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	detail_tag = "_detail"
 	armor = list("blunt" = 30, "slash" = 10, "stab" = 20, "piercing" = 0, "fire" = 0, "acid" = 0)
@@ -398,7 +396,7 @@
 	var/picked = FALSE
 	armor_class = ARMOR_CLASS_LIGHT
 
-/obj/item/clothing/under/roguetown/grenzelpants/attack_right(mob/user)
+/obj/item/clothing/under/roguetown/freipants/attack_right(mob/user)
 	..()
 	if(!picked)
 		var/list/colors = list(
@@ -411,14 +409,14 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
 		"Cornflower Blue"="#749EE8",
 		"Blacksteel Grey"="#404040",)
 
-		var/choice = input(user, "Choose a color.", "Grenzelhoft colors") as anything in colors
+		var/choice = input(user, "Choose a color.", "Freitrupp colors") as anything in colors
 		var/playerchoice = colors[choice]
 		picked = TRUE
 		detail_color = playerchoice
@@ -437,17 +435,19 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
+/*
 /obj/item/clothing/under/roguetown/chainlegs/kilt
-	name = "steel chain kilt"
+	name = "steel mail kilt"
 	desc = "Interlinked metal rings that drape down all the way to the ankles."
 	icon_state = "chainkilt"
 	item_state = "chainkilt"
 
 /obj/item/clothing/under/roguetown/chainlegs/iron/kilt/
-	name = "iron chain kilt"
+	name = "iron mail kilt"
 	desc = "Interlinked metal rings that drape down all the way to the ankles."
 	icon_state = "ichainkilt"
 	item_state = "ichainkilt"
+*/
 
 //----------------- BLACKSTEEL---------------------
 

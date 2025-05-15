@@ -6,6 +6,8 @@
 	w_class = WEIGHT_CLASS_TINY
 	experimental_inhand = FALSE
 
+/*	None of these rituals exist as none of these gods exist in Helmsguard.
+
 /obj/item/ritechalk/attack_self(mob/living/user)
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
 		to_chat(user, span_smallred("I don't know what I'm doing with this..."))
@@ -14,9 +16,9 @@
 	var/ritechoices = list()
 	switch (user.patron?.type)
 		if(/datum/patron/inhumen/zizo)
-			ritechoices+="Rune of ZIZO" 
+			ritechoices+="Rune of ZIZO"
 		if(/datum/patron/inhumen/matthios)
-			ritechoices+="Rune of Transaction" 
+			ritechoices+="Rune of Transaction"
 		if(/datum/patron/divine/astrata)
 			ritechoices+="Rune of Sun"
 		if(/datum/patron/divine/noc)
@@ -101,3 +103,4 @@
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/matthios(step_turf)
+*/

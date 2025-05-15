@@ -126,7 +126,7 @@
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			switch(H.patron?.type)
 				if(/datum/patron/old_god)
-					armor = /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
+					armor = /obj/item/clothing/suit/roguetown/armor/plate
 					cloak = /obj/item/clothing/cloak/psydontabard
 					head = /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm
 				if(/datum/patron/divine/astrata)
@@ -311,7 +311,7 @@
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/eora
 					head = /obj/item/clothing/head/roguetown/eoramask
 				if(/datum/patron/inhumen/zizo)
-					cloak = /obj/item/clothing/suit/roguetown/shirt/robe 
+					cloak = /obj/item/clothing/suit/roguetown/shirt/robe
 					head = /obj/item/clothing/head/roguetown/roguehood
 					H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
 				else

@@ -1,5 +1,5 @@
 /datum/advclass/mercenary/atgervi
-	name = "Atgervi"
+	name = "Nordman"
 	tutorial = "Fear. What more can you feel when a stranger tears apart your friend with naught but hand and maw? What more can you feel when your warriors fail to slay an invader? What more could you ask for, when hiring a mercenary?"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
@@ -32,25 +32,25 @@
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)	
+			H.mind.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)	
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 
-			H.change_stat("strength", 2)	
+			H.change_stat("strength", 2)
 			H.change_stat("endurance", 3)
 			H.change_stat("constitution", 3)
 			H.change_stat("perception", 1)
-			H.change_stat("speed", -1)	
+			H.change_stat("speed", -1)
 
-			head = /obj/item/clothing/head/roguetown/helmet/bascinet/atgervi
-			gloves = /obj/item/clothing/gloves/roguetown/angle/atgervi
-			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/atgervi
-			pants = /obj/item/clothing/under/roguetown/trou/leather/atgervi
+			head = /obj/item/clothing/head/roguetown/helmet/bascinet/nordman
+			gloves = /obj/item/clothing/gloves/roguetown/angle/nordman
+			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/nordman
+			pants = /obj/item/clothing/under/roguetown/trou/leather/nordman
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
-			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/atgervi
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/nordman
 			backr = /obj/item/rogueweapon/shield/atgervi
 			backl = /obj/item/storage/backpack/rogue/satchel/black
 			beltr = /obj/item/rogueweapon/stoneaxe/woodcut/steel/atgervi
@@ -58,7 +58,7 @@
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltl = /obj/item/flashlight/flare/torch
 
-			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)	
+			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			H.cmode_music = 'sound/music/combat_vagarian.ogg'
 		if("Shaman")
 			H.set_blindness(0)
@@ -72,19 +72,19 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 
-			H.change_stat("strength", 3) 
+			H.change_stat("strength", 3)
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 2)
 			H.change_stat("intelligence", -1)
 			H.change_stat("perception", -1)
 			H.change_stat("speed", 1)
 
-			head = /obj/item/clothing/head/roguetown/helmet/leather/saiga/atgervi
-			gloves = /obj/item/clothing/gloves/roguetown/plate/atgervi
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/atgervi
-			pants = /obj/item/clothing/under/roguetown/trou/leather/atgervi
+			head = /obj/item/clothing/head/roguetown/helmet/leather/saiga/nordman
+			gloves = /obj/item/clothing/gloves/roguetown/plate/nordman
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/nordman
+			pants = /obj/item/clothing/under/roguetown/trou/leather/nordman
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
-			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/atgervi
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/nordman
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			belt = /obj/item/storage/belt/rogue/leather
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
@@ -101,52 +101,52 @@
 	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife)
 
 
-/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/atgervi
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/nordman
 	name = "vagarian hauberk"
 	desc = "The pride of the Hammerhold mercenaries a well crafted blend of chain and leather into a dense protective coat."
-	icon_state = "atgervi_raider_mail"
-	item_state = "atgervi_raider_mail"
+	icon_state = "nordman_raider_mail"
+	item_state = "nordman_raider_mail"
 
-/obj/item/clothing/suit/roguetown/armor/leather/heavy/atgervi
+/obj/item/clothing/suit/roguetown/armor/leather/heavy/nordman
 	name = "shamanic coat"
 	desc = "A lightly protective coat, It embodies the second trial of the Northern shamans. To honor the leopard is too desire for more."
-	icon_state = "atgervi_shaman_coat"
-	item_state = "atgervi_shaman_coat"
+	icon_state = "nordman_shaman_coat"
+	item_state = "nordman_shaman_coat"
 
-/obj/item/clothing/under/roguetown/trou/leather/atgervi
+/obj/item/clothing/under/roguetown/trou/leather/nordman
 	name = "fur pants"
 	desc = "Thick fur pants made to endure the coldest winds, offering a share of protection from fang and claw of beast or men alike."
-	icon_state = "atgervi_pants"
-	item_state = "atgervi_pants"
-	
-/obj/item/clothing/gloves/roguetown/angle/atgervi
+	icon_state = "nordman_pants"
+	item_state = "nordman_pants"
+
+/obj/item/clothing/gloves/roguetown/angle/nordman
 	name = "fur-lined leather gloves"
 	desc = "Thick, padded gloves made for the harshest of climates, and wildest of beasts encountered in the untamed lands."
-	icon_state = "atgervi_raider_gloves"
-	item_state = "atgervi_raider_gloves"
+	icon_state = "nordman_raider_gloves"
+	item_state = "nordman_raider_gloves"
 
-/obj/item/clothing/gloves/roguetown/plate/atgervi
+/obj/item/clothing/gloves/roguetown/plate/nordman
 	name = "beast claws"
 	desc = "A menacing pair of plated claws, A closely protected tradition of the Shamans. The four claws embodying the four great beasts. Decorated with symbols of the gods they praise and the Gods they reject."
-	icon_state = "atgervi_shaman_gloves"
-	item_state = "atergvi_shaman_gloves"
+	icon_state = "nordman_shaman_gloves"
+	item_state = "nordman_shaman_gloves"
 
-/obj/item/clothing/head/roguetown/helmet/bascinet/atgervi
+/obj/item/clothing/head/roguetown/helmet/bascinet/nordman
 	name = "owl helmet"
 	desc = "A carefully forged steel helmet in the shape of an owl's face, with added chain to cover the face and neck against many blows."
-	icon_state = "atgervi_raider"
-	item_state = "atgervi_raider"
+	icon_state = "nordman_raider"
+	item_state = "nordman_raider"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x48/atgervi.dmi'
 	block2add = null
 	worn_x_dimension = 32
 	worn_y_dimension = 48
 
-/obj/item/clothing/head/roguetown/helmet/leather/saiga/atgervi
+/obj/item/clothing/head/roguetown/helmet/leather/saiga/nordman
 	name = "moose hood"
 	desc = "A deceptively strong hood of hide with a pair of large heavy antlers. It is the fourth and final trial of the Shamans, To slay a Grinning moose with naught but metal claw and teeth."
-	icon_state = "atgervi_shaman"
-	item_state = "atgervi_shaman"
+	icon_state = "nordman_shaman"
+	item_state = "nordman_shaman"
 	flags_inv = HIDEEARS|HIDEFACE
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x48/atgervi.dmi'
 	flags_inv = HIDEEARS
@@ -154,11 +154,11 @@
 	worn_x_dimension = 32
 	worn_y_dimension = 48
 
-/obj/item/clothing/shoes/roguetown/boots/leather/atgervi
+/obj/item/clothing/shoes/roguetown/boots/leather/nordman
 	name = "heavy leather boots"
 	desc = "A pair of strong leather boots, designed to endure battle and the chill of the north both."
-	icon_state = "atgervi_boots"
-	item_state = "atgervi_boots"
+	icon_state = "nordman_boots"
+	item_state = "nordman_boots"
 
 /obj/item/rogueweapon/shield/atgervi
 	name = "kite shield"
