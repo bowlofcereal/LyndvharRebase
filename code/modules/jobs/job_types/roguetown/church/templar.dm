@@ -104,6 +104,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/staves, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
@@ -128,7 +129,6 @@
 		H.change_stat("speed", 2)
 
 		ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
@@ -136,7 +136,7 @@
 
 /datum/outfit/job/roguetown/templar/monk/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	var/weapons = list("Katar","Knuckle Dusters")
+	var/weapons = list("Katar","Knuckle Dusters","Quarterstaff")
 	switch(H.patron?.type)
 		if(/datum/patron/divine/eora)
 			weapons += "Close Caress"
@@ -153,6 +153,11 @@
 			H.put_in_hands(new /obj/item/rogueweapon/knuckles/eora(H), TRUE)
 		if("Barotrauma")
 			H.put_in_hands(new /obj/item/rogueweapon/katar/abyssor(H), TRUE)
+		if("Quarterstaff")
+			H.put_in_hands(new /obj/item/rogueweapon/woodstaff/quarterstaff/steel(H), TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/staves, 1, TRUE)
+		else
+			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 
 /datum/advclass/templar/crusader
 	name = "Templar"
