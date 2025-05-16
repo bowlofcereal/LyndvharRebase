@@ -109,7 +109,7 @@
 	var/list/ambush_times
 
 	var/converted_type
-
+	var/location_name = ""
 
 /**
   * A list of teleport locations
