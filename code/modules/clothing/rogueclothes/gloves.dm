@@ -107,12 +107,12 @@
 	smeltresult = /obj/item/ingot/iron
 	max_integrity = 200
 
-/obj/item/clothing/gloves/roguetown/otavan
-	name = "otavan leather gloves"
-	desc = "A pair of heavy Otavan leather gloves, commonly used by fencers, renowned for their quality."
-	icon_state = "fencergloves"
-	item_state = "fencergloves"
-	armor = list("blunt" = 60, "slash" = 100, "stab" = 80, "piercing" = 10, "fire" = 0, "acid" = 0)
+/obj/item/clothing/gloves/roguetown/deerskin
+	name = "deerskin leather gloves"
+	desc = "A pair of heavy deerskin gloves, fit against wildlife and wild men."
+	icon_state = "deerskingloves"
+	item_state = "deerskingloves"
+	armor = list("blunt" = 60, "slash" = 50, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	resistance_flags = FIRE_PROOF
 	blocksound = SOFTHIT
@@ -134,7 +134,7 @@
 //rogtodo sprites for this
 /obj/item/clothing/gloves/roguetown/plate
 	name = "plate gauntlets"
-	desc = ""
+	desc = "The finest work of an armorsmith; dozens of plates curl at your whim to grip power."
 	icon_state = "gauntlets"
 	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 40, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
@@ -184,11 +184,11 @@
 	qdel(src)
 
 
-/obj/item/clothing/gloves/roguetown/grenzelgloves
-	name = "grenzelhoft gloves"
-	desc = ""
-	icon_state = "grenzelgloves"
-	item_state = "grenzelgloves"
+/obj/item/clothing/gloves/roguetown/freigloves
+	name = "freitrupp gloves"
+	desc = "Supple gloves for a skilled and sure grip on pike and greatsword alike."
+	icon_state = "freigloves"
+	item_state = "freigloves"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	armor = list("blunt" = 15, "slash" = 15, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT)

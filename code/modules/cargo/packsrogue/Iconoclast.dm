@@ -126,7 +126,6 @@
 	cost = 20
 	contains = list(/obj/item/rogueweapon/shield/tower/metal)
 
-
 /datum/supply_pack/rogue/Iconoclast/Tshield
 	name = "Tower Shield"
 	cost = 10

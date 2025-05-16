@@ -53,8 +53,8 @@
 	neck = /obj/item/clothing/neck/roguetown/fencerguard
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan
 	head = /obj/item/clothing/head/roguetown/helmet/otavan
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/otavan
-	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/otavan
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/heroic
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/deerskinpants
 	shoes = /obj/item/clothing/shoes/roguetown/boots/otavan
 	gloves = /obj/item/clothing/gloves/roguetown/otavan
 	backr = /obj/item/storage/backpack/rogue/satchel/black
@@ -62,6 +62,6 @@
 	backpack_contents = list(/obj/item/roguekey/mercenary = 1, /obj/item/flashlight/flare/torch = 1)
 
 	H.grant_language(/datum/language/otavan)
-	
+
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

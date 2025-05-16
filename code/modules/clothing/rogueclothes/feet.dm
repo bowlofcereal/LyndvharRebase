@@ -46,7 +46,7 @@
 			holdingknife = null
 			playsound(loc, 'sound/foley/equip/swordsmall1.ogg')
 			return TRUE
-	
+
 
 /obj/item/clothing/shoes/roguetown/boots/psydonboots
 	name = "psydonian boots"
@@ -145,7 +145,7 @@
 
 /obj/item/clothing/shoes/roguetown/shalal
 	name = "babouche"
-	desc = ""
+	desc = "The latest in nonsensical foreign court fashion and target of the jester's mockery."
 	gender = PLURAL
 	icon_state = "shalal"
 	item_state = "shalal"
@@ -178,6 +178,7 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 
+/*
 
 /obj/item/clothing/shoes/roguetown/boots/armor/matthios
 	max_integrity = 500
@@ -213,16 +214,18 @@
 		return
 	qdel(src)
 
-/obj/item/clothing/shoes/roguetown/boots/otavan
-	name = "otavan leather boots"
-	desc = "Boots of outstanding craft, your fragile feet have never felt so protected and comfortable before."
+*/
+
+/obj/item/clothing/shoes/roguetown/boots/deerskin
+	name = "deerskin leather boots"
+	desc = "Boots of tough yet supple deerskin, perfect for warding tooth and blade."
 	body_parts_covered = FEET
-	icon_state = "fencerboots"
-	item_state = "fencerboots"
-	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
+	icon_state = "deerskinboots"
+	item_state = "deerskinboots"
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	blocksound = SOFTHIT
 	max_integrity = 200
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 50, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 50, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
@@ -252,8 +255,9 @@
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_JINGLE_BELLS)
 
-/obj/item/clothing/shoes/roguetown/grenzelhoft
-	name = "grenzelhoft boots"
+/obj/item/clothing/shoes/roguetown/freiboots
+	name = "freitrupp boots"
+	desc = "Tough boots for marching and fighting, high in the style of mercenary troops."
 	icon_state = "grenzelboots"
 	item_state = "grenzelboots"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'

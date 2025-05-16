@@ -15,7 +15,7 @@
 	sewrepair = TRUE
 	flags_inv = HIDEBOOB
 	experimental_inhand = FALSE
-	
+
 	grid_width = 64
 	grid_height = 64
 
@@ -480,12 +480,12 @@
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
 
-/obj/item/clothing/suit/roguetown/shirt/grenzelhoft
+/obj/item/clothing/suit/roguetown/shirt/freishirt
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "grenzelhoftian hip-shirt"
-	desc = "Padded shirt for extra comfort and protection, adorned in vibrant colors."
+	name = "freitrupp hip-shirt"
+	desc = "Padded shirt for extra comfort and protection, adorned in the vibrant colors of a freitrupp."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
-	icon_state = "grenzelshirt"
+	icon_state = "freishirt"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	boobed = TRUE
 	detail_tag = "_detail"
@@ -496,7 +496,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 	var/picked = FALSE
 
-/obj/item/clothing/suit/roguetown/shirt/grenzelhoft/attack_right(mob/user)
+/obj/item/clothing/suit/roguetown/shirt/freishirt/attack_right(mob/user)
 	..()
 	if(!picked)
 		var/list/colors = list(
@@ -509,14 +509,14 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
 		"Cornflower Blue"="#749EE8",
 		"Blacksteel Grey"="#404040",)
 
-		var/choice = input(user, "Choose a color.", "Grenzelhoft colors") as anything in colors
+		var/choice = input(user, "Choose a color.", "Freitrupp Colors") as anything in colors
 		var/playerchoice = colors[choice]
 		picked = TRUE
 		detail_color = playerchoice
@@ -529,7 +529,7 @@
 
 
 
-/obj/item/clothing/suit/roguetown/shirt/grenzelhoft/update_icon()
+/obj/item/clothing/suit/roguetown/shirt/freishirt/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))

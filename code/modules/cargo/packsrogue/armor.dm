@@ -69,7 +69,7 @@
 				)
 
 /datum/supply_pack/rogue/armor/chainmaille
-	name = "Chainmaille"
+	name = "Iron Haubergeon"
 	cost = 25
 	contains = list(
 					/obj/item/clothing/suit/roguetown/armor/chainmail/iron,
@@ -95,28 +95,28 @@
 	contains = list(
 					/obj/item/clothing/suit/roguetown/armor/plate,
 				)
-
+/*
 /datum/supply_pack/rogue/armor/halfplate/fluted
 	name = "Fluted Half-Plate Armor"
 	cost = 120
 	contains = list(
 					/obj/item/clothing/suit/roguetown/armor/plate/fluted,
 				)
-
+*/
 /datum/supply_pack/rogue/armor/plate/full
 	name = "Full Plate"
 	cost = 150
 	contains = list(
 					/obj/item/clothing/suit/roguetown/armor/plate/full,
 				)
-
+/*
 /datum/supply_pack/rogue/armor/plate/full/fluted
 	name = "Fluted Full Plate"
 	cost = 170
 	contains = list(
 					/obj/item/clothing/suit/roguetown/armor/plate/full/fluted,
 				)
-
+*/
 /datum/supply_pack/rogue/armor/bracers
 	name = "Steel Bracers"
 	cost = 25
@@ -133,7 +133,7 @@
 				)
 
 /datum/supply_pack/rogue/armor/chaingauntlets
-	name = "Steel Chain Gauntlets"
+	name = "Steel Mail Gauntlets"
 	cost = 25
 	contains = list(
 					/obj/item/clothing/gloves/roguetown/chain,
@@ -141,7 +141,7 @@
 
 
 /datum/supply_pack/rogue/armor/pants/plate
-	name = "Iron Chain Chausses"
+	name = "Iron Mail Chausses"
 	cost = 25
 	contains = list(
 					/obj/item/clothing/under/roguetown/chainlegs/iron,

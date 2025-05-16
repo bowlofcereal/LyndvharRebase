@@ -34,7 +34,7 @@
 /obj/item/clothing/suit/roguetown/armor/armordress
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "padded dress"
-	desc = "This dress has been padded with leather for extra protection. Bolts and arrows punch right through it."
+	desc = "This dress has been padded with leather for extra protection."
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	icon_state = "armordress"
 	armor = list("blunt" = 60, "slash" = 40, "stab" = 50, "piercing" = 10, "fire" = 0, "acid" = 0)
@@ -75,7 +75,7 @@
 /obj/item/clothing/suit/roguetown/armor/gambeson
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "gambeson"
-	desc = "A large shirt meant to be used below armor."
+	desc = "A many-layred linen jacket stuffed with rags and the like, meant to be worn below armor."
 	icon_state = "gambeson"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	armor = list("blunt" = 60, "slash" = 40, "piercing" = 50, "stab" = 30, "fire" = 0, "acid" = 0)
@@ -91,14 +91,14 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	name = "light gambeson"
-	desc = "A barely padded gambeson, typically worn by the peasantry as cheap yet fashionable armor for the whole body. May stop an arrow."
+	desc = "A barely padded gambeson, stitched together by the desperate."
 	armor = list("blunt" = 40, "slash" = 30, "stab" = 20, "piercing" = 40, "fire" = 0, "acid" = 0)
-	prevent_crits = null // It won't help, like, at all.
+	prevent_crits = list(BCLASS_CUT,BCLASS_BLUNT)
 	sellprice = 10
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	name = "padded gambeson"
-	desc = "A gambeson with additional padding layers, hardened to make it more durable. Typically used as a layer under plate armor, it still cannot compare to proper armor. Will probably stop a crossbow bolt."
+	desc = "A linen jacket with quilted padding as well as tens of layers of linen cloth, prized by professional soldiers and noble warriors."
 	icon_state = "gambesonp"
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_CHOP)
 	armor = list("blunt" = 80, "slash" = 50, "stab" = 50, "piercing" = 80, "fire" = 0, "acid" = 0)
@@ -139,7 +139,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan
 	name = "fencer gambeson"
-	desc = "A large shirt with heavy padding meant to be used below armor. Will probably stop an arrow, unlikely to stop a bolt."
+	desc = "A large shirt with heavy padding meant to be used below armor."
 	icon_state = "fancygamb"
 	armor = list("blunt" = 80, "slash" = 50, "stab" = 40, "piercing" = 60, "fire" = 0, "acid" = 0)
 	allowed_race = NON_DWARVEN_RACE_TYPES
@@ -262,10 +262,21 @@
 /obj/item/clothing/suit/roguetown/armor/corset
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "corset"
-	desc = "A leather binding to constrict one's figure... and lungs."
+	desc = "A leather wrap, laced tight to keep your figure from falling apart."
 	icon_state = "corset"
+	body_parts_covered = VITALS
+	armor = list("blunt" = 40, "slash" = 50, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT)
+	blocksound = SOFTHIT
+	blade_dulling = DULLING_BASHCHOP
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+	sewrepair = TRUE
+	nodismemsleeves = TRUE
+	max_integrity = 150
+	sellprice = 20
 	armor_class = ARMOR_CLASS_LIGHT
-	body_parts_covered = CHEST
+	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 	name = "arming jacket"
@@ -350,8 +361,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy
 	name = "hardened leather armor"
-	desc = "A heavy steerhide jerkin with enough body to stand on its own. It forms a stiff, protective mantle \
-	for its wearer, shielding from blows and weather alike."
+	desc = "A heavy steerhide jerkin with enough body to stand on its own."
 	icon_state = "roguearmor_belt"
 	item_state = "roguearmor_belt"
 	armor = list("blunt" = 100, "slash" = 70, "stab" = 50, "piercing" = 30, "fire" = 0, "acid" = 0)
@@ -364,7 +374,7 @@
 	desc = "A heavy steerhide jerkin that reaches past the hips and better protects the vitals."
 	icon_state = "roguearmor_coat"
 	item_state = "roguearmor_coat"
-	body_parts_covered = CHEST|GROIN|VITALS|LEGS
+	body_parts_covered = CHEST|ARMS|VITALS|LEGS
 	armor = list("blunt" = 100, "slash" = 70, "stab" = 50, "piercing" = 30, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP, BCLASS_SMASH)
 	max_integrity = 300
@@ -375,7 +385,7 @@
 	desc = "A heavy leather jacket that covers the arms and protects the vitals."
 	icon_state = "leatherjacketo"
 	item_state = "leatherjacketo"
-	body_parts_covered = CHEST|GROIN|VITALS|ARMS
+	body_parts_covered = CHEST|VITALS|ARMS
 	armor = list("blunt" = 100, "slash" = 70, "stab" = 50, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP, BCLASS_SMASH)
 	max_integrity = 300
@@ -393,7 +403,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/bikini
 	name = "leather corslet"
-	desc = "Flexible cowhide armor. Lightweight, better than nothing. Trimmed to protect the heart and hips."
+	desc = "Flexible cowhide armor, trimmed to protect the heart and hips."
 	body_parts_covered = CHEST|GROIN
 	icon_state = "leatherkini"
 	item_state = "leatherkini"
@@ -411,7 +421,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/hide/bikini
 	name = "hide corslet"
-	desc = "A light armor of wildbeast hide. Far more durable than leather. Trimmed to protect the heart and hips."
+	desc = "A light armor of beast-hide. Far more durable than leather. Trimmed to protect the heart and hips."
 	body_parts_covered = CHEST|GROIN
 	icon_state = "hidearmorkini"
 	item_state = "hidearmorkini"
@@ -429,7 +439,7 @@
 	blocksound = SOFTHIT
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	blade_dulling = DULLING_BASHCHOP
-	body_parts_covered = CHEST|VITALS|LEGS
+	body_parts_covered = CHEST|VITALS
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
@@ -540,8 +550,8 @@
 /obj/item/clothing/suit/roguetown/armor/chainmail
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "haubergeon"
-	desc = "A steel maille shirt. Arrows and small daggers go right through the gaps in this."
-	body_parts_covered = CHEST|GROIN|ARMS|VITALS
+	desc = "A short mail shirt made of steel rings, ending just below the belt."
+	body_parts_covered = CHEST|ARMS|VITALS
 	icon_state = "haubergeon"
 	armor = list("blunt" = 60, "slash" = 100, "stab" = 80, "piercing" = 10, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
@@ -557,16 +567,16 @@
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron
 	icon_state = "ichainmail"
-	name = "chainmaille"
-	desc = "A chain vest made of heavy iron rings. Better than nothing."
-	body_parts_covered = CHEST|GROIN|VITALS
+	name = "iron haubergeon"
+	desc = "A short mail shirt made of iron rings, ending just below the belt."
+	body_parts_covered = CHEST|ARMS|VITALS
 	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "hauberk"
-	desc = "A longer steel maille that protects the legs, still doesn't protect against arrows though."
-	body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
+	desc = "A longer steel mail coat that extends over the legs."
+	body_parts_covered = CHEST|ARMS|LEGS|VITALS
 	icon_state = "hauberk"
 	item_state = "hauberk"
 	armor = list("blunt" = 60, "slash" = 100, "stab" = 80, "piercing" = 10, "fire" = 0, "acid" = 0)
@@ -574,28 +584,26 @@
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2
 
+/*	This thing has mail damage reduction, visual plate elements, and is an overreach. Mixed elements should be layered if possible. Consider the icon for half-plate.
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate
 	slot_flags = ITEM_SLOT_ARMOR
 	armor_class = ARMOR_CLASS_HEAVY
-	name = "psydonite hauberk"
-	desc = "An ornate steel cuirass with tassets, worn atop thick chainmaille. While it falters against arrows and bolts, \
-			these interlinked layers are superb at warding off the blows of inhumen claws and axes."
+	name = "ornate half-plate"
+	desc = "An ornate steel cuirass with tassets, worn atop thick mail."
 	icon_state = "ornatehauberk"
 	item_state = "ornatehauberk"
 	max_integrity = 350
-
-
-
+*/
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/bikini
-	name = "chainmail corslet"	// corslet, from the old French 'cors' or bodice, with the diminutive 'let', used to describe lightweight military armor since 1500. Chosen here to replace 'bikini', an extreme anachronism.
-	desc = "For the daring, affording maille's protection with light weight."
+	name = "mail corslet"	// corslet, from the old French 'cors' or bodice, with the diminutive 'let', used to describe lightweight military armor since 1500. Chosen here to replace 'bikini', an extreme anachronism.
+	desc = "For the daring, affording mail's protection with light weight."
 	icon_state = "chainkini"
 	item_state = "chainkini"
 	allowed_sex = list(FEMALE)
 	allowed_race = CLOTHED_RACES_TYPES
 	body_parts_covered = CHEST|GROIN
-	armor_class = ARMOR_CLASS_LIGHT //placed in the medium category to keep it with its parent obj
+	armor_class = ARMOR_CLASS_LIGHT // reduced coverage, reduced class.
 
 /obj/item/clothing/suit/roguetown/armor/plate/bikini
 	name = "half-plate corslet"
@@ -612,7 +620,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/half
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "steel cuirass"
-	desc = "A basic cuirass of steel. Lightweight and durable. A crossbow bolt will probably go right through this, but not an arrow."
+	desc = "A basic cuirass of steel. Somewhat inflexible about the waist, but it keeps the innards inwards."
 	body_parts_covered = CHEST|VITALS
 	icon_state = "cuirass"
 	item_state = "cuirass"
@@ -625,23 +633,22 @@
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2
-
+/*
 /obj/item/clothing/suit/roguetown/armor/plate/half/fluted
 	name = "fluted cuirass"
 	icon_state = "flutedcuirass"
-	desc = "A sturdily made steel cuirass with tassets. Made to sustain, supposedly; though maybe not crossbow bolts."
+	desc = "A steel breastplate, fluted for reinforcement and decoration."
 
-	body_parts_covered = CHEST | VITALS | LEGS
+	body_parts_covered = CHEST|VITALS
 	max_integrity = 350
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
-	name = "psydonite cuirass"
+	name = "ornate cuirass"
 	icon_state = "ornatecuirass"
 	desc = "An ornate steel cuirass with tassets, favored by both the Holy Otavan Inquisition and the Order of the Silver Psycross. \
 			Made to endure."
-	
 	max_integrity = 300
-
+*/
 /obj/item/clothing/suit/roguetown/armor/plate/half/iron
 	name = "iron breastplate"
 	desc = "A basic cuirass of iron, protective and moderately durable."
@@ -658,8 +665,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "scalemail"
-	desc = "Metal scales interwoven intricately to form flexible protection!"
+	name = "lamellar armor"
+	desc = "Metal scales stitched onto a sturdy backing to form aflexible armored coat that still spreads out the force of a blow."
 	body_parts_covered = CHEST|VITALS|GROIN|LEGS
 	allowed_sex = list(MALE, FEMALE)
 	icon_state = "lamellar"
@@ -675,7 +682,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "steel half-plate"
-	desc = "\'Adventurer-fit\' plate armor with pauldrons. Not going to stop any daggers or bolts getting into the small gaps, recommended to layer with a gambeson."
+	desc = "Battlefield-ready plate armor, kept light for long campaigns. Will spare your lungs, guts and groin from death, but your limbs may yet be maimed."
 	body_parts_covered = CHEST|GROIN|VITALS
 	icon_state = "halfplate"
 	item_state = "halfplate"
@@ -695,20 +702,20 @@
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP)
 
+/*
 /obj/item/clothing/suit/roguetown/armor/plate/fluted
 	name = "fluted half-plate"
-	desc = "A sturdily made fluted half-plate armour-set, complete with pauldrons and shoulder-guards. \
-	Supposedly made to deflect blows."
+	desc = "A sturdily made fluted half-plate armour-set, complete with pauldrons and shoulder-guards."
 	icon_state = "flutedhalfplate"
 
 	equip_delay_self = 6 SECONDS
 	unequip_delay_self = 6 SECONDS
 
 	max_integrity = 600
-	body_parts_covered = CHEST | VITALS | ARMS
+	body_parts_covered = CHEST|VITALS|ARMS
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate
-	name = "psydonite half-plate"
+	name = "ornate half-plate"
 	desc = "A sturdily made fluted half-plate armour-set, complete with pauldrons and shoulder-guards. \
 			Favored by both the Holy Otavan Inquisition and the Order of the Silver Psycross. It smells of the madness of an enduring God."
 	icon_state = "ornatehalfplate"
@@ -733,7 +740,7 @@
 		return
 	REMOVE_TRAIT(user, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	to_chat(user, span_notice("Trust in thyself."))
-
+*/
 /obj/item/clothing/suit/roguetown/armor/plate/full
 	name = "plate armor"
 	desc = "Full plate. Slow to don and doff without the aid of a good squire."
@@ -744,7 +751,7 @@
 	equip_delay_other = 3 SECONDS
 	strip_delay = 6 SECONDS
 	smelt_bar_num = 4
-
+/*
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted
 	name = "fluted plate"
 	desc = "A sturdily made fluted full-plate. Supposedly made to deflect blows from blades and arrows."
@@ -754,6 +761,7 @@
 	unequip_delay_self = 14 SECONDS
 
 	max_integrity = 600
+
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
 	name = "psydonite plate"
@@ -792,7 +800,7 @@
 	name = "gilded fullplate"
 	desc = "Often, you have heard that told,"
 	icon_state = "matthiosarmor"
-	max_integrity = 700	
+	max_integrity = 700
 
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/matthios/Initialize()
@@ -822,7 +830,7 @@
 		return
 	qdel(src)
 
-
+*/
 /obj/item/clothing/suit/roguetown/armor/plate/full/bikini
 	name = "full-plate corslet"
 	desc = "Breastplate, pauldrons, couters, cuisses... did you forget something?"
@@ -871,9 +879,9 @@
 	armor_class = ARMOR_CLASS_HEAVY
 	smelt_bar_num = 4
 
-/obj/item/clothing/suit/roguetown/armor/plate/otavan
-	name = "otavan half-plate"
-	desc = "Half-plate armor with pauldrons. Recommended to layer with the otavan gambeson."
+/obj/item/clothing/suit/roguetown/armor/plate/heroic
+	name = "heroic half-plate"
+	desc = "Half-plate armor with pauldrons in the style of ancient heroes."
 	armor = list("blunt" = 80, "slash" = 100, "stab" = 80, "piercing" = 20, "fire" = 0, "acid" = 0)
 	body_parts_covered = CHEST|GROIN|VITALS
 	icon_state = "corsethalfplate"
@@ -881,7 +889,7 @@
 	adjustable = CAN_CADJUST
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
-/obj/item/clothing/suit/roguetown/armor/plate/otavan/AdjustClothes(mob/user)
+/obj/item/clothing/suit/roguetown/armor/plate/heroic/AdjustClothes(mob/user)
 	if(loc == user)
 		playsound(user, "sound/foley/dropsound/cloth_drop.ogg", 100, TRUE, -1)
 		if(adjustable == CAN_CADJUST)
@@ -907,7 +915,7 @@
 /obj/item/clothing/suit/roguetown/armor/brigandine
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "brigandine"
-	desc = "Composite armour made according to an Etruscan tradition. It's a high-quality arched plate cuirass sewn into dyed leather fitted with a wide skirt at the bottom, to cover the knight's groin."
+	desc = "The latest fashion in armor, combining shaped plates under a rich fabric cover to create a more courtly appearance."
 	icon_state = "brigandine"
 	blocksound = SOFTHIT
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
@@ -973,7 +981,7 @@
 /obj/item/clothing/suit/roguetown/armor/brigandine/coatplates
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "coat of plates"
-	desc = "A leather coat with plates attached to it to increase protection while retaining mobility. The leather below might catch a dagger picking at it."
+	desc = "A leather coat with plates attached to it to increase protection while retaining mobility."
 	icon_state = "coat_of_plates"
 	blocksound = PLATEHIT
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
@@ -986,8 +994,8 @@
 	smelt_bar_num = 2
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/sheriff/coat
-	name = "coat of the commander"
-	desc = "A thick boiled leather surcoat with plates concealed in it's many great folds. It weighs a ton and takes a great man to wear."
+	name = "oversized coat"
+	desc = "A brigandine armor concealed in a baggy coat that makes you look bigger than you really are." // Agent Navarre was out of line.
 	icon_state = "leathercoat"
 	item_state = "leathercoat"
 	var/picked = FALSE
@@ -1000,12 +1008,12 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/pickedvalue = input(user, "Select a color", "KINGSLAYER'S GARB") as null|anything in list("Khaki", "Black")
+	var/pickedvalue = input(user, "Select a color", "Leather Style") as null|anything in list("Deerskin", "Black")
 	if(!pickedvalue)
 		return
 	if(world.time > (the_time + 30 SECONDS))
 		return
-	if(pickedvalue == "Khaki")
+	if(pickedvalue == "Deerskin")
 		picked = TRUE
 	else if(pickedvalue == "Black")
 		picked = TRUE
@@ -1019,8 +1027,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/light
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "lightweight brigandine"
-	desc = "A light riveted coat with plates concealed inside an exterior fabric. Susceptible to daggers being shoved into your ribs."
+	name = "common brigandine"
+	desc = "More modest than the knightly brigandines, common iron protects the common soldier."
 	icon_state = "light_brigandine"
 	blocksound = SOFTHIT
 	body_parts_covered = CHEST|GROIN|VITALS
@@ -1034,7 +1042,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "inquisitorial duster"
-	desc = "Metal plates reinforce this heavy coat, only the finest for the inquisition."
+	desc = "Metal plates reinforce this heavy coat, only the finest for the Inquisition."
 	body_parts_covered = CHEST|VITALS|GROIN|LEGS|ARMS
 	allowed_sex = list(MALE, FEMALE)
 	icon_state = "inqcoat"
@@ -1055,7 +1063,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/blacksteel_full_plate
 	name = "blacksteel plate armor"
-	desc = "A suit of Full Plate smithed of durable blacksteel. With an internally layered gambeson, the piercing and blunt protection is unmatched."
+	desc = "A suit of encased plate smithed of durable blacksteel. With an internally layered gambeson, the piercing and blunt protection is unmatched."
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'

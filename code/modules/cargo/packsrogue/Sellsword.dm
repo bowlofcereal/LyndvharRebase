@@ -17,20 +17,20 @@
 	contains = list(/obj/item/clothing/head/roguetown/roguehood/shalal)
 
 
-/datum/supply_pack/rogue/Sellsword/grenzelhofthat
-	name = "Grenzel Hat"
+/datum/supply_pack/rogue/Sellsword/Freihat
+	name = "Freitrupp Hat"
 	cost = 5
-	contains = list(/obj/item/clothing/head/roguetown/grenzelhofthat)
+	contains = list(/obj/item/clothing/head/roguetown/freihat)
 
-/datum/supply_pack/rogue/Sellsword/Grenzelpants
-	name = "Grenzel Pants"
+/datum/supply_pack/rogue/Sellsword/Freipants
+	name = "Freitrupp Pants"
 	cost = 5
-	contains = list(/obj/item/clothing/under/roguetown/grenzelpants)
+	contains = list(/obj/item/clothing/under/roguetown/freipants)
 
-/datum/supply_pack/rogue/Sellsword/Grenzelshoes
-	name = "Grenzel Shoes"
+/datum/supply_pack/rogue/Sellsword/Freiboots
+	name = "Freitrupp Boots"
 	cost = 5
-	contains = list(/obj/item/clothing/shoes/roguetown/grenzelhoft)
+	contains = list(/obj/item/clothing/shoes/roguetown/freiboots)
 
 /datum/supply_pack/rogue/Sellsword/coif/steel
 	name = "Steel Coif"
@@ -38,7 +38,7 @@
 	contains = list(/obj/item/clothing/neck/roguetown/chaincoif)
 
 /datum/supply_pack/rogue/Sellsword/chainlegs
-	name = "Chain Chausses"
+	name = "Mail Chausses"
 	cost = 20
 	contains = list(/obj/item/clothing/under/roguetown/chainlegs)
 
@@ -49,7 +49,7 @@
 
 
 /datum/supply_pack/rogue/Sellsword/chaingauntlets
-	name = "Steel Chain Gauntlets"
+	name = "Steel Mail Gauntlets"
 	cost = 10
 	contains = list(/obj/item/clothing/gloves/roguetown/chain)
 
@@ -75,7 +75,7 @@
 	contains =  list(/obj/item/clothing/suit/roguetown/armor/plate/half)
 
 /datum/supply_pack/rogue/Sellsword/scalemail
-	name = "Scalemail"
+	name = "Lamellar Coat"
 	cost = 20
 	contains = list(/obj/item/clothing/suit/roguetown/armor/plate/scale)
 
@@ -120,9 +120,9 @@
 	contains = list(/obj/item/clothing/head/roguetown/helmet/sallet/visored)
 
 /datum/supply_pack/rogue/Sellsword/wolfhelm
-	name = "Volf Plate Helm"
+	name = "Wolf Plate Helm"
 	cost = 30
-	contains = list(/obj/item/clothing/head/roguetown/helmet/heavy/volfplate)
+	contains = list(/obj/item/clothing/head/roguetown/helmet/heavy/wolfplate)
 
 
 /datum/supply_pack/rogue/Sellsword/ssword

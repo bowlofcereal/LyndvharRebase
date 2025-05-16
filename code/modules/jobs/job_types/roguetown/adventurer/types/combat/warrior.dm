@@ -143,7 +143,7 @@
 			H.change_stat("intelligence", -2)
 			if(should_wear_masc_clothes(H))
 				H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
-				head = /obj/item/clothing/head/roguetown/helmet/leather/volfhelm
+				head = /obj/item/clothing/head/roguetown/helmet/leather/wolfhelm
 				wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 				pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 				shoes = /obj/item/clothing/shoes/roguetown/boots/leather
@@ -153,7 +153,7 @@
 				neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 				beltl = /obj/item/rogueweapon/huntingknife
 			if(should_wear_femme_clothes(H))
-				head = /obj/item/clothing/head/roguetown/helmet/leather/volfhelm
+				head = /obj/item/clothing/head/roguetown/helmet/leather/wolfhelm
 				armor = /obj/item/clothing/suit/roguetown/armor/leather/bikini
 				pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/shorts
 				wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
@@ -197,8 +197,8 @@
 			head = /obj/item/clothing/head/roguetown/bucklehat
 			gloves = /obj/item/clothing/gloves/roguetown/angle
 			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1)
-			beltl = pick(/obj/item/reagent_containers/glass/alchemical/strpot, 
-						/obj/item/reagent_containers/glass/alchemical/conpot, 
+			beltl = pick(/obj/item/reagent_containers/glass/alchemical/strpot,
+						/obj/item/reagent_containers/glass/alchemical/conpot,
 						/obj/item/reagent_containers/glass/alchemical/endpot,
 						/obj/item/reagent_containers/glass/alchemical/spdpot,
 						/obj/item/reagent_containers/glass/alchemical/perpot,
@@ -215,10 +215,10 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 			H.set_blindness(0)
-			
+
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_PACIFISM, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_NOPAIN, TRAIT_GENERIC) 
+			ADD_TRAIT(H, TRAIT_NOPAIN, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
@@ -227,20 +227,20 @@
 			ADD_TRAIT(H, TRAIT_IGNOREDAMAGESLOWDOWN, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_IGNORESLOWDOWN, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_BREADY, TRAIT_GENERIC)
-			
+
 			H.change_stat("constitution", 15)
 			H.change_stat("intelligence", -2)
 			H.change_stat("perception", -2)
 			H.change_stat("endurance", -2)
 			H.change_stat("strength", -2)
-			
+
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/damage_transfer)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/affliction_transfer)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/damage_link)
-			
+
 			pants = /obj/item/clothing/under/roguetown/tights/black
 			shirt = /obj/item/clothing/suit/roguetown/shirt/tunic
-			backl = /obj/item/storage/backpack/rogue/satchel   
-			belt = /obj/item/storage/belt/rogue/leather        
-			beltr = /obj/item/rogueweapon/whip                
+			backl = /obj/item/storage/backpack/rogue/satchel
+			belt = /obj/item/storage/belt/rogue/leather
+			beltr = /obj/item/rogueweapon/whip
