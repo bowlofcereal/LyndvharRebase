@@ -41,7 +41,8 @@ var/global/list/colorlist = list(
 	"Wine Rouge"="#752B55",
 	"Royal Magenta" = "#962e5c",
 	"Blacksteel Grey"="#404040",
-	"Darkest Night" = "#414143"
+	"Dark Grey" = "#505050",
+	"Darkest Night" = "#414143",
 	)
 
 
