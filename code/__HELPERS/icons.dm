@@ -215,6 +215,9 @@ world
 
 #define TO_HEX_DIGIT(n) ascii2text((n&15) + ((n&15)<10 ? 48 : 87))
 
+/image/Destroy()
+	..()
+	return QDEL_HINT_HARDDEL_NOW
 
 	// Multiply all alpha values by this float
 /icon/proc/ChangeOpacity(opacity = 1)
