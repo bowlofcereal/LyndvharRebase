@@ -60,8 +60,8 @@
 			ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_ARCYNE_T3, TRAIT_GENERIC)
 			switch(H.patron?.type)
-			if(/datum/patron/inhumen/zizo)
-				H.cmode_music = 'sound/music/combat_cult.ogg'
+				if(/datum/patron/inhumen/zizo)
+					H.cmode_music = 'sound/music/combat_cult.ogg'
 		if("Spellsinger")
 			to_chat(H, span_warning("You belong to a school of bards renowned for their study of both the arcane and the arts."))
 			head = /obj/item/clothing/head/roguetown/spellcasterhat
