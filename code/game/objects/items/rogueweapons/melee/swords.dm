@@ -97,8 +97,6 @@
 	max_integrity = 150
 	wlength = WLENGTH_NORMAL
 	w_class = WEIGHT_CLASS_BULKY
-	pickup_sound = 'sound/foley/equip/swordlarge1.ogg'
-	sheathe_sound = 'sound/items/wood_sharpen.ogg'
 	flags_1 = CONDUCT_1
 	throwforce = 10
 	thrown_bclass = BCLASS_CUT
@@ -110,11 +108,18 @@
 	wdefense = 4
 	grid_width = 32
 	grid_height = 64
+	pickup_sound = 'modular_helmsguard/sound/sheath_sounds/draw_sword.ogg'
+	sheathe_sound = 'modular_helmsguard/sound/sheath_sounds/put_back_sword.ogg'
 
 /obj/item/rogueweapon/sword/Initialize()
 	. = ..()
 	if(icon_state == "sword1")
 		icon_state = "sword[rand(1,3)]"
+
+/obj/item/rogueweapon/sword/equipped(mob/user, slot, initial = FALSE)
+	pickup_sound = pick("modular_helmsguard/sound/sheath_sounds/draw_sword.ogg", "modular_helmsguard/sound/sheath_sounds/draw_sword2.ogg", "modular_helmsguard/sound/sheath_sounds/draw_sword3.ogg")
+	sheathe_sound = pick("modular_helmsguard/sound/sheath_sounds/put_back_sword.ogg", "modular_helmsguard/sound/sheath_sounds/put_back_sword2.ogg")
+	. = ..()
 
 /obj/item/rogueweapon/sword/falchion
 	name = "falchion"
@@ -204,7 +209,6 @@
 	name = "bastard sword"
 	desc = "A bastard sword that can chop with ease."
 	swingsound = BLADEWOOSH_LARGE
-	pickup_sound = 'sound/foley/equip/swordlarge2.ogg'
 	bigboy = 1
 	wlength = WLENGTH_LONG
 	gripsprite = TRUE
@@ -217,6 +221,8 @@
 	thrown_bclass = BCLASS_CUT
 	dropshrink = 0.75
 	smeltresult = /obj/item/ingot/steel
+	pickup_sound = 'modular_helmsguard/sound/sheath_sounds/draw_greatsword.ogg'
+	sheathe_sound = 'modular_helmsguard/sound/sheath_sounds/put_back_sword2.ogg'
 
 /obj/item/rogueweapon/sword/long/death
 	color = CLOTHING_BLACK
@@ -229,6 +235,11 @@
 			if("wielded") return list("shrink" = 0.6,"sx" = 9,"sy" = -4,"nx" = -7,"ny" = 1,"wx" = -9,"wy" = 2,"ex" = 10,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 5,"sturn" = -190,"wturn" = -170,"eturn" = -10,"nflip" = 8,"sflip" = 8,"wflip" = 1,"eflip" = 0)
 			if("onback") return list("shrink" = 0.5, "sx" = -1, "sy" = 2, "nx" = 0, "ny" = 2, "wx" = 2, "wy" = 1, "ex" = 0, "ey" = 1, "nturn" = 0, "sturn" = 0, "wturn" = 70, "eturn" = 15, "nflip" = 1, "sflip" = 1, "wflip" = 1, "eflip" = 1, "northabove" = 1, "southabove" = 0, "eastabove" = 0, "westabove" = 0)
 			if("onbelt") return list("shrink" = 0.4, "sx" = -4, "sy" = -6, "nx" = 5, "ny" = -6, "wx" = 0, "wy" = -6, "ex" = -1, "ey" = -6, "nturn" = 100, "sturn" = 156, "wturn" = 90, "eturn" = 180, "nflip" = 0, "sflip" = 0, "wflip" = 0, "eflip" = 0, "northabove" = 0, "southabove" = 1, "eastabove" = 1, "westabove" = 0)
+
+/obj/item/rogueweapon/sword/long/equipped(mob/user, slot, initial = FALSE)
+	pickup_sound = pickup_sound
+	sheathe_sound = pick("sound/foley/equip/swordlarge1.ogg", "sound/foley/equip/swordlarge2.ogg")
+	. = ..()
 
 /obj/item/rogueweapon/sword/long/malumflamm
 	name = "forgefiend"
