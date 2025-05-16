@@ -71,10 +71,10 @@
 	wdefense = 1
 	w_class = WEIGHT_CLASS_BULKY
 	wlength = WLENGTH_SHORT
-	pickup_sound = 'sound/foley/equip/rummaging-03.ogg'
 	gripped_intents = list(/datum/intent/axe/chop/stone)
 	resistance_flags = FLAMMABLE
-
+	pickup_sound = 'modular_helmsguard/sound/sheath_sounds/draw_polearm.ogg'
+	sheathe_sound = 'sound/items/wood_sharpen.ogg'
 
 /obj/item/rogueweapon/stoneaxe/getonmobprop(tag)
 	if(tag)
@@ -153,6 +153,11 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 	return ..()
 
+/obj/item/rogueweapon/stoneaxe/battle/equipped(mob/user, slot, initial = FALSE)
+	pickup_sound = pick("modular_helmsguard/sound/sheath_sounds/draw_polearm.ogg", "modular_helmsguard/sound/sheath_sounds/draw_spear.ogg")
+	sheathe_sound = 'sound/items/wood_sharpen.ogg'
+	. = ..()
+
 /obj/item/rogueweapon/stoneaxe/oath
 	force = 30
 	force_wielded = 40
@@ -186,6 +191,14 @@
 			if("onbelt")
 				return list("shrink" = 0.5,"sx" = 1,"sy" = -1,"nx" = 1,"ny" = -1,"wx" = 4,"wy" = -1,"ex" = -1,"ey" = -1,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 8,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0,)
 
+
+
+/obj/item/rogueweapon/stoneaxe/oath/equipped(mob/user, slot, initial = FALSE)
+	pickup_sound = pick("modular_helmsguard/sound/sheath_sounds/draw_polearm.ogg", "modular_helmsguard/sound/sheath_sounds/draw_spear.ogg")
+	sheathe_sound = 'sound/items/wood_sharpen.ogg'
+	. = ..()
+
+
 /obj/item/rogueweapon/stoneaxe/woodcut
 	name = "axe"
 	force = 20
@@ -197,6 +210,11 @@
 	smeltresult = /obj/item/ingot/iron
 	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/sword/peel)
 	wdefense = 2
+
+/obj/item/rogueweapon/stoneaxe/woodcut/equipped(mob/user, slot, initial = FALSE)
+	pickup_sound = pick("modular_helmsguard/sound/sheath_sounds/draw_polearm.ogg", "modular_helmsguard/sound/sheath_sounds/draw_spear.ogg")
+	sheathe_sound = 'sound/items/wood_sharpen.ogg'
+	. = ..()
 
 //Pickaxe-axe ; Technically both a tool and a weapon, but it goes here due to weapon function. Subtype of woodcutter axe, mostly a weapon.
 /obj/item/rogueweapon/stoneaxe/woodcut/pick
@@ -233,6 +251,11 @@
 	smeltresult = /obj/item/ingot/iron
 	gripped_intents = null
 	wdefense = 2
+
+/obj/item/rogueweapon/stoneaxe/handaxe/equipped(mob/user, slot, initial = FALSE)
+	pickup_sound = pick("modular_helmsguard/sound/sheath_sounds/draw_polearm.ogg", "modular_helmsguard/sound/sheath_sounds/draw_spear.ogg")
+	sheathe_sound = 'sound/items/wood_sharpen.ogg'
+	. = ..()
 
 /obj/item/rogueweapon/stoneaxe/woodcut/steel
 	icon_state = "saxe"
@@ -343,6 +366,8 @@
 	associated_skill = /datum/skill/combat/axes
 	blade_dulling = DULLING_BASHCHOP
 	wdefense = 6
+	pickup_sound = 'modular_helmsguard/sound/sheath_sounds/draw_greatsword.ogg'
+	sheathe_sound = 'modular_helmsguard/sound/sheath_sounds/put_back_to_leather.ogg'
 
 /obj/item/rogueweapon/greataxe/getonmobprop(tag)
 	. = ..()
@@ -354,6 +379,12 @@
 				return list("shrink" = 0.6,"sx" = 5,"sy" = -3,"nx" = -5,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
+
+
+/obj/item/rogueweapon/greataxe/equipped(mob/user, slot, initial = FALSE)
+	pickup_sound = pick("modular_helmsguard/sound/sheath_sounds/draw_polearm.ogg", "modular_helmsguard/sound/sheath_sounds/draw_greatsword.ogg", "modular_helmsguard/sound/sheath_sounds/draw_spear.ogg")
+	. = ..()
+
 
 /obj/item/rogueweapon/greataxe/steel
 	force = 15
@@ -368,6 +399,7 @@
 	max_blade_int = 300
 	smeltresult = /obj/item/ingot/steel
 
+
 /obj/item/rogueweapon/greataxe/steel/doublehead
 	force = 15
 	force_wielded = 35
@@ -378,3 +410,4 @@
 	icon_state = "doublegreataxe"
 	icon = 'icons/roguetown/weapons/64.dmi'
 	minstr = 12
+

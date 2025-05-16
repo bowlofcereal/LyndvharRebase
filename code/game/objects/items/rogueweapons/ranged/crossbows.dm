@@ -24,6 +24,8 @@
 	resistance_flags = FIRE_PROOF
 	obj_flags = UNIQUE_RENAME
 	damfactor = 2
+	pickup_sound = 'modular_helmsguard/sound/sheath_sounds/draw_crossbow.ogg'
+	sheathe_sound = 'sound/items/wood_sharpen.ogg'
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/getonmobprop(tag)
 	. = ..()
