@@ -36,14 +36,14 @@
 		head = /obj/item/clothing/head/roguetown/armingcap
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+		beltl = /obj/item/storage/keyring/sund/sund_vestal
 	else if(should_wear_masc_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/shirt/robe
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+		beltl = /obj/item/storage/keyring/sund/sund_monk
 	pants = /obj/item/clothing/under/roguetown/tights
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
-	beltl = /obj/item/storage/keyring/churchie
-
 
 	H.change_stat("perception", 1)
 	H.change_stat("speed", 2)

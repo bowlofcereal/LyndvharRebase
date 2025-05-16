@@ -43,7 +43,7 @@
 	cloak = /obj/item/clothing/cloak/stabard/dungeon
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/rogueweapon/whip/antique
-	beltl = /obj/item/storage/keyring/dungeoneer
+	beltl = /obj/item/storage/keyring/sund/sund_gate
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	id = /obj/item/scomstone/bad/garrison
 	if(H.mind)

@@ -38,11 +38,12 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/keyring/servant
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
+	beltr = /obj/item/storage/keyring/sund/sund_butler
 	id = /obj/item/scomstone/bad
 	if(should_wear_femme_clothes(H)) 
 		armor = /obj/item/clothing/suit/roguetown/armor/silkcoat
+		neck = /obj/item/roguekey/sund/sund_ladymaid
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
@@ -84,7 +85,7 @@
 	cloak = /obj/item/clothing/cloak/apron/waist
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/keyring/servant
+	beltr = /obj/item/storage/keyring/sund/sund_ladymaid
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
 	id = /obj/item/scomstone/bad
 	if(H.mind)
@@ -126,7 +127,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/keyring/servant
+	beltr = /obj/item/storage/keyring/sund/sund_butler
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 	id = /obj/item/scomstone/bad

@@ -87,7 +87,7 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/hierophant
 			shirt = /obj/item/clothing/suit/roguetown/shirt/robe/hierophant
 			pants = /obj/item/clothing/under/roguetown/trou/leather
-			backpack_contents = list(/obj/item/roguekey/mercenary,/obj/item/rogueweapon/huntingknife,/obj/item/spellbook_unfinished/pre_arcyne)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife,/obj/item/spellbook_unfinished/pre_arcyne)
 
 		if("Pontifex")
 			H.set_blindness(0)
@@ -123,7 +123,7 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex
 			shirt = /obj/item/clothing/suit/roguetown/shirt/robe/pointfex
 			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex
-			backpack_contents = list(/obj/item/roguekey/mercenary,/obj/item/lockpick = 1,/obj/item/rogueweapon/huntingknife)
+			backpack_contents = list(/obj/item/lockpick = 1,/obj/item/rogueweapon/huntingknife)
 
 		if("Vizier")
 			H.set_blindness(0)
@@ -159,7 +159,7 @@
 			H.grant_language(/datum/language/celestial)
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 
-			backpack_contents = list(/obj/item/roguekey/mercenary,/obj/item/rogueweapon/huntingknife)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife = 1)
 			
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_spells_monk(H)

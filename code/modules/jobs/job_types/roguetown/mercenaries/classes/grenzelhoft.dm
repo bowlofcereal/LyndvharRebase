@@ -81,7 +81,5 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/gwstrap
 
-	backpack_contents = list(/obj/item/roguekey/mercenary)
-
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	H.grant_language(/datum/language/grenzelhoftian)

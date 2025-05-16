@@ -23,13 +23,21 @@
 		if(D.masterkey)
 			lockhash = D.lockhash
 
-// The merchant key unlocks the Goldface. Goldface lockid is set in Goldface code; do not sund_ this.
+// The merchant key unlocks the merchantvend. Merchantvend lockid is set in machine's code; do not sund_ the lockid UNLESS we need multiple machines on multiple maps.
 
-/obj/item/roguekey/merchant
-	name = "merchant's key"
-	desc = "A merchant's key."
-	icon_state = "bosskey"
-	lockid = "merchant"
+/obj/item/roguekey/sund/sund_merchant
+	name = "cheap gilded key"
+	desc = "Greed and graft have worn away what glitter there once was."
+	icon_state = "cheesekey"
+	lockid = "merchant" // DO NOT TOUCH
+
+// The nightman key unlocks the bathvend and drugmachine. Their lockid is set in their code, see above.
+
+/obj/item/roguekey/sund/sund_nightman
+	name = "cheap brazen key"
+	desc = "Sullied and battered, this key's very pride is now tarnished."
+	icon_state = "cheesekey"
+	lockid = "nightman" // DO NOT TOUCH
 
 // Castle and Retinue keys.
 
@@ -233,7 +241,6 @@
 	icon_state = "cheesekey"
 	lockid = "sund_bawdyroom"
 
-
 // Inn rooms.
 
 /obj/item/roguekey/sund/sund_innroom1
@@ -277,3 +284,17 @@
 	desc = "This plain key is engraved with the numeral 'VII'."
 	icon_state = "brownkey"
 	lockid = "sund_innroom7"
+
+// Farms and other tenancies.
+
+/obj/item/roguekey/sund/sund_westfarm
+	name = "hen-head bronze key"
+	desc = "Sturdy and well-worn, this key's head is cast in the shape of a hen."
+	icon_state = "brownkey"
+	lockid = "sund_westfarm"
+
+/obj/item/roguekey/sund/sund_eastfarm
+	name = "bull-head bronze key"
+	desc = "Sturdy and well-worn, this key's head is cast in the shape of a bull."
+	icon_state = "brownkey"
+	lockid = "sund_eastfarm"

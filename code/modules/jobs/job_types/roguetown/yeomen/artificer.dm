@@ -46,7 +46,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltl = /obj/item/roguekey/artificer
+	beltl = /obj/item/storage/keyring/sund/sund_smith	// Closest thing.
 	mask = /obj/item/clothing/mask/rogue/spectacles/golden
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(

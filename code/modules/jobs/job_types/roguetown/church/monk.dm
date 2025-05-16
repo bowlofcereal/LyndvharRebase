@@ -32,7 +32,7 @@
 	..()
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
-	beltl = /obj/item/storage/keyring/churchie
+	beltl = /obj/item/storage/keyring/sund/sund_monk
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/ritechalk)
 	switch(H.patron?.type)

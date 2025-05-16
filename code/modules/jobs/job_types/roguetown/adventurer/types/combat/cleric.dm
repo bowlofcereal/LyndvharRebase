@@ -344,7 +344,6 @@
 			neck = /obj/item/clothing/neck/roguetown/psicross/eora
 		if(/datum/patron/inhumen/zizo)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
-			neck = /obj/item/roguekey/inhumen
 		if (/datum/patron/inhumen/matthios)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
 		if(/datum/patron/divine/xylix) // Random pricross for Xylix

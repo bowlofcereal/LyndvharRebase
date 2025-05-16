@@ -25,7 +25,7 @@
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/whip)
+	backpack_contents = list(/obj/item/rogueweapon/whip = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)

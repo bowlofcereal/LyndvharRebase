@@ -22,7 +22,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots // Swaggier and more armored against uppity/bitey attendants
 	belt = /obj/item/storage/belt/rogue/leather/black
 	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/purple // Tunics are far swaggier than shirts
-	wrists = /obj/item/storage/keyring/nightman
+	wrists = /obj/item/storage/keyring/sund/sund_bawdymaster
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	beltl = /obj/item/rogueweapon/whip // In case the one whip in the office has already been pilfered

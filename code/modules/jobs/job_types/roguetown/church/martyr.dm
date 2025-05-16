@@ -449,7 +449,7 @@
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
-	beltr = /obj/item/storage/keyring/priest
+	beltr = /obj/item/storage/keyring/sund/sund_chapmaster
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/rich
 	backr = /obj/item/storage/backpack/rogue/satchel
 	gloves = /obj/item/clothing/gloves/roguetown/chain

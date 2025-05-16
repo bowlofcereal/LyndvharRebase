@@ -46,7 +46,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/sailor
 	pants = /obj/item/clothing/under/roguetown/tights/sailor
 	belt = /obj/item/storage/belt/rogue/leather/rope
-	beltl = /obj/item/storage/keyring/merchant
+	beltl = /obj/item/storage/keyring/sund/sund_merchant
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	id = /obj/item/clothing/ring/gold
 	backr = /obj/item/storage/backpack/rogue/satchel

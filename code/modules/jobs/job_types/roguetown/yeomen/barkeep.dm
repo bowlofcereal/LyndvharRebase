@@ -43,9 +43,11 @@
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	backr = /obj/item/storage/backpack/rogue/satchel
+	neck = /obj/item/storage/belt/rogue/pouch/coins/mid
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltr = /obj/item/storage/keyring/innkeep
+	beltl = /obj/item/storage/keyring/sund/sund_innrooms
+	beltr = /obj/item/storage/keyring/sund/sund_innkeep
+
 	if(should_wear_femme_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress
 		cloak = /obj/item/clothing/cloak/apron/waist

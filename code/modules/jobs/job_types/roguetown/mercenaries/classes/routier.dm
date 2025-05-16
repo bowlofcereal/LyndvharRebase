@@ -59,7 +59,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/otavan
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/rogueweapon/shield/tower/metal
-	backpack_contents = list(/obj/item/roguekey/mercenary = 1, /obj/item/flashlight/flare/torch = 1)
+	backpack_contents = list(/obj/item/flashlight/flare/torch = 1)
 
 	H.grant_language(/datum/language/otavan)
 

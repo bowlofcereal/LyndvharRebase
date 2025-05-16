@@ -31,7 +31,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltl = /obj/item/storage/keyring/archivist
+	beltl = /obj/item/storage/keyring/sund/sund_council
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
 	mask = /obj/item/clothing/mask/rogue/spectacles
 	id = /obj/item/scomstone/bad

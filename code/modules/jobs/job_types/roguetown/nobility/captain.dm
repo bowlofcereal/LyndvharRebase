@@ -51,7 +51,7 @@
 			S.name = "Captain Tabard ([index])"
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
-		var/honorary = "Ser"
+		var/honorary = "Sir"
 		if(should_wear_femme_clothes(H))
 			honorary = "Dame"
 		H.real_name = "[honorary] [prev_real_name]"
@@ -79,7 +79,7 @@
 	..()
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(
-		/obj/item/storage/keyring/sheriff = 1,
+		/obj/item/storage/keyring/sund/sund_knight = 1,
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
 		)
 	if(H.mind)
@@ -176,7 +176,7 @@
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(
-		/obj/item/storage/keyring/sheriff = 1,
+		/obj/item/storage/keyring/sund/sund_knight = 1,
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
 		)
 	if(H.mind)

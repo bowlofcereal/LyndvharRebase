@@ -35,7 +35,7 @@
 /obj/item/storage/keyring/sund/sund_butler
 	keys = list(/obj/item/roguekey/sund/sund_ruler, /obj/item/roguekey/sund/sund_servant, /obj/item/roguekey/sund/sund_butler, /obj/item/roguekey/sund/sund_noble, /obj/item/roguekey/sund/sund_knight, /obj/item/roguekey/sund/sund_castle)
 
-/obj/item/storage/keyring/sund/sund_wlady
+/obj/item/storage/keyring/sund/sund_ladymaid
 	keys = list(/obj/item/roguekey/sund/sund_family, /obj/item/roguekey/sund/sund_servant, /obj/item/roguekey/sund/sund_ladymaid, /obj/item/roguekey/sund/sund_noble, /obj/item/roguekey/sund/sund_knight, /obj/item/roguekey/sund/sund_castle)
 
 /obj/item/storage/keyring/sund/sund_valet
@@ -87,7 +87,7 @@
 // Burgher keychains.
 
 /obj/item/storage/keyring/sund/sund_merchant
-	keys = list(/obj/item/roguekey/sund/sund_noble, /obj/item/roguekey/sund/sund_castle, /obj/item/roguekey/merchant, /obj/item/roguekey/sund/sund_shop)
+	keys = list(/obj/item/roguekey/sund/sund_noble, /obj/item/roguekey/sund/sund_castle, /obj/item/roguekey/sund/sund_merchant, /obj/item/roguekey/sund/sund_shop)
 
 /obj/item/storage/keyring/sund/sund_tailor
 	keys = list(/obj/item/roguekey/sund/sund_tailor)
@@ -109,7 +109,7 @@
 // Bawdy keys.
 
 /obj/item/storage/keyring/sund/sund_bawdymaster
-	keys = list(/obj/item/roguekey/sund/sund_bawdymaster, /obj/item/roguekey/sund/sund_bawdyroom, /obj/item/roguekey/sund/sund_bawdy)
+	keys = list(/obj/item/roguekey/sund/sund_bawdymaster, /obj/item/roguekey/sund/sund_bawdyroom, /obj/item/roguekey/sund/sund_bawdy, /obj/item/roguekey/sund/sund_nightman)
 
 /obj/item/storage/keyring/sund/sund_bawdyroom
 	keys = list(/obj/item/roguekey/sund/sund_bawdyroom, /obj/item/roguekey/sund/sund_bawdy)

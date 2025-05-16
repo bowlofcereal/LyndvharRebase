@@ -31,7 +31,7 @@
 	pants = /obj/item/clothing/under/roguetown/tights/random
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/storage/keyring/mage
+	beltr = /obj/item/storage/keyring/sund/sund_noble
 	beltl = /obj/item/book/spellbook
 	id = /obj/item/clothing/ring/gold
 	r_hand = /obj/item/rogueweapon/woodstaff
@@ -75,4 +75,3 @@
 		switch(H.patron?.type)
 			if(/datum/patron/inhumen/zizo)
 				H.cmode_music = 'sound/music/combat_cult.ogg'
-				backpack_contents += list(/obj/item/roguekey/inhumen = 1)
