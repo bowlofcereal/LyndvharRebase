@@ -178,3 +178,4 @@
 	var/voice_pitch = 1
 
 	var/domhand = 0
+	var/mounted = FALSE
