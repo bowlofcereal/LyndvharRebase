@@ -43,7 +43,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/keyring/servant
+	beltr = /obj/item/storage/keyring/sund/sund_servant
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	armor = /obj/item/clothing/suit/roguetown/armor/workervest
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless
@@ -87,7 +87,7 @@
 	cloak = /obj/item/clothing/cloak/apron/waist
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/keyring/servant
+	beltr = /obj/item/storage/keyring/sund/sund_servant
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
@@ -127,7 +127,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/keyring/servant
+	beltr = /obj/item/storage/keyring/sund/sund_valet
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 	if(H.mind)

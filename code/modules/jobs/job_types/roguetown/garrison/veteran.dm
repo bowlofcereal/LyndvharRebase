@@ -53,7 +53,7 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	beltl = /obj/item/rogueweapon/sword/sabre
-	beltr = /obj/item/storage/keyring/guardcastle
+	beltr = /obj/item/storage/keyring/sund/sund_gate
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	cloak = /obj/item/clothing/cloak/half/vet
 	belt = /obj/item/storage/belt/rogue/leather/black
@@ -112,7 +112,7 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	beltl = /obj/item/rogueweapon/sword
-	beltr = /obj/item/storage/keyring/guardcastle
+	beltr = /obj/item/storage/keyring/sund/sund_gate
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/rogueweapon/shield/tower/metal
 	r_hand = /obj/item/rogueweapon/spear/billhook
@@ -170,7 +170,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/plate
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
-	beltr = /obj/item/storage/keyring/guardcastle
+	beltr = /obj/item/storage/keyring/sund/sund_gate
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	belt = /obj/item/storage/belt/rogue/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
@@ -251,7 +251,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/grenzelhoft
 	gloves = /obj/item/clothing/gloves/roguetown/grenzelgloves
 	beltl = /obj/item/rogueweapon/sword/short
-	beltr = /obj/item/storage/keyring/guardcastle
+	beltr = /obj/item/storage/keyring/sund/sund_gate
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	belt = /obj/item/storage/belt/rogue/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
@@ -328,7 +328,7 @@
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow
 	belt = /obj/item/storage/belt/rogue/leather/black
 	cloak = /obj/item/clothing/cloak/half/vet
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/storage/keyring/guardcastle = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/storage/keyring/sund/sund_gate = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
@@ -390,7 +390,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/iron
 	cloak = /obj/item/clothing/cloak/raincloak/mortus
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/silver/elvish = 1, /obj/item/storage/keyring/guardcastle = 1, /obj/item/reagent_containers/glass/bottle/rogue/poison = 1, /obj/item/lockpickring/mundane)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/silver/elvish = 1, /obj/item/storage/keyring/sund/sund_gate = 1, /obj/item/reagent_containers/glass/bottle/rogue/poison = 1, /obj/item/lockpickring/mundane)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)

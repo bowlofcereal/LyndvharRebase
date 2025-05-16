@@ -47,7 +47,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/rogueweapon/sword/sabre
-	beltr = /obj/item/storage/keyring/heir
+	beltr = /obj/item/storage/keyring/sund/sund_heir
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	backr = /obj/item/storage/backpack/rogue/satchel
 	if(H.mind)
@@ -89,7 +89,7 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
 	head = /obj/item/clothing/head/roguetown/circlet
 	belt = /obj/item/storage/belt/rogue/leather/cloth/lady
-	beltr = /obj/item/storage/keyring/heir
+	beltr = /obj/item/storage/keyring/sund/sund_heir
 	beltl = /obj/item/rogueweapon/huntingknife/idagger/steel/special
 	backr = /obj/item/storage/backpack/rogue/satchel
 	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
@@ -124,7 +124,7 @@
 	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC) // Pillow princesses (gender neutral)
 	head = /obj/item/clothing/head/roguetown/circlet
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/storage/keyring/heir
+	beltl = /obj/item/storage/keyring/sund/sund_heir
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	backr = /obj/item/storage/backpack/rogue/satchel
 	if(should_wear_masc_clothes(H))
@@ -171,7 +171,7 @@
 	ADD_TRAIT(H, TRAIT_NORUN, TRAIT_GENERIC)
 	head = /obj/item/clothing/head/roguetown/circlet
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/storage/keyring/heir
+	beltl = /obj/item/storage/keyring/sund/sund_heir
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	if(should_wear_masc_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/tights

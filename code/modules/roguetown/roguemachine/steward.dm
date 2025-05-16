@@ -16,7 +16,7 @@
 	anchored = TRUE
 	layer = BELOW_OBJ_LAYER
 	var/locked = FALSE
-	var/keycontrol = "steward"
+	var/keycontrol = "steward"	// Can be changed in the map editor to say, sund_steward.
 	var/current_tab = TAB_MAIN
 	var/compact = FALSE
 	var/list/excluded_jobs = list("Wretch","Vagabond","Adventurer")
@@ -25,7 +25,7 @@
 /obj/structure/roguemachine/steward/attackby(obj/item/P, mob/user, params)
 	if(istype(P, /obj/item/roguekey))
 		var/obj/item/roguekey/K = P
-		if(K.lockid == keycontrol || istype(K, /obj/item/roguekey/lord)) //Master key
+		if(K.lockid == keycontrol || istype(K, /obj/item/roguekey/lord)) // Old default Master key.
 			locked = !locked
 			playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
 			(locked) ? (icon_state = "steward_machine_off") : (icon_state = "steward_machine")

@@ -29,7 +29,7 @@
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/silktunic
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold/steward
-	beltr = /obj/item/storage/keyring/steward
+	beltr = /obj/item/storage/keyring/sund/sund_steward
 	backr = /obj/item/storage/backpack/rogue/satchel
 	id = /obj/item/scomstone
 

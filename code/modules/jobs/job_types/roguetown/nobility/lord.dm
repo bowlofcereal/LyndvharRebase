@@ -69,7 +69,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	cloak = /obj/item/clothing/cloak/lordcloak
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
-	beltl = /obj/item/storage/keyring/lord
+	beltl = /obj/item/storage/keyring/sund/sund_ruler
 	l_hand = /obj/item/rogueweapon/lordscepter
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1)
 	id = /obj/item/clothing/ring/active/nomag

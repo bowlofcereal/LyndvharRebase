@@ -47,7 +47,7 @@
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	r_hand = /obj/item/soap/bath
 	belt =	/obj/item/storage/belt/rogue/leather/cloth
-	beltl = /obj/item/roguekey/nightmaiden
+	beltl = /obj/item/storage/keyring/sund/sund_bawdyroom
 	if(should_wear_femme_clothes(H))
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/sexy
@@ -99,7 +99,7 @@
 		/obj/item/candle = 1,
 		/obj/item/rogueweapon/whip = 1,
 		/obj/item/clothing/mask/rogue/blindfold = 1,
-		/obj/item/roguekey/nightmaiden = 1
+		/obj/item/storage/keyring/sund/sund_bawdyroom = 1
 	)
 	
 	if(H.mind)

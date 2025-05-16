@@ -79,7 +79,7 @@
 	backr = /obj/item/rogueweapon/mace/cudgel/justice
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
-	beltl = /obj/item/storage/keyring/sheriff
+	beltl = /obj/item/storage/keyring/sund/sund_bailiff
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 
@@ -95,7 +95,7 @@
 	backr = /obj/item/rogueweapon/sword/long/oathkeeper
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
-	beltl = /obj/item/storage/keyring/sheriff
+	beltl = /obj/item/storage/keyring/sund/sund_bailiff
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 

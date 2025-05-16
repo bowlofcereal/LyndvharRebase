@@ -27,7 +27,7 @@
 	allowed_patrons = ALL_DIVINE_PATRONS
 	belt = /obj/item/storage/belt/rogue/leather/black
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltr = /obj/item/storage/keyring/churchie
+	beltr = /obj/item/storage/keyring/sund/sund_kchapterm
 	id = /obj/item/clothing/ring/silver
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/ritechalk)

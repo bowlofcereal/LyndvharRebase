@@ -36,7 +36,7 @@
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 
 /datum/outfit/job/roguetown/disciple/proc/brute_equip(mob/living/carbon/human/H)
-	backpack_contents = list(/obj/item/roguekey/inquisition = 1)
+	backpack_contents = list(/obj/item/storage/keyring/sund/sund_inquisitor = 1)
 	gloves = /obj/item/clothing/gloves/roguetown/chain/psydon
 	armor = /obj/item/clothing/suit/roguetown/armor/skin_armor/monk_skin
 	cloak = /obj/item/clothing/cloak/psydontabard/alt
@@ -61,7 +61,7 @@
 		H.grant_language(/datum/language/otavan)
 
 /datum/outfit/job/roguetown/disciple/proc/naledi_equip(mob/living/carbon/human/H)
-	backpack_contents = list(/obj/item/roguekey/inquisition = 1)
+	backpack_contents = list(/obj/item/storage/keyring/sund/sund_inquisitor = 1)
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
 	cloak = /obj/item/clothing/cloak/psydontabard/alt
 	if(H.mind)
