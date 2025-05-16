@@ -21,6 +21,7 @@
 	max_pq = null
 	round_contrib_points = 2
 	cmode_music = 'sound/music/combat_bandit_mage.ogg'
+	advjob_examine = TRUE
 
 /datum/outfit/job/roguetown/wapprentice
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
