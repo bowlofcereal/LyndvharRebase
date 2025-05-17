@@ -816,7 +816,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/ccake
 	name = "cheesecake"
-	desc = "Humenity's favored creation."
+	desc = "Humanity's favored creation."
 	icon_state = "cheesecake"
 	slices_num = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/ccakeslice

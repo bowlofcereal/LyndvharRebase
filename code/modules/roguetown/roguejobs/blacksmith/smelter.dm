@@ -235,7 +235,7 @@
 /obj/machinery/light/rogue/smelter/bronze
 	icon = 'icons/roguetown/misc/forge.dmi'
 	name = "bronze melter"
-	desc = "An  object of humen make, this furnace is capable of making bronze or iron."
+	desc = "An  object of human make, this furnace is capable of making bronze or iron."
 	icon_state = "brosmelter0"
 	base_state = "brosmelter"
 	anchored = TRUE
@@ -296,7 +296,7 @@
 /obj/machinery/light/rogue/smelter/hiron
 	icon = 'icons/roguetown/misc/forge.dmi'
 	name = "iron bloomery"
-	desc = "An  object of humen make, this furnace is capable of making high quanities of iron."
+	desc = "An  object of human make, this furnace is capable of making high quanities of iron."
 	icon_state = "hironsmelter0"
 	base_state = "hironsmelter"
 	anchored = TRUE

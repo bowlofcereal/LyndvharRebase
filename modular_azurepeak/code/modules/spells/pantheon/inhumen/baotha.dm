@@ -20,7 +20,7 @@
 /obj/effect/proc_holder/spell/invoked/baothablessings/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
-		if(istype(target.patron, /datum/patron/inhumen/baotha))
+		if(istype(target.patron, /datum/patron/inhuman/baotha))
 			to_chat(user, span_warning("They already possess Baotha's blessings.."))
 			return FALSE										//This stops us from accidently removing another Baothan's anti-overdose trait.
 		target.apply_status_effect(/datum/status_effect/buff/druqks)

@@ -122,7 +122,7 @@
 		my_crime = "crimes against the Crown"
 	var/bounty_total
 	bounty_total = rand(151, 250)
-	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
+	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
 	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))
 
 /datum/advclass/wretch/outlaw
@@ -190,7 +190,7 @@
 		my_crime = "crimes against the Crown"
 	var/bounty_total
 	bounty_total = rand(151, 250)
-	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
+	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
 	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))
 
 /datum/advclass/wretch/poacher
@@ -263,7 +263,7 @@
 		my_crime = "crimes against the Crown"
 	var/bounty_total
 	bounty_total = rand(151, 250)
-	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
+	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
 	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))
 
 /datum/advclass/wretch/heretic
@@ -277,9 +277,9 @@
 
 
 /datum/outfit/job/roguetown/wretch/heretic/pre_equip(mob/living/carbon/human/H)
-	if (!(istype(H.patron, /datum/patron/inhumen/zizo) || istype(H.patron, /datum/patron/inhumen/matthios) || istype(H.patron, /datum/patron/inhumen/graggar) || istype(H.patron, /datum/patron/inhumen/baotha)))
+	if (!(istype(H.patron, /datum/patron/inhuman/zizo) || istype(H.patron, /datum/patron/inhuman/matthios) || istype(H.patron, /datum/patron/inhuman/graggar) || istype(H.patron, /datum/patron/inhuman/baotha)))
 		to_chat(H, span_warning("My former deity frowned upon my practices. I have since turned to a new god."))
-		H.set_patron(pick(/datum/patron/inhumen/zizo, /datum/patron/inhumen/matthios, /datum/patron/inhumen/graggar, /datum/patron/inhumen/baotha))
+		H.set_patron(pick(/datum/patron/inhuman/zizo, /datum/patron/inhuman/matthios, /datum/patron/inhuman/graggar, /datum/patron/inhuman/baotha))
 	H.mind.adjust_skillrank(/datum/skill/magic/holy, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
@@ -307,7 +307,7 @@
 	H.change_stat("strength", 2)
 	H.change_stat("constitution", 2)
 	H.change_stat("endurance", 1)
-	if (istype (H.patron, /datum/patron/inhumen/zizo))
+	if (istype (H.patron, /datum/patron/inhuman/zizo))
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
 		ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/black
@@ -322,7 +322,7 @@
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/shield/tower/metal
-	beltl = /obj/item/roguekey/inhumen
+	beltl = /obj/item/roguekey/inhuman
 	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/ritechalk = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_spells(H)
@@ -349,7 +349,7 @@
 
 
 /datum/outfit/job/roguetown/wretch/necromancer/pre_equip(mob/living/carbon/human/H)
-	H.set_patron(/datum/patron/inhumen/zizo)
+	H.set_patron(/datum/patron/inhuman/zizo)
 	head = /obj/item/clothing/head/roguetown/roguehood/black
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
@@ -362,7 +362,7 @@
 	beltl = /obj/item/rogueweapon/huntingknife
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/woodstaff
-	backpack_contents = list(/obj/item/spellbook_unfinished/pre_arcyne = 1, /obj/item/roguegem/amethyst = 1, /obj/item/roguekey/inhumen = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1)
+	backpack_contents = list(/obj/item/spellbook_unfinished/pre_arcyne = 1, /obj/item/roguegem/amethyst = 1, /obj/item/roguekey/inhuman = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1)
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
@@ -467,5 +467,5 @@
 		my_crime = "crimes against the Crown"
 	var/bounty_total
 	bounty_total = rand(151, 250)
-	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
+	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
 	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))

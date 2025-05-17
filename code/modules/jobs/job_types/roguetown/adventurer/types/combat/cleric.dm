@@ -310,7 +310,7 @@
 				if (/datum/patron/divine/eora)
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/eora
 					head = /obj/item/clothing/head/roguetown/eoramask
-				if(/datum/patron/inhumen/zizo)
+				if(/datum/patron/inhuman/zizo)
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe
 					head = /obj/item/clothing/head/roguetown/roguehood
 					H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
@@ -342,9 +342,9 @@
 			neck = /obj/item/clothing/neck/roguetown/psicross/malum
 		if(/datum/patron/divine/eora)
 			neck = /obj/item/clothing/neck/roguetown/psicross/eora
-		if(/datum/patron/inhumen/zizo)
+		if(/datum/patron/inhuman/zizo)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
-		if (/datum/patron/inhumen/matthios)
+		if (/datum/patron/inhuman/matthios)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
 		if(/datum/patron/divine/xylix) // Random pricross for Xylix
 			var/list/psicross_options = list(

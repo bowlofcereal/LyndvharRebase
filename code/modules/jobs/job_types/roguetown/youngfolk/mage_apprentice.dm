@@ -76,7 +76,7 @@
 		H.change_stat("speed", 1)
 		H.change_stat("perception", 1)
 		switch(H.patron?.type)
-			if(/datum/patron/inhumen/zizo)
+			if(/datum/patron/inhuman/zizo)
 				H.cmode_music = 'sound/music/combat_cult.ogg'
 		
 /datum/advclass/wapprentice/alchemist
@@ -114,7 +114,7 @@
 		H.change_stat("perception", 2)
 		ADD_TRAIT(H, TRAIT_SEEDKNOW, TRAIT_GENERIC)
 		switch(H.patron?.type)
-			if(/datum/patron/inhumen/zizo)
+			if(/datum/patron/inhuman/zizo)
 				H.cmode_music = 'sound/music/combat_cult.ogg'
 		
 /datum/advclass/wapprentice/apprentice
@@ -145,5 +145,5 @@
 			H.change_stat("intelligence", 1)
 			H.mind.adjust_spellpoints(1)
 		switch(H.patron?.type)
-			if(/datum/patron/inhumen/zizo)
+			if(/datum/patron/inhuman/zizo)
 				H.cmode_music = 'sound/music/combat_cult.ogg'

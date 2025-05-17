@@ -8,7 +8,7 @@
 	spawn_positions = 4
 
 	allowed_races = RACES_ALL_KINDS
-	tutorial = "You have a simple role at the Azurian Pint; please. You wait tables and help guests, clean the rooms, grow and brew more drink, and assist in the kitchens as need be. Bring a smile to the masses--and those cheapsake townsfolk and adventures might just give you an extra coin...assuming you've not already pilfered their pouch while they're in a drunken stupor off your latest brew."
+	tutorial = "You have a simple role at the bawdyhouse. You wait tables and help guests, clean the rooms, grow and brew more drink, and assist in the kitchens as need be. Bring a smile to the masses--and those cheapsake townsfolk and adventures might just give you an extra coin...assuming you've not already pilfered their pouch while they're in a drunken stupor off your latest brew."
 
 	outfit = /datum/outfit/job/roguetown/knavewench
 	display_order = JDO_KNAVEWENCH
@@ -40,7 +40,7 @@
 			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/storage/keyring/sund/sund_inn
+	beltl = /obj/item/storage/keyring/sund/sund_bawdy
 	backr = /obj/item/storage/backpack/rogue/satchel
 	cloak = /obj/item/clothing/cloak/apron/waist
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor

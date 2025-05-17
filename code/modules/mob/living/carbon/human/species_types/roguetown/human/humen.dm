@@ -2,14 +2,14 @@
 	race = /datum/species/human/northern
 
 /datum/species/human/northern
-	name = "Humen"
-	id = "humen"
-	desc = "<b>Humen</b><br>\
-	Humens (or \"Humans\") are the eldest of the Weeping God's creations. Noted for their \
-	tenacity and overwhelming population, humens are the most commonly seen race across the lands, \
+	name = "Human"
+	id = "human"
+	desc = "<b>Human</b><br>\
+	Humans (or \"Humans\") are the eldest of the Weeping God's creations. Noted for their \
+	tenacity and overwhelming population, humans are the most commonly seen race across the lands, \
 	at a rate of about ten to one in regions such as Grenzelhoft. However, to the west \
-	the opposite is true. Humens come from a vast swathe of cultures and ethnicities, most of which \
-	have historically been at odds with one another. Being the eldest creations of the Weeping God, humens \
+	the opposite is true. Humans come from a vast swathe of cultures and ethnicities, most of which \
+	have historically been at odds with one another. Being the eldest creations of the Weeping God, humans \
 	tend to find fortune easier than the other races, and are so diverse that no other racial traits \
 	are dominant in their species.<br>\
 	(+1 Endurance, +1 Intelligence)"
