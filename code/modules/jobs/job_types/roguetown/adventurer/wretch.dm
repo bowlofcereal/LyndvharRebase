@@ -122,7 +122,7 @@
 		my_crime = "crimes against the Crown"
 	var/bounty_total
 	bounty_total = rand(151, 250)
-	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
+	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
 	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))
 
 /datum/advclass/wretch/outlaw
@@ -190,7 +190,7 @@
 		my_crime = "crimes against the Crown"
 	var/bounty_total
 	bounty_total = rand(151, 250)
-	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
+	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
 	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))
 
 /datum/advclass/wretch/poacher
@@ -263,7 +263,7 @@
 		my_crime = "crimes against the Crown"
 	var/bounty_total
 	bounty_total = rand(151, 250)
-	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
+	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
 	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))
 
 /datum/advclass/wretch/heretic
@@ -467,5 +467,5 @@
 		my_crime = "crimes against the Crown"
 	var/bounty_total
 	bounty_total = rand(151, 250)
-	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
+	add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
 	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))

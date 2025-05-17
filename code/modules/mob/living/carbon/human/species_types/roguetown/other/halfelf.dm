@@ -100,7 +100,7 @@
 		"Etrustcan-Dandelion" = SKIN_COLOR_ETRUSTCAN_DANDELION,
 		"Naledi-Born" = SKIN_COLOR_NALEDI_BORN,
 		"Kaze-Lotus" = SKIN_COLOR_KAZE_LOTUS,
-		"Grenzel-Azuria" = SKIN_COLOR_GRENZEL_WOODS,
+		"Grenzel-Sundmark" = SKIN_COLOR_GRENZEL_WOODS,
 		"Etrusca-Lirvas" = SKIN_COLOR_ETRUSCA_LIRVAS,
 		"Free Roamers" = SKIN_COLOR_FREE_FOLK,
 		"Avar Borne"	= SKIN_COLOR_AVAR_BORNE,
