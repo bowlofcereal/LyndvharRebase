@@ -9,22 +9,53 @@
 		return INITIALIZE_HINT_QDEL
 
 /obj/structure/flora/rogueflora
-    icon = 'icons/obj/flora/rogueflora.dmi'
+    icon = 'modular_stonehedge/herbology.dmi'
 
 /obj/structure/flora/rogueflora/wormwood
-	icon_state = "worm_wood"
+	name = "wormwood"
+	desc = "A bitter herb known for being an ingredient in herbology."
+	icon_state = "Wormwoodbush"
 
 /obj/structure/flora/rogueflora/marigold
-	icon_state = "marigold"
+	name = "marigold"
+	desc = "A beautiful plant with large, fully double flowers in yellow."
+	icon_state = "Marigoldbush"
 
 /obj/structure/flora/rogueflora/nettles
-	icon_state = "nettles"
+	name = "nettle"
+	desc = "A herbaceous plant with jagged leaves and stinging hairs."
+	icon_state = "Nettlesbush"
 
 /obj/structure/flora/rogueflora/thistle
-	icon_state = "thistle"
+	name = "thistle"
+	desc = "A prickly plant with purple flowers."
+	icon_state = "Thistlebush"
 
 /obj/structure/flora/rogueflora/poppy
-	icon_state = "poppy"
+	name = "poppy"
+	desc = "A flowering plant with large, showy blooms."
+	icon_state = "Poppybush"
+
+/obj/structure/flora/rogueflora/slavender
+	name = "slavender"
+	desc = "A fragrant herb with purple flowers."
+	icon_state = "Slavenderbush"
+
+/obj/effect/spawner/lootdrop/rogueflora
+	name = "herb spawner"
+	desc = "A spawner for rogue flora."
+	loot = list(
+	/obj/structure/flora/rogueflora/wormwood = 10,
+	/obj/structure/flora/rogueflora/marigold = 10,
+	/obj/structure/flora/rogueflora/nettles = 10,
+	/obj/structure/flora/rogueflora/thistle = 10,
+	/obj/structure/flora/rogueflora/poppy = 10,
+	/obj/structure/flora/rogueflora/slavender = 10
+		)
+	lootcount = 1
+
+
+
 
 //trees
 /obj/structure/flora/tree
@@ -283,6 +314,20 @@
 /obj/structure/flora/ausbushes/fullgrass/Initialize()
 	icon_state = "fullgrass_[rand(1, 3)]"
 	. = ..()
+
+/obj/effect/spawner/lootdrop/ausflora
+	name = "flower spawner"
+	desc = "A spawner for random flowers."
+	loot = list(
+	/obj/structure/flora/ausbushes/lavendergrass = 10,
+	/obj/structure/flora/ausbushes/brflowers = 10,
+	/obj/structure/flora/ausbushes/ppflowers = 10,
+	/obj/structure/flora/ausbushes/ywflowers = 10.
+		)
+	lootcount = 1
+
+
+
 
 /obj/item/twohanded/required/kirbyplants
 	name = "potted plant"
