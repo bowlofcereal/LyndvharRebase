@@ -97,7 +97,7 @@
 		return ..()
 	if(quantity == 1)
 		if(HAS_TRAIT(user, TRAIT_BLACKLEG))
-			switch(alert(user, "What will you rig the next coin flip to?","XYLIX","Heads","Tails","Play fair"))
+			switch(alert(user, "What will you rig the next coin flip to?","CHEATER","Heads","Tails","Play fair"))
 				if("Heads")
 					rigged_outcome = 1
 				if("Tails")
@@ -199,31 +199,31 @@
 
 //GOLD
 /obj/item/roguecoin/gold
-	name = "zenar"
-	desc = "A gold coin bearing the symbol of the Taurus and the pre-kingdom psycross. These were in the best condition of the provincial gold mints, the rest were melted down."
+	name = "mark"
+	desc = "Minted by the Zium-Khazad for the Eislers, each small yet pure gold coin is delved from the mountain's riches in return for the golden harvest of their lowland neighbors."
 	icon_state = "g1"
-	sellprice = 10
+	sellprice = 32		// Historically gold coins in the ancient world were worth about twenty times their silver equal by weight. Here its presumed to be a tiny coin, and 4x a silver. Single coins taxable at 4%.
 	base_type = CTYPE_GOLD
-	plural_name = "zenarii"
+	plural_name = "marks"
 
 
 // SILVER
 /obj/item/roguecoin/silver
-	name = "ziliqua"
-	desc = "An ancient silver coin still in use due to their remarkable ability to last the ages."
+	name = "thaler"
+	desc = "The great economic triumph of King-Elect Sigismund II, the Eislers finally broke free of foreign coinage for trade with this nearly-pure silver piece."
 	icon_state = "s1"
-	sellprice = 5
+	sellprice = 8		// A quarter of a gold piece. Considered 16, but most people can multiply by 8 in their head wheras by 16 is a stretch. Single coins taxable at 13%.
 	base_type = CTYPE_SILV
-	plural_name = "ziliquae"
+	plural_name = "thalers"
 
 // COPPER
 /obj/item/roguecoin/copper
-	name = "zenny"
-	desc = "A brand-new bronze coin minted by the capital in an effort to be rid of the financial use of silver."
+	name = "pfennig"
+	desc = "Handworn and tarnished, these common coins of bronze are fit for buying one's daily bread or pressing into the grateful palms of beggars."
 	icon_state = "c1"
-	sellprice = 1
+	sellprice = 1		// Small change and small purchases. Single coins untaxable, a full stack of 20 is taxable at 5%.
 	base_type = CTYPE_COPP
-	plural_name = "zennies"
+	plural_name = "pfennigs"
 
 /obj/item/roguecoin/copper/pile/Initialize()
 	. = ..()
