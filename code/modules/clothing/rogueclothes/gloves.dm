@@ -200,8 +200,9 @@
 	anvilrepair = null
 	sewrepair = TRUE
 
-/obj/item/clothing/gloves/roguetown/grenzelgloves/blacksmith
+/obj/item/clothing/gloves/roguetown/freigloves/blacksmith
 	name = "forge gauntlets"
+	desc = "Long gloves for guarding your wrists against sparks and slag."
 
 //---------------- BLACKSTEEL ---------------------
 
