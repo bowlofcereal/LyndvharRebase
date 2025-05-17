@@ -107,15 +107,15 @@
 		say("No target selected.")
 		return
 
-	var/amount = input(user, "How many mammons shall be stained red for their demise?", src) as null|num
+	var/amount = input(user, "How many groschen shall be stained red for their demise?", src) as null|num
 	if(isnull(amount))
 		say("Invalid amount.")
 		return
 	if(amount < 100)
-		say("Insufficient amount. Bounty must be at least 100 mammon.")
+		say("Insufficient amount. Bounty must be at least 100 groschen.")
 		return
 	if(amount > 500)
-		say("Insufficient amount. Bounties cannot be more than 500 mammon.")
+		say("Insufficient amount. Bounties cannot be more than 500 groschen.")
 		return
 
 	// Has user a bank account?
@@ -173,12 +173,12 @@
 	switch(rand(1, 3))
 		if(1)
 			new_bounty.banner += "A dire bounty hangs upon the capture of [new_bounty.target], for '[new_bounty.reason]'.<BR>"
-			new_bounty.banner += "The patron, [new_bounty.employer], offers [new_bounty.amount] mammons for the task.<BR>"
+			new_bounty.banner += "The patron, [new_bounty.employer], offers [new_bounty.amount] groschen for the task.<BR>"
 		if(2)
 			new_bounty.banner += "The capture of [new_bounty.target] is wanted for '[new_bounty.reason]''.<BR>"
-			new_bounty.banner += "The employer, [new_bounty.employer], offers [new_bounty.amount] mammons for the deed.<BR>"
+			new_bounty.banner += "The employer, [new_bounty.employer], offers [new_bounty.amount] groschen for the deed.<BR>"
 		if(3)
-			new_bounty.banner += "[new_bounty.employer] hath offered to pay [new_bounty.amount] mammons for the capture of [new_bounty.target].<BR>"
+			new_bounty.banner += "[new_bounty.employer] hath offered to pay [new_bounty.amount] groschen for the capture of [new_bounty.target].<BR>"
 			new_bounty.banner += "By reason of the following: '[new_bounty.reason]'.<BR>"
 	new_bounty.banner += "--------------<BR>"
 
@@ -188,7 +188,7 @@
 		return
 
 	var/cost = 50
-	var/choice = alert(user, "Print a continously updated list of active bounties for [cost] mammons?", "Print Bounty Scroll", "Yes", "No")
+	var/choice = alert(user, "Print a continously updated list of active bounties for [cost] groschen?", "Print Bounty Scroll", "Yes", "No")
 	if(choice != "Yes")
 		return
 
@@ -197,7 +197,7 @@
 		return
 
 	if(SStreasury.bank_accounts[user] < cost)
-		say("Insufficient funds. [cost] mammons required.")
+		say("Insufficient funds. [cost] groschen required.")
 		return
 
 	SStreasury.bank_accounts[user] -= cost

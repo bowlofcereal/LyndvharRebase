@@ -1,6 +1,6 @@
 #define EQUALIZED_GLOW "equalizer glow"
 
-// T0: Determine the net mammon value of target
+// T0: Determine the net groschen value of target
 
 /obj/effect/proc_holder/spell/invoked/appraise
 	name = "Appraise"
@@ -30,10 +30,10 @@
 /obj/effect/proc_holder/spell/invoked/appraise/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
 		var/mob/living/carbon/human/target = targets[1]
-		var/mammonsonperson = get_mammons_in_atom(target)
-		var/mammonsinbank = SStreasury.bank_accounts[target]
-		var/totalvalue = mammonsinbank + mammonsonperson
-		to_chat(user, ("<font color='yellow'>[target] has [mammonsonperson] mammons on them, [mammonsinbank] in their meister, for a total of [totalvalue] mammons.</font>"))
+		var/groschenonperson = get_groschen_in_atom(target)
+		var/groscheninbank = SStreasury.bank_accounts[target]
+		var/totalvalue = groscheninbank + groschenonperson
+		to_chat(user, ("<font color='yellow'>[target] has [groschenonperson] groschen on them, [groscheninbank] in their meister, for a total of [totalvalue] groschen.</font>"))
 
 // T1 - Take value of item in hand, apply that as healing. Destroys item.
 
@@ -190,9 +190,9 @@
 /obj/effect/proc_holder/spell/invoked/churnwealthy/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
 		var/mob/living/carbon/human/target = targets[1]
-		var/mammonsonperson = get_mammons_in_atom(target)
-		var/mammonsinbank = SStreasury.bank_accounts[target]
-		var/totalvalue = mammonsinbank + mammonsonperson
+		var/groschenonperson = get_groschen_in_atom(target)
+		var/groscheninbank = SStreasury.bank_accounts[target]
+		var/totalvalue = groscheninbank + groschenonperson
 		if(HAS_TRAIT(target, TRAIT_NOBLE))
 			totalvalue += 101 // We're ALWAYS going to do a medium level smite minimum to nobles.
 		if(totalvalue <=10)

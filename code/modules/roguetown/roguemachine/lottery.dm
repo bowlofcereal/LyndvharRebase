@@ -25,7 +25,7 @@
 
 /obj/structure/roguemachine/lottery_roguetown/attack_hand(mob/living/user) //empty hand
 
-	src.say("Your current tithe is [src.gamblingprice] mammons. Care to spin?")
+	src.say("Your current tithe is [src.gamblingprice] groschen. Care to spin?")
 	playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 	return
 
@@ -38,18 +38,18 @@
 
 	if(istype(P, /obj/item/roguecoin))
 		if(src.gamblingprice + (P.sellprice * P.quantity) > src.maxtithing)
-			say("This puts the starting tithe over [src.maxtithing] mammons.")
+			say("This puts the starting tithe over [src.maxtithing] groschen.")
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			return
 		if(src.gamblingprice + (P.sellprice * P.quantity) < src.mintithing)
-			say("This is below [src.mintithing] mammons.")
+			say("This is below [src.mintithing] groschen.")
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			return
 
 		else
 			src.gamblingprice += (P.sellprice * P.quantity)
 			qdel(P)
-			src.say("Your current tithe is now [src.gamblingprice] mammons. Care to spin?")
+			src.say("Your current tithe is now [src.gamblingprice] groschen. Care to spin?")
 			playsound(src, 'sound/misc/machinequestion.ogg', 100, FALSE, -1)
 			return
 
@@ -59,7 +59,7 @@
 	if(src.stopgambling == 1)
 		return
 	if(src.gamblingprice == 0)
-		src.say(pick("Eager fool; you need mammons to gamble your life away.", "You are missing your tithe.", "A lord without land is no lord at all."))
+		src.say(pick("Eager fool; you need groschen to gamble your life away.", "You are missing your tithe.", "A lord without land is no lord at all."))
 		src.stopgambling = 1
 		sleep(20)
 		src.stopgambling = 0
@@ -91,7 +91,7 @@
 
 			peasant_betting()
 			letsgogamblinggamblers()
-			src.say(pick("Well-maneuvered, aristocrat! Your peasant's tithe is now [src.gamblingprice] mammons. Play again?", "A bountiful harvest, this year- the peasant's tithe rises to [src.gamblingprice] mammons. Spin me again?",))
+			src.say(pick("Well-maneuvered, aristocrat! Your peasant's tithe is now [src.gamblingprice] groschen. Play again?", "A bountiful harvest, this year- the peasant's tithe rises to [src.gamblingprice] groschen. Spin me again?",))
 
 			playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 			src.gamblingprob = src.gamblingbaseprob
@@ -144,7 +144,7 @@
 			mod = 10
 		if(selection == "SILVER")
 			mod = 5
-		var/coin_amt = input(user, "Sayyid, you have [src.gamblingprice] mammon in tithes. You may withdraw [floor(gamblingprice/mod)] [selection] COINS.", src) as null|num
+		var/coin_amt = input(user, "Sayyid, you have [src.gamblingprice] groschen in tithes. You may withdraw [floor(gamblingprice/mod)] [selection] COINS.", src) as null|num
 		coin_amt = round(coin_amt)
 		if(coin_amt < 1)
 			return

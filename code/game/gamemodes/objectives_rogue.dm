@@ -13,7 +13,7 @@
 	if(SSticker.mode)
 		var/datum/game_mode/chaosmode/C = SSticker.mode
 		if(C)
-			explanation_text = "Feed [C.banditgoal] mammon to an idol of greed."
+			explanation_text = "Feed [C.banditgoal] groschen to an idol of greed."
 		else
 			explanation_text = "Pray to ZIZO."
 

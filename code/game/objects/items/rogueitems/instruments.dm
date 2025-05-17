@@ -235,7 +235,7 @@
 	song_list = list("Fire-Cast Shadows" = 'sound/music/instruments/guitar (1).ogg',
 	"The Forced Hand" = 'sound/music/instruments/guitar (2).ogg',
 	"Regrets Unpaid" = 'sound/music/instruments/guitar (3).ogg',
-	"'Took the Mammon and Ran'" = 'sound/music/instruments/guitar (4).ogg',
+	"'Took the Groschen and Ran'" = 'sound/music/instruments/guitar (4).ogg',
 	"Poor Man's Tithe" = 'sound/music/instruments/guitar (5).ogg',
 	"In His Arms Ye'll Find Me" = 'sound/music/instruments/guitar (6).ogg',
 	"El Odio" = 'sound/music/instruments/guitar (7).ogg',
@@ -264,7 +264,7 @@
 	name = "flute"
 	desc = "A slender flute carefully carved from a smooth wood piece."
 	icon_state = "flute"
-	song_list = list("Half-Dragon's Ten Mammon" = 'sound/music/instruments/flute (1).ogg',
+	song_list = list("Half-Dragon's Ten Groschen" = 'sound/music/instruments/flute (1).ogg',
 	"'The Local Favorite'" = 'sound/music/instruments/flute (2).ogg',
 	"Rous in the Cellar" = 'sound/music/instruments/flute (3).ogg',
 	"Her Boots, So Incandescent" = 'sound/music/instruments/flute (4).ogg',

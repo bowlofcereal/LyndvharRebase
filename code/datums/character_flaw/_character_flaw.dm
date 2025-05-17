@@ -283,58 +283,58 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/greedy
 	name = "Greedy"
-	desc = "I can't get enough of mammons, I need more and more! I've also become good at knowing how much things are worth"
-	var/last_checked_mammons = 0
-	var/required_mammons = 0
-	var/next_mammon_increase = 0
+	desc = "I can't get enough of groschen, I need more and more! I've also become good at knowing how much things are worth"
+	var/last_checked_groschen = 0
+	var/required_groschen = 0
+	var/next_groschen_increase = 0
 	var/last_passed_check = 0
 	var/first_tick = FALSE
 	var/extra_increment_value = 0
 
 /datum/charflaw/greedy/on_mob_creation(mob/user)
-	next_mammon_increase = world.time + rand(15 MINUTES, 25 MINUTES)
+	next_groschen_increase = world.time + rand(15 MINUTES, 25 MINUTES)
 	last_passed_check = world.time
 	ADD_TRAIT(user, TRAIT_SEEPRICES_SHITTY, "[type]")
 
 /datum/charflaw/greedy/flaw_on_life(mob/user)
 	if(!first_tick)
-		determine_starting_mammons(user)
+		determine_starting_groschen(user)
 		first_tick = TRUE
 		return
-	if(world.time >= next_mammon_increase)
-		mammon_increase(user)
-	mammon_check(user)
+	if(world.time >= next_groschen_increase)
+		groschen_increase(user)
+	groschen_check(user)
 
-/datum/charflaw/greedy/proc/determine_starting_mammons(mob/living/carbon/human/user)
-	var/starting_mammons = get_mammons_in_atom(user)
-	required_mammons = round(starting_mammons * 0.7)
-	extra_increment_value = round(starting_mammons * 0.15)
+/datum/charflaw/greedy/proc/determine_starting_groschen(mob/living/carbon/human/user)
+	var/starting_groschen = get_groschen_in_atom(user)
+	required_groschen = round(starting_groschen * 0.7)
+	extra_increment_value = round(starting_groschen * 0.15)
 
-/datum/charflaw/greedy/proc/mammon_increase(mob/living/carbon/human/user)
+/datum/charflaw/greedy/proc/groschen_increase(mob/living/carbon/human/user)
 	if(last_passed_check + (50 MINUTES) < world.time) //If we spend a REALLY long time without being able to satisfy, then pity downgrade
-		required_mammons -= rand(10, 20)
-		to_chat(user, span_blue("Maybe a little less mammons is enough..."))
+		required_groschen -= rand(10, 20)
+		to_chat(user, span_blue("Maybe a little less groschen is enough..."))
 	else
-		required_mammons += rand(25, 35) + extra_increment_value
-	required_mammons = min(required_mammons, 250) //Cap at 250 coins maximum
-	next_mammon_increase = world.time + rand(35 MINUTES, 40 MINUTES)
-	var/current_mammons = get_mammons_in_atom(user)
-	if(current_mammons >= required_mammons)
-		to_chat(user, span_blue("I'm quite happy with the amount of mammons I have..."))
+		required_groschen += rand(25, 35) + extra_increment_value
+	required_groschen = min(required_groschen, 250) //Cap at 250 coins maximum
+	next_groschen_increase = world.time + rand(35 MINUTES, 40 MINUTES)
+	var/current_groschen = get_groschen_in_atom(user)
+	if(current_groschen >= required_groschen)
+		to_chat(user, span_blue("I'm quite happy with the amount of groschen I have..."))
 	else
-		to_chat(user, span_boldwarning("I need more mammons, what I have is not enough..."))
+		to_chat(user, span_boldwarning("I need more groschen, what I have is not enough..."))
 
-	last_checked_mammons = current_mammons
+	last_checked_groschen = current_groschen
 
-/datum/charflaw/greedy/proc/mammon_check(mob/living/carbon/human/user)
-	var/new_mammon_amount = get_mammons_in_atom(user)
-	var/ascending = (new_mammon_amount > last_checked_mammons)
+/datum/charflaw/greedy/proc/groschen_check(mob/living/carbon/human/user)
+	var/new_groschen_amount = get_groschen_in_atom(user)
+	var/ascending = (new_groschen_amount > last_checked_groschen)
 
 	var/do_update_msg = TRUE
-	if(new_mammon_amount >= required_mammons)
+	if(new_groschen_amount >= required_groschen)
 		// Feel better
 		if(user.has_stress_event(/datum/stressevent/vice))
-			to_chat(user, span_blue("[new_mammon_amount] mammons... That's more like it.."))
+			to_chat(user, span_blue("[new_groschen_amount] groschen... That's more like it.."))
 		user.remove_stress(/datum/stressevent/vice)
 		user.remove_status_effect(/datum/status_effect/debuff/addiction)
 		last_passed_check = world.time
@@ -344,16 +344,16 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		user.add_stress(/datum/stressevent/vice)
 		user.apply_status_effect(/datum/status_effect/debuff/addiction)
 
-	if(new_mammon_amount == last_checked_mammons)
+	if(new_groschen_amount == last_checked_groschen)
 		do_update_msg = FALSE
 
 	if(do_update_msg)
 		if(ascending)
-			to_chat(user, span_warning("Only [new_mammon_amount] mammons.. I need more..."))
+			to_chat(user, span_warning("Only [new_groschen_amount] groschen.. I need more..."))
 		else
-			to_chat(user, span_boldwarning("No! My precious mammons..."))
+			to_chat(user, span_boldwarning("No! My precious groschen..."))
 
-	last_checked_mammons = new_mammon_amount
+	last_checked_groschen = new_groschen_amount
 
 /datum/charflaw/narcoleptic
 	name = "Narcoleptic"
@@ -471,15 +471,15 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		if(140 to INFINITY)
 			return MASO_THRESHOLD_FOUR
 
-/proc/get_mammons_in_atom(atom/movable/movable)
+/proc/get_groschen_in_atom(atom/movable/movable)
 	var/static/list/coins_types = typecacheof(/obj/item/roguecoin)
-	var/mammons = 0
+	var/groschen = 0
 	if(coins_types[movable.type])
 		var/obj/item/roguecoin/coin = movable
-		mammons += coin.quantity * coin.sellprice
+		groschen += coin.quantity * coin.sellprice
 	for(var/atom/movable/content in movable.contents)
-		mammons += get_mammons_in_atom(content)
-	return mammons
+		groschen += get_groschen_in_atom(content)
+	return groschen
 
 /datum/charflaw/sleepless
 	name = "Insomnia"

@@ -141,7 +141,7 @@
 	var/canread = user.can_read(src, TRUE)
 	var/contents
 	contents = "<center>BRASSFACE - Sweet Dreams for Cheap<BR>"
-	contents += "<a href='?src=[REF(src)];change=1'>MAMMON LOADED:</a> [budget]<BR>"
+	contents += "<a href='?src=[REF(src)];change=1'>GROSCHEN LOADED:</a> [budget]<BR>"
 
 	var/mob/living/carbon/human/H = user
 	if(H.job in list("Bathmaster","Bathhouse Attendant"))
