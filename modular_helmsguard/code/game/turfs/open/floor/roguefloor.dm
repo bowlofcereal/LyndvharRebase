@@ -47,18 +47,6 @@
 //	dir = pick(GLOB.cardinals)			Replaces the initialize in the parent.
 //	. = ..()
 
-/turf/open/floor/rogue/wood/nosmooth //Somehow the nosmooth children in the base .dm... smoothed.
-	icon_state = "wooden_floor"
-	smooth = SMOOTH_FALSE
-	canSmoothWith = null
-
-/turf/open/floor/rogue/woodturned/nosmooth
-	icon_state = "wooden_floort"
-	smooth = SMOOTH_FALSE
-	canSmoothWith = null
-
-
-
 
 
 
@@ -181,11 +169,15 @@
 	icon_state = "blocks"
 	smooth = SMOOTH_FALSE
 	canSmoothWith = null
+	neighborlay = null
+
 /turf/open/floor/rogue/blocks/nosmooth/Initialize()
 
 /turf/open/floor/rogue/hexstone/nosmooth
 	smooth = SMOOTH_FALSE
 	canSmoothWith = null
+	neighborlay = null
+
 
 /turf/open/floor/rogue/hexstone/nosmooth/Initialize()
 
@@ -194,6 +186,9 @@
 
 /turf/open/floor/rogue/churchmarble/nosmooth
 	icon = 'modular_helmsguard/icons/turf/roguefloor.dmi'	// Flipped so highlights are from NW
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
+	neighborlay = null
 
 /turf/open/floor/rogue/church
 	icon = 'modular_helmsguard/icons/turf/roguefloor.dmi'	// Flipped so highlights are from NW
@@ -202,15 +197,20 @@
 // These try to fix the need for nosmooth / norand turfs.
 
 /turf/open/floor/rogue/church/nosmooth
-	smooth = null											// Disable smoothing
-
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
+	neighborlay = null
+									// Disable smoothing
 /turf/open/floor/rogue/church/nosmooth/Initialize()			// Remove random dir initialize() in parent object.
 
 /turf/open/floor/rogue/churchbrick
 	icon = 'modular_helmsguard/icons/turf/roguefloor.dmi'	// Flipped so highlights are from NW
 
 /turf/open/floor/rogue/churchbrick/nosmooth
-	smooth = null											// Disable smoothing
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
+	neighborlay = null
+										// Disable smoothing
 
 /turf/open/floor/rogue/churchbrick/nosmooth/Initialize()	// Remove random dir initialize() in parent object.
 
@@ -219,6 +219,9 @@
 
 /turf/open/floor/rogue/churchrough/nosmooth
 	icon = 'modular_helmsguard/icons/turf/roguefloor.dmi'	// Generated alternate stone directions
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
+	neighborlay = null
 
 /turf/open/floor/rogue/churchrough/nosmooth/Initialize()	// Remove random dir initialize() in parent object.
 
