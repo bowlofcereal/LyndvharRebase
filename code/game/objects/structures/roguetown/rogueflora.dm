@@ -277,6 +277,22 @@
 	pixel_x += rand(-3,3)
 	return ..()
 
+/obj/structure/flora/roguegrass/bush/green
+	name = "bush"
+	desc = "A bush, I think I can see some spiders crawling in it."
+	icon_state = "bush6"
+
+/obj/structure/flora/roguegrass/bush/green/Initialize()
+	.= ..()
+	icon_state = "bush[rand(5,6)]"
+
+/obj/structure/flora/roguegrass/bush/random
+	icon_state = "bush2"
+
+/obj/structure/flora/roguegrass/bush/random/Initialize()
+	.= ..()
+	icon_state = "bush[rand(2,6)]"
+
 /obj/structure/flora/roguegrass/bush/proc/loot_replenish()
 	if(bushtype)
 		looty += bushtype
@@ -371,7 +387,7 @@
 	return ..()
 
 /obj/structure/flora/roguegrass/bush/wall
-	name = "great bush"
+	name = "great red bush"
 	desc = "A bush, this one's roots are thick and block the way."
 	opacity = TRUE
 	density = 1
@@ -384,6 +400,37 @@
 /obj/structure/flora/roguegrass/bush/wall/Initialize()
 	. = ..()
 	icon_state = "bushwall[pick(1,2)]"
+
+/obj/structure/flora/roguegrass/bush/wall/green
+	name = "great green bush"
+	desc = "A bush, this one's roots are thick and block the way."
+	opacity = TRUE
+	density = 1
+	climbable = FALSE
+	icon_state = "bushwall3"
+	max_integrity = 150
+	debris = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 1, /obj/item/natural/thorn = 1)
+	attacked_sound = 'sound/misc/woodhit.ogg'
+
+/obj/structure/flora/roguegrass/bush/wall/green/Initialize()
+	. = ..()
+	icon_state = "bushwall[pick(3,4)]"
+
+/obj/structure/flora/roguegrass/bush/wall/rose
+	name = "rosey bush"
+	desc = "A bush blooming with red fragrant roses."
+	opacity = TRUE
+	density = 1
+	climbable = FALSE
+	icon_state = "rosebush1"
+	max_integrity = 150
+	debris = list(/obj/item/natural/fibers = 1, /obj/item/alch/rosa = 1.3, /obj/item/grown/log/tree/stick = 1, /obj/item/natural/thorn = 1)
+	attacked_sound = 'sound/misc/woodhit.ogg'
+
+/obj/structure/flora/roguegrass/bush/wall/rose/Initialize()
+	. = ..()
+	icon_state = "rosebush[pick(1,2)]"
+
 
 /obj/structure/flora/roguegrass/bush/wall/update_icon()
 	return
@@ -409,6 +456,32 @@
 /obj/structure/flora/roguegrass/bush/wall/tall/Initialize()
 	. = ..()
 	icon_state = "tallbush[pick(1,2)]"
+
+/obj/structure/flora/roguegrass/bush/wall/tall/green
+	icon = 'icons/roguetown/misc/foliagetall.dmi'
+	icon_state = "tallbush3"
+	opacity = 1
+	pixel_x = -16
+	debris = null
+	static_debris = null
+
+/obj/structure/flora/roguegrass/bush/wall/tall/green/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(3,4)]"
+
+
+/obj/structure/flora/roguegrass/bush/wall/tall/random
+	icon = 'icons/roguetown/misc/foliagetall.dmi'
+	icon_state = "tallbush1"
+	opacity = 1
+	pixel_x = -16
+	debris = null
+	static_debris = null
+
+/obj/structure/flora/roguegrass/bush/wall/tall/random/Initialize()
+	. = ..()
+	icon_state = "tallbush[pick(1,4)]"
+
 
 
 /obj/structure/flora/rogueshroom
