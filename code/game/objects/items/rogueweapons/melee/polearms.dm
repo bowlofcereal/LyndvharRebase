@@ -130,11 +130,12 @@
 	attack_verb = list("skewers")
 	blade_class = BCLASS_STAB
 	chargetime = 10
-	swingdelay = 2
-	misscost = 15
-	damfactor = 2
+	swingdelay = 8
+	misscost = 20
+	damfactor = 1.8
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
 	item_d_type = "stab"
+	no_early_release = TRUE
 
 /datum/intent/partizan/peel
 	name = "armor peel"
@@ -143,9 +144,9 @@
 	animname = "cut"
 	blade_class = BCLASS_PEEL
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
-	chargetime = 0
+	chargetime = 2
 	penfactor = 200
-	swingdelay = 4
+	swingdelay = 5
 	damfactor = 0.05
 	item_d_type = "slash"
 	peel_divisor = 4
