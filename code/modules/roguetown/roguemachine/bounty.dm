@@ -187,7 +187,7 @@
 		say("No bounties are currently active.")
 		return
 
-	var/cost = 50
+	var/cost = 32
 	var/choice = alert(user, "Print a continously updated list of active bounties for [cost] groschen?", "Print Bounty Scroll", "Yes", "No")
 	if(choice != "Yes")
 		return
@@ -401,42 +401,42 @@
 		return
 	budget = floor(budget)
 	var/type_to_put
-	var/zenars_to_put
+	var/value_to_put
 	if(specify)
 		switch(specify)
 			if("GOLD")
-				zenars_to_put = budget/10
+				value_to_put = budget/32
 				type_to_put = /obj/item/roguecoin/gold
 			if("SILVER")
-				zenars_to_put = budget/5
+				value_to_put = budget/8
 				type_to_put = /obj/item/roguecoin/silver
 			if("BRONZE")
-				zenars_to_put = budget
+				value_to_put = budget
 				type_to_put = /obj/item/roguecoin/copper
 	else
 		var/highest_found = FALSE
-		var/zenars = floor(budget/10)
-		if(zenars)
-			budget -= zenars * 10
+		var/value = floor(budget/32)
+		if(value)
+			budget -= value * 32
 			highest_found = TRUE
 			type_to_put = /obj/item/roguecoin/gold
-			zenars_to_put = zenars
-		zenars = floor(budget/5)
-		if(zenars)
-			budget -= zenars * 5
+			value_to_put = value
+		value = floor(budget/8)
+		if(value)
+			budget -= value * 8
 			if(!highest_found)
 				highest_found = TRUE
 				type_to_put = /obj/item/roguecoin/silver
-				zenars_to_put = zenars
+				value_to_put = value
 			else
-				new /obj/item/roguecoin/silver(T, zenars)
+				new /obj/item/roguecoin/silver(T, value)
 		if(budget >= 1)
 			if(!highest_found)
 				type_to_put = /obj/item/roguecoin/copper
-				zenars_to_put = budget
+				value_to_put = budget
 			else
 				new /obj/item/roguecoin/copper(T, budget)
-	if(!type_to_put || zenars_to_put < 1)
+	if(!type_to_put || value_to_put < 1)
 		return
-	new type_to_put(T, floor(zenars_to_put))
+	new type_to_put(T, floor(value_to_put))
 	playsound(T, 'sound/misc/coindispense.ogg', 100, FALSE, -1)
