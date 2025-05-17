@@ -1,6 +1,6 @@
-/datum/patron/inhumen
+/datum/patron/inhuman
 	name = null
-	associated_faith = /datum/faith/inhumen
+	associated_faith = /datum/faith/inhuman
 	undead_hater = FALSE
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	confess_lines = list(
@@ -9,7 +9,7 @@
 		"THE TEN ARE DECEIVERS!",
 	)
 
-/datum/patron/inhumen/zizo
+/datum/patron/inhuman/zizo
 	name = "Zizo"
 	domain = "Progress, Undeath, Hubris, Left Hand Magicks"
 	desc = "A once-mortal snow elf turned god. Her hubris in thinking she could harvest lux from the planet itself led to the elimination of her entire race. Her works are still used to this dae in some cases."
@@ -24,7 +24,7 @@
 		"ZIZO IS QUEEN!",
 	)
 
-/datum/patron/inhumen/graggar
+/datum/patron/inhuman/graggar
 	name = "Graggar"
 	domain = "God of Conquest, War, Strategy, Bind-Breaking"
 	desc = "Slave orc turned deity, said by the Holy Ecclesial to have been blessed by Ravox himself. He took his blessings to wage a bloody war against his once-captors, and then continued his conquest in his own name. Some Graggarites might care for honor, however many do not- what matters are results, and victory at a reasonable cost."
@@ -39,7 +39,7 @@
 		"THE GOD OF CONQUEST DEMANDS BLOOD!",
 	)
 
-/datum/patron/inhumen/matthios
+/datum/patron/inhuman/matthios
 	name = "Matthios"
 	domain = "God of Exchange, Alchemy, Theft, and Greed"
 	desc = "The Man who stole fire from the sun and used it in his pursuit of immortality; exchanging the knowledge of how to make fire with the lessers for safety in doing so. He guides those who live in the dark, away from the flame of civilization; and those who believe in his cause bring the wealth of the undeserving in the light to the deserving in the dark."
@@ -55,7 +55,7 @@
 		"MATTHIOS IS MY LORD!",
 	)
 
-/datum/patron/inhumen/baotha
+/datum/patron/inhuman/baotha
 	name = "Baotha"
 	domain = "Goddess of Hedonism, Addiction, Anguish, and Heartbreak"
 	desc = "The twin sister of Eora, fallen to disgrace. She brings comfort to those who can't find it elsewhere but the bottom of a bottle; and she tempts those who have lost much into her fold through offers of relief and pleasure, yet they soon find themselves unable to escape her grasp. Seen as a scorned lover by many, and followed by such."

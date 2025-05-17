@@ -100,11 +100,6 @@
 	landsound = 'sound/foley/jumpland/woodland.wav'
 	canSmoothWith = list(/turf/open/floor/rogue/wood,/turf/open/floor/carpet)
 
-/turf/open/floor/rogue/wood/nosmooth //these are here so we can put wood floors next to each other but not have them smooth
-	icon_state = "wooden_floor"
-	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/rogue/wood/nosmooth,/turf/open/floor/carpet)
-
 /turf/open/floor/rogue/woodturned
 	smooth_icon = 'icons/turf/floors/wood_turned.dmi'
 	icon_state = "wooden_floor2t"
@@ -114,11 +109,6 @@
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-
-/turf/open/floor/rogue/woodturned/nosmooth
-	icon_state = "wooden_floort"
-	smooth = SMOOTH_MORE
-	canSmoothWith = list(/turf/open/floor/rogue/woodturned/nosmooth,/turf/open/floor/carpet)
 
 /turf/open/floor/rogue/rooftop
 	name = "roof"

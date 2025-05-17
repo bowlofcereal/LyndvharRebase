@@ -42,6 +42,7 @@
 				bounty_total = rand(101, 150)
 			if ("Massive")
 				bounty_total = rand(150, 200)
-	
-		add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Azuria")
-		to_chat(H, span_notice("I'm on the run from the law, and there's a [lowertext(bounty_amount)] sum of groschen out on my head... better lay low."))
+
+		add_bounty(H.real_name, bounty_total, FALSE, my_crime, "The Justiciary of Sundmark")
+		to_chat(H, span_notice("I'm on the run from the law, and there's a [lowertext(bounty_amount)] sum of mammons out on my head... better lay low."))
+

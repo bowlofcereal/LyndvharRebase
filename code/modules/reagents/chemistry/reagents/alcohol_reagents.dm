@@ -2007,7 +2007,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 // BEERS - Imported for now, later the styles will be 'mockable', if and when I get to brewing.
 
-// Humen Production - Underwhelming, but cheap.
+// Human Production - Underwhelming, but cheap.
 
 /datum/reagent/consumable/ethanol/beer/zagul
 	name = "Zagul Brew"
@@ -2076,7 +2076,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 
 // WINE - Fancy.. And yes: all drinks are beer, technically. Cope. Seethe. I didnt code it like this.
 
-// Humen Production - Grape Based
+// Human Production - Grape Based
 
 /datum/reagent/consumable/ethanol/beer/sourwine // Peasant grade shit.
 	name = "Sour Wine"

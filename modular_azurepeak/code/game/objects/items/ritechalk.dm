@@ -15,9 +15,9 @@
 
 	var/ritechoices = list()
 	switch (user.patron?.type)
-		if(/datum/patron/inhumen/zizo)
+		if(/datum/patron/inhuman/zizo)
 			ritechoices+="Rune of ZIZO"
-		if(/datum/patron/inhumen/matthios)
+		if(/datum/patron/inhuman/matthios)
 			ritechoices+="Rune of Transaction"
 		if(/datum/patron/divine/astrata)
 			ritechoices+="Rune of Sun"

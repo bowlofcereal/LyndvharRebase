@@ -19,7 +19,7 @@
 //someone has to get a 4th sound for each and missing distant sounds.
 
 /obj/item/war_horn/human
-	name = "humenic war horn"
+	name = "humanic war horn"
 	icon_state = "humanhorn"
 	retreatsound = 'modular_helmsguard/sound/items/horns/h_retreat.ogg'
 	rallysound = 'modular_helmsguard/sound/items/horns/h_rally.ogg'
