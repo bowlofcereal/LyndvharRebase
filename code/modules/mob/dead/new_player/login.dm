@@ -21,23 +21,23 @@
 
 	if(client)
 		if(client.is_new_player())
-			to_chat(src, span_userdanger("Due to an invasion of goblins trying to play ROGUETOWN, you need to register your discord account or support us on patreon to join."))
-			to_chat(src, span_info("We dislike discord too, but it's necessary. To register your discord or patreon, please click the 'Register' tab in the top right of the window, and then choose one of the options."))
+			to_chat(src, span_userdanger("Due to an invasion of goblins trying to play Helmsguard, you need to register your discord account or support us on patreon to join."))
+			to_chat(src, span_info("To register your discord or patreon, please click the 'Register' tab in the top right of the window, and then choose one of the options."))
 		else
 			var/shown_patreon_level = client.patreonlevel()
 			if(!shown_patreon_level)
-				shown_patreon_level = "<font color='#41acc7'><b>Azurean Chad</b></font>"
+				shown_patreon_level = "Humble Beggar"
 			switch(shown_patreon_level)
 				if(1)
-					shown_patreon_level = "Silver"
+					shown_patreon_level = "Honest Yeoman"
 				if(2)
-					shown_patreon_level = "Gold"
+					shown_patreon_level = "Goodly Burgher"
 				if(3)
-					shown_patreon_level = "Mythril"
+					shown_patreon_level = "Generous Noble"
 				if(4)
-					shown_patreon_level = "Merchant"
+					shown_patreon_level = "Knight of the Mark"
 				if(5)
-					shown_patreon_level = "Lord"
+					shown_patreon_level = "<font color='#528152'><b>Markgraf-in-Sundberg</b></font>"
 			to_chat(src, span_info("Donator Level: [shown_patreon_level]"))
 		client.recent_changelog()
 /*
@@ -68,12 +68,12 @@
 		if(tl > 0)
 			postfix = "in about [DisplayTimeText(tl)]"
 		else
-			postfix = "soon"
-		to_chat(src, "The game will start [postfix].")
+			postfix = "and nightmares wake.."
+		to_chat(src, "The dreams overcome you [postfix].")
 		if(client)
 			SSvote.send_vote(client)
 			var/usedkey = ckey(key)
 			/*if(usedkey in GLOB.anonymize)
 				usedkey = get_fake_key(usedkey)*/
-			var/list/thinz = list("takes a seat.", "settles in.", "joins the session", "joins the table.", "becomes a player.")
+			var/list/thinz = list("perchances to dream.", "rests their weary head.", "drifts beyond the waking world.", "ends a day's toil.", "opens the mind's portal.")
 			SEND_TEXT(world, span_notice("[usedkey] [pick(thinz)]"))
