@@ -115,7 +115,7 @@
 		switch(select)
 			if("Withdraw Cut")
 				if(secret_budget < 1)
-					say("There is no mammon to move, Master.")
+					say("There is no groschen to move, Master.")
 					return
 				options = list("To Bank (Taxed)", "Direct")
 				select = input(usr, "Please select an option.", "", null) as null|anything in options
@@ -124,7 +124,7 @@
 				if(!usr.canUseTopic(src, BE_CLOSE) || locked)
 					return
 				if(secret_budget < 1)
-					say("There is no mammon to move, Master.")
+					say("There is no groschen to move, Master.")
 					return
 				switch(select)
 					if("To Bank (Taxed)")
@@ -178,20 +178,20 @@
 	var/contents
 	if(canread)
 		contents = "<center>PURITY - In the name of pleasure.<BR>"
-		contents += "<a href='?src=[REF(src)];change=1'>MAMMON LOADED:</a> [budget]<BR>"
+		contents += "<a href='?src=[REF(src)];change=1'>GROSCHEN LOADED:</a> [budget]<BR>"
 	else
 		contents = "<center>[stars("PURITY - In the name of pleasure.")]<BR>"
-		contents += "<a href='?src=[REF(src)];change=1'>[stars("MAMMON LOADED:")]</a> [budget]<BR>"
+		contents += "<a href='?src=[REF(src)];change=1'>[stars("GROSCHEN LOADED:")]</a> [budget]<BR>"
 
 
 	var/mob/living/carbon/human/H = user
 	if(H.job == "Bathmaster")
 		if(canread)
 			contents += "<a href='?src=[REF(src)];secrets=1'>Secrets</a><BR>"
-			contents += "Mammon Washing: [recent_payments] -- Your cut, Master! [secret_budget]<BR>"
+			contents += "Groschen Washing: [recent_payments] -- Your cut, Master! [secret_budget]<BR>"
 		else
 			contents += "<a href='?src=[REF(src)];secrets=1'>[stars("Secrets")]</a><BR>"
-			contents += "[stars("Mammon Washing:")] [recent_payments] -- [stars("Your cut, Master!")] [secret_budget]<BR>"
+			contents += "[stars("Groschen Washing:")] [recent_payments] -- [stars("Your cut, Master!")] [secret_budget]<BR>"
 
 	contents += "</center>"
 

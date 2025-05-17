@@ -90,4 +90,4 @@
 		if(!totaldonated)
 			to_chat(world, "[the_name] was a bandit.")
 		else
-			to_chat(world, "[the_name] was a bandit. Their band stole [totaldonated] mammons worth of loot!")
+			to_chat(world, "[the_name] was a bandit. Their band stole [totaldonated] groschen worth of loot!")

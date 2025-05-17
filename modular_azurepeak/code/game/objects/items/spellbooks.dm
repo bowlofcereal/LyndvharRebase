@@ -260,7 +260,7 @@ decreases charge time if held opened in hand, for pure mage build + aesthetics.
 					else
 						playsound(loc, 'modular_azurepeak/sound/spellbooks/icicle.ogg', 100, TRUE)
 						user.visible_message(span_warning("[user] crushes [user.p_their()] [P]! Its powder just kind of sits on top of the [src]. Awkward."), \
-							span_notice("... why and how did I just crush this gem into a worthless scroll-book? What a WASTE of mammon!"))
+							span_notice("... why and how did I just crush this gem into a worthless scroll-book? What a WASTE of groschen!"))
 						qdel(P)
 					return ..()
 		else
