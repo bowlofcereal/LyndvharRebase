@@ -40,7 +40,7 @@
 			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/storage/keyring/sund/bawdy
+	beltl = /obj/item/storage/keyring/sund/sund_bawdy
 	backr = /obj/item/storage/backpack/rogue/satchel
 	cloak = /obj/item/clothing/cloak/apron/waist
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor

@@ -396,11 +396,11 @@
 	icon_state = "brownkey"
 	lockid = "inquisition"
 
-/obj/item/roguekey/inhumen
+/obj/item/roguekey/inhuman
 	name = "ancient key"
 	desc = "A ancient, rusty key. There's no telling where this leads."
 	icon_state = "rustkey"
-	lockid = "inhumen"
+	lockid = "inhuman"
 
 /obj/item/roguekey/hand
 	name = "hand's key"

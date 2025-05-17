@@ -52,5 +52,5 @@
 			H.change_stat("fortune", 1)
 		
 	switch(H.patron?.type)
-		if(/datum/patron/inhumen/zizo)
+		if(/datum/patron/inhuman/zizo)
 			H.cmode_music = 'sound/music/combat_cult.ogg'

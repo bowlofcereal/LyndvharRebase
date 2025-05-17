@@ -541,7 +541,7 @@
 		else
 			if(isliving(user))
 				var/mob/living/M = user
-				if(M.patron.type == /datum/patron/inhumen/graggar)
+				if(M.patron.type == /datum/patron/inhuman/graggar)
 					msg += span_bloody("[m1] shedding lyfe's blood, exposing weakness!")
 				else
 					msg += span_bloody("[m1] letting out the red stuff!")
