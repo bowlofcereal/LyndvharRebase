@@ -90,7 +90,7 @@
 
 			head = /obj/item/clothing/head/roguetown/roguehood/hierophant
 			cloak = /obj/item/clothing/cloak/hierophant
-			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/hierophant
+			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hierophant
 			shirt = /obj/item/clothing/suit/roguetown/shirt/robe/hierophant
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger, /obj/item/spellbook_unfinished/pre_arcyne)
@@ -170,8 +170,7 @@
 			backpack_contents = list(/obj/item/roguekey/mercenary,/obj/item/rogueweapon/huntingknife)
 			
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
-			C.grant_spells_monk(H)
-			H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+			C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
 			H.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/lesser_heal)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)

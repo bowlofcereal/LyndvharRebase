@@ -1,4 +1,5 @@
 /datum/anvil_recipe/armor
+	abstract_type = /datum/anvil_recipe/armor
 	appro_skill = /datum/skill/craft/armorsmithing
 	i_type = "Armor"
 	craftdiff = 1
@@ -6,6 +7,41 @@
 //For the sake of keeping the code modular with the introduction of new metals, each recipe has had it's main resource added to it's datum
 //This way, we can avoid having to name things in strange ways and can simply have iron/cuirass, stee/cuirass, blacksteel/cuirass->
 //-> and not messy names like ibreastplate and hplate
+
+// --------- COPPER RECIPES -----------
+/datum/anvil_recipe/armor/copper/
+	abstract_type = /datum/anvil_recipe/armor/copper
+
+/datum/anvil_recipe/armor/copper/mask
+	name = "Copper Mask"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/mask/rogue/facemask/copper
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/copper/bracers
+	name = "Copper Bracers"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/wrists/roguetown/bracers/copper
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/copper/cap
+	name = "Lamellar Cap"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/head/roguetown/helmet/coppercap
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/copper/gorget
+	name = "Copper Neck Protector"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/neck/roguetown/gorget/copper
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/copper/chest
+	name = "Copper Heart Protector"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/half/copper
+	craftdiff = 0
+
 
 // --------- IRON RECIPES -----------
 

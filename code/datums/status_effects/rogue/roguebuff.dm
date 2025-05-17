@@ -398,6 +398,7 @@
 	return ..()
 
 /datum/status_effect/buff/healing/on_apply()
+	SEND_SIGNAL(owner, COMSIG_LIVING_MIRACLE_HEAL_APPLY, healing_on_tick, src)
 	var/filter = owner.get_filter(MIRACLE_HEALING_FILTER)
 	if (!filter)
 		owner.add_filter(MIRACLE_HEALING_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 60, "size" = 1))
@@ -808,3 +809,22 @@
 /datum/status_effect/buff/xylix_joy/on_remove()
 	. = ..()
 	to_chat(owner, span_info("My fortune returns to normal."))
+
+/datum/status_effect/buff/vigorized
+	id = "vigorized"
+	alert_type = /atom/movable/screen/alert/status_effect/vigorized
+	duration = 10 MINUTES
+	effectedstats = list("speed" = 1, "intelligence" = 1)
+
+/atom/movable/screen/alert/status_effect/vigorized
+	name = "Vigorized"
+	desc = "I feel a surge of energy inside, quickening my speed and sharpening my focus."
+	icon_state = "drunk"
+
+/datum/status_effect/buff/vigorized/on_apply()
+	. = ..()
+	to_chat(owner, span_warning("I feel a surge of energy inside me!"))
+
+/datum/status_effect/buff/vigorized/on_remove()
+	. = ..()
+	to_chat(owner, span_warning("The surge of energy inside me fades..."))

@@ -56,6 +56,11 @@
 				icon_state = "[base_state]0"
 			return
 
+/obj/machinery/light/rogue/firebowl/off
+	icon_state = "stonefire0"
+	base_state = "stonefire"
+	status = LIGHT_BURNED
+
 /obj/machinery/light/rogue/firebowl/stump
 	icon_state = "stumpfire1"
 	base_state = "stumpfire"
@@ -64,6 +69,11 @@
 	icon_state = "churchfire1"
 	base_state = "churchfire"
 
+/obj/machinery/light/rogue/firebowl/church/off
+	icon_state = "churchfire0"
+	base_state = "churchfire"
+	soundloop = null
+	status = LIGHT_BURNED
 
 /obj/machinery/light/rogue/firebowl/standing
 	name = "standing fire"
@@ -109,7 +119,7 @@
 	name = "fireplace"
 	icon_state = "wallfire1"
 	base_state = "wallfire"
-	brightness = 10
+	light_outer_range = 4 //slightly weaker than a torch
 	bulb_colour = "#ffa35c"
 	density = FALSE
 	fueluse = 0
@@ -125,6 +135,23 @@
 	cookonme = FALSE
 	pixel_y = 32
 	soundloop = null
+
+/obj/machinery/light/rogue/wallfire/candle/off
+	name = "candles"
+	icon_state = "wallcandle0"
+	base_state = "wallcandle"
+	crossfire = FALSE
+	cookonme = FALSE
+	pixel_y = 32
+	soundloop = null
+	status = LIGHT_BURNED
+
+/obj/machinery/light/rogue/wallfire/candle/off/r
+	pixel_y = 0
+	pixel_x = 32
+/obj/machinery/light/rogue/wallfire/candle/off/l
+	pixel_y = 0
+	pixel_x = -32
 
 /obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin)
 	pixel_x = 0
@@ -168,7 +195,7 @@
 
 /obj/machinery/light/rogue/wallfire/candle/weak
 	light_power = 0.9
-	light_outer_range =  6
+	light_outer_range =  4
 /obj/machinery/light/rogue/wallfire/candle/weak/l
 	pixel_x = -32
 	pixel_y = 0
@@ -181,6 +208,7 @@
 	icon_state = "torchwall1"
 	base_state = "torchwall"
 	density = FALSE
+	light_outer_range = 5 //same as the held torch, if you put a torch into a sconce, it shouldn't magically become twice as bright, it's inconsistent.
 	var/obj/item/flashlight/flare/torch/torchy
 	fueluse = FALSE //we use the torch's fuel
 	no_refuel = TRUE
