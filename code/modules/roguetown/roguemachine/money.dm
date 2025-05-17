@@ -106,15 +106,15 @@ GLOBAL_VAR(moneymaster)
 			budget2change(budget, user, inputt)
 			switch(inputt)
 				if("GOLD")
-					var/zenars = budget/10
-					if(zenars >= 1)
-						for(var/i in 1 to zenars)
-							budget -= 10
+					var/value = budget/32
+					if(value >= 1)
+						for(var/i in 1 to value)
+							budget -= 32
 				if("SILVER")
-					var/zenars = budget/5
-					if(zenars >= 1)
-						for(var/i in 1 to zenars)
-							budget -= 5
+					var/value = budget/8
+					if(value >= 1)
+						for(var/i in 1 to value)
+							budget -= 8
 				if("BRONZE")
 					if(budget >= 1)
 						for(var/i in 1 to budget)
@@ -131,44 +131,44 @@ GLOBAL_VAR(moneymaster)
 		return
 	budget = floor(budget)
 	var/type_to_put
-	var/zenars_to_put
+	var/value_to_put
 	if(specify)
 		switch(specify)
 			if("GOLD")
-				zenars_to_put = budget/10
+				value_to_put = budget/32
 				type_to_put = /obj/item/roguecoin/gold
 			if("SILVER")
-				zenars_to_put = budget/5
+				value_to_put = budget/8
 				type_to_put = /obj/item/roguecoin/silver
 			if("BRONZE")
-				zenars_to_put = budget
+				value_to_put = budget
 				type_to_put = /obj/item/roguecoin/copper
 	else
 		var/highest_found = FALSE
-		var/zenars = floor(budget/10)
-		if(zenars)
-			budget -= zenars * 10
+		var/value = floor(budget/32)
+		if(value)
+			budget -= value * 32
 			highest_found = TRUE
 			type_to_put = /obj/item/roguecoin/gold
-			zenars_to_put = zenars
-		zenars = floor(budget/5)
-		if(zenars)
-			budget -= zenars * 5
+			value_to_put = value
+		value = floor(budget/8)
+		if(value)
+			budget -= value * 8
 			if(!highest_found)
 				highest_found = TRUE
 				type_to_put = /obj/item/roguecoin/silver
-				zenars_to_put = zenars
+				value_to_put = value
 			else
-				new /obj/item/roguecoin/silver(T, zenars)
+				new /obj/item/roguecoin/silver(T, value)
 		if(budget >= 1)
 			if(!highest_found)
 				type_to_put = /obj/item/roguecoin/copper
-				zenars_to_put = budget
+				value_to_put = budget
 			else
 				new /obj/item/roguecoin/copper(T, budget)
-	if(!type_to_put || zenars_to_put < 1)
+	if(!type_to_put || value_to_put < 1)
 		return
-	var/obj/item/roguecoin/G = new type_to_put(T, floor(zenars_to_put))
+	var/obj/item/roguecoin/G = new type_to_put(T, floor(value_to_put))
 	if(user)
 		user.put_in_hands(G)
 	playsound(T, 'sound/misc/coindispense.ogg', 100, FALSE, -1)
@@ -227,7 +227,7 @@ GLOBAL_VAR(moneymaster)
 	if(obj_broken)
 		set_light(0)
 		return
-	if(budget > 10)
+	if(budget > 32)
 		add_overlay(mutable_appearance(icon, "[icon_state]-e"))
 	else
 		add_overlay(mutable_appearance(icon, "[icon_state]-b"))
