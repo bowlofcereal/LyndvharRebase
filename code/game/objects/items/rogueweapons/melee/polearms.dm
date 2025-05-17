@@ -119,16 +119,16 @@
 	attack_verb = list("skewers")
 	blade_class = BCLASS_STAB
 	chargetime = 10
-	swingdelay = 6
+	swingdelay = 2
 	misscost = 15
-	damfactor = 2
+	damfactor = 1.7
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
 	item_d_type = "stab"
 
 /datum/intent/partizan/peel
 	name = "armor peel"
 	icon_state = "inpeel"
-	attack_verb = list("peels", "snags")
+	attack_verb = list("snags")
 	animname = "cut"
 	blade_class = BCLASS_PEEL
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
@@ -137,7 +137,7 @@
 	swingdelay = 4
 	damfactor = 0.05
 	item_d_type = "slash"
-	peel_divisor = 5
+	peel_divisor = 4
 	reach = 2
 
 //polearm objs ฅ^•ﻌ•^ฅ
@@ -877,8 +877,8 @@
 
 /obj/item/rogueweapon/spear/partizan
 	name = "partizan"
-	desc = "A reinforced spear-like polearm of disputed origin, a studded shaft fitted with a steel spearhead with protrusions to aid in parrying. An extremely recent invention that is seeing increasingly more usage in Etrusca, Otava, and Grenzelhoft."
-	force = 10	//Not a possible one-handed weapon. Also too heavy!
+	desc = "A reinforced spear-like polearm of disputed origin: A studded shaft fitted with a steel spearhead with protrusions to aid in parrying. An extremely recent invention that is seeing increasingly more usage in the Western lands."
+	force = 8	//Not a possible one-handed weapon. Also too heavy!
 	force_wielded = 30
 	possible_item_intents = list(SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(SPEAR_THRUST, PARTIZAN_REND, PARTIZAN_PEEL)
@@ -896,5 +896,5 @@
 	max_blade_int = 200
 	wdefense = 7
 	thrown_bclass = BCLASS_STAB
-	throwforce = 15	//Not a throwing weapon. Too heavy!
+	throwforce = 12	//Not a throwing weapon. Too heavy!
 	max_integrity = 250
