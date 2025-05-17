@@ -258,8 +258,8 @@
 /obj/item/clothing/shoes/roguetown/freiboots
 	name = "freitrupp boots"
 	desc = "Tough boots for marching and fighting, high in the style of mercenary troops."
-	icon_state = "grenzelboots"
-	item_state = "grenzelboots"
+	icon_state = "freiboots"
+	item_state = "freiboots"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	armor = list("blunt" = 15, "slash" = 15, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 0)
 

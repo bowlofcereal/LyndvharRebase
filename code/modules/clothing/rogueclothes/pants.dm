@@ -426,7 +426,7 @@
 			var/mob/living/carbon/H = user
 			H.update_inv_pants()
 
-/obj/item/clothing/under/roguetown/grenzelpants/update_icon()
+/obj/item/clothing/under/roguetown/freipants/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
