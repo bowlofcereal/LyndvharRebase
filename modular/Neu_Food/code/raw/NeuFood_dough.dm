@@ -540,7 +540,7 @@
 /*	.................   Cheese bun   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesebun_raw
 	name = "raw cheese bun"
-	desc = "Portable, quaint and entirely consumable"
+	desc = "Portable, quaint and entirely consumable."
 	icon_state = "cheesebun_raw"
 	color = "#ecce61"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/cheesebun
@@ -550,7 +550,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/cheesebun
 	name = "fresh cheese bun"
-	desc = "A treat from the Grenzelhoft kitchen."
+	desc = "A rich breakfast for the poor, a fine breakfast for the rich."
 	faretype = FARE_FINE
 	icon_state = "cheesebun"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SMALLDOUGH_NUTRITION+FRESHCHEESE_NUTRITION)
