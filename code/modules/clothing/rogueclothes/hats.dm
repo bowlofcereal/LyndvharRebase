@@ -1557,9 +1557,9 @@
 			pic2.color = get_altdetail_color()
 		add_overlay(pic2)
 
-/obj/item/clothing/head/roguetown/helmet/bascinet/etruscan
-	name = "\improper Etruscan bascinet"
-	desc = "A steel bascinet helmet of Etruscan origin, though also widely used in Grenzelhoft. Bears a straight visor, or \"klappvisier\", which can greatly reduce visibility."
+/obj/item/clothing/head/roguetown/helmet/bascinet/klappvisier
+	name = "\improper klappvisier bascinet"
+	desc = "A steel bascinet helmet of Eisler design. Bears a full-face visor, or \"klappvisier\", which can greatly reduce visibility."
 	icon_state = "klappvisier"
 	item_state = "klappvisier"
 	adjustable = CAN_CADJUST
@@ -1571,7 +1571,7 @@
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
 
-/obj/item/clothing/head/roguetown/helmet/bascinet/etruscan/attackby(obj/item/W, mob/living/user, params)
+/obj/item/clothing/head/roguetown/helmet/bascinet/klappvisier/attackby(obj/item/W, mob/living/user, params)
 	..()
 	if(istype(W, /obj/item/natural/cloth) && !detail_tag)
 		var/list/colors = list(
@@ -1584,7 +1584,7 @@
 		"Madroot Red"="#AD4545",
 		"Marigold Orange"="#E2A844",
 		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
+		"Sun Yellow"="#FFFD8D",
 		"Bog Green"="#375B48",
 		"Seafoam Green"="#49938B",
 		"Woad Blue"="#395480",
@@ -1601,7 +1601,7 @@
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
 
-/obj/item/clothing/head/roguetown/helmet/bascinet/etruscan/update_icon()
+/obj/item/clothing/head/roguetown/helmet/bascinet/klappvisier/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -1610,7 +1610,7 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
-/obj/item/clothing/head/roguetown/helmet/bascinet/etruscan/AdjustClothes(mob/user)
+/obj/item/clothing/head/roguetown/helmet/bascinet/klappvisier/AdjustClothes(mob/user)
 	if(loc == user)
 		playsound(user, "sound/items/visor.ogg", 100, TRUE, -1)
 		if(adjustable == CAN_CADJUST)
@@ -1953,7 +1953,7 @@
 			var/mob/living/carbon/H = user
 			H.update_inv_head()
 
-/obj/item/clothing/head/roguetown/grenzelhofthat/update_icon()
+/obj/item/clothing/head/roguetown/freihat/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))

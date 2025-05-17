@@ -69,8 +69,8 @@
 /obj/item/reagent_containers/food/snacks/rogue/bun_grenz
 	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+SMALLDOUGH_NUTRITION)
 	tastes = list("savory sausage" = 1, "bread" = 1)
-	name = "grenzelbun"
-	desc = "Originally an elven cuisine composed of mortal races flesh and bread, the classic wiener in a bun, now modified and staple food of Grenzelhoft cuisine."
+	name = "wienerbun"
+	desc = "Common marketplace fare in busy Eisler towns, political wrangling by the Baker's Guild led King-Elect Sigismund II to recognize it by law to be a sandwich."
 	icon_state = "grenzbun"
 	foodtype = GRAIN | MEAT
 	faretype = FARE_NEUTRAL
@@ -104,9 +104,9 @@
 /obj/item/reagent_containers/food/snacks/rogue/friedegg
 	trash = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("fried cackleberry" = 1)
-	name = "fried cackleberry"
-	desc = "A favorite dish among Astratans."
+	tastes = list("fried egg" = 1)
+	name = "fried egg"
+	desc = "A food so simple children often fry them when you aren't looking."
 	icon_state = "friedegg"
 	portable = FALSE
 	faretype = FARE_POOR
@@ -132,10 +132,10 @@
 /*	.............   Twin fried cackleberries   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/two
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
-	tastes = list("fried cackleberries" = 1)
-	name = "fried cackleberries"
+	tastes = list("fried eggs" = 1)
+	name = "fried eggs"
 	faretype = FARE_NEUTRAL
-	desc = "Double the yolks, double the fun."
+	desc = "Few turn up their nose at a breakfast this wholesome."
 	portable = FALSE
 	icon_state = "seggs"
 
