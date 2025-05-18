@@ -7,7 +7,7 @@
 
 
 /datum/mapGenerator/roguetownfield
-	modules = list(/datum/mapGeneratorModule/ambushing,/datum/mapGeneratorModule/roguetownfield/grass,/datum/mapGeneratorModule/roguetowngrass,/datum/mapGeneratorModule/roguetownfield,/datum/mapGeneratorModule/roguetownfield/road)
+	modules = list(/datum/mapGeneratorModule/ambushing, /datum/mapGeneratorModule/roguetownfield/grass, /datum/mapGeneratorModule/roguetownfloras, /datum/mapGeneratorModule/roguetowngrass,/datum/mapGeneratorModule/roguetownfield,/datum/mapGeneratorModule/roguetownfield/road)
 
 
 /datum/mapGeneratorModule/roguetownfield
@@ -46,17 +46,25 @@
 	spawnableAtoms = list()
 	allowed_areas = list(/area/rogue/outdoors/rtfield)
 
+/datum/mapGeneratorModule/roguetownfloras
+	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
+	allowed_turfs = list(/turf/open/floor/rogue/dirt,/turf/open/floor/rogue/grass,/turf/open/floor/rogue/grassred,/turf/open/floor/rogue/grassyel,/turf/open/floor/rogue/grasscold)
+	excluded_turfs = list(/turf/open/floor/rogue/dirt/road)
+	spawnableAtoms = list(/obj/structure/flora/roguetree/elder = 30,
+						/obj/structure/flora/roguetree = 20,
+						/obj/structure/flora/roguegrass/bush/random = 41,
+						/obj/effect/spawner/lootdrop/ausflora = 50,)
+	allowed_areas = list(/area/rogue/outdoors/rtfield)
+
 /datum/mapGeneratorModule/roguetowngrass
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
 	allowed_turfs = list(/turf/open/floor/rogue/dirt,/turf/open/floor/rogue/grass,/turf/open/floor/rogue/grassred,/turf/open/floor/rogue/grassyel,/turf/open/floor/rogue/grasscold)
 	excluded_turfs = list(/turf/open/floor/rogue/dirt/road)
-	spawnableAtoms = list(/obj/structure/flora/roguegrass = 40,
-						/obj/structure/flora/roguetree/elder = 30,
+	spawnableAtoms = list(/obj/structure/flora/roguegrass = 90,
 						/obj/structure/flora/roguegrass/bush/random = 31,
-						/obj/structure/flora/roguegrass/herb/random = 25,
-						/obj/effect/spawner/lootdrop/ausflora = 30,
 						/obj/structure/flora/roguegrass/maneater = 7,
-						/obj/item/natural/stone = 18,
-						/obj/item/grown/log/tree/stick = 17)
-	allowed_areas = list(/area/rogue/outdoors/town,/area/rogue/outdoors/rtfield)
+						/obj/item/natural/stone = 26,
+						/obj/item/natural/rock = 26,  
+						/obj/item/grown/log/tree/stick = 27)
+	allowed_areas = list(/area/rogue/outdoors/rtfield)
 
