@@ -31,6 +31,7 @@
 						/obj/item/flashlight/flare/torch = 1,
 						/obj/item/needle/thorn = 1,
 						)
+	ADD_TRAIT(H, TRAIT_DYES, TRAIT_GENERIC)
 	H.change_stat("intelligence", 2)
 	H.change_stat("speed", 2)
 	H.change_stat("perception", 1)

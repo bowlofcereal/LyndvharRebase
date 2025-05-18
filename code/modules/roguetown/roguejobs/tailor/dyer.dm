@@ -42,7 +42,7 @@ var/global/list/colorlist = list(
 	"Royal Magenta" = "#962e5c",
 	"Blacksteel Grey"="#404040",
 	"Dark Grey" = "#505050",
-	"Darkest Night" = "#414143",
+	"Darkest Night" = "#414143"
 	)
 
 
@@ -144,25 +144,64 @@ var/global/list/colorlist = list(
 		return
 
 	if(href_list["select"])
-		var/choice = input(usr,"Choose your dye:","Dyes",null) as null|anything in colorlist
-		if(!choice)
-			return
-		activecolor = colorlist[choice]
-		updateUsrDialog()
+		if(HAS_TRAIT(usr, TRAIT_DYES))
+			var/choice
+			if(alert(usr, "Input Choice", "Primary Dye", "Color Wheel", "Color Preset") != "Color Wheel")
+				choice = input(usr, "Choose your dye:", "Dyes", null) as null|anything in used_colors
+				if(!choice)
+					return
+				activecolor = used_colors[choice]
+			else
+				activecolor = sanitize_hexcolor(color_pick_sanitized_lumi(usr, "Choose your dye:", "Dyes", choice ? choice : activecolor_detail, 0.2, 0.8), 6, TRUE)
+				if(activecolor == "#000000")
+					activecolor = "#FFFFFF"
+			updateUsrDialog()
+		else
+			var/choice = input(usr,"Choose your dye:","Dyes",null) as null|anything in colorlist
+			if(!choice)
+				return
+			activecolor = colorlist[choice]
+			updateUsrDialog()
 
 	if(href_list["select_detail"])
-		var/choice = input(usr,"Choose your dye:","Dyes",null) as null|anything in colorlist
-		if(!choice)
-			return
-		activecolor_detail = colorlist[choice]
-		updateUsrDialog()
+		if(HAS_TRAIT(usr, TRAIT_DYES))
+			var/choice
+			if(alert(usr, "Input Choice", "Primary Dye", "Color Wheel", "Color Preset") != "Color Wheel")
+				choice = input(usr, "Choose your dye:", "Dyes", null) as null|anything in used_colors
+				if(!choice)
+					return
+				activecolor = used_colors[choice]
+			else
+				activecolor = sanitize_hexcolor(color_pick_sanitized_lumi(usr, "Choose your dye:", "Dyes", choice ? choice : activecolor_detail, 0.2, 0.8), 6, TRUE)
+				if(activecolor == "#000000")
+					activecolor = "#FFFFFF"
+			updateUsrDialog()
+		else
+			var/choice = input(usr,"Choose your dye:","Dyes",null) as null|anything in colorlist
+			if(!choice)
+				return
+			activecolor = colorlist[choice]
+			updateUsrDialog()
 
 	if(href_list["select_altdetail"])
-		var/choice = input(usr,"Choose your dye:","Dyes",null) as null|anything in colorlist
-		if(!choice)
-			return
-		activecolor_altdetail = colorlist[choice]
-		updateUsrDialog()
+		if(HAS_TRAIT(usr, TRAIT_DYES))
+			var/choice
+			if(alert(usr, "Input Choice", "Primary Dye", "Color Wheel", "Color Preset") != "Color Wheel")
+				choice = input(usr, "Choose your dye:", "Dyes", null) as null|anything in used_colors
+				if(!choice)
+					return
+				activecolor = used_colors[choice]
+			else
+				activecolor = sanitize_hexcolor(color_pick_sanitized_lumi(usr, "Choose your dye:", "Dyes", choice ? choice : activecolor_detail, 0.2, 0.8), 6, TRUE)
+				if(activecolor == "#000000")
+					activecolor = "#FFFFFF"
+			updateUsrDialog()
+		else
+			var/choice = input(usr,"Choose your dye:","Dyes",null) as null|anything in colorlist
+			if(!choice)
+				return
+			activecolor = colorlist[choice]
+			updateUsrDialog()
 
 	if(href_list["paint"])
 		if(!inserted)
