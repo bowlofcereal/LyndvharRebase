@@ -967,7 +967,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	minstr = 10
 	max_blade_int = 200
-	wdefense = 7
+	wdefense = 6
 	thrown_bclass = BCLASS_STAB
 	throwforce = 12	//Not a throwing weapon. Too heavy!
 	max_integrity = 250
