@@ -188,8 +188,8 @@
 	name = "bludgen"
 	blade_class = BCLASS_BLUNT
 	recovery = 6
-	penfactor = 0	//Blunt weapon
-	reach = 2	//Less range than a normal whip by 1
+	damfactor = 1.2 	//20% bonus because no pen, and it doesn't get smash crits.
+	reach = 2			//Less range than a normal whip by 1
 	icon_state = "instrike"
 	item_d_type = "blunt"
 
@@ -197,7 +197,7 @@
 	name = "nagaika whip"
 	desc = "A short but heavy leather whip, sporting a blunt reinforced tip and a longer handle."
 	icon_state = "nagaika"
-	force = 24		//It's like a mace so has to be a bit weaker than a mace.
+	force = 25		//Same as a cudgel/sword for intent purposes. Basically a 2 range cudgel while one-handing.
 	possible_item_intents = list(/datum/intent/whip/crack/blunt, /datum/intent/whip/lash, /datum/intent/whip/punish, /datum/intent/sword/strike)
 	wdefense = 1	//Akin to a cudgel, still terrible at parrying though.
 
