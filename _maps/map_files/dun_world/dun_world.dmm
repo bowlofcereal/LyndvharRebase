@@ -4860,8 +4860,8 @@
 /area/rogue/indoors/town)
 "bLQ" = (
 /obj/structure/fluff/railing/wood,
-/obj/structure/roguemachine/atm{
-	location_tag = "Steward Desk"
+/obj/structure/fluff/walldeco/customflag{
+	pixel_y = 32
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town)
@@ -6864,6 +6864,11 @@
 /obj/structure/fluff/walldeco/bsmith{
 	dir = 1
 	},
+/obj/structure/roguemachine/atm{
+	location_tag = "Steward Desk";
+	pixel_y = 0;
+	pixel_x = 32
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town)
 "czf" = (
@@ -7420,9 +7425,11 @@
 /area/rogue/outdoors/beach/forest)
 "cKw" = (
 /obj/effect/decal/cobbleedge{
-	dir = 8
+	dir = 10;
+	icon_state = "cobbleedge-n"
 	},
-/turf/open/floor/rogue/dirt/ambush,
+/obj/machinery/light/rogue/lanternpost,
+/turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "cKE" = (
 /mob/living/carbon/human/species/dwarfskeleton/ambush,
@@ -7512,17 +7519,6 @@
 	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/dwarfin)
-"cLP" = (
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	icon_state = "cobbleedge-n"
-	},
-/obj/machinery/light/rogue/lanternpost,
-/obj/structure/fluff/walldeco/customflag{
-	pixel_x = -32
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town)
 "cLQ" = (
 /obj/structure/fluff/walldeco/bigpainting,
 /turf/open/floor/rogue/ruinedwood{
@@ -15583,7 +15579,9 @@
 /obj/effect/decal/cobbleedge{
 	dir = 4
 	},
-/obj/machinery/light/rogue/lanternpost,
+/obj/machinery/light/rogue/torchholder/r{
+	dir = 4
+	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "fBq" = (
@@ -29494,8 +29492,15 @@
 	},
 /area/rogue/indoors/town)
 "kzT" = (
-/obj/structure/bed/rogue/shit,
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/fluff/walldeco/customflag{
+	pixel_x = -32
+	},
+/obj/machinery/light/rogue/lanternpost,
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-n"
+	},
+/turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "kAd" = (
 /turf/open/floor/rogue/ruinedwood,
@@ -46203,7 +46208,7 @@
 	dir = 10;
 	icon_state = "cobbleedge-n"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town)
 "qxV" = (
 /obj/structure/fluff/railing/border{
@@ -46257,10 +46262,14 @@
 /turf/open/floor/rogue/grassred,
 /area/rogue/indoors/shelter/woods)
 "qzm" = (
-/obj/structure/fluff/walldeco/customflag{
-	pixel_x = 32
+/obj/structure/fluff/railing/border{
+	dir = 4
 	},
-/turf/open/floor/rogue/cobble,
+/obj/effect/decal/cobbleedge{
+	dir = 8
+	},
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "qzo" = (
 /turf/closed/wall/mineral/rogue/stonebrick,
@@ -51944,6 +51953,11 @@
 "svD" = (
 /obj/structure/fluff/walldeco/bsmith{
 	name = "DWARVEN KEEP"
+	},
+/obj/structure/roguemachine/atm{
+	location_tag = "Steward Desk";
+	pixel_y = 0;
+	pixel_x = -32
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town)
@@ -254082,21 +254096,21 @@ qyR
 wyE
 qyR
 lNb
-qyR
 lGv
-qyR
-qyR
-qyR
-wyE
-qyR
+fpx
+fpx
+fpx
+fpx
+fpx
+fpx
 nea
-qyR
+wyE
 qyR
 tFL
 tVv
 ftH
 wNZ
-ftH
+qzm
 dzY
 sns
 sns
@@ -254533,18 +254547,18 @@ qyR
 qyR
 wyE
 fpx
-qHZ
+dQI
+kkc
 fpx
-qyR
-wyE
+gyu
+iJD
+cDX
+gyu
 fpx
 fpx
 fpx
 fpx
 fpx
-lGv
-qyR
-qyR
 oKW
 cne
 kac
@@ -254985,18 +254999,18 @@ pLh
 fpx
 fpx
 nJH
-dQI
-kkc
-kzT
+ins
+gyu
+gyu
+cDX
+ucq
+mwc
+lKo
 gyu
 iJD
-cDX
 gyu
-fpx
-fpx
-fpx
-fpx
-fpx
+cDX
+xpk
 enk
 vmk
 bUt
@@ -255437,18 +255451,18 @@ phl
 phl
 dQI
 sns
-ins
-gyu
-gyu
+sns
 cDX
-ucq
-mwc
+wKN
+mix
+kRg
+kRg
 lKo
-gyu
-iJD
+lZC
+fOM
+cNt
 gyu
 cDX
-xpk
 enk
 vmk
 bUt
@@ -255889,18 +255903,18 @@ jdu
 jYL
 sns
 sns
-sns
-cDX
-wKN
-mix
-kRg
-kRg
 lKo
-lZC
-fOM
-cNt
-gyu
-cDX
+lKo
+puQ
+hoD
+kRg
+kRg
+fsO
+kRg
+kRg
+iBM
+efX
+lKo
 enk
 vmk
 bUt
@@ -256342,17 +256356,17 @@ phl
 btK
 sns
 lKo
+aiE
+hTe
+gTD
+kRg
+lOl
 lKo
-puQ
-hoD
+bSA
 kRg
-kRg
-fsO
-kRg
-kRg
-iBM
-efX
-lKo
+kkB
+bPS
+iJD
 enk
 vmk
 bUt
@@ -256793,17 +256807,17 @@ vwU
 phl
 fpx
 sns
-lKo
-aiE
-hTe
-gTD
+iJD
+xtN
 kRg
-lOl
-lKo
-bSA
+arJ
 kRg
-kkB
-bPS
+nKO
+lKo
+tVf
+kRg
+iBM
+waZ
 iJD
 enk
 bUt
@@ -257245,18 +257259,18 @@ ocX
 wSP
 njB
 sns
-iJD
-xtN
+lKo
+hPz
 kRg
 arJ
 kRg
-nKO
+bKU
 lKo
-tVf
+vPv
 kRg
-iBM
-waZ
-iJD
+kRg
+eHy
+qLc
 enk
 bUt
 eNp
@@ -257698,17 +257712,17 @@ phl
 pWT
 sns
 lKo
-hPz
+xBd
 kRg
-arJ
+vGW
 kRg
-bKU
+qFN
 lKo
-vPv
+ruL
+kXi
 kRg
 kRg
-eHy
-qLc
+lKo
 enk
 bUt
 bUt
@@ -258149,18 +258163,18 @@ phl
 enA
 nJH
 sns
-lKo
-xBd
-kRg
-vGW
-kRg
-qFN
-lKo
-ruL
-kXi
-kRg
-kRg
-lKo
+fHN
+gyu
+iJD
+gyu
+fsO
+cDX
+cDX
+cDX
+hUC
+hUC
+gaP
+cDX
 oKW
 cne
 hYo
@@ -258601,18 +258615,18 @@ phl
 fgh
 bMf
 sns
-fHN
-gyu
-iJD
-gyu
-fsO
+cKw
+njB
+fpx
+pWT
+sns
+sns
+euy
 cDX
-cDX
-cDX
-hUC
-hUC
-gaP
-cDX
+kRP
+sns
+vOG
+lce
 pNm
 bVG
 fPZ
@@ -259059,14 +259073,14 @@ qPs
 njB
 hRO
 sns
-euy
-cDX
-kRP
+kzT
+njB
+sns
 sns
 vOG
-lce
+sns
 pWT
-pWT
+njB
 pWT
 fpx
 exD
@@ -259507,11 +259521,11 @@ wND
 sns
 vWX
 sns
-cKw
-cKw
+dQI
+dQI
 bVy
 sns
-cLP
+qxR
 jlj
 sns
 sns
@@ -260874,7 +260888,7 @@ klm
 hMe
 sns
 sns
-qzm
+sns
 nqN
 sns
 sns
@@ -263137,7 +263151,7 @@ eyK
 smL
 smL
 smL
-xhO
+sns
 sns
 sns
 eKH
@@ -265849,7 +265863,7 @@ eyK
 smL
 smL
 smL
-xhO
+sns
 sns
 sns
 eKH
@@ -268106,7 +268120,7 @@ wWs
 lGf
 aWT
 aWT
-lGf
+aWT
 wWs
 aWT
 aWT
@@ -369794,16 +369808,16 @@ mUl
 bGf
 bGf
 bGf
-bGf
-bGf
-bGf
-bGf
-bGf
-bGf
-bGf
-bGf
-bGf
-bGf
+kSK
+kSK
+kSK
+kSK
+kSK
+kSK
+kSK
+kSK
+kSK
+kSK
 bGf
 bGf
 bGf
@@ -370247,16 +370261,16 @@ bGf
 bGf
 bGf
 kSK
+cDX
+gyu
+gyu
+gyu
+gyu
+cDX
 kSK
 kSK
 kSK
 kSK
-kSK
-kSK
-kSK
-kSK
-kSK
-bGf
 bGf
 bGf
 kSK
@@ -370699,17 +370713,17 @@ phl
 bGf
 bGf
 kSK
-cDX
-gyu
-gyu
-gyu
-gyu
-cDX
+lKo
+nxt
+kRg
+aoW
+daV
+lKo
 kSK
 kSK
 kSK
 kSK
-bGf
+kSK
 bGf
 kSK
 kSK
@@ -371152,11 +371166,11 @@ bGf
 bGf
 kSK
 lKo
-nxt
-kRg
-aoW
-daV
-lKo
+bat
+xWU
+xWU
+fei
+cDX
 kSK
 kSK
 kSK
@@ -371603,12 +371617,12 @@ wSP
 bGf
 bGf
 kSK
+gKh
+kRg
+xWU
+xWU
+qRV
 lKo
-bat
-xWU
-xWU
-fei
-cDX
 kSK
 kSK
 kSK
@@ -372055,12 +372069,12 @@ wSP
 bGf
 bGf
 kSK
-gKh
-kRg
-xWU
-xWU
-qRV
 lKo
+kRg
+mJJ
+xWU
+kRg
+dpx
 kSK
 kSK
 kSK
@@ -372508,11 +372522,11 @@ bGf
 bGf
 kSK
 lKo
+vON
 kRg
-mJJ
-xWU
-kRg
-dpx
+mse
+ygp
+lKo
 kSK
 kSK
 kSK
@@ -372959,12 +372973,12 @@ phl
 bGf
 bGf
 kSK
-lKo
-vON
-kRg
-mse
-ygp
-lKo
+cDX
+gyu
+fsO
+gyu
+cDX
+cDX
 kSK
 kSK
 kSK
@@ -373412,11 +373426,11 @@ bGf
 bGf
 kSK
 cDX
-gyu
-fsO
-gyu
+wIv
+wIv
+wIv
 cDX
-cDX
+kSK
 kSK
 kSK
 kSK
@@ -373864,9 +373878,9 @@ bGf
 bGf
 kSK
 cDX
-wIv
-wIv
-wIv
+tGa
+riJ
+phE
 cDX
 kSK
 kSK
@@ -374314,18 +374328,18 @@ mTw
 wSP
 bGf
 bGf
-kSK
-cDX
-tGa
-riJ
-phE
-cDX
-kSK
-kSK
-kSK
-kSK
-kSK
-kSK
+bGf
+spC
+bGf
+bGf
+bGf
+bGf
+bGf
+bGf
+bGf
+bGf
+bGf
+bGf
 bGf
 bGf
 bGf
@@ -485507,13 +485521,13 @@ phl
 bGf
 bGf
 bGf
-bGf
-bGf
-bGf
-bGf
-bGf
-bGf
-bGf
+kSK
+kSK
+kSK
+kSK
+kSK
+kSK
+kSK
 bGf
 bGf
 bGf
@@ -488671,13 +488685,13 @@ kSK
 kSK
 bGf
 bGf
+bGf
 kSK
 kSK
 kSK
 kSK
 kSK
-kSK
-kSK
+bGf
 bGf
 bGf
 bGf
@@ -489576,11 +489590,11 @@ kSK
 bGf
 bGf
 bGf
-kSK
-kSK
-kSK
-kSK
-kSK
+bGf
+bGf
+bGf
+bGf
+bGf
 bGf
 bGf
 bGf
