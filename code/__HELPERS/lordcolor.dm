@@ -29,7 +29,6 @@ GLOBAL_VAR(lordsecondary)
 "BLUE"="#173266", 	// AN ALBANIAN
 "YELLOW"="#ffcd43", // KEEP MY HEAD
 "TEAL"="#249589", 	//	 UP HIGH
-"AZURE"="#007fff", 	// FOR THE FLAG
 "WHITE"="#ffffff",	//	  I DIE
 "ORANGE"="#df8405",	//I'M PROUD TO BE
 "MAGENTA"="#962e5c")// AN ALBANIAN
@@ -55,7 +54,7 @@ GLOBAL_VAR(lordsecondary)
 		GLOB.lordcolor -= T
 
 /proc/lord_color_default()
-	GLOB.lordprimary = "#007fff" //AZURE
+	GLOB.lordprimary = "#720404" //HELMSGUARD RED
 	GLOB.lordsecondary = "#ffffff" //WHITE
 	for(var/obj/O in GLOB.lordcolor)
 		O.lordcolor(GLOB.lordprimary,GLOB.lordsecondary)

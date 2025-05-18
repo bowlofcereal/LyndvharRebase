@@ -81,5 +81,5 @@
 	H.mind.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_AZURENATIVE, TRAIT_GENERIC)
+	//ADD_TRAIT(H, TRAIT_LOCALNATIVE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OUTDOORSMAN, TRAIT_GENERIC)

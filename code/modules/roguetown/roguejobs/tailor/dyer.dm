@@ -46,7 +46,6 @@
 		"Periwinkle Blue" = "#8f99fb",
 		"Red" = "#a32121",
 		"Red Ochre" = "#913831",
-		"Royal Azure" = "#007fff",
 		"Royal Black" = "#2b292e",
 		"Royal Blue" = "#173266",
 		"Royal Brown" = "#61462c",

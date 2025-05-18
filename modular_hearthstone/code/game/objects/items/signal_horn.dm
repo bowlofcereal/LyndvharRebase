@@ -79,14 +79,14 @@
 				placetext = " In the Mountains!"
 			if("mt decapitation")
 				placetext = " from Mt Decapitation!"
-			if("azure basin")
-				placetext = " in the The Azure Basin!"
+			if("sundmark field")
+				placetext = " in the the fields of Sundmark!"
 			if("wilderness")
-				placetext = " in the The Azure Grove!"
+				placetext = " in the the wilderness!"
 			if("bog", "dense bog")
 				placetext = " in the The Terrorbog!"
 			if("coast", "coastforest")
-				placetext = " on the Azure Coast!"
+				placetext = " on the coast of Sundmark!"
 			if("indoors", "Shop", "Physician", "outdoors", "roofs")
 				placetext = " somewhere in town!"
 			if("Manor", "Wizard's Tower")
