@@ -30,13 +30,13 @@
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
-	var/classes = list("Ataman","Druzhina","Hohol")
+	var/classes = list("Bahadur","Druzhina","Hohol")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
-		if("Ataman")	//Tl;dr - medium armor class for Mount and Blade larpers who still get a saiga. Akin to Vaquero with specific drip.
+		if("Bahadur")	//Tl;dr - medium armor class for Mount and Blade larpers who still get a saiga. Akin to Vaquero with specific drip.
 			H.set_blindness(0)
-			to_chat(H, span_warning("The Ataman are the elites of the southern steppes, veterans of conflict across the realm. Outfitted with a sabre and shield, these warriors sacrifice their swiftness for armor and civilized respect."))
+			to_chat(H, span_warning("The Bahadur are the elites of the southern steppes, veterans of conflict across the realm. Outfitted with a sabre and shield, these warriors sacrifice their swiftness for armor and civilized respect."))
 			shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
 			head = /obj/item/clothing/head/roguetown/helmet			//Needs a unique helmet + mask combo at some point. 
 			mask = /obj/item/clothing/mask/rogue/facemask			//See above. Trying to emulate a Cuman/Mongolic looking metal face-mask.
