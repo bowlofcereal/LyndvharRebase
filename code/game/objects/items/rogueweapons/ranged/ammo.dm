@@ -265,30 +265,41 @@
 		addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living, adjustToxLoss), 100), 10 SECONDS)
 		addtimer(CALLBACK(M, TYPE_PROC_REF(/atom, visible_message), span_danger("[M] appears greatly weakened by the poison!")), 10 SECONDS)
 
-/obj/projectile/bullet/reusable/bullet
+/obj/projectile/bullet/rogue
 	name = "lead ball"
-	damage = 50
+	damage = 75	//higher damage than crossbow
 	damage_type = BRUTE
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "musketball_proj"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/bullet
-	range = 30
+	range = 25		//Higher than arrow, but not halfway through the entire town.
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
 	embedchance = 100
 	woundclass = BCLASS_STAB
-	flag = "piercing"
-	armor_penetration = 200
-	speed = 0.1
+	flag = "bullet"
+	armor_penetration = 75	//Crossbow-on-crack AP. Armor only goes up to 100 protection normally; so this ignores most of it but not all. Wear good armor!
+	speed = 0.1		//ZOOM!!!!!
+
+/obj/projectile/bullet/rogue/on_hit(atom/target, blocked = FALSE)
+	. = ..()
+	if(istype(target, /mob/living/carbon/human))
+		var/mob/living/carbon/human/M = target
+		var/list/screams = list("painscream", "paincrit")
+		if(isliving(target))
+			if(prob(70))
+				M.emote(screams)
+				M.Knockdown(rand(15,30))
+				M.Immobilize(rand(30,60))
+
 
 /obj/item/ammo_casing/caseless/rogue/bullet
 	name = "lead sphere"
 	desc = "A small lead sphere. This should go well with gunpowder."
-	projectile_type = /obj/projectile/bullet/reusable/bullet
+	projectile_type = /obj/projectile/bullet/rogue
 	caliber = "musketball"
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "musketball"
 	dropshrink = 0.5
-	possible_item_intents = list(/datum/intent/use)
 	max_integrity = 0.1
 
 

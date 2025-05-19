@@ -24,12 +24,11 @@
 	spread = 0
 
 	can_parry = TRUE
-	pin = /obj/item/firing_pin
 	minstr = 6
 	walking_stick = TRUE
 	experimental_onback = TRUE
 	cartridge_wording = "musketball"
-	load_sound = 'sound/foley/musketload.ogg'
+	load_sound = 'modular_helmsguard/sound/arquebus/musketload.ogg'
 	fire_sound = "modular_helmsguard/sound/arquebus/arquefire.ogg"
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -81,7 +80,7 @@
 			to_chat(user, "<span class='warning'>There is no rod stowed in the [src]!</span>")
 
 /obj/item/gun/ballistic/handgonne/shoot_with_empty_chamber()
-	playsound(src.loc, 'sound/foley/musketcock.ogg', 100, FALSE)
+	playsound(src.loc, 'modular_helmsguard/sound/arquebus/musketcock.ogg', 100, FALSE)
 	update_icon()
 
 /obj/item/gun/ballistic/handgonne/attack_self(mob/living/user)
@@ -125,7 +124,6 @@
 				user.visible_message("<span class='notice'>[user] fills the [src] with gunpowder.</span>")
 				gunpowder = TRUE
 			return
-		user.stop_sound_channel(gunchannel)
 	if(istype(A, /obj/item/ramrod))
 		var/obj/item/ramrod/R=A
 		if(!reloaded)
@@ -177,8 +175,6 @@
 	for(var/obj/item/ammo_casing/CB in get_ammo_list(FALSE, TRUE))
 		var/obj/projectile/BB = CB.BB
 		BB.damage = BB.damage * damfactor
-		if(HAS_TRAIT(user, TRAIT_TINY))
-			BB.damage = (BB.damage * 0.3)
 	gunpowder = FALSE
 	reloaded = FALSE
 	spark_act()
