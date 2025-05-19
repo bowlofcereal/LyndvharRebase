@@ -250,6 +250,10 @@
 	layer = FLY_LAYER
 	bullet_bounce_sound = null
 
+/turf/closed/indestructible/splashscreen/Initialize()
+	. = ..()
+	icon_state = "title[rand(1,3)]"
+
 /turf/closed/indestructible/splashscreen/New()
 	SStitle.splash_turf = src
 	if(SStitle.icon)
