@@ -163,21 +163,21 @@
 			. += span_necrosis("A LEPER...")
 	
 		if (HAS_TRAIT(src, TRAIT_BEAUTIFUL))
-			switch (pronouns)
-				if (HE_HIM)
+			switch (gender)
+				if (MALE)
 					. += span_beautiful_masc("[m1] handsome!")
-				if (SHE_HER)
+				if (FEMALE)
 					. += span_beautiful_fem("[m1] beautiful!")
-				if (THEY_THEM, THEY_THEM_F, IT_ITS)
+				else
 					. += span_beautiful_nb("[m1] good-looking!")
 
 		if (HAS_TRAIT(src, TRAIT_UNSEEMLY))
-			switch (pronouns)
-				if (HE_HIM)
+			switch (gender)
+				if (MALE)
 					. += span_redtext("[m1] revolting!")
-				if (SHE_HER)
+				if (FEMALE)
 					. += span_redtext("[m1] repugnant!")
-				if (THEY_THEM, THEY_THEM_F, IT_ITS)
+				else
 					. += span_redtext("[m1] repulsive!")
 
 	if(user != src && HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))

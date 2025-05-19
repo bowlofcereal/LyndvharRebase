@@ -35,7 +35,7 @@
 						/obj/item/flashlight/flare/torch = 1,
 						)
 	ADD_TRAIT(H, TRAIT_TRAINED_SMITH, TRAIT_GENERIC)
-	if(H.pronouns == HE_HIM)
+	if(H.gender == MALE)
 
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
