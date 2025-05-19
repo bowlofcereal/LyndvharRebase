@@ -167,6 +167,7 @@
 				if ("MY BARE HANDS!!!")
 					H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
 					ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
+					ADD_TRAIT(H, TRAIT_STRONGBITE, TRAIT_GENERIC)
 			H.change_stat("strength", 3)
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 2)
