@@ -7,15 +7,15 @@
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
 	cmode_music = 'sound/music/combat_grenzelhoft.ogg'
-	classes = list("Doppelsoldner" = "You are a Doppelsoldner - \"Double-pay Mercenary\" - an experienced frontline swordsman trained by the master swordsmen of the Zenitstadt fencing guild.",
-					"Fußkämpfer" = "You are a Fußkämpfer - \"Footsoldier\", your lyfe's worth is only as high as your polearm, and the skill you wield it with. Your equals make up the bulk of the mercenary guild's forces.")		//I'm half-sure this is straightt up fake German. IDGAF. Fantasy bro.
+	classes = list("Doppelsoldner" = "You are a Doppelsoldner - \"Double-pay Mercenary\" - an experienced frontliner trained by the master swordsmen of the Zenitstadt fencing guild.",
+					"Halberdier" = "You're an experienced soldier skilled in the use of polearms and axes. Your equals make up the bulk of the mercenary guild's forces.")
 
 /datum/outfit/job/roguetown/mercenary/grenzelhoft/pre_equip(mob/living/carbon/human/H)
 	..()
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
-	var/classes = list("Doppelsoldner","Fußkämpfer")
+	var/classes = list("Doppelsoldner","Halberdier")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
@@ -42,9 +42,9 @@
 			H.change_stat("perception", 1)
 			H.change_stat("speed", -1)		//They get heavy armor now + sword option; so lower speed.
 			r_hand = /obj/item/rogueweapon/greatsword/grenz
-		if("Fußkämpfer")
+		if("Halberdier")
 			H.set_blindness(0)
-			to_chat(H, span_warning("You are a Grenzelhoftian pikeman, a skilled wielder of both polearms and axes. Your equals make up the bulk of the mercenary guild's forces."))
+			to_chat(H, span_warning("You're an experienced soldier skilled in the use of polearms and axes. Your equals make up the bulk of the mercenary guild's forces."))
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -63,16 +63,6 @@
 			H.change_stat("constitution", 2)
 			H.change_stat("perception", -1)
 			H.change_stat("speed", 1)
-
-	if(classchoice == "Fußkämpfer")
-		var/weapons = list("Halberd","Partizan")
-		var/wepchoice = input("Choose your weapon", "Available choices") as anything in weapons
-
-		switch(wepchoice)
-			if ("Halberd")
-				r_hand = /obj/item/rogueweapon/halberd
-			if ("Partizan")
-				r_hand = /obj/item/rogueweapon/spear/partizan
 
 	//General gear regardless of class.
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
