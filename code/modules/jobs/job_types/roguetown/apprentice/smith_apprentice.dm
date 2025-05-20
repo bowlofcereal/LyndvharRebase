@@ -1,7 +1,7 @@
 /datum/job/roguetown/bapprentice
 	title = "Smithy Apprentice"
 	flag = APPRENTICE
-	department_flag = YOUNGFOLK
+	department_flag = APPRENTICE
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2

@@ -1,8 +1,8 @@
 /datum/job/roguetown/prince
-	title = "Prince"
-	f_title = "Princess"
+	title = "Lord Heir"
+	f_title = "Lady Heir"
 	flag = PRINCE
-	department_flag = YOUNGFOLK
+	department_flag = APPRENTICE
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2

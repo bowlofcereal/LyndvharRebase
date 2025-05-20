@@ -311,8 +311,6 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 					blockme = TRUE
 				if(rebelguy.assigned_role in GLOB.noble_positions)
 					blockme = TRUE
-				if(rebelguy.assigned_role in GLOB.youngfolk_positions)
-					blockme = TRUE
 				if(rebelguy.assigned_role in GLOB.church_positions)
 					blockme = TRUE
 				if(rebelguy.assigned_role in GLOB.yeoman_positions)
@@ -399,7 +397,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 			blockme = TRUE
 		if(vampire.assigned_role in GLOB.noble_positions)
 			continue
-		if(vampire.assigned_role in GLOB.youngfolk_positions)
+		if(vampire.assigned_role in GLOB.apprentice_positions)
 			blockme = TRUE
 		if(blockme)
 			continue
@@ -454,7 +452,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 			blockme = TRUE
 		if(werewolf.assigned_role in GLOB.noble_positions)
 			continue
-		if(werewolf.assigned_role in GLOB.youngfolk_positions)
+		if(werewolf.assigned_role in GLOB.apprentice_positions)
 			blockme = TRUE
 		if(blockme)
 			return

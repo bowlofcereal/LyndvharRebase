@@ -11,7 +11,7 @@
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 	tutorial = "Having proven yourself loyal and capable, you are entrusted to defend the town and enforce its laws. \
 				Trained regularly in combat and siege warfare, you deal with threats - both within and without. \
-				Obey your Sergeant-at-Arms, the Marshal, and the Crown. Show the nobles and knights your respect, so that you may earn it in turn. Not as a commoner, but as a soldier.."
+				Obey your Master-at-Arms, the Marshal, and the Crown. Show the nobles and knights your respect, so that you may earn it in turn. Not as a commoner, but as a soldier.."
 	display_order = JDO_CASTLEGUARD
 	whitelist_req = TRUE
 
@@ -50,7 +50,7 @@
 	belt = /obj/item/storage/belt/rogue/leather/black
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	id = /obj/item/scomstone/bad/garrison
-
+/*
 // Melee goon
 /datum/advclass/manorguard/footsman
 	name = "Footman"
@@ -222,3 +222,4 @@
 	
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
 	H.verbs |= /mob/proc/haltyell
+*/

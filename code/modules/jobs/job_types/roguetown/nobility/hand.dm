@@ -19,7 +19,7 @@
 	max_pq = null
 	round_contrib_points = 3
 	cmode_music = 'sound/music/combat_noble.ogg'
-
+	advjob_examine = TRUE
 /*
 /datum/job/roguetown/hand/special_job_check(mob/dead/new_player/player)
 	if(!player)
@@ -143,7 +143,7 @@
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 
 /datum/advclass/hand/advisor
-	name = "Advisor"
+	name = "Court Advisor"
 	tutorial = " You have played researcher and confidant to the Noble-Family for so long that you are a vault of knowledge, something you exploit with potent conviction. Let no man ever forget the knowledge you wield. You've read more books than any blademaster or spymaster could ever claim to."
 	outfit = /datum/outfit/job/roguetown/hand/advisor
 
