@@ -1,6 +1,6 @@
 /obj/item/war_horn
 	name = "generic war horn"
-	desc = "Used to coordiante troops in the field."
+	desc = "Used to coordinate troops in the field and to sound alarms, right click the horn to issue custom message."
 	icon = 'modular_helmsguard/icons/obj/items/warhorns.dmi'
 	icon_state = "humanhorn"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
@@ -19,7 +19,7 @@
 //someone has to get a 4th sound for each and missing distant sounds.
 
 /obj/item/war_horn/human
-	name = "humanic war horn"
+	name = "bronze war horn"
 	icon_state = "humanhorn"
 	retreatsound = 'modular_helmsguard/sound/items/horns/h_retreat.ogg'
 	rallysound = 'modular_helmsguard/sound/items/horns/h_rally.ogg'
@@ -30,6 +30,7 @@
 	farholdsound = 'modular_helmsguard/sound/items/horns/h_hold_distant.ogg'
 	farchargesound = 'modular_helmsguard/sound/items/horns/h_charge_distant.ogg'
 
+	
 /obj/item/war_horn/orc
 	name = "Orcish war horn"
 	icon_state = "orchorn"

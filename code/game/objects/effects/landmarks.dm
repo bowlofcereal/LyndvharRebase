@@ -89,10 +89,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	jobspawn_override = list("Bandit")
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/bogguardlate
-	name = "Bogguardlate"
+/obj/effect/landmark/start/manatarmslate
+	name = "Manatarmslate"
 	icon_state = "arrow"
-	jobspawn_override = list("Bog Master", "Bog Guard", "Warden")
+	jobspawn_override = list("Man-at-Arms", "Master-at-Arms", "Gatekeeper")
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/vagrantlate
@@ -183,8 +183,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Bog Master"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/bogguardsman
-	name = "Bog Guard"
+/obj/effect/landmark/start/manatarms
+	name = "Man-at-Arms"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/marshal
@@ -247,8 +247,12 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Orthodoxist"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/sergeant
-	name = "Sergeant"
+/obj/effect/landmark/start/masteratarms
+	name = "master-at-arms"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/gatemaster
+	name = "gatekeeper"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/nightman

@@ -1,8 +1,8 @@
 /datum/job/roguetown/servant
 	title = "Servant"
-//	f_title = "Maid"
+	f_title = "Maid"
 	flag = SERVANT
-	department_flag = YOUNGFOLK
+	department_flag = APPRENTICE
 	faction = "Station"
 	total_positions = 6
 	spawn_positions = 6

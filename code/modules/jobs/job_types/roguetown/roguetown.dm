@@ -16,13 +16,13 @@
 		for(var/X in GLOB.garrison_positions)
 			peopleiknow += X
 			peopleknowme += X
+		for(var/X in GLOB.apprentice_positions)
+			peopleiknow += X
+			peopleknowme += X		
 		for(var/X in GLOB.noble_positions)
 			peopleiknow += X
 			peopleknowme += X
 		for(var/X in GLOB.courtier_positions)
-			peopleiknow += X
-			peopleknowme += X
-		for(var/X in GLOB.youngfolk_positions)
 			peopleiknow += X
 			peopleknowme += X
 		for(var/X in GLOB.mercenary_positions)
