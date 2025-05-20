@@ -23,14 +23,14 @@ SUBSYSTEM_DEF(treasury)
 	name = "treasury"
 	wait = 1
 	priority = FIRE_PRIORITY_WATER_LEVEL
-	var/tax_value = 0.11
+	var/tax_value = 0.15	// Up from 11. Taxes 1 value from a 8 value silver coin, 4 value from a 32 gold coin.
 	var/queens_tax = 0.15
 	var/treasury_value = 0
 	var/list/bank_accounts = list()
 	var/list/noble_incomes = list()
 	var/list/stockpile_datums = list()
 	var/multiple_item_penalty = 0.66
-	var/interest_rate = 0.15
+	var/interest_rate = 0
 	var/next_treasury_check = 0
 	var/list/log_entries = list()
 	var/list/vault_accounting = list() //used for the vault count, cleared every fire()
@@ -49,6 +49,9 @@ SUBSYSTEM_DEF(treasury)
 		var/datum/D = new path
 		stockpile_datums += D
 	return ..()
+
+/datum/controller/subsystem/treasury/diminishingreturns/Initialize()	// Ties the interest rate to the tax rate, using a square root function to create diminishing returns. Nikov.
+	interest_rate = sqrt(tax_value)*2	// “Everyone wants to live at the expense of the state. They forget that the state lives at the expense of everyone.” — Frédéric Bastiat
 
 /datum/controller/subsystem/treasury/fire(resumed = 0)
 	if(world.time > next_treasury_check)
@@ -75,8 +78,8 @@ SUBSYSTEM_DEF(treasury)
 				amt_to_generate += add_to_vault(I)
 		amt_to_generate = amt_to_generate - (amt_to_generate * queens_tax)
 		amt_to_generate = round(amt_to_generate)
-		give_money_treasury(amt_to_generate, "wealth hoard")
-		send_ooc_note("Income from wealth hoard: +[amt_to_generate]", job = list("Grand Duke", "Steward", "Clerk"))
+		give_money_treasury(amt_to_generate, "vault interest")
+		send_ooc_note("Interest from vault: +[amt_to_generate]", job = list("Grand Duke", "Steward", "Clerk"))
 
 /datum/controller/subsystem/treasury/proc/add_to_vault(var/obj/item/I)
 	if(I.get_real_price() <= 0 || istype(I, /obj/item/roguecoin))
@@ -129,10 +132,11 @@ SUBSYSTEM_DEF(treasury)
 		if(X == target)
 			if(amt > 0)
 				bank_accounts[X] += amt  // Add funds into the player's account
+				send_ooc_note("<b>COINMASTER:</b> Account cog rotated by [amt].")
 			else
 				// Check if the amount to be fined exceeds the player's account balance
 				if(abs(amt) > bank_accounts[X])
-					send_ooc_note("<b>MEISTER:</b> Error: Insufficient funds in the account to complete the fine.", name = target_name)
+					send_ooc_note("<b>COINMASTER:</b> Account cog cannot fall below zero position.", name = target_name)
 					return FALSE  // Return early if the player has insufficient funds
 				bank_accounts[X] -= abs(amt)  // Deduct the fine amount from the player's account
 			found_account = TRUE
@@ -143,19 +147,19 @@ SUBSYSTEM_DEF(treasury)
 	if (amt > 0)
 		// Player received money
 		if(source)
-			send_ooc_note("<b>MEISTER:</b> You received [amt]m. ([source])", name = target_name)
+			send_ooc_note("<b>COINMASTER:</b> Your account received [amt] groschen. ([source])", name = target_name)
 			log_to_steward("+[amt] from treasury to [target_name] ([source])")
 		else
-			send_ooc_note("<b>MEISTER:</b> You received [amt]m.", name = target_name)
+			send_ooc_note("<b>COINMASTER:</b> Your account received [amt] groschen.", name = target_name)
 			log_to_steward("+[amt] from treasury to [target_name]")
 	else
 		// Player was fined
 		if(source)
-			send_ooc_note("<b>MEISTER:</b> You were fined [amt]m. ([source])", name = target_name)
-			log_to_steward("[target_name] was fined [amt] ([source])")
+			send_ooc_note("<b>COINMASTER:</b> Your account is fined [amt] groschen. ([source])", name = target_name)
+			log_to_steward("-[amt] fined from [target_name] ([source])")
 		else
-			send_ooc_note("<b>MEISTER:</b> You were fined [amt]m.", name = target_name)
-			log_to_steward("[target_name] was fined [amt]")
+			send_ooc_note("<b>COINMASTER:</b> Your account is fined [amt] groschen.", name = target_name)
+			log_to_steward("-[amt] fined from [target_name]")
 
 	return TRUE
 
@@ -197,10 +201,10 @@ SUBSYSTEM_DEF(treasury)
 	for(var/X in bank_accounts)
 		if(X == target)
 			if(bank_accounts[X] < amt)  // Check if the withdrawal amount exceeds the player's account balance
-				send_ooc_note("<b>MEISTER:</b> Error: Insufficient funds in the account to complete the withdrawal.", name = target_name)
+				send_ooc_note("<b>COINMASTER:</b> Error: Account cog cannot fall below zero position.", name = target_name)
 				return  // Return without processing the transaction
 			if(treasury_value < amt)  // Check if the amount exceeds the treasury balance
-				send_ooc_note("<b>MEISTER:</b> Error: Insufficient funds in the treasury to complete the transaction.", name = target_name)
+				send_ooc_note("<b>COINMASTER:</b> Error: Treasury cog cannot fall below zero position. Insert coins to continue.", name = target_name)
 				return  // Return early if the treasury balance is insufficient
 			bank_accounts[X] -= amt //The account accounts accountingly. Shame on you if you copy this, apple.
 			treasury_value -= amt
