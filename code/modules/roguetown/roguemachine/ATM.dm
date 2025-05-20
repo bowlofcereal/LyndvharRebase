@@ -43,7 +43,7 @@
 			say("You owe us a debt!")
 			return
 		var/list/choicez = list()
-		if(amt > 32)				// Formerly 10. Helsguard is changing currency base, mind these figures if you revert. Moneyprinting would ensue.
+		if(amt > 32)				// Formerly 10. Helmsguard is changing currency base, mind these figures if you revert. Moneyprinting would ensue.
 			choicez += "GOLD"
 		if(amt > 8)
 			choicez += "SILVER"
@@ -65,9 +65,11 @@
 		if(!Adjacent(user))
 			return
 		if((coin_amt*mod) > amt)
+			say("You exceed your ledger.")
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			return
 		if(!SStreasury.withdraw_money_account(coin_amt*mod, H))
+			say("Apologies, the treasury lacks coins. Contact your COINMASTER.")
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			return
 		budget2change(coin_amt*mod, user, selection)
@@ -171,7 +173,7 @@
 	else
 		loc.visible_message(span_warning("A horrible scraping sound emanates from the Crown as it does its work..."))
 		if(!has_reported)
-			send_ooc_note("A parasite of the Freefolk is draining a Meister! Location: [location_tag ? location_tag : "Unknown"]", job = list("Grand Duke", "Steward", "Clerk"))
+			send_ooc_note("A parasite of the Freefolk is draining a coinbiter! Location: [location_tag ? location_tag : "Unknown"]", job = list("Grand Duke", "Steward", "Clerk"))
 			has_reported = TRUE
 		playsound(src, 'sound/misc/TheDrill.ogg', 70, TRUE)
 		spawn(100) // The time it takes to complete an interval. If you adjust this, please adjust the sound too. It's 'about' perfect at 100. Anything less It'll start overlapping.
