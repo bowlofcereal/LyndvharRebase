@@ -1,8 +1,8 @@
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog
+/mob/living/simple_animal/hostile/retaliate/rogue/troll
 	icon = 'icons/roguetown/mob/monster/trolls.dmi'
-	name = "bog troll"
+	name = "troll"
 	desc = "Elven legends say these monsters were servants of Dendor tasked to guard his realm; nowadays they are sometimes found in the company of orcs. It's said that fire curbs their almost magical regeneration."
-	icon_state = "Trolls"
+	icon_state = "Troll"
 	icon_living = "Troll"
 	icon_dead = "Trolld"
 	pixel_x = -16
@@ -16,68 +16,83 @@
 	verb_exclaim = "roars"
 	verb_yell = "roars"
 
-	wander = FALSE		// bog trolls are ambush predators
-	turns_per_move = 4
+	turns_per_move = 2
 	see_in_dark = 10
 	move_to_delay = 7
 	vision_range = 6
 	aggro_vision_range = 6
-	botched_butcher_results = list (/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 5, /obj/item/natural/bundle/bone/full = 1, /obj/item/alch/horn = 1, /obj/item/natural/hide = 5)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 10,
-						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2, /obj/item/alch/sinew = 5, /obj/item/alch/horn = 2, /obj/item/alch/viscera = 3)
-	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 15,
-						/obj/item/natural/hide = 15, /obj/item/natural/bundle/bone/full = 3, /obj/item/alch/sinew = 7, /obj/item/alch/horn = 2, /obj/item/alch/viscera = 3)
-	health = TROLLBOG_HEALTH * 1.1
-	maxHealth = TROLLBOG_HEALTH
-	food_type = list(/obj/item/reagent_containers/food/snacks/rogue/meat,
-					//obj/item/bodypart,
-					//obj/item/organ
-					)
+	botched_butcher_results = list (
+		/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
+		/obj/item/natural/bundle/bone/full = 1,
+		/obj/item/alch/horn = 1, 
+		/obj/item/natural/hide = 2)
+	butcher_results = list(
+		/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 3,
+		/obj/item/natural/hide = 3,
+		/obj/item/natural/bundle/bone/full = 1,
+		/obj/item/alch/sinew = 5,
+		/obj/item/alch/horn = 2,
+		/obj/item/alch/viscera = 3,
+		/obj/item/natural/head/troll = 1, // We want head in normal tier to guarantee towner hunter get heads
+		)
+	perfect_butcher_results = list(
+		/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 5,
+		/obj/item/natural/hide = 5,
+		/obj/item/natural/bundle/bone/full = 1, 
+		/obj/item/alch/sinew = 7, 
+		/obj/item/alch/horn = 2, 
+		/obj/item/alch/viscera = 3,
+		/obj/item/natural/head/troll = 1,
+		)
+	health = TROLL_HEALTH * 1.1
+	maxHealth = TROLL_HEALTH
+	food_type = list(
+					/obj/item/reagent_containers/food/snacks/rogue/meat,
+					/obj/item/bodypart,
+					/obj/item/organ)
 
-	base_intents = list(/datum/intent/simple/headbutt, /datum/intent/unarmed/claw/trollbog)
+	base_intents = list(/datum/intent/unarmed/claw, /datum/intent/simple/bite)
 	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
-	melee_damage_lower = 30
-	melee_damage_upper = 50
+	melee_damage_lower = 40
+	melee_damage_upper = 60
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 
 	STACON = 16
 	STASTR = 16
-	STASPD = 3
-	STAEND = 15
+	STASPD = 2
+	STAEND = 17
 
 	retreat_distance = 0
 	minimum_distance = 0
 	deaggroprob = 0
-	defprob = 30
+	defprob = 20
 	del_on_deaggro = 99 SECONDS
 	retreat_health = 0
 	food = 0
-
-	dodgetime = 15
+	dodgetime = 20
 	aggressive = TRUE
 //	stat_attack = UNCONSCIOUS
-	remains_type = /obj/effect/decal/remains/troll // Placeholder until Troll remains are sprited.
-
+	remains_type = /obj/effect/decal/remains/troll
+	
 	can_have_ai = FALSE //disable native ai
 	AIStatus = AI_OFF
 	ai_controller = /datum/ai_controller/troll
-	melee_cooldown = TROLLBOG_ATTACK_SPEED
+	melee_cooldown = TROLL_ATTACK_SPEED
+
 	var/critvuln = FALSE
 
-
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/Initialize()
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/Initialize()
 	. = ..()
 	if(critvuln)
 		ADD_TRAIT(src, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
-	ADD_TRAIT(src, TRAIT_KNEESTINGER_IMMUNITY, TRAIT_GENERIC)	// bogtroll does not mind kneestingers
 	AddElement(/datum/element/ai_retaliate)
 	ai_controller.set_blackboard_key(BB_BASIC_FOODS, food_type)
 
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/death(gibbed)
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/death(gibbed)
 	..()
 	update_icon()
 
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/get_sound(input)
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/get_sound(input)
 	switch(input)
 		if("aggro")
 			return pick('sound/vo/mobs/troll/aggro1.ogg','sound/vo/mobs/troll/aggro2.ogg')
@@ -90,37 +105,21 @@
 		if("cidle")
 			return pick('sound/vo/mobs/troll/cidle1.ogg','sound/vo/mobs/troll/aggro2.ogg')
 
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/taunted(mob/user)
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/taunted(mob/user)
 	emote("aggro")
 	Retaliate()
 	GiveTarget(user)
 	return
 
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/Life()
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/Life()
 	..()
 	if(pulledby)
 		Retaliate()
 		GiveTarget(pulledby)
 	if(fire_stacks <= 0)
-		adjustHealth(-rand(40,50))
+		adjustHealth(-rand(20,35))
 
-
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/LoseTarget()
-	..()
-	if(health > 0)
-		icon_state = "Trollso"
-
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/Moved()
-	. = ..()
-	if(!icon_state == "Troll")
-		icon_state = "Troll"
-
-
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/GiveTarget()
-	..()
-	icon_state = "Trolla"
-
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/simple_limb_hit(zone)
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/simple_limb_hit(zone)
 	if(!zone)
 		return ""
 	switch(zone)
@@ -162,15 +161,11 @@
 			return "foreleg"
 	return ..()
 
-/mob/living/simple_animal/hostile/retaliate/rogue/trollbog/after_creation()
-	..()
-	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
-	if(eyes)
-		eyes.Remove(src,1)
-		QDEL_NULL(eyes)
-	eyes = new /obj/item/organ/eyes/night_vision/nightmare
-	eyes.Insert(src)
-
-/datum/intent/unarmed/claw/trollbog
-	clickcd = TROLLBOG_ATTACK_SPEED //It is a troll so it can probably swing fast.
-	penfactor = 20 // A troll punching you with it's troll hands.
+/obj/effect/decal/remains/troll
+	name = "remains"
+	gender = PLURAL
+	icon_state = "Trolld"
+	
+/datum/intent/unarmed/claw/troll
+	clickcd = TROLL_ATTACK_SPEED
+	penfactor = 20
