@@ -94,8 +94,8 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/elemental/colossus/death(gibbed)
 	..()
-	// var/turf/deathspot = get_turf(src)
-	// new /obj/item/natural/elementalrelic(deathspot)
+	var/turf/deathspot = get_turf(src)
+	new /obj/item/magic/elementalrelic(deathspot)
 	update_icon()
 	spill_embedded_objects()
 	qdel(src)
