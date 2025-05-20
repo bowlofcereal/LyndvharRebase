@@ -142,6 +142,7 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
+	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 
 /datum/advclass/hand/advisor
 	name = "Advisor"

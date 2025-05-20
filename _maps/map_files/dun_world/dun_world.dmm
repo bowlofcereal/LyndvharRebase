@@ -488,10 +488,6 @@
 /obj/item/ingot/steel,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/fishmandungeon)
-"aiY" = (
-/obj/structure/roguemachine/scomm/r,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/garrison)
 "aiZ" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8
@@ -15688,10 +15684,6 @@
 /area/rogue/under/cave)
 "fCR" = (
 /obj/structure/rack/rogue,
-/obj/item/rogueweapon/mace/wsword,
-/obj/item/rogueweapon/mace/wsword,
-/obj/item/rogueweapon/mace/wsword,
-/obj/item/rogueweapon/mace/wsword,
 /obj/item/rogueweapon/mace/woodclub,
 /obj/item/rogueweapon/mace/woodclub,
 /obj/item/rogueweapon/mace/woodclub,
@@ -16278,12 +16270,6 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/sand,
 /area/rogue/outdoors/beach)
-"fPq" = (
-/obj/structure/chair/wood/rogue/chair3{
-	dir = 8
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/garrison)
 "fPu" = (
 /obj/structure/ladder,
 /obj/machinery/light/rogue/wallfire/candle/r,
@@ -20274,10 +20260,12 @@
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town)
 "hkM" = (
-/obj/machinery/light/rogue/wallfire{
-	pixel_y = 32
+/obj/structure/rack/rogue,
+/obj/item/rogueweapon/shield/wood/crafted,
+/obj/item/rogueweapon/shield/wood/crafted,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
 	},
-/turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/garrison)
 "hkQ" = (
 /obj/effect/decal/cobbleedge{
@@ -31295,11 +31283,10 @@
 /area/rogue/indoors/town/church/chapel)
 "ljg" = (
 /obj/structure/rack/rogue,
-/obj/item/rogueweapon/shield/wood/crafted,
-/obj/item/rogueweapon/shield/wood/crafted,
-/obj/machinery/light/rogue/torchholder{
-	dir = 4
-	},
+/obj/item/rogueweapon/mace/wsword,
+/obj/item/rogueweapon/mace/wsword,
+/obj/item/rogueweapon/mace/wsword,
+/obj/item/rogueweapon/mace/wsword,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -51817,14 +51804,12 @@
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/town)
 "ssq" = (
-/obj/structure/table/wood{
-	dir = 10;
-	icon_state = "tablewood2"
+/obj/machinery/light/rogue/torchholder{
+	dir = 4
 	},
-/obj/item/rogueweapon/sword/long/exe/cloth,
-/obj/item/natural/stone,
-/obj/item/storage/belt/rogue/surgery_bag/full,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
 /area/rogue/indoors/town/garrison)
 "sst" = (
 /obj/structure/bookcase,
@@ -54881,15 +54866,6 @@
 /obj/structure/flora/roguetree,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/bog)
-"tzC" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcr";
-	locked = 1;
-	lockid = "dungeon";
-	name = "dungeoneer's room"
-	},
-/turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/garrison)
 "tzH" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/tools,
@@ -55782,10 +55758,6 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/town/basement/keep)
-"tOJ" = (
-/obj/structure/mirror,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/garrison)
 "tON" = (
 /obj/structure/stairs{
 	dir = 1
@@ -61760,6 +61732,7 @@
 /obj/item/flashlight/flare/torch/lantern,
 /obj/item/rope/chain,
 /obj/item/gwstrap,
+/obj/item/rogueweapon/sword/long/exe/cloth,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "vTN" = (
@@ -65509,25 +65482,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town)
-"xmm" = (
-/obj/structure/closet/crate/chest/neu,
-/obj/item/flashlight/flare/torch/lantern,
-/obj/item/roguekey/dungeon,
-/obj/item/roguekey/dungeon,
-/obj/item/natural/bundle/cloth{
-	amount = 8
-	},
-/obj/item/natural/bundle/cloth{
-	amount = 8
-	},
-/obj/item/natural/bundle/cloth{
-	amount = 8
-	},
-/obj/item/needle/thorn,
-/obj/item/needle/thorn,
-/obj/item/needle/thorn,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/garrison)
 "xmx" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/blocks/green,
@@ -67436,14 +67390,6 @@
 "xZf" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/manor)
-"xZk" = (
-/obj/structure/bed/rogue,
-/obj/item/bedsheet/rogue/cloth,
-/obj/effect/landmark/start/dungeoneer{
-	dir = 8
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/garrison)
 "xZl" = (
 /obj/structure/spacevine,
 /turf/closed/wall/mineral/rogue/stone/moss,
@@ -277248,7 +277194,7 @@ jpB
 oDW
 pJN
 jej
-mxS
+bNE
 ihW
 waL
 uhI
@@ -278601,11 +278547,11 @@ kSN
 kSN
 xAk
 jWw
-jWw
-jWw
-tzC
-jWw
-jWw
+oDW
+pJN
+pJN
+bNE
+oDW
 waL
 tTc
 cDX
@@ -279053,11 +278999,11 @@ kSN
 kJy
 xAk
 jWw
-jWw
-tOJ
-nBo
-ssq
-jWw
+oDW
+bNE
+bNE
+mxS
+oDW
 tTc
 vAw
 lKo
@@ -279505,11 +279451,11 @@ kSN
 gpv
 jWw
 jWw
-jWw
-hkM
-nBo
-xmm
-jWw
+oDW
+oDW
+oDW
+oDW
+oDW
 mQR
 mLi
 lKo
@@ -279958,9 +279904,9 @@ rFB
 gdG
 tMq
 jWw
-fPq
-aiY
-xZk
+jWw
+jWw
+jWw
 jWw
 wjy
 vAw
@@ -280410,9 +280356,9 @@ rFB
 iCo
 kod
 jWw
-jWw
-jWw
-jWw
+hkM
+ssq
+tMg
 jWw
 xhQ
 kAx
@@ -281316,7 +281262,7 @@ hhZ
 jWw
 iCo
 iCo
-tMg
+iCo
 jWw
 jJH
 kAx
