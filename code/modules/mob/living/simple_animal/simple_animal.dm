@@ -174,6 +174,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 	cmode = 1
 
 	var/remains_type
+	var/binded = FALSE // Whether it is bound to a summoning circle or not
 
 	var/botched_butcher_results
 	var/perfect_butcher_results
