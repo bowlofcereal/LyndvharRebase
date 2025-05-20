@@ -36,7 +36,12 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	mask = /obj/item/clothing/mask/rogue/facemask/psydonmask
 	head = /obj/item/clothing/head/roguetown/roguehood/psydon
-	backpack_contents = list(/obj/item/roguekey/inquisition = 1, /obj/item/lockpickring/mundane = 1, /obj/item/rogueweapon/huntingknife/idagger/silver/psydagger, /obj/item/grapplinghook = 1)
+	backpack_contents = list(
+		/obj/item/roguekey/inquisition = 1,
+		/obj/item/lockpickring/mundane = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/silver/psydagger = 1,
+		/obj/item/grapplinghook = 1,
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	H.change_stat("strength", -1) // weasel
 	H.change_stat("endurance", 3)
 	H.change_stat("perception", 2)
@@ -46,4 +51,5 @@
 	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OUTLANDER, TRAIT_GENERIC)		//You're a foreigner, a guest of the realm.
+	ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 	H.grant_language(/datum/language/otavan)

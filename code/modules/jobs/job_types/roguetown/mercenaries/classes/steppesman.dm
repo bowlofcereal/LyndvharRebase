@@ -17,7 +17,13 @@
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	shirt = /obj/item/clothing/suit/roguetown/shirt/robe/chokha
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/flashlight/flare/torch, /obj/item/rogueweapon/huntingknife/idagger/steel, /obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/whip/nagaika)
+	backpack_contents = list(
+		/obj/item/roguekey/mercenary = 1,
+		/obj/item/flashlight/flare/torch = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/steel = 1,
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+		/obj/item/rogueweapon/whip/nagaika = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 
 	//Universal skills
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)

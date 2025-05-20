@@ -79,7 +79,9 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/gwstrap
 
-	backpack_contents = list(/obj/item/roguekey/mercenary)
+	backpack_contents = list(
+		/obj/item/roguekey/mercenary = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	H.grant_language(/datum/language/grenzelhoftian)

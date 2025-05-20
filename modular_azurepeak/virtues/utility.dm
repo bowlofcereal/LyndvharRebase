@@ -198,6 +198,7 @@
 						list(/datum/skill/craft/alchemy, 2, 2),
 						list(/datum/skill/misc/medicine, 2, 2)
 	)
+	added_traits = list(TRAIT_MEDICINE_CAPABLE)
 
 /datum/virtue/utility/feral_appetite
 	name = "Feral Appetite"

@@ -45,6 +45,7 @@
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1, 
 				/obj/item/recipe_book/survival = 1,
+				/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 				)
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1)	//Capped to T1 miracles.
@@ -106,6 +107,7 @@
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1, 
 				/obj/item/recipe_book/survival = 1,
+				/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1,
 			)
 			H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
@@ -194,7 +196,10 @@
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1)	//Capped to T1 miracles.
-			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/recipe_book/survival = 1)
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1, 
+				/obj/item/recipe_book/survival = 1,
+				/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,)
 			H.mind.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -206,6 +211,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_MEDICINE_CAPABLE, TRAIT_GENERIC)
 			H.cmode_music = 'sound/music/combat_bard.ogg'
 			H.change_stat("strength", 1)
 			H.change_stat("endurance", 1)
@@ -265,7 +271,11 @@
 			backr = /obj/item/rogueweapon/woodstaff
 			belt = /obj/item/storage/belt/rogue/leather
 			beltr = /obj/item/flashlight/flare/torch/lantern
-			backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/flashlight/flare/torch = 1, /obj/item/recipe_book/survival = 1)
+			backpack_contents = list(
+				/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/recipe_book/survival = 1,
+				/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,)
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
@@ -314,6 +324,7 @@
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe //placeholder, anyone who doesn't have cool patron drip sprites just gets generic robes
 					head = /obj/item/clothing/head/roguetown/roguehood
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
+			ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR)	//Minor regen, can level up to T4.
 	switch(H.patron?.type)
 		if(/datum/patron/old_god)

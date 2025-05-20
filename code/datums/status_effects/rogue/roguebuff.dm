@@ -383,6 +383,10 @@
 	desc = "Divine intervention relieves me of my ailments."
 	icon_state = "buff"
 
+/atom/movable/screen/alert/status_effect/buff/healing/pestra
+	name = "Pestran Healing Miracle"
+	desc = "Her divine touch soothes my wounds."
+
 #define MIRACLE_HEALING_FILTER "miracle_heal_glow"
 
 /datum/status_effect/buff/healing
@@ -392,6 +396,11 @@
 	examine_text = "SUBJECTPRONOUN is bathed in a restorative aura!"
 	var/healing_on_tick = 1
 	var/outline_colour = "#c42424"
+
+/datum/status_effect/buff/healing/pestra
+	alert_type = /atom/movable/screen/alert/status_effect/buff/healing/pestra
+	healing_on_tick = 2
+	outline_colour = "#e0ec30"
 
 /datum/status_effect/buff/healing/on_creation(mob/living/new_owner, new_healing_on_tick)
 	healing_on_tick = new_healing_on_tick
@@ -407,19 +416,24 @@
 /datum/status_effect/buff/healing/tick()
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
 	H.color = "#FF0000"
-	var/list/wCount = owner.get_wounds()
 	if(!owner.construct)
-		if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
-			owner.blood_volume = min(owner.blood_volume+10, BLOOD_VOLUME_NORMAL)
-		if(wCount.len > 0)
-			owner.heal_wounds(healing_on_tick)
-			owner.update_damage_overlays()
 		owner.adjustBruteLoss(-healing_on_tick, 0)
 		owner.adjustFireLoss(-healing_on_tick, 0)
-		owner.adjustOxyLoss(-healing_on_tick, 0)
-		owner.adjustToxLoss(-healing_on_tick, 0)
-		owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
-		owner.adjustCloneLoss(-healing_on_tick, 0)
+		owner.adjustOxyLoss((-healing_on_tick / 2), 0)
+
+
+/datum/status_effect/buff/healing/pestra/tick()
+	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
+	H.color = "#d9f829"
+	owner.adjustBruteLoss(-healing_on_tick, 0)
+	owner.adjustFireLoss(-healing_on_tick, 0)
+	owner.adjustOxyLoss(-healing_on_tick, 0)
+	owner.adjustToxLoss(-healing_on_tick, 0)
+	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
+	owner.adjustCloneLoss(-healing_on_tick, 0)
+	if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
+		owner.blood_volume = min(owner.blood_volume+10, BLOOD_VOLUME_NORMAL)
+
 
 /datum/status_effect/buff/rockmuncher
 	id = "rockmuncher"

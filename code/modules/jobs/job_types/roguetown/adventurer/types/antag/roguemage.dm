@@ -24,6 +24,7 @@
 					/obj/item/natural/cloth = 1,
 					/obj/item/flashlight/flare/torch = 1,
 					/obj/item/book/spellbook = 1, // Spell resetting is a key identity of good mage
+					/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1,
 					)
 	mask = /obj/item/clothing/mask/rogue/facemask/steel //idk if this makes it so they cant cast but i want all of the bandits to have the same mask
 	neck = /obj/item/clothing/neck/roguetown/coif

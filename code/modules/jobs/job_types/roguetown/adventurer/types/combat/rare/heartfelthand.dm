@@ -24,6 +24,7 @@
 	backr = /obj/item/storage/backpack/rogue/satchel/heartfelt
 	backpack_contents = list(
 						/obj/item/flashlight/flare/torch = 1,
+						/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 2
 						)
 	mask = /obj/item/clothing/mask/rogue/spectacles/golden
 	id = /obj/item/scomstone
@@ -45,4 +46,5 @@
 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 

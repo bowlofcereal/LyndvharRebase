@@ -46,10 +46,13 @@
 		/obj/item/natural/worms/leech/cheele = 1, //little buddy
 		/obj/item/ritechalk = 1,
 		/obj/item/rogueweapon/huntingknife/idagger/steel/holysee = 1,	//Unique knife from the Holy See
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 2,
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 	)
 	ADD_TRAIT(H, TRAIT_CHOSEN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 	if(H.mind)
 		H.cmode_music = 'sound/music/combat_holy.ogg' 
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)

@@ -51,7 +51,11 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
 			pants = /obj/item/clothing/under/roguetown/chainlegs
 			backr = /obj/item/storage/backpack/rogue/satchel/black
-			backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger/navaja, /obj/item/clothing/neck/roguetown/shalal)
+			backpack_contents = list(
+				/obj/item/roguekey/mercenary = 1,
+				/obj/item/rogueweapon/huntingknife/idagger/navaja = 1,
+				/obj/item/clothing/neck/roguetown/shalal = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 			H.grant_language(/datum/language/celestial)
 
 		if("Zeybek")
@@ -77,7 +81,11 @@
 			H.change_stat("intelligence", 1)
 			H.change_stat("speed", 3)
 			backr = /obj/item/storage/backpack/rogue/satchel/black
-			backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger/navaja, /obj/item/clothing/neck/roguetown/shalal)
+			backpack_contents = list(
+				/obj/item/roguekey/mercenary = 1,
+				/obj/item/rogueweapon/huntingknife/idagger/navaja = 1,
+				/obj/item/clothing/neck/roguetown/shalal = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 			backl = /obj/item/rogueweapon/sword/sabre/shamshir
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
@@ -122,7 +130,12 @@
 			r_hand = /obj/item/rogueweapon/sword/sabre/shamshir
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/magered
 			backr = /obj/item/storage/backpack/rogue/satchel/black
-			backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger/navaja, /obj/item/clothing/neck/roguetown/shalal, /obj/item/spellbook_unfinished/pre_arcyne)
+			backpack_contents = list(
+				/obj/item/roguekey/mercenary = 1,
+				/obj/item/rogueweapon/huntingknife/idagger/navaja = 1,
+				/obj/item/clothing/neck/roguetown/shalal = 1,
+				/obj/item/spellbook_unfinished/pre_arcyne = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 			backl = /obj/item/rogueweapon/sword/sabre/shamshir
 			H.grant_language(/datum/language/celestial)
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord

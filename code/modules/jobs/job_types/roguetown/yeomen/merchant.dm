@@ -38,7 +38,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/appraise/secular)
-		backpack_contents = /obj/item/rogueweapon/huntingknife/idagger/navaja
+		backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/navaja)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
 	ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC) //Makes up for loss of alchemy to see reagents.
 	neck = /obj/item/clothing/neck/roguetown/horus

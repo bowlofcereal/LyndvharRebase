@@ -38,6 +38,7 @@
 					/obj/item/natural/cloth = 1,
 					/obj/item/flashlight/flare/torch = 1,
 					/obj/item/ritechalk = 1,
+					/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 					)
 	head = /obj/item/clothing/head/roguetown/roguehood
 	armor = /obj/item/clothing/suit/roguetown/armor/plate

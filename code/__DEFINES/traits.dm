@@ -150,6 +150,8 @@
 #define TRAIT_ARCYNE_T2 "Arcyne Training (Apprentice)"
 #define TRAIT_ARCYNE_T3 "Arcyne Training (Expert)"
 #define TRAIT_ARCYNE_T4 "Arcyne Training (Master)"
+#define TRAIT_MEDICINE_CAPABLE	"Medicine Capable"
+#define TRAIT_MEDICINE_EXPERT	"Medicine Expert"
 
 
 GLOBAL_LIST_INIT(roguetraits, list(
@@ -275,6 +277,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ARCYNE_T2 = span_notice("I have received advanced training in the Arcyne arts, allowing me to learn basic combat spells"),
 	TRAIT_ARCYNE_T3 = span_notice("I am a full-fledged mage, and have access to devastating spells that affects a wide area."),
 	TRAIT_ARCYNE_T4 = span_notice("I'm a master of the Arcyne arts, and has access to some of the most powerful spells ever devised."),
+	TRAIT_MEDICINE_CAPABLE = span_notice("I've been educated enough to train Medicine up to Journeyman, with practice."),
+	TRAIT_MEDICINE_EXPERT = span_notice("All humours yield to me. I can train Medicine up to Legendary, with practice.")
 ))
 
 // trait accessor defines

@@ -78,6 +78,7 @@
 			H.mind.adjust_spellpoints(6)
 			ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_ARCYNE_T3, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/giants_strength)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/longstrider)
@@ -93,7 +94,11 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hierophant
 			shirt = /obj/item/clothing/suit/roguetown/shirt/robe/hierophant
 			pants = /obj/item/clothing/under/roguetown/trou/leather
-			backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger, /obj/item/spellbook_unfinished/pre_arcyne)
+			backpack_contents = list(
+				/obj/item/roguekey/mercenary = 1,
+				/obj/item/rogueweapon/huntingknife/idagger = 1,
+				/obj/item/spellbook_unfinished/pre_arcyne = 1,
+				/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2)
 
 		if("Pontifex")
 			H.set_blindness(0)
@@ -124,6 +129,7 @@
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_ARCYNE_T1, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 
 			head = /obj/item/clothing/head/roguetown/roguehood/pontifex
 			gloves = /obj/item/clothing/gloves/roguetown/angle/pontifex
@@ -131,7 +137,11 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex
 			shirt = /obj/item/clothing/suit/roguetown/shirt/robe/pointfex
 			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex
-			backpack_contents = list(/obj/item/roguekey/mercenary,/obj/item/lockpick = 1,/obj/item/rogueweapon/huntingknife)
+			backpack_contents = list(
+				/obj/item/roguekey/mercenary = 1,
+				/obj/item/lockpick = 1,
+				/obj/item/rogueweapon/huntingknife = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 
 		if("Vizier")
 			H.set_blindness(0)
@@ -167,8 +177,11 @@
 			H.grant_language(/datum/language/celestial)
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 
-			backpack_contents = list(/obj/item/roguekey/mercenary,/obj/item/rogueweapon/huntingknife)
-			
+			backpack_contents = list(
+				/obj/item/roguekey/mercenary = 1,
+				/obj/item/rogueweapon/huntingknife = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
+			ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
 			H.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/lesser_heal)

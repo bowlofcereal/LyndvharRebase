@@ -36,7 +36,8 @@
 	mask = /obj/item/clothing/mask/rogue/spectacles
 	id = /obj/item/scomstone/bad
 	backpack_contents = list(
-		/obj/item/recipe_book/alchemy
+		/obj/item/recipe_book/alchemy,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 2,
 	)
 
 	if(H.mind)

@@ -28,6 +28,7 @@
 					/obj/item/natural/cloth = 2,
 					/obj/item/flashlight/flare/torch = 1,
 					/obj/item/bedroll = 1,
+					/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 					)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)

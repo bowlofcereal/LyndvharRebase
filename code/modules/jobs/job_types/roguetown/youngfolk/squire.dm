@@ -62,8 +62,9 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
-		/obj/item/storage/belt/rogue/pouch,
-		/obj/item/clothing/neck/roguetown/chaincoif
+		/obj/item/storage/belt/rogue/pouch = 1,
+		/obj/item/clothing/neck/roguetown/chaincoif = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1
 	)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
@@ -101,8 +102,9 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
-		/obj/item/storage/belt/rogue/pouch,
-		/obj/item/clothing/neck/roguetown/chaincoif
+		/obj/item/storage/belt/rogue/pouch = 1,
+		/obj/item/clothing/neck/roguetown/chaincoif = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1
 	)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
@@ -151,9 +153,10 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
-		/obj/item/rogueweapon/huntingknife/idagger,
-		/obj/item/storage/belt/rogue/pouch,
-		/obj/item/clothing/neck/roguetown/chaincoif,
+		/obj/item/rogueweapon/huntingknife/idagger = 1,
+		/obj/item/storage/belt/rogue/pouch = 1,
+		/obj/item/clothing/neck/roguetown/chaincoif = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1
 		)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

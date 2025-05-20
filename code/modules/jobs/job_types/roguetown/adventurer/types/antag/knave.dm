@@ -65,6 +65,7 @@
 						/obj/item/natural/cloth = 1,
 						/obj/item/lockpickring/mundane = 1,
 						/obj/item/flashlight/flare/torch = 1,
+						/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 						) //rogue gets lockpicks
 			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
 		if("Bow & Sword") //Poacher
@@ -78,5 +79,6 @@
 						/obj/item/natural/cloth = 1,
 						/obj/item/restraints/legcuffs/beartrap = 2,
 						/obj/item/flashlight/flare/torch = 1,
+						/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 						) //poacher gets mantraps
 			H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)

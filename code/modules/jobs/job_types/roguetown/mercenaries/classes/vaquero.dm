@@ -48,7 +48,8 @@
 					/obj/item/rogueweapon/huntingknife/idagger/navaja = 1,
 					/obj/item/lockpick = 1,
 					/obj/item/flashlight/flare/torch = 1,
-					/obj/item/roguekey/mercenary = 1
+					/obj/item/roguekey/mercenary = 1,
+					/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1,
 					)
 	var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman","Flute")
 	var/weapon_choice = input("Choose your instrument.", "TAKE UP ARMS") as anything in weapons

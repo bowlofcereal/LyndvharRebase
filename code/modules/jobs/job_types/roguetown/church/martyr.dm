@@ -460,7 +460,10 @@
 	pants = /obj/item/clothing/under/roguetown/platelegs/holysee
 	cloak = /obj/item/clothing/cloak/holysee
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/holysee
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/silver = 1)
+	backpack_contents = list(
+		/obj/item/rogueweapon/huntingknife/idagger/silver = 1,
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1,
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 
 	//No, they don't get any miracles. Their miracle is being able to use their weapon at all.
 	if(H.mind)
@@ -482,6 +485,7 @@
 		ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_SILVER_BLESSED, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_MEDICINE_EXPERT, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_DUALWIELDER, TRAIT_GENERIC)	//You can't dual wield the unique weapon, this is more to cover for the NODROP weapon that might end up in an off-hand.
 		H.change_stat("strength", 2)
 		H.change_stat("constitution", 3)

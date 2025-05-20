@@ -85,7 +85,11 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
-			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/recipe_book/survival = 1)
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/rogueweapon/huntingknife = 1,
+				/obj/item/recipe_book/survival = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 
 		if("Duelist")
 			to_chat(H, span_warning("You are an esteemed swordsman who foregoes armor in exchange for a more nimble fighting style."))
@@ -128,7 +132,11 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/rogueweapon/shield/buckler
 			belt = /obj/item/storage/belt/rogue/leather
-			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife/idagger/steel/parrying = 1, /obj/item/recipe_book/survival = 1)
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/rogueweapon/huntingknife/idagger/steel/parrying = 1,
+				/obj/item/recipe_book/survival = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 
 		if("Barbarian")
 			to_chat(H, span_warning("You are a brutal warrior who foregoes armor in order to showcase your raw strength. You specialize in unarmed combat and wrestling."))
@@ -193,7 +201,9 @@
 				belt = /obj/item/storage/belt/rogue/leather
 				neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 				beltl = /obj/item/rogueweapon/huntingknife
-			backpack_contents = list(/obj/item/flashlight/flare/torch = 1)
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 
 		if("Monster Hunter")
 			to_chat(H, span_warning("You specialize in hunting down monsters and the undead, carrying two blades - one of silver, one of steel."))
@@ -226,7 +236,11 @@
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			head = /obj/item/clothing/head/roguetown/bucklehat
 			gloves = /obj/item/clothing/gloves/roguetown/angle
-			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/recipe_book/survival = 1)
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/rogueweapon/huntingknife = 1,
+				/obj/item/recipe_book/survival = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 2)
 			beltl = pick(/obj/item/reagent_containers/glass/bottle/alchemical/strpot, 
 						/obj/item/reagent_containers/glass/bottle/alchemical/conpot, 
 						/obj/item/reagent_containers/glass/bottle/alchemical/endpot,
@@ -274,4 +288,6 @@
 			backl = /obj/item/storage/backpack/rogue/satchel   
 			belt = /obj/item/storage/belt/rogue/leather        
 			beltr = /obj/item/rogueweapon/whip
-			backpack_contents = list(/obj/item/recipe_book/survival = 1)            
+			backpack_contents = list(
+				/obj/item/recipe_book/survival = 1,
+				/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 2)            

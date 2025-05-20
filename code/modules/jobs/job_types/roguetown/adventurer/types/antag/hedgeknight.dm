@@ -30,6 +30,7 @@
 	backpack_contents = list(
 					/obj/item/rogueweapon/huntingknife/idagger = 1,
 					/obj/item/flashlight/flare/torch = 1,
+					/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 					)
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)

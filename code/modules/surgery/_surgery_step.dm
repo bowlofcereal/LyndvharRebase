@@ -290,7 +290,15 @@
 	if(success && success(user, target, target_zone, tool, intent))
 		if(ishuman(user))
 			var/mob/living/carbon/human/doctor = user
-			user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/2))
+			var/can_gain = FALSE
+			if(doctor.mind.get_skill_level(/datum/skill/misc/medicine) < SKILL_LEVEL_NOVICE)	//Anyone can get Novice, at least.
+				can_gain = TRUE
+			if(HAS_TRAIT(doctor, TRAIT_MEDICINE_CAPABLE) && doctor.mind.get_skill_level(/datum/skill/misc/medicine) < SKILL_LEVEL_JOURNEYMAN)	//Specific virtues / classes can get Jman.
+				can_gain = TRUE
+			else if(HAS_TRAIT(doctor, TRAIT_MEDICINE_EXPERT))	//Medicine-centered classes can level it however they want.
+				can_gain = TRUE
+			if(can_gain)
+				user.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * (skill_min/2))
 		play_success_sound(user, target, target_zone, tool)
 		if(repeating && can_do_step(user, target, target_zone, tool, intent, try_to_fail))
 			initiate(user, target, target_zone, tool, intent, try_to_fail)

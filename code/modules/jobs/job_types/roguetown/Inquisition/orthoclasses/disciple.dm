@@ -30,10 +30,12 @@
 		H.mind.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
+	ADD_TRAIT(H, TRAIT_MEDICINE_CAPABLE, TRAIT_GENERIC)
 	C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1)	//Capped to T1 miracles.
 
 /datum/outfit/job/roguetown/disciple/proc/brute_equip(mob/living/carbon/human/H)
-	backpack_contents = list(/obj/item/roguekey/inquisition = 1)
+	backpack_contents = list(
+		/obj/item/roguekey/inquisition = 1)
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
@@ -61,7 +63,9 @@
 		H.grant_language(/datum/language/otavan)
 
 /datum/outfit/job/roguetown/disciple/proc/naledi_equip(mob/living/carbon/human/H)
-	backpack_contents = list(/obj/item/roguekey/inquisition = 1)
+	backpack_contents = list(
+		/obj/item/roguekey/inquisition = 1,
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1)
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	belt = /obj/item/storage/belt/rogue/leather/black

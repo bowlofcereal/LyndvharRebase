@@ -81,6 +81,7 @@
 	backpack_contents = list(
 		/obj/item/storage/keyring/sheriff = 1,
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1
 		)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
@@ -182,6 +183,7 @@
 	backpack_contents = list(
 		/obj/item/storage/keyring/sheriff = 1,
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1
 		)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)

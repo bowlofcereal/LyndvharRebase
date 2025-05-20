@@ -158,7 +158,15 @@
 		if(target_wound.sew_progress < target_wound.sew_threshold)
 			continue
 		if(doctor.mind)
-			doctor.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * 2.5)
+			var/can_gain = FALSE
+			if(doctor.mind.get_skill_level(/datum/skill/misc/medicine) < SKILL_LEVEL_NOVICE)	//Anyone can get Novice, at least.
+				can_gain = TRUE
+			if(HAS_TRAIT(doctor, TRAIT_MEDICINE_CAPABLE) && doctor.mind.get_skill_level(/datum/skill/misc/medicine) < SKILL_LEVEL_JOURNEYMAN)	//Specific virtues / classes can get Jman.
+				can_gain = TRUE
+			else if(HAS_TRAIT(doctor, TRAIT_MEDICINE_EXPERT))	//Medicine-centered classes can level it however they want.
+				can_gain = TRUE
+			if(can_gain)
+				doctor.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * 2.5)
 		use(1)
 		target_wound.sew_wound()
 		if(patient == doctor)

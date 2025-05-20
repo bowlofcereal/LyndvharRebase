@@ -23,7 +23,10 @@
 	beltl = /obj/item/rogueweapon/mace/warhammer/steel
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backl = /obj/item/rogueweapon/shield/heater
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife, /obj/item/roguekey/mercenary)
+	backpack_contents = list(
+		/obj/item/rogueweapon/huntingknife = 1,
+		/obj/item/roguekey/mercenary = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)

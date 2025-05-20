@@ -23,7 +23,12 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
-	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/huntingknife/idagger/navaja, /obj/item/lockpick = 1)
+	backpack_contents = list(
+		/obj/item/roguekey/mercenary = 1,
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/navaja = 1,
+		/obj/item/lockpick = 1,
+		/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 5, TRUE) //Possibly too high, no idea.
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)

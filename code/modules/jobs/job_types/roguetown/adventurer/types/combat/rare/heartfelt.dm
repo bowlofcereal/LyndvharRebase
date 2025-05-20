@@ -26,6 +26,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 						/obj/item/flashlight/flare/torch = 1,
+						/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 2
 						)
 	id = /obj/item/scomstone
 	if(H.mind)

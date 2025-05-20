@@ -48,7 +48,10 @@
 				beltr = /obj/item/flashlight/flare/torch
 				r_hand = /obj/item/rogueweapon/halberd/glaive
 				backr = /obj/item/gwstrap
-				backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/storage/belt/rogue/pouch/coins/poor)
+				backpack_contents = list(
+					/obj/item/roguekey/mercenary = 1,
+					/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+					/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 		if("Ranged (Bows)")
 			if(H.mind)
@@ -73,7 +76,12 @@
 				beltr = /obj/item/rogueweapon/huntingknife/idagger/silver/elvish
 				beltl = /obj/item/quiver/arrows
 				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
-				backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/huntingknife/idagger/navaja, /obj/item/flashlight/flare/torch)
+				backpack_contents = list(
+					/obj/item/roguekey/mercenary = 1,
+					/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+					/obj/item/rogueweapon/huntingknife/idagger/navaja = 1,
+					/obj/item/flashlight/flare/torch = 1,
+					/obj/item/reagent_containers/glass/bottle/alchemical/healthpot = 1)
 				ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 
 	//Shared minor skillblock from Wardens
