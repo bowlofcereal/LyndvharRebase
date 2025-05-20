@@ -1,3 +1,14 @@
+/datum/intent/simple/elemental_unarmed
+	name = "elemental unarmed"
+	icon_state = "instrike"
+	attack_verb = list("punches", "strikes", "rolls on", "crushes")
+	animname = "blank22"
+	blade_class = BCLASS_BLUNT
+	hitsound = null
+	chargetime = 0
+	penfactor = BLUNT_DEFAULT_PENFACTOR
+	swingdelay = 3
+
 /datum/intent/simple/elementalt2_unarmed
 	name = "elemental unarmed"
 	icon_state = "instrike"
@@ -6,6 +17,5 @@
 	blade_class = BCLASS_SMASH
 	hitsound = null
 	chargetime = 0
-	penfactor = 15
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 	swingdelay = 3
-	candodge = TRUE
