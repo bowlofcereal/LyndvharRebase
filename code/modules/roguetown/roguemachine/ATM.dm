@@ -1,6 +1,6 @@
 /obj/structure/roguemachine/atm
-	name = "MEISTER"
-	desc = "Stores and withdraws currency for accounts managed by the stewardry of Sundmark."
+	name = "COINBITER"
+	desc = "An elaborate Dwarven contrivance of gears and tubes that vomits or swallows coins to the ticking of clockwork."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "atm"
 	density = FALSE
@@ -17,15 +17,16 @@
 		return
 	var/mob/living/carbon/human/H = user
 	if(HAS_TRAIT(user, TRAIT_OUTLAW))
-		to_chat(H, span_warning("The machine rejects you, sensing your status as an outlaw in these lands."))
+		say("My ledger is closed to you, outlaw.")
+		playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)	// Audible notice and protest. Might out someone.
 		return
 	if(drilled)
 		if(HAS_TRAIT(H, TRAIT_NOBLE))
 			if(!HAS_TRAIT(H, TRAIT_COMMIE))
 				var/def_zone = "[(H.active_hand_index == 2) ? "r" : "l" ]_arm"
 				playsound(src, 'sound/items/beartrap.ogg', 100, TRUE)
-				to_chat(user, "<font color='red'>The meister craves my Noble blood!</font>")
-				loc.visible_message(span_warning("The meister snaps onto [H]'s arm!"))
+				to_chat(user, "<font color='red'>The coinbiter craves my Noble blood!</font>")
+				loc.visible_message(span_warning("The coinbiter snaps onto [H]'s arm!"))
 				H.Stun(80)
 				H.apply_damage(50, BRUTE, def_zone)
 				H.emote("agony")
@@ -39,24 +40,24 @@
 			say("Your balance is nothing.")
 			return
 		if(amt < 0)
-			say("Your balance is NEGATIVE.")
+			say("You owe us a debt!")
 			return
 		var/list/choicez = list()
-		if(amt > 10)
+		if(amt > 32)				// Formerly 10. Helmsguard is changing currency base, mind these figures if you revert. Moneyprinting would ensue.
 			choicez += "GOLD"
-		if(amt > 5)
+		if(amt > 8)
 			choicez += "SILVER"
 		choicez += "BRONZE"
-		var/selection = input(user, "Make a Selection", src) as null|anything in choicez
+		var/selection = input(user, "Press a Tooth", src) as null|anything in choicez
 		if(!selection)
 			return
 		amt = SStreasury.bank_accounts[H]
 		var/mod = 1
 		if(selection == "GOLD")
-			mod = 10
+			mod = 32
 		if(selection == "SILVER")
-			mod = 5
-		var/coin_amt = input(user, "There is [SStreasury.treasury_value] groschen in the treasury. You may withdraw [floor(amt/mod)] [selection] COINS from your account.", src) as null|num
+			mod = 8
+		var/coin_amt = input(user, "There are [SStreasury.treasury_value] groschen within us. You may ask [floor(amt/mod)] [selection] COINS from your account.", src) as null|num
 		coin_amt = round(coin_amt)
 		if(coin_amt < 1)
 			return
@@ -64,25 +65,28 @@
 		if(!Adjacent(user))
 			return
 		if((coin_amt*mod) > amt)
+			say("You exceed your ledger.")
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			return
 		if(!SStreasury.withdraw_money_account(coin_amt*mod, H))
+			say("Apologies, the treasury lacks coins. Contact your COINMASTER.")
 			playsound(src, 'sound/misc/machineno.ogg', 100, FALSE, -1)
 			return
 		budget2change(coin_amt*mod, user, selection)
 	else
-		to_chat(user, span_warning("The machine bites my finger."))
+		to_chat(user, span_warning("The gleaming teeth bite my finger."))
 		if(!drilled)
 			icon_state = "atm-b"
 		H.flash_fullscreen("redflash3")
-		playsound(H, 'sound/combat/hits/bladed/genstab (1).ogg', 100, FALSE, -1)
+		playsound(H, 'sound/combat/hits/bladed/genstab (1).ogg', 50, FALSE, -1)	// Quieter stab sound.
 		SStreasury.create_bank_account(H)
 		if(H.mind)
 			var/datum/job/target_job = SSjob.GetJob(H.mind.assigned_role)
 			if(target_job && target_job.noble_income)
 				SStreasury.noble_incomes[H] = target_job.noble_income
+				say("At your service, and your family's.")	// Recognizing nobles and their estate.
 		spawn(5)
-			say("New account created.")
+			say("Your blood now marks my ledger.")
 			playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 
 /*
@@ -125,24 +129,25 @@
 				to_chat(user, "<font color='red'>This one has already been siphoned dry...</font>")
 				return
 			else
-				user.visible_message(span_warning("[user] is mounting the Crown onto the meister!"))
+				user.visible_message(span_warning("[user] is mounting the Crown onto the coinbiter!"))
 				if(do_after(user, 50))
 					if(!drilling)
-						user.visible_message(span_warning("[user] mounts the Crown atop the meister!"))
+						user.visible_message(span_warning("[user] mounts the Crown atop the coinbiter!"))
 						icon_state = "crown_meister"
 						has_reported = FALSE
 						drilling = TRUE
 						drill(src)
 						qdel(P)
-						message_admins("[usr.key] has applied the Crustacean to a MEISTER.")
+						message_admins("[usr.key] has applied the Coveter to a coinbiter.")
 						return
 		else
-			say("No account found. Submit your fingers for inspection.")
+			say("Your mark is not on my ledger. Submit your finger to make your mark.")
+			playsound(src, 'sound/misc/machinetalk.ogg', 100, FALSE, -1)
 	return ..()
 
 /obj/structure/roguemachine/atm/examine(mob/user)
 	. += ..()
-	. += span_info("The current tax rate on deposits is [SStreasury.tax_value * 100] percent. Nobles exempt.")
+	. += span_info("A dial shows the current tax on deposits is [SStreasury.tax_value * 100] percent. Nobles exempt.")
 
 
 /obj/structure/roguemachine/atm/proc/drill(obj/structure/roguemachine/atm)
@@ -150,7 +155,7 @@
 		return
 	if(SStreasury.treasury_value <50)
 		new /obj/item/coveter(loc)
-		loc.visible_message(span_warning("The Crown grinds to a halt as the last of the treasury spills from the meister!"))
+		loc.visible_message(span_warning("The Crown grinds to a halt as the last of the treasury spills from the coinbiter!"))
 		playsound(src, 'sound/misc/DrillDone.ogg', 70, TRUE)
 		icon_state = "atm"
 		drilling = FALSE
@@ -158,7 +163,7 @@
 		return
 	if(groschensiphoned >199) // The cap variable for siphoning. 
 		new /obj/item/coveter(loc)
-		loc.visible_message(span_warning("Maximum withdrawal reached! The meister weeps."))
+		loc.visible_message(span_warning("Maximum withdrawal reached! The coinbiter weeps."))
 		playsound(src, 'sound/misc/DrillDone.ogg', 70, TRUE)
 		icon_state = "meister_broken"
 		drilled = TRUE
@@ -168,11 +173,11 @@
 	else
 		loc.visible_message(span_warning("A horrible scraping sound emanates from the Crown as it does its work..."))
 		if(!has_reported)
-			send_ooc_note("A parasite of the Freefolk is draining a Meister! Location: [location_tag ? location_tag : "Unknown"]", job = list("Grand Duke", "Steward", "Clerk"))
+			send_ooc_note("A parasite of the Freefolk is draining a coinbiter! Location: [location_tag ? location_tag : "Unknown"]", job = list("Grand Duke", "Steward", "Clerk"))
 			has_reported = TRUE
 		playsound(src, 'sound/misc/TheDrill.ogg', 70, TRUE)
 		spawn(100) // The time it takes to complete an interval. If you adjust this, please adjust the sound too. It's 'about' perfect at 100. Anything less It'll start overlapping.
-			loc.visible_message(span_warning("The meister spills its bounty!"))
+			loc.visible_message(span_warning("The coinbiter spills its bounty!"))
 			SStreasury.treasury_value -= 20 // Takes from the treasury
 			groschensiphoned += 20
 			budget2change(20, null, "SILVER")
@@ -182,7 +187,7 @@
 
 /obj/structure/roguemachine/atm/attack_right(mob/living/carbon/human/user)
 	if(drilling)
-		to_chat(user,"<font color='yellow'>I begin dismounting the Crown from the meister...</font>" )
+		to_chat(user,"<font color='yellow'>I begin dismounting the Crown from the coinbiter...</font>" )
 		if(do_after(user, 30, src))
 			if(!drilling)
 				return
@@ -195,7 +200,7 @@
 
 /obj/item/coveter
 	name = "Covetous Crown"
-	desc = "A Crown which craves the brow of meisters. The Covetous Crab"
+	desc = "A crown which craves the brow of coinbiters."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "crown_object"
 	force = 10
@@ -260,11 +265,11 @@
 								playsound(src, 'sound/misc/DrillDone.ogg', 70, TRUE)
 								is_active = FALSE
 								to_chat(H,span_info("<font color ='red'>You feel very drained.</font>"))
-								send_ooc_note("A parasite of the Freefolk has siphoned [H.real_name] of [sum] from the Nervemaster's veins.", job = list("Grand Duke", "Steward", "Clerk"))
+								send_ooc_note("A parasite of the Freefolk has siphoned [H.real_name] of [sum] from the Coinmaster's veins.", job = list("Grand Duke", "Steward", "Clerk"))
 						else
 							is_active = FALSE
 							if(sum)
-								send_ooc_note("A parasite of the Freefolk has siphoned [H.real_name] of [sum] from the Nervemaster's veins.", job = list("Grand Duke", "Steward", "Clerk"))
+								send_ooc_note("A parasite of the Freefolk has siphoned [H.real_name] of [sum] from the Coinmaster's veins.", job = list("Grand Duke", "Steward", "Clerk"))
 							break
 				if("Slow")
 					is_active = TRUE
@@ -288,11 +293,11 @@
 								drain_effect_fast(H)
 							if(i == needed_cycles)	//Last cycle.
 								is_active = FALSE
-								send_ooc_note("A parasite of the Freefolk has siphoned [H.real_name] of [sum] from the Nervemaster's veins.", job = list("Grand Duke", "Steward", "Clerk"))
+								send_ooc_note("A parasite of the Freefolk has siphoned [H.real_name] of [sum] from the Coinmaster's veins.", job = list("Grand Duke", "Steward", "Clerk"))
 						else
 							is_active = FALSE
 							if(sum)
-								send_ooc_note("A parasite of the Freefolk has siphoned [H.real_name] of [sum] from the Nervemaster's veins.", job = list("Grand Duke", "Steward", "Clerk"))
+								send_ooc_note("A parasite of the Freefolk has siphoned [H.real_name] of [sum] from the Coinmaster's veins.", job = list("Grand Duke", "Steward", "Clerk"))
 							break
 				if("Nevermind")
 					return
@@ -303,7 +308,7 @@
 			return
 
 	else
-		to_chat(user,span_info("Their blood is unsoiled by the Duchy's Nervemaster. There is nothing to take."))
+		to_chat(user,span_info("Their blood is unknown to the Coinmaster's ledger. There is nothing to take."))
 		return
 
 /obj/item/coveter/proc/drain_effect_fast(mob/living/carbon/human/H)

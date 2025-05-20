@@ -207,7 +207,7 @@ SUBSYSTEM_DEF(BMtreasury)
 	priority = FIRE_PRIORITY_WATER_LEVEL
 	var/treasury_value = 0
 	var/multiple_item_penalty = 0.66
-	var/interest_rate = 0.20 // Bit more interest, since it's gonna be much harder for the BMaster to get valuables.
+	var/interest_rate = 0.10 // Down from 20. What were they thinking.
 	var/next_treasury_check = 0
 	var/list/vault_accounting = list()
 
