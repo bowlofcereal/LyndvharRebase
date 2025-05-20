@@ -6,8 +6,8 @@
 #define TAB_LOG 6
 
 /obj/structure/roguemachine/steward
-	name = "nerve master"
-	desc = "The stewards most trusted friend."
+	name = "COINMASTER"
+	desc = "Clattering coins and clicking cog-teeth update a clockwork ledger of numbered dials before blood-stained names."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "steward_machine"
 	density = TRUE
@@ -32,7 +32,7 @@
 			update_icon()
 			return
 		else
-			to_chat(user, span_warning("Wrong key."))
+			to_chat(user, span_warning("This key doesn't fit."))
 			return
 	if(istype(P, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/K = P
@@ -46,10 +46,10 @@
 				(locked) ? (icon_state = "steward_machine_off") : (icon_state = "steward_machine")
 				update_icon()
 				return
-		to_chat(user, span_warning("Wrong key."))
+		to_chat(user, span_warning("None of these keys fit."))
 		return
 	if(istype(P, /obj/item/roguecoin))
-		SStreasury.give_money_treasury(P.get_real_price(), "NERVE MASTER deposit")
+		SStreasury.give_money_treasury(P.get_real_price(), "COINMASTER Deposit")
 		qdel(P)
 		playsound(src, 'sound/misc/coininsert.ogg', 100, FALSE, -1)
 		return
@@ -159,7 +159,7 @@
 					return
 				if(newtax < 1)
 					return
-				SStreasury.give_money_account(newtax, A, "NERVE MASTER")
+				SStreasury.give_money_account(newtax, A, "COINMASTER")
 				break
 	if(href_list["fineaccount"])
 		var/X = locate(href_list["fineaccount"])
@@ -176,7 +176,7 @@
 					return
 				if(newtax < 1)
 					return
-				SStreasury.give_money_account(-newtax, A, "NERVE MASTER")
+				SStreasury.give_money_account(-newtax, A, "COINMASTER")
 				break
 	if(href_list["payroll"])
 		var/list/L = list(GLOB.noble_positions) + list(GLOB.garrison_positions) + list(GLOB.courtier_positions) + list(GLOB.church_positions) + list(GLOB.yeoman_positions) + list(GLOB.peasant_positions) + list(GLOB.youngfolk_positions) + list(GLOB.inquisition_positions)
@@ -200,7 +200,7 @@
 			return
 		for(var/mob/living/carbon/human/H in GLOB.human_list)
 			if(H.job == job_to_pay)
-				SStreasury.give_money_account(amount_to_pay, H, "NERVE MASTER")
+				SStreasury.give_money_account(amount_to_pay, H, "COINMASTER")
 	if(href_list["compact"])
 		compact = !compact
 	return attack_hand(usr)
@@ -233,7 +233,7 @@
 	if(.)
 		return
 	if(locked)
-		to_chat(user, span_warning("It's locked. Of course."))
+		to_chat(user, span_warning("It's locked."))
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, 'sound/misc/keyboard_enter.ogg', 100, FALSE, -1)
@@ -241,9 +241,9 @@
 	var/contents
 	switch(current_tab)
 		if(TAB_MAIN)
-			contents += "<center>NERVE MASTER<BR>"
+			contents += "<center>COINBITER<BR>"
 			contents += "--------------<BR>"
-			contents += "<a href='?src=\ref[src];switchtab=[TAB_BANK]'>\[Bank\]</a><BR>"
+			contents += "<a href='?src=\ref[src];switchtab=[TAB_BANK]'>\[Ledger\]</a><BR>"
 			contents += "<a href='?src=\ref[src];switchtab=[TAB_STOCK]'>\[Stockpile\]</a><BR>"
 			contents += "<a href='?src=\ref[src];switchtab=[TAB_IMPORT]'>\[Import\]</a><BR>"
 			contents += "<a href='?src=\ref[src];switchtab=[TAB_BOUNTIES]'>\[Bounties\]</a><BR>"
@@ -252,7 +252,7 @@
 		if(TAB_BANK)
 			contents += "<a href='?src=\ref[src];switchtab=[TAB_MAIN]'>\[Return\]</a>"
 			contents += " <a href='?src=\ref[src];compact=1'>\[Compact: [compact? "ENABLED" : "DISABLED"]\]</a><BR>"
-			contents += "<center>Bank<BR>"
+			contents += "<center>Ledger<BR>"
 			contents += "--------------<BR>"
 			contents += "Treasury: [SStreasury.treasury_value]m</center><BR>"
 			contents += "<a href='?src=\ref[src];payroll=1'>\[Pay by Class\]</a><BR><BR>"
@@ -279,7 +279,7 @@
 			contents += "--------------<BR>"
 			if(compact)
 				contents += "Treasury: [SStreasury.treasury_value]m"
-				contents += " / Lord's Tax: [SStreasury.tax_value*100]%"
+				contents += " / Markgraf's Tax: [SStreasury.tax_value*100]%"
 				contents += " / Guild's Tax: [SStreasury.queens_tax*100]%</center><BR>"
 				for(var/datum/roguestock/stockpile/A in SStreasury.stockpile_datums)
 					contents += "<b>[A.name]:</b>"
@@ -290,7 +290,7 @@
 						contents += " <a href='?src=\ref[src];import=\ref[A]'>\[IMP [A.importexport_amt] ([A.get_import_price()])\]</a> <a href='?src=\ref[src];export=\ref[A]'>\[EXP [A.importexport_amt] ([A.get_export_price()])\]</a> <BR>"
 			else
 				contents += "Treasury: [SStreasury.treasury_value]m<BR>"
-				contents += "Lord's Tax: [SStreasury.tax_value*100]%<BR>"
+				contents += "Markgraf's Tax: [SStreasury.tax_value*100]%<BR>"
 				contents += "Guild's Tax: [SStreasury.queens_tax*100]%</center><BR>"
 				for(var/datum/roguestock/stockpile/A in SStreasury.stockpile_datums)
 					contents += "[A.name]<BR>"
@@ -309,14 +309,14 @@
 			contents += "--------------<BR>"
 			if(compact)
 				contents += "Treasury: [SStreasury.treasury_value]m"
-				contents += " / Lord's Tax: [SStreasury.tax_value*100]%"
+				contents += " / Markgraf's Tax: [SStreasury.tax_value*100]%"
 				contents += " / Guild's Tax: [SStreasury.queens_tax*100]%</center><BR>"
 				for(var/datum/roguestock/import/A in SStreasury.stockpile_datums)
 					contents += "<b>[A.name]:</b>"
 					contents += " <a href='?src=\ref[src];import=\ref[A]'>\[Import [A.importexport_amt] ([A.get_import_price()])\]</a><BR><BR>"
 			else
 				contents += "Treasury: [SStreasury.treasury_value]m<BR>"
-				contents += "Lord's Tax: [SStreasury.tax_value*100]%<BR>"
+				contents += "Markgraf's Tax: [SStreasury.tax_value*100]%<BR>"
 				contents += "Guild's Tax: [SStreasury.queens_tax*100]%</center><BR>"
 				for(var/datum/roguestock/import/A in SStreasury.stockpile_datums)
 					contents += "[A.name]<BR>"
@@ -329,7 +329,7 @@
 			contents += "<center>Bounties<BR>"
 			contents += "--------------<BR>"
 			contents += "Treasury: [SStreasury.treasury_value]m<BR>"
-			contents += "Lord's Tax: [SStreasury.tax_value*100]%</center><BR>"
+			contents += "Markgraf's Tax: [SStreasury.tax_value*100]%</center><BR>"
 			for(var/datum/roguestock/bounty/A in SStreasury.stockpile_datums)
 				contents += "[A.name]<BR>"
 				contents += "[A.desc]<BR>"
