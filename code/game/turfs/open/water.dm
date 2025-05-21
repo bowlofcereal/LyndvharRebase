@@ -271,6 +271,17 @@
 	wash_in = TRUE
 	water_reagent = /datum/reagent/water/gross
 
+/turf/open/water/bloody
+	name = "blood"
+	desc = "Is that... a river of blood? EVIL!"
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "dirtW2"
+	water_level = 2
+	water_color = "#880808"
+	slowdown = 3
+	wash_in = TRUE
+	water_reagent = /datum/reagent/blood
+
 /turf/open/water/swamp/Initialize()
 	icon_state = "dirt"
 	dir = pick(GLOB.cardinals)
