@@ -238,6 +238,7 @@
 		var/list/headless_job_lists = list("Nobles" = GLOB.noble_positions,
 							"Courtiers" = GLOB.courtier_positions,
 							"Garrison" = GLOB.garrison_positions,
+							"City's Watch" = GLOB.watch_positions,
 							"Church" = GLOB.church_positions,
 							"Mercenaries" = GLOB.mercenary_positions,
 							"Abstract" = list("Appearance", "Emote", "Deadchat", "OOC"))

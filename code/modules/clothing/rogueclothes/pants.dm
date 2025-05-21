@@ -476,3 +476,12 @@
 	item_state = "monkpants"
 	naledicolor = TRUE
 	salvage_result = /obj/item/natural/hide/cured
+
+/// NORDMAN
+
+
+/obj/item/clothing/under/roguetown/trou/leather/nordman
+	name = "fur pants"
+	desc = "Thick fur pants made to endure the coldest winds, offering a share of protection from fang and claw of beast or men alike."
+	icon_state = "nordman_pants"
+	item_state = "nordman_pants"

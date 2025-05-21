@@ -123,7 +123,7 @@
 			beltr = /obj/item/ammopouch/bullets
 			belt =  /obj/item/gun/ballistic/arquebus_pistol
 			backl = /obj/item/rogueweapon/sword
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/powderflask, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/powderflask = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
 
 
 

@@ -345,3 +345,15 @@
 	icon_state = "welfshoes"
 	item_state = "welfshoes"
 	anvilrepair = /datum/skill/craft/carpentry
+
+
+
+
+/// ATGEVERI
+
+
+/obj/item/clothing/shoes/roguetown/boots/leather/nordman
+	name = "heavy leather boots"
+	desc = "A pair of strong leather boots, designed to endure battle and the chill of the north both."
+	icon_state = "nordman_boots"
+	item_state = "nordman_boots"

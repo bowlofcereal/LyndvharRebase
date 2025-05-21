@@ -84,23 +84,28 @@ GLOBAL_LIST_INIT(church_positions, list(
 	"Priest",
 	"Inquisitor",
 	"Monk",
-	"Mortician",
 	"Chapter Master",
+	"Templar"
 ))
 
 GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Merchant",
 	"Innkeep",
-	"Archivist",
 	"Armorer",
 	"Weaponsmith",
 	"Blacksmith",
 	"Tailor",
-	"Alchemist",
 	"Mason",
 	"Scribe",
-	"Village Elder",
 ))
+
+
+GLOBAL_LIST_INIT(watch_positions, list(
+"Bailiff",
+"Watchman",
+))
+
+
 
 GLOBAL_LIST_INIT(apprentice_positions, list(
 	"Squire",
@@ -189,6 +194,7 @@ GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())
 	sorting_order += GLOB.courtier_positions
 	sorting_order += GLOB.garrison_positions
 	sorting_order += GLOB.church_positions
+	sorting_order += GLOB.watch_positions
 	sorting_order += GLOB.yeoman_positions
 	sorting_order += GLOB.peasant_positions
 	sorting_order += GLOB.apprentices_positions

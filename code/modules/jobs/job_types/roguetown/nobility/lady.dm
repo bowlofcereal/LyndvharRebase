@@ -1,6 +1,6 @@
 /datum/job/roguetown/lady
 	title = "Markgraf Consort"
-	f_title = "Markgräfin Consort"
+	f_title = "Markgrafin Consort"
 	flag = LADY
 	department_flag = NOBLEMEN
 	faction = "Station"
@@ -24,7 +24,7 @@
 
 /datum/job/roguetown/exlady //just used to change the ladys title
 	title = "Markgraf Dowager"
-	f_title = "Markgräfin Dowager"
+	f_title = "Markgrafin Dowager"
 	flag = LADY
 	department_flag = NOBLEMEN
 	faction = "Station"

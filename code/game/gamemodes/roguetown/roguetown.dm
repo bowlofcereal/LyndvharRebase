@@ -240,6 +240,8 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 					continue
 				if(bandaids.assigned_role in GLOB.yeoman_positions) // Many of these guys vanishing would suck
 					continue
+				if(bandaids.assigned_role in GLOB.watch_positions) // Many of these guys vanishing would suck
+					continue
 
 				allantags -= bandaids
 				pre_bandits += bandaids
@@ -314,6 +316,8 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 				if(rebelguy.assigned_role in GLOB.church_positions)
 					blockme = TRUE
 				if(rebelguy.assigned_role in GLOB.yeoman_positions)
+					blockme = TRUE
+				if(rebelguy.assigned_role in GLOB.watch_positions)
 					blockme = TRUE
 				if(blockme)
 					continue
