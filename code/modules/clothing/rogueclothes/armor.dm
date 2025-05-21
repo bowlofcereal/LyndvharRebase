@@ -141,10 +141,48 @@
 	name = "fencer gambeson"
 	desc = "A large shirt with heavy padding meant to be used below armor. Will probably stop an arrow, unlikely to stop a bolt."
 	icon_state = "fancygamb"
-	armor = list("blunt" = 80, "slash" = 50, "stab" = 40, "piercing" = 60, "fire" = 0, "acid" = 0)
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	color = "#FFFFFF"
 	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft
+	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
+	name = "grenzelhoftian hip-shirt"
+	desc = "Padded shirt for extra comfort and protection, adorned in vibrant colors."
+	body_parts_covered = CHEST|GROIN|ARMS|VITALS
+	icon_state = "grenzelshirt"
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
+	boobed = TRUE
+	detail_tag = "_detail"
+	detail_color = CLOTHING_WHITE
+	max_integrity = 250 // Slightly stronger than base, a reward for unique drip
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+	color = "#FFFFFF"
+	var/picked = FALSE
+	shiftable = FALSE
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft/attack_right(mob/user)
+	..()
+	if(!picked)
+		var/choice = input(user, "Choose a color.", "Grenzelhoft colors") as anything in colorlist
+		var/playerchoice = colorlist[choice]
+		picked = TRUE
+		detail_color = playerchoice
+		detail_tag = "_detail"
+		update_icon()
+		if(loc == user && ishuman(user))
+			var/mob/living/carbon/H = user
+			H.update_inv_shirt()
+
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/grenzelhoft/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/councillor
 	color = "#646464"
@@ -279,12 +317,13 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	icon_state = "shadowrobe"
 
-/obj/item/clothing/suit/roguetown/armor/gambeson/hierophant
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/hierophant
 	name = "hierophant's shawl"
 	icon_state = "desertrobe"
 	item_state = "desertrobe"
 	desc = "A thick robe intervowen with spell-laced fabrics. Thick and protective while remaining light and breezy; the perfect gear for protecting one from the threats of the sun, the desert and the daemons, yet still allowing one to cast spells aptly."
 	naledicolor = TRUE
+	shiftable = FALSE
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex
 	name = "pontifex's kaftan"
@@ -471,7 +510,7 @@
 	name = "longcoat"
 	desc = "A padded longcoat meant to keep you warm in the frigid winters"
 	icon_state = "longcoat"
-	color = null
+	color = CLOTHING_BLACK
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
@@ -535,6 +574,22 @@
 	. = ..()
 	color = pick(CLOTHING_PURPLE, null,CLOTHING_GREEN, CLOTHING_RED)
 
+/obj/item/clothing/suit/roguetown/shirt/robe/spellcasterrobe
+	slot_flags = ITEM_SLOT_ARMOR
+	name = "spellsinger robes"
+	desc = "A set of reinforced, leather-padded robes worn by spellblades."
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
+	armor = list("blunt" = 70, "slash" = 70, "stab" = 50, "piercing" = 30, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP, BCLASS_SMASH)
+	armor_class = ARMOR_CLASS_LIGHT
+	icon_state = "spellcasterrobe"
+	icon = 'icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/armor.dmi'
+	sleeved = null
+	color = null
+	r_sleeve_status = SLEEVE_NORMAL
+	l_sleeve_status = SLEEVE_NORMAL
+
 //MEDIUM ARMOR//
 
 /obj/item/clothing/suit/roguetown/armor/chainmail
@@ -555,6 +610,19 @@
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle)
 
+/obj/item/clothing/suit/roguetown/armor/chainmail/aalloy
+	name = "decrepit chainmail"
+	desc = "Decrepit old chainmail. Aeon's grasp is upon it."
+	icon_state = "ancientchain"
+	smeltresult = /obj/item/ingot/aalloy
+	max_integrity = 50
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/paalloy
+	name = "ancient chainmail"
+	desc = "Chainmail formed of ancient alloys. Aeon's grasp has been lifted from it."
+	icon_state = "ancientchain"
+	smeltresult = /obj/item/ingot/aaslag
+
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron
 	icon_state = "ichainmail"
 	name = "chainmaille"
@@ -573,6 +641,19 @@
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/aalloy
+	name = "decrepit hauberk"
+	desc = "A hauberk worn out by time. Aeon's grasp is upon it."
+	icon_state = "ancienthauberk"
+	max_integrity = 50
+	smeltresult = /obj/item/ingot/aalloy
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/paalloy
+	name = "ancient hauberk"
+	desc = "A hauberk formed out of ancient alloys. Aeon's grasp is upon it."
+	icon_state = "ancienthauberk"
+	smeltresult = /obj/item/ingot/aaslag
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate
 	slot_flags = ITEM_SLOT_ARMOR
@@ -625,6 +706,20 @@
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2
+
+/obj/item/clothing/suit/roguetown/armor/plate/half/aalloy
+	name = "decrepit cuirass"
+	desc = "A withered cuirass. Aeon's grasp is upon its form."
+	icon_state = "ancientcuirass"
+	smeltresult = /obj/item/ingot/aalloy
+	max_integrity = 150
+
+/obj/item/clothing/suit/roguetown/armor/plate/half/paalloy
+	name = "ancient cuirass"
+	desc = "A cuirass of ancient alloys. Aeon's grasp lifted from its form."
+	icon_state = "ancientcuirass"
+	smeltresult = /obj/item/ingot/aaslag
+
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/fluted
 	name = "fluted cuirass"
@@ -705,6 +800,22 @@
 /obj/item/clothing/suit/roguetown/armor/plate/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP)
+
+/obj/item/clothing/suit/roguetown/armor/plate/aalloy
+	name = "decrepit half-plate"
+	desc = "Worn out and decrepit halfplate. Aeon's grasp is upon it."
+	icon_state = "ancientplate"
+	item_state = "ancientplate"
+	max_integrity = 150
+	smeltresult = /obj/item/ingot/aalloy
+
+
+/obj/item/clothing/suit/roguetown/armor/plate/paalloy
+	name = "ancient half-plate"
+	desc = "Plate formed out of ancient alloys. Aeon's grasp has been lifted from it."
+	icon_state = "ancientplate"
+	item_state = "ancientplate"
+	smeltresult = /obj/item/ingot/aaslag
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted
 	name = "fluted half-plate"

@@ -43,7 +43,7 @@
 	blade_class = BCLASS_BLUNT
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	chargetime = 0
-	penfactor = -60
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 	swingdelay = 5
 	damfactor = 1.1
 	item_d_type = "blunt"
@@ -200,6 +200,16 @@
 	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/sword/peel)
 	wdefense = 2
 
+/obj/item/rogueweapon/stoneaxe/woodcut/aaxe
+	name = "decrepit axe"
+	desc = "An axe which has fallen to Aeon's grasp. Withered and worn."
+	icon_state = "ahandaxe"
+	smeltresult = /obj/item/ingot/aalloy
+	force = 17
+	force_wielded = 20
+	max_integrity = 180
+	blade_dulling = DULLING_SHAFT_CONJURED
+
 //Pickaxe-axe ; Technically both a tool and a weapon, but it goes here due to weapon function. Subtype of woodcutter axe, mostly a weapon.
 /obj/item/rogueweapon/stoneaxe/woodcut/pick
 	name = "Pulaski axe"
@@ -254,6 +264,12 @@
 	max_blade_int = 500
 	smeltresult = /obj/item/ingot/steel
 	wdefense = 3
+
+/obj/item/rogueweapon/stoneaxe/woodcut/steel/paaxe
+	name = "ancient alloy axe"
+	desc = "An ancient axe, Aeon's grasp has been lifted from it."
+	icon_state = "ahandaxe"
+	smeltresult = /obj/item/ingot/aaslag
 
 /obj/item/rogueweapon/stoneaxe/woodcut/getonmobprop(tag)
 	. = ..()

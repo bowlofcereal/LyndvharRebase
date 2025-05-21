@@ -1,3 +1,4 @@
+#define BASE_PARRY_STAMINA_DRAIN 5 // Unmodified stamina drain for parry, now a var instead of setting on simplemobs
 /proc/accuracy_check(zone, mob/living/user, mob/living/target, associated_skill, datum/intent/used_intent, obj/item/I)
 	if(!zone)
 		return
@@ -140,7 +141,7 @@
 			last_parry = world.time
 			if(intenty && !intenty.canparry)
 				return FALSE
-			var/drained = user.defdrain
+			var/drained = BASE_PARRY_STAMINA_DRAIN
 			var/weapon_parry = FALSE
 			var/offhand_defense = 0
 			var/mainhand_defense = 0
@@ -198,10 +199,10 @@
 					prob2defend -= (attacker_skill * 20)
 
 			if(HAS_TRAIT(src, TRAIT_GUIDANCE))
-				prob2defend += 15
+				prob2defend += 20
 
 			if(HAS_TRAIT(user, TRAIT_GUIDANCE))
-				prob2defend -= 15
+				prob2defend -= 20
 
 			// parrying while knocked down sucks ass
 			if(!(mobility_flags & MOBILITY_STAND))
@@ -534,10 +535,10 @@
 						prob2defend = prob2defend + (H.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
 
 		if(HAS_TRAIT(L, TRAIT_GUIDANCE))
-			prob2defend += 15
+			prob2defend += 20
 
 		if(HAS_TRAIT(U, TRAIT_GUIDANCE))
-			prob2defend -= 15
+			prob2defend -= 20
 
 		// dodging while knocked down sucks ass
 		if(!(L.mobility_flags & MOBILITY_STAND))

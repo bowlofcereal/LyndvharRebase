@@ -75,7 +75,7 @@
 	if(damfactor != 1)
 		inspec += "\n<b>Damage:</b> [damfactor]"
 	if(penfactor)
-		inspec += "\n<b>Armor Penetration:</b> [penfactor]"
+		inspec += "\n<b>Armor Penetration:</b> [penfactor < 0 ? "NONE" : penfactor]"
 	if(get_chargetime())
 		inspec += "\n<b>Charge Time</b>"
 	if(movement_interrupt)
@@ -200,7 +200,7 @@
 	if(mob_light)
 		qdel(mob_light)
 	if(mob_charge_effect)
-		mastermob.vis_contents -= mob_charge_effect
+		mastermob?.vis_contents -= mob_charge_effect
 
 
 /datum/intent/use
@@ -425,7 +425,7 @@
 	animname = "blank22"
 	hitsound = list('sound/combat/hits/punch/punch (1).ogg', 'sound/combat/hits/punch/punch (2).ogg', 'sound/combat/hits/punch/punch (3).ogg')
 	misscost = 5
-	releasedrain = 5
+	releasedrain = 2	//Lowered for intent stam usage.
 	swingdelay = 0
 	rmb_ranged = TRUE
 	candodge = TRUE
@@ -456,7 +456,7 @@
 	animname = "blank22"
 	hitsound = list('sound/combat/hits/punch/punch (1).ogg', 'sound/combat/hits/punch/punch (2).ogg', 'sound/combat/hits/punch/punch (3).ogg')
 	misscost = 5
-	releasedrain = 5
+	releasedrain = 4	//More than punch cus pen factor.
 	swingdelay = 0
 	penfactor = 10
 	candodge = TRUE
@@ -632,7 +632,7 @@
 	animname = "strike"
 	hitsound = list('sound/combat/hits/blunt/daze_hit.ogg')
 	chargetime = 0
-	penfactor = -50
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 	swingdelay = 6
 	damfactor = 1
 	item_d_type = "blunt"

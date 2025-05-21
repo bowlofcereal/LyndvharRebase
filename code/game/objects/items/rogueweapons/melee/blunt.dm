@@ -6,7 +6,7 @@
 	attack_verb = list("strikes", "hits")
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	chargetime = 0
-	penfactor = -70
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 	damfactor = 1.1
 	swingdelay = 0
 	icon_state = "instrike"
@@ -17,11 +17,12 @@
 	blade_class = BCLASS_SMASH
 	attack_verb = list("smashes")
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
-	penfactor = -100
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 	damfactor = 1.5
 	swingdelay = 10
 	icon_state = "insmash"
 	item_d_type = "blunt"
+
 
 /datum/intent/mace/rangedthrust
 	name = "thrust"
@@ -68,6 +69,17 @@
 	blade_dulling = DULLING_SHAFT_METAL
 	intdamage_factor = 1.35
 
+/obj/item/rogueweapon/mace/alloy
+	name = "decrepit mace"
+	desc = "A decrepit old mace. Aeon's grasp is upon it."
+	icon_state = "amace"
+	smeltresult = /obj/item/ingot/aalloy
+	force = 17
+	force_wielded = 21
+	max_integrity = 180
+	blade_dulling = DULLING_SHAFT_CONJURED
+
+
 /obj/item/rogueweapon/mace/church
 	force = 25
 	force_wielded = 30
@@ -88,6 +100,13 @@
 	smeltresult = /obj/item/ingot/steel
 	wdefense = 3
 	smelt_bar_num = 2
+
+/obj/item/rogueweapon/mace/steel/palloy
+	name = "ancient alloy mace"
+	desc = "A ancient mace. Aeon's grasp has been lifted from it."
+	icon_state = "amace"
+	smeltresult = /obj/item/ingot/aaslag
+
 
 /obj/item/rogueweapon/mace/silver
 	name = "silver war hammer"
@@ -175,28 +194,29 @@
 
 /datum/intent/mace/strike/wood
 	hitsound = list('sound/combat/hits/blunt/woodblunt (1).ogg', 'sound/combat/hits/blunt/woodblunt (2).ogg')
-	penfactor = -60
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 
 /datum/intent/mace/smash/wood
 	hitsound = list('sound/combat/hits/blunt/woodblunt (1).ogg', 'sound/combat/hits/blunt/woodblunt (2).ogg')
-	penfactor = -100
+	penfactor = BLUNT_DEFAULT_PENFACTOR
 
 /datum/intent/mace/smash/wood/ranged
 	reach = 2
 
 /obj/item/rogueweapon/mace/cudgel
 	name = "cudgel"
-	desc = "A stubby little club for brigands."
+	desc = "A stubby little club for brigands or thieves. Attempting parries with this is a bad idea."
 	force = 25
 	icon_state = "cudgel"
 	force_wielded = 25
-	gripped_intents = list(/datum/intent/mace/strike,/datum/intent/mace/smash)
+	possible_item_intents = list(/datum/intent/mace/strike)
+	gripped_intents = list(/datum/intent/mace/smash, /datum/intent/mace/strike)
 	smeltresult = /obj/item/ash
 	wlength = WLENGTH_SHORT
 	w_class = WEIGHT_CLASS_NORMAL
 	wbalance = 0
 	minstr = 7
-	wdefense = 3
+	wdefense = 1
 	resistance_flags = FLAMMABLE
 	blade_dulling = DULLING_SHAFT_WOOD
 	grid_width = 32
@@ -344,6 +364,15 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+/obj/item/rogueweapon/mace/goden/aalloy
+	name = "decrepit grand mace"
+	desc = "A decrepit old grand mace. Aeon's grasp is upon it."
+	force = 12
+	force_wielded = 22
+	icon_state = "ancient_supermace"
+	smeltresult = /obj/item/ingot/aalloy
+	blade_dulling = DULLING_SHAFT_CONJURED
+
 /obj/item/rogueweapon/mace/goden/steel
 	name = "grand mace"
 	desc = "Good morning, sire."
@@ -353,6 +382,13 @@
 	smeltresult = /obj/item/ingot/steel
 	blade_dulling = DULLING_SHAFT_METAL
 	smelt_bar_num = 2
+
+/obj/item/rogueweapon/mace/goden/steel/paalloy
+	name = "ancient grand mace"
+	desc = "A grand mace formed out of ancient alloys. Aeon's grasp lifted from its form."
+	icon_state = "ancient_supermace"
+	smeltresult = /obj/item/ingot/aaslag
+
 
 /obj/item/rogueweapon/mace/goden/deepduke
 	name = "deep duke's staff"
@@ -396,7 +432,7 @@
 
 /obj/item/rogueweapon/mace/warhammer
 	force = 20
-	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/warhammer/pick)
+	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/warhammer/pick)
 	gripped_intents = null
 	name = "warhammer"
 	desc = "Made to punch through armor and skull alike."
@@ -405,10 +441,20 @@
 	smeltresult = /obj/item/ingot/iron
 	blade_dulling = DULLING_SHAFT_REINFORCED
 	wdefense = 3
+	intdamage_factor = 1.2
+
+/obj/item/rogueweapon/mace/warhammer/alloy
+	name = "decrepit warhammer"
+	desc = "A decrepit old warhammer. Aeon's grasp is upon it."
+	icon_state = "awarhammer"
+	smeltresult = /obj/item/ingot/aalloy
+	force = 17
+	max_integrity = 180
+	blade_dulling = DULLING_SHAFT_CONJURED
 
 /obj/item/rogueweapon/mace/warhammer/steel
 	force = 25
-	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/mace/warhammer/pick, /datum/intent/mace/warhammer/stab)
+	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/warhammer/pick, /datum/intent/mace/warhammer/stab)
 	name = "steel warhammer"
 	desc = "A fine steel warhammer, makes a satisfying sound when paired with a knight's helm."
 	icon_state = "swarhammer"
@@ -427,7 +473,11 @@
 				return list("shrink" = 0.4,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 	return ..()
 
-
+/obj/item/rogueweapon/mace/warhammer/steel/paalloy
+	name = "ancient alloy warhammer"
+	desc = "A warhammer crafted of ancient alloys. Aeon's grasp has been lifted from it."
+	icon_state = "awarhammer"
+	smeltresult = /obj/item/ingot/aaslag
 
 /datum/intent/mace/warhammer/stab
 	name = "thrust"
@@ -450,6 +500,7 @@
 	hitsound = list('sound/combat/hits/blunt/metalblunt (1).ogg', 'sound/combat/hits/blunt/metalblunt (2).ogg', 'sound/combat/hits/blunt/metalblunt (3).ogg')
 	misscost = 1
 	swingdelay = 15
+	clickcd = 15
 	penfactor = 80
 	damfactor = 0.9
 	item_d_type = "stab"
