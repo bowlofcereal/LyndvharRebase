@@ -1,10 +1,6 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/troll/bog
-	icon = 'icons/roguetown/mob/monster/trolls.dmi'
 	name = "bog troll"
 	desc = "Elven legends say these monsters were servants of Dendor tasked to guard his realm; nowadays they are sometimes found in the company of orcs. It's said that fire curbs their almost magical regeneration."
-	icon_state = "Trolls"
-	icon_living = "Troll"
-	icon_dead = "Trolld"
 	pixel_x = -16
 
 	wander = FALSE		// bog trolls are ambush predators
@@ -26,20 +22,6 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/troll/bog/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_KNEESTINGER_IMMUNITY, TRAIT_GENERIC)	// bogtroll does not mind kneestingers
-
-/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog/LoseTarget()
-	..()
-	if(health > 0)
-		icon_state = "Trollso"
-
-/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog/Moved()
-	. = ..()
-	if(!icon_state == "Troll")
-		icon_state = "Troll"
-
-/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog/GiveTarget()
-	..()
-	icon_state = "Trolla"
 
 /mob/living/simple_animal/hostile/retaliate/rogue/troll/bog/after_creation()
 	..()

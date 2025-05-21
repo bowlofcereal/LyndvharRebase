@@ -1,10 +1,10 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/troll
-	icon = 'icons/roguetown/mob/monster/trolls.dmi'
+	icon = 'icons/roguetown/mob/monster/trolls/trolls.dmi'
 	name = "troll"
 	desc = "Elven legends say these monsters were servants of Dendor tasked to guard his realm; nowadays they are sometimes found in the company of orcs. It's said that fire curbs their almost magical regeneration."
-	icon_state = "Troll"
-	icon_living = "Troll"
-	icon_dead = "Trolld"
+	icon_state = "troll"
+	icon_living = "troll"
+	icon_dead = "troll_dead"
 	pixel_x = -16
 
 	faction = list("trolls")
@@ -118,6 +118,20 @@
 		GiveTarget(pulledby)
 	if(fire_stacks <= 0)
 		adjustHealth(-rand(20,35))
+
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog/LoseTarget()
+	..()
+	if(health > 0)
+		icon_state = "troll_hiding"
+
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog/Moved()
+	. = ..()
+	if(!icon_state == "troll")
+		icon_state = "troll"
+
+/mob/living/simple_animal/hostile/retaliate/rogue/troll/bog/GiveTarget()
+	..()
+	icon_state = "troll_ambush"
 
 /mob/living/simple_animal/hostile/retaliate/rogue/troll/simple_limb_hit(zone)
 	if(!zone)
