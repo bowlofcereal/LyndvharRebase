@@ -3,8 +3,8 @@
 	desc = "You shouldn't be seeing this."
 	icon = 'icons/roguetown/items/bounty_heads.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	grid_width = 32
-	grid_height = 32
+	grid_width = 64
+	grid_height = 64
 	gripped_intents = list(/datum/intent/use)
 
 /obj/item/natural/head/volf
@@ -12,7 +12,7 @@
 	desc = "the head of a fearsome volf."
 	icon_state = "volfhead"
 	layer = 3.1
-	sellprice = 8
+	sellprice = 10
 
 /obj/item/natural/head/goat
 	name = "goat head"
@@ -26,21 +26,21 @@
 	desc = "the head of a majestic venard."
 	icon_state = "foxhead"
 	layer = 3.1
-	sellprice = 5
+	sellprice = 6
 
 /obj/item/natural/head/saiga
 	name = "saiga head"
 	desc = "the head of a proud saiga."
 	icon_state = "saigahead"
 	layer = 3.1
-	sellprice = 10
+	sellprice = 12
 
 /obj/item/natural/head/direbear
 	name = "direbear head"
 	desc = "the head of a terrifying direbear."
 	icon_state = "direbearhead"
 	layer = 3.1
-	sellprice = 15
+	sellprice = 16
 
 /obj/item/natural/head/mole
 	name = "mole head"
@@ -49,7 +49,7 @@
 	layer = 3.1
 	w_class = WEIGHT_CLASS_HUGE
 	twohands_required = TRUE
-	sellprice = 15
+	sellprice = 16
 
 /obj/item/natural/head/troll
 	name = "troll head"
@@ -78,7 +78,7 @@
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
-	sellprice = 8
+	sellprice = 10
 
 /obj/item/natural/head/honeyspider
 	name = "honeyspider head"
@@ -87,4 +87,4 @@
 	layer = 3.1
 	grid_height = 64
 	grid_width = 64
-	sellprice = 8
+	sellprice = 10
