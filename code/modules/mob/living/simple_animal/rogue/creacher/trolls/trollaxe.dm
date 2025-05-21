@@ -11,6 +11,10 @@
 		/obj/item/alch/viscera = 3,
 		/obj/item/natural/head/troll/axe = 1
 	)
+	health = CAVETROLL_HEALTH * 1.1 // More health compared to normal troll
+	maxHealth = CAVETROLL_HEALTH
+	melee_damage_lower = 55 // More damage compared to the normal troll
+	melee_damage_upper = 70
 	base_intents = list(/datum/intent/simple/troll_axe)
 	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
 	loot = list(/obj/item/rogueweapon/greataxe/steel/doublehead)
