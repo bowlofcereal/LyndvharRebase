@@ -175,9 +175,9 @@
 					beltl = /obj/item/quiver/sling/iron
 					r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/sling
 				if("Crossbow")
-				H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-				beltl = /obj/item/quiver/bolts
+					H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+					backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+					beltl = /obj/item/quiver/bolts
 			var/armors = list("Light Armor","Medium Armor")
 			var/armor_choice = input("Choose your armor.", "TAKE UP ARMS") as anything in armors
 			switch(armor_choice)
