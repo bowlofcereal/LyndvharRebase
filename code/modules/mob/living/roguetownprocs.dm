@@ -337,13 +337,48 @@
 					else
 						flash_fullscreen("blackflash2")
 
-					var/dam2take = round((get_complex_damage(AB,user,used_weapon.blade_dulling)/2),1)
+					var/dam2take = round((get_complex_damage(AB, user,used_weapon.blade_dulling)/2),1)
 					if(dam2take)
 						if(!user.mind)
 							dam2take = dam2take * 0.25
-						if(dam2take > 0 && intenty.masteritem?.intdamage_factor)
+						var/obj/item/attI
+						if(intenty.masteritem)
+							attI = intenty.masteritem
+						if(dam2take > 0 && attI?.intdamage_factor)
 							dam2take = dam2take * intenty.masteritem?.intdamage_factor
-						used_weapon.take_damage(max(dam2take,1), BRUTE, used_weapon.d_type)
+						used_weapon.take_damage(max(dam2take,1), BRUTE, attI.d_type)
+						if(used_weapon.wbalance < 0 && !isnull(attI))	//Defender has a Heavy Balanced weapon.
+							var/riposte_damage = used_weapon.force / 2
+							switch(H.used_intent?.item_d_type)
+								if("blunt")
+									switch(attI.blade_dulling)
+										if(DULLING_SHAFT_WOOD, DULLING_SHAFT_GRAND)
+											riposte_damage = (riposte_damage / 2)
+										if(DULLING_SHAFT_METAL, DULLING_SHAFT_CONJURED)
+											riposte_damage = (riposte_damage * 1.5)
+								if("slash")
+									switch(attI.blade_dulling)
+										if(DULLING_SHAFT_METAL, DULLING_SHAFT_GRAND)
+											riposte_damage = (riposte_damage / 2)
+										if(DULLING_SHAFT_WOOD, DULLING_SHAFT_CONJURED)
+											riposte_damage = (riposte_damage * 1.5)
+								if("stab")
+									switch(attI.blade_dulling)
+										if(DULLING_SHAFT_GRAND)
+											riposte_damage = (riposte_damage / 2)
+										if(DULLING_SHAFT_REINFORCED, DULLING_SHAFT_CONJURED)
+											riposte_damage = (riposte_damage * 1.5)
+							if(used_weapon.intdamage_factor)
+								riposte_damage *= used_weapon.intdamage_factor
+							var/spaceship = (attI.wbalance <=> 0)
+							switch(spaceship)
+								if(-1)	//Heavy-balanced weapons take even less damage from Heavy weapon ripostes.
+									riposte_damage = riposte_damage / 3
+								if(0)	//Normal weapons take half.
+									riposte_damage = riposte_damage / 2
+								//if(1)	//Swift weapons take all of it. (unchanged)
+							attI.take_damage(max(riposte_damage,1), BRUTE, used_weapon.d_type)
+
 					return TRUE
 				else
 					return FALSE
