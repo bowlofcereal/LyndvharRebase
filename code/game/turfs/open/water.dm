@@ -291,6 +291,12 @@
 	water_color = pick("#705a43")
 	.  = ..()
 
+/turf/open/water/bloody/Initialize()
+	icon_state = "dirt"
+	dir = pick(GLOB.cardinals)
+	water_color = pick("#880808")
+	.  = ..()
+
 /turf/open/water/swamp/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
 	if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
