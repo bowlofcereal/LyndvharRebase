@@ -370,8 +370,7 @@
 											riposte_damage = (riposte_damage * 1.5)
 							if(used_weapon.intdamage_factor)
 								riposte_damage *= used_weapon.intdamage_factor
-							var/spaceship = (attI.wbalance <=> 0)
-							switch(spaceship)
+							switch(attI.wbalance)
 								if(-1)	//Heavy-balanced weapons take even less damage from Heavy weapon ripostes.
 									riposte_damage = riposte_damage / 3
 								if(0)	//Normal weapons take half.
