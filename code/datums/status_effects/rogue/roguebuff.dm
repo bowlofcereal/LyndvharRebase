@@ -398,6 +398,7 @@
 	return ..()
 
 /datum/status_effect/buff/healing/on_apply()
+	SEND_SIGNAL(owner, COMSIG_LIVING_MIRACLE_HEAL_APPLY, healing_on_tick, src)
 	var/filter = owner.get_filter(MIRACLE_HEALING_FILTER)
 	if (!filter)
 		owner.add_filter(MIRACLE_HEALING_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 60, "size" = 1))
@@ -446,6 +447,7 @@
 
 /datum/status_effect/buff/healing/on_remove()
 	owner.remove_filter(MIRACLE_HEALING_FILTER)
+	owner.update_damage_hud()
 	
 /atom/movable/screen/alert/status_effect/buff/fortify
 	name = "Fortifying Miracle"
@@ -827,3 +829,9 @@
 /datum/status_effect/buff/vigorized/on_remove()
 	. = ..()
 	to_chat(owner, span_warning("The surge of energy inside me fades..."))
+
+/datum/status_effect/buff/seelie_drugs
+	id = "seelie drugs"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
+	effectedstats = list("intelligence" = 2, "endurance" = 4, "speed" = -3)
+	duration = 20 SECONDS

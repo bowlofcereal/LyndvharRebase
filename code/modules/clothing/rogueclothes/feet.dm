@@ -47,7 +47,12 @@
 			holdingknife = null
 			playsound(loc, 'sound/foley/equip/swordsmall1.ogg')
 			return TRUE
-	
+
+/obj/item/clothing/shoes/roguetown/boots/aalloy
+	name = "decrepit boots"
+	desc = "decrepit old leather boots."
+	max_integrity = 40
+	icon_state = "ancientboots"
 
 /obj/item/clothing/shoes/roguetown/boots/psydonboots
 	name = "psydonian boots"
@@ -115,7 +120,7 @@
 
 
 /obj/item/clothing/shoes/roguetown/simpleshoes/buckle
-	name = "shoes"
+	name = "buckled shoes"
 	icon_state = "buckleshoes"
 	color = null
 
@@ -143,6 +148,11 @@
 	icon_state = "sandals"
 	item_state = "sandals"
 	sewrepair = TRUE
+
+/obj/item/clothing/shoes/roguetown/sandals/aalloy
+	name = "decrepit sandals"
+	desc = "Surely Psydon himself could've worn these sandals."
+	icon_state = "ancientsandals"
 
 /obj/item/clothing/shoes/roguetown/shalal
 	name = "babouche"
@@ -283,7 +293,12 @@
 	icon_state = "grenzelboots"
 	item_state = "grenzelboots"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
-	armor = list("blunt" = 80, "slash" = 15, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "piercing" = 50, "fire" = 0, "acid" = 0)
+	allowed_race = NON_DWARVEN_RACE_TYPES
+	salvage_amount = 1
+	salvage_result = /obj/item/natural/hide/cured
+	sewrepair = TRUE
 
 /obj/item/clothing/shoes/roguetown/boots/furlinedboots
 	name = "fur lined boots"
