@@ -464,6 +464,11 @@
 /obj/item/bedsheet/rogue/cloth,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
+"aim" = (
+/obj/structure/mineral_door/bars,
+/obj/structure/trap/flame,
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/cave/scarymaze)
 "aiq" = (
 /obj/machinery/light/rogue/firebowl{
 	pixel_y = 10
@@ -4905,6 +4910,7 @@
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/armor,
 /obj/item/candle/candlestick/gold,
+/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/goblinfort)
 "bLj" = (
@@ -5120,10 +5126,6 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cavewet/bogcaves)
-"bPD" = (
-/mob/living/carbon/human/species/human/northern/militia,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/mountains/decap)
 "bPF" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -11811,6 +11813,8 @@
 /area/rogue/outdoors/bog)
 "elm" = (
 /obj/structure/rack/rogue,
+/obj/item/rogueweapon/greatsword/aalloy,
+/obj/effect/spawner/lootdrop/silver_weapon_spawner,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/goblinfort)
 "els" = (
@@ -13397,9 +13401,6 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/shelter/mountains)
-"eOI" = (
-/turf/closed,
-/area/rogue/indoors/shelter/mountains/decap)
 "eOK" = (
 /obj/structure/ladder,
 /turf/open/floor/rogue/wood,
@@ -14032,7 +14033,7 @@
 /area/rogue/under/cavewet/bogcaves/sunkencity)
 "eZt" = (
 /obj/structure/chair/stool/rogue,
-/mob/living/carbon/human/species/human/northern/militia/guard,
+/mob/living/carbon/human/species/human/northern/highwayman,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/mountains/decap)
 "eZy" = (
@@ -15058,6 +15059,7 @@
 "fqc" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
+/obj/effect/spawner/lootdrop/valuable_clutter_spawner,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/cave/goblinfort)
 "fqe" = (
@@ -15459,6 +15461,7 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
 /obj/item/clothing/neck/roguetown/zcross/aalloy,
+/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/shelter/mountains/decap)
 "fwW" = (
@@ -16191,6 +16194,7 @@
 "fLe" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/effect/spawner/lootdrop/roguetown/sewers,
+/obj/effect/spawner/lootdrop/valuable_clutter_spawner,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/mountains/decap)
 "fLp" = (
@@ -18249,6 +18253,7 @@
 /obj/structure/ritualcircle/zizo,
 /obj/item/rogueweapon/huntingknife/idagger/silver/elvish,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/obj/effect/spawner/lootdrop/valuable_clutter_spawner,
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/shelter/mountains/decap)
 "gxZ" = (
@@ -19555,7 +19560,7 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church/basement)
 "gWN" = (
-/mob/living/carbon/human/species/human/northern/militia,
+/mob/living/carbon/human/species/human/northern/highwayman,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/mountains/decap)
 "gWP" = (
@@ -19825,6 +19830,7 @@
 "hbd" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/spells,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/goblinfort)
 "hbj" = (
@@ -20712,6 +20718,10 @@
 	},
 /turf/open/water/swamp/deep,
 /area/rogue/outdoors/mountains/decap)
+"hqH" = (
+/obj/effect/spawner/lootdrop/valuable_clutter_spawner,
+/turf/open/floor/rogue/woodturned,
+/area/rogue/under/cave/scarymaze)
 "hqJ" = (
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/carpet/royalblack,
@@ -24767,6 +24777,7 @@
 /obj/structure/closet/crate/chest/old_crate,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /obj/effect/spawner/lootdrop/potion_vitals,
+/obj/effect/spawner/lootdrop/valuable_clutter_spawner,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/cave)
 "iLF" = (
@@ -31673,6 +31684,7 @@
 	pixel_y = -32
 	},
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/trap/shock,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/cave/goblinfort)
 "llM" = (
@@ -33425,6 +33437,13 @@
 "lRv" = (
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town)
+"lRB" = (
+/obj/structure/mineral_door/bars,
+/obj/structure/trap/wall_projectile{
+	dir = 4
+	},
+/turf/open/floor/rogue/cobblerock,
+/area/rogue/under/cave/scarymaze)
 "lRM" = (
 /turf/closed/wall/mineral/rogue/pipe{
 	icon_state = "iron_line"
@@ -44321,7 +44340,7 @@
 /obj/effect/decal/mossy{
 	dir = 4
 	},
-/mob/living/carbon/human/species/human/northern/militia/guard,
+/mob/living/carbon/human/species/human/northern/highwayman,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/mountains/decap)
 "pHV" = (
@@ -45972,10 +45991,6 @@
 	icon_state = "vertw"
 	},
 /area/rogue/outdoors/town)
-"qkE" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cave)
 "qkN" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10
@@ -49132,6 +49147,7 @@
 "rqC" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/goblinfort)
 "rqD" = (
@@ -53757,7 +53773,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/physician)
 "sVA" = (
-/obj/structure/trap/stun,
+/obj/structure/trap/wall_projectile,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/scarymaze)
 "sVF" = (
@@ -63532,7 +63548,7 @@
 /area/rogue/under/town/basement/keep)
 "wkC" = (
 /obj/structure/bed/rogue/shit,
-/mob/living/carbon/human/species/human/northern/militia,
+/mob/living/carbon/human/species/human/northern/highwayman,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/shelter/mountains/decap)
 "wkO" = (
@@ -63826,7 +63842,7 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/cavewet/bogcaves/sunkencity)
 "wqq" = (
-/mob/living/carbon/human/species/human/northern/militia,
+/mob/living/carbon/human/species/human/northern/highwayman,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/mountains/decap)
 "wqr" = (
@@ -64035,11 +64051,6 @@
 "wtN" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/rogue/twig,
-/area/rogue/indoors/shelter/mountains/decap)
-"wub" = (
-/obj/structure/bed/rogue/shit,
-/mob/living/carbon/human/species/human/northern/militia,
-/turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/mountains/decap)
 "wuv" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -65899,6 +65910,7 @@
 "xeG" = (
 /obj/structure/closet/crate/roguecloset/inn,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/armor,
+/obj/effect/spawner/lootdrop/valuable_jewelry_spawner,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/cave/goblinfort)
 "xeH" = (
@@ -66389,7 +66401,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/mazedungeon)
 "xnd" = (
-/mob/living/carbon/human/species/human/northern/militia,
+/mob/living/carbon/human/species/human/northern/highwayman,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/mountains/decap)
 "xni" = (
@@ -186980,7 +186992,7 @@ qOD
 kJL
 jWF
 toJ
-qkE
+toJ
 bhJ
 bhJ
 bhJ
@@ -420802,7 +420814,7 @@ lRZ
 lRZ
 vRF
 jfh
-wub
+vid
 gYK
 sEo
 lRZ
@@ -426210,7 +426222,7 @@ oyf
 oyf
 lRZ
 lRZ
-bPD
+slt
 erP
 erP
 erP
@@ -437566,7 +437578,7 @@ eWw
 eWw
 eWw
 eWw
-xlZ
+aim
 eWw
 eWw
 eWw
@@ -449770,7 +449782,7 @@ eWw
 eWw
 eWw
 eWw
-kNA
+lRB
 eWw
 xfP
 xfP
@@ -454294,7 +454306,7 @@ ewQ
 eWw
 mjF
 sqa
-mjF
+hqH
 eWw
 qvs
 mpz
@@ -470470,7 +470482,7 @@ txW
 mxK
 iHh
 iHh
-eOI
+nmu
 hAl
 fhY
 ykl
