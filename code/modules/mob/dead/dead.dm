@@ -78,8 +78,6 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	dat += "</center>"
 
 	for(var/datum/job/job in SSjob.occupations)
-		if(istype(job, /datum/job/roguetown/adventurer/courtagent) || istype(job, /datum/job/roguetown/wretch))
-			continue
 		if(!job)
 			continue
 		var/readiedas = 0

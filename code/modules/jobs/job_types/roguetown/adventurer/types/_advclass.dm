@@ -38,11 +38,14 @@
 
 	post_equip(H)
 
-	if(H.gender == FEMALE)
-		H.advjob = f_title
+	if(title)
+		if((f_title) && H.gender == FEMALE)
+			H.advjob = f_title
+		else
+			H.advjob = title
 	else
-		H.advjob = title
-
+		H.advjob = name
+		
 	var/turf/TU = get_turf(H)
 	if(TU)
 		if(horse)

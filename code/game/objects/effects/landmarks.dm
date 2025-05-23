@@ -183,9 +183,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Bog Master"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/manatarms
-	name = "Man-at-Arms"
-	icon_state = "arrow"
 
 /obj/effect/landmark/start/marshal
 	name = "Marshal"
@@ -247,9 +244,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Orthodoxist"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/masteratarms
-	name = "master-at-arms"
-	icon_state = "arrow"
 
 /obj/effect/landmark/start/gatemaster
 	name = "gatekeeper"

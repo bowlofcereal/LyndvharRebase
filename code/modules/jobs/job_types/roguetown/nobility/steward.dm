@@ -42,7 +42,7 @@
 /datum/advclass/steward/lordsteward
 	name = "Lord Steward"
 	title = "Lord Steward"
-	f_title = "Lady Steward"
+	f_title = "Lady Stewardess"
 	tutorial = "You are the Markgraf's most trusted advisor, and the steward of his lands.\
 				You are responsible for the management of the realm's wealth, overseeing the economy, and ensuring that everything runs smoothly. \
 				You are amongst the few literate subjects in the realm able to assess the value of every items with just a glance."
