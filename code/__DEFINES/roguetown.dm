@@ -235,11 +235,15 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_WATCH			"CAT_WATCH"			// Watch class - Handles Town Watch class selector
 #define CTAG_MENATARMS		"CAT_MENATARMS"		// Men-at-Arms class - Handles Men-at-Arms class selector
 #define CTAG_MASTERATARMS  	"CAT_MASTERATARMS"	// Master-at-Arms class - Handles Master-at-Arms class selector
+#define CTAG_CHAPTERMASTER	"CAT_CHAPTERMASTER"	// Chapter Master class - Handles Chapter Master class selector
+#define CTAG_KNIGHTTEMPLAR	"CAT_KNIGHTTEMPLAR"	// Knight Templar class - Handles Knight Templar class selector
+#define CTAG_TEMPLAR		"CAT_TEMPLAR"		// Templar class - Handles Templar class selector
+#define CTAG_KNIGHTHOSP		"CAT_KNIGHTHOSP"	// Hospitaler class - Handles Hospitaler class selector
+#define CTAG_HOSPITALER		"CAT_HOSPITALER"	// Hospitaler Sergeant class - Handles Hospitaler Sergeant class selector
 #define CTAG_GATEMASTER		"CAT_GATEMASTER"		// Gatemaster class - Handles Gatemaster class selector
 #define CTAG_ROYALGUARD		"CAT_ROYALGUARD"	// Royal Guard class - Handles Royal Guard class selector
 #define CTAG_MERCENARY		"CAT_MERCENARY"		// Mercenary class - Handles Mercenary class selector
 #define CTAG_HAND			"CAT_HAND"			// Hand class - Handles Hand class selector
-#define CTAG_TEMPLAR		"CAT_TEMPLAR"		// Templar class - Handles Templar class selector
 #define CTAG_HEIR			"CAT_HEIR"			// Prince(cess) class - Handles Heir class selector
 #define CTAG_SQUIRE			"CAT_SQUIRE"		// Squire class - Handles Squire class selector
 #define CTAG_VETERAN		"CAT_VETERAN"		// Veteran class - Handles Veteran class selector

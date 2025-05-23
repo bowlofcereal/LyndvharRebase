@@ -120,7 +120,11 @@
 #define GRAVEDIGGER	(1<<2)
 #define DRUID		(1<<3)
 #define CHAPTERMASTER	(1<<4)
-#define PURITAN		(1<<5)
+#define TEMPLAR_KNIGHT	(1<<5)
+#define TEMPLAR	(1<<6)
+#define HOSP_KNIGHT	(1<<7)
+#define HOSPITALER	(1<<8)
+#define PURITAN			(1<<9)
 
 #define COURTIERS	(1<<3)
 
@@ -218,83 +222,81 @@
 #define JDO_PRINCE 1.2
 #define JDO_HAND 1.3
 
-
 // Courtiers
 #define JDO_STEWARD 2
 #define JDO_PHYSICIAN 2.1
 #define JDO_JESTER 2.2
-#define JDO_BUTLER 2.3
-#define JDO_SERVANT 2.4
+#define JDO_SERVANT 2.3
 
+// RETINUE	
 #define JDO_KNIGHT 3
-#define JDO_SQUIRE 3.1
-#define JDO_MASTERATARMS 3.2
-#define JDO_GATEMASTER 3.3
-#define JDO_MANATARMS 3.4
-//#define JDO_LIGHTFOOT 8.5
-#define JDO_TOWNGUARD 3.5
-#define JDO_DUNGEONEER 3.6
+#define JDO_MASTERATARMS 3.1
+#define JDO_GATEMASTER 3.2
+#define JDO_MANATARMS 3.3
+#define JDO_TOWNGUARD 3.4
+#define JDO_DUNGEONEER 3.5
 
-
+// CHURCH
 #define JDO_PRIEST 4
 #define JDO_CHAPTERMASTER 4.1
-#define JDO_TEMPLAR 4.2
-#define JDO_MONK 4.3
-#define JDO_PURITAN 4.4
-#define JDO_CHURCHLING 14
+#define JDO_TEMPLAR_KNIGHT 4.2
+#define JDO_TEMPLAR 4.3
+#define JDO_HOSP_KNIGHT 4.4
+#define JDO_HOSPITALER 4.5
+#define JDO_MONK 4.6
+#define JDO_PURITAN 4.7
+#define JDO_CHURCHLING 4.8
 
-#define JDO_BAILIFF 6
-#define JDO_WATCHMAN 6.1
+// CITYWATCH
+#define JDO_BAILIFF 5
+#define JDO_WATCHMAN 5.1
 
-#define JDO_MERCHANT 7
-#define JDO_SHOPHAND 7.1
-#define JDO_APOTHECARY 7.2
-#define JDO_ARMORER 7.3
-#define JDO_WEAPONSMITH 7.4
-#define JDO_BLACKSMITH 7.5
-#define JDO_APPRENTICE 7.6
-#define JDO_TAILOR 7.7
+#define JDO_MERCHANT 6
+#define JDO_SHOPHAND 6.1
+#define JDO_APOTHECARY 6.2
+#define JDO_ARMORER 6.3
+#define JDO_WEAPONSMITH 6.4
+#define JDO_BLACKSMITH 6.5
+#define JDO_APPRENTICE 6.6
+#define JDO_TAILOR 6.7
 
+#define JDO_BARKEEP 7
+#define JDO_COOK 7.1
+#define JDO_NITEMASTER 7.2
+#define JDO_KNAVEWENCH 7.3
+#define JDO_WENCH 7.4
 
-#define JDO_BARKEEP 8
-#define JDO_COOK 8.1
-#define JDO_NITEMASTER 8.2
-#define JDO_KNAVEWENCH 8.3
-#define JDO_WENCH 8.4
+#define JDO_SOILSON 8
+#define JDO_VILLAGER 8.1
+#define JDO_ADVENTURER 8.2
+#define JDO_PILGRIM 8.3
+#define JDO_MIGRANT 8.4
+#define JDO_BANDIT 8.5
+#define JDO_COURTAGENT 8.6
+#define JDO_WRETCH 8.7
 
-#define JDO_SOILSON 9
-#define JDO_VILLAGER 9.1
-#define JDO_ADVENTURER 9.2
-#define JDO_PILGRIM 9.3
-#define JDO_MIGRANT 9.4
-#define JDO_BANDIT 9.5
-#define JDO_COURTAGENT 9.6
-#define JDO_WRETCH 9.7
+#define JDO_MERCENARY 9
+#define JDO_GRENZELHOFT 9.1
+#define JDO_DESERT_RIDER 9.2
+#define JDO_VET 9.3
 
-#define JDO_MERCENARY 10
-#define JDO_GRENZELHOFT 10.1
-#define JDO_DESERT_RIDER 10.2
-#define JDO_VET 10.3
+#define JDO_VAGRANT 10
+#define JDO_ORPHAN 10.1
 
-#define JDO_VAGRANT 11
-#define JDO_ORPHAN 11.1
-
-#define JDO_PRISONERR 12
-#define JDO_PRISONERB 12.1
-#define JDO_HOSTAGE 12.2
-#define JDO_LUNATIC 12.3
+#define JDO_PRISONERR 11
+#define JDO_PRISONERB 11.1
+#define JDO_HOSTAGE 11.2
+#define JDO_LUNATIC 11.3
 
 #define MANOR_ROLES \
 	/datum/job/roguetown/jester,\
 	/datum/job/roguetown/servant,\
-	/datum/job/roguetown/squire,
+	/datum/job/roguetown/squire,\
+	/datum/job/roguetown/physician,
 
 #define NOBLE_ROLES \
 	/datum/job/roguetown/prince,\
-	/datum/job/roguetown/physician,\
-	/datum/job/roguetown/bailiff,\
 	/datum/job/roguetown/hand,\
-	/datum/job/roguetown/knight,\
 	/datum/job/roguetown/lady,\
 	/datum/job/roguetown/lord,\
 	/datum/job/roguetown/steward
@@ -309,7 +311,10 @@
 	/datum/job/roguetown/priest,\
 	/datum/job/roguetown/chaptermaster,\
 	/datum/job/roguetown/puritan,\
-	/datum/job/roguetown/templar
+	/datum/job/roguetown/templar_knight,\
+	/datum/job/roguetown/templar,\
+	/datum/job/roguetown/hosp_knight,\
+	/datum/job/roguetown/hospitaler,	
 
 #define PEASANT_ROLES \
 	/datum/job/roguetown/villager,\
@@ -352,7 +357,12 @@
 	/datum/job/roguetown/bandit,\
 	/datum/job/roguetown/wretch
 
+#define CITYWATCH_ROLES \
+	/datum/job/roguetown/bailiff,\
+
+
 #define GARRISON_ROLES \
+	/datum/job/roguetown/knight,\
 	/datum/job/roguetown/manatarms,\
 	/datum/job/roguetown/masteratarms,\
 	/datum/job/roguetown/dungeoneer,\

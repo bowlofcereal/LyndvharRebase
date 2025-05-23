@@ -12,7 +12,7 @@
 	You are a member of the Inquisition, a holy order of the Church of the Shepherd, and you will not rest until the world is cleansed of all evil.\
 	You are a hunter, a warrior, and a priest all in one. You are an Inquisitor."
 	whitelist_req = TRUE
-	cmode_music = 'sound/music/inquisitorcombat.ogg'
+	cmode_music = 'sound/music/combat_inqordinator.ogg'
 	selection_color = JCOLOR_INQUISITION
 
 	outfit = /datum/outfit/job/roguetown/puritan

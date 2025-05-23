@@ -8,13 +8,13 @@
 	spawn_positions = 1
 	selection_color = JCOLOR_CHURCH
 	f_title = "Priestess"
-	allowed_races = RACES_NO_CONSTRUCT		//Too recent arrivals to ascend to priesthood.
+	allowed_races = RACES_NO_CONSTRUCT		//Too recent arrivals to ascend to priesthood. 
 	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "The Divine is all that matters in a world of the immoral. The Weeping God left his children to rule over us mortals--and you will preach their wisdom to any who still heed their will. The faithless are growing in number. It is up to you to shepard them toward a Gods-fearing future; for you are a priest of Astrata."
 	whitelist_req = FALSE
 
-	spells = list(/obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/templar, /obj/effect/proc_holder/spell/self/convertrole/monk)
+	spells = list(/obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/monk)
 	outfit = /datum/outfit/job/roguetown/priest
 
 	display_order = JDO_PRIEST
@@ -163,14 +163,24 @@
 			return FALSE
 		priority_announce("[inputty]", title = "The Priest Speaks", sound = 'sound/misc/bell.ogg')
 
-/obj/effect/proc_holder/spell/self/convertrole/templar
-	name = "Recruit Templar"
-	new_role = "Templar"
+/obj/effect/proc_holder/spell/self/convertrole/knight_hospitaler
+	name = "Recruit Knight Hospitaler"
+	new_role = "Knight Hospitaler"
 	overlay_state = "recruit_templar"
 	recruitment_faction = "Templars"
-	recruitment_message = "Serve the ten, %RECRUIT!"
-	accept_message = "FOR THE TEN!"
+	recruitment_message = "Rise as a Knight of the Hospital, %RECRUIT!"
+	accept_message = "By the Shepherd's Will!"
 	refuse_message = "I refuse."
+
+/obj/effect/proc_holder/spell/self/convertrole/hospitaler_sergeant
+	name = "Recruit Hospitaler Sergeant"
+	new_role = "Hospitaler Sergeant"
+	overlay_state = "recruit_templar"
+	recruitment_faction = "Templars"
+	recruitment_message = "Pledge Thy Sword to the Hospital, %RECRUIT!"
+	accept_message = "By the Shepherd's Will!"
+	refuse_message = "I refuse."
+
 
 /obj/effect/proc_holder/spell/self/convertrole/monk
 	name = "Recruit Disciple"

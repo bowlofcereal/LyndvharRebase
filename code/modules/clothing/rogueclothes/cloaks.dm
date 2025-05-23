@@ -585,6 +585,7 @@
 /obj/item/clothing/cloak/stabard/surcoat/councillor
 	color = "#2d2d2d"
 
+
 /obj/item/clothing/cloak/stabard/surcoat/attack_right(mob/user)
 	if(picked)
 		return
@@ -1146,6 +1147,22 @@
 /obj/item/clothing/cloak/half/red
 	color = CLOTHING_RED
 
+/obj/item/clothing/cloak/half/masteratarms
+	name = "master-at-arms cloak"
+	desc = "A cloak worn by the master-at-arms of the castle."
+	color = CLOTHING_RED
+
+/obj/item/clothing/cloak/half/masteratarms/Initialize()
+	. = ..()
+	if(GLOB.lordprimary)
+		lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
+	GLOB.lordcolor += src
+
+/obj/item/clothing/cloak/half/masteratarms/Destroy()
+	GLOB.lordcolor -= src
+	return ..()
+
+
 /obj/item/clothing/cloak/half/orange
 	color = CLOTHING_ORANGE
 
@@ -1163,7 +1180,7 @@
 /obj/item/clothing/cloak/half/vet
 	name = "town watch cloak"
 	icon_state = "guardcloak"
-	color = CLOTHING_AZURE
+	color = CLOTHING_RED
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	inhand_mod = FALSE

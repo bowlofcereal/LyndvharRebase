@@ -1,6 +1,5 @@
 /datum/job/roguetown/masteratarms
 	title = "Master-at-Arms"
-	f_title = "Mistress-at-Arms"
 	flag = MASTERATARMS
 	department_flag = GARRISON
 	faction = "Station"
@@ -27,11 +26,10 @@
 
 /datum/outfit/job/roguetown/masteratarms
 	pants = /obj/item/clothing/under/roguetown/chainlegs
-	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
+	cloak = /obj/item/clothing/cloak/half/masteratarms
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	belt = /obj/item/storage/belt/rogue/leather/black
-	beltl = /obj/item/storage/keyring/sund/sund_bailiff
 	beltr = /obj/item/rogueweapon/mace/cudgel
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -39,7 +37,16 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	id = /obj/item/scomstone/garrison
 
-
+/datum/outfit/job/roguetown/masteratarms/pre_equip(mob/living/carbon/human/H)
+	..()
+	if(H.mind)
+		H.change_stat("strength", 4) // seems kinda lame but remember guardsman bonus!!
+		H.change_stat("endurance", 2)
+		H.change_stat("intelligence", 1)
+		H.change_stat("constitution", 2)
+		H.change_stat("perception", 2)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
 /datum/job/roguetown/masteratarms/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
@@ -55,7 +62,8 @@
 				index = copytext(H.real_name, 1,index)
 			if(!index)
 				index = H.real_name
-			S.name = "sergeant jupon ([index])"
+			S.name = "Master-At-Arms jupon ([index])"
+	
 // POLEARMS
 
 
@@ -87,25 +95,30 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)	// We are basically identical to a regular MAA, except having better athletics to help us manage our order usage better
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)	//Decent tracking akin to Skirmisher.
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.change_stat("strength", 4) // seems kinda lame but remember guardsman bonus!!
-	H.change_stat("endurance", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 2)
-	H.change_stat("perception", 2)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/movemovemove)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/takeaim)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/onfeet)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/hold)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/focustarget)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/guard) // We'll just use Watchmen as sorta conscripts yeag?
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/guard) 
 	H.verbs |= list(/mob/living/carbon/human/proc/request_outlaw, /mob/proc/haltyell, /mob/living/carbon/human/mind/proc/setorders)
 
 	//Makes up for worse shirt protection with kinda better armor protection
 	r_hand = /obj/item/rogueweapon/spear/billhook
 	backl = /obj/item/gwstrap
 	H.adjust_blindness(-3)
+
+	var/helmets = list(
+		"Sallet Helmet" 	= /obj/item/clothing/head/roguetown/helmet/sallet,
+		"Kettle Helmet"		= /obj/item/clothing/head/roguetown/helmet/kettle,
+		"Wide Kettle Helmet" = /obj/item/clothing/head/roguetown/helmet/kettle/wide,
+		"Skull Cap"		= /obj/item/clothing/head/roguetown/helmet/skullcap,
+		"Nasal Helmet"		= /obj/item/clothing/head/roguetown/helmet,
+		"None"
+	)
+	var/helmchoice = input("Choose your Helm.", "TAKE UP HELMS") as anything in helmets
+	if(helmchoice != "None")
+		head = helmets[helmchoice]
 
 	var/armors = list(
 		"Haubergeon" = /obj/item/clothing/suit/roguetown/armor/chainmail,	
@@ -149,25 +162,29 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)	// We are basically identical to a regular MAA, except having better athletics to help us manage our order usage better
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)	//Decent tracking akin to Skirmisher.
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.change_stat("strength", 4) // seems kinda lame but remember guardsman bonus!!
-	H.change_stat("endurance", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 2)
-	H.change_stat("perception", 2)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/movemovemove)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/takeaim)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/onfeet)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/hold)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/focustarget)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/guard) // We'll just use Watchmen as sorta conscripts yeag?
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/guard) 
 	H.verbs |= list(/mob/living/carbon/human/proc/request_outlaw, /mob/proc/haltyell, /mob/living/carbon/human/mind/proc/setorders)
-
 
 	r_hand = /obj/item/rogueweapon/sword/long
 	backl = /obj/item/rogueweapon/shield/heater
 	H.adjust_blindness(-3)
+
+	var/helmets = list(
+		"Sallet Helmet" 	= /obj/item/clothing/head/roguetown/helmet/sallet,
+		"Kettle Helmet"		= /obj/item/clothing/head/roguetown/helmet/kettle,
+		"Wide Kettle Helmet" = /obj/item/clothing/head/roguetown/helmet/kettle/wide,
+		"Skull Cap"		= /obj/item/clothing/head/roguetown/helmet/skullcap,
+		"Nasal Helmet"		= /obj/item/clothing/head/roguetown/helmet,
+		"None"
+	)
+	var/helmchoice = input("Choose your Helm.", "TAKE UP HELMS") as anything in helmets
+	if(helmchoice != "None")
+		head = helmets[helmchoice]
 
 	var/armors = list(
 		"Haubergeon" = /obj/item/clothing/suit/roguetown/armor/chainmail,	
@@ -210,25 +227,29 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)	// We are basically identical to a regular MAA, except having better athletics to help us manage our order usage better
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)	//Decent tracking akin to Skirmisher.
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.change_stat("strength", 4) // seems kinda lame but remember guardsman bonus!!
-	H.change_stat("endurance", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 2)
-	H.change_stat("perception", 2)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/movemovemove)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/takeaim)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/onfeet)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/hold)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/focustarget)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/guard) // We'll just use Watchmen as sorta conscripts yeag?
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/guard) 
 	H.verbs |= list(/mob/living/carbon/human/proc/request_outlaw, /mob/proc/haltyell, /mob/living/carbon/human/mind/proc/setorders)
-
 
 	r_hand = /obj/item/rogueweapon/stoneaxe/battle
 	backl = /obj/item/rogueweapon/shield/heater
 	H.adjust_blindness(-3)
+
+	var/helmets = list(
+		"Sallet Helmet" 	= /obj/item/clothing/head/roguetown/helmet/sallet,
+		"Kettle Helmet"		= /obj/item/clothing/head/roguetown/helmet/kettle,
+		"Wide Kettle Helmet" = /obj/item/clothing/head/roguetown/helmet/kettle/wide,
+		"Skull Cap"		= /obj/item/clothing/head/roguetown/helmet/skullcap,
+		"Nasal Helmet"		= /obj/item/clothing/head/roguetown/helmet,
+		"None"
+	)
+	var/helmchoice = input("Choose your Helm.", "TAKE UP HELMS") as anything in helmets
+	if(helmchoice != "None")
+		head = helmets[helmchoice]
 
 	var/armors = list(
 		"Haubergeon" = /obj/item/clothing/suit/roguetown/armor/chainmail,	
@@ -270,26 +291,13 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 5, TRUE)	// We are basically identical to a regular MAA, except having better athletics to help us manage our order usage better
 	H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)	//Decent tracking akin to Skirmisher.
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.change_stat("strength", 4) // seems kinda lame but remember guardsman bonus!!
-	H.change_stat("endurance", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 2)
-	H.change_stat("perception", 2)
-	H.change_stat("strength", 2)
-	H.change_stat("intelligence", 1)
-	H.change_stat("constitution", 1)
-	H.change_stat("perception", 1)		//Gets bow-skills, so give a SMALL tad of perception to aid in bow draw.
-	H.change_stat("endurance", 1)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/movemovemove)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/takeaim)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/onfeet)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/hold)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/focustarget)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/guard) // We'll just use Watchmen as sorta conscripts yeag?
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/guard) 
 	H.verbs |= list(/mob/living/carbon/human/proc/request_outlaw, /mob/proc/haltyell, /mob/living/carbon/human/mind/proc/setorders)
-
 
 	r_hand = /obj/item/rogueweapon/mace
 	backl = /obj/item/rogueweapon/shield/heater

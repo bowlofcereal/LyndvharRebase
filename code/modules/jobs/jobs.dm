@@ -65,7 +65,6 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	"Lord Heir",
 	"Hand",
 	"Steward",
-	"Knight",
 ))
 
 GLOBAL_LIST_INIT(courtier_positions, list(
@@ -75,6 +74,7 @@ GLOBAL_LIST_INIT(courtier_positions, list(
 ))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
+	"Knight",
 	"Master-at-Arms",
 	"Man-at-Arms",
 	"Gatekeeper",
@@ -85,7 +85,10 @@ GLOBAL_LIST_INIT(church_positions, list(
 	"Inquisitor",
 	"Monk",
 	"Chapter Master",
-	"Templar"
+	"Knight Templar",
+	"Templar Sergeant",
+	"Knight Hospitaler",
+	"Hospitaler Sergeant",
 ))
 
 GLOBAL_LIST_INIT(yeoman_positions, list(
@@ -101,8 +104,8 @@ GLOBAL_LIST_INIT(yeoman_positions, list(
 
 
 GLOBAL_LIST_INIT(watch_positions, list(
-"Bailiff",
-"Watchman",
+	"Bailiff",
+	"Watchman",
 ))
 
 
@@ -149,7 +152,6 @@ GLOBAL_LIST_INIT(mercenary_positions, list(
 
 GLOBAL_LIST_INIT(apprentices_positions, list(
 	"Squire",
-	"Clerk",
 	"Smithy Apprentice",
 	"Magicians Apprentice",
 	"Churchling",

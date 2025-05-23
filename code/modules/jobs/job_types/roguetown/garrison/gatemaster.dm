@@ -10,6 +10,7 @@
 	allowed_patrons = ALL_DIVINE_PATRONS
 	tutorial = "You are the Gatemaster, the one who guards the gates of the march. You are charged with the duty of keeping the gates secure and to decide who may enter and leave. Your duty ends before the gates of the city, to leave the gate unattended is to leave the city unguarded."
 	display_order = JDO_GATEMASTER
+	selection_color = JCOLOR_SOLDIER
 
 	outfit = /datum/outfit/job/roguetown/gatemaster
 	give_bank_account = 3
@@ -68,8 +69,8 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-		H.change_stat("strength", 2)
-		H.change_stat("perception", 2)
+		H.change_stat("strength", 4)
+		H.change_stat("perception", 3)
 		H.change_stat("constitution", 2)
 		H.change_stat("endurance", 1)
 		H.change_stat("speed", 1)
