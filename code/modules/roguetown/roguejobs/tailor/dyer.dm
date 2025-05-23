@@ -76,6 +76,17 @@ var/global/list/colorlist = list(
 	return ..()
 
 /obj/machinery/gear_painter/attackby(obj/item/I, mob/living/user)
+	if(istype(I, /obj/item/book/rogue/swatchbook))
+		var/obj/item/book/rogue/swatchbook/S = I
+		if(!S.open)
+			to_chat(user, span_info("The swatchbook expressly forbids the use of its patented cover color."))
+			return ..()
+		if(S.swatchbookcolor == "#000000")
+			to_chat(user, span_info("You haven't picked out a color!"))
+			return ..()
+		else
+			activecolor = S.swatchbookcolor
+			return ..()
 	if(inserted)
 		to_chat(user, span_warning("Something is already inside!"))
 		return ..()
