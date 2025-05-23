@@ -174,7 +174,7 @@
 					H.mind.adjust_skillrank(/datum/skill/combat/slings, 3, TRUE)
 					beltl = /obj/item/quiver/sling/iron
 					r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/sling
-				if("Crossbow")
+				if("Crossbow") // Hunting crossbows were a thing in these times, shame we don't have an item for it.
 					H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 					backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 					beltl = /obj/item/quiver/bolts
