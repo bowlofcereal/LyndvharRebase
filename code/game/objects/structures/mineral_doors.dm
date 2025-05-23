@@ -947,6 +947,6 @@
 	resident_advclass = /datum/advclass/hunter
 	lockid = "towner_hunter"
 
-/obj/structure/mineral_door/wood/towner/witch
-	resident_advclass = /datum/advclass/witch
+/obj/structure/mineral_door/wood/towner/apothecary
+	resident_advclass = /datum/advclass/apothecary
 	lockid = "towner_witch"

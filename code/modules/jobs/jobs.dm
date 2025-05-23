@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(nonhuman_positions, list(
 
 GLOBAL_LIST_INIT(noble_positions, list(
 	"Markgraf",
-	"Markgraf Candidate",
+	"Markgraf Consort",
 	"Lord Heir",
 	"Hand",
 	"Steward",
@@ -93,10 +93,11 @@ GLOBAL_LIST_INIT(church_positions, list(
 
 GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Merchant",
-	"Innkeep",
+	"Innkeeper",
 	"Armorer",
 	"Weaponsmith",
 	"Blacksmith",
+	"Artisan",
 	"Tailor",
 	"Mason",
 	"Scribe",
@@ -119,27 +120,16 @@ GLOBAL_LIST_INIT(apprentice_positions, list(
 	"Churchling",
 	"Servant",
 	"Shophand",
-	"Vagabond",
 ))
 
 GLOBAL_LIST_INIT(peasant_positions, list(
 	"Soilson",
-	"Butcher",
 	"Cook",
 	"Lunatic",
-	"Miner",
-	"Hunter",
-	"Fisher",
 	"Lumberjack",
-	"Towner",
-	"Grabber",
-	"Nightmaster",
-	"Nightswain",
-	"Docker",
+	"Serf",
 	"Prisoner",
 	"Beggar",
-	"Town Seelie",
-	"Adventurer",
 	"Pilgrim",
 ))
 
@@ -150,15 +140,6 @@ GLOBAL_LIST_INIT(mercenary_positions, list(
 	"Veteran Mercenary",
 ))
 
-GLOBAL_LIST_INIT(apprentices_positions, list(
-	"Squire",
-	"Smithy Apprentice",
-	"Magicians Apprentice",
-	"Churchling",
-	"Servant",
-	"Shophand",
-	"Vagabond",
-))
 
 GLOBAL_LIST_INIT(allmig_positions, list(
 	"Adventurer",
@@ -199,7 +180,7 @@ GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())
 	sorting_order += GLOB.watch_positions
 	sorting_order += GLOB.yeoman_positions
 	sorting_order += GLOB.peasant_positions
-	sorting_order += GLOB.apprentices_positions
+	sorting_order += GLOB.apprentice_positions
 //	sorting_order += GLOB.goblin_positions
 	sorting_order += GLOB.orc_positions
 	return sorting_order
@@ -272,3 +253,4 @@ GLOBAL_PROTECT(exp_specialmap)
 	job = chef_expand.Replace(job, "cook")
 	job = borg_expand.Replace(job, "cyborg")
 	return job
+

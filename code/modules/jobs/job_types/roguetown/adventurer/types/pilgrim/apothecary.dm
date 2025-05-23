@@ -1,12 +1,12 @@
-/datum/advclass/witch
-	name = "Witch"
-	tutorial = "You are a witch, seen as wisefolk to some and a demon to many. Ostracized and sequestered for wrongthinks or outright heresy, your potions are what the commonfolk turn to when all else fails, and for this they tolerate you — at an arm's length. Take care not to end 'pon a pyre, for the church condemns your left handed arts."
+/datum/advclass/apothecary
+	name = "Apothecary"
+	title = "Apothecary"
+	tutorial = "As an apothecary, you make your livings by brewing and selling potions based on alchemical knowledge, be it medicinal or enhancement."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/witch
-	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
-	traits_applied = list(TRAIT_RITUALIST, TRAIT_DEATHSIGHT, TRAIT_WITCH, TRAIT_ARCYNE_T1)
-	cmode_music = 'sound/music/combat_cult.ogg'
+	category_tags = list(CTAG_PILGRIM, CTAG_ARTISAN)
+	cmode_music = 'sound/music/combat_old.ogg'
 
 /datum/outfit/job/roguetown/adventurer/witch/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -53,4 +53,4 @@
 		
 	switch(H.patron?.type)
 		if(/datum/patron/inhuman/zizo)
-			H.cmode_music = 'sound/music/combat_cult.ogg'
+			H.cmode_music = 'sound/music/combat_old.ogg'

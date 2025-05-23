@@ -6,7 +6,7 @@ GLOBAL_VAR_INIT(herald_spawned, FALSE)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/herald
-	category_tags = list(CTAG_TOWNER)
+//	category_tags = list(CTAG_ARTISAN)
 	traits_applied = list(TRAIT_KEENEARS)
 
 /datum/advclass/herald/check_requirements(mob/living/carbon/human/H)

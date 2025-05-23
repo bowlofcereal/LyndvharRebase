@@ -142,7 +142,7 @@
 #define WEAPONSMITH (1<<3)
 #define BLACKSMITH  (1<<4)
 #define ALCHEMIST	(1<<5)
-#define ARTIFICER	(1<<6)
+#define ARTISAN		(1<<6)
 #define TAILOR		(1<<7)
 #define MERCHANT	(1<<8)
 #define SCRIBE		(1<<9)
@@ -173,8 +173,7 @@
 #define LUNATIC		(1<<17)
 #define MIGRANT		(1<<18)
 #define BANDIT		(1<<19)
-#define COURTAGENT	(1<<20)
-#define WRETCH		(1<<21)
+#define WRETCH		(1<<20)
 
 #define APPRENTICE	(1<<7)
 
@@ -258,7 +257,8 @@
 #define JDO_WEAPONSMITH 6.4
 #define JDO_BLACKSMITH 6.5
 #define JDO_APPRENTICE 6.6
-#define JDO_TAILOR 6.7
+#define JDO_ARTISAN 6.7
+#define JDO_TAILOR 6.8
 
 #define JDO_BARKEEP 7
 #define JDO_COOK 7.1
@@ -272,8 +272,7 @@
 #define JDO_PILGRIM 8.3
 #define JDO_MIGRANT 8.4
 #define JDO_BANDIT 8.5
-#define JDO_COURTAGENT 8.6
-#define JDO_WRETCH 8.7
+#define JDO_WRETCH 8.6
 
 #define JDO_MERCENARY 9
 #define JDO_GRENZELHOFT 9.1
@@ -345,6 +344,7 @@
 	/datum/job/roguetown/blacksmith,\
 	/datum/job/roguetown/artificer,\
 	/datum/job/roguetown/merchant,\
+	/datum/job/roguetown/artisan,\
 	/datum/job/roguetown/tailor,\
 	/datum/job/roguetown/scribe,\
 	/datum/job/roguetown/apothecary,
