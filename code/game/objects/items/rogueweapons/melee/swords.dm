@@ -672,7 +672,7 @@
 	swingsound = BLADEWOOSH_SMALL
 	minstr = 5
 	wdefense = 7		//Same as rapier
-	wbalance = 1
+	wbalance = WBALANCE_SWIFT
 
 /datum/intent/sword/cut/sabre
 	clickcd = 10		//Faster than sword by 2, slower than rapier stab by 2
@@ -747,7 +747,7 @@
 	swingsound = BLADEWOOSH_SMALL
 	minstr = 6
 	wdefense = 7
-	wbalance = 1
+	wbalance = WBALANCE_SWIFT
 
 /obj/item/rogueweapon/sword/rapier/vaquero
 	desc = "A fairly new development originating in Etrusca, the cup hilt design of this weapon is both simpler to produce and more protective than the traditional 'swept' design more common in these lands."
@@ -874,7 +874,7 @@
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel)
 	gripped_intents = null
 	wdefense = 6
-	wbalance = 1
+	wbalance = WBALANCE_SWIFT
 
 /obj/item/rogueweapon/sword/silver
 	force = 24
