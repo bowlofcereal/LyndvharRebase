@@ -96,8 +96,8 @@
 //// The Arbiter, Judge of witches and other heretical casters. Meant for characters who deal with the arcyne and lead investigations from the sidelines.  Same gear as inq, but with some innate spells and some combat skills.
 
 /datum/advclass/puritan/arbiter
-	Name = "Arbiter"
-	tutorial =  = "Arbiters are gifted members of either Naledi or Otavan culture who became members of his Inquisition. You have been tasked to hunt down monsters and judge others amongst this fief. Ideal for those who wish to be magical casters within the Inquisition."
+	name = "Arbiter"
+	tutorial = "Arbiters are gifted members of either Naledi or Otavan culture who became members of his Inquisition. You have been tasked to hunt down monsters and judge others amongst this fief. Ideal for those who wish to be magical casters within the Inquisition."
 	outfit = /datum/outfit/job/roguetown/puritan/arbiter
 	cmode_music = 'sound/music/combat_inqordinator.ogg'
 
@@ -106,19 +106,19 @@
 /datum/outfit/job/roguetown/puritan/arbiter/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-	H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE) 
-	H.mind.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/tracking, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE) 
+		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 		H.change_stat("intelligence", 3)
 		H.change_stat("perception", 2)
 		H.change_stat("endurance", 2)
