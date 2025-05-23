@@ -438,7 +438,7 @@
 /obj/item/rogueweapon/sword/sabre/shamshir
 	force = 24
 	wdefense = 6	//Has chop mode, so slightly less defense. Slightly.
-	wbalance = 1
+	wbalance = WBALANCE_SWIFT
 	name = "shamshir"
 	desc = "A one-handed sword with elegant curves and deadly sharpness."
 	icon_state = "tabi"

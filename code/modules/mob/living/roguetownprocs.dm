@@ -347,36 +347,19 @@
 						if(dam2take > 0 && attI?.intdamage_factor)
 							dam2take = dam2take * intenty.masteritem?.intdamage_factor
 						used_weapon.take_damage(max(dam2take,1), BRUTE, attI.d_type)
-						if(used_weapon.wbalance < 0 && !isnull(attI))	//Defender has a Heavy Balanced weapon.
+						if(used_weapon.wbalance == WBALANCE_HEAVY && !isnull(attI))	//Defender has a Heavy Balanced weapon.
 							var/riposte_damage = used_weapon.force / 2
-							switch(H.used_intent?.item_d_type)
-								if("blunt")
-									switch(attI.blade_dulling)
-										if(DULLING_SHAFT_WOOD, DULLING_SHAFT_GRAND)
-											riposte_damage = (riposte_damage / 2)
-										if(DULLING_SHAFT_METAL, DULLING_SHAFT_CONJURED)
-											riposte_damage = (riposte_damage * 1.5)
-								if("slash")
-									switch(attI.blade_dulling)
-										if(DULLING_SHAFT_METAL, DULLING_SHAFT_GRAND)
-											riposte_damage = (riposte_damage / 2)
-										if(DULLING_SHAFT_WOOD, DULLING_SHAFT_CONJURED)
-											riposte_damage = (riposte_damage * 1.5)
-								if("stab")
-									switch(attI.blade_dulling)
-										if(DULLING_SHAFT_GRAND)
-											riposte_damage = (riposte_damage / 2)
-										if(DULLING_SHAFT_REINFORCED, DULLING_SHAFT_CONJURED)
-											riposte_damage = (riposte_damage * 1.5)
 							if(used_weapon.intdamage_factor)
 								riposte_damage *= used_weapon.intdamage_factor
 							switch(attI.wbalance)
-								if(-1)	//Heavy-balanced weapons take even less damage from Heavy weapon ripostes.
+								if(WBALANCE_HEAVY)	//Heavy-balanced weapons take even less damage from Heavy weapon ripostes.
 									riposte_damage = riposte_damage / 3
-								if(0)	//Normal weapons take half.
+								if(WBALANCE_NORMAL)	//Normal weapons take half.
 									riposte_damage = riposte_damage / 2
 								//if(1)	//Swift weapons take all of it. (unchanged)
 							attI.take_damage(max(riposte_damage,1), BRUTE, used_weapon.d_type)
+							if(prob(10))
+								to_chat(U, span_warning("\The [attI] is getting damaged by the parries!"))
 
 					return TRUE
 				else
@@ -534,9 +517,9 @@
 	if(U)
 		prob2defend = prob2defend - (U.STASPD * 10)
 	if(I)
-		if(I.wbalance > 0 && U.STASPD > L.STASPD) //nme weapon is quick, so they get a bonus based on spddiff
+		if(I.wbalance == WBALANCE_SWIFT && U.STASPD > L.STASPD) //nme weapon is quick, so they get a bonus based on spddiff
 			prob2defend = prob2defend - ( I.wbalance * ((U.STASPD - L.STASPD) * 10) )
-		if(I.wbalance < 0 && L.STASPD > U.STASPD) //nme weapon is slow, so its easier to dodge if we're faster
+		if(I.wbalance == WBALANCE_HEAVY && L.STASPD > U.STASPD) //nme weapon is slow, so its easier to dodge if we're faster
 			prob2defend = prob2defend + ( I.wbalance * ((U.STASPD - L.STASPD) * 10) )
 		if(UH?.mind)
 			prob2defend = prob2defend - (UH.mind.get_skill_level(I.associated_skill) * 10)
