@@ -615,7 +615,7 @@
 
 /obj/item/book/rogue/swatchbook
 	name = "Tailor's Swatchbook"
-	desc = "Allows you to pick out an exact hue and shade from the Tailors Guild's inordinately exhaustive all-encompassing selection of known colors. Once slected, use with a dyeing bin to apply the exact swatch."
+	desc = "Allows you to pick out an exact hue and shade from the Tailors Guild's inordinately exhaustive all-encompassing selection of known colors. Once selected, use with a dyeing bin to apply the exact swatch."
 	icon_state = "book7_0"
 	base_icon_state = "book7"
 	title = "swatchbook"
