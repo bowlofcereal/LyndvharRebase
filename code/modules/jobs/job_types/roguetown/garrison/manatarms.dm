@@ -79,7 +79,7 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 1, TRUE)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.change_stat("strength", 4) // seems kinda lame but remember guardsman bonus!!
+	H.change_stat("strength", 4) 
 	H.change_stat("endurance", 2)
 	H.change_stat("intelligence", 1)
 	H.change_stat("constitution", 2)
@@ -250,6 +250,7 @@
 	var/armors = list(
 		"Iron Haubergeon" = /obj/item/clothing/suit/roguetown/armor/chainmail/iron,	
 		"Iron Breastplate"	= /obj/item/clothing/suit/roguetown/armor/plate/half/iron,
+		"Common Brigandine"	= /obj/item/clothing/suit/roguetown/armor/brigandine/light,
 		"Hardened Leather Coat"	= /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat,
 		"Studded Leather Armor" = /obj/item/clothing/suit/roguetown/armor/leather/studded
 	)

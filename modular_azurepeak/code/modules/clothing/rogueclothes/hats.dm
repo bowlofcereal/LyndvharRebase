@@ -52,3 +52,37 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+
+/obj/item/clothing/head/roguetown/helmet/heavy/ravox
+	name = "ravoxian helmet"
+	desc = "A helm of a shiny bronze, this helmet is adorned with the sigil of Ravox, a reminder of the might of Ravox."
+	icon_state = "ravoxhelm"
+	item_state = "ravoxahelm"
+	emote_environment = 3
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
+	block2add = FOV_BEHIND
+	smeltresult = /obj/item/ingot/steel
+	smelt_bar_num = 2
+
+
+/obj/item/clothing/head/roguetown/helmet/heavy/abyssor
+	name = "abyssor helmet"
+	desc = "A hooded helmet worn by the followrs of Abyssor"
+	icon_state = "abyssorgreathelm"
+	item_state = "abyssorgreathelm"
+	emote_environment = 3
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
+	block2add = FOV_BEHIND
+	smeltresult = /obj/item/ingot/steel
+	smelt_bar_num = 2
+
+/obj/item/clothing/head/roguetown/helmet/heavy/xylix
+	name = "xylixian cage helmet"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	desc = "A cage-like helmet befitting the followers of Xylix."
+	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT|HIDEHAIR|HIDEFACIALHAIR
+	icon_state = "xylixcagehelm"
+	max_integrity = 600
+	worn_x_dimension = 64
+	worn_y_dimension = 64
+	bloody_icon = 'icons/effects/blood64.dmi'

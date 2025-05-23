@@ -1,5 +1,6 @@
 /datum/job/roguetown/priest
 	title = "Priest"
+	f_title = "Priestess"
 	flag = PRIEST
 	department_flag = CHURCHMEN
 	faction = "Station"
@@ -7,13 +8,13 @@
 	spawn_positions = 1
 	selection_color = JCOLOR_CHURCH
 	f_title = "Priestess"
-	allowed_races = RACES_NO_CONSTRUCT		//Too recent arrivals to ascend to priesthood.
+	allowed_races = RACES_NO_CONSTRUCT		//Too recent arrivals to ascend to priesthood. 
 	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "The Divine is all that matters in a world of the immoral. The Weeping God left his children to rule over us mortals--and you will preach their wisdom to any who still heed their will. The faithless are growing in number. It is up to you to shepard them toward a Gods-fearing future; for you are a priest of Astrata."
 	whitelist_req = FALSE
 
-	spells = list(/obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/templar, /obj/effect/proc_holder/spell/self/convertrole/monk)
+	spells = list(/obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/monk)
 	outfit = /datum/outfit/job/roguetown/priest
 
 	display_order = JDO_PRIEST
@@ -100,21 +101,21 @@
 		//Abdicate previous King
 		for(var/mob/living/carbon/human/HL in GLOB.human_list)
 			if(HL.mind)
-				if(HL.mind.assigned_role == "Grand Duke" || HL.mind.assigned_role == "Consort")
+				if(HL.mind.assigned_role == "Markgraf" || HL.mind.assigned_role == "Markgraf Consort")
 					HL.mind.assigned_role = "Towner" //So they don't get the innate traits of the king
 			//would be better to change their title directly, but that's not possible since the title comes from the job datum
-			if(HL.job == "Grand Duke")
-				HL.job = "Duke Emeritus"
-			if(HL.job == "Consort")
-				HL.job = "Consort Dowager"
+			if(HL.job == "Markgraf")
+				HL.job = "Markgraf Emeritus"
+			if(HL.job == "Markgraf Consort")
+				HL.job = "Markgraf Dowager"
 
 		//Coronate new King (or Queen)
-		HU.mind.assigned_role = "Grand Duke"
-		HU.job = "Grand Duke"
+		HU.mind.assigned_role = "Markgraf"
+		HU.job = "Markgraf"
 		if(should_wear_femme_clothes(HU))
-			SSticker.rulertype = "Grand Duchess"
+			SSticker.rulertype = "Markgrafin"
 		else
-			SSticker.rulertype = "Grand Duke"
+			SSticker.rulertype = "Markgraf"
 		SSticker.rulermob = HU
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)
@@ -162,18 +163,28 @@
 			return FALSE
 		priority_announce("[inputty]", title = "The Priest Speaks", sound = 'sound/misc/bell.ogg')
 
-/obj/effect/proc_holder/spell/self/convertrole/templar
-	name = "Recruit Templar"
-	new_role = "Templar"
+/obj/effect/proc_holder/spell/self/convertrole/knight_hospitaler
+	name = "Recruit Knight Hospitaler"
+	new_role = "Knight Hospitaler"
 	overlay_state = "recruit_templar"
 	recruitment_faction = "Templars"
-	recruitment_message = "Serve the ten, %RECRUIT!"
-	accept_message = "FOR THE TEN!"
+	recruitment_message = "Rise as a Knight of the Hospital, %RECRUIT!"
+	accept_message = "By the Shepherd's Will!"
 	refuse_message = "I refuse."
 
+/obj/effect/proc_holder/spell/self/convertrole/hospitaler_sergeant
+	name = "Recruit Hospitaler Sergeant"
+	new_role = "Hospitaler Sergeant"
+	overlay_state = "recruit_templar"
+	recruitment_faction = "Templars"
+	recruitment_message = "Pledge Thy Sword to the Hospital, %RECRUIT!"
+	accept_message = "By the Shepherd's Will!"
+	refuse_message = "I refuse."
+
+
 /obj/effect/proc_holder/spell/self/convertrole/monk
-	name = "Recruit Acolyte"
-	new_role = "Acolyte"
+	name = "Recruit Disciple"
+	new_role = "Monk"
 	overlay_state = "recruit_acolyte"
 	recruitment_faction = "Church"
 	recruitment_message = "Serve the ten, %RECRUIT!"

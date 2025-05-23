@@ -1,45 +1,40 @@
-/datum/job/roguetown/knight
-	title = "Knight" //Back to proper knights.
-	f_title = "Dame"
-	flag = KNIGHT
-	department_flag = GARRISON
+/datum/job/roguetown/templar_knight
+	title = "Knight Templar"
+	f_title = "Dame Templar"
+	flag = TEMPLAR_KNIGHT
+	department_flag = CHURCHMEN
 	faction = "Station"
+	tutorial = "The knight templars are knights who have sworn an oath to the church. They are the sword and shield of the church,\
+	 and they are tasked with protecting the faithful from the dangers of the world. They are trained to excel in a certain weapon type and combat style,\
+	and are very formidabel in combat. They are also trained to ride steeds."
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = RACES_ALL_KINDS
+	allowed_patrons = ALL_CLERIC_PATRONS
+	outfit = /datum/outfit/job/roguetown/templar_knight
+	min_pq = 1
+	max_pq = null
 	total_positions = 3
 	spawn_positions = 3
-	allowed_races = RACES_NO_CONSTRUCT
-	allowed_sexes = list(MALE, FEMALE)
-	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
-	tutorial = "Having proven yourself both loyal and capable, you have been knighted to serve the realm as the royal family's sentry. \
-				You listen to your Liege, the Marshal, and the Knight Captain, defending your Lord and realm - the last beacon of chivalry in these dark times."
-	selection_color = JCOLOR_SOLDIER	
-	display_order = JDO_KNIGHT
-	whitelist_req = TRUE
-	outfit = /datum/outfit/job/roguetown/knight
-	advclass_cat_rolls = list(CTAG_ROYALGUARD = 20)
+	display_order = JDO_TEMPLAR_KNIGHT
+	give_bank_account = TRUE
+	cmode_music = 'sound/music/combat_holy.ogg'
+	advclass_cat_rolls = list(CTAG_KNIGHTTEMPLAR = 20)
 
-	give_bank_account = 22
-	noble_income = 10
-	min_pq = 8
-	max_pq = null
-	round_contrib_points = 2
-
-	cmode_music = 'sound/music/combat_knight.ogg'
-
-/datum/job/roguetown/knight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/roguetown/templar_knight/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
-		if(istype(H.cloak, /obj/item/clothing/cloak/stabard/surcoat/guard))
+		if(istype(H.cloak, /obj/item/clothing/cloak/tabard/crusader))
 			var/obj/item/clothing/S = H.cloak
 			var/index = findtext(H.real_name, " ")
 			if(index)
 				index = copytext(H.real_name, 1,index)
 			if(!index)
 				index = H.real_name
-			S.name = "knight's tabard ([index])"
+			S.name = "crusader's tabard ([index])"
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
 		var/honorary = "Sir"
@@ -54,38 +49,49 @@
 					MF.known_people -= prev_real_name
 					H.mind.person_knows_me(MF)
 
-/datum/outfit/job/roguetown/knight
-	cloak = /obj/item/clothing/cloak/stabard/surcoat/guard
+/datum/outfit/job/roguetown/templar_knight
+	neck = /obj/item/clothing/neck/roguetown/chaincoif
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
+	pants = /obj/item/clothing/under/roguetown/chainlegs
+	cloak = /obj/item/clothing/cloak/tabard/crusader
 	gloves = /obj/item/clothing/gloves/roguetown/chain
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	belt = /obj/item/storage/belt/rogue/leather/black
 	backr = /obj/item/storage/backpack/rogue/satchel/black
-	id = /obj/item/scomstone/bad/garrison
+	backpack_contents = list(/obj/item/roguekey/church = 1, /obj/item/clothing/neck/roguetown/psicross/astrata = 1)
 
-/datum/outfit/job/roguetown/knight/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/templar_knight/pre_equip(mob/living/carbon/human/H)
 	..()
+	if(H.mind)
+		H.change_stat("strength", 5)
+		H.change_stat("perception", 2)
+		H.change_stat("constitution", 3)
+		H.change_stat("endurance", 1)
+		H.change_stat("speed", 1)
+	H.verbs |= /mob/proc/haltyell
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_KNIGHTSMAN, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GOODTRAINER, TRAIT_GENERIC)
+
 
 
 
 /// SCHOOL OF THE LANCE
 
 
-/datum/advclass/knight/lance
+/datum/advclass/templar/lance
 	name = "School of the Lance"
 	tutorial = "You've trained thoroughly and hit far harder than most - adept with polearms, along with some familiarity in swords, shields and riding."
-	outfit = /datum/outfit/job/roguetown/knight/lance
+	outfit = /datum/outfit/job/roguetown/templar/lance
 
-	category_tags = list(CTAG_ROYALGUARD)
+	category_tags = list(CTAG_KNIGHTTEMPLAR)
 
-/datum/outfit/job/roguetown/knight/lance/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/templar/lance/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE) //Polearms are pretty much explicitly a two-handed weapon, so I gave them a polearm option.
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)	
@@ -97,18 +103,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
-	H.verbs |= /mob/proc/haltyell
-
-
-	H.change_stat("strength", 3) 
-	H.change_stat("constitution", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("intelligence", 1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Halberd","Bardische","Eaglebeak")
@@ -125,10 +119,6 @@
 			r_hand = /obj/item/rogueweapon/eaglebeak
 			backl = /obj/item/gwstrap
 
-	neck = /obj/item/clothing/neck/roguetown/bevor
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-
 	var/helmets = list(
 		"Pigface Bascinet" 	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface,
 		"Guard Helmet"		= /obj/item/clothing/head/roguetown/helmet/heavy/guard,
@@ -153,23 +143,21 @@
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
 
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_knight = 1)
-
-
 /// SCHOOL OF THE SWORD
 
 
-/datum/advclass/knight/sword
+/datum/advclass/templar/sword
 	name = "School of the Sword"
 	tutorial = "You've trained thoroughly and hit far harder than most - adept with swords of all sizes, shields and riding."
-	outfit = /datum/outfit/job/roguetown/knight/sword
+	outfit = /datum/outfit/job/roguetown/templar/sword
 
-	category_tags = list(CTAG_ROYALGUARD)
+	category_tags = list(CTAG_KNIGHTTEMPLAR)
 
-/datum/outfit/job/roguetown/knight/sword/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/templar/sword/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE) 
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)	
@@ -181,18 +169,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
-	H.verbs |= /mob/proc/haltyell
-
-
-	H.change_stat("strength", 3) 
-	H.change_stat("constitution", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("intelligence", 1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Bastard Sword","Steel Greatsword")
@@ -209,10 +185,6 @@
 			r_hand = /obj/item/rogueweapon/greatsword
 			backl = /obj/item/gwstrap
 	
-	neck = /obj/item/clothing/neck/roguetown/bevor
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-
 	var/helmets = list(
 		"Pigface Bascinet" 	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface,
 		"Guard Helmet"		= /obj/item/clothing/head/roguetown/helmet/heavy/guard,
@@ -237,24 +209,23 @@
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
 
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_knight = 1)
-
 
 
 /// SCHOOL OF THE AXE
 
 
-/datum/advclass/knight/axe
+/datum/advclass/templar/axe
 	name = "School of the Axe"
 	tutorial = "You've trained thoroughly and hit far harder than most - adept with axes of all sizes, shields and riding."
-	outfit = /datum/outfit/job/roguetown/knight/axe
+	outfit = /datum/outfit/job/roguetown/templar/axe
 
-	category_tags = list(CTAG_ROYALGUARD)
+	category_tags = list(CTAG_KNIGHTTEMPLAR)
 
-/datum/outfit/job/roguetown/knight/axe/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/templar/axe/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE) 
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)	
@@ -266,18 +237,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
-	H.verbs |= /mob/proc/haltyell
-
-
-	H.change_stat("strength", 3) 
-	H.change_stat("constitution", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("intelligence", 1)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Battle Axe","Steel Great Axe","Great Double-Headed Axe")
@@ -294,10 +253,6 @@
 			r_hand = /obj/item/rogueweapon/greataxe/steel/doublehead
 			backl = /obj/item/gwstrap
 
-	neck = /obj/item/clothing/neck/roguetown/bevor
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-
 	var/helmets = list(
 		"Pigface Bascinet" 	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface,
 		"Guard Helmet"		= /obj/item/clothing/head/roguetown/helmet/heavy/guard,
@@ -322,23 +277,22 @@
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
 
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_knight = 1)
-
 
 /// SCHOOL OF THE MACE
 
 
-/datum/advclass/knight/mace
+/datum/advclass/templar/mace
 	name = "School of the Mace"
 	tutorial = "You've trained thoroughly and hit far harder than most - adept with mace, flail hammers, shields and riding."
-	outfit = /datum/outfit/job/roguetown/knight/mace
+	outfit = /datum/outfit/job/roguetown/templar/mace
 
-	category_tags = list(CTAG_ROYALGUARD)
+	category_tags = list(CTAG_KNIGHTTEMPLAR)
 
-/datum/outfit/job/roguetown/knight/mace/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/templar/mace/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE) 
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)
@@ -351,19 +305,6 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
-	H.verbs |= /mob/proc/haltyell
-
-
-	H.change_stat("strength", 3) 
-	H.change_stat("constitution", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("intelligence", 1)
-
 	H.adjust_blindness(-3)
 	var/weapons = list("Goden Mace","Steel Warhammer","Flail")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
@@ -379,10 +320,6 @@
 			r_hand = /obj/item/rogueweapon/flail
 			backl = /obj/item/gwstrap
 
-	neck = /obj/item/clothing/neck/roguetown/bevor
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-
 	var/helmets = list(
 		"Pigface Bascinet" 	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface,
 		"Guard Helmet"		= /obj/item/clothing/head/roguetown/helmet/heavy/guard,
@@ -407,92 +344,5 @@
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
 
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_knight = 1)
 
 
-/// Knight Errant
-
-
-/datum/advclass/knight/errant
-	name = "Knight Errant"
-	tutorial = "You're trained to be more versatile than most knights, able to use a variety of weapons and armor at novice levels, and is very good at horse riding.\
-				You are a wandering knight, seeking adventure and glory in the name of your lord."
-	outfit = /datum/outfit/job/roguetown/knight/errant
-
-	category_tags = list(CTAG_ROYALGUARD)
-
-/datum/outfit/job/roguetown/knight/errant/pre_equip(mob/living/carbon/human/H)
-	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE) 
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 3, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
-	H.verbs |= /mob/proc/haltyell
-
-
-	H.change_stat("strength", 3) 
-	H.change_stat("constitution", 3)
-	H.change_stat("endurance", 3)
-	H.change_stat("intelligence", 1)
-
-	H.adjust_blindness(-3)
-	var/weapons = list("Sword and Shield", "Bastard Sword", "Recurve Bow", "Crossbow")
-	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
-	H.set_blindness(0)
-	switch(weapon_choice)
-		if("Sword and Shield")
-			r_hand = /obj/item/rogueweapon/sword
-			backl = /obj/item/rogueweapon/shield/heater
-		if("Bastard Sword")
-			r_hand = /obj/item/rogueweapon/sword/long
-		if("Recurve Bow")
-			r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
-			backl = /obj/item/quiver/arrows
-			beltl = /obj/item/rogueweapon/sword/short
-		if("Crossbow")
-			r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-			backl = /obj/item/quiver/bolts
-			beltl = /obj/item/rogueweapon/sword/short
-
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/full
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-
-	var/helmets = list(
-		"Sallet Helmet" 	= /obj/item/clothing/head/roguetown/helmet/sallet,
-		"Kettle Helmet"		= /obj/item/clothing/head/roguetown/helmet/kettle,
-		"Wide Kettle Helmet" = /obj/item/clothing/head/roguetown/helmet/kettle/wide,
-		"Skull Cap"		= /obj/item/clothing/head/roguetown/helmet/skullcap,
-		"Nasal Helmet"		= /obj/item/clothing/head/roguetown/helmet,
-		"None"
-	)
-	var/helmchoice = input("Choose your Helm.", "TAKE UP HELMS") as anything in helmets
-	if(helmchoice != "None")
-		head = helmets[helmchoice]
-
-	var/armors = list(
-		"Haubergeon" = /obj/item/clothing/suit/roguetown/armor/chainmail,	
-		"Steel Curaiss"	= /obj/item/clothing/suit/roguetown/armor/plate/half,
-		"Lamellar Armor"	= /obj/item/clothing/suit/roguetown/armor/plate/scale,
-		"Hauberk" = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
-	)
-	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
-	armor = armors[armorchoice]
-
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_knight = 1)

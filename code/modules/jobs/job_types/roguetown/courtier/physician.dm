@@ -1,7 +1,7 @@
 /datum/job/roguetown/physician
 	title = "Court Physician"
 	flag = PHYSICIAN
-	department_flag = NOBLEMEN
+	department_flag = COURTIERS
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1

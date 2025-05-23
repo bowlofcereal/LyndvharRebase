@@ -1,5 +1,6 @@
 /datum/job/roguetown/monk
-	title = "Acolyte"
+	title = "Monk"
+	f_title = "Vestal"
 	flag = MONK
 	department_flag = CHURCHMEN
 	faction = "Station"

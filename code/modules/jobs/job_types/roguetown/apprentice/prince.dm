@@ -2,11 +2,10 @@
 	title = "Lord Heir"
 	f_title = "Lady Heir"
 	flag = PRINCE
-	department_flag = APPRENTICE
+	department_flag = NOBLEMEN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	f_title = "Princess"
 	allowed_races = RACES_NO_CONSTRUCT //Maybe a system to force-pick lineage based on king and queen should be implemented. (No it shouldn't.)
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT)
