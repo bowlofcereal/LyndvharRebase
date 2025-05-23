@@ -1,7 +1,7 @@
 //wip wip wup
 /obj/structure/mirror
 	name = "mirror"
-	desc = ""
+	desc = "Mirror, mirror, on the wall..."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "mirror"
 	density = FALSE
@@ -204,7 +204,7 @@
 					var/datum/bodypart_feature/hair/head/current_hair = null
 					for(var/datum/bodypart_feature/hair/head/hair_feature in head.bodypart_features)
 						current_hair = hair_feature
-						break
+						
 					
 					if(current_hair)
 						hair_entry.hair_color = current_hair.hair_color
