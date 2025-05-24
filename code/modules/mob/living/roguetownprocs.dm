@@ -354,9 +354,8 @@
 							switch(attI.wbalance)
 								if(WBALANCE_HEAVY)	//Heavy-balanced weapons take even less damage from Heavy weapon ripostes.
 									riposte_damage = riposte_damage / 3
-								if(WBALANCE_NORMAL)	//Normal weapons take half.
+								if(WBALANCE_NORMAL, WBALANCE_SWIFT)	//Other weapons take half.
 									riposte_damage = riposte_damage / 2
-								//if(1)	//Swift weapons take all of it. (unchanged)
 							attI.take_damage(max(riposte_damage,1), BRUTE, used_weapon.d_type)
 							if(prob(10))
 								to_chat(U, span_warning("\The [attI] is getting damaged by the parries!"))
