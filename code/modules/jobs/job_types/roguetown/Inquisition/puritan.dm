@@ -115,31 +115,32 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-		H.change_stat("intelligence", 3)
 		H.change_stat("perception", 2)
-		H.change_stat("endurance", 2)
-		H.change_stat("constitution", 1)
-		H.change_stat("strength", 1) // 7 skill points, but you get 6 spell points.
+		H.change_stat("intelligence", 2)
+		H.change_stat("endurance", 1)
+		H.change_stat("speed", 1) // you get 6 stats but 3 spell  points
+		H.change_stat("strength", -1)
 	H.verbs |= /mob/living/carbon/human/proc/faith_test
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
-	H.mind.adjust_spellpoints(6)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/blink)
+	H.mind.adjust_spellpoints(3)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch) // Pre-set spell list
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/sickness)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/forcewall)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/counterspell)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/fortitude)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravity)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/message)
+	H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/bladeofpsydon)
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SILVER_BLESSED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PURITAN, JOB_TRAIT)
 	ADD_TRAIT(H, TRAIT_INTELLECTUAL, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_ARCYNE_T3, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_ARCYNE_T2, TRAIT_GENERIC) // you dont get dodge expert.
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/psydon
 	neck = /obj/item/clothing/neck/roguetown/coif
