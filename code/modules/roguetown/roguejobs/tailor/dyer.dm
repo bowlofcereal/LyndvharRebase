@@ -85,7 +85,9 @@ var/global/list/colorlist = list(
 			to_chat(user, span_info("You haven't picked out a color!"))
 			return ..()
 		else
+			to_chat(user, span_info("You mix the swatch's color in the dye bin."))
 			activecolor = S.swatchbookcolor
+			ui_interact(user)
 			return ..()
 	if(inserted)
 		to_chat(user, span_warning("Something is already inside!"))
