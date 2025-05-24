@@ -1,7 +1,7 @@
 /datum/job/roguetown/wretch
 	title = "Wretch"
 	flag = WRETCH
-	department_flag = PEASANTS
+	department_flag = RABBLE
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5

@@ -1,7 +1,8 @@
 /datum/job/roguetown/niteman
-	title = "Bathmaster"
+	title = "Bawdyhouse Master"
+	f_title = "Bawdyhouse Mistress"
 	flag = NITEMASTER
-	department_flag = YEOMEN
+	department_flag = RABBLE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1

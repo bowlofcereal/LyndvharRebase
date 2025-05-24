@@ -1,7 +1,7 @@
 /datum/job/roguetown/scribe
 	title = "Scribe"
 	flag = SCRIBE
-	department_flag = YEOMEN
+	department_flag = TOWNER
 	faction = "Station"
 	total_positions = 0
 	spawn_positions = 0

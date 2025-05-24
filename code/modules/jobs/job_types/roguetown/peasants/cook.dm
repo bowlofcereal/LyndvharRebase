@@ -1,7 +1,7 @@
 /datum/job/roguetown/cook
 	title = "Cook"
 	flag = COOK
-	department_flag = PEASANTS
+	department_flag = RABBLE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1

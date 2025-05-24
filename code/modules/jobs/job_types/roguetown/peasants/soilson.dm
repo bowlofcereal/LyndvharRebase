@@ -1,7 +1,7 @@
 /datum/job/roguetown/farmer
 	title = "Soilson"
 	flag = FARMER
-	department_flag = PEASANTS
+	department_flag = PEASANTRY
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 5
@@ -12,10 +12,8 @@
 
 	tutorial = "It is a simple life you live, your basic understanding of life is something many would be envious of if they knew just how perfect it was. You know a good day's work, the sweat on your brow is yours: Famines and plague may take their toll, but you know how to celebrate life well. Till the soil and produce fresh food for those around you, and maybe you'll be more than an unsung hero someday."
 
-
 	f_title = "Soilbride"
 	outfit = /datum/outfit/job/roguetown/farmer
-	display_order = 24
 	give_bank_account = 17
 	min_pq = -10
 	max_pq = null

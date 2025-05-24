@@ -101,6 +101,10 @@
 /obj/item/clothing/suit/roguetown/shirt/robe/black
 	color = CLOTHING_BLACK
 
+/obj/item/clothing/suit/roguetown/shirt/robe/apprentice
+	name = "apprentice robe"
+	color =  "#414247"
+
 /obj/item/clothing/suit/roguetown/shirt/robe/white
 	color = CLOTHING_WHITE
 

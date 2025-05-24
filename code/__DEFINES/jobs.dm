@@ -134,57 +134,38 @@
 #define BUTLER		(1<<3)
 #define COUNCILLOR	(1<<4)
 
-#define YEOMEN		(1<<4)
+#define TOWNER		(1<<4)
 
 #define BARKEEP		(1<<0)
-#define ARCHIVIST	(1<<1)
-#define ARMORSMITH	(1<<2)
-#define WEAPONSMITH (1<<3)
-#define BLACKSMITH  (1<<4)
-#define ALCHEMIST	(1<<5)
-#define ARTISAN		(1<<6)
-#define TAILOR		(1<<7)
-#define MERCHANT	(1<<8)
-#define SCRIBE		(1<<9)
-#define APOTHECARY	(1<<10)
+#define ARMORSMITH	(1<<1)
+#define WEAPONSMITH (1<<2)
+#define BLACKSMITH  (1<<3)
+#define LEATHERWORKER	(1<<4)
+#define TAILOR		(1<<5)
+#define MERCHANT	(1<<6)
+#define COOK		(1<<7)
+#define APOTHECARY	(1<<8)
+#define BUILDER		(1<<9)
+#define KNAVEWENCH	(1<<10)
+#define APPRENTICE 	(1<<11)
 
 #define CITYWATCH	(1<<5)
 #define BAILIFF		(1<<0)
+#define WATCHMAN	(1<<1)
 
-#define PEASANTS	(1<<6)
+#define PEASANTRY	(1<<6)
+#define FARMER		(1<<0)
+#define SERF		(1<<1)
 
-#define HUNTER		(1<<0)
-#define FARMER		(1<<1)
-#define BUTCHER		(1<<2)
-#define FISHER		(1<<3)
-#define LUMBERJACK	(1<<4)
-#define MINER		(1<<5)
-#define COOK		(1<<6)
-#define KNAVEWENCH (1<<7)
-#define GRABBER		(1<<8)
-#define NITEMASTER	(1<<9)
-#define WENCH		(1<<10)
-#define BEGGAR		(1<<11)
-#define ADVENTURER	(1<<12)
-#define PILGRIM		(1<<13)
-#define VILLAGER	(1<<14)
-#define PRISONERR	(1<<15)
-#define PRISONERB	(1<<16)
-#define LUNATIC		(1<<17)
-#define MIGRANT		(1<<18)
-#define BANDIT		(1<<19)
-#define WRETCH		(1<<20)
 
-#define APPRENTICE	(1<<7)
 
+#define WRETCH		(1<<7)
 #define CHURCHLING	(1<<1)
 #define SQUIRE		(1<<2)
 #define SERVANT		(1<<3)
 #define ORPHAN		(1<<4)
 #define PRINCE		(1<<5)
 #define SHOPHAND	(1<<6)
-#define CLERK 		(1<<7)
-#define MAGEAPPRENTICE	(1<<8)
 
 #define MERCENARIES		(1<<8)
 
@@ -194,15 +175,23 @@
 #define GRENZELHOFT		(1<<4)	//Unused
 
 
-#define SLOP		(1<<9)
+#define RABBLE		(1<<9)
+
+#define NITEMASTER	(1<<0)
+#define WENCH		(1<<1)
+#define RUFFIAN		(1<<2)
+#define BANDIT		(1<<3)
+#define BEGGAR		(1<<4)
+#define ADVENTURER	(1<<5)
+#define PILGRIM		(1<<6)
+#define MIGRANT		(1<<7)
+#define LUNATIC		(1<<8)
+
+#define SLOP (1<<10)
 
 #define TESTER		(1<<0)
 #define DEATHKNIGHT (1<<1)
 #define SKELETON	(1<<2)
-
-#define INQUISITION (1<<10)
-#define ORTHODOXIST	(1<<1)
-
 
 #define JCOLOR_NOBLE "#aa83b9"
 #define JCOLOR_COURTIER "#81adc8"
@@ -259,20 +248,22 @@
 #define JDO_APPRENTICE 6.6
 #define JDO_ARTISAN 6.7
 #define JDO_TAILOR 6.8
-
+#define JDO_LEATHERWORKER 6.9
 #define JDO_BARKEEP 7
 #define JDO_COOK 7.1
 #define JDO_NITEMASTER 7.2
-#define JDO_KNAVEWENCH 7.3
+#define JDO_BUILDER 7.3
+
 #define JDO_WENCH 7.4
 
 #define JDO_SOILSON 8
 #define JDO_VILLAGER 8.1
-#define JDO_ADVENTURER 8.2
-#define JDO_PILGRIM 8.3
-#define JDO_MIGRANT 8.4
-#define JDO_BANDIT 8.5
-#define JDO_WRETCH 8.6
+#define JDO_KNAVEWENCH 8.2
+#define JDO_ADVENTURER 8.3
+#define JDO_PILGRIM 8.4
+#define JDO_MIGRANT 8.5
+#define JDO_BANDIT 8.6
+#define JDO_WRETCH 8.7
 
 #define JDO_MERCENARY 9
 #define JDO_GRENZELHOFT 9.1
@@ -325,6 +316,7 @@
 	/datum/job/roguetown/lunatic,\
 	/datum/job/roguetown/farmer,\
 	/datum/job/roguetown/orphan,\
+	/datum/job/roguetown/knavewench,\
 	/datum/job/roguetown/shophand,\
 	/datum/job/roguetown/bapprentice,\
 	/datum/job/roguetown/prisonerb,\
@@ -334,15 +326,12 @@
 
 
 
-#define YEOMEN_ROLES \
-	/datum/job/roguetown/woodsman,\
+#define TOWNER_ROLES \
 	/datum/job/roguetown/niteman,\
-	/datum/job/roguetown/archivist,\
 	/datum/job/roguetown/barkeep,\
 	/datum/job/roguetown/armorsmith,\
 	/datum/job/roguetown/weaponsmith,\
 	/datum/job/roguetown/blacksmith,\
-	/datum/job/roguetown/artificer,\
 	/datum/job/roguetown/merchant,\
 	/datum/job/roguetown/artisan,\
 	/datum/job/roguetown/tailor,\
