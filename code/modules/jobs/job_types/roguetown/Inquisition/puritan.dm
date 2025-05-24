@@ -123,7 +123,6 @@
 		H.change_stat("intelligence", 2)
 		H.change_stat("endurance", 1)
 		H.change_stat("speed", 1) // you get 6 stats but 3 spell  points
-		H.change_stat("strength", -1)
 	H.verbs |= /mob/living/carbon/human/proc/faith_test
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 	H.mind.adjust_spellpoints(3)
@@ -133,7 +132,6 @@
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/counterspell)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/message)
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/bladeofpsydon)
-	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SILVER_BLESSED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
@@ -152,7 +150,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/otavan/inqgloves
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
 	beltl =  /obj/item/book/spellbook
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded/lesserinqcoat
 	backpack_contents = list(/obj/item/storage/keyring/puritan = 1, /obj/item/lockpickring/mundane = 1, /obj/item/rogueweapon/huntingknife/idagger/silver/psydagger, /obj/item/grapplinghook = 1, /obj/item/storage/belt/rogue/pouch/coins/rich = 1)
 
 ///The dirty, violent side of the Inquisition. Meant for confrontational, conflict-driven situations as opposed to simply sneaking around and asking questions. Templar with none of the miracles, but with all the muscles and more. 
