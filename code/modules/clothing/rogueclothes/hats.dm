@@ -310,7 +310,7 @@
 
 /obj/item/clothing/head/roguetown/strawhat
 	name = "straw hat"
-	desc = "Keeps the sun off your head while toiling in the fields."
+	desc = "It's scratchy and rustic, but at least it keeps the sun off your head while you toil in the fields."
 	icon_state = "strawhat"
 	sewrepair = TRUE
 
