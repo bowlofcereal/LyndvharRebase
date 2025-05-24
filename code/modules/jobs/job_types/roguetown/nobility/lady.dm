@@ -1,5 +1,5 @@
 /datum/job/roguetown/lady
-	title = "Markgraf Consort"
+	title = "Consort"
 	f_title = "Markgrafin Consort"
 	flag = LADY
 	department_flag = NOBLEMEN

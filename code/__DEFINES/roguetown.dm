@@ -255,7 +255,7 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_WAPPRENTICE	"CTAG_WAPPRENTICE"	// Mage Apprentice Classes - Handles Mage Apprentices class selector 
 #define CTAG_NIGHTMAIDEN	"CAT_NIGHTMAIDEN"	// Bathhouse Attendant's aesthetic choices.
 #define CTAG_STEWARD		"CAT_STEWARD"		// Steward's aesthetic choices.
-//#define CTAG_LIGHTFOOT		"CAT_LIGHTFOOT"		// Steward's aesthetic choices.
+#define CTAG_APPRENTICE		"CAT_APPRENTICE"		// Apprentice's class selector.
 /*
 	Defines for the triumph buy datum categories
 */

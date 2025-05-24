@@ -1,7 +1,7 @@
 /datum/job/roguetown/artisan
 	title = "Artisan"
 	flag = ARTISAN
-	department_flag = YEOMEN
+	department_flag = TOWNER
 	faction = "Station"
 	total_positions = 10
 	spawn_positions = 10

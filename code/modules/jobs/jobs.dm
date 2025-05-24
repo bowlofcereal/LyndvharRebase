@@ -61,7 +61,7 @@ GLOBAL_LIST_INIT(nonhuman_positions, list(
 
 GLOBAL_LIST_INIT(noble_positions, list(
 	"Markgraf",
-	"Markgraf Consort",
+	"Consort",
 	"Lord Heir",
 	"Hand",
 	"Steward",
@@ -70,7 +70,7 @@ GLOBAL_LIST_INIT(noble_positions, list(
 GLOBAL_LIST_INIT(courtier_positions, list(
 	"Court Physician",
 	"Jester",
-	"Servant",
+	"Keep Servant",
 ))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
@@ -91,17 +91,10 @@ GLOBAL_LIST_INIT(church_positions, list(
 	"Hospitaler Sergeant",
 ))
 
-GLOBAL_LIST_INIT(yeoman_positions, list(
+/*GLOBAL_LIST_INIT(yeoman_positions, list(
 	"Merchant",
 	"Innkeeper",
-	"Armorer",
-	"Weaponsmith",
-	"Blacksmith",
-	"Artisan",
-	"Tailor",
-	"Mason",
-	"Scribe",
-))
+))*/
 
 
 GLOBAL_LIST_INIT(watch_positions, list(
@@ -111,24 +104,33 @@ GLOBAL_LIST_INIT(watch_positions, list(
 
 
 
-GLOBAL_LIST_INIT(apprentice_positions, list(
-	"Squire",
-	"Clerk",
+GLOBAL_LIST_INIT(towner_positions, list(
+	"Merchant",
+	"Innkeeper",
+	"Armorer",
+	"Weaponsmith",
 	"Apothecary",
-	"Smithy Apprentice",
-	"Magicians Associate",
-	"Churchling",
-	"Servant",
-	"Shophand",
+	"Leatherworker",
+	"Tailor",
+	"Blacksmith",
+	"Cook",
+	"Serving Lad",
+	"Apprentice",
+	"Builder"
 ))
+
 
 GLOBAL_LIST_INIT(peasant_positions, list(
 	"Soilson",
-	"Cook",
+	"Serf"
+))
+
+
+GLOBAL_LIST_INIT(rabble_positions, list(
+	"Bawdyhouse Master",
+	"Bawdy",
+	"Rascal",
 	"Lunatic",
-	"Lumberjack",
-	"Serf",
-	"Prisoner",
 	"Beggar",
 	"Pilgrim",
 ))
@@ -178,15 +180,14 @@ GLOBAL_LIST_INIT(job_assignment_order, get_job_assignment_order())
 	sorting_order += GLOB.garrison_positions
 	sorting_order += GLOB.church_positions
 	sorting_order += GLOB.watch_positions
-	sorting_order += GLOB.yeoman_positions
-	sorting_order += GLOB.peasant_positions
-	sorting_order += GLOB.apprentice_positions
+//	sorting_order += GLOB.yeoman_positions
+	sorting_order += GLOB.towner_positions
 //	sorting_order += GLOB.goblin_positions
 	sorting_order += GLOB.orc_positions
 	return sorting_order
 
 GLOBAL_LIST_INIT(exp_jobsmap, list(
-	EXP_TYPE_CREW = list("titles" = peasant_positions | command_positions | engineering_positions | medical_positions | science_positions | supply_positions | security_positions | civilian_positions | list("AI","Cyborg")), // crew positions
+	EXP_TYPE_CREW = list("titles" = rabble_positions | command_positions | engineering_positions | medical_positions | science_positions | supply_positions | security_positions | civilian_positions | list("AI","Cyborg")), // crew positions
 	EXP_TYPE_COMMAND = list("titles" = command_positions),
 	EXP_TYPE_ENGINEERING = list("titles" = engineering_positions),
 	EXP_TYPE_MEDICAL = list("titles" = medical_positions),

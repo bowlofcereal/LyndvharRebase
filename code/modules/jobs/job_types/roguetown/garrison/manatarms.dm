@@ -30,7 +30,7 @@
 
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	belt = /obj/item/storage/belt/rogue/leather/black

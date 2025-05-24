@@ -1,21 +1,16 @@
-//human master carpenter
-
-/datum/advclass/masterlaborer
-	name = "Master Laborer"
-	tutorial = "A master carpenter, unlike the masons you went to discover the secrets of the wood. \
-	The elves, created by Dendor ,who taught you how to transform the wood into anything you wish, \
-	but you swore to chop down trees only when it is necessary."
-	
+/datum/advclass/laborer
+	name = "Laborer"
+	tutorial = "A general laborer, able to perform various low manual labors \
+	from construction, hauling to even farming and breaking rocks."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
-	outfit = /datum/outfit/job/roguetown/adventurer/masterlaborer
-	category_tags = list(CTAG_TOWNER)
-	maximum_possible_slots = 1
-	pickprob = 5
-	
-/datum/outfit/job/roguetown/adventurer/masterlaborer/pre_equip(mob/living/carbon/human/H)
+	outfit = /datum/outfit/job/roguetown/adventurer/laborer
+
+	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
+
+/datum/outfit/job/roguetown/adventurer/laborer/pre_equip(mob/living/carbon/human/H)
 	..()
-	
+	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE) // They use hammers, sawes and axes all day.
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE) 
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE) 
@@ -25,17 +20,18 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE) 
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE) // They work at great heights.
-		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 6, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/masonry, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/labor/mining, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/masonry, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/engineering, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/labor/mining, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+	head = /obj/item/clothing/head/roguetown/armingcap
 	if(H.gender == FEMALE)
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		pants = null

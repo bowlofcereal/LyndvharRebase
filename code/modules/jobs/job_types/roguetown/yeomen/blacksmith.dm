@@ -1,10 +1,10 @@
 /datum/job/roguetown/armorsmith
 	title = "Armorer"
 	flag = ARMORSMITH
-	department_flag = YEOMEN
+	department_flag = TOWNER
 	faction = "Station"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 
 	allowed_races = RACES_ALL_KINDS
 
@@ -28,14 +28,15 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		if(H.age == AGE_OLD)
+/*		if(H.age == AGE_OLD)
 			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE) */
 	if(should_wear_femme_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/trou
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
@@ -65,10 +66,10 @@
 /datum/job/roguetown/weaponsmith
 	title = "Weaponsmith"
 	flag = WEAPONSMITH
-	department_flag = YEOMEN
+	department_flag = TOWNER
 	faction = "Station"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 1
+	spawn_positions = 1
 
 	allowed_races = RACES_ALL_KINDS
 
@@ -92,14 +93,15 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		if(H.age == AGE_OLD)
+	/*	if(H.age == AGE_OLD)
 			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE) */
 	if(should_wear_femme_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/trou
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
@@ -128,10 +130,10 @@
 /datum/job/roguetown/blacksmith
 	title = "Blacksmith"
 	flag = BLACKSMITH
-	department_flag = YEOMEN
+	department_flag = TOWNER
 	faction = "Station"
-	total_positions = 2
-	spawn_positions = 2
+	total_positions = 1
+	spawn_positions = 1
 
 	allowed_races = RACES_ALL_KINDS
 
@@ -158,15 +160,17 @@
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/smelting, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/carpentry, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		if(H.age == AGE_OLD)
+	/*	if(H.age == AGE_OLD)
 			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE) */
 	if(should_wear_femme_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/trou
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random

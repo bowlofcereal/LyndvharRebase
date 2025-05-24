@@ -77,7 +77,7 @@
 				RANDOMLY PICKED NUMBER ACCORDING TO SMELTER SKILL:
 					NO SKILL: 		between 10 and 30
 					NOVICE:	 		between 25 and 30
-					APPRENTICE:	 	between 40 and 50
+					TOWNER:	 	between 40 and 50
 					JOURNEYMAN: 	between 55 and 75
 					EXPERT: 		between 70 and 100
 					MASTER: 		between 85 and 125

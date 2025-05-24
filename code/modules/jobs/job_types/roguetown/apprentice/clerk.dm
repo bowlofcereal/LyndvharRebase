@@ -1,7 +1,7 @@
 /datum/job/roguetown/clerk
 	title = "Clerk"
 	flag = CLERK
-	department_flag = APPRENTICE
+	department_flag = TOWNER
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
