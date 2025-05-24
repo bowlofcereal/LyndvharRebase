@@ -186,13 +186,14 @@
 					pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 					gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 					ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+					H.change_stat("speed", 1)
 				if("Medium Armor")
 					armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
 					pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 					gloves = /obj/item/clothing/gloves/roguetown/chain/iron
 					ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+					H.change_stat("strength", 1)
 					H.set_blindness(0)
 			H.change_stat("perception", 2) // Look far, but not too far.
-			H.change_stat("strength", 1) // Swapped speed for str. Figured long-distance travelers would be strong and endurant instead of speedy and light.
 			H.change_stat("endurance", 2)
 			H.change_stat("intelligence", 1) // Adaptive to their surroundings.
