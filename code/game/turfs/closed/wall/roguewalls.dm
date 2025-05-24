@@ -46,12 +46,12 @@
 	damage_deflection = 10
 
 /turf/closed/wall/mineral/rogue/stone/turf_destruction()
-	loud_message("Sound of a crumbling stone wall rings out", hearing_distance = 14)
+	loud_message("The sound of a crumbling stone wall rings out", hearing_distance = 14)
 	. = ..()
 
 /turf/closed/wall/mineral/rogue/stone/window
 	name = "stone window"
-	desc = "A window with solid and sturdy stone frame."
+	desc = "A window with a solid and sturdy stone frame."
 	opacity = FALSE
 	max_integrity = 1300
 
@@ -76,7 +76,7 @@
 
 /turf/closed/wall/mineral/rogue/craftstone
 	name = "stone wall"
-	desc = "A durable wall made from specially crafted stone."
+	desc = "A durable wall made from specially-crafted stone."
 	icon = 'icons/turf/walls/craftstone.dmi'
 	icon_state = "box"
 	smooth = SMOOTH_MORE
@@ -93,7 +93,7 @@
 	damage_deflection = 10
 
 /turf/closed/wall/mineral/rogue/craftstone/turf_destruction()
-	loud_message("Sound of heavy stone bricks crumbling apart rings out", hearing_distance = 14)
+	loud_message("The sound of heavy stone bricks crumbling apart rings out", hearing_distance = 14)
 	. = ..()
 
 /turf/closed/wall/mineral/rogue/stonebrick
@@ -133,7 +133,7 @@
 
 /turf/closed/wall/mineral/rogue/wood/window
 	name = "wooden window"
-	desc = "A window with rough hewn wood frame."
+	desc = "A window with a rough-hewn wood frame."
 	opacity = FALSE
 	max_integrity = 550
 
@@ -149,7 +149,7 @@
 
 /turf/closed/wall/mineral/rogue/tent
 	name = "tent"
-	desc = "Made from durable fabric and wooden branches."
+	desc = "Made from durable fabric stretched over wooden branches."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "tent"
 	smooth = SMOOTH_FALSE
@@ -294,7 +294,7 @@
 //Mildly better than stone-wall due to it being harder to make, plus not loose-stone cobbled together. Also higher climbing diff akin to stone-brick wall.
 /turf/closed/wall/mineral/rogue/brick
 	name = "brick wall"
-	desc = "Several rows of bricks form this wall, held together by motar."
+	desc = "Several rows of bricks form this wall, held together by mortar."
 	icon = 'icons/turf/walls/brick_wall.dmi'
 	icon_state = "brick"
 	smooth = SMOOTH_MORE
@@ -312,7 +312,7 @@
 
 /turf/closed/wall/mineral/rogue/brick/window
 	name = "brick window"
-	desc = "A window with solid and sturdy stone frame."
+	desc = "A window with a solid and sturdy stone frame."
 	opacity = FALSE
 	max_integrity = 1500
 
