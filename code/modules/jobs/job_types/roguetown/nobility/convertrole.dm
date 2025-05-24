@@ -46,8 +46,8 @@
 	if(!recruit.mind)
 		return FALSE
 	//only migrants and peasants
-	if(!(recruit.job in GLOB.peasant_positions) && \
-		!(recruit.job in GLOB.yeoman_positions) && \
+	if(!(recruit.job in GLOB.rabble_positions) && \
+		!(recruit.job in GLOB.peasant_positions) && \
 		!(recruit.job in GLOB.allmig_positions) && \
 		!(recruit.job in GLOB.mercenary_positions))
 		return FALSE

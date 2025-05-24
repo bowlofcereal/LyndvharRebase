@@ -5,7 +5,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/seamstress
-	category_tags = list(CTAG_PILGRIM, CTAG_ARTISAN)
+//	category_tags = list(CTAG_PILGRIM, CTAG_ARTISAN)
 
 /datum/outfit/job/roguetown/adventurer/seamstress/pre_equip(mob/living/carbon/human/H)
 	..()

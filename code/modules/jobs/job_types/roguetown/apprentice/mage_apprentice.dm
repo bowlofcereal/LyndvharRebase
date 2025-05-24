@@ -1,7 +1,7 @@
 /datum/job/roguetown/wapprentice
 	title = "Magicians Associate"
 	flag = MAGEAPPRENTICE
-	department_flag = APPRENTICE
+	department_flag = TOWNER
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 4

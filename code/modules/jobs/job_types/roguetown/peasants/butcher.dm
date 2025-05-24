@@ -1,7 +1,7 @@
 /datum/job/roguetown/butcher
 	title = "Butcher"
 	flag = BUTCHER
-	department_flag = PEASANTS
+	department_flag = RABBLE
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1

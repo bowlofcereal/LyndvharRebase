@@ -1,17 +1,20 @@
 /datum/job/roguetown/knavewench // The most aggressively rude name yet.
-	title = "Tapster"
-	f_title = "Tapstress"
+	title = "Serving Lad"
+	f_title = "Serving Wench"
 	flag = KNAVEWENCH
-	department_flag = PEASANTS
+	department_flag = TOWNER
+	allowed_sexes = list(FEMALE)
+	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 2
+	spawn_positions = 2
 
 	allowed_races = RACES_ALL_KINDS
-	tutorial = "You have a simple role at the bawdyhouse. You wait tables and help guests, clean the rooms, grow and brew more drink, and assist in the kitchens as need be. Bring a smile to the masses--and those cheapsake townsfolk and adventures might just give you an extra coin...assuming you've not already pilfered their pouch while they're in a drunken stupor off your latest brew."
+	tutorial = "You have a simple role at the inn. You wait tables and help guests, clean the rooms, grow and brew more drink, and assist in the kitchens as need be. Bring a smile to the masses--and those cheapsake townsfolk and adventures might just give you an extra coin...assuming you've not already pilfered their pouch while they're in a drunken stupor off your latest brew."
 
 	outfit = /datum/outfit/job/roguetown/knavewench
 	display_order = JDO_KNAVEWENCH
+	selection_color = JCOLOR_PEASANT
 	give_bank_account = 10
 	min_pq = -10
 	max_pq = null
@@ -33,12 +36,9 @@
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/labor/butchering, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
-		if(H.age == AGE_MIDDLEAGED)
+/*		if(H.age == AGE_MIDDLEAGED)
 			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-		if(H.age == AGE_OLD)
-			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)*/
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/keyring/sund/sund_bawdy
 	backr = /obj/item/storage/backpack/rogue/satchel

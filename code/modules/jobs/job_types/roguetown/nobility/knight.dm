@@ -286,7 +286,7 @@
 	switch(weapon_choice)
 		if("Battle Axe")
 			r_hand = /obj/item/rogueweapon/stoneaxe/battle
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/shield/heater
 		if("Steel Great Axe")
 			r_hand = /obj/item/rogueweapon/greataxe/steel
 			backl = /obj/item/gwstrap
@@ -374,7 +374,7 @@
 			backl = /obj/item/gwstrap
 		if("Steel Warhammer")
 			r_hand = /obj/item/rogueweapon/mace/warhammer/steel
-			backl = /obj/item/gwstrap
+			backl = /obj/item/rogueweapon/shield/heater
 		if("Flail")
 			r_hand = /obj/item/rogueweapon/flail
 			backl = /obj/item/gwstrap

@@ -602,9 +602,9 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 	omegalist += list(GLOB.garrison_positions)
 	omegalist += list(GLOB.church_positions)
 	omegalist += list(GLOB.watch_positions)
-	omegalist += list(GLOB.yeoman_positions)
-	omegalist += list(GLOB.apprentice_positions)
 	omegalist += list(GLOB.peasant_positions)
+	omegalist += list(GLOB.towner_positions)
+	omegalist += list(GLOB.rabble_positions)
 	omegalist += list(GLOB.mercenary_positions)
 
 	if(istype(SSticker.mode, /datum/game_mode/chaosmode))
@@ -645,16 +645,16 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 					cat_name = "Retinue"
 				if (CHURCHMEN)
 					cat_name = "Churchmen"
-				if (YEOMEN)
-					cat_name = "Yeomen"
-				if (PEASANTS)
-					cat_name = "Peasants"
-				if (APPRENTICE)
-					cat_name = "Sidefolk"
+				if (PEASANTRY)
+					cat_name = "Peasant"
+				if (RABBLE)
+					cat_name = "Rabble"
+				if (TOWNER)
+					cat_name = "Towner"
 				if (MERCENARIES)
 					cat_name = "Mercenaries"
-				if (INQUISITION)
-					cat_name = "Inquisition"
+/*				if (INQUISITION)
+					cat_name = "Inquisition"*/
 			//	if (GOBLIN)
 			//		cat_name = "Goblins"
 

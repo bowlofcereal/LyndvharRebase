@@ -13,7 +13,7 @@
 	icon_state = "arrow"
 	jobspawn_override = list(
 	"Markgraf",
-	"Markgraf Consort",
+	"Consort",
 	"Lord Heir",
 	"Hand",
 	"Steward"
@@ -56,16 +56,21 @@
 	)
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/yeomen
-	name = "Yeomen Late (Helm)"
+/obj/effect/landmark/start/helms/late/towner
+	name = "Towner Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
 	"Merchant",
 	"Innkeeper",
 	"Armorer",
 	"Weaponsmith",
+	"Apothecary",
+	"Leatherworker",
+	"Tailor",
 	"Blacksmith",
-	"Artisan",
+	"Cook",
+	"Apprentice",
+	"Serving Lad"
 	)
 	delete_after_roundstart = FALSE
 
@@ -75,26 +80,11 @@
 	jobspawn_override = list()
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/apprentice
-	name = "Apprentice Late (Helm)"
-	icon_state = "arrow"
-	jobspawn_override = list(
-	"Squire",
-	"Clerk",
-	"Apothecary",
-	"Smithy Apprentice",
-	"Magicians Associate",
-	"Churchling",
-	"Servant",
-	"Shophand",
-	)
-	delete_after_roundstart = FALSE
-
-
 /obj/effect/landmark/start/helms/late/peasant
 	name = "Peasant Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
+	"Soilson",
 	"Serf"
 	)
 	delete_after_roundstart = FALSE
@@ -118,7 +108,7 @@
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/helms/noble/consort
-	name = "Markgraf Consort"
+	name = "Consort"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/helms/noble/heir
@@ -199,6 +189,18 @@
 
 /obj/effect/landmark/start/helms/yeomen/innkeeper
 	name = "Innkeeper"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/yeomen/armorer
+	name = "Armorer"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/yeomen/weaponsmith
+	name = "Weaponsmith"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/yeomen/blacksmith
+	name = "Blacksmith"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/helms/yeomen/artisan

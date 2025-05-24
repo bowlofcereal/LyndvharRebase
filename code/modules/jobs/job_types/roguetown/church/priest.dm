@@ -91,7 +91,7 @@
 	for(var/mob/living/carbon/human/HU in get_step(src, src.dir))
 		if(!HU.mind)
 			continue
-		if(HU.mind.assigned_role == "Grand Duke")
+		if(HU.mind.assigned_role == "Markgraf")
 			continue
 		if(!HU.head)
 			continue
@@ -101,12 +101,12 @@
 		//Abdicate previous King
 		for(var/mob/living/carbon/human/HL in GLOB.human_list)
 			if(HL.mind)
-				if(HL.mind.assigned_role == "Markgraf" || HL.mind.assigned_role == "Markgraf Consort")
+				if(HL.mind.assigned_role == "Markgraf" || HL.mind.assigned_role == "Consort")
 					HL.mind.assigned_role = "Towner" //So they don't get the innate traits of the king
 			//would be better to change their title directly, but that's not possible since the title comes from the job datum
 			if(HL.job == "Markgraf")
 				HL.job = "Markgraf Emeritus"
-			if(HL.job == "Markgraf Consort")
+			if(HL.job == "Consort")
 				HL.job = "Markgraf Dowager"
 
 		//Coronate new King (or Queen)

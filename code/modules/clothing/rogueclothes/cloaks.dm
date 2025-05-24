@@ -552,6 +552,9 @@
 	detail_color = CLOTHING_RED
 	detail_tag = "_box"
 
+/obj/item/clothing/cloak/stabard/watchman
+	color = CLOTHING_RED
+
 /obj/item/clothing/cloak/stabard/dungeon
 	color = CLOTHING_BLACK
 
@@ -818,6 +821,9 @@
 
 /obj/item/clothing/cloak/apron/brown
 	color = CLOTHING_BROWN
+
+/obj/item/clothing/cloak/apron/tailor
+	color = "#1f5330"
 
 /obj/item/clothing/cloak/apron/waist
 	name = "apron"
@@ -1197,7 +1203,7 @@
 
 /obj/item/clothing/cloak/half/shadowcloak
 	name = "stalker cloak"
-	desc = "A heavy leather cloak held together by a gilded pin, depicting the Grand Duke's house. The sign of a faithful servant."
+	desc = "A heavy leather cloak held together by a gilded pin, depicting the Markgraf's house. The sign of a faithful servant."
 	icon_state = "shadowcloak"
 	color = null
 	allowed_race = NON_DWARVEN_RACE_TYPES
