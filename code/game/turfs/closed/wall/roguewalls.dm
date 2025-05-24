@@ -29,7 +29,7 @@
 
 /turf/closed/wall/mineral/rogue/stone
 	name = "stone wall"
-	desc = "A wall of smooth, unyielding stone."
+	desc = "A wall of smooth unyielding stone."
 	icon = 'icons/turf/walls/stone_wall.dmi'
 	icon_state = "stone"
 	smooth = SMOOTH_MORE
@@ -98,7 +98,7 @@
 
 /turf/closed/wall/mineral/rogue/stonebrick
 	name = "brick wall"
-	desc = "Several rows of bricks form this wall."
+	desc = "Rows of overlapping bricks form this wall."
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
 	smooth = SMOOTH_MORE
@@ -231,7 +231,7 @@
 
 /turf/closed/wall/mineral/rogue/decowood
 	name = "decorated wooden wall"
-	desc = "Meticulously designed by an professional carpenter."
+	desc = "Meticulously designed by a professional carpenter."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decowood"
 	smooth = SMOOTH_FALSE
@@ -294,7 +294,7 @@
 //Mildly better than stone-wall due to it being harder to make, plus not loose-stone cobbled together. Also higher climbing diff akin to stone-brick wall.
 /turf/closed/wall/mineral/rogue/brick
 	name = "brick wall"
-	desc = "Several rows of bricks form this wall, held together by mortar."
+	desc = "Rows of overlapping bricks held together by mortar form a nigh-impenetrable wall of stone."
 	icon = 'icons/turf/walls/brick_wall.dmi'
 	icon_state = "brick"
 	smooth = SMOOTH_MORE
