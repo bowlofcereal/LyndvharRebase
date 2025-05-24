@@ -5215,6 +5215,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/shelter)
+"bSf" = (
+/obj/effect/spawner/lootdrop/silver_weapon_spawner,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/under/cave/goblinfort)
 "bSi" = (
 /obj/structure/chair/wood/rogue{
 	dir = 1
@@ -37939,7 +37943,13 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/mountains)
 "nxt" = (
-)
+/obj/structure/fluff/railing/border{
+	dir = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/shelter/mountains/decap)
 "nxQ" = (
 /obj/structure/chair/bench/ultimacouch/r{
 	icon_state = "ultimacochright"
@@ -61224,6 +61234,13 @@
 "vxh" = (
 /turf/closed/mineral/random/rogue,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
+"vxj" = (
+/obj/structure/fluff/railing/border{
+	dir = 1;
+	pixel_x = 0
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/shelter/mountains/decap)
 "vxn" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/grassyel,
@@ -419902,7 +419919,7 @@ oyf
 oyf
 oyf
 eAq
-nxt
+gYK
 wkC
 kCj
 rrZ
@@ -420806,7 +420823,7 @@ oyf
 oyf
 eAq
 eAq
-nxt
+gYK
 ipT
 wkC
 iHh
@@ -426276,7 +426293,7 @@ lRZ
 lRZ
 oyf
 oyf
-nxt
+oyf
 uBP
 toJ
 toJ
@@ -428048,7 +428065,7 @@ kNH
 kNH
 kNH
 kNH
-nxt
+kNH
 kNH
 wHp
 wHp
@@ -428494,7 +428511,7 @@ gnC
 erP
 kNH
 kNH
-nxt
+kNH
 kNH
 kNH
 kNH
@@ -431703,9 +431720,9 @@ oyf
 wHi
 eWw
 ayc
-nxt
 ini
-nxt
+ini
+ini
 ini
 ini
 fKt
@@ -432157,7 +432174,7 @@ eWw
 ulq
 ulq
 ulq
-nxt
+ulq
 qya
 qya
 ulq
@@ -434867,9 +434884,9 @@ oyf
 wHi
 eWw
 ayc
-nxt
 ini
-nxt
+ini
+ini
 ini
 ini
 ini
@@ -449291,7 +449308,7 @@ wHp
 gqr
 vLE
 tjy
-nxt
+iHh
 nRt
 aZR
 pDU
@@ -462414,7 +462431,7 @@ vqO
 kNy
 pQj
 uPk
-nxt
+uPk
 eFS
 fRR
 fRR
@@ -462778,7 +462795,7 @@ aee
 aee
 aee
 aee
-nxt
+vxj
 fhY
 mxw
 nmu
@@ -464586,7 +464603,7 @@ aee
 aee
 aee
 aee
-nxt
+vxj
 fhY
 fhY
 nHn
@@ -466394,7 +466411,7 @@ aee
 aee
 aee
 aee
-nxt
+vxj
 fhY
 ePm
 mxK
@@ -469151,7 +469168,7 @@ oyf
 oyf
 mQP
 uPk
-nxt
+bSf
 cmU
 sri
 mQP
@@ -470067,7 +470084,7 @@ mQP
 mIK
 vqO
 vqO
-nxt
+vqO
 vqO
 vqO
 iIP
