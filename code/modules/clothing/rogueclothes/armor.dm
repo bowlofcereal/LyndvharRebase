@@ -389,7 +389,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/studded/lesserinqcoat
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "lesser inquisitorial duster"
+	name = "inquisitorial duster"
 	desc = "A plateless duster favored by witch hunters employed by the Holy See. It is comparable to studded leather."
 	body_parts_covered = CHEST|VITALS|GROIN|LEGS|ARMS
 	allowed_sex = list(MALE, FEMALE)
@@ -1167,7 +1167,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "inquisitorial duster"
+	name = "plated inquisitorial duster"
 	desc = "Metal plates reinforce this heavy coat, only the finest for the inquisition."
 	body_parts_covered = CHEST|VITALS|GROIN|LEGS|ARMS
 	allowed_sex = list(MALE, FEMALE)
