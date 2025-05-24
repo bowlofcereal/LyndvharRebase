@@ -345,7 +345,7 @@
 /obj/item/clothing/suit/roguetown/shirt/tunic
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	name = "tunic"
-	desc = "Modest and fashionabe with the right colors."
+	desc = "Modest and fashionable, with the right colors."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
 	icon_state = "tunic"
 	boobed = FALSE
