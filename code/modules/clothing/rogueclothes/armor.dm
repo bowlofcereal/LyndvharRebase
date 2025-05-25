@@ -1095,7 +1095,7 @@
 /obj/item/clothing/suit/roguetown/armor/brigandine/coatplates
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "coat of plates"
-	desc = "A leather coat with plates attached to increase protection while retaining mobility. The leather below might catch a dagger picking at it."
+	desc = "A leather coat with plates attached to increase protection while retaining mobility. The leather below might stop a dagger."
 	icon_state = "coat_of_plates"
 	blocksound = PLATEHIT
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
@@ -1107,7 +1107,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/sheriff/coat
 	name = "coat of the commander"
-	desc = "A thick boiled leather surcoat with enough plates concealed within the folds. It weighs a ton and takes a great man to wear."
+	desc = "A thick boiled leather surcoat with enough plates concealed within the folds to offer superior protection. It weighs a ton and takes a great man to wear."
 	icon_state = "leathercoat"
 	item_state = "leathercoat"
 	var/picked = FALSE
