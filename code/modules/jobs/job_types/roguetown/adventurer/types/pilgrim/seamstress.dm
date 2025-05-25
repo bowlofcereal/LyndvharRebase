@@ -30,6 +30,7 @@
 						/obj/item/natural/bundle/fibers/full = 1,
 						/obj/item/flashlight/flare/torch = 1,
 						/obj/item/needle/thorn = 1,
+						/obj/item/book/rogue/swatchbook = 1
 						)
 	ADD_TRAIT(H, TRAIT_DYES, TRAIT_GENERIC)
 	H.change_stat("intelligence", 2)

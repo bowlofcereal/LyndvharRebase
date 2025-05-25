@@ -79,14 +79,16 @@ var/global/list/colorlist = list(
 	if(istype(I, /obj/item/book/rogue/swatchbook))
 		var/obj/item/book/rogue/swatchbook/S = I
 		if(!S.open)
-			to_chat(user, span_info("The swatchbook expressly forbids the use of its patented cover color."))
+			to_chat(user, span_info("The swatchbook expressly forbids the use of its cover color!"))
 			return ..()
 		if(S.swatchbookcolor == "#000000")
 			to_chat(user, span_info("You haven't picked out a color!"))
 			return ..()
 		else
 			to_chat(user, span_info("You mix the swatch's color in the dye bin."))
-			activecolor = S.swatchbookcolor
+			activecolor = "[S.swatchbookcolor]"
+			activecolor_detail = "[S.swatchbookcolor]"
+			activecolor_altdetail = "[S.swatchbookcolor]"
 			ui_interact(user)
 			return ..()
 	if(inserted)
