@@ -961,9 +961,11 @@
 /obj/item/clothing/cloak/raincloak/furcloak/purple
 	color = "#460d86"
 
-
 /obj/item/clothing/cloak/raincloak/furcloak/black
 	color = "#2b292e"
+
+/obj/item/clothing/cloak/raincloak/furcloak/red
+	color = CLOTHING_RED
 
 /obj/item/clothing/cloak/raincloak/furcloak/darkgreen
 	color = "#264d26"

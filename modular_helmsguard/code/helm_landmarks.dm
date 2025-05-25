@@ -89,6 +89,17 @@
 	)
 	delete_after_roundstart = FALSE
 
+/obj/effect/landmark/start/helms/late/rabble
+	name = "Peasant Late (Helm)"
+	icon_state = "arrow"
+	jobspawn_override = list(
+	"Bawdyhouse Master",
+	"Wench",
+	"Gutterfolk",
+	)
+	delete_after_roundstart = FALSE
+
+
 /obj/effect/landmark/start/helms/late/adventurer
 	name = "Adventurer Late (Helm)"
 	icon_state = "arrow"
@@ -183,6 +194,19 @@
 	name = "Hospitaler Sergeant"
 	icon_state = "arrow"
 
+
+/obj/effect/landmark/start/helms/watch/bailiff
+	name = "Bailiff"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/watch/watchman
+	name = "Watchman"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/watch/dungeoneer
+	name = "Dungeoneer"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/helms/yeomen/merchant
 	name = "Merchant"
 	icon_state = "arrow"
@@ -203,13 +227,43 @@
 	name = "Blacksmith"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/helms/yeomen/artisan
-	name = "Artisan"
+/obj/effect/landmark/start/helms/yeomen/builder
+	name = "Builder"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/yeomen/apothecary
+	name = "Apothecary"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/yeomen/leatherworker
+	name = "Leather Worker"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/yeomen/apprentice
+	name = "Apprentice"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/yeomen/tailor
+	name = "Tailor"
 	icon_state = "arrow"
   
-/obj/effect/landmark/start/helms/serf
+/obj/effect/landmark/start/helms/peasants/soilson
+	name = "Soilson"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/peasants/serf
 	name = "Serf"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/helms/rabble/master
+	name = "Bawdyhouse Master"
+	icon_state = "arrow"
 
+/obj/effect/landmark/start/helms/rabble/wench
+	name = "Wench"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/helms/rabble/gutterfolk
+	name = "Gutterfolk"
+	icon_state = "arrow"
 

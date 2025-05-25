@@ -1,17 +1,17 @@
 /datum/job/roguetown/nightmaiden
-	title = "Bathhouse Attendant"
-	f_title = "Bathhouse Attendant"
+	title = "Wench"
+	f_title = "Wench"
 	flag = WENCH
 	department_flag = RABBLE
 	faction = "Station"
 	total_positions = 5
 	spawn_positions = 5
 
-	allowed_sexes = list(MALE, FEMALE)
+	allowed_sexes = list(FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 
-	tutorial = "Most would decry the humble bath attendant as a desperate fool tempting others into bedsheets for money--only sometimes, you say! You work under your Bathmaster in the communal bathhouse, keeping it and the guests in turn as tidy as they please. Wash laundry, tend mild wounds, and deftly wash your patrons with soap and a skilled 'caress', for this is your craft."
+	tutorial = "As a Wench, you are a master of charm and allure, skilled in the art of companionship. Your role is to provide comfort, entertainment, and solace to those who seek your services. Whether through conversation, music, or more intimate means, you ensure your patrons leave with their spirits lifted and their burdens lightened. Your craft is as much about understanding the human heart as it is about physical skill."
 
 	outfit = /datum/outfit/job/roguetown/nightmaiden
 	advclass_cat_rolls = list(CTAG_NIGHTMAIDEN = 20)
@@ -36,8 +36,8 @@
 	// This is just a base outfit, the actual outfits are defined in the advclasses
 
 /datum/advclass/nightmaiden
-	name = "Bath Attendant"
-	tutorial = "Most would decry the humble bath attendant as a desperate fool tempting others into bedsheets for money--only sometimes, you say! You work under your Bathmaster in the communal bathhouse, keeping it and the guests in turn as tidy as they please. Wash laundry, tend mild wounds, and deftly wash your patrons with soap and a skilled 'caress', for this is your craft."
+	name = "Wench"
+	tutorial = "Your role is to provide comfort, entertainment, and solace to those who seek your services. Whether through conversation, music, or more intimate means, you ensure your patrons leave with their spirits lifted and their burdens lightened. Your craft is as much about understanding the human heart as it is about physical skill."
 	outfit = /datum/outfit/job/roguetown/nightmaiden/attendant
 	category_tags = list(CTAG_NIGHTMAIDEN)
 
@@ -79,8 +79,11 @@
 
 /datum/advclass/nightmaiden/concubine
 	name = "Concubine"
+	title = "Concubine"
+	f_title = "Concubine"
 	tutorial = "Unlike your fellow bath attendants who maintain a professional facade, you have abandoned all pretense. You are a prized possession of the nobility, adorned in exotic silks and gold. Your role is to provide companionship, entertainment, and pleasure."
 	outfit = /datum/outfit/job/roguetown/nightmaiden/concubine
+	allowed_sexes = list(FEMALE)
 	category_tags = list(CTAG_NIGHTMAIDEN)
 
 /datum/outfit/job/roguetown/nightmaiden/concubine/pre_equip(mob/living/carbon/human/H)
