@@ -27,6 +27,7 @@
 						/obj/item/flashlight/flare/torch = 1,
 						/obj/item/rogueweapon/huntingknife/scissors/steel = 1,
 						/obj/item/hair_dye_cream = 3,
+						/obj/item/clothing/mask/rogue/physician = 1,
 						)
 
 	if(H.mind)
