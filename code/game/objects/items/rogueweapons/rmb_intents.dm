@@ -2,6 +2,12 @@
 	var/name = "intent"
 	var/desc = ""
 	var/icon_state = ""
+	var/adjacency = TRUE
+
+/mob/living/carbon/human/RightClickOn(atom/A, params)
+	if(rmb_intent && !rmb_intent.adjacency)
+		rmb_intent.special_attack(src, A)
+	. = ..()
 
 /datum/rmb_intent/proc/special_attack(mob/living/user, atom/target)
 	if(!isliving(target))
@@ -59,65 +65,10 @@
 
 /datum/rmb_intent/aimed
 	name = "aimed"
-	desc = "Your attacks are more precise but have a longer recovery time. Higher critrate with precise attacks."
+	desc = "Your attacks are more precise but have a longer recovery time. Higher critrate with precise attacks.\n(RMB WHILE COMBAT MODE IS ACTIVE) Bait out your targeted limb to the enemy. If it matches where they're aiming, they will be thrown off balance."
 	icon_state = "rmbaimed"
 
-/datum/rmb_intent/strong
-	name = "strong"
-	desc = "Your attacks have +1 strength but use more stamina. Higher critrate with brutal attacks. Intentionally fails surgery steps."
-	icon_state = "rmbstrong"
-
-/datum/rmb_intent/swift
-	name = "swift"
-	desc = "Your attacks have less recovery time but are less accurate."
-	icon_state = "rmbswift"
-
-/datum/rmb_intent/special
-	name = "special"
-	desc = "(RMB WHILE DEFENSE IS ACTIVE) A special attack that depends on the type of weapon you are using."
-	icon_state = "rmbspecial"
-
-/datum/rmb_intent/feint
-	name = "feint"
-	desc = "(RMB WHILE DEFENSE IS ACTIVE) A deceptive half-attack with no follow-through, meant to force your opponent to open their guard. Useless against someone who is dodging."
-	icon_state = "rmbfeint"
-
-/datum/status_effect/debuff/exposed
-	id = "nofeint"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/exposed
-	duration = 50
-
-/atom/movable/screen/alert/status_effect/debuff/exposed
-	name = "Exposed"
-	desc = "My defenses are exposed. I can be hit through my parry and dodge!"
-	icon_state = "exposed"
-
-/datum/status_effect/debuff/feintcd
-	id = "feintcd"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/feintcd
-	duration = 100
-
-/datum/status_effect/debuff/riposted
-	id = "riposted"
-	duration = 30
-
-
-/datum/rmb_intent/riposte
-	name = "defend"
-	desc = "No delay between dodge and parry rolls.\n(RMB WHILE COMBAT MODE IS ACTIVE) Bait out your targeted limb to the enemy. If it matches where they're aiming, they will be thrown off balance."
-	icon_state = "rmbdef"
-
-/datum/rmb_intent/guard
-	name = "guarde"
-	desc = "(RMB WHILE DEFENSE IS ACTIVE) Raise your weapon, ready to attack any creature who moves onto the space you are guarding."
-	icon_state = "rmbguard"
-
-/datum/rmb_intent/weak
-	name = "weak"
-	desc = "Your attacks have -1 strength and will never critically-hit. Useful for longer punishments, play-fighting, and bloodletting."
-	icon_state = "rmbweak"
-
-/datum/rmb_intent/riposte/special_attack(mob/living/user, atom/target)
+/datum/rmb_intent/aimed/special_attack(mob/living/user, atom/target)
 	if(!user)
 		return
 	if(user.incapacitated())
@@ -188,28 +139,42 @@
 		user.rogfat_add(10)
 		user.apply_status_effect(/datum/status_effect/debuff/baitcd)
 
+/datum/rmb_intent/strong
+	name = "strong"
+	desc = "Your attacks have +1 strength but use more stamina. Higher critrate with brutal attacks. Intentionally fails surgery steps."
+	icon_state = "rmbstrong"
 
-/datum/status_effect/debuff/baited
-	id = "bait"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/baited
-	duration = 200
+/datum/rmb_intent/swift
+	name = "swift"
+	desc = "Your attacks have less recovery time but are less accurate."
+	icon_state = "rmbswift"
 
-/atom/movable/screen/alert/status_effect/debuff/baited
-	name = "Baited"
-	desc = "I fell for it. I'm exposed. I won't fall for it again. For now."
-	icon_state = "bait"
+/datum/rmb_intent/special
+	name = "special"
+	desc = "(RMB WHILE DEFENSE IS ACTIVE) A special attack that depends on the type of weapon you are using."
+	icon_state = "rmbspecial"
 
-/atom/movable/screen/alert/status_effect/debuff/baitedcd
-	name = "Bait Cooldown"
-	desc = "I used it. I must wait."
-	icon_state = "effectcd"
+/datum/rmb_intent/feint
+	name = "feint"
+	desc = "(RMB WHILE DEFENSE IS ACTIVE) A deceptive half-attack with no follow-through, meant to force your opponent to open their guard. Useless against someone who is dodging."
+	icon_state = "rmbfeint"
 
-/datum/status_effect/debuff/baitcd
-	id = "baitcd"
-	alert_type = /atom/movable/screen/alert/status_effect/debuff/baitedcd
-	duration = 200
+/datum/rmb_intent/riposte
+	name = "defend"
+	desc = "No delay between dodge and parry rolls.\n(RMB WHILE NOT GRABBING ANYTHING AND HOLDING A WEAPON)\nEnter a defensive stance, guaranteeing the next hit is defended against.\nTwo people who hit each other with the Guard up will have their weapons Clash, potentially disarming them.\nLetting it expire or hitting someone with it who has no Guard up is tiresome."
+	icon_state = "rmbdef"
+	adjacency = FALSE
 
-/atom/movable/screen/alert/status_effect/debuff/feintcd
-	name = "Feint Cooldown"
-	desc = "I used it. I must wait, or risk a lower chance of success."
-	icon_state = "effectcd"
+/datum/rmb_intent/riposte/special_attack(mob/living/user, atom/target)
+	if(!user.has_status_effect(/datum/status_effect/buff/clash) && !user.has_status_effect(/datum/status_effect/debuff/clashcd) && user.get_active_held_item() && !user.r_grab && !user.l_grab && (mobility_flags & MOBILITY_STAND))
+		user.apply_status_effect(/datum/status_effect/buff/clash)
+
+/datum/rmb_intent/guard
+	name = "guarde"
+	desc = "(RMB WHILE DEFENSE IS ACTIVE) Raise your weapon, ready to attack any creature who moves onto the space you are guarding."
+	icon_state = "rmbguard"
+
+/datum/rmb_intent/weak
+	name = "weak"
+	desc = "Your attacks have -1 strength and will never critically-hit. Useful for longer punishments, play-fighting, and bloodletting."
+	icon_state = "rmbweak"

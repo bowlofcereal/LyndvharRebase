@@ -1,4 +1,5 @@
 #define BASE_PARRY_STAMINA_DRAIN 5 // Unmodified stamina drain for parry, now a var instead of setting on simplemobs
+#define BAD_GUARD_FATIGUE_DRAIN 20 //Percentage of your green bar lost on letting a guard expire.
 /proc/accuracy_check(zone, mob/living/user, mob/living/target, associated_skill, datum/intent/used_intent, obj/item/I)
 	if(!zone)
 		return
@@ -710,3 +711,138 @@
 	else
 		return 0
 
+
+/mob/living/carbon/human/proc/process_clash(mob/user, obj/item/IM, obj/item/IU)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(!IU)	//The opponent is trying to rawdog us with their bare hands while we have Guard up. We get a free attack on their active hand.
+		var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+		var/force = get_complex_damage(IM, src)
+		var/armor_block = H.run_armor_check(BODY_ZONE_PRECISE_L_HAND, used_intent.item_d_type, armor_penetration = used_intent.penfactor, damage = force)
+		if(H.apply_damage(force, IM.damtype, affecting, armor_block))
+			visible_message(span_suicide("[src] gores [user]'s hands with \the [IM]!"))
+			affecting.bodypart_attacked_by(used_intent.blade_class, force, crit_message = TRUE)
+		else
+			visible_message(span_suicide("[src] clashes into [user]'s hands with \the [IM]!"))
+		playsound(src, pick(used_intent.hitsound), 80)
+		remove_status_effect(/datum/status_effect/buff/clash)
+		return
+	if(H.has_status_effect(/datum/status_effect/buff/clash))	//They also have Clash active. It'll trigger the special event.
+		clash(user, IM, IU)
+	else	//Otherwise, we just riposte them.
+		var/damage = get_complex_damage(IM, src, IU.blade_dulling)
+		if(IM.intdamage_factor > 0)
+			damage *= IM.intdamage_factor
+		if(IM.wbalance < 0)
+			damage *= 1.5
+		IU.take_damage(max(damage,1), BRUTE, IM.d_type)
+		visible_message(span_suicide("[src] ripostes [H] with \the [IM]!"))
+		playsound(src, 'sound/combat/clash_struck.ogg', 100)
+		var/rogfatdef = (rogfat * 100) / maxrogfat
+		var/rogfatatt = (H.rogfat * 100) / H.maxrogfat
+		if(rogfatdef > rogfatatt) 
+			H.apply_status_effect(/datum/status_effect/debuff/exposed, 2 SECONDS)
+			H.changeNext_move(3 SECONDS)
+		else
+			H.changeNext_move(CLICK_CD_MELEE)
+		remove_status_effect(/datum/status_effect/buff/clash)
+
+//This is a gargantuan, clunky proc that is meant to tally stats and weapon properties for the potential disarm.
+//For future coders: Feel free to change this, just make sure someone like Struggler statpack doesn't get 3-fold advantage.
+/mob/living/carbon/human/proc/clash(mob/user, obj/item/IM, obj/item/IU)
+	var/mob/living/carbon/human/HU = user
+	var/instantloss = FALSE
+	var/instantwin = FALSE
+
+	var/strdiff = STASTR - HU.STASTR
+	var/perdiff = STAPER - HU.STAPER
+	var/spddiff = STASPD - HU.STASPD
+	var/fordiff = STALUC - HU.STALUC
+	var/intdiff = STAINT - HU.STAINT
+
+	var/list/statdiffs = list(strdiff, perdiff, spddiff, fordiff, intdiff)
+
+	var/skilldiff
+	if(IM.associated_skill)
+		skilldiff = mind.get_skill_level(IM.associated_skill)
+	else
+		instantloss = TRUE	//We are Guarding with a book or something -- no chance for us.
+
+	if(IU.associated_skill)
+		skilldiff = skilldiff - HU.mind?.get_skill_level(IU.associated_skill)
+	else
+		instantwin = TRUE	//THEY are Guarding with a book or something -- no chance for them.
+	
+	var/lengthdiff = IM.wlength - IU.wlength
+	var/wieldeddiff = IM.wielded - IU.wielded
+	var/weightdiff = (IM.wbalance < IU.wbalance)
+	var/wildcard = pick(-1,0,1)
+
+	var/list/wepdiffs = list(lengthdiff, wieldeddiff, weightdiff)
+
+	var/prob_us = 0
+	var/prob_opp = 0
+
+	//Skill checks only matter if their difference is 2 or more.
+	for(var/statdiff in statdiffs)
+		if(statdiff >= 2)
+			prob_us += 10
+		else if(statdiff <= -2)
+			prob_opp += 10
+	
+	for(var/wepdiff in wepdiffs)
+		if(wepdiff > 0)
+			prob_us += 10
+		else if(wepdiff < 0)
+			prob_opp += 10
+
+	if(wildcard > 0)
+		prob_us += 10
+	else if(wildcard < 0 )
+		prob_opp += 10
+	
+	if((!instantloss && !instantwin) || (instantloss && instantwin))	//We are both using normal weapons OR we're both using memes. Either way, proceed as normal.
+		visible_message(span_boldwarning("[src] and [HU] clash!"))
+		var/success
+		if(prob(prob_us))
+			HU.remove_status_effect(/datum/status_effect/buff/clash)
+			HU.play_overhead_indicator('icons/mob/overhead_effects.dmi', "clashtwo", 1 SECONDS, OBJ_LAYER, soundin = 'sound/combat/clash_disarm_us.ogg', y_offset = 24)
+			disarmed(IM)
+			success = TRUE
+		if(prob(prob_opp))
+			HU.disarmed(IU)
+			remove_status_effect(/datum/status_effect/buff/clash)
+			play_overhead_indicator('icons/mob/overhead_effects.dmi', "clashtwo", 1 SECONDS, OBJ_LAYER, soundin = 'sound/combat/clash_disarm_opp.ogg', y_offset = 24)
+			success = TRUE
+		if(!success)
+			to_chat(src, span_warningbig("Draw!"))
+			to_chat(HU, span_warningbig("Draw!"))
+	else
+		if(instantloss)
+			disarmed(IM)
+		if(instantwin)
+			HU.disarmed(IU)
+	
+	remove_status_effect(/datum/status_effect/buff/clash)
+	HU.remove_status_effect(/datum/status_effect/buff/clash)
+
+/mob/living/carbon/human/proc/disarmed(obj/item/I)
+	visible_message(span_suicide("[src] is disarmed!"), 
+					span_boldwarning("I'm disarmed!"))
+	var/turnangle = (prob(50) ? 270 : 90)
+	var/turndir = turn(dir, turnangle)
+	var/dist = rand(1, 5)
+	var/current_turf = get_turf(src)
+	var/target_turf = get_ranged_target_turf(current_turf, turndir, dist)
+	changeNext_move(CLICK_CD_TRACKING)
+	throw_item(target_turf, FALSE)
+
+/mob/living/carbon/human/proc/bad_guard(msg, cheesy = FALSE)
+	rogfat_add(((maxrogfat * BAD_GUARD_FATIGUE_DRAIN) / 100))
+	if(cheesy)	//We tried to hit someone with Guard up. Unfortunately this must be super punishing to prevent cheese.
+		rogstam_add(-((maxrogstam * BAD_GUARD_FATIGUE_DRAIN) / 100))
+		Immobilize(2 SECONDS)
+	to_chat(src, msg)
+	remove_status_effect(/datum/status_effect/buff/clash)
+	emote("strain", forced = TRUE)
