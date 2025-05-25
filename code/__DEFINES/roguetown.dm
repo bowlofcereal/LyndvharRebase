@@ -256,6 +256,8 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_NIGHTMAIDEN	"CAT_NIGHTMAIDEN"	// Bathhouse Attendant's aesthetic choices.
 #define CTAG_STEWARD		"CAT_STEWARD"		// Steward's aesthetic choices.
 #define CTAG_APPRENTICE		"CAT_APPRENTICE"		// Apprentice's class selector.
+#define CTAG_GUTTERFOLK		"CAT_GUTTERFOLK"
+
 /*
 	Defines for the triumph buy datum categories
 */

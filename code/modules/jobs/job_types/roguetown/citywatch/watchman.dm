@@ -20,10 +20,11 @@
 	give_bank_account = 16
 	min_pq = 0
 	max_pq = null
+	round_contrib_points = 3
 
 	cmode_music = 'sound/music/combat_guard.ogg'
 
-/datum/job/roguetown/watchman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+/datum/job/roguetown/guardsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	. = ..()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
