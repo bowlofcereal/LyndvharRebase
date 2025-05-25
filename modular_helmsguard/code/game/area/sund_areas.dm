@@ -2,9 +2,13 @@ GLOBAL_LIST_EMPTY(chosen_music)
 
 GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town,/area/rogue/outdoors/town,/area/rogue/under/town)) //hey
 
-/area/rogue
-	name = "roguetown"
+/area/rogue/sund
+	name = "sundmark"
+	location_name = "the distance"	// Should only occur as a fail condition if child objects lack more specific locations names, or areas are meant to be secret.
 	icon_state = "rogue"
+
+/*	These are all inherited  from the parent /rogue. Leaving in comments as a reference.
+
 	has_gravity = STANDARD_GRAVITY
 	ambientsounds = null
 	always_unpowered = TRUE
@@ -19,6 +23,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	var/keep_area = FALSE
 	var/warden_area = FALSE
 	var/ceiling_protected = FALSE //Prevents tunneling into these from above
+*/
+
+
+/*		AP's zone-specific buffs for certain classes based on areas. Here for reference until removed. If this is here in 2026, axe it.
 
 /area/rogue/Entered(mob/living/carbon/human/guy)
 
@@ -41,6 +49,68 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 		guy.apply_status_effect(/datum/status_effect/buff/knightbuff)
 		if(HAS_TRAIT(guy, TRAIT_GUARDSMAN) && guy.has_status_effect(/datum/status_effect/buff/guardbuffone))
 			guy.remove_status_effect(/datum/status_effect/buff/guardbuffone)
+*/
+
+// Roguetown organized by indoor/outdoor, but Sund areas are organized by geographic location.
+// Is this quite so optimized for the specific indoor/outdoor flagging of things in code?
+// No, but it makes for a cleaner map editor's experience. And that's who uses areas most. - Nikov
+
+/area/rogue/sund/generic
+	name = "sund generic"
+	location_name = "somewhere"
+	icon_state = "rogue"
+
+// Templates.
+
+/area/rogue/sund/generic/outdoors
+	name = "generic outdoors"
+	location_name = "the outdoors"
+	icon_state = "outdoors"
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
+	ambientsounds = AMB_TOWNDAY
+	ambientnight = AMB_TOWNNIGHT
+	spookysounds = SPOOKY_CROWS
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/townstreets.ogg'
+	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	converted_type = /area/rogue/sund/generic/indoors
+	soundenv = 16
+
+/area/rogue/sund/generic/indoors
+	name = "generic indoors"
+	location_name = "the indoors"
+	icon_state = "indoors"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/towngen.ogg'
+	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	soundenv = 2
+	plane = INDOOR_PLANE
+	converted_type = /area/rogue/sund/generic/outdoors
+
+// Keep
+/area/rogue/sund/keep
+	keep_area = TRUE
+
+// Castle
+/area/rogue/sund/castle
+
+// Town Walls
+/area/rogue/sund/walls	
+
+// Sundmark Streets
+
+
+// Guild House
+
+// Public House
+
 
 
 /area/rogue/indoors
