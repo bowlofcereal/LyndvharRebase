@@ -820,8 +820,9 @@
 			play_overhead_indicator('icons/mob/overhead_effects.dmi', "clashtwo", 1 SECONDS, OBJ_LAYER, soundin = 'sound/combat/clash_disarm_opp.ogg', y_offset = 24)
 			success = TRUE
 		if(!success)
-			to_chat(src, span_warningbig("Draw!"))
-			to_chat(HU, span_warningbig("Draw!"))
+			to_chat(src, span_warningbig("Draw! Opponent's chances were... [prob_opp]%"))
+			to_chat(HU, span_warningbig("Draw! Opponent's chances were... [prob_us]%"))
+			playsound(src, 'sound/combat/clash_draw.ogg', 100, TRUE)
 	else
 		if(instantloss)
 			disarmed(IM)
