@@ -715,6 +715,9 @@
 /mob/living/carbon/human/proc/process_clash(mob/user, obj/item/IM, obj/item/IU)
 	if(!ishuman(user))
 		return
+	if(user == src)
+		bad_guard(span_warning("I hit myself."))
+		return
 	var/mob/living/carbon/human/H = user
 	if(!IU)	//The opponent is trying to rawdog us with their bare hands while we have Guard up. We get a free attack on their active hand.
 		var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
@@ -747,6 +750,7 @@
 		else
 			H.changeNext_move(CLICK_CD_MELEE)
 		remove_status_effect(/datum/status_effect/buff/clash)
+		purge_peel()
 
 //This is a gargantuan, clunky proc that is meant to tally stats and weapon properties for the potential disarm.
 //For future coders: Feel free to change this, just make sure someone like Struggler statpack doesn't get 3-fold advantage.
@@ -847,3 +851,13 @@
 		to_chat(src, msg)
 		emote("strain", forced = TRUE)
 	remove_status_effect(/datum/status_effect/buff/clash)
+
+/mob/living/carbon/human/proc/purge_peel()
+	//Equipment slots manually picked out cus we don't have a proc for this apparently
+	var/list/slots = list(wear_armor, wear_pants, wear_wrists, wear_shirt, gloves, head, shoes, wear_neck, wear_mask)
+	for(var/slot in slots)
+		if(isnull(slot) || !istype(slot, /obj/item/clothing))
+			slots.Remove(slot)
+
+	for(var/obj/item/clothing/C in slots)
+		C.reset_peel()
