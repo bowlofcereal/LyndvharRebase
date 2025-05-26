@@ -4886,6 +4886,12 @@
 /obj/structure/bars/tough,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap)
+"bKS" = (
+/obj/structure/roguemachine/vendor{
+	keycontrol = "tailor"
+	},
+/turf/closed/wall/mineral/rogue/decowood/vert,
+/area/rogue/indoors/town)
 "bKV" = (
 /obj/machinery/light/rogue/firebowl/stump,
 /turf/open/floor/rogue/naturalstone,
@@ -6681,12 +6687,11 @@
 	},
 /area/rogue/indoors/town/manor)
 "ctD" = (
-/obj/structure/lever/wall{
-	pixel_x = 22;
-	redstone_id = "tailor_shutter"
-	},
 /obj/structure/fluff/railing/border{
 	dir = 1
+	},
+/obj/structure/lever{
+	redstone_id = "tailor_shutter"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
@@ -260000,7 +260005,7 @@ exD
 wRJ
 cDX
 uBc
-uBc
+bKS
 hDX
 hDX
 hDX
