@@ -1,6 +1,4 @@
-GLOBAL_LIST_EMPTY(chosen_music)
-
-GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town,/area/rogue/outdoors/town,/area/rogue/under/town)) //hey
+// Sundmark Areas - Nikov
 
 /area/rogue/sund
 	name = "sundmark"
@@ -62,10 +60,10 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 // Templates.
 
-/area/rogue/sund/generic/outdoors
-	name = "generic outdoors"
+/area/rogue/sund/generic/exterior
+	name = "generic exterior"
 	location_name = "the outdoors"
-	icon_state = "outdoors"
+	icon_state = "exterior"
 	outdoors = TRUE
 	ambientrain = RAIN_OUT
 	ambientsounds = AMB_TOWNDAY
@@ -75,13 +73,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
-	converted_type = /area/rogue/sund/generic/indoors
+	converted_type = /area/rogue/sund/generic/interior
 	soundenv = 16
 
-/area/rogue/sund/generic/indoors
-	name = "generic indoors"
+/area/rogue/sund/generic/interior
+	name = "generic interior"
 	location_name = "the indoors"
-	icon_state = "indoors"
+	icon_state = "interior"
 	ambientrain = RAIN_IN
 	ambientsounds = AMB_INGEN
 	ambientnight = AMB_INGEN
@@ -92,30 +90,36 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 	soundenv = 2
 	plane = INDOOR_PLANE
-	converted_type = /area/rogue/sund/generic/outdoors
+	converted_type = /area/rogue/sund/generic/exterior
 
 // Keep
 /area/rogue/sund/keep
+	location_name = "the keep"
 	keep_area = TRUE
+	town_area = TRUE
+	first_time_text = "Sundburg Keep"
+	icon_state = "keep"
 
-// Castle
-/area/rogue/sund/castle
+/area/rogue/sund/keep/keep_exterior	// Setting exterior defaults.
+	name = "Keep Exterior"
+	location_name = "above the keep"
+	icon_state = "keep_exterior"
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
+	ambientsounds = AMB_TOWNDAY
+	ambientnight = AMB_TOWNNIGHT
+	spookysounds = SPOOKY_CROWS
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/townstreets.ogg'
+	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	converted_type = /area/rogue/sund/keep/keep_interior
+	soundenv = 16
 
-// Town Walls
-/area/rogue/sund/walls	
-
-// Sundmark Streets
-
-
-// Guild House
-
-// Public House
-
-
-
-/area/rogue/indoors
-	name = "indoors rt"
-	icon_state = "indoors"
+/area/rogue/sund/keep/keep_interior	// Setting interior defaults.
+	name = "Keep Interior"
+	location_name = "the keep's interior"
+	icon_state = "keep"
 	ambientrain = RAIN_IN
 	ambientsounds = AMB_INGEN
 	ambientnight = AMB_INGEN
@@ -126,35 +130,136 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
 	soundenv = 2
 	plane = INDOOR_PLANE
-	converted_type = /area/rogue/outdoors
+	converted_type = /area/rogue/sund/keep/keep_exterior
 
+/area/rogue/sund/keep/keep_interior/markgrafs_chambers	// Specific subtypes for notable areas.
+	name = "Markgraf's Chambers"
+	location_name = "the keep's bedchambers"
 
+/area/rogue/sund/keep/keep_interior/throne_room
+	name = "Throne Room"
+	location_name = "the throne room"
 
-/area/rogue/indoors/banditcamp
-	name = "bandit camp indoors"
-	droning_sound = 'sound/music/area/banditcamp.ogg'
-	droning_sound_dusk = 'sound/music/area/banditcamp.ogg'
-	droning_sound_night = 'sound/music/area/banditcamp.ogg'
+/area/rogue/sund/keep/keep_interior/keep_commons
+	name = "Keep Commons"
+	location_name = "the keep's interior"
 
-/area/rogue/indoors/cave
-	name = "latejoin cave"
-	icon_state = "cave"
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
-	soundenv = 8
+/area/rogue/sund/keep/keep_interior/servants_chambers
+	name = "Servant's Interior"
+	location_name = "the servant's chambers of the keep"
 
-/area/rogue/indoors/cave/late/can_craft_here()
-	return FALSE
+/area/rogue/sund/keep/keep_interior/keep_cellars
+	name = "Keep Cellars"
+	location_name = "underneath the keep"
 
+/area/rogue/sund/keep/keep_interior/keep_gatehouse
+	name = "Keep Gatehouse"
+	location_name = "the keep's gatehouse"
 
-///// OUTDOORS AREAS //////
+/area/rogue/sund/keep/keep_interior/knights_tower
+	name = "Knight's Tower"
+	location_name = "the knight's tower"
 
-/area/rogue/outdoors
-	name = "outdoors roguetown"
-	icon_state = "outdoors"
+/area/rogue/sund/keep/keep_interior/stewards_tower
+	name = "Steward's Tower"
+	location_name = "the steward's tower"
+
+// Castle
+/area/rogue/sund/castle
+	location_name = "the castle"
+	keep_area = TRUE
+	town_area = TRUE
+	first_time_text = "The Sundburg"
+	droning_sound = 'sound/music/area/siege.ogg'
+	droning_sound_dusk = 'sound/music/area/siege.ogg'
+	droning_sound_night = 'sound/music/area/manor2.ogg'
+	icon_state = "castle"
+
+/area/rogue/sund/castle/castle_exterior
+	name = "Castle Exterior"
+	location_name = "above the castle"
+	icon_state = "castle_exterior"
 	outdoors = TRUE
 	ambientrain = RAIN_OUT
-//	ambientsounds = list('sound/ambience/wamb.ogg')
+	ambientsounds = AMB_TOWNDAY
+	ambientnight = AMB_TOWNNIGHT
+	spookysounds = SPOOKY_CROWS
+	spookynight = SPOOKY_GEN
+	converted_type = /area/rogue/sund/castle/castle_interior
+	soundenv = 16
+
+/area/rogue/sund/castle/castle_exterior/courtyard
+	name = "Castle Courtyard"
+	location_name = "the castle courtyard"
+	icon_state = "castle_courtyard"
+
+/area/rogue/sund/castle/castle_interior
+	name = "Castle Interior"
+	location_name = "the castle's interior"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	soundenv = 2
+	plane = INDOOR_PLANE
+	converted_type = /area/rogue/sund/castle/castle_exterior
+
+/area/rogue/sund/castle/castle_interior/castle_nobles
+	name = "Tower of Nobles"
+	location_name = "the Tower of Nobles"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	soundenv = 2
+	plane = INDOOR_PLANE
+
+// Town Walls
+/area/rogue/sund/walls
+	name = "Sundberg Walls"
+	location_name = "the walls"
+	first_time_text = "Sundberg Walls"
+	icon_state = "walls"
+	town_area = TRUE
+
+/area/rogue/sund/walls/exterior
+	name = "Sundberg Walls"
+	location_name = "the walls"
+	icon_state = "walls_exterior"
+	converted_type = /area/rogue/sund/walls/interior
+	soundenv = 16
+
+/area/rogue/sund/walls/exterior/gatehouse
+	name = "Sundberg Gatehouse"
+	location_name = "the city gates"
+
+/area/rogue/sund/walls/interior
+	name = "Sundberg Walls"
+	location_name = "the walls"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	soundenv = 2
+	plane = INDOOR_PLANE
+	converted_type = /area/rogue/sund/walls/exterior
+
+/area/rogue/sund/walls/interior/gatehouse
+	name = "Sundberg Gatehouse"
+	location_name = "the city gates"
+
+// Sundmark Streets
+
+/area/rogue/sund/streets/
+	name = "Sundberg Streets"
+	location_name = "the streets of Sundberg"
+	icon_state = "streets"
+	town_area = TRUE
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
 	ambientsounds = AMB_TOWNDAY
 	ambientnight = AMB_TOWNNIGHT
 	spookysounds = SPOOKY_CROWS
@@ -162,143 +267,396 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
-	converted_type = /area/rogue/indoors/shelter
 	soundenv = 16
 
+/area/rogue/sund/streets/above	// Not sure how often people will blow a horn here, but it covers a lot of tiles.
+	name = "Above Sundberg"
+	location_name = "above Sundberg"
 
-/area/rogue/outdoors/banditcamp
-	name = "bandit camp outdoors"
-	droning_sound = 'sound/music/area/banditcamp.ogg'
-	droning_sound_dusk = 'sound/music/area/banditcamp.ogg'
-	droning_sound_night = 'sound/music/area/banditcamp.ogg'
+/area/rogue/sund/streets/highstreet
+	name = "High Street"
+	location_name = "High Street"
+	first_time_text = "High Street"
 
-/area/rogue/indoors/shelter
-	icon_state = "shelter"
-	droning_sound = 'sound/music/area/townstreets.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+/area/rogue/sund/streets/churchstreet
+	name = "Church Street"
+	location_name = "Church Street"
+	first_time_text = "Church Street"
 
-/area/rogue/outdoors/mountains
-	name = "mountains"
-	icon_state = "mountains"
-	ambientsounds = AMB_MOUNTAIN
-	ambientnight = AMB_MOUNTAIN
-	spookysounds = SPOOKY_GEN
+/area/rogue/sund/streets/gatestreet
+	name = "Gate Street"
+	location_name = "Gate Street"
+	first_time_text = "Gate Street"
+
+/area/rogue/sund/streets/lowstreet
+	name = "Low Street"
+	location_name = "Low Street"
+	first_time_text = "Low Street"
+
+/area/rogue/sund/streets/backways
+	name = "the Backways"
+	location_name = "the Backways"
+	first_time_text = "The Backways"
+
+// Guild House
+
+/area/rogue/sund/guild/
+	name = "Guild House"
+	location_name = "the guildhouse"
+	icon_state = "guild"
+	town_area = TRUE
+
+/area/rogue/sund/guild/exterior
+	name = "Guild House Exterior"
+	location_name = "above the guildhouse"
+	icon_state = "guild_exterior"
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
+	ambientsounds = AMB_TOWNDAY
+	ambientnight = AMB_TOWNNIGHT
+	spookysounds = SPOOKY_CROWS
 	spookynight = SPOOKY_GEN
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
-	warden_area = TRUE
-	soundenv = 17
-	converted_type = /area/rogue/indoors/shelter/mountains
 
-/area/rogue/indoors/shelter/mountains
-	icon_state = "mountains"
+/area/rogue/sund/guild/interior
+	name = "Guild House"
+	location_name = "within the guildhouse"
+	icon_state = "guild"
+
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	soundenv = 2
+	plane = INDOOR_PLANE
+
+/area/rogue/sund/guild/interior/merchant
+	name = "Merchant Shop"
+
+/area/rogue/sund/guild/interior/smith
+	name = "Smith Shop"
+	location_name = "within the smithy"
+
+/area/rogue/sund/guild/interior/tailor
+	name = "Tailor Shop"
+	location_name = "within the tailor's shop"
+
+// Public House - Watch-house Complex
+
+/area/rogue/sund/public/
+	name = "Public House"
+	location_name = "the public house"
+	icon_state = "inn"
+	town_area = TRUE
+
+/area/rogue/sund/public/exterior/
+	name = "Public House Exterior"
+	location_name = "above the public house"
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
+	ambientsounds = AMB_TOWNDAY
+	ambientnight = AMB_TOWNNIGHT
+	spookysounds = SPOOKY_CROWS
+	spookynight = SPOOKY_GEN
 	droning_sound = 'sound/music/area/townstreets.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	soundenv = 16
 
-/area/rogue/outdoors/mountains/deception
-	name = "deception"
-	icon_state = "deception"
-	first_time_text = "THE CANYON OF DECEPTION"
+/area/rogue/sund/public/exterior/inn
+	name = "Inn Exterior"
+	location_name = "above the inn"
+	icon_state = "inn_exterior"
 
-/area/rogue/outdoors/mountains/decap
-	name = "mt decapitation"
-	icon_state = "decap"
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
-				/mob/living/carbon/human/species/goblin/npc/ambush/hell = 20)
-	droning_sound = 'sound/music/area/decap.ogg'
+/area/rogue/sund/public/exterior/watch
+	name = "Watch-house Exterior"
+	location_name = "above the watch-house"
+	icon_state = "watch_exterior"
+
+/area/rogue/sund/public/interior/
+	name = "Public House"
+	location_name = "the public house"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	soundenv = 2
+	plane = INDOOR_PLANE
+
+/area/rogue/sund/public/interior/inn
+	name = "The Golden Goblet"
+	location_name = "the inn"
+	first_time_text = "The Golden Goblet"
+	icon_state = "inn"
+
+/area/rogue/sund/public/interior/watch
+	name = "The Watch-House"
+	location_name = "the watch-house"
+	icon_state = "watch"
+	droning_sound = 'sound/music/area/manorgarri.ogg'
+
+/area/rogue/sund/public/interior/gaol
+	name = "The Gaol"
+	location_name = "the gaol"
+	icon_state = "watch_gaol"
+	droning_sound = 'sound/music/area/dungeon2.ogg'
+
+// Church
+
+/area/rogue/sund/church/
+	name = "The Church"
+	location_name = "the Church"
+	icon_state = "church"
+	town_area = TRUE
+
+/area/rogue/sund/church/exterior/
+	name = "Church Exterior"
+	location_name = "above the church"
+	icon_state = "church_exterior"
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
+	ambientsounds = AMB_TOWNDAY
+	ambientnight = AMB_TOWNNIGHT
+	spookysounds = SPOOKY_CROWS
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/townstreets.ogg'
+	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	soundenv = 16
+
+/area/rogue/sund/church/exterior/covered	// The 'breezeways'.
+	name = "Church Walkways"
+	location_name = "inside the church"
+	ambientrain = RAIN_OUT
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/church.ogg'
+	droning_sound_dusk = 'sound/music/area/churchdawn.ogg'
+	droning_sound_night = 'sound/music/area/towngen.ogg'
+	soundenv = 16
+	plane = INDOOR_PLANE
+
+/area/rogue/sund/church/interior/
+	name = "Church Interior"
+	location_name = "inside the church"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/church.ogg'
+	droning_sound_dusk = 'sound/music/area/churchdawn.ogg'
+	droning_sound_night = 'sound/music/area/towngen.ogg'
+	soundenv = 2
+	plane = INDOOR_PLANE
+
+/area/rogue/sund/church/interior/cathedral
+	name = "Cathedral"
+	location_name = "inside the cathendral"
+
+/area/rogue/sund/church/interior/chapterhouse
+	name = "Chapter House"
+	location_name = "inside the chapter house"
+
+/area/rogue/sund/church/interior/monastery
+	name = "Monastery"
+	location_name = "inside the monastery"
+
+// Town Houses
+
+/area/rogue/sund/houses/
+	name = "Sundberg Houses"
+	location_name = "a house in Sundmark"
+	icon_state = "houses"
+	town_area = TRUE
+
+/area/rogue/sund/houses/exterior
+	name = "Sundberg House Rooftops"
+	location_name = "above the houses of Sundberg"
+	icon_state = "houses_exterior"
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
+	ambientsounds = AMB_TOWNDAY
+	ambientnight = AMB_TOWNNIGHT
+	spookysounds = SPOOKY_CROWS
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/townstreets.ogg'
+	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	soundenv = 16
+
+/area/rogue/sund/houses/interior
+	name = "Sundberg House Interior"
+	location_name = "within the houses of Sundberg"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/sleeping.ogg'
+	soundenv = 2
+	plane = INDOOR_PLANE
+
+// Bath and Bawdy Werks		I will not apologize.
+
+/area/rogue/sund/bawdy
+	name = "Bawdyhouse"
+	location_name = "the bawdyhouse"
+	icon_state = "bawdy"
+
+/area/rogue/sund/bawdy/exterior
+	name = "Sundberg House Rooftops"
+	location_name = "above the houses of Sundberg"	// Deliberate obfuscation with other town houses.
+	icon_state = "bawdy_exterior"
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
+	ambientsounds = AMB_TOWNDAY
+	ambientnight = AMB_TOWNNIGHT
+	spookysounds = SPOOKY_CROWS
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/townstreets.ogg'
+	droning_sound_dusk = 'sound/music/area/septimus.ogg'
+	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	soundenv = 16
+
+/area/rogue/sund/bawdy/interior
+	name = "Sundberg Bawdyhouse"
+	location_name = "within the bawdyhouse"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/bath.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "MOUNT DECAPITATION"
-	ambush_times = list("night","dawn","dusk","day")
-	converted_type = /area/rogue/indoors/shelter/mountains/decap
-/area/rogue/indoors/shelter/mountains/decap
-	icon_state = "decap"
-	droning_sound = 'sound/music/area/decap.ogg'
+	converted_type = /area/rogue/outdoors/exposed/bath
+	soundenv = 2
+	plane = INDOOR_PLANE
+
+/area/rogue/sund/bath/interior/baths
+	name = "Sundberg Baths"
+	location_name = "within the bawdyhouse"	// Deliberate obfuscation with the upstairs.
+	icon_state = "baths"
+	ambientsounds = AMB_CAVEWATER
+	ambientnight = AMB_CAVEWATER
+	spookysounds = SPOOKY_RATS
+	spookynight = SPOOKY_RATS
 	droning_sound_dusk = null
 	droning_sound_night = null
+	ambientrain = RAIN_SEWER
+	soundenv = 21
 
+// Sundberg Outskirts		No-ambush, safe areas around Sundberg's walls.
 
-/area/rogue/outdoors/mountains/decap/stepbelow
-	name = "mt decapitation inner"
-	icon_state = "decap"
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
-				/mob/living/carbon/human/species/goblin/npc/ambush/hell = 20)
-	droning_sound = 'sound/music/area/decap_deeper.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "TARICHEA, VALLEY OF LOSS"
-	ambush_times = list("night","dawn","dusk","day")
-	converted_type = /area/rogue/indoors/shelter/mountains/decap
+/area/rogue/sund/outskirts
+	name = "Sundberg Outskirts"
+	icon_state = "outskirts"
+	location_name = "the outskirts of Sundberg"
+	outdoors = TRUE
+	ambientrain = RAIN_OUT
+	spookysounds = SPOOKY_CROWS
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/towngen.ogg'
+	droning_sound_night = 'sound/music/area/field.ogg'
 
-/area/rogue/outdoors/rtfield
-	name = "sundmark field"
-	icon_state = "rtfield"
+/area/rogue/sund/outskirts/farmlands
+	name = "Sundberg Farmlands"
+	location_name = "the farms of Sundberg"
+	icon_state = "outskirts_road"
+
+/area/rogue/sund/outskirts/gateroad
+	name = "Sundberg Gate Road"
+	location_name = "outside the gates of Sundberg"
+	icon_state = "outskirts_road"
+
+/area/rogue/sund/outskirts/wallroad
+	name = "Sundberg Wall Road"
+	location_name = "outside the walls of Sundberg"
+	icon_state = "outskirts_road"
+
+/area/rogue/sund/outskirts/bridge
+	name = "Sundberg Bridge"
+	location_name = "outside the walls of Sundberg"
+	icon_state = "outskirts_road"
+	first_time_text = "The Bridge of Sundberg"
+	ambientsounds = AMB_RIVERDAY
+	ambientnight = AMB_RIVERNIGHT
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/bog.ogg'
+	droning_sound_dusk = 'sound/music/area/bog.ogg'
+	droning_sound_night = 'sound/music/area/bog.ogg'
+
+/area/rogue/sund/outskirts/interior
+	name = "Sundberg Farmhouses"
+	location_name = "the farmhouses around Sundberg"
+	icon_state = "outskirts_interior"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_INGEN
+	ambientnight = AMB_INGEN
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	soundenv = 2
+	plane = INDOOR_PLANE
+
+/area/rogue/sund/outskirts/interior/barge
+	name = "Sundberg Outbuildings"
+	icon_state = "outskirts_interior"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_RIVERDAY
+	ambientnight = AMB_RIVERNIGHT
+	spookysounds = SPOOKY_GEN
+	spookynight = SPOOKY_GEN
+	droning_sound = 'sound/music/area/bog.ogg'
+	droning_sound_dusk = 'sound/music/area/bog.ogg'
+	droning_sound_night = 'sound/music/area/bog.ogg'
+
+/area/rogue/indoors/town/warehouse		// Unless or until we touch import code, use this path.
+	name = "dock warehouse import"
+	icon_state = "warehouse"
+	ambientrain = RAIN_IN
+	ambientsounds = AMB_RIVERDAY
+	ambientnight = AMB_RIVERNIGHT
+	droning_sound = 'sound/music/area/bog.ogg'
+	droning_sound_dusk = 'sound/music/area/bog.ogg'
+	droning_sound_night = 'sound/music/area/bog.ogg'
+
+// Ambush Wilderness (All Ambush Zones Within, Please!!!)
+
+/area/rogue/sund/wilderness
+	name = "Sundmark Wildnerness"
+	location_name = "the wilds of Sundmark"
+	icon_state = "wilderness"
+	first_time_text = "The Sundmark"
 	soundenv = 19
+
+/area/rogue/sund/wilderness/field
+	name = "Sundmark Field"
+	location_name = "the fields of Sundmark"
+	icon_state = "wilderness_field"
 	ambush_times = list("night")
 	ambush_types = list(
 				/turf/open/floor/rogue/dirt,
 				/turf/open/floor/rogue/grass)
 	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 30,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 50)
-	first_time_text = "SUNDMARK FIELD"
-	location_name = "Sundmark Field"
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 10,
+				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30)
+
 	droning_sound = 'sound/music/area/field.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-	converted_type = /area/rogue/indoors/shelter/rtfield
+	droning_sound_night = 'sound/music/area/bog.ogg'
 
-/area/rogue/indoors/shelter/rtfield
-	icon_state = "rtfield"
-	droning_sound = 'sound/music/area/field.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-
-
-/area/rogue/outdoors/woods
-	name = "wilderness"
-	icon_state = "woods"
-	ambientsounds = AMB_FORESTDAY
-	ambientnight = AMB_FORESTNIGHT
-	spookysounds = SPOOKY_CROWS
-	spookynight = SPOOKY_FOREST
-	droning_sound = 'sound/music/area/forest.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/forestnight.ogg'
-	soundenv = 15
-	warden_area = TRUE
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt,
-				/turf/open/floor/rogue/grass)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
-				/mob/living/carbon/human/species/goblin/npc/ambush = 30)
-	first_time_text = "THE WILDERNESS"
-	location_name = "the wilderness"
-	converted_type = /area/rogue/indoors/shelter/woods
-
-/area/rogue/indoors/shelter/woods
-	icon_state = "woods"
-	droning_sound = 'sound/music/area/forest.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/forestnight.ogg'
-
-
-/area/rogue/outdoors/river
-	name = "river"
+/area/rogue/sund/wilderness/river
+	name = "The Asen River"	// The deepest of lore. Actual Pre-Tacitus cut.
+	location_name = "the river Asen"
+	location_name = "The Asen River"
 	icon_state = "river"
 	warden_area = TRUE
 	ambientsounds = AMB_RIVERDAY
@@ -307,704 +665,65 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	spookynight = SPOOKY_FOREST
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/forestnight.ogg'
+	droning_sound_night = 'sound/music/area/bog.ogg'
 	converted_type = /area/rogue/indoors/shelter/woods
 
-/area/rogue/outdoors/bog
-	name = "bog"
-	icon_state = "bog"
-	warden_area = TRUE
-	ambientsounds = AMB_BOGDAY
-	ambientnight = AMB_BOGNIGHT
-	spookysounds = SPOOKY_FROG
-	spookynight = SPOOKY_GEN
-	droning_sound = 'sound/music/area/bog.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt,
-				/turf/open/floor/rogue/grass,
-				/turf/open/water)
-	//Minotaurs too strong for the lazy amount of places this area covers
-	ambush_mobs = list(
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 60,
-				/mob/living/simple_animal/hostile/retaliate/rogue/trollbog = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 40,
-				/mob/living/carbon/human/species/skeleton/npc/bogguard = 20,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30)
-	first_time_text = "THE TERRORBOG"
-	location_name = "the Terrorbog"
-	converted_type = /area/rogue/indoors/shelter/bog
-
-/area/rogue/indoors/shelter/bog
-	icon_state = "bog"
-	droning_sound = 'sound/music/area/bog.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/outdoors/bog/dense
-	name = "dense bog"
-
-/area/rogue/outdoors/beach
-	name = "coast"
-	icon_state = "beach"
-	warden_area = TRUE
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
-	droning_sound = 'sound/music/area/townstreets.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-	converted_type = /area/rogue/under/lake
-
-/area/rogue/outdoors/beach/forest
-	name = "coastforest"
-	icon_state = "beach"
-	icon_state = "woods"
+/area/rogue/sund/wilderness/woods
+	name = "Sundmark Forest"
+	location_name = "the forests of Sundmark"
+	first_time_text = "The Asenwald"
+	icon_state = "wilderness_woods"
 	ambientsounds = AMB_FORESTDAY
 	ambientnight = AMB_FORESTNIGHT
 	spookysounds = SPOOKY_CROWS
 	spookynight = SPOOKY_FOREST
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	droning_sound_night = 'sound/music/area/forestnight.ogg'
 	soundenv = 15
-	ambush_times = list("night","dusk")
+	warden_area = TRUE
+	ambush_times = list("night","dawn","dusk","day")
 	ambush_types = list(
 				/turf/open/floor/rogue/dirt,
 				/turf/open/floor/rogue/grass)
 	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/saiga = 40,
+				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 10,
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 30)
+
+/area/rogue/sund/wilderness/mountain
+	name = "Sundmark Mountains"
+	location_name = "the mountains of Sundmark"
+	first_time_text = "Mountains of Sundmark"
+	icon_state = "wilderness_mountain"
+	ambush_types = list(
+				/turf/open/floor/rogue/dirt)
+	ambush_mobs = list(
 				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 30,
-				/mob/living/carbon/human/species/human/northern/searaider/ambush = 10,
-				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 40)
-	first_time_text = "THE AZURE COAST"
-	converted_type = /area/rogue/indoors/shelter/woods
-
-//// UNDER AREAS (no indoor rain sound usually)
-
-// these don't get a rain sound because they're underground
-/area/rogue/under
-	name = "basement"
-	icon_state = "under"
-	droning_sound = 'sound/music/area/towngen.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-	soundenv = 8
-	plane = INDOOR_PLANE
-	converted_type = /area/rogue/outdoors/exposed
-/area/rogue/outdoors/exposed
-	icon_state = "exposed"
-	droning_sound = 'sound/music/area/towngen.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-
-/area/rogue/under/cave
-	name = "cave"
-	warden_area = TRUE
-	icon_state = "cave"
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
-	droning_sound = 'sound/music/area/caves.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30,
-				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 20,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 10,
-				/mob/living/simple_animal/hostile/retaliate/rogue/minotaur = 5)
-	converted_type = /area/rogue/outdoors/caves
-/area/rogue/outdoors/caves
-	icon_state = "caves"
-	droning_sound = 'sound/music/area/caves.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/cavewet
-	name = "cavewet"
-	icon_state = "cavewet"
-	warden_area = TRUE
-	first_time_text = "The Undersea"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
-	droning_sound = 'sound/music/area/caves.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
-	ambush_mobs = list(
-				/mob/living/carbon/human/species/skeleton/npc = 10,
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 30,
-				/mob/living/carbon/human/species/goblin/npc/sea = 20,
-				/mob/living/simple_animal/hostile/retaliate/rogue/troll = 15)
-	converted_type = /area/rogue/outdoors/caves
-
-/area/rogue/under/underdark
-	name = "The Underdark"
-	icon_state = "cavewet"
-	warden_area = FALSE
-	first_time_text = "The Underdark"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
-	droning_sound = 'sound/music/area/underdark.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated = 20,
-				/mob/living/carbon/human/species/elf/dark/drowraider/ambush = 10,
-				/mob/living/simple_animal/hostile/retaliate/rogue/minotaur = 25,
-				/mob/living/carbon/human/species/goblin/npc/ambush/moon = 30,
-				/mob/living/simple_animal/hostile/retaliate/rogue/troll = 15)
-	converted_type = /area/rogue/outdoors/caves
-
-/area/rogue/under/cavewet/bogcaves
-	first_time_text = "The Undergrove"
-
-/area/rogue/under/cavewet/bogcaves/sunkencity
-	first_time_text = "MELTED UNDERCITY"
-	spookysounds = SPOOKY_MYSTICAL
-	spookynight = SPOOKY_MYSTICAL
-	droning_sound = 'sound/music/area/underdark.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/cave/spider
-	icon_state = "spider"
-	first_time_text = "ARAIGNÉE"
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/spider = 100)
-	droning_sound = 'sound/music/area/spidercave.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/spidercave
-/area/rogue/outdoors/spidercave
-	icon_state = "spidercave"
-	droning_sound = 'sound/music/area/spidercave.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/spiderbase
-	name = "spiderbase"
-	ambientsounds = AMB_BASEMENT
-	ambientnight = AMB_BASEMENT
-	icon_state = "spiderbase"
-	droning_sound = 'sound/music/area/spidercave.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/spidercave
-/area/rogue/outdoors/spidercave
-	icon_state = "spidercave"
-	droning_sound = 'sound/music/area/spidercave.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/cavelava
-	name = "cavelava"
-	icon_state = "cavelava"
-	first_time_text = "MOUNT DECAPITATION"
-	ambientsounds = AMB_CAVELAVA
-	ambientnight = AMB_CAVELAVA
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
-	ambush_times = list("night","dawn","dusk","day")
-	ambush_types = list(
-				/turf/open/floor/rogue/dirt)
-	ambush_mobs = list(
-				/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 10,
-				/mob/living/carbon/human/species/skeleton/npc/ambush = 20,
-				/mob/living/carbon/human/species/goblin/npc/hell = 25,
-				/mob/living/simple_animal/hostile/retaliate/rogue/minotaur = 15)
-	droning_sound = 'sound/music/area/decap.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/decap
-/area/rogue/outdoors/exposed/decap
-	icon_state = "decap"
-	droning_sound = 'sound/music/area/decap.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/lake
-	name = "underground lake"
-	icon_state = "lake"
-	ambientsounds = AMB_BEACH
-	ambientnight = AMB_BEACH
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_GEN
-
-/area/rogue/under/cave/dungeon1
-	name = "smalldungeon1"
-	icon_state = "spider"
-	droning_sound = 'sound/music/area/dungeon.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-
-/area/rogue/under/cave/licharena
-	name = "licharena"
-	icon_state = "under"
-	first_time_text = "LICH'S DOMAIN"
-	droning_sound = 'sound/music/area/dragonden.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-
-/area/rogue/under/cave/dragonden
-	name = "dragonnest"
-	icon_state = "under"
-	first_time_text = "DEN OF DRAGONS"
-	droning_sound = 'sound/music/area/dragonden.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-
-/area/rogue/under/cave/goblinfort
-	name = "goblinfort"
-	icon_state = "spidercave"
-	first_time_text = "GOBLIN FORTRESS"
-	droning_sound = 'sound/music/area/dungeon2.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-
-/area/rogue/under/cave/scarymaze
-	name = "hauntedlabyrinth"
-	icon_state = "spidercave"
-	first_time_text = "CURSED LABYRINTH"
-	droning_sound = 'sound/music/area/dungeon2.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-
-/area/rogue/under/cave/undeadmanor
-	name = "skelemansion"
-	icon_state = "spidercave"
-	first_time_text = "ABANDONED MANOR"
-	droning_sound = 'sound/music/area/dungeon2.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-
-/area/rogue/outdoors/dungeon1
-	name = "smalldungeonoutdoors"
-	icon_state = "spidercave"
-	droning_sound = 'sound/music/area/dungeon.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/cave/mazedungeon
-	name = "mazedungeon"
-	icon_state = "under"
-	first_time_text = "TEMPLE OF THE SHATTERED GOD"
-	droning_sound = 'sound/music/area/dungeon2.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
-/area/rogue/under/cave/orcdungeon
-	name = "orcdungeon"
-	icon_state = "under"
-	first_time_text = "OLD RUIN"
-	droning_sound = 'sound/music/area/dungeon.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-	ceiling_protected = TRUE
-
-/area/rogue/under/cave/dukecourt
-	name = "dukedungeon"
-	icon_state = "duke"
-	first_time_text = "FORGOTTEN COURT"
-	droning_sound = 'sound/music/area/dungeon2.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/dungeon1
-
-//////
-/////
-////     TOWN AREAS
-////
-///
-//
-
-
-
-/area/rogue/indoors/town
-	name = "indoors"
-	icon_state = "town"
-	droning_sound = 'sound/music/area/towngen.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-	converted_type = /area/rogue/outdoors/exposed/town
-	town_area = TRUE
-	location_name = "somewhere inside the city of Sundmark"
-
-/area/rogue/outdoors/exposed/town
-	icon_state = "town"
-	droning_sound = 'sound/music/area/towngen.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-
-/area/rogue/outdoors/exposed/town/keep
-	name = "Keep"
-	icon_state = "manor"
-	droning_sound = 'sound/music/area/manorgarri.ogg'
-	keep_area = TRUE
-	town_area = TRUE
-
-/area/rogue/indoors/town/manor
-	name = "Manor"
-	icon_state = "manor"
-	droning_sound = list('sound/music/area/manor.ogg', 'sound/music/area/manor2.ogg')
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/manorgarri
-	first_time_text = "THE KEEP OF Sundmark"
-	keep_area = TRUE
-
-/area/rogue/outdoors/exposed/manorgarri
-	icon_state = "manorgarri"
-	droning_sound = 'sound/music/area/manorgarri.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	keep_area = TRUE
-
-/area/rogue/indoors/town/magician
-	name = "Wizard's Tower"
-	icon_state = "magician"
-	spookysounds = SPOOKY_MYSTICAL
-	spookynight = SPOOKY_MYSTICAL
-	droning_sound = 'sound/music/area/magiciantower.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/magiciantower
-	keep_area = TRUE
-
-/area/rogue/outdoors/exposed/magiciantower
-	icon_state = "magiciantower"
-	droning_sound = 'sound/music/area/magiciantower.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	keep_area = TRUE
-
-/area/rogue/indoors/town/shop
-	name = "Shop"
-	icon_state = "shop"
-	droning_sound = 'sound/music/area/shop.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/shop
-/area/rogue/outdoors/exposed/shop
-	icon_state = "shop"
-	droning_sound = 'sound/music/area/shop.ogg'
-
-/area/rogue/indoors/town/physician
-	name = "Physician"
-	icon_state = "physician"
-	droning_sound = 'sound/music/area/shop.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/indoors/town/bath
-	name = "Baths"
-	icon_state = "bath"
-	droning_sound = 'sound/music/area/bath.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/bath
-/area/rogue/outdoors/exposed/bath
-	icon_state = "bath"
-	droning_sound = 'sound/music/area/bath.ogg'
-
-/area/rogue/outdoors/exposed/bath/vault
-	name = "Bathmaster vault"
-	icon_state = "bath"
-
-/area/rogue/indoors/town/garrison
-	name = "Garrison"
-	icon_state = "garrison"
-	droning_sound = 'sound/music/area/manorgarri.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/manorgarri
-	keep_area = TRUE
-
-/area/rogue/indoors/town/cell
-	name = "dungeon cell"
-	icon_state = "cell"
-	spookysounds = SPOOKY_DUNGEON
-	spookynight = SPOOKY_DUNGEON
-	droning_sound = 'sound/music/area/manorgarri.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/manorgarri
-	keep_area = TRUE
-
-
-/area/rogue/indoors/town/tavern
-	name = "tavern"
-	icon_state = "tavern"
-	ambientsounds = AMB_INGEN
-	ambientnight = AMB_INGEN
-	droning_sound = 'sound/silence.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/tavern
-/area/rogue/outdoors/exposed/tavern
-	icon_state = "tavern"
-	droning_sound = 'sound/silence.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/indoors/town/church
-	name = "church"
-	icon_state = "church"
-	droning_sound = 'sound/music/area/church.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	droning_sound_dawn = 'sound/music/area/churchdawn.ogg'
-	converted_type = /area/rogue/outdoors/exposed/church
-/area/rogue/outdoors/exposed/church
-	icon_state = "church"
-	droning_sound = 'sound/music/area/church.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	droning_sound_dawn = 'sound/music/area/churchdawn.ogg'
-
-/area/rogue/indoors/town/church/chapel
-	icon_state = "chapel"
-	first_time_text = "THE HOUSE OF THE TEN"
-
-/area/rogue/indoors/town/church/basement
-	icon_state = "church"
-	droning_sound = 'sound/music/area/catacombs.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "THE CRYPT OF THE TEN"
-
-/area/rogue/indoors/town/fire_chamber
-	name = "incinerator"
-	icon_state = "fire_chamber"
-
-/area/rogue/indoors/town/fire_chamber/can_craft_here()
-	return FALSE
-
-/area/rogue/indoors/town/warehouse
-	name = "dock warehouse import"
-	icon_state = "warehouse"
-
-/area/rogue/indoors/town/warehouse/can_craft_here()
-	return FALSE
-
-/area/rogue/indoors/town/vault
-	name = "vault"
-	icon_state = "vault"
-	keep_area = TRUE
-
-/area/rogue/indoors/town/vault/can_craft_here()
-	return FALSE
-
-/area/rogue/indoors/town/entrance
-	first_time_text = "Roguetown"
-	icon_state = "entrance"
-
-/area/rogue/indoors/town/dwarfin
-	name = "dwarven quarter"
-	icon_state = "dwarfin"
-	droning_sound = 'sound/music/area/dwarf.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "The Dwarven Quarter"
-	converted_type = /area/rogue/outdoors/exposed/dwarf
-/area/rogue/outdoors/exposed/dwarf
-	icon_state = "dwarf"
-	droning_sound = 'sound/music/area/dwarf.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-///// outside
-
-/area/rogue/outdoors/town
-	name = "outdoors"
-	icon_state = "town"
-	soundenv = 16
-	droning_sound = 'sound/music/area/townstreets.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-	converted_type = /area/rogue/indoors/shelter/town
-	first_time_text = "THE CITY OF Sundmark"
-	location_name = "The City of Sundmark"
-	town_area = TRUE
-
-/area/rogue/indoors/shelter/town
-	icon_state = "town"
-	droning_sound = 'sound/music/area/townstreets.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-
-
-/area/rogue/outdoors/town/sargoth
-	name = "outdoors"
-	icon_state = "sargoth"
-	soundenv = 16
-	droning_sound = 'sound/music/area/sargoth.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/indoors/shelter/town/sargoth
-	first_time_text = "SARGOTH"
-
-/area/rogue/indoors/shelter/town/sargoth
-	icon_state = "sargoth"
-	droning_sound = 'sound/music/area/sargoth.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "SARGOTH"
-
-/area/rogue/outdoors/town/roofs
-	name = "roofs"
-	icon_state = "roofs"
+				/mob/living/carbon/human/species/goblin/npc/ambush = 20,
+				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 10)
 	ambientsounds = AMB_MOUNTAIN
 	ambientnight = AMB_MOUNTAIN
 	spookysounds = SPOOKY_GEN
 	spookynight = SPOOKY_GEN
-	droning_sound = 'sound/music/area/field.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
+	droning_sound = 'sound/music/area/dwarf.ogg'
+	droning_sound_dusk = null
+	droning_sound_night = 'sound/music/area/forestnight.ogg'
+	warden_area = TRUE
 	soundenv = 17
-	converted_type = /area/rogue/indoors/shelter/town/roofs
 
-/area/rogue/outdoors/town/roofs/keep
-	name = "Keep Rooftops"
-	icon_state = "manor"
-	keep_area = TRUE
-	town_area = TRUE
-
-/area/rogue/indoors/shelter/town/roofs
-	icon_state = "roofs"
-	droning_sound = 'sound/music/area/field.ogg'
-	droning_sound_dusk = 'sound/music/area/septimus.ogg'
-	droning_sound_night = 'sound/music/area/sleeping.ogg'
-
-/area/rogue/outdoors/town/dwarf
-	name = "dwarven quarter"
-	icon_state = "dwarf"
-	droning_sound = 'sound/music/area/dwarf.ogg'
+/area/rogue/sund/wilderness/mountain/danger
+	name = "Sundmark Peaks"
+	icon_state = "wilderness_mountains"
+	ambush_types = list(
+				/turf/open/floor/rogue/dirt)
+	ambush_mobs = list(
+				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 30,
+				/mob/living/simple_animal/hostile/retaliate/rogue/orc = 10,
+				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 20)
+	droning_sound = 'sound/music/area/decap.ogg'
 	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "The Dwarven Quarter"
-	soundenv = 16
-	converted_type = /area/rogue/indoors/shelter/town/dwarf
-/area/rogue/indoors/shelter/town/dwarf
-	icon_state = "dwarf"
-	droning_sound = 'sound/music/area/dwarf.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
+	droning_sound_night = 'sound/music/area/caves.ogg'
+	ambush_times = list("night","dawn","dusk","day")
 
-/// under
-
-
-/area/rogue/under/town
-	name = "basement"
-	icon_state = "town"
-	droning_sound = 'sound/music/area/catacombs.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/under/town
-	location_name = "Below the City of Sundmark"
-
-
-/area/rogue/outdoors/exposed/under/town
-	icon_state = "town"
-	droning_sound = 'sound/music/area/catacombs.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/town/sewer
-	name = "sewer"
-	icon_state = "sewer"
-	ambientsounds = AMB_CAVEWATER
-	ambientnight = AMB_CAVEWATER
-	spookysounds = SPOOKY_RATS
-	spookynight = SPOOKY_RATS
-	droning_sound = 'sound/music/area/sewers.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	ambientrain = RAIN_SEWER
-	soundenv = 21
-	converted_type = /area/rogue/outdoors/exposed/under/sewer
-
-/area/rogue/outdoors/exposed/under/sewer
-	icon_state = "sewer"
-	droning_sound = 'sound/music/area/sewers.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/town/caverogue
-	name = "miningcave (roguetown)"
-	icon_state = "caverogue"
-	ambientsounds = AMB_GENCAVE
-	ambientnight = AMB_GENCAVE
-	spookysounds = SPOOKY_CAVE
-	spookynight = SPOOKY_CAVE
-	droning_sound = 'sound/music/area/caves.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	converted_type = /area/rogue/outdoors/exposed/under/caves
-	location_name = "The Mines of Sundmark"
-
-/area/rogue/outdoors/exposed/under/caves
-	icon_state = "caves"
-	droning_sound = 'sound/music/area/caves.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-/area/rogue/under/town/basement
-	name = "basement"
-	icon_state = "basement"
-	ambientsounds = AMB_BASEMENT
-	ambientnight = AMB_BASEMENT
-	spookysounds = SPOOKY_DUNGEON
-	spookynight = SPOOKY_DUNGEON
-	droning_sound = 'sound/music/area/catacombs.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	soundenv = 5
-	town_area = TRUE
-	converted_type = /area/rogue/outdoors/exposed/under/basement
-
-/area/rogue/under/town/basement/keep
-	name = "keep basement"
-	icon_state = "basement"
-	keep_area = TRUE
-	town_area = TRUE
-
-/area/rogue/outdoors/exposed/under/basement
-	icon_state = "basement"
-	droning_sound = 'sound/music/area/catacombs.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-
-// underworld
-/area/rogue/underworld
-	name = "underworld"
-	icon_state = "underworld"
-	droning_sound = 'sound/music/area/underworlddrone.ogg'
-	droning_sound_dusk = null
-	droning_sound_night = null
-	first_time_text = "The Forest of Repentence"
+// 2025. Nikov was here.
