@@ -1,5 +1,6 @@
 #define BASE_PARRY_STAMINA_DRAIN 5 // Unmodified stamina drain for parry, now a var instead of setting on simplemobs
 #define BAD_GUARD_FATIGUE_DRAIN 20 //Percentage of your green bar lost on letting a guard expire.
+#define GUARD_PEEL_REDUCTION 2	//How many Peel stacks to lose if a Guard is hit.
 /proc/accuracy_check(zone, mob/living/user, mob/living/target, associated_skill, datum/intent/used_intent, obj/item/I)
 	if(!zone)
 		return
@@ -867,4 +868,4 @@
 			slots.Remove(slot)
 
 	for(var/obj/item/clothing/C in slots)
-		C.reset_peel()
+		C.reduce_peel(GUARD_PEEL_REDUCTION)

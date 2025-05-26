@@ -508,6 +508,11 @@
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/clashcd
 	duration = 400
 
+/atom/movable/screen/alert/status_effect/debuff/exposed
+	name = "Exposed"
+	desc = "My defenses are exposed. I can be hit through my parry and dodge!"
+	icon_state = "exposed"
+
 /datum/status_effect/debuff/exposed
 	id = "nofeint"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/exposed
@@ -516,11 +521,7 @@
 /datum/status_effect/debuff/exposed/on_creation(mob/living/new_owner, new_dur)
 	if(new_dur)
 		duration = new_dur
-
-/atom/movable/screen/alert/status_effect/debuff/exposed
-	name = "Exposed"
-	desc = "My defenses are exposed. I can be hit through my parry and dodge!"
-	icon_state = "exposed"
+	return ..()
 
 /datum/status_effect/debuff/feintcd
 	id = "feintcd"
