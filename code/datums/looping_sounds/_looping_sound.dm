@@ -102,8 +102,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 	stop()
 	parent = null
 	thingshearing.Cut()
-	if(channel)
-		SSsounds.free_datum_channels(src)
+	SSsounds.free_datum_channels(src)
 	return ..()
 
 /datum/looping_sound/proc/start(atom/on_behalf_of)
@@ -226,6 +225,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 		var/mob/P = parent
 		if(P && P.client)
 			P.stop_sound_channel(channel) //This is mostly used for weather
+	SSsounds.free_sound_channel(channel)
 
 /*
 /mob/proc/stop_all_loops()
