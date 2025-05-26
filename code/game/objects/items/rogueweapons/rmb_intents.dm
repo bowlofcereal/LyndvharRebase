@@ -11,7 +11,8 @@
 			var/obj/item/I = held
 			if(I.associated_skill)
 				rmb_intent.special_attack(src, A)
-	. = ..()
+	else
+		. = ..()
 
 /datum/rmb_intent/proc/special_attack(mob/living/user, atom/target)
 	if(!isliving(target))
