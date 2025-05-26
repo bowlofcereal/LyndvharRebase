@@ -6,7 +6,11 @@
 
 /mob/living/carbon/human/RightClickOn(atom/A, params)
 	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing))
-		rmb_intent.special_attack(src, A)
+		var/held = get_active_held_item()
+		if(held && istype(held, /obj/item))
+			var/obj/item/I = held
+			if(I.associated_skill)
+				rmb_intent.special_attack(src, A)
 	. = ..()
 
 /datum/rmb_intent/proc/special_attack(mob/living/user, atom/target)
