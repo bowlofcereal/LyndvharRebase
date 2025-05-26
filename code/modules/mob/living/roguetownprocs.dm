@@ -808,6 +808,12 @@
 	
 	if((!instantloss && !instantwin) || (instantloss && instantwin))	//We are both using normal weapons OR we're both using memes. Either way, proceed as normal.
 		visible_message(span_boldwarning("[src] and [HU] clash!"))
+		flash_fullscreen("whiteflash")
+		HU.flash_fullscreen("whiteflash")
+		var/datum/effect_system/spark_spread/S = new()
+		var/turf/front = get_step(src,src.dir)
+		S.set_up(1, 1, front)
+		S.start()
 		var/success
 		if(prob(prob_us))
 			HU.remove_status_effect(/datum/status_effect/buff/clash)

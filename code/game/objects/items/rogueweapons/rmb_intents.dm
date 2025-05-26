@@ -5,7 +5,7 @@
 	var/adjacency = TRUE
 
 /mob/living/carbon/human/RightClickOn(atom/A, params)
-	if(rmb_intent && !rmb_intent.adjacency)
+	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing))
 		rmb_intent.special_attack(src, A)
 	. = ..()
 

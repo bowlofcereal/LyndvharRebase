@@ -866,7 +866,7 @@
 
 /datum/status_effect/buff/clash
 	id = "clash"
-	duration = 5 SECONDS
+	duration = 6 SECONDS
 	var/dur
 	alert_type = /atom/movable/screen/alert/status_effect/buff/clash
 
@@ -888,7 +888,7 @@
 	owner.apply_status_effect(/datum/status_effect/debuff/clashcd)
 	var/newdur = world.time - dur
 	var/mob/living/carbon/human/H = owner
-	if(newdur > 4.7 SECONDS)	//Not checking exact 6 second duration to account for lag and any other tick / timing inconsistencies.
+	if(newdur > (duration - 0.3 SECONDS))	//Not checking exact duration to account for lag and any other tick / timing inconsistencies.
 		H.bad_guard(span_warning("I held my focus for too long. It's left me drained."))
 	var/mutable_appearance/appearance = H.overlays_standing[OBJ_LAYER]
 	H.clear_overhead_indicator(appearance)
