@@ -760,6 +760,7 @@
 	var/instantloss = FALSE
 	var/instantwin = FALSE
 
+	//Stat checks. Basic comparison.
 	var/strdiff = STASTR - HU.STASTR
 	var/perdiff = STAPER - HU.STAPER
 	var/spddiff = STASPD - HU.STASPD
@@ -768,6 +769,7 @@
 
 	var/list/statdiffs = list(strdiff, perdiff, spddiff, fordiff, intdiff)
 
+	//Skill check, very simple. If you're more skilled with your weapon than the opponent is with theirs -> +10% to disarm or vice-versa.
 	var/skilldiff
 	if(IM.associated_skill)
 		skilldiff = mind.get_skill_level(IM.associated_skill)
@@ -779,9 +781,10 @@
 	else
 		instantwin = TRUE	//THEY are Guarding with a book or something -- no chance for them.
 	
-	var/lengthdiff = IM.wlength - IU.wlength
-	var/wieldeddiff = IM.wielded - IU.wielded
-	var/weightdiff = (IM.wbalance < IU.wbalance)
+	//Weapon checks.
+	var/lengthdiff = IM.wlength - IU.wlength //The longer the weapon the better.
+	var/wieldeddiff = IM.wielded - IU.wielded //If ours is wielded but theirs is not.
+	var/weightdiff = (IM.wbalance < IU.wbalance) //If our weapon is heavy-balanced and theirs is not.
 	var/wildcard = pick(-1,0,1)
 
 	var/list/wepdiffs = list(lengthdiff, wieldeddiff, weightdiff)
@@ -789,7 +792,7 @@
 	var/prob_us = 0
 	var/prob_opp = 0
 
-	//Skill checks only matter if their difference is 2 or more.
+	//Stat checks only matter if their difference is 2 or more.
 	for(var/statdiff in statdiffs)
 		if(statdiff >= 2)
 			prob_us += 10
@@ -802,11 +805,13 @@
 		else if(wepdiff < 0)
 			prob_opp += 10
 
+	//Wildcard modifier that can go either way or to neither.
 	if(wildcard > 0)
 		prob_us += 10
 	else if(wildcard < 0 )
 		prob_opp += 10
 	
+	//Small bonus to the first one to strike in a Clash.
 	var/initiator_bonus = rand(5, 10)
 	prob_us += initiator_bonus
 
