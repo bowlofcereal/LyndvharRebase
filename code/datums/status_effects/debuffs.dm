@@ -475,7 +475,7 @@
 /datum/status_effect/debuff/baited
 	id = "bait"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/baited
-	duration = 200
+	duration = 20 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/baited
 	name = "Baited"
@@ -485,28 +485,28 @@
 /atom/movable/screen/alert/status_effect/debuff/baitedcd
 	name = "Bait Cooldown"
 	desc = "I used it. I must wait."
-	icon_state = "effectcd"
+	icon_state = "baitcd"
 
 /datum/status_effect/debuff/baitcd
 	id = "baitcd"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/baitedcd
-	duration = 200
+	duration = 20 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/feintcd
 	name = "Feint Cooldown"
 	desc = "I used it. I must wait, or risk a lower chance of success."
-	icon_state = "effectcd"
+	icon_state = "feintcd"
 
 
 /atom/movable/screen/alert/status_effect/debuff/clashcd
-	name = "Guard / Clash Cooldown"
+	name = "Guard Cooldown"
 	desc = "I used it. I must wait."
-	icon_state = "effectcd"
+	icon_state = "guardcd"
 
 /datum/status_effect/debuff/clashcd
 	id = "clashcd"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/clashcd
-	duration = 400
+	duration = 40 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/exposed
 	name = "Exposed"
@@ -516,7 +516,7 @@
 /datum/status_effect/debuff/exposed
 	id = "nofeint"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/exposed
-	duration = 50
+	duration = 5 SECONDS
 
 /datum/status_effect/debuff/exposed/on_creation(mob/living/new_owner, new_dur)
 	if(new_dur)
@@ -526,8 +526,9 @@
 /datum/status_effect/debuff/feintcd
 	id = "feintcd"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/feintcd
-	duration = 100
+	duration = 40 SECONDS
 
+//Unused
 /datum/status_effect/debuff/riposted
 	id = "riposted"
-	duration = 30
+	duration = 3 SECONDS

@@ -5,7 +5,7 @@
 	var/adjacency = TRUE
 
 /mob/living/carbon/human/RightClickOn(atom/A, params)
-	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing) && cmode)
+	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing) && cmode && !istype(src, /mob/living/carbon/human/species/skeleton))
 		var/held = get_active_held_item()
 		if(held && istype(held, /obj/item))
 			var/obj/item/I = held
@@ -15,6 +15,8 @@
 		. = ..()
 
 /datum/rmb_intent/proc/special_attack(mob/living/user, atom/target)
+	if(istype(src, /mob/living/carbon/human/species/skeleton))
+		return
 	if(!isliving(target))
 		return
 	if(!user)
@@ -63,13 +65,19 @@
 			to_chat(user, span_warning("[L] did not fall for my feint... [perc]%"))
 		return
 	if(!istype(user.rmb_intent, /datum/rmb_intent/feint))
-		L.apply_status_effect(/datum/status_effect/debuff/exposed)
-		L.changeNext_move(0.8 SECONDS)
-		L.Immobilize(0.5 SECONDS)
 		to_chat(user, span_notice("[L] fell for my feint attack!"))
 		to_chat(L, span_danger("I fall for [user]'s feint attack!"))
+		L.apply_status_effect(/datum/status_effect/debuff/exposed, 2.5 SECONDS)
+		if(L.has_status_effect(/datum/status_effect/buff/clash) && prob(perc))
+			L.remove_status_effect(/datum/status_effect/buff/clash)
+			to_chat(user, span_notice("[L] had [L.p_their()] Guard disrupted!"))
+		L.changeNext_move(0.8 SECONDS)
+		L.Immobilize(0.5 SECONDS)
 		return
 
+	if(L.has_status_effect(/datum/status_effect/buff/clash) && prob(perc))
+		L.remove_status_effect(/datum/status_effect/buff/clash)
+		to_chat(user, span_notice("[L] had [L.p_their()] Guard disrupted!"))
 	L.apply_status_effect(/datum/status_effect/debuff/exposed)
 	L.changeNext_move(max(1.5 SECONDS + skill_factor, 2.5 SECONDS))
 	L.Immobilize(0.5 SECONDS)
@@ -84,6 +92,8 @@
 	icon_state = "rmbaimed"
 
 /datum/rmb_intent/aimed/special_attack(mob/living/user, atom/target)
+	if(istype(src, /mob/living/carbon/human/species/skeleton))
+		return
 	if(!user)
 		return
 	if(user.incapacitated())
