@@ -127,7 +127,7 @@
 		if(HU.STALUC < HT.STALUC)
 			probbait -= rand(1, rand(1,25))
 
-		HU.rogfat_add(HU.rogfat * 0.2)
+		HU.rogfat_add(HU.maxrogfat * 0.2)
 
 		if(!prob(probbait))
 			to_chat(HU, span_notice("[HT] did not fall for my bait!"))
