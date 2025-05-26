@@ -5,7 +5,7 @@
 	var/adjacency = TRUE
 
 /mob/living/carbon/human/RightClickOn(atom/A, params)
-	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing))
+	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing) && cmode)
 		var/held = get_active_held_item()
 		if(held && istype(held, /obj/item))
 			var/obj/item/I = held
