@@ -21,6 +21,8 @@
 
 /turf/open/floor/rogue/ruinedwood
 	icon_state = "wooden_floor"
+	name = "wooden floorboards"
+	desc = "Interlocking wooden floorboards scratched with thousands of steps."
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_WOOD_CLAW
@@ -37,10 +39,12 @@
 
 /turf/open/floor/rogue/ruinedwood/turned
 	icon_state = "wooden_floort"
+	name = "wooden floorboards"
+	desc = "Interlocking wooden floorboards scratched with thousands of steps."
 
 /turf/open/floor/rogue/ruinedwood/spiral
 	icon_state = "weird1"
-	name = "floorboards"
+	name = "wooden floorboards"
 	desc = "Interlocking wooden floorboards."
 /turf/open/floor/rogue/ruinedwood/chevron
 	icon_state = "weird2"
@@ -69,6 +73,7 @@
 
 /turf/open/floor/rogue/twig
 	name = "twig flooring"
+	desc = "Bundles of twigs have been laid flat against the ground. They creak and crackle with the slightest weight."
 	icon_state = "twig"
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
@@ -106,6 +111,8 @@
 	canSmoothWith = list(/turf/open/floor/rogue/wood,/turf/open/floor/carpet)
 
 /turf/open/floor/rogue/wood/nosmooth //these are here so we can put wood floors next to each other but not have them smooth
+	name = "wooden floorboards"
+	desc = "Polished wooden floorboards scuffed by scratches and a persistent layer of grime."
 	icon_state = "wooden_floor"
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/rogue/wood/nosmooth,/turf/open/floor/carpet)
@@ -121,6 +128,8 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/rogue/woodturned/nosmooth
+	name = "wooden floorboards"
+	desc = "Polished wooden floorboards scuffed by scratches and a persistent layer of grime."
 	icon_state = "wooden_floort"
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/rogue/woodturned/nosmooth,/turf/open/floor/carpet)
@@ -783,6 +792,8 @@
 
 /turf/open/floor/rogue/churchmarble
 	icon_state = "church_marble"
+	name = "marble flooring"
+	desc = "Polished marble tiling clacks softly with every footstep. A prized material for vaunted halls."
 	footstep = FOOTSTEP_STONE
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
@@ -816,6 +827,8 @@
 
 /turf/open/floor/rogue/church
 	icon_state = "church"
+	name = "polished tile floor"
+	desc = "Glazed tiling that has withstood the decades with barely a scratch despite the steady accumulation of dirt and grime."
 	footstep = FOOTSTEP_STONE
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
@@ -915,6 +928,8 @@
 //
 /turf/open/floor/rogue/herringbone
 	icon_state = "herringbone"
+	name = "stone herringbone flooring"
+	desc = "These stone bricks have been carefully arranged in a rather pleasing pattern."
 	footstep = FOOTSTEP_STONE
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
 	clawfootstep = FOOTSTEP_HARD_CLAW
@@ -1076,7 +1091,7 @@
 
 /obj/effect/decal/carpet
 	name = "exotic rug"
-	desc = "Plush fabric softens your step. Did you remember to wipe your shoes?"
+	desc = "Dazzling symmetrical patterns flow with an old culture's style."
 	pixel_w = -16
 	pixel_z = -17
 	icon = 'icons/roguetown/misc/64x64.dmi'
@@ -1259,6 +1274,7 @@
 
 /turf/open/floor/rogue/carpet
 	icon_state = "carpet"
+	desc = "Plush fabric softens your step. Did you remember to wipe your shoes?"
 	landsound = 'sound/foley/jumpland/carpetland.wav'
 	footstep = FOOTSTEP_CARPET
 	barefootstep = FOOTSTEP_SOFT_BAREFOOT
