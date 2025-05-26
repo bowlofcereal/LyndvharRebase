@@ -878,6 +878,11 @@
 	var/mob/living/carbon/human/H = owner
 	H.play_overhead_indicator('icons/mob/overhead_effects.dmi', prob(50) ? "clash" : "clashr", duration, OBJ_LAYER, soundin = 'sound/combat/clash_initiate.ogg', y_offset = 28)
 
+/datum/status_effect/buff/clash/tick()
+	if(!owner.get_active_held_item() || !(owner.mobility_flags & MOBILITY_STAND))
+		var/mob/living/carbon/human/H = owner
+		H.bad_guard()
+
 /datum/status_effect/buff/clash/on_remove()
 	. = ..()
 	owner.apply_status_effect(/datum/status_effect/debuff/clashcd)

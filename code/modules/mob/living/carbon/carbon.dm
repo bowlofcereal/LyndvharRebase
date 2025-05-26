@@ -79,6 +79,11 @@
 	update_a_intents()
 
 	givingto = null
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		if(H.has_status_effect(/datum/status_effect/buff/clash))
+			H.bad_guard(span_warning("I swapped away from the weapon!"))
 	return TRUE
 
 

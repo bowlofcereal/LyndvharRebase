@@ -835,14 +835,15 @@
 	var/dist = rand(1, 5)
 	var/current_turf = get_turf(src)
 	var/target_turf = get_ranged_target_turf(current_turf, turndir, dist)
-	changeNext_move(CLICK_CD_TRACKING)
 	throw_item(target_turf, FALSE)
+	changeNext_move(CLICK_CD_TRACKING)
 
 /mob/living/carbon/human/proc/bad_guard(msg, cheesy = FALSE)
 	rogfat_add(((maxrogfat * BAD_GUARD_FATIGUE_DRAIN) / 100))
 	if(cheesy)	//We tried to hit someone with Guard up. Unfortunately this must be super punishing to prevent cheese.
 		rogstam_add(-((maxrogstam * BAD_GUARD_FATIGUE_DRAIN) / 100))
 		Immobilize(2 SECONDS)
-	to_chat(src, msg)
+	if(msg)
+		to_chat(src, msg)
+		emote("strain", forced = TRUE)
 	remove_status_effect(/datum/status_effect/buff/clash)
-	emote("strain", forced = TRUE)

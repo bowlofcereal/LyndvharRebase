@@ -189,6 +189,9 @@
 
 /datum/rmb_intent/riposte/special_attack(mob/living/user, atom/target)	//Wish we could breakline these somehow.
 	if(!user.has_status_effect(/datum/status_effect/buff/clash) && !user.has_status_effect(/datum/status_effect/debuff/clashcd) && user.get_active_held_item() && !user.r_grab && !user.l_grab && (user.mobility_flags & MOBILITY_STAND) && !user.IsImmobilized() && !user.IsOffBalanced())
+		if(user.m_intent == MOVE_INTENT_RUN)
+			to_chat(user, span_warning("I can't focus on this while running."))
+			return
 		user.apply_status_effect(/datum/status_effect/buff/clash)
 
 /datum/rmb_intent/guard
