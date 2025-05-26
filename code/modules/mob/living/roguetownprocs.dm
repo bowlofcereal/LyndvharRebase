@@ -807,6 +807,9 @@
 	else if(wildcard < 0 )
 		prob_opp += 10
 	
+	var/initiator_bonus = rand(5, 10)
+	prob_us += initiator_bonus
+
 	if((!instantloss && !instantwin) || (instantloss && instantwin))	//We are both using normal weapons OR we're both using memes. Either way, proceed as normal.
 		visible_message(span_boldwarning("[src] and [HU] clash!"))
 		flash_fullscreen("whiteflash")
