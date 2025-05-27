@@ -198,7 +198,13 @@
 	adjacency = FALSE
 
 /datum/rmb_intent/riposte/special_attack(mob/living/user, atom/target)	//Wish we could breakline these somehow.
-	if(!user.has_status_effect(/datum/status_effect/buff/clash) && !user.has_status_effect(/datum/status_effect/debuff/clashcd) && user.get_active_held_item() && !user.r_grab && !user.l_grab && (user.mobility_flags & MOBILITY_STAND) && !user.IsImmobilized() && !user.IsOffBalanced() && !user.grabbedby)
+	if(!user.has_status_effect(/datum/status_effect/buff/clash) && !user.has_status_effect(/datum/status_effect/debuff/clashcd))
+		if(!user.get_active_held_item()) //Nothing in our hand to Guard with.
+			return 
+		if(user.r_grab || user.l_grab || length(user.grabbedby)) //Not usable while grabs are in play.
+			return
+		if(!(user.mobility_flags & MOBILITY_STAND) || user.IsImmobilized() || user.IsOffBalanced()) //Not usable while we're offbalanced, immobilized or on the ground.
+			return
 		if(user.m_intent == MOVE_INTENT_RUN)
 			to_chat(user, span_warning("I can't focus on this while running."))
 			return
