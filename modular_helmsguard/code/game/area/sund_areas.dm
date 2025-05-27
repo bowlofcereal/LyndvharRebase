@@ -3,6 +3,7 @@
 /area/rogue/sund
 	name = "sundmark"
 	location_name = "the distance"	// Should only occur as a fail condition if child objects lack more specific locations names, or areas are meant to be secret.
+	icon = 'modular_helmsguard/icons/turf/areas.dmi'	// Redirect to the modular icons.
 	icon_state = "rogue"
 
 /*	These are all inherited  from the parent /rogue. Leaving in comments as a reference.
