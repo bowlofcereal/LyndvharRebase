@@ -15,6 +15,7 @@
 	max_pq = null
 	total_positions = 3
 	spawn_positions = 3
+	round_contrib_points = 2
 	display_order = JDO_HOSPITALER
 	give_bank_account = TRUE
 	cmode_music = 'sound/music/combat_holy.ogg'

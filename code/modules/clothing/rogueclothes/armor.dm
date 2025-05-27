@@ -107,6 +107,11 @@
 	var/shiftable = TRUE
 	var/shifted = FALSE
 
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/bailiff
+	name = "bailiff's gambeson"
+	desc = "A linen jacket with quilted padding as well as tens of layers of linen cloth, dyed in the color of the City Watch."
+	color = CLOTHING_BLACK
+
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/attack_right(mob/user)
 	if(!shiftable)
 		return

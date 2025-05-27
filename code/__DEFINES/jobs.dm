@@ -109,9 +109,8 @@
 
 #define GUARDSMAN	(1<<0)
 #define MANATARMS	(1<<1)
-#define DUNGEONEER	(1<<2)
-#define GATEMASTER	(1<<3)
-#define MASTERATARMS	(1<<4)
+#define GATEMASTER	(1<<2)
+#define MASTERATARMS	(1<<3)
 
 #define CHURCHMEN		(1<<2)
 
@@ -152,12 +151,11 @@
 #define CITYWATCH	(1<<5)
 #define BAILIFF		(1<<0)
 #define WATCHMAN	(1<<1)
+#define DUNGEONEER	(1<<2)
 
 #define PEASANTRY	(1<<6)
 #define FARMER		(1<<0)
 #define SERF		(1<<1)
-
-
 
 #define WRETCH		(1<<7)
 #define CHURCHLING	(1<<1)
@@ -179,7 +177,7 @@
 
 #define NITEMASTER	(1<<0)
 #define WENCH		(1<<1)
-#define RUFFIAN		(1<<2)
+#define GUTTERFOLK	(1<<2)
 #define BANDIT		(1<<3)
 #define BEGGAR		(1<<4)
 #define ADVENTURER	(1<<5)
@@ -222,7 +220,6 @@
 #define JDO_GATEMASTER 3.2
 #define JDO_MANATARMS 3.3
 #define JDO_TOWNGUARD 3.4
-#define JDO_DUNGEONEER 3.5
 
 // CHURCH
 #define JDO_PRIEST 4
@@ -238,6 +235,7 @@
 // CITYWATCH
 #define JDO_BAILIFF 5
 #define JDO_WATCHMAN 5.1
+#define JDO_DUNGEONEER 5.2
 
 #define JDO_MERCHANT 6
 #define JDO_SHOPHAND 6.1
@@ -264,6 +262,7 @@
 #define JDO_MIGRANT 8.5
 #define JDO_BANDIT 8.6
 #define JDO_WRETCH 8.7
+#define JDO_GUTTERFOLK 8.8
 
 #define JDO_MERCENARY 9
 #define JDO_GRENZELHOFT 9.1
@@ -348,14 +347,14 @@
 
 #define CITYWATCH_ROLES \
 	/datum/job/roguetown/bailiff,\
-
+	/datum/job/roguetown/guardsman,\
+	/datum/job/roguetown/dungeoneer
 
 #define GARRISON_ROLES \
 	/datum/job/roguetown/knight,\
 	/datum/job/roguetown/manatarms,\
 	/datum/job/roguetown/masteratarms,\
-	/datum/job/roguetown/dungeoneer,\
-	/datum/job/roguetown/gatemaster,\
+	/datum/job/roguetown/gatemaster
 
 #define INQUISITION_ROLES \
 	/datum/job/roguetown/orthodoxist
