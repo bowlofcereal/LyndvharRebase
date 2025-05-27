@@ -748,6 +748,8 @@
 		if(rogfatdef > rogfatatt) 
 			H.apply_status_effect(/datum/status_effect/debuff/exposed, 2 SECONDS)
 			H.changeNext_move(3 SECONDS)
+			H.Slowdown(5)
+			to_chat(src, span_notice("[H.p_theyre()] exposed!"))
 		else
 			H.changeNext_move(CLICK_CD_MELEE)
 		remove_status_effect(/datum/status_effect/buff/clash)
@@ -828,9 +830,11 @@
 			HU.remove_status_effect(/datum/status_effect/buff/clash)
 			HU.play_overhead_indicator('icons/mob/overhead_effects.dmi', "clashtwo", 1 SECONDS, OBJ_LAYER, soundin = 'sound/combat/clash_disarm_us.ogg', y_offset = 24)
 			disarmed(IM)
+			Slowdown(5)
 			success = TRUE
 		if(prob(prob_opp))
 			HU.disarmed(IU)
+			HU.Slowdown(5)
 			remove_status_effect(/datum/status_effect/buff/clash)
 			play_overhead_indicator('icons/mob/overhead_effects.dmi', "clashtwo", 1 SECONDS, OBJ_LAYER, soundin = 'sound/combat/clash_disarm_opp.ogg', y_offset = 24)
 			success = TRUE
@@ -876,4 +880,5 @@
 			slots.Remove(slot)
 
 	for(var/obj/item/clothing/C in slots)
-		C.reduce_peel(GUARD_PEEL_REDUCTION)
+		if(C.peel_count > 0)
+			C.reduce_peel(GUARD_PEEL_REDUCTION)

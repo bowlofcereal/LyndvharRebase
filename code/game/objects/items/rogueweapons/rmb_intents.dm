@@ -15,76 +15,7 @@
 		. = ..()
 
 /datum/rmb_intent/proc/special_attack(mob/living/user, atom/target)
-	if(istype(src, /mob/living/carbon/human/species/skeleton))
-		return
-	if(!isliving(target))
-		return
-	if(!user)
-		return
-	if(user.incapacitated())
-		return
-	if(!user.mind)
-		return
-	var/mob/living/L = target
-	user.changeNext_move(CLICK_CD_RAPID)
-	user.visible_message(span_danger("[user] feints an attack at [target]!"))
-	var/perc = 50
-	var/obj/item/I = user.get_active_held_item()
-	var/ourskill = 0
-	var/theirskill = 0
-	var/skill_factor = 0
-	if(I)
-		if(I.associated_skill)
-			ourskill = user.mind.get_skill_level(I.associated_skill)
-		if(L.mind)
-			I = L.get_active_held_item()
-			if(I?.associated_skill)
-				theirskill = L.mind.get_skill_level(I.associated_skill)
-	perc += (ourskill - theirskill)*15 	//skill is of the essence
-	perc += (user.STAINT - L.STAINT)*10	//but it's also mostly a mindgame
-	skill_factor = (ourskill - theirskill)/2
-
-	if(L.has_status_effect(/datum/status_effect/debuff/exposed))
-		perc = 0
-
-	if(user.has_status_effect(/datum/status_effect/debuff/feintcd))
-		to_chat(user, span_danger("[L] is too on guard for another so soon!"))
-		return
-
-	if(HAS_TRAIT(L,TRAIT_DECEIVING_MEEKNESS))
-		perc -= 30
-	if(HAS_TRAIT(user,TRAIT_DECEIVING_MEEKNESS))
-		perc = max(perc, 65)
-
-	user.apply_status_effect(/datum/status_effect/debuff/feintcd)
-	perc = CLAMP(perc, 0, 90)
-
-	if(!prob(perc)) //feint intent increases the immobilize duration significantly
-		playsound(user, 'sound/combat/feint.ogg', 100, TRUE)
-		if(user.client?.prefs.showrolls)
-			to_chat(user, span_warning("[L] did not fall for my feint... [perc]%"))
-		return
-	if(!istype(user.rmb_intent, /datum/rmb_intent/feint))
-		to_chat(user, span_notice("[L] fell for my feint attack!"))
-		to_chat(L, span_danger("I fall for [user]'s feint attack!"))
-		L.apply_status_effect(/datum/status_effect/debuff/exposed, 2.5 SECONDS)
-		if(L.has_status_effect(/datum/status_effect/buff/clash) && prob(perc))
-			L.remove_status_effect(/datum/status_effect/buff/clash)
-			to_chat(user, span_notice("[L] had [L.p_their()] Guard disrupted!"))
-		L.changeNext_move(0.8 SECONDS)
-		L.Immobilize(0.5 SECONDS)
-		return
-
-	if(L.has_status_effect(/datum/status_effect/buff/clash) && prob(perc))
-		L.remove_status_effect(/datum/status_effect/buff/clash)
-		to_chat(user, span_notice("[L] had [L.p_their()] Guard disrupted!"))
-	L.apply_status_effect(/datum/status_effect/debuff/exposed)
-	L.changeNext_move(max(1.5 SECONDS + skill_factor, 2.5 SECONDS))
-	L.Immobilize(0.5 SECONDS)
-	L.rogfat_add(L.rogfat * 0.1)
-	to_chat(user, span_notice("[L] fell for my feint attack!"))
-	to_chat(L, span_danger("I fall for [user]'s feint attack!"))
-	playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
+	return
 
 /datum/rmb_intent/aimed
 	name = "aimed"
@@ -196,6 +127,70 @@
 	desc = "(RMB WHILE DEFENSE IS ACTIVE) A deceptive half-attack with no follow-through, meant to force your opponent to open their guard. Useless against someone who is dodging."
 	icon_state = "rmbfeint"
 
+/datum/rmb_intent/feint/special_attack(mob/living/user, atom/target)
+	if(istype(src, /mob/living/carbon/human/species/skeleton))
+		return
+	if(!isliving(target))
+		return
+	if(!user)
+		return
+	if(user.incapacitated())
+		return
+	if(!user.mind)
+		return
+	var/mob/living/L = target
+	user.changeNext_move(CLICK_CD_RAPID)
+	user.visible_message(span_danger("[user] feints an attack at [target]!"))
+	var/perc = 50
+	var/obj/item/I = user.get_active_held_item()
+	var/ourskill = 0
+	var/theirskill = 0
+	var/skill_factor = 0
+	if(I)
+		if(I.associated_skill)
+			ourskill = user.mind.get_skill_level(I.associated_skill)
+		if(L.mind)
+			I = L.get_active_held_item()
+			if(I?.associated_skill)
+				theirskill = L.mind.get_skill_level(I.associated_skill)
+	perc += (ourskill - theirskill)*15 	//skill is of the essence
+	perc += (user.STAINT - L.STAINT)*10	//but it's also mostly a mindgame
+	skill_factor = (ourskill - theirskill)/2
+
+	if(L.has_status_effect(/datum/status_effect/debuff/exposed))
+		perc = 0
+
+	if(user.has_status_effect(/datum/status_effect/debuff/feintcd))
+		to_chat(user, span_danger("[L] is too on guard for another so soon!"))
+		return
+
+	if(HAS_TRAIT(L,TRAIT_DECEIVING_MEEKNESS))
+		perc -= 30
+	if(HAS_TRAIT(user,TRAIT_DECEIVING_MEEKNESS))
+		perc = max(perc, 65)
+
+	user.apply_status_effect(/datum/status_effect/debuff/feintcd)
+	perc = CLAMP(perc, 0, 90)
+
+	if(!prob(perc)) //feint intent increases the immobilize duration significantly
+		playsound(user, 'sound/combat/feint.ogg', 100, TRUE)
+		if(user.client?.prefs.showrolls)
+			to_chat(user, span_warning("[L] did not fall for my feint... [perc]%"))
+		return
+
+	if(L.has_status_effect(/datum/status_effect/buff/clash))
+		L.remove_status_effect(/datum/status_effect/buff/clash)
+		to_chat(user, span_notice("[L] had [L.p_their()] Guard disrupted!"))
+	L.apply_status_effect(/datum/status_effect/debuff/exposed)
+	L.changeNext_move(max(1.5 SECONDS + skill_factor, 2.5 SECONDS))
+	L.Immobilize(0.5 SECONDS)
+	L.rogfat_add(L.rogfat * 0.1)
+	L.Slowdown(5)
+	to_chat(user, span_notice("[L] fell for my feint attack!"))
+	to_chat(L, span_danger("I fall for [user]'s feint attack!"))
+	playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
+
+
 /datum/rmb_intent/riposte
 	name = "defend"
 	desc = "No delay between dodge and parry rolls.\n(RMB WHILE NOT GRABBING ANYTHING AND HOLDING A WEAPON)\nEnter a defensive stance, guaranteeing the next hit is defended against.\nTwo people who hit each other with the Guard up will have their weapons Clash, potentially disarming them.\nLetting it expire or hitting someone with it who has no Guard up is tiresome."
@@ -203,9 +198,12 @@
 	adjacency = FALSE
 
 /datum/rmb_intent/riposte/special_attack(mob/living/user, atom/target)	//Wish we could breakline these somehow.
-	if(!user.has_status_effect(/datum/status_effect/buff/clash) && !user.has_status_effect(/datum/status_effect/debuff/clashcd) && user.get_active_held_item() && !user.r_grab && !user.l_grab && (user.mobility_flags & MOBILITY_STAND) && !user.IsImmobilized() && !user.IsOffBalanced())
+	if(!user.has_status_effect(/datum/status_effect/buff/clash) && !user.has_status_effect(/datum/status_effect/debuff/clashcd) && user.get_active_held_item() && !user.r_grab && !user.l_grab && (user.mobility_flags & MOBILITY_STAND) && !user.IsImmobilized() && !user.IsOffBalanced() && !user.grabbedby)
 		if(user.m_intent == MOVE_INTENT_RUN)
 			to_chat(user, span_warning("I can't focus on this while running."))
+			return
+		if(user.has_status_effect(/datum/status_effect/buff/magearmor))
+			to_chat(user, span_warning("I'm already focusing on my mage armor!"))
 			return
 		user.apply_status_effect(/datum/status_effect/buff/clash)
 

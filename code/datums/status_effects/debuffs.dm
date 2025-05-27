@@ -516,7 +516,7 @@
 /datum/status_effect/debuff/exposed
 	id = "nofeint"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/exposed
-	duration = 5 SECONDS
+	duration = 10 SECONDS
 
 /datum/status_effect/debuff/exposed/on_creation(mob/living/new_owner, new_dur)
 	if(new_dur)
