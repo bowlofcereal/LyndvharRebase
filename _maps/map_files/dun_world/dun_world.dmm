@@ -30134,12 +30134,15 @@
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town)
 "kzf" = (
-/obj/structure/roguemachine/scomm,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -6;
-	pixel_y = 15
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
 	},
-/turf/open/floor/rogue/church,
+/obj/structure/rack/rogue/shelf,
+/obj/item/storage/roguebag{
+	pixel_y = 44
+	},
+/turf/open/water/cleanshallow,
 /area/rogue/indoors/town/physician)
 "kzg" = (
 /obj/structure/underworld/barrier,
@@ -42172,18 +42175,12 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
-/obj/structure/rack/rogue/shelf,
-/obj/item/storage/roguebag{
-	pixel_y = 44
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -6;
+	pixel_y = 15
 	},
-/obj/structure/fluff/walldeco/church/line,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4
-	},
-/obj/structure/fluff/walldeco/church/line{
-	dir = 8
-	},
-/turf/open/water/cleanshallow,
+/obj/structure/roguemachine/scomm,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/physician)
 "oNE" = (
 /obj/structure/fluff/walldeco/chains,
@@ -58018,7 +58015,7 @@
 	dir = 2;
 	locked = 1;
 	lockid = "archive";
-	name = "Archivist's Alchemorium"
+	name = "Archivist's Office"
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town)
@@ -61532,11 +61529,12 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/under/cave/scarymaze)
 "vpw" = (
-/obj/structure/table/wood,
-/obj/item/candle/candlestick/gold/lit{
-	pixel_x = -10;
-	pixel_y = 12
+/obj/structure/lever{
+	redstone_id = "Physician";
+	pixel_x = 0;
+	pixel_y = 13
 	},
+/obj/structure/table/wood,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/physician)
 "vpy" = (
@@ -66049,11 +66047,6 @@
 /area/rogue/indoors/shelter)
 "wPN" = (
 /obj/structure/fermenting_barrel/water,
-/obj/structure/lever/wall{
-	redstone_id = "Physician";
-	pixel_x = 10;
-	pixel_y = 0
-	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/physician)
 "wQd" = (
