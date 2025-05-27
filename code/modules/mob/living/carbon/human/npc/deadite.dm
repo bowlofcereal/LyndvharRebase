@@ -15,7 +15,7 @@
 		/datum/species/elf/dark,
 		/datum/species/elf/wood,
 		/datum/species/goblinp,
-		/datum/species/aasimar,
+	//	/datum/species/aasimar,
 		/datum/species/human/halfelf,
 		/datum/species/halforc,
 		/datum/species/tieberian,
