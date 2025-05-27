@@ -754,7 +754,7 @@
 /obj/machinery/light/rogue/campfire/densefire
 	icon_state = "densefire1"
 	base_state = "densefire"
-	desc = "A ring of stones offers protection from the wind for a roaring fire to keep the dark at bay and the body warm."
+	desc = "A ring of stones offers the fire enough protection from the wind to keep the dark at bay and the body warm."
 	density = TRUE
 	layer = 2.8
 	brightness = 5
