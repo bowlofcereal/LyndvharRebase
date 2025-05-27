@@ -125,7 +125,6 @@
 /obj/machinery/light/rogue/wallfire
 	name = "fireplace"
 	desc = "A warm fire dances between a pile of half-burnt logs upon a bed of glowing embers."
-	desc = "A warm fire dances between a pile of half-burnt logs upon a bed of glowing embers."
 	icon_state = "wallfire1"
 	base_state = "wallfire"
 	light_outer_range = 4 //slightly weaker than a torch
@@ -148,7 +147,6 @@
 
 /obj/machinery/light/rogue/wallfire/candle/off
 	name = "candles"
-	desc = "Cold wax sticks in sad half-melted repose. All they need is a spark."
 	desc = "Cold wax sticks in sad half-melted repose. All they need is a spark."
 	icon_state = "wallcandle0"
 	base_state = "wallcandle"
