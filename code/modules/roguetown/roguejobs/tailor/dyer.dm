@@ -62,7 +62,8 @@ var/global/list/colorlist = list(
 	var/list/allowed_types = list(
 			/obj/item/clothing,
 			/obj/item/storage,
-			/obj/item/bedroll
+			/obj/item/bedroll,
+			/obj/item/flowercrown
 			)
 	var/list/used_colors
 
