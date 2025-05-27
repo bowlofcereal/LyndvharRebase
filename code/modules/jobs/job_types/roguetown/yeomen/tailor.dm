@@ -36,11 +36,11 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
-		/obj/item/needle, 
-		/obj/item/roguekey/tailor, 
-		/obj/item/dye_brush, 
-    /obj/item/book/rogue/swatchbook
-		/obj/item/recipe_book/sewing, 
+		/obj/item/needle,
+		/obj/item/roguekey/tailor,
+		/obj/item/dye_brush,
+    /obj/item/book/rogue/swatchbook,
+		/obj/item/recipe_book/sewing,
 		/obj/item/recipe_book/leatherworking
 		)
 	if(should_wear_femme_clothes(H))
