@@ -138,8 +138,9 @@
 		return
 	if(!user.mind)
 		return
+	if(user.has_status_effect(/datum/status_effect/debuff/feintcd))
+		return
 	var/mob/living/L = target
-	user.changeNext_move(CLICK_CD_RAPID)
 	user.visible_message(span_danger("[user] feints an attack at [target]!"))
 	var/perc = 50
 	var/obj/item/I = user.get_active_held_item()
@@ -159,10 +160,6 @@
 
 	if(L.has_status_effect(/datum/status_effect/debuff/exposed))
 		perc = 0
-
-	if(user.has_status_effect(/datum/status_effect/debuff/feintcd))
-		to_chat(user, span_danger("[L] is too on guard for another so soon!"))
-		return
 
 	if(HAS_TRAIT(L,TRAIT_DECEIVING_MEEKNESS))
 		perc -= 30

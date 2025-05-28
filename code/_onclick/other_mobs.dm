@@ -97,21 +97,22 @@
 	. = ..()
 //	if(!user.Adjacent(src)) //alreadyu checked in rmb_on
 //		return
-	user.changeNext_move(CLICK_CD_MELEE)
 	user.face_atom(src)
 	if(user.cmode)
 		if(user.rmb_intent)
 			user.rmb_intent.special_attack(user, src)
 	else
+		user.changeNext_move(CLICK_CD_MELEE)
 		ongive(user, params)
 
 /turf/attack_right(mob/user, params)
 	. = ..()
-	user.changeNext_move(CLICK_CD_MELEE)
 	user.face_atom(src)
 	if(user.cmode)
 		if(user.rmb_intent)
 			user.rmb_intent.special_attack(user, src)
+	else
+		user.changeNext_move(CLICK_CD_MELEE)
 
 /atom/proc/ongive(mob/user, params)
 	return
