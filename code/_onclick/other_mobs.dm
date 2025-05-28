@@ -294,6 +294,12 @@
 						playsound(src, pick(PUNCHWOOSH), 100, FALSE, -1)
 
 						sleep(src.used_intent.swingdelay)
+						if(has_status_effect(/datum/status_effect/buff/clash) && ishuman(src))
+							var/mob/living/carbon/human/H = src
+							H.bad_guard(span_warning("The kick throws my stance off!"))
+						if(M.has_status_effect(/datum/status_effect/buff/clash) && ishuman(M))
+							var/mob/living/carbon/human/HT = M
+							HT.bad_guard(span_warning("The kick throws my stance off!"))
 						if(QDELETED(src) || QDELETED(M))
 							return
 						if(!M.Adjacent(src))

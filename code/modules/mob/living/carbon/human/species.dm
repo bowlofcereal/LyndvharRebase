@@ -1395,11 +1395,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 			if(!nodmg)
 				playsound(target, 'sound/combat/hits/kick/stomp.ogg', 100, TRUE, -1)
-			
-			if(user.has_status_effect(/datum/status_effect/buff/clash))
-				user.bad_guard(span_warning("The kick throws my stance off!"))
-			if(target.has_status_effect(/datum/status_effect/buff/clash))
-				target.bad_guard(span_warning("The kick throws my stance off!"))
 
 			return TRUE
 		else
@@ -1408,7 +1403,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	else
 		if(!target.kick_attack_check(user))
 			return 0
-
 		user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
 
