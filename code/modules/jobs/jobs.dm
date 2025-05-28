@@ -100,6 +100,7 @@ GLOBAL_LIST_INIT(church_positions, list(
 GLOBAL_LIST_INIT(watch_positions, list(
 	"Bailiff",
 	"Watchman",
+	"Dungeoneer"
 ))
 
 
@@ -128,10 +129,9 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 
 GLOBAL_LIST_INIT(rabble_positions, list(
 	"Bawdyhouse Master",
-	"Bawdy",
-	"Rascal",
-	"Lunatic",
-	"Beggar",
+	"Wench",
+	"Gutterfolk",
+	"Adventurer",
 	"Pilgrim",
 ))
 

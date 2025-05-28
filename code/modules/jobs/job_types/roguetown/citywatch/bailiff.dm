@@ -24,22 +24,22 @@
 	advclass_cat_rolls = list (CTAG_MARSHAL = 20)
 
 /datum/outfit/job/roguetown/marshal/pre_equip(mob/living/carbon/human/H)
-	..()
-	r_hand = /obj/item/rogueweapon/sword
+	..() 
 	head = /obj/item/clothing/head/roguetown/helmet/sallet
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/bailiff
+	cloak = /obj/item/clothing/cloak/raincloak/furcloak/red
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
 	backr = /obj/item/rogueweapon/shield/buckler	
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/rogueweapon/mace/cudgel
-	beltl = /obj/item/storage/keyring/guard
+	beltl = /obj/item/rogueweapon/sword
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	id = /obj/item/scomstone
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/signal_horn = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/storage/keyring/guard = 1, /obj/item/signal_horn = 1)
 	if(H.mind)
 		
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)

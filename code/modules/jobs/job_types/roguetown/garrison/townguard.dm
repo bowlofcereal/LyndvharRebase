@@ -1,5 +1,5 @@
 /datum/job/roguetown/guardsman
-	title = "Watchman"
+//	title = "Watchman"
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	faction = "Station"
