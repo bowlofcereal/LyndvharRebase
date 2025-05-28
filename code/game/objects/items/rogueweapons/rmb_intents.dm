@@ -163,8 +163,6 @@
 
 	if(HAS_TRAIT(L,TRAIT_DECEIVING_MEEKNESS))
 		perc -= 30
-	if(HAS_TRAIT(user,TRAIT_DECEIVING_MEEKNESS))
-		perc = max(perc, 65)
 
 	user.apply_status_effect(/datum/status_effect/debuff/feintcd)
 	perc = CLAMP(perc, 0, 90)
@@ -182,7 +180,7 @@
 	L.changeNext_move(max(1.5 SECONDS + skill_factor, 2.5 SECONDS))
 	L.Immobilize(0.5 SECONDS)
 	L.rogfat_add(L.rogfat * 0.1)
-	L.Slowdown(5)
+	L.Slowdown(2)
 	to_chat(user, span_notice("[L] fell for my feint attack!"))
 	to_chat(L, span_danger("I fall for [user]'s feint attack!"))
 	playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
