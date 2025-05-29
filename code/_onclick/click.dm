@@ -28,13 +28,21 @@
 		mod *= S.nextmove_modifier()
 		adj += S.nextmove_adjust()
 	if(!hand)
-		next_move = world.time + ((num + adj)*mod)
+		var/check_move = world.time + ((num + adj)*mod)
+		if(check_move > next_move)
+			next_move = check_move
 		hud_used?.cdmid?.mark_dirty()
 		return
 	if(hand == 1)
+		var/check_move = world.time + ((num + adj)*mod)
+		if(check_move > next_lmove)
+			next_lmove = check_move
 		next_lmove = world.time + ((num + adj)*mod)
 		hud_used?.cdleft?.mark_dirty()
 	else
+		var/check_move = world.time + ((num + adj)*mod)
+		if(check_move > next_rmove)
+			next_rmove = check_move
 		next_rmove = world.time + ((num + adj)*mod)
 		hud_used?.cdright?.mark_dirty()
 

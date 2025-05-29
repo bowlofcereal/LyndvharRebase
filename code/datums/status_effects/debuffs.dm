@@ -490,7 +490,7 @@
 /datum/status_effect/debuff/baitcd
 	id = "baitcd"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/baitedcd
-	duration = 20 SECONDS
+	duration = 30 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/feintcd
 	name = "Feint Cooldown"
@@ -532,3 +532,19 @@
 /datum/status_effect/debuff/riposted
 	id = "riposted"
 	duration = 3 SECONDS
+
+/datum/status_effect/debuff/clickcd
+	id = "clickcd"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/clickcd
+	duration = 3 SECONDS
+
+/datum/status_effect/debuff/clickcd/on_creation(mob/living/new_owner, new_dur)
+	if(new_dur)
+		duration = new_dur
+	new_owner.changeNext_move(duration)
+	return ..()
+
+/atom/movable/screen/alert/status_effect/debuff/clickcd
+	name = "Action Delayed"
+	desc = "I cannot take another action."
+	icon_state = "clickcd"

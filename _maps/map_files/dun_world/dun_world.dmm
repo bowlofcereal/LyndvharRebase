@@ -8631,6 +8631,19 @@
 "dcn" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/cave)
+"dcp" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "tablewood1"
+	},
+/obj/item/clothing/ring/duelist{
+	pixel_y = 4
+	},
+/obj/item/clothing/ring/duelist{
+	pixel_y = -2
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/town/basement)
 "dcv" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/roguegrass,
@@ -37431,6 +37444,10 @@
 /obj/structure/table/wood{
 	dir = 1;
 	icon_state = "tablewood1"
+	},
+/obj/item/clothing/ring/duelist,
+/obj/item/clothing/ring/duelist{
+	pixel_y = 4
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/exposed/town/keep)
@@ -142497,7 +142514,7 @@ eXr
 gLj
 hSR
 hSR
-pTa
+dcp
 qPT
 hSR
 cNS

@@ -1,6 +1,3 @@
-#define BASE_PARRY_STAMINA_DRAIN 5 // Unmodified stamina drain for parry, now a var instead of setting on simplemobs
-#define BAD_GUARD_FATIGUE_DRAIN 20 //Percentage of your green bar lost on letting a guard expire.
-#define GUARD_PEEL_REDUCTION 2	//How many Peel stacks to lose if a Guard is hit.
 /proc/accuracy_check(zone, mob/living/user, mob/living/target, associated_skill, datum/intent/used_intent, obj/item/I)
 	if(!zone)
 		return
@@ -747,13 +744,13 @@
 		var/rogfatatt = (H.rogfat * 100) / H.maxrogfat
 		if(rogfatdef > rogfatatt) 
 			H.apply_status_effect(/datum/status_effect/debuff/exposed, 2 SECONDS)
-			H.changeNext_move(3 SECONDS)
-			H.Slowdown(5)
+			H.apply_status_effect(/datum/status_effect/debuff/clickcd, 3 SECONDS)
+			H.Slowdown(3)
 			to_chat(src, span_notice("[H.p_theyre()] exposed!"))
 		else
 			H.changeNext_move(CLICK_CD_MELEE)
 		remove_status_effect(/datum/status_effect/buff/clash)
-		purge_peel()
+		purge_peel(GUARD_PEEL_REDUCTION)
 
 //This is a gargantuan, clunky proc that is meant to tally stats and weapon properties for the potential disarm.
 //For future coders: Feel free to change this, just make sure someone like Struggler statpack doesn't get 3-fold advantage.
@@ -817,6 +814,10 @@
 	var/initiator_bonus = rand(5, 10)
 	prob_us += initiator_bonus
 
+	if(has_duelist_ring() && HU.has_duelist_ring())
+		prob_us = max(prob_us, prob_opp)
+		prob_opp = max(prob_us, prob_opp)
+
 	if((!instantloss && !instantwin) || (instantloss && instantwin))	//We are both using normal weapons OR we're both using memes. Either way, proceed as normal.
 		visible_message(span_boldwarning("[src] and [HU] clash!"))
 		flash_fullscreen("whiteflash")
@@ -860,7 +861,7 @@
 	var/current_turf = get_turf(src)
 	var/target_turf = get_ranged_target_turf(current_turf, turndir, dist)
 	throw_item(target_turf, FALSE)
-	changeNext_move(CLICK_CD_TRACKING)
+	apply_status_effect(/datum/status_effect/debuff/clickcd, 3 SECONDS)
 
 /mob/living/carbon/human/proc/bad_guard(msg, cheesy = FALSE)
 	rogfat_add(((maxrogfat * BAD_GUARD_FATIGUE_DRAIN) / 100))
@@ -872,7 +873,7 @@
 		emote("strain", forced = TRUE)
 	remove_status_effect(/datum/status_effect/buff/clash)
 
-/mob/living/carbon/human/proc/purge_peel()
+/mob/living/carbon/human/proc/purge_peel(amt)
 	//Equipment slots manually picked out cus we don't have a proc for this apparently
 	var/list/slots = list(wear_armor, wear_pants, wear_wrists, wear_shirt, gloves, head, shoes, wear_neck, wear_mask)
 	for(var/slot in slots)
@@ -881,4 +882,25 @@
 
 	for(var/obj/item/clothing/C in slots)
 		if(C.peel_count > 0)
-			C.reduce_peel(GUARD_PEEL_REDUCTION)
+			C.reduce_peel(amt)
+
+/mob/living/carbon/human/proc/highest_ac_worn()
+	var/list/slots = list(wear_armor, wear_pants, wear_wrists, wear_shirt, gloves, head, shoes, wear_neck, wear_mask)
+	for(var/slot in slots)
+		if(isnull(slot) || !istype(slot, /obj/item/clothing))
+			slots.Remove(slot)
+	
+	var/highest_ac = ARMOR_CLASS_NONE
+
+	for(var/obj/item/clothing/C in slots)
+		if(C.armor_class)
+			if(C.armor_class > highest_ac)
+				highest_ac = C.armor_class
+	
+	return highest_ac
+
+/mob/living/carbon/human/proc/has_duelist_ring()
+	if(wear_ring)
+		if(istype(wear_ring, /obj/item/clothing/ring/duelist))
+			return TRUE
+	return FALSE

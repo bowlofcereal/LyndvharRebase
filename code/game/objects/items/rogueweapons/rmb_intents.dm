@@ -5,7 +5,7 @@
 	var/adjacency = TRUE
 
 /mob/living/carbon/human/RightClickOn(atom/A, params)
-	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing) && cmode && !istype(src, /mob/living/carbon/human/species/skeleton))
+	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing) && cmode && !istype(src, /mob/living/carbon/human/species/skeleton) && !istype(A, /obj/item/quiver))
 		var/held = get_active_held_item()
 		if(held && istype(held, /obj/item))
 			var/obj/item/I = held
@@ -87,16 +87,32 @@
 		HT.emote("huh")
 		return
 
+	var/fatiguemod	//The heavier the target's armor, the more fatigue (green bar) we drain.
+	var/targetac = HT.highest_ac_worn()
+	switch(targetac)
+		if(ARMOR_CLASS_NONE)
+			fatiguemod = 5
+		if(ARMOR_CLASS_LIGHT, ARMOR_CLASS_MEDIUM)
+			fatiguemod = 4
+		if(ARMOR_CLASS_HEAVY)
+			fatiguemod = 3
+
+
 	HT.apply_status_effect(/datum/status_effect/debuff/baited)
 	HT.apply_status_effect(/datum/status_effect/debuff/exposed)
-	HT.changeNext_move(2 SECONDS)
-	HT.Immobilize(2 SECONDS)
-	HT.rogfat_add(HT.maxrogfat / 5)
-	HT.OffBalance(2.2 SECONDS)
+	HT.apply_status_effect(/datum/status_effect/debuff/clickcd, 6 SECONDS)
+	HT.Immobilize(0.5 SECONDS)
+	HT.rogfat_add(HT.maxrogfat / fatiguemod)
+	HT.Slowdown(4)
 	HT.emote("gasp")
+	HU.purge_peel(BAIT_PEEL_REDUCTION)
 	HU.changeNext_move(0.1 SECONDS)
 	to_chat(HU, span_notice("[HT] fell for my bait <b>perfectly</b>!"))
 	to_chat(HT, span_danger("I fall for [HU]'s bait <b>perfectly</b>!"))
+
+	if(HU.has_duelist_ring() && HT.has_duelist_ring())	//We're explicitly (hopefully non-lethally) dueling. Flavor.
+		HT.OffBalance(2.2 SECONDS)
+		HT.Immobilize(2 SECONDS)
 
 	if(!HT.pulling)
 		return
@@ -104,7 +120,8 @@
 	HT.stop_pulling()
 	to_chat(HU, span_notice("[HT] fell for my dirty trick! I am loose!"))
 	to_chat(HT, span_danger("I fall for [HU]'s dirty trick! My hold is broken!"))
-	HU.OffBalance(2.2 SECONDS)
+	HU.OffBalance(2 SECONDS)
+	HT.OffBalance(2 SECONDS)
 	playsound(user, 'sound/combat/riposte.ogg', 100, TRUE)
 
 /datum/rmb_intent/strong
@@ -176,8 +193,8 @@
 	if(L.has_status_effect(/datum/status_effect/buff/clash))
 		L.remove_status_effect(/datum/status_effect/buff/clash)
 		to_chat(user, span_notice("[L] had [L.p_their()] Guard disrupted!"))
-	L.apply_status_effect(/datum/status_effect/debuff/exposed)
-	L.changeNext_move(max(1.5 SECONDS + skill_factor, 2.5 SECONDS))
+	L.apply_status_effect(/datum/status_effect/debuff/exposed, 7.5 SECONDS)
+	L.apply_status_effect(/datum/status_effect/debuff/clickcd, max(1.5 SECONDS + skill_factor, 2.5 SECONDS))
 	L.Immobilize(0.5 SECONDS)
 	L.rogfat_add(L.rogfat * 0.1)
 	L.Slowdown(2)
