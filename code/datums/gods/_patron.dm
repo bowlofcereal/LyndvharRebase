@@ -66,9 +66,20 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 				punish_prayer(follower)
 				return FALSE
 
+	var/patron_name = follower?.patron?.name
+	if(!patron_name)
+		CRASH("check_prayer called with null patron")
+
 	if(length(prayer) <= 15)
 		to_chat(follower, span_danger("My prayer was kinda short..."))
 		return FALSE
+
+	if(follower.mob_timers[MT_PSYPRAY])
+		if(world.time < follower.mob_timers[MT_PSYPRAY] + 1 MINUTES)
+			follower.mob_timers[MT_PSYPRAY] = world.time
+			return FALSE
+	else
+		follower.mob_timers[MT_PSYPRAY] = world.time
 
 	. = TRUE //the prayer has succeeded by this point forward
 
@@ -77,13 +88,14 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 
 /// The follower has somehow offended the patron and is now being punished.
 /datum/patron/proc/punish_prayer(mob/living/follower)
-	follower.adjust_divine_fire_stacks(100)
+	follower.adjust_divine_fire_stacks(20)
 	follower.IgniteMob()
 	follower.add_stress(/datum/stressevent/psycurse)
 
 /// The follower has prayed in a special way to the patron and is being rewarded.
 /datum/patron/proc/reward_prayer(mob/living/follower)
 	SHOULD_CALL_PARENT(TRUE)
-
+	if(follower.has_flaw(/datum/charflaw/addiction/godfearing))
+		follower.sate_addiction()
 	follower.playsound_local(follower, 'sound/misc/notice (2).ogg', 100, FALSE)
 	follower.add_stress(/datum/stressevent/psyprayer)
