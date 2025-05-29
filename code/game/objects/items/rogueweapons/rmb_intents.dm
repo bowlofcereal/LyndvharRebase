@@ -4,6 +4,13 @@
 	var/icon_state = ""
 	var/adjacency = TRUE
 
+/mob/living/carbon/human
+	var/bait_stacks
+
+/mob/living/carbon/human/on_cmode()
+	if(!cmode)	//We just toggled it off.
+		addtimer(CALLBACK(src, PROC_REF(purge_bait)), 30 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
+
 /mob/living/carbon/human/RightClickOn(atom/A, params)
 	if(rmb_intent && !rmb_intent.adjacency && !istype(A, /obj/item/clothing) && cmode && !istype(src, /mob/living/carbon/human/species/skeleton) && !istype(A, /obj/item/quiver))
 		var/held = get_active_held_item()
@@ -33,8 +40,8 @@
 		return
 	if(!ishuman(target))
 		return
-	if(user == target)
-		return
+	//if(user == target)
+	//	return
 	
 	var/mob/living/carbon/human/HT = target
 	var/mob/living/carbon/human/HU = user
@@ -46,45 +53,13 @@
 
 	HU.visible_message(span_danger("[HU] baits an attack from [HT]!"))
 	HU.apply_status_effect(/datum/status_effect/debuff/baitcd)
+	HU.rogfat_add(HU.maxrogfat * 0.2)
 
 	if((target_zone != user_zone) || ((target_zone == BODY_ZONE_CHEST) || (user_zone == BODY_ZONE_CHEST))) //Our zones match and it's not the chest//Our zones do not match, or we were targeting chest
-		var/probbait = 40
-
-		//We take the highest and the lowest stats, clamped to 14.
-		var/max_target = min(max(HT.STASTR, HT.STACON, HT.STAEND, HT.STAINT, HT.STAPER, HT.STASPD), 14)
-		var/min_target = min(HT.STASTR, HT.STACON, HT.STAEND, HT.STAINT, HT.STAPER, HT.STASPD)
-		var/max_user = min(max(HU.STASTR, HU.STACON, HU.STAEND, HU.STAINT, HU.STAPER, HU.STASPD), 14)
-		var/min_user = min(HU.STASTR, HU.STACON, HU.STAEND, HU.STAINT, HU.STAPER, HU.STASPD)
-		
-		if(max_target > max_user)
-			probbait -= max_target
-		if(min_target > min_user)
-			probbait -= 3 * min_target
-		
-		if(max_target < max_user)
-			probbait += max_user
-		if(min_target < min_user)
-			probbait += 3 * min_user
-
-		probbait = clamp(probbait, 5, 75)
-
-		if(HU.STALUC > HT.STALUC)
-			probbait += rand(1, rand(1,25))	//good luck mathing this out, code divers
-		if(HU.STALUC < HT.STALUC)
-			probbait -= rand(1, rand(1,25))
-
-		HU.rogfat_add(HU.maxrogfat * 0.2)
-
-		if(!prob(probbait))
-			to_chat(HU, span_notice("[HT] did not fall for my bait!"))
-			to_chat(HT, span_notice("I saw through the bait!"))
-			HU.changeNext_move(1 SECONDS)
-			return
-
-		HT.changeNext_move(1 SECONDS)
-		to_chat(HU, span_notice("[HT] fell for my bait!"))
-		to_chat(HT, span_danger("I fall for [HU]'s bait!"))
-		HT.emote("huh")
+		to_chat(HU, span_danger("It didn't work! Their footing returned!"))
+		to_chat(HT, span_notice("I fooled him! I've regained my footing!"))
+		HU.emote("groan")
+		HT.bait_stacks = 0
 		return
 
 	var/fatiguemod	//The heavier the target's armor, the more fatigue (green bar) we drain.
@@ -100,19 +75,26 @@
 
 	HT.apply_status_effect(/datum/status_effect/debuff/baited)
 	HT.apply_status_effect(/datum/status_effect/debuff/exposed)
-	HT.apply_status_effect(/datum/status_effect/debuff/clickcd, 6 SECONDS)
-	HT.Immobilize(0.5 SECONDS)
-	HT.rogfat_add(HT.maxrogfat / fatiguemod)
-	HT.Slowdown(4)
-	HT.emote("gasp")
-	HU.purge_peel(BAIT_PEEL_REDUCTION)
-	HU.changeNext_move(0.1 SECONDS)
-	to_chat(HU, span_notice("[HT] fell for my bait <b>perfectly</b>!"))
-	to_chat(HT, span_danger("I fall for [HU]'s bait <b>perfectly</b>!"))
-
-	if(HU.has_duelist_ring() && HT.has_duelist_ring())	//We're explicitly (hopefully non-lethally) dueling. Flavor.
-		HT.OffBalance(2.2 SECONDS)
+	HT.apply_status_effect(/datum/status_effect/debuff/clickcd, 5 SECONDS)
+	HT.bait_stacks++
+	if(HT.bait_stacks <= 1)
+		HT.Immobilize(0.5 SECONDS)
+		HT.rogfat_add(HT.maxrogfat / fatiguemod)
+		HT.Slowdown(3)
+		HT.emote("huh")
+		HU.purge_peel(BAIT_PEEL_REDUCTION)
+		HU.changeNext_move(0.1 SECONDS)
+		to_chat(HU, span_notice("[HT] fell for my bait <b>perfectly</b>! One more!"))
+		to_chat(HT, span_danger("I fall for [HU]'s bait <b>perfectly</b>! I'm losing my footing! <b>I can't let this happen again!</b>"))
+	
+	if(HU.has_duelist_ring() && HT.has_duelist_ring() || HT.bait_stacks >= 2)	//We're explicitly (hopefully non-lethally) dueling. Flavor.
+		HT.emote("gasp")
+		HT.OffBalance(2 SECONDS)
 		HT.Immobilize(2 SECONDS)
+		to_chat(HU, span_notice("[HT] fell for it again and is off-balanced! NOW!"))
+		to_chat(HT, span_danger("I fall for [HU]'s bait <b>perfectly</b>! My balance is GONE!</b>"))
+		HT.bait_stacks = 0
+
 
 	if(!HT.pulling)
 		return

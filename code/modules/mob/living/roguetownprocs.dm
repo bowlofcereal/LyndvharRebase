@@ -904,3 +904,37 @@
 		if(istype(wear_ring, /obj/item/clothing/ring/duelist))
 			return TRUE
 	return FALSE
+
+/mob/living/carbon/human/proc/purge_bait()
+	if(!cmode)
+		if(bait_stacks > 0)
+			bait_stacks = 0
+			to_chat(src, span_info("My focus and balance returns. I won't lose my footing if I am baited again."))
+
+/mob/living/carbon/human/proc/measured_statcheck(mob/living/carbon/human/HT)
+	var/finalprob = 40
+
+	//We take the highest and the lowest stats, clamped to 14.
+	var/max_target = min(max(HT.STASTR, HT.STACON, HT.STAEND, HT.STAINT, HT.STAPER, HT.STASPD), 14)
+	var/min_target = min(HT.STASTR, HT.STACON, HT.STAEND, HT.STAINT, HT.STAPER, HT.STASPD)
+	var/max_user = min(max(STASTR, STACON, STAEND, STAINT, STAPER, STASPD), 14)
+	var/min_user = min(STASTR, STACON, STAEND, STAINT, STAPER, STASPD)
+	
+	if(max_target > max_user)
+		finalprob -= max_target
+	if(min_target > min_user)
+		finalprob -= 3 * min_target
+	
+	if(max_target < max_user)
+		finalprob += max_user
+	if(min_target < min_user)
+		finalprob += 3 * min_user
+
+	finalprob = clamp(finalprob, 5, 75)
+
+	if(STALUC > HT.STALUC)
+		finalprob += rand(1, rand(1,25))	//good luck mathing this out, code divers
+	if(STALUC < HT.STALUC)
+		finalprob -= rand(1, rand(1,25))
+
+	return prob(finalprob)
