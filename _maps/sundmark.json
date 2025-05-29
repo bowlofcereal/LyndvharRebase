@@ -1,8 +1,11 @@
 {
     "map_name": "Sundmark",
     "map_path": "map_files/helmsguard",
-    "map_file": "sundmark.dmm",
-	"traits": [{"Up": 1}, {"Up": 1, "Down": -1}, {"Up": 1, "Down": -1}, {"Up": 1, "Down": -1}, {"Down": -1}],
+    "map_file": ["sundmark.dmm",
+	"dreadwood.dmm"],
+	"traits": [{"Name": "Sundmark", "Up": 1}, {"Up": 1, "Down": -1}, {"Up": 1, "Down": -1}, {"Up": 1, "Down": -1}, {"Down": -1},
+	{"Name": "Dread Wood", "Up": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Down": true}
+	],
 	"minetype": null,
 	"space_empty_levels": 0,
 	"space_ruin_levels": 0,
