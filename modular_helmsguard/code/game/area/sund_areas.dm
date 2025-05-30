@@ -636,7 +636,6 @@
 	name = "Sundmark Wildnerness"
 	location_name = "the wilds of Sundmark"
 	icon_state = "wilderness"
-	first_time_text = "The Sundmark"
 	soundenv = 19
 
 /area/rogue/sund/wilderness/field
@@ -657,7 +656,6 @@
 /area/rogue/sund/wilderness/river
 	name = "The Asen River"	// The deepest of lore. Actual Pre-Tacitus cut.
 	location_name = "the river Asen"
-	location_name = "The Asen River"
 	icon_state = "river"
 	warden_area = TRUE
 	ambientsounds = AMB_RIVERDAY
