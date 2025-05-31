@@ -4609,13 +4609,6 @@
 	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/licharena)
-"bBo" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
-/obj/item/roguebin/water,
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town)
 "bBq" = (
 /obj/machinery/light/rogue/campfire/densefire,
 /turf/open/floor/rogue/dirt,
@@ -14940,6 +14933,16 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/magician)
+"fbs" = (
+/obj/item/roguebin/water,
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-n"
+	},
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town)
 "fbv" = (
 /obj/structure/flora/roguegrass,
 /obj/effect/decal/cleanable/dirt/cobweb{
@@ -61000,6 +61003,22 @@
 /mob/living/simple_animal/hostile/rogue/skeleton/bow,
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/mountains/decap/stepbelow)
+"uoy" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 4;
+	pixel_x = -16;
+	pixel_y = -8
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 6
+	},
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town)
 "uoF" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/newleaf,
@@ -61433,6 +61452,19 @@
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
+"uxb" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-w";
+	pixel_y = 8
+	},
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town)
 "uxu" = (
 /mob/living/carbon/human/species/human/northern/searaider/ambush,
 /obj/structure/fluff/railing/wood{
@@ -68838,6 +68870,10 @@
 /area/rogue/outdoors/beach/forest)
 "wTY" = (
 /obj/structure/roguemachine/scomm,
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-w"
+	},
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -250529,8 +250565,8 @@ uBc
 lHJ
 rob
 jdu
-sYZ
-bBo
+fbs
+uxy
 mDX
 pWT
 fpx
@@ -250980,7 +251016,7 @@ exD
 uBc
 jdu
 jdu
-sRx
+uoy
 sYZ
 uGt
 mDX
@@ -251432,8 +251468,8 @@ exD
 uBc
 jqL
 jdu
+kil
 sYZ
-sRx
 rOu
 mDX
 pWT
@@ -251884,7 +251920,7 @@ xPx
 cDX
 cDX
 wTY
-sxy
+uxb
 sYZ
 cDX
 cDX
@@ -260014,7 +260050,7 @@ cDX
 uBc
 uBc
 uBc
-pWT
+cne
 fpx
 exD
 vhJ
@@ -260466,8 +260502,8 @@ cDX
 sCm
 uAA
 gvg
-pWT
-fpx
+cne
+cne
 exD
 exD
 fpx
@@ -364447,16 +364483,16 @@ bGf
 bGf
 kSK
 vcy
-nvV
-nvV
+rpL
+rpL
+rpL
+rpL
 vcy
-nvV
-nvV
-nvV
-nvV
-nvV
-nvV
-nvV
+rpL
+rpL
+rpL
+vcy
+rpL
 nvV
 nvV
 nvV
@@ -364898,7 +364934,7 @@ bGf
 bGf
 bGf
 kSK
-bvm
+rpL
 hiZ
 hiZ
 hiZ
@@ -365350,7 +365386,7 @@ bGf
 bGf
 bGf
 kSK
-bvm
+rpL
 hiZ
 hiZ
 hiZ
@@ -365802,7 +365838,7 @@ bGf
 bGf
 bGf
 kSK
-bvm
+rpL
 hiZ
 hiZ
 hiZ
@@ -373492,16 +373528,16 @@ nvV
 vcy
 nvV
 vcy
-nvV
-nvV
-nvV
-nvV
-nvV
-nvV
-nvV
-nvV
-nvV
-nvV
+rpL
+rpL
+rpL
+vcy
+rpL
+rpL
+vcy
+rpL
+rpL
+vcy
 oKc
 oKc
 gTY
