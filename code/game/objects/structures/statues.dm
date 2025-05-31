@@ -25,12 +25,3 @@
 			if(drop_amt > 0)
 				new material_drop_type(get_turf(src), drop_amt)
 	qdel(src)
-
-/obj/structure/statue/plaque
-	icon = 'icons/turf/decals.dmi'
-	icon_state = "plaque"
-	name = "plaque"
-	desc = "PLEASE REPLACE ME, MAPPER!"
-	density = FALSE
-	anchored = TRUE
-	max_integrity = 200 //Twice as durable as statues
