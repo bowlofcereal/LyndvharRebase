@@ -202,7 +202,7 @@
 		if(user.m_intent == MOVE_INTENT_RUN)
 			to_chat(user, span_warning("I can't focus on this while running."))
 			return
-		if(user.has_status_effect(/datum/status_effect/buff/magearmor))
+		if(user.magearmor == FALSE)	//The magearmor is ACTIVE, so we can't Guard. (Yes, it's active while FALSE / 0.)
 			to_chat(user, span_warning("I'm already focusing on my mage armor!"))
 			return
 		user.apply_status_effect(/datum/status_effect/buff/clash)
