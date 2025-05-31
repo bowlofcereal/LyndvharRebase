@@ -433,7 +433,7 @@
 			if (W)
 				W.layer = initial(W.layer)
 				W.plane = initial(W.plane)
-		changeNext_move(0)
+		changeNext_move(0, override = TRUE)
 	if (legcuffed)
 		var/obj/item/W = legcuffed
 		legcuffed = null
@@ -446,7 +446,7 @@
 			if (W)
 				W.layer = initial(W.layer)
 				W.plane = initial(W.plane)
-		changeNext_move(0)
+		changeNext_move(0, override = TRUE)
 
 /mob/living/carbon/proc/clear_cuffs(obj/item/I, cuff_break)
 	if(!I.loc || buckled)
