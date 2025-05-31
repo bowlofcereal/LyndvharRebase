@@ -6563,6 +6563,9 @@
 /obj/item/organ/heart,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
+"cmo" = (
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church/basement)
 "cmq" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor4-old"
@@ -23398,6 +23401,13 @@
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town/shop)
+"hNz" = (
+/obj/item/clothing/neck/roguetown/psicross/astrata,
+/obj/structure/table/church{
+	icon_state = "churchtable_mid"
+	},
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church/basement)
 "hNC" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -24288,6 +24298,12 @@
 	dir = 4
 	},
 /area/rogue/outdoors/beach/forest)
+"idw" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/outdoors/rtfield)
 "idG" = (
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/under/cave)
@@ -34850,6 +34866,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town/shop)
+"lED" = (
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church/basement)
 "lEE" = (
 /obj/item/roguegem/random,
 /turf/open/floor/rogue/naturalstone,
@@ -45905,6 +45925,12 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town)
+"prT" = (
+/obj/structure/mineral_door/wood/donjon/stone{
+	name = "Altar of the Healers"
+	},
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church/basement)
 "psb" = (
 /obj/effect/decal/cobbleedge,
 /turf/open/floor/rogue/ruinedwood{
@@ -53950,6 +53976,13 @@
 /obj/item/natural/feather,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/magician)
+"rYH" = (
+/obj/item/clothing/neck/roguetown/psicross/pestra,
+/obj/structure/table/church{
+	icon_state = "churchtable_end"
+	},
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church/basement)
 "rYK" = (
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/blocks,
@@ -62874,6 +62907,10 @@
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/town/church)
+"uUU" = (
+/obj/structure/fluff/psycross,
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church/basement)
 "uUW" = (
 /obj/effect/decal/cobbleedge{
 	dir = 8
@@ -65489,6 +65526,11 @@
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/shelter/woods)
+"vMH" = (
+/obj/item/clothing/neck/roguetown/psicross/necra,
+/obj/structure/table/church,
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church/basement)
 "vMJ" = (
 /obj/effect/decal/mossy{
 	dir = 8
@@ -71811,6 +71853,9 @@
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cavewet/bogcaves/sunkencity)
+"xSF" = (
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church/basement)
 "xSG" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border{
@@ -71886,6 +71931,13 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves/sunkencity)
+"xTS" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/stairs{
+	dir = 8
+	},
+/turf/open/transparent/openspace,
+/area/rogue/indoors/town)
 "xTX" = (
 /obj/machinery/light/rogue/chand{
 	light_on = 0
@@ -72489,6 +72541,12 @@
 	icon_state = "wooden_floort"
 	},
 /area/rogue/outdoors/beach)
+"ydZ" = (
+/obj/structure/stairs{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/indoors/town)
 "yea" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/open/floor/rogue/grassred,
@@ -141906,10 +141964,10 @@ fQE
 fQE
 kJE
 llO
-ogs
-ogs
-ogs
-ogs
+llO
+llO
+llO
+llO
 ogs
 ogs
 ogs
@@ -142358,10 +142416,10 @@ uHB
 fQE
 kxB
 llO
-ogs
-ogs
-ogs
-ogs
+lED
+xSF
+uUU
+llO
 ogs
 ogs
 ogs
@@ -142810,10 +142868,10 @@ kcx
 fQE
 kcx
 llO
-ogs
-ogs
-ogs
-ogs
+cmo
+cmo
+vMH
+llO
 ogs
 ogs
 ogs
@@ -143260,12 +143318,12 @@ fQE
 fQE
 fQE
 fQE
-iyQ
+fQE
+prT
+cmo
+cmo
+hNz
 llO
-ogs
-ogs
-ogs
-ogs
 ogs
 ogs
 ogs
@@ -143714,10 +143772,10 @@ kcx
 fQE
 kcx
 llO
-ogs
-ogs
-ogs
-ogs
+cmo
+cmo
+rYH
+llO
 ogs
 ogs
 ogs
@@ -144166,10 +144224,10 @@ fQE
 fQE
 kxB
 llO
-ogs
-ogs
-ogs
-ogs
+lED
+xSF
+uUU
+llO
 ogs
 ogs
 ogs
@@ -144618,10 +144676,10 @@ kcx
 fQE
 sjp
 llO
-ogs
-ogs
-ogs
-ogs
+llO
+llO
+llO
+llO
 ogs
 ogs
 ogs
@@ -273392,8 +273450,8 @@ gyu
 cDX
 qfA
 jya
-sPF
-ghB
+jil
+jil
 kIa
 jya
 cKe
@@ -273844,8 +273902,8 @@ pqo
 lKo
 qfA
 jya
-txo
-cGA
+sPF
+ghB
 mqt
 xoW
 cKe
@@ -274296,8 +274354,8 @@ lKO
 lKo
 qfA
 jya
-jil
-dEj
+txo
+cGA
 vBc
 jya
 cKe
@@ -274749,7 +274807,7 @@ cDX
 mIz
 sPF
 yeK
-oGW
+idw
 oGW
 sPF
 jya
@@ -389105,7 +389163,7 @@ aDs
 aDs
 bGf
 uBc
-bzY
+ydZ
 agM
 apZ
 hlY
@@ -389557,7 +389615,7 @@ uzx
 aDs
 bGf
 uBc
-wss
+xTS
 agM
 aJc
 uBc
