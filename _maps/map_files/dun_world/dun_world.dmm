@@ -4656,6 +4656,15 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods)
+"bBB" = (
+/obj/structure/stairs/stone{
+	dir = 4
+	},
+/obj/structure/stairs/stone{
+	dir = 4
+	},
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "bBG" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/under/town/sewer)
@@ -6299,6 +6308,12 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/armor,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/cave)
+"cfM" = (
+/obj/structure/stairs/stone{
+	dir = 1
+	},
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "cfN" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -13716,9 +13731,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/mazedungeon)
 "eFb" = (
-/obj/effect/turf_decal/plaque{
+/obj/structure/statue/plaque{
 	name = "Monastery Plaque";
-	desc = "Within these hallowed halls, the Order of Saint Seraphina the Golden shall toil for the good of their eternal souls forever-more."
+	desc = "Within these hallowed halls, the Order of Holy Saphria the Golden shall toil for the good of their eternal souls forever-more."
 	},
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/church)
@@ -19444,6 +19459,10 @@
 /obj/structure/fluff/walldeco/wantedposter/l,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
+"gAY" = (
+/obj/structure/stairs/stone,
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "gAZ" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 1
@@ -29323,13 +29342,6 @@
 "jOu" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/skeletoncrypt)
-"jOx" = (
-/obj/structure/stairs/stone,
-/obj/structure/stairs/stone{
-	dir = 1
-	},
-/turf/open/floor/rogue/grassyel,
-/area/rogue/indoors/town/church)
 "jOz" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/tools,
@@ -29959,6 +29971,7 @@
 /obj/structure/stairs/stone{
 	dir = 8
 	},
+/obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/church)
 "jZx" = (
@@ -32520,6 +32533,12 @@
 /obj/structure/bars/steel,
 /turf/open/water/swamp/deep,
 /area/rogue/under/cavewet/bogcaves)
+"kTR" = (
+/obj/structure/stairs/stone{
+	dir = 4
+	},
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "kTT" = (
 /obj/structure/flora/roguegrass/herb/random,
 /turf/open/floor/rogue/grass,
@@ -42231,7 +42250,7 @@
 /obj/structure/stairs/stone{
 	dir = 8
 	},
-/turf/open/floor/rogue/grassyel,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church)
 "ohw" = (
 /turf/closed/wall/mineral/rogue/pipe{
@@ -252594,13 +252613,13 @@ qxO
 gjV
 gjV
 vcy
-rpL
-rpL
+ohn
+ohn
 vcy
-rpL
+ohn
 vcy
-rpL
-rpL
+ohn
+ohn
 vcy
 gjV
 gjV
@@ -253045,7 +253064,7 @@ bvm
 qxO
 gjV
 gjV
-rpL
+cfM
 oCu
 iUR
 rdY
@@ -253053,7 +253072,7 @@ bTr
 rdY
 oed
 ejE
-rpL
+gAY
 gjV
 gjV
 qxO
@@ -253497,7 +253516,7 @@ bvm
 eBK
 gjV
 gjV
-rpL
+cfM
 bTr
 egJ
 wjZ
@@ -253505,7 +253524,7 @@ vkK
 bTr
 iUR
 bTr
-rpL
+gAY
 gjV
 gjV
 qxO
@@ -254401,7 +254420,7 @@ bvm
 qxO
 gjV
 gjV
-rpL
+cfM
 bTr
 bTr
 iZE
@@ -254409,7 +254428,7 @@ ejE
 iUR
 ejE
 egJ
-rpL
+gAY
 gjV
 gjV
 qxO
@@ -254853,7 +254872,7 @@ bvm
 qxO
 gjV
 gjV
-rpL
+cfM
 ejE
 vkK
 kUy
@@ -254861,7 +254880,7 @@ bTr
 kUy
 wjZ
 xwE
-rpL
+gAY
 gjV
 gjV
 qxO
@@ -255306,13 +255325,13 @@ qxO
 gjV
 gjV
 vcy
-rpL
-rpL
+kTR
+kTR
 vcy
-rpL
+kTR
 vcy
-rpL
-rpL
+bBB
+kTR
 vcy
 gjV
 gjV
@@ -258015,7 +258034,7 @@ fpx
 qyR
 bvm
 vcy
-jOx
+cfM
 aVk
 aVk
 wfV
@@ -366509,7 +366528,7 @@ sGe
 vcy
 ryQ
 mkI
-mkI
+nmr
 bvm
 eMk
 mTb
@@ -369220,7 +369239,7 @@ hiZ
 tUk
 vcy
 eFb
-mkI
+nmr
 bvm
 iPO
 ttH
@@ -371028,7 +371047,7 @@ mkI
 mkI
 ofo
 mkI
-mkI
+nmr
 bvm
 oKc
 lGM
