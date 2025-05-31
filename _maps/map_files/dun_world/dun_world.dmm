@@ -6387,6 +6387,12 @@
 /obj/machinery/gear_painter,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement/keep)
+"chU" = (
+/obj/structure/fluff/walldeco/psybanner{
+	pixel_x = 32
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/church)
 "cik" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 8
@@ -17295,6 +17301,12 @@
 /area/rogue/indoors/town/manor)
 "fQB" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
+/obj/structure/stairs{
+	dir = 1
+	},
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church)
 "fQE" = (
@@ -18881,8 +18893,11 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/bog)
 "gsU" = (
-/obj/structure/fluff/walldeco/psybanner{
-	pixel_x = -32
+/obj/structure/stairs{
+	dir = 1
+	},
+/obj/structure/fluff/railing/border{
+	dir = 8
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church)
@@ -21280,6 +21295,13 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
+"hfk" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/church)
 "hfl" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/dirt,
@@ -23908,6 +23930,7 @@
 /area/rogue/outdoors/town)
 "hXZ" = (
 /obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/fluff/psycross,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church)
 "hYn" = (
@@ -42747,6 +42770,10 @@
 /obj/structure/flora/roguetree/burnt,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cavewet/bogcaves/sunkencity)
+"osi" = (
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/church)
 "osu" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /obj/structure/rack/rogue,
@@ -58686,6 +58713,12 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter/woods)
+"tBA" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/church)
 "tBE" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mudcrab,
 /turf/open/water/swamp/deep,
@@ -62016,10 +62049,6 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
-"uEx" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
-/turf/open/floor/rogue/blocks,
-/area/rogue/indoors/town/church)
 "uEJ" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/dirt/road,
@@ -63943,6 +63972,16 @@
 /obj/structure/bed/rogue/inn/wooldouble,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
+"vmT" = (
+/obj/structure/fluff/walldeco/psybanner{
+	pixel_x = -32
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall"
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/church)
 "vmX" = (
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
@@ -65631,6 +65670,13 @@
 "vPd" = (
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/scarymaze)
+"vPi" = (
+/obj/machinery/light/rogue/wallfire/candle/r,
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/church)
 "vPn" = (
 /obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/concrete,
@@ -68700,6 +68746,12 @@
 /mob/living/carbon/human/species/construct/metal/zizoconstruct/ambush,
 /turf/open/floor/rogue/concrete/bronze,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
+"wPi" = (
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/church)
 "wPl" = (
 /obj/item/restraints/legcuffs/beartrap/armed,
 /turf/open/floor/rogue/blocks,
@@ -69048,10 +69100,6 @@
 /obj/item/grown/log/tree/small,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter/woods)
-"wVG" = (
-/obj/structure/fluff/psycross,
-/turf/open/floor/rogue/blocks,
-/area/rogue/indoors/town/church)
 "wVU" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1
@@ -176997,7 +177045,7 @@ bvm
 pVG
 pWl
 lyn
-sRg
+tsI
 uDv
 odK
 qHj
@@ -177899,7 +177947,7 @@ fFx
 wxX
 bvm
 hXZ
-jeS
+byS
 vxJ
 sRg
 sRg
@@ -178349,12 +178397,12 @@ jeS
 jeS
 jeS
 vbQ
-bvm
-wVG
-byS
-lyn
-tsI
-sRg
+vcy
+nvV
+nvV
+nvV
+nvV
+xuQ
 bvm
 bhJ
 bhJ
@@ -178800,13 +178848,13 @@ jeS
 jeS
 jeS
 jeS
-jeS
-vcy
-nvV
-nvV
-nvV
-nvV
-xuQ
+osi
+vmT
+sRg
+sRg
+dtY
+sRg
+sRg
 vcy
 bhJ
 icp
@@ -179248,17 +179296,17 @@ bhJ
 bhJ
 bhJ
 bvm
-hXZ
+hfk
+nBk
+vPi
 jeS
-fQB
-jeS
-jeS
+wPi
 gsU
-jeS
-jeS
-uEx
-jeS
-jeS
+sRg
+sRg
+sRg
+sRg
+sRg
 bvm
 bhJ
 icp
@@ -179704,13 +179752,13 @@ jeS
 raE
 vcy
 qXw
-jeS
+tBA
 fQB
-jeS
-jeS
-jeS
-qXw
-jeS
+sRg
+sRg
+sRg
+chU
+sRg
 bvm
 bhJ
 ehT
