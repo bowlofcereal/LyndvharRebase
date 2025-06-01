@@ -51,13 +51,13 @@ var/psydon_ascend = psydon_pool[7]
 
 //ascension artefact
 	var/psydon_ascend
-*/
+
 	var/static/list/possible_weapons = list(
 		/obj/item/rogueweapon/sword/cutlass,
 		/obj/item/rogueweapon/sword/decorated,
 		/obj/item/rogueweapon/sword/sabre/dec,
 	)
-
+*/
 /datum/antagonist/ascendant/on_gain()
 	. = ..()
 
