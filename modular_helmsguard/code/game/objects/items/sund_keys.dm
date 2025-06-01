@@ -285,6 +285,69 @@
 	icon_state = "brownkey"
 	lockid = "sund_innroom7"
 
+
+// Town Houses
+
+/obj/item/roguekey/sund/sund_house1
+	name = "house I key"
+	desc = "This homely key is engraved with the numeral 'I'."
+	icon_state = "greenkey"
+	lockid = "sund_house1"
+
+/obj/item/roguekey/sund/sund_house2
+	name = "house II key"
+	desc = "This homely key is engraved with the numeral 'II'."
+	icon_state = "greenkey"
+	lockid = "sund_house2"
+
+/obj/item/roguekey/sund/sund_house3
+	name = "house III key"
+	desc = "This homely key is engraved with the numeral 'III'."
+	icon_state = "greenkey"
+	lockid = "sund_house3"
+
+/obj/item/roguekey/sund/sund_house4
+	name = "house IV key"
+	desc = "This homely key is engraved with the numeral 'IV'."
+	icon_state = "greenkey"
+	lockid = "sund_house4"
+
+/obj/item/roguekey/sund/sund_house5
+	name = "house V key"
+	desc = "This homely key is engraved with the numeral 'V'."
+	icon_state = "greenkey"
+	lockid = "sund_house5"
+
+/obj/item/roguekey/sund/sund_house6
+	name = "house VI key"
+	desc = "This homely key is engraved with the numeral 'VI'."
+	icon_state = "greenkey"
+	lockid = "sund_house6"
+
+/obj/item/roguekey/sund/sund_house7
+	name = "house VII key"
+	desc = "This homely key is engraved with the numeral 'VII'."
+	icon_state = "greenkey"
+	lockid = "sund_house7"
+
+/obj/item/roguekey/sund/sund_house8
+	name = "house VIII key"
+	desc = "This homely key is engraved with the numeral 'VIII'."
+	icon_state = "greenkey"
+	lockid = "sund_house8"
+
+/obj/item/roguekey/sund/sund_house9
+	name = "house IX key"
+	desc = "This homely key is engraved with the numeral 'IX'."
+	icon_state = "greenkey"
+	lockid = "sund_house9"
+
+/obj/item/roguekey/sund/sund_house8
+	name = "house X key"
+	desc = "This homely key is engraved with the numeral 'X'."
+	icon_state = "greenkey"
+	lockid = "sund_house10"
+
 // Farms and other tenancies.
 
 /obj/item/roguekey/sund/sund_westfarm
