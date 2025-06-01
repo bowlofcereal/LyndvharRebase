@@ -158,7 +158,7 @@
 						pick_vampires()
 			if(3)
 				if(prob(30))
-					pick_maniac()
+					pick_ascendent()
 
 	return TRUE
 
@@ -233,7 +233,7 @@
 		GLOB.pre_setup_antags |= antag
 	restricted_jobs = list()
 
-/datum/game_mode/chaosmode/proc/pick_maniac()
+/datum/game_mode/chaosmode/proc/pick_ascendent()
 	restricted_jobs = list("King",
 	"Queen",
 	"Prisoner",
@@ -261,7 +261,7 @@
 			return
 		allantags -= villain
 		pre_villains += villain
-		villain.special_role = "maniac"
+		villain.special_role = "ascendent"
 		villain.restricted_roles = restricted_jobs.Copy()
 		testing("[key_name(villain)] has been selected as the [villain.special_role]")
 		log_game("[key_name(villain)] has been selected as the [villain.special_role]")
@@ -327,7 +327,7 @@
 	set waitfor = FALSE
 ///////////////// VILLAINS
 	for(var/datum/mind/traitor in pre_villains)
-		var/datum/antagonist/new_antag = new /datum/antagonist/maniac()
+		var/datum/antagonist/new_antag = new /datum/antagonist/ascendent()
 		addtimer(CALLBACK(traitor, TYPE_PROC_REF(/datum/mind, add_antag_datum), new_antag), rand(10,100))
 		GLOB.pre_setup_antags -= traitor
 		villains += traitor
@@ -371,15 +371,15 @@
 	var/num_villains = round((num_players() * 0.30)+1, 1)
 	if((villains.len + pre_villains.len) >= num_villains) //Upper cap for number of latejoin antagonists
 		return
-	if(ROLE_MANIAC in character.client.prefs.be_special)
-		if(!is_banned_from(character.ckey, list(ROLE_MANIAC)) && !QDELETED(character))
+	if(ROLE_ASCENDANT in character.client.prefs.be_special)
+		if(!is_banned_from(character.ckey, list(ROLE_ASCENDANT)) && !QDELETED(character))
 			if(age_check(character.client))
 				if(!(character.job in restricted_jobs))
 					if(prob(66))
 						add_latejoin_villain(character.mind)
 
 /datum/game_mode/chaosmode/proc/add_latejoin_villain(datum/mind/character)
-	var/datum/antagonist/maniac/new_antag = new /datum/antagonist/maniac()
+	var/datum/antagonist/ascendent/new_antag = new /datum/antagonist/ascendent()
 	character.add_antag_datum(new_antag)
 
 /datum/game_mode/chaosmode/proc/vampire_werewolf()

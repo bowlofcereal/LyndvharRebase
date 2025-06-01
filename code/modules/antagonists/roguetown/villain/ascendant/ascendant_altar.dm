@@ -1,20 +1,31 @@
 GLOBAL_LIST_INIT(psydon_pool, list(
 	/obj/item/roguegem/yellow,
-	/obj/item/organ/eyes,
-	/obj/item/roguegem/blue,
-	/obj/item/clothing/neck/roguetown/psicross/silver,
 	/obj/item/organ/heart,
-	/obj/item/rogueweapon/sword/long/martyr,
+	/obj/item/clothing/neck/roguetown/psicross/silver,
+	/obj/item/rogueweapon/sword/long/judgement,
+	/obj/item/roguegem/ruby,
+	/obj/item/clothing/cloak/martyr,
+	/obj/item/roguegem/blue,
 	/obj/item/clothing/ring/active/nomag
 ))
 
 //doing it this way came to me in a dream. find out which items ASCENDANT will be getting today
 GLOBAL_LIST_INIT(capstone_pool, list(
-	/obj/item/rogueore/coal, //= "minecraft item",
 	/obj/item/ingot/bronze,
-	/obj/item/ingot/silverblessed
+	/obj/item/ingot/silver,
+	/obj/item/flashlight/flare/torch/lantern/psycenser
 ))
 
+/datum/outfit/ascendant
+	head = /obj/item/clothing/head/roguetown/roguehood/psydon
+	shirt = /obj/item/clothing/suit/roguetown/shirt/rags
+	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
+	beltr = /obj/item/rogueweapon/sword/long/judgement/ascendant
+	beltl = /obj/item/flashlight/flare/torch/lantern/prelit
+
+/datum/outfit/ascendant_level_two
+	r_hand = /obj/item/rogueweapon/sword/long/judgement/ascendant
+	l_hand = /obj/item/storage/belt/rogue/leather/plaquesilver
 
 /datum/crafting_recipe/roguetown/structure/ascendant
 	name = "ascendant's altar"
@@ -128,7 +139,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	ascend(user)
 
 // This proc sleeps. Call it at your own peril.
-/obj/structure/ascendant_altar/proc/ascend(mob/living/user)
+/obj/structure/ascendant_altar/proc/ascend(mob/living/carbon/human/user)
 	set waitfor = FALSE
 	ascend_stage++
 
@@ -144,7 +155,6 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 		if(1)
 			ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 			to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. A corpse. We are living on a corpse. And this deadite must be dealt with the same as the rest. My pace stiffens."))
-			user.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/churn)
 			addomen(ASCEND_FIRST)
 			priority_announce("The leylines begin to tremble in unnatural perversion - MAJOR ARCANA: THE FOOL, UPRIGHT.", "THE DREAMER", 'sound/villain/dreamer_warning.ogg')
 		if(2)
@@ -155,7 +165,8 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			to_chat(user, span_userdanger("GOD IS COMING."))
 			sleep(10)
 			to_chat(user, span_userdanger("GODISCOMINGGODISCOMING"))
-			new /obj/item/rogueweapon/sword/long/judgement/ascendant
+			to_chat(user, span_userdanger("You pull forth the sword and it's scabbard from the stone."))
+			user.equipOutfit(/datum/outfit/ascendant_level_two)
 			addomen(ASCEND_WAKENING)
 			ADD_TRAIT(user, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(user, TRAIT_ANTIMAGIC, TRAIT_GENERIC)
@@ -190,6 +201,8 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 //all goes dark. tp them over. give them their stats.
 			user.emote("agony", forced = TRUE)
 			user.SetSleeping(10 SECONDS)
+			user.delete_equipment()
+			user.equipOutfit(/datum/outfit/ascendant)
 			to_chat(user, span_reallybig("THE WORLD GOES DARK!"))
 			var/turf/location = get_spawn_turf_for_job("Pilgrim")
 			user.forceMove(location)
@@ -202,6 +215,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.STAEND += 10
 			user.STASPD += 10
 			user.STALUC += 6
+
 
 			heavensaysdanger() //Roger, our deal is honored; you will be rewarded in heaven.
 			addomen(ASCEND_ASCENDANT)
