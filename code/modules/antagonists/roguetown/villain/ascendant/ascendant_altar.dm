@@ -12,7 +12,7 @@ GLOBAL_LIST_INIT(psydon_pool, list(
 GLOBAL_LIST_INIT(capstone_pool, list(
 	/obj/item/rogueore/coal, //= "minecraft item",
 	/obj/item/ingot/bronze,
-	/obj/item/ingot/silver
+	/obj/item/ingot/silverblessed
 ))
 
 
