@@ -1580,6 +1580,12 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap)
+"azj" = (
+/obj/structure/bed/rogue/inn/hay,
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church/basement{
+	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
+	})
 "azn" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/blocks,
@@ -3241,7 +3247,7 @@
 /area/rogue/outdoors/mountains/decap)
 "bbL" = (
 /obj/machinery/light/rogue/torchholder/c,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church)
 "bbM" = (
 /obj/structure/fluff/walldeco/customflag,
@@ -3342,15 +3348,11 @@
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/under/cavewet/bogcaves/sunkencity)
 "bdn" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
-/turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church)
 "bds" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -3897,8 +3899,8 @@
 	pixel_y = 29
 	},
 /obj/structure/bed/rogue/inn/hay,
-/turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "bnu" = (
 /obj/structure/bed/rogue/inn/double{
 	dir = 1
@@ -6666,7 +6668,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 10
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -8572,15 +8574,6 @@
 /obj/item/rogueweapon/whip,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
-"cSA" = (
-/obj/structure/flora/roguegrass,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/roguewindow/stained/silver,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/town)
 "cSE" = (
 /obj/item/clothing/head/roguetown/helmet/blacksteel/bucket,
 /obj/structure/closet/crate/chest/gold{
@@ -10574,7 +10567,7 @@
 /obj/structure/mineral_door/wood/donjon/stone{
 	name = "Medical Wing"
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church)
 "dEw" = (
 /obj/structure/table/wood{
@@ -10698,6 +10691,13 @@
 /obj/structure/roguerock,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdark)
+"dGy" = (
+/obj/effect/decal/cobbleedge{
+	dir = 8;
+	pixel_y = 1
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/church)
 "dGI" = (
 /obj/structure/mineral_door/wood/window,
 /turf/open/floor/rogue/woodturned,
@@ -10885,7 +10885,7 @@
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_x = -32
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -12555,17 +12555,13 @@
 	dir = 8;
 	pixel_y = 1
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/effect/decal/cobbleedge{
 	dir = 8;
 	pixel_y = 1
 	},
 /obj/structure/roguewindow/stained/silver,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/church)
 "eng" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -12992,7 +12988,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church)
 "etH" = (
 /obj/structure/table/wood,
@@ -14563,8 +14559,8 @@
 	pixel_x = 32
 	},
 /obj/structure/bed/rogue/inn/hay,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "eUO" = (
 /obj/structure/bars,
 /turf/open/water/swamp/deep,
@@ -14948,7 +14944,7 @@
 /area/rogue/indoors/town/church)
 "fax" = (
 /obj/machinery/light/rogue/firebowl/standing/blue,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -16646,17 +16642,13 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_y = -34
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church)
 "fDa" = (
 /obj/structure/chair/wood/rogue{
@@ -21800,8 +21792,8 @@
 /area/rogue/indoors/town/garrison)
 "hmq" = (
 /obj/structure/chair/wood/rogue,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church)
 "hmt" = (
 /obj/structure/mineral_door/wood/window,
 /turf/open/floor/rogue/concrete,
@@ -24024,15 +24016,11 @@
 /area/rogue/indoors/town/church)
 "hWI" = (
 /obj/structure/bed/rogue/inn/hay,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/bed/rogue/inn/hay,
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_x = 32
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -29449,7 +29437,7 @@
 /area/rogue/outdoors/town/roofs)
 "jNx" = (
 /obj/structure/fermenting_barrel/random/water,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -31084,7 +31072,7 @@
 /obj/item/reagent_containers/glass/cup/wooden,
 /obj/item/reagent_containers/glass/cup/wooden,
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -31440,12 +31428,6 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/exposed/town/keep)
-"kvB" = (
-/obj/structure/chair/bench/church/smallbench{
-	dir = 1
-	},
-/turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/town)
 "kvH" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/pond,
@@ -32464,26 +32446,6 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield)
-"kMQ" = (
-/obj/effect/decal/cobbleedge{
-	dir = 8;
-	pixel_y = 1
-	},
-/obj/effect/decal/cobbleedge{
-	dir = 9
-	},
-/obj/effect/decal/cobbleedge{
-	icon_state = "cobbleedge-sread"
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/chair/bench/church/smallbench{
-	dir = 1
-	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
 "kMS" = (
 /obj/structure/mineral_door/wood/towner/generic,
 /turf/open/floor/rogue/ruinedwood{
@@ -34158,17 +34120,13 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_y = 29
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -34645,13 +34603,9 @@
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/mountains/decap)
 "lxe" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church)
 "lxq" = (
 /obj/structure/mineral_door/wood/towner/generic/two_keys,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -35863,7 +35817,7 @@
 	dir = 8
 	},
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -39093,14 +39047,10 @@
 /obj/machinery/light/rogue/wallfire/candle/blue{
 	pixel_y = -32
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/machinery/light/rogue/wallfire/candle/blue{
 	pixel_y = -32
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -40643,7 +40593,7 @@
 	icon_state = "tablewood1"
 	},
 /obj/machinery/light/rogue/wallfire/candle/blue,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -41475,14 +41425,6 @@
 /obj/item/roguegear,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
-"nMS" = (
-/obj/machinery/light/rogue/torchholder/l,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town)
 "nMT" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/ruinedwood/herringbone,
@@ -41907,13 +41849,9 @@
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors)
 "nUs" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/fluff/walldeco/psybanner,
 /turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/town)
+/area/rogue/indoors/town/church)
 "nUv" = (
 /obj/structure/stairs{
 	dir = 4
@@ -42235,7 +42173,7 @@
 /area/rogue/indoors/shelter/mountains)
 "oan" = (
 /obj/structure/roguemachine/scomm/r,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -42972,14 +42910,6 @@
 /obj/structure/flora/roguetree/burnt,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods)
-"opo" = (
-/obj/structure/fluff/walldeco/psybanner{
-	pixel_y = 29
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/indoors/town/church/basement{
-	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
-	})
 "opp" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/floor/rogue/dirt,
@@ -45975,7 +45905,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -46237,7 +46167,7 @@
 /area/rogue/indoors/town/garrison)
 "psO" = (
 /obj/structure/bed/rogue/inn/hay,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -48094,14 +48024,6 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/under/underdark)
 "pVC" = (
-/obj/effect/decal/cobbleedge{
-	dir = 8;
-	pixel_y = 1
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/table/wood{
 	dir = 1;
 	icon_state = "longtable"
@@ -48112,8 +48034,8 @@
 	},
 /obj/item/paper,
 /obj/item/natural/feather,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "pVF" = (
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/carpet/red,
@@ -48146,7 +48068,7 @@
 	lockid = "church";
 	name = "Crypt"
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -48679,8 +48601,8 @@
 	dir = 1;
 	icon_state = "longtable_mid"
 	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church)
 "qer" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/structure/flora/roguegrass,
@@ -48737,11 +48659,6 @@
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town)
-"qfh" = (
-/turf/open/floor/rogue/cobble,
-/area/rogue/indoors/town/church/basement{
-	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
-	})
 "qfm" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4
@@ -51728,16 +51645,12 @@
 "rfh" = (
 /obj/structure/bed/rogue/inn/hay,
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/bed/rogue/inn/hay,
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_y = 29
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -53567,19 +53480,11 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/bog)
 "rMv" = (
-/obj/effect/decal/cobbleedge{
-	dir = 8;
-	pixel_y = 1
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/mineral_door/wood/donjon/stone{
 	name = "Triage Entry"
 	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church)
 "rMI" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -54087,19 +53992,6 @@
 /obj/structure/fluff/railing/fence,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/town)
-"rVm" = (
-/obj/effect/decal/cobbleedge{
-	icon_state = "cobbleedge-sread"
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/chair/bench/church/smallbench{
-	dir = 1
-	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
 "rVw" = (
 /obj/structure/stairs{
 	dir = 1
@@ -54353,13 +54245,9 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield)
 "rZP" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/bed/rogue/inn/hay,
-/turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "rZU" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/rogue/wood,
@@ -54677,20 +54565,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/mountains/decap/stepbelow)
-"sgC" = (
-/obj/effect/decal/cobbleedge{
-	dir = 8;
-	pixel_y = 1
-	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/fluff/walldeco/psybanner{
-	pixel_x = 32
-	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
 "sgE" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -56091,10 +55965,6 @@
 /mob/living/carbon/human/species/skeleton/npc/bogguard,
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/mountains)
-"sBb" = (
-/obj/structure/roguewindow/stained/silver,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/town)
 "sBc" = (
 /obj/item/natural/rock,
 /turf/open/floor/rogue/naturalstone,
@@ -56424,7 +56294,7 @@
 /obj/item/needle/thorn,
 /obj/item/needle/thorn,
 /obj/item/needle/thorn,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -56512,14 +56382,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/shelter/mountains/decap)
 "sKA" = (
-/obj/structure/flora/roguegrass,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/fluff/walldeco/psybanner,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town)
+/turf/closed/wall/mineral/rogue/decostone,
+/area/rogue/indoors/town/church)
 "sKC" = (
 /obj/item/reagent_containers/powder/moondust,
 /turf/open/floor/rogue/cobble,
@@ -56604,7 +56469,7 @@
 "sLG" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/roguemachine/scomm,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -58686,16 +58551,6 @@
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/garrison)
-"tuX" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/roguewindow/stained/silver,
-/turf/closed/wall/mineral/rogue/decostone/long{
-	dir = 1
-	},
-/area/rogue/indoors/town/church)
 "tuZ" = (
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/rogue/tile,
@@ -60705,7 +60560,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church)
 "uaU" = (
 /obj/structure/flora/roguetree,
@@ -61773,13 +61628,9 @@
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap)
 "usC" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/roguewindow/stained/silver,
-/turf/open/floor/rogue/grassyel,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/church)
 "usE" = (
 /obj/structure/table/wood{
 	dir = 10;
@@ -61859,14 +61710,6 @@
 /obj/effect/landmark/start/servant,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/manor)
-"utJ" = (
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/roguewindow/stained/silver,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/town)
 "utP" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -61986,17 +61829,13 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_y = -34
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church)
 "uwH" = (
 /obj/structure/bed/rogue/inn/double,
@@ -66091,10 +65930,6 @@
 /obj/item/needle/thorn,
 /obj/item/needle/thorn,
 /obj/item/needle/thorn,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
@@ -66119,7 +65954,7 @@
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_x = -32
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -66508,10 +66343,6 @@
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/effect/decal/cobbleedge{
 	dir = 8;
 	pixel_y = 1
@@ -66520,8 +66351,8 @@
 	icon_state = "cobbleedge-sread"
 	},
 /obj/structure/roguewindow/stained/silver,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/church)
 "vUB" = (
 /obj/structure/stairs{
 	dir = 1
@@ -67757,18 +67588,14 @@
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
 	},
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/rack/rogue,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/needle/thorn,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/town)
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "woA" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -68172,14 +67999,6 @@
 /obj/item/clothing/neck/roguetown/psicross/dendor,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter/woods)
-"wuX" = (
-/obj/structure/flora/roguegrass,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town)
 "wuZ" = (
 /obj/item/clothing/gloves/roguetown/blacksteel/plategloves,
 /obj/structure/closet/crate/chest/gold{
@@ -69670,13 +69489,6 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/outdoors/town)
-"wVZ" = (
-/obj/structure/fluff/walldeco/psybanner{
-	pixel_y = 29
-	},
-/obj/structure/bed/rogue/inn/hay,
-/turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "wWh" = (
 /obj/structure/fluff/railing/border{
@@ -71468,12 +71280,8 @@
 "xDa" = (
 /obj/structure/bed/rogue/inn/hay,
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -72908,12 +72716,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/shop)
-"ydk" = (
-/obj/structure/chair/bench/church/smallbench{
-	dir = 1
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town)
 "ydr" = (
 /turf/closed/wall/mineral/rogue/pipe{
 	icon_state = "iron_corner"
@@ -73162,14 +72964,10 @@
 /area/rogue/under/cave/licharena)
 "yhb" = (
 /obj/structure/bed/rogue/inn/hay,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
 /obj/structure/fluff/walldeco/psybanner{
 	pixel_y = -34
 	},
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
 	})
@@ -141930,10 +141728,10 @@ ogs
 ogs
 aHb
 cmS
-qfh
+llC
 pom
-qfh
-qfh
+llC
+llC
 jNx
 aHb
 ogs
@@ -142381,11 +142179,11 @@ ogs
 ogs
 ogs
 aHb
-opo
-qfh
-qfh
-qfh
-qfh
+hQs
+llC
+llC
+llC
+llC
 jNx
 aHb
 aHb
@@ -142834,10 +142632,10 @@ ogs
 ogs
 aHb
 nyw
-qfh
-qfh
+llC
+llC
 fax
-qfh
+llC
 mYT
 aHb
 edy
@@ -143285,11 +143083,11 @@ ogs
 ogs
 ogs
 aHb
+azj
+llC
 psO
-qfh
 psO
-psO
-qfh
+llC
 yhb
 aHb
 hQs
@@ -143738,11 +143536,11 @@ ogs
 ogs
 aHb
 lpM
-qfh
-qfh
-qfh
-qfh
-qfh
+llC
+llC
+llC
+llC
+llC
 mfW
 llC
 llC
@@ -144189,11 +143987,11 @@ ogs
 ogs
 ogs
 aHb
+azj
+llC
 psO
-qfh
 psO
-psO
-qfh
+llC
 yhb
 aHb
 hQs
@@ -144642,10 +144440,10 @@ ogs
 ogs
 aHb
 nyw
-qfh
-qfh
-qfh
-qfh
+llC
+llC
+llC
+llC
 mYT
 aHb
 edy
@@ -145095,9 +144893,9 @@ ogs
 aHb
 rfh
 oan
-psO
+azj
 hWI
-qfh
+ryI
 xDa
 aHb
 aHb
@@ -256292,12 +256090,12 @@ uwu
 bvm
 bnp
 rZP
-wuX
-wuX
-nMS
-wuX
-rqn
-ydk
+bfI
+bfI
+uCV
+bfI
+uCV
+dQu
 sKA
 qyR
 lAx
@@ -256741,15 +256539,15 @@ bfI
 bvm
 hiZ
 etC
-tuX
-fpx
-qyR
-qyR
-qyR
+tUr
+bfI
+gVQ
+gVQ
+gVQ
 sKA
-pWT
-njB
-kvB
+gVQ
+gVQ
+dQu
 usC
 qyR
 iju
@@ -257194,14 +256992,14 @@ bvm
 vEM
 uaR
 dEc
-fpx
-fpx
-qyR
-fpx
+gVQ
+gVQ
+gVQ
+gVQ
 bdn
-qyR
-qyR
-utP
+gVQ
+gVQ
+gVQ
 rMv
 aKo
 vxG
@@ -257646,15 +257444,15 @@ bvm
 ggA
 etC
 tUr
-fpx
-fpx
-fpx
+bfI
+gVQ
+gVQ
 hmq
 qel
 lxe
-qyR
-rVm
-utJ
+gVQ
+dQu
+usC
 sns
 hqz
 btK
@@ -258095,17 +257893,17 @@ sVb
 btM
 aMI
 bvm
-pzd
+gVQ
 fCV
 bvm
-wVZ
+bnp
 eUC
 wot
-aKo
+bfI
 pVC
-aKo
-sgC
-kMQ
+bfI
+gsE
+dQu
 nUs
 sns
 cpN
@@ -258548,17 +258346,17 @@ hpu
 qdc
 bvm
 bbL
-pzd
-bvm
+bfI
+vcy
 emV
-aKo
+dGy
 vUz
-sns
-sns
-sBb
-sns
-cSA
-sns
+nvV
+nvV
+usC
+nvV
+usC
+vcy
 sns
 cpN
 eON
