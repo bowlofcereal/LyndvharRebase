@@ -24070,6 +24070,12 @@
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/cave)
+"hYQ" = (
+/obj/structure/roguemachine/scomm{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church)
 "hYS" = (
 /obj/structure/chair/bench,
 /turf/open/floor/rogue/grassyel,
@@ -35736,6 +35742,7 @@
 /obj/structure/stairs/stone{
 	dir = 8
 	},
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
@@ -46552,11 +46559,6 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
-"pAc" = (
-/obj/structure/flora/ausbushes/sparsegrass,
-/obj/item/natural/worms,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/indoors/town/church/basement)
 "pAh" = (
 /obj/structure/table/church,
 /turf/open/floor/rogue/tile/masonic/inverted,
@@ -47966,6 +47968,16 @@
 /obj/item/soap/bath,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/manor)
+"pVT" = (
+/obj/structure/mineral_door/wood/donjon/stone{
+	locked = 1;
+	lockid = "church";
+	name = "Crypt"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town/church/basement{
+	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
+	})
 "pVW" = (
 /obj/effect/decal/remains/saiga,
 /turf/open/floor/rogue/dirt,
@@ -51689,6 +51701,10 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/beach)
+"ril" = (
+/obj/structure/roguemachine/scomm,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church)
 "riq" = (
 /obj/structure/fluff/statue/knight/r,
 /turf/open/floor/carpet/royalblack,
@@ -56152,16 +56168,14 @@
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
@@ -56332,7 +56346,6 @@
 /area/rogue/outdoors/mountains/decap/stepbelow)
 "sLG" = (
 /obj/structure/fluff/railing/border,
-/obj/machinery/light/rogue/wallfire/candle/blue/l,
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/basement{
@@ -56567,6 +56580,10 @@
 /obj/item/natural/rock,
 /turf/open/water/swamp,
 /area/rogue/under/cavewet/bogcaves/sunkencity)
+"sPr" = (
+/obj/structure/roguemachine/scomm/l,
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "sPu" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
@@ -65761,14 +65778,14 @@
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
 /obj/item/natural/cloth,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
-/obj/item/needle,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
+/obj/item/needle/thorn,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/basement{
 	first_time_text = "HOUSE OF THE TEN - MEDICAL WING"
@@ -139252,7 +139269,7 @@ bhJ
 miF
 ogs
 llO
-ylR
+uME
 fQE
 fQE
 iii
@@ -139704,8 +139721,8 @@ bhJ
 miF
 ogs
 llO
-qbx
-ved
+fQE
+fQE
 fQE
 fQE
 pWF
@@ -140156,8 +140173,8 @@ ogs
 ogs
 ogs
 llO
-pAc
-ved
+fQE
+fQE
 fQE
 kcq
 kcq
@@ -140608,7 +140625,7 @@ ogs
 ogs
 ogs
 aHb
-aHb
+pVT
 aHb
 aHb
 aHb
@@ -251800,7 +251817,7 @@ bfI
 bfI
 dGX
 bfI
-bfI
+sPr
 vcy
 vcy
 rQd
@@ -252692,7 +252709,7 @@ fpx
 vcy
 ukD
 gVQ
-gVQ
+hYQ
 vcy
 qLU
 qLU
@@ -255414,7 +255431,7 @@ vcy
 jkb
 fFg
 vcy
-gVQ
+ril
 gVQ
 bfI
 vcy
