@@ -2,9 +2,9 @@ GLOBAL_LIST_INIT(psydon_pool, list(
 	/obj/item/roguegem/yellow,
 	/obj/item/organ/heart,
 	/obj/item/clothing/neck/roguetown/psicross/silver,
-	/obj/item/rogueweapon/sword/long/judgement,
-	/obj/item/roguegem/ruby,
 	/obj/item/clothing/cloak/martyr,
+	/obj/item/roguegem/ruby,
+	/obj/item/rogueweapon/sword/long/judgement,
 	/obj/item/roguegem/blue,
 	/obj/item/clothing/ring/active/nomag
 ))
@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	/obj/item/flashlight/flare/torch/lantern/psycenser
 ))
 
-/datum/outfit/ascendant
+/datum/outfit/ascendant //you don't need armor, you have stats and skills buddy
 	head = /obj/item/clothing/head/roguetown/roguehood/psydon
 	shirt = /obj/item/clothing/suit/roguetown/shirt/rags
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
