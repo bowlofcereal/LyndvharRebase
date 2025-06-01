@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 
 /datum/outfit/ascendant //you don't need armor, you have stats and skills buddy
 	head = /obj/item/clothing/head/roguetown/roguehood/psydon
-	shirt = /obj/item/clothing/suit/roguetown/shirt/rags
+	armor = /obj/item/clothing/suit/roguetown/shirt/rags
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 	beltr = /obj/item/rogueweapon/sword/long/judgement/ascendant
 	beltl = /obj/item/flashlight/flare/torch/lantern/prelit
