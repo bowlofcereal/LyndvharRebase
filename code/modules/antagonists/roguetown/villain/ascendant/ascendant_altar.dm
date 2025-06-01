@@ -215,7 +215,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.STALUC += 6
 
 
-			heavensaysdanger() //Roger, our deal is honored; you will be rewarded in heaven.
+			heavensaysdanger() //Become the fifth ascendant! Take up the mantle of Fraggar!
 			addomen(ASCEND_ASCENDANT)
 			sleep(15 SECONDS)
 			to_chat(user, span_mind_control("i muST go O TO THE TRHORne. THE THRONE. THE THRONE. MY KINGDO M. AWAITS. PSYd ONIA IS DEAD. I MUST ASC end "))
