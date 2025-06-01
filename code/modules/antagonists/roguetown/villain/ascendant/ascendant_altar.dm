@@ -1,20 +1,18 @@
-// OH GOD IT'S SO SHITTY IM SO SORRY PLEASE PLEAS EPLEASEP ELEA
-
 GLOBAL_LIST_INIT(psydon_pool, list(
-	/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk,  //todo: items lol
-	/obj/item/clothing/suit/roguetown/armor/gambeson,
-	/obj/item/clothing/suit/roguetown/armor/leather,
-	/obj/item/reagent_containers/glass/bottle/waterskin,
-	/obj/item/natural/cloth,
-	/obj/item/natural/fur,
-	/obj/item/reagent_containers/food/snacks/grown/berries/rogue
+	/obj/item/roguegem/yellow,
+	/obj/item/organ/eyes,
+	/obj/item/roguegem/blue,
+	/obj/item/clothing/neck/roguetown/psicross/silver,
+	/obj/item/organ/heart,
+	/obj/item/rogueweapon/sword/long/martyr,
+	/obj/item/clothing/ring/active/nomag
 ))
 
 //doing it this way came to me in a dream. find out which items ASCENDANT will be getting today
 GLOBAL_LIST_INIT(capstone_pool, list(
 	/obj/item/rogueore/coal, //= "minecraft item",
-	/obj/item/rogueore/gold,
-	/obj/item/rogueore/iron
+	/obj/item/ingot/bronze,
+	/obj/item/ingot/silver
 ))
 
 
@@ -34,8 +32,8 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 
 // Altar, sacrifice the right on this to
 /obj/structure/ascendant_altar
-	icon = 'icons/roguetown/misc/structure.dmi'
-	icon_state = "alch"
+	icon = 'icons/roguetown/misc/tables.dmi'
+	icon_state = "ascendant_altar"
 	var/ascend_stage = 0 //stages - 0 is base, 1 is 1st capstone, 2 is 2nd capstone, 3 is full ascension
 	var/ascendpoints = 0 //artefact points
 
@@ -46,7 +44,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 		return
 
 	var/obj/item/next_artefact = LAZYACCESS(GLOB.psydon_pool, 1)
-	var/obj/item/next_capstone = LAZYACCESS(GLOB.psydon_pool, 1)
+	var/obj/item/next_capstone = LAZYACCESS(GLOB.capstone_pool, 1)
 	if(next_artefact)
 		. += "The next artefact I must find is \a [initial(next_artefact.name)]."
 	else
@@ -171,6 +169,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			sleep(50)
 			to_chat(user, span_userdanger("i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god."))
 			sleep(30)
+			user.overlay_fullscreen("wakeup", /atom/movable/screen/fullscreen/dreaming/waking_up)
 			to_chat(user, span_userdanger("i am god i am god i am go di am ogod I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD"))
 			user.flash_fullscreen("redflash3")
 			user.emote("agony", forced = TRUE)
@@ -195,7 +194,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			var/turf/location = get_spawn_turf_for_job("Pilgrim")
 			user.forceMove(location)
 			user.Stun(50)
-			user.cmode_music = 'sound/music/combat_ascended.ogg'
+			user.cmode_music = 'sound/music/combat_maniac2.ogg'
 			user.STASTR += 10
 			user.STAPER += 10
 			user.STAINT += 10

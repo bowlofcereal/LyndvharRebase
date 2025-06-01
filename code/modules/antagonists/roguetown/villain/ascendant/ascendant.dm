@@ -18,6 +18,7 @@
 		TRAIT_NOROGSTAM,
 		TRAIT_SCHIZO_AMBIENCE,
 		TRAIT_SHOCKIMMUNE,
+		TRAIT_MANIAC_AWOKEN, //as stated in lunatic, just gives flavortext and the trait
 	)
 
 	/// Cached old stats in case we get removed
@@ -72,6 +73,8 @@ var/psydon_ascend = psydon_pool[7]
 			var/sword_skill = dreamer.mind.get_skill_level(/datum/skill/combat/swords)
 			var/unarmed_skill = dreamer.mind.get_skill_level(/datum/skill/combat/unarmed)
 			var/wrestling_skill = dreamer.mind.get_skill_level(/datum/skill/combat/wrestling)
+			dreamer.overlay_fullscreen("dream", /atom/movable/screen/fullscreen/dreaming)
+			dreamer.mind.teach_crafting_recipe(/datum/crafting_recipe/roguetown/structure/ascendant)
 			if(sword_skill < 6)
 				owner.adjust_skillrank(/datum/skill/combat/swords, 6 - sword_skill, TRUE)
 			if(unarmed_skill < 6)
