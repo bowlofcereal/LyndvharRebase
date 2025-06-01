@@ -23,7 +23,7 @@
 			to_chat(user, span_info("The reliquary lock takes my key as it opens, I take a moment to ponder what power was delivered to us..."))
 			playsound(loc, 'sound/foley/doors/lock.ogg', 60)
 			to_chat(user,)
-			var/relics = list("Melancholic Crankbox - Antimagic", "Daybreak - Silver Whip", "Stigmata - Silver Halberd", "Apocrypha - Silver Greatsword", "Golgatha - SYON Shard Censer")
+			var/relics = list("Melancholic Crankbox - Antimagic", "Daybreak - Silver Whip", "Stigmata - Silver Halberd", "Apocrypha - Silver Greatsword")
 			var/relicchoice = input(user, "Choose your tool", "RELICS") as anything in relics
 			var/obj/choice
 			switch(relicchoice)
@@ -37,8 +37,6 @@
 				if("Apocrypha - Silver Greatsword")
 					choice = /obj/item/rogueweapon/greatsword/psygsword
 					user.mind?.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)		//Ditto.
-				if("Golgatha - SYON Shard Censer")
-					choice = /obj/item/flashlight/flare/torch/lantern/psycenser
 			to_chat(user, span_info("I have chosen the relic, may HE guide my hand."))
 			var/obj/structure/closet/crate/chest/reliquary/realchest = new /obj/structure/closet/crate/chest/reliquary(get_turf(src))
 			realchest.PopulateContents()
