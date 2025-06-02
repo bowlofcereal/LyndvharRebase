@@ -127,3 +127,8 @@
 
 /obj/item/storage/keyring/sund/sund_innrooms
 	keys = list(/obj/item/roguekey/sund/sund_innroom1, /obj/item/roguekey/sund/sund_innroom2, /obj/item/roguekey/sund/sund_innroom3, /obj/item/roguekey/sund/sund_innroom4, /obj/item/roguekey/sund/sund_innroom5, /obj/item/roguekey/sund/sund_innroom6, /obj/item/roguekey/sund/sund_innroom7, /obj/item/roguekey/sund/sund_parlor)
+
+// Townhouse Keys.
+
+/obj/item/storage/keyring/sund/sund_houses
+	keys = list(/obj/item/roguekey/sund/sund_house1, /obj/item/roguekey/sund/sund_house2, /obj/item/roguekey/sund/sund_house3, /obj/item/roguekey/sund/sund_house4, /obj/item/roguekey/sund/sund_house5, /obj/item/roguekey/sund/sund_house6, /obj/item/roguekey/sund/sund_house7, /obj/item/roguekey/sund/sund_house8, /obj/item/roguekey/sund/sund_house9, /obj/item/roguekey/sund/sund_house10)
