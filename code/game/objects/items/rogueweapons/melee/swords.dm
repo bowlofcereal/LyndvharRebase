@@ -85,6 +85,15 @@
 /datum/intent/sword/chop/falx
 	penfactor = 40
 
+/datum/intent/sword/cut/krieg
+	clickcd = 10
+
+/datum/intent/sword/thrust/krieg
+	damfactor = 0.8
+
+/datum/intent/rend/krieg
+	intdamage_factor = 0.6
+
 //sword objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/sword
@@ -1246,3 +1255,13 @@
 				"eastabove" = 1,
 				"westabove" = 0,
 				)
+
+/obj/item/rogueweapon/sword/long/kriegmesser
+	name = "kriegmesser"
+	desc = "A large two-handed sword with a single-edged blade, a crossguard and a knife-like hilt. \
+	It is meant to be wielded with both hands and is a popular weapon amongst Grenzelhoftian mercenaries."
+	icon = 'icons/roguetown/weapons/swords64.dmi'
+	icon_state = "kriegmesser"
+	possible_item_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/chop/falx, /datum/intent/rend/krieg, /datum/intent/sword/strike)
+	gripped_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/chop/falx, /datum/intent/rend/krieg, /datum/intent/sword/strike)
+	smeltresult = /obj/item/ingot/steel

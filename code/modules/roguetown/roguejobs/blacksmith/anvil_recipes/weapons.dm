@@ -481,6 +481,13 @@
 	created_item = /obj/item/rogueweapon/sword/long
 	craftdiff = 3
 
+/datum/anvil_recipe/weapons/steel/kriegmesser
+	name = "Kriegmesser (+1 Steel)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/rogueweapon/sword/long/kriegmesser
+	craftdiff = 3
+
 /datum/anvil_recipe/weapons/steel/battleaxe
 	name = "Battle Axe (+1 Steel)"
 	req_bar = /obj/item/ingot/steel
