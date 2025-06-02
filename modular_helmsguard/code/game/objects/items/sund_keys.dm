@@ -342,7 +342,7 @@
 	icon_state = "greenkey"
 	lockid = "sund_house9"
 
-/obj/item/roguekey/sund/sund_house8
+/obj/item/roguekey/sund/sund_house10
 	name = "house X key"
 	desc = "This homely key is engraved with the numeral 'X'."
 	icon_state = "greenkey"
