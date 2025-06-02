@@ -440,7 +440,6 @@
 	name = "shamshir"
 	desc = "A curved one-handed longsword. This type of scimitar is the quintessential armament of Ranesheni horsemen, its name derived from Sama'glos for \"Tiger's claw\"."
 	force = 24
-	wdefense = 6	//Has chop mode, so slightly less defense. Slightly.
 	wbalance = WBALANCE_SWIFT
 	icon_state = "tabi"
 	icon = 'icons/roguetown/weapons/64.dmi'
