@@ -13,6 +13,7 @@
 	var/datum/armor/armor
 	var/last_peeled_limb
 	var/peel_count = 0
+	var/peel_display_count = 0 //This is probably not the best way to track it but I'm not great at math, lads
 	var/peel_threshold = 3
 	var/obj_integrity	//defaults to max_integrity
 	var/max_integrity = 500

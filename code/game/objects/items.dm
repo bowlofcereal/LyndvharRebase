@@ -1335,9 +1335,11 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	var/coveragezone = attackzone2coveragezone(bodypart)
 	if(!(body_parts_inherent & coveragezone))
 		if(!last_peeled_limb || coveragezone == last_peeled_limb)
+			if(peel_display_count == null) // This should never happen. Alas.
+				peel_display_count = 0
 			if(divisor >= peel_threshold)
 				peel_count += divisor ? (peel_threshold / divisor ) : 1
-			else if(divisor < peel_threshold)
+			else
 				peel_count++
 			if(peel_count >= peel_threshold)
 				body_parts_covered_dynamic &= ~coveragezone
@@ -1349,13 +1351,15 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 				visible_message("<font color = '#f5f5f5'><b>[parttext ? parttext : "Coverage"]</font></b> gets peeled off of [src]!")
 				reset_peel(success = TRUE)
 			else
-				visible_message(span_info("Peel strikes [src]! <b>[ROUND_UP(peel_count)]</b>!"))
+				peel_display_count++
+				visible_message(span_info("Peel strikes [src]! <b>[peel_display_count]</b>!"))
 		else
 			last_peeled_limb = coveragezone
 			reset_peel()
 	else
 		last_peeled_limb = coveragezone
 		reset_peel()
+
 
 /obj/item/proc/repair_coverage()
 	body_parts_covered_dynamic = body_parts_covered
@@ -1365,6 +1369,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	if(peel_count > 0 && !success)
 		visible_message(span_info("Peel count lost on [src]!"))
 	peel_count = 0
+	peel_display_count = 0
 
 /obj/item/proc/attackzone2coveragezone(location)
 	switch(location)
