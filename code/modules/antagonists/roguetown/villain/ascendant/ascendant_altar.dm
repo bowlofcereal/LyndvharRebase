@@ -46,7 +46,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "ascendant_altar"
 	var/ascend_stage = 0 //stages - 0 is base, 1 is 1st capstone, 2 is 2nd capstone, 3 is full ascension
-	var/ascendpoints = 0 //artefact points
+	var/ascendpoints = 0 //artefact points, caps at 4
 
 /obj/structure/ascendant_altar/examine(mob/user)
 	. = ..()
@@ -174,7 +174,10 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.flash_fullscreen("redflash3")
 			user.emote("agony", forced = TRUE)
 			sleep(20)
-			to_chat(user, span_userdanger("THEW ORLD is not real. my BREATH IS gone. my heart barely baeats. my veins are empty."))
+			to_chat(user, span_userdanger("THEW ORLD is not real. my BREATH IS gone. my heart barely baeats."))
+			ADD_TRAIT(user, TRAIT_NOHUNGER, TRAIT_GENERIC)
+			ADD_TRAIT(user, TRAIT_NOBREATH, TRAIT_GENERIC)
+
 			sleep(50)
 			to_chat(user, span_userdanger("i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god."))
 			sleep(30)
