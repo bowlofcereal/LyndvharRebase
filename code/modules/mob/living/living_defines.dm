@@ -164,6 +164,9 @@
 	var/list/death_trackers = list()
 
 	var/rot_type = /datum/component/rot/simple
+	var/rot_time = 15 MINUTES // How long it takes for a mob to rot after death, in MINUTES. Helmsguard edit.
+	var/dust_time = 25 MINUTES // How long it takes for a mob to dust after death, in MINUTES. Helmsguard edit.
+	var/skeletonize_time = 30 MINUTES
 
 	var/list/mob_descriptors
 	var/list/custom_descriptors

@@ -72,13 +72,13 @@
 	for(var/obj/item/bodypart/B in C.bodyparts)
 		if(!B.skeletonized && B.is_organic_limb())
 			if(!B.rotted)
-				if(amount > 20 MINUTES)
+				if(amount > C.rot_time)
 					B.rotted = TRUE
 					findonerotten = TRUE
 					shouldupdate = TRUE
 					C.change_stat("constitution", -8, "rottenlimbs")
 			else
-				if(amount > 40 MINUTES)
+				if(amount > C.skeletonize_time)
 					if(!is_zombie)
 						B.skeletonize()
 						if(C.dna && C.dna.species)
@@ -87,7 +87,7 @@
 						shouldupdate = TRUE
 				else
 					findonerotten = TRUE
-		if(amount > 35 MINUTES)  // Code to delete a corpse after 35 minutes if it's not a zombie and not skeletonized. Possible failsafe.
+		if(amount > C.dust_time)  // Code to delete a corpse after 35 minutes if it's not a zombie and not skeletonized. Possible failsafe.
 			if(!is_zombie)
 				if(B.skeletonized)
 					dustme = TRUE
@@ -123,13 +123,13 @@
 	if(L.stat != DEAD)
 		qdel(src)
 		return
-	if(amount > 15 MINUTES)
+	if(amount > L.rot_time)
 		if(soundloop && soundloop.stopped)
 			soundloop.start()
 		var/turf/open/T = get_turf(L)
 		if(istype(T))
 			T.add_pollutants(/datum/pollutant/rot, 5)
-	if(amount > 25 MINUTES)
+	if(amount > L.dust_time)
 		qdel(src)
 		return L.dust(drop_items=TRUE)
 

@@ -27,6 +27,7 @@
 	var/show_flavour = TRUE
 	var/banType = ROLE_LAVALAND
 	var/ghost_usable = TRUE
+	var/rot_type = null //Rotting component type, if any. If set, the mob will rot when it dies. Helmsguard edit
 
 //ATTACK GHOST IGNORING PARENT RETURN VALUE
 /obj/effect/mob_spawn/attack_ghost(mob/user)
@@ -82,7 +83,6 @@
 		M.faction = list(faction)
 	if(death)
 		M.death(1) //Kills the new mob
-
 	M.adjustOxyLoss(oxy_damage)
 	M.adjustBruteLoss(brute_damage)
 	M.adjustFireLoss(burn_damage)
@@ -112,6 +112,8 @@
 		uses--
 	if(!permanent && !uses)
 		qdel(src)
+	if(rot_type)
+		M.LoadComponent(rot_type)
 	return M
 
 // Base version - place these on maps/templates.
@@ -162,6 +164,7 @@
 	return ..()
 
 /obj/effect/mob_spawn/human/equip(mob/living/carbon/human/H)
+	H.setDir(pick(GLOB.alldirs))
 	if(mob_species)
 		H.set_species(mob_species)
 	H.cure_husk()
