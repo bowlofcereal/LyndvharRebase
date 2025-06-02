@@ -20,11 +20,11 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	head = /obj/item/clothing/head/roguetown/roguehood/psydon
 	armor = /obj/item/clothing/suit/roguetown/shirt/rags
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/rogueweapon/sword/long/judgement/ascendant
+	beltr = /obj/item/rogueweapon/sword/long/ascendant
 	beltl = /obj/item/flashlight/flare/torch/lantern/prelit
 
 /datum/outfit/ascendant_level_two
-	r_hand = /obj/item/rogueweapon/sword/long/judgement/ascendant
+	r_hand = /obj/item/rogueweapon/sword/long/ascendant
 	l_hand = /obj/item/storage/belt/rogue/leather/plaquesilver
 
 /datum/crafting_recipe/roguetown/structure/ascendant
@@ -212,7 +212,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.STACON += 10
 			user.STAEND += 10
 			user.STASPD += 10
-			user.STALUC += 6
+			user.STALUC += 10
 
 
 			heavensaysdanger() //Become the fifth ascendant! Take up the mantle of Fraggar!

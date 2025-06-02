@@ -62,7 +62,6 @@ var/psydon_ascend = psydon_pool[7]
 	. = ..()
 
 	owner.special_role = ROLE_ASCENDANT
-	owner.special_items["Ascendant"] = pick(possible_weapons)
 	if(owner.current)
 		if(ishuman(owner.current))
 
