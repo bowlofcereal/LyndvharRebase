@@ -23,8 +23,12 @@
 	mode = AI_IDLE
 	dodgetime = 30 //they can dodge easily, but have a cooldown on it
 	flee_in_pain = TRUE
-
 	wander = FALSE
+
+	rot_type = /datum/component/rot/corpse
+	rot_time = 5 MINUTES
+	skeletonize_time = 8 MINUTES // They will skeletonize after 8 minutes, and turn to dust after 10 minutes.
+	dust_time = 10 MINUTES  
 
 /mob/living/carbon/human/species/goblin/npc/ambush
 	wander = TRUE

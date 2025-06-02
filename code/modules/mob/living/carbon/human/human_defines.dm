@@ -124,6 +124,9 @@
 	/datum/rmb_intent/weak)
 
 	rot_type = /datum/component/rot/corpse
+	rot_time = 10 MINUTES
+	dust_time = 40 MINUTES
+
 
 //	var/voice_type = null // LETHALSTONE EDIT: defines what sound pack we use. keep this null so mobs resort to their typical gender typing - preferences set this
 	var/datum/statpack/statpack = null // Lethalstone Port - statpacks for greater customization

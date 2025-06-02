@@ -2237,20 +2237,7 @@
 	bloody_icon = 'icons/effects/blood64.dmi'
 	worn_x_dimension = 32
 	worn_y_dimension = 48
-
-
-/obj/item/clothing/head/roguetown/helmet/leather/saiga/nordman
-	name = "moose hood"
-	desc = "A deceptively strong hood of hide with a pair of large heavy antlers. It is the fourth and final trial of the Shamans, To slay a Grinning moose with naught but metal claw and teeth."
-	icon_state = "nordman_shaman"
-	item_state = "nordman_shaman"
-	flags_inv = HIDEEARS|HIDEFACE
-	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x48/atgervi.dmi'
-	flags_inv = HIDEEARS
-	bloody_icon = 'icons/effects/blood64.dmi'
-	worn_x_dimension = 32
-	worn_y_dimension = 48
-
+	
 /obj/item/clothing/head/roguetown/helmet/bascinet/nordman
 	name = "owl helmet"
 	desc = "A carefully forged steel helmet in the shape of an owl's face, with added chain to cover the face and neck against many blows."

@@ -35,7 +35,7 @@
 
 /obj/structure/closet/dirthole/closed/loot/Initialize()
 	. = ..()
-	lootroll = rand(1,4)
+	lootroll = rand(1,3)
 
 /obj/structure/closet/dirthole/closed/loot
 	var/looted = FALSE
@@ -46,9 +46,11 @@
 		looted = TRUE
 		switch(lootroll)
 			if(1)
-				new /mob/living/carbon/human/species/skeleton/npc(mastert)
+				new /obj/effect/spawner/lootdrop/roguetown/corpse_spawner(mastert)
 			if(2)
 				new /obj/structure/closet/crate/chest/lootbox(mastert)
+			if(3)
+				new /mob/living/carbon/human/species/skeleton/npc/ambush(mastert)
 	..()
 
 /obj/structure/closet/dirthole/closed/loot/examine(mob/user)
@@ -309,3 +311,23 @@
 	. = ..()
 	update_abovemob()
 
+
+
+///HELMSGUARD GRAVE SPAWNER
+
+/obj/effect/spawner/grave
+	name = "grave"
+	icon = 'icons/effects/landmarks_static.dmi'
+	icon_state = "x"
+	var/tospawn = null
+
+/obj/effect/spawner/grave/Initialize(mapload)
+	..()
+	tospawn = pick(	
+	/obj/structure/closet/dirthole/closed/loot,
+	/obj/structure/closet/dirthole/grave,
+	)
+	if(prob(40))
+		new tospawn(get_turf(src))
+		new /obj/structure/gravemarker(get_turf(src))
+	return INITIALIZE_HINT_QDEL

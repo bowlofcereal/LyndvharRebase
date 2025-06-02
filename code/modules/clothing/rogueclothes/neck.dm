@@ -260,6 +260,7 @@
 	sellprice = 10
 	experimental_onhip = FALSE
 	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/iron
 	grid_width = 32
 	grid_height = 32
 
