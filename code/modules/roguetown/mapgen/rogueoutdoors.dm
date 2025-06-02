@@ -28,7 +28,7 @@
 							/obj/structure/closet/dirthole/closed/loot=3,
 							/obj/structure/flora/roguegrass/pyroclasticflowers = 3)
 	spawnableTurfs = list(/turf/open/floor/rogue/dirt/road=5, /turf/open/floor/rogue/grassyel=5)
-	allowed_areas = list(/area/rogue/outdoors/rtfield, /area/rogue/sund/wilderness/woods, /area/rogue/sund/wilderness/field)
+	allowed_areas = list(/area/rogue/outdoors/rtfield, /area/rogue/outdoors/sund/wilderness/woods, /area/rogue/outdoors/sund/wilderness/field)
 
 /datum/mapGeneratorModule/roguetownfield/road
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
@@ -44,7 +44,7 @@
 	excluded_turfs = list(/turf/open/floor/rogue/dirt/road)
 	spawnableTurfs = list(/turf/open/floor/rogue/grass = 15)
 	spawnableAtoms = list()
-	allowed_areas = list(/area/rogue/outdoors/rtfield, /area/rogue/sund/wilderness/woods, /area/rogue/sund/wilderness/field)
+	allowed_areas = list(/area/rogue/outdoors/rtfield, /area/rogue/outdoors/sund/wilderness/woods, /area/rogue/outdoors/sund/wilderness/field)
 
 /datum/mapGeneratorModule/roguetownfloras
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
@@ -54,7 +54,7 @@
 						/obj/structure/flora/roguetree = 20,
 						/obj/structure/flora/roguegrass/bush/random = 41,
 						/obj/effect/spawner/lootdrop/ausflora = 50,)
-	allowed_areas = list(/area/rogue/outdoors/rtfield, /area/rogue/sund/wilderness/woods, /area/rogue/sund/wilderness/field)
+	allowed_areas = list(/area/rogue/outdoors/rtfield, /area/rogue/outdoors/sund/wilderness/woods, /area/rogue/outdoors/sund/wilderness/field)
 
 /datum/mapGeneratorModule/roguetowngrass
 	clusterCheckFlags = CLUSTER_CHECK_DIFFERENT_ATOMS
@@ -66,5 +66,4 @@
 						/obj/item/natural/stone = 26,
 						/obj/item/natural/rock = 26,  
 						/obj/item/grown/log/tree/stick = 27)
-	allowed_areas = list(/area/rogue/outdoors/rtfield, /area/rogue/sund/wilderness/woods, /area/rogue/sund/wilderness/field)
-
+	allowed_areas = list(/area/rogue/outdoors/rtfield, /area/rogue/outdoors/sund/wilderness/woods, /area/rogue/outdoors/sund/wilderness/field)
