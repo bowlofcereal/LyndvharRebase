@@ -365,3 +365,189 @@
             recharge_time = 0
     else
         recharge_time = base_recharge_time
+
+/obj/effect/proc_holder/spell/invoked/pomegranate
+    name = "Amaranth Sanctuary"
+    invocation = "Eora, provide sanctuary for your beauty!"
+    desc = "Grow a cool tree."
+    sound = 'sound/magic/magnet.ogg'
+    req_items = list(/obj/item/clothing/neck/roguetown/psicross/eora)
+    devotion_cost = 1
+    recharge_time = 1 SECONDS
+    overlay_state = "bread"
+    associated_skill = /datum/skill/magic/holy
+
+/obj/effect/proc_holder/spell/invoked/pomegranate/cast(list/targets, mob/living/user)
+    . = ..()
+    var/turf/T = get_turf(targets[1])
+    if(isopenturf(T))
+        new /obj/structure/eoran_pomegranate_tree(T)
+        return TRUE
+    else
+        to_chat(user, span_warning("The targeted location is blocked. My call fails to draw a mossback."))
+        return FALSE
+
+#define SPROUT 0
+#define GROWING 1
+#define FRUITING 2
+
+/obj/structure/eoran_pomegranate_tree
+    name = "pomegranate tree"
+    desc = "A mystical tree blessed by Eora. It bears a single glowing fruit."
+    icon = 'icons/roguetown/misc/foliagetall.dmi'
+    icon_state = "t1stump"
+    anchored = TRUE
+    density = TRUE
+    max_integrity = 200
+    resistance_flags = FIRE_PROOF
+
+    // Growth tracking
+    var/growth_stage = SPROUT
+    var/growth_progress = 0
+    var/growth_threshold = 100
+
+    // Tree care system
+    var/happiness = 0
+    var/last_care_time = 0
+    var/care_cooldown = 5 MINUTES
+
+    // Fruit management
+    var/fruit = FALSE
+    var/fruit_ready = FALSE
+
+    // Aura stats
+    var/aura_range = 5
+
+/obj/structure/eoran_pomegranate_tree/Initialize(mapload)
+    . = ..()
+    update_icon()
+    START_PROCESSING(SSobj, src)
+    // Aura component will be added later
+
+/obj/structure/eoran_pomegranate_tree/process(delta_time)
+    // Always grow, but slower when fruiting
+    var/growth_rate = (growth_stage == FRUITING) ? 0.2 : 0.5
+    growth_progress = min(growth_progress + (growth_rate * delta_time), growth_threshold)
+    
+    // Happiness decay
+    if(world.time > last_care_time + care_cooldown * 2)
+        happiness = max(0, happiness - (0.2 * delta_time))
+    
+    check_growth_stage()
+
+/obj/structure/eoran_pomegranate_tree/proc/check_growth_stage()
+    switch(growth_stage)
+        if(SPROUT)
+            if(growth_progress >= 25)
+                advance_stage(GROWING)
+        if(GROWING)
+            if(growth_progress >= 75)
+                advance_stage(FRUITING)
+        if(FRUITING)
+            if(!fruit && growth_progress >= growth_threshold)
+                spawn_fruit()
+
+/obj/structure/eoran_pomegranate_tree/proc/advance_stage(new_stage)
+    growth_stage = new_stage
+    update_icon()
+    visible_message(span_notice("The [name] grows larger!"))
+    
+    if(new_stage == FRUITING)
+        spawn_fruit()
+
+/obj/structure/eoran_pomegranate_tree/proc/spawn_fruit()
+    if(fruit)  // Already has fruit
+        return
+    
+    fruit = TRUE
+    fruit_ready = FALSE
+    update_icon()
+    addtimer(CALLBACK(src, .proc/ripen_fruit), rand(10 SECONDS, 15 SECONDS))
+
+/obj/structure/eoran_pomegranate_tree/proc/ripen_fruit()
+    fruit_ready = TRUE
+    visible_message(span_notice("The fruit on [src] glows with a warm light!"))
+    update_icon()
+
+/obj/structure/eoran_pomegranate_tree/update_icon()
+    // Base icon states
+    switch(growth_stage)
+        if(SPROUT)
+            icon_state = "t1stump"
+        if(GROWING)
+            icon_state = "log1"
+        if(FRUITING)
+            if(fruit_ready)
+                icon_state = "tallbush1"
+            else if(fruit)
+                icon_state = "t10"
+            else
+                icon_state = "mush1"
+    . = ..()
+
+/obj/item/fruit_of_eora
+    name = "fruit of eora"
+    desc = "A mystical pomegranate glowing with inner light. It feels warm to the touch."
+    icon = 'icons/roguetown/items/produce.dmi'
+    icon_state = "apple"
+    /// Arils will be stored here
+    var/list/obj/item/food/eoran_aril/arils = list()
+
+/obj/item/fruit_of_eora/Initialize(mapload)
+    . = ..()
+    // Aril generation will be implemented later
+
+/datum/status_effect/pomegranate_fatigue
+    id = "pom_fatigue"
+    duration = 10 MINUTES
+    alert_type = /atom/movable/screen/alert/status_effect/pomegranate_fatigue
+
+/datum/status_effect/pomegranate_fatigue/on_apply()
+    . = ..()
+    owner.add_movespeed_modifier(MOVESPEED_ID_SANITY, update=TRUE, priority=100, override=FALSE, multiplicative_slowdown=0.5)
+
+/datum/status_effect/pomegranate_fatigue/on_remove()
+    owner.remove_movespeed_modifier(id)
+    return ..()
+
+/atom/movable/screen/alert/status_effect/pomegranate_fatigue
+    name = "Divine Fatigue"
+    desc = "The sacred energy of the pomegranate leaves you weakened."
+
+/obj/structure/eoran_pomegranate_tree/attack_hand(mob/living/user)
+    if(!fruit_ready || !fruit)
+        return ..()
+    
+    if(!can_pick_fruit(user))
+        return
+    
+    user.visible_message(
+        span_notice("[user] carefully picks the fruit."),
+        span_notice("You gently pick the glowing pomegranate.")
+    )
+    
+    // Transfer fruit to user
+    var/obj/item/fruit_of_eora/new_fruit = new(user.loc)
+    user.put_in_hands(new_fruit)
+    
+    // Apply picking debuff
+    user.apply_status_effect(/datum/status_effect/pomegranate_fatigue)
+    
+    // Reset tree
+    fruit = FALSE
+    fruit_ready = FALSE
+    growth_progress = 75 // Return to fruiting stage baseline
+    update_icon()
+
+// Check if user can pick fruit
+/obj/structure/eoran_pomegranate_tree/proc/can_pick_fruit(mob/living/user)
+    if(!fruit_ready)
+        to_chat(user, span_warning("The fruit isn't ripe yet!"))
+        return FALSE
+    
+    // Eoran alignment check
+    if(!(user.patron.type == /datum/patron/divine/eora))
+        to_chat(user, span_warning("The fruit vanishes as you reach for it!"))
+        return FALSE
+    
+    return TRUE
