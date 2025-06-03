@@ -405,6 +405,8 @@
     var/growth_stage = SPROUT
     var/growth_progress = 0
     var/growth_threshold = 100
+    var/time_to_mature = 10 MINUTES // Total time from sprout (0%) to fully grown (100%) through GROWING stage
+    var/time_to_grow_fruit = 5 MINUTES 
 
     // Tree care system
     var/happiness = 0
@@ -425,11 +427,26 @@
     // Aura component will be added later
 
 /obj/structure/eoran_pomegranate_tree/process(delta_time)
-    // Always grow, but slower when fruiting
-    var/growth_rate = (growth_stage == FRUITING) ? 0.2 : 0.5
-    growth_progress = min(growth_progress + (growth_rate * delta_time), growth_threshold)
+    var/delta_seconds = delta_time / 10 // Convert delta_time (ticks) to seconds Delta time is the amount of time that has passed since the last time process was called.
+
+    var/target_growth_rate_per_second = 0
+
+    if (growth_stage == FRUITING && !fruit)
+        // We need to grow from 75% to 100% in time_to_grow_fruit
+        var/progress_needed_in_fruiting = growth_threshold * 0.25
+
+        if (time_to_grow_fruit > 0)
+            target_growth_rate_per_second = progress_needed_in_fruiting / (time_to_grow_fruit / 10)
+        else
+            target_growth_rate_per_second = growth_threshold // Grow instantly if time is 0
+    else
+        if (time_to_mature > 0)
+            target_growth_rate_per_second = growth_threshold / (time_to_mature / 10)
+        else
+            target_growth_rate_per_second = growth_threshold // Grow instantly if time is 0
+
+    growth_progress = min(growth_progress + (target_growth_rate_per_second * delta_seconds), growth_threshold)
     
-    // Happiness decay
     if(world.time > last_care_time + care_cooldown * 2)
         happiness = max(0, happiness - (0.2 * delta_time))
     
@@ -499,7 +516,7 @@
 
 /datum/status_effect/pomegranate_fatigue
     id = "pom_fatigue"
-    duration = 10 MINUTES
+    duration = 10 SECONDS
     alert_type = /atom/movable/screen/alert/status_effect/pomegranate_fatigue
 
 /datum/status_effect/pomegranate_fatigue/on_apply()
