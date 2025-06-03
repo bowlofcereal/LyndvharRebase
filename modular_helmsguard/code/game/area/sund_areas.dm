@@ -581,9 +581,9 @@
 	converted_type = /area/rogue/indoors/shelter/woods
 
 /area/rogue/outdoors/sund/wilderness/woods
-	name = "Sundmark Forest"
+	name = "Asenwald Forest"
 	location_name = "the forests of Sundmark"
-	first_time_text = "The Asenwald"
+	first_time_text = "The Asenwald Forest"
 	icon_state = "wilderness_woods"
 	ambientsounds = AMB_FORESTDAY
 	ambientnight = AMB_FORESTNIGHT
