@@ -255,19 +255,6 @@
 	thrown_bclass = BCLASS_CUT
 	anvilrepair = /datum/skill/craft/weaponsmithing
 
-	/obj/item/rogueweapon/bclaw/attackby(obj/item/attackby_item, mob/user, params)
-		// Shield banging but for CLAWS, lets you drag em together to make spooky noise.
-		if(src = user.get_inactive_held_item())
-			if(istype(attackby_item, /obj/item/rogueweapon))
-				if(!COOLDOWN_FINISHED(src, shield_bang))
-					return
-				user.visible_message(span_danger("[user] grinds [src] with the [attackby_item]!"))
-				playsound(user.loc, 'sound/foley/peeled_coverage.ogg', 50, TRUE)
-				COOLDOWN_START(src, shield_bang, SHIELD_BANG_COOLDOWN)
-				return
-
-	return ..()
-
 /datum/intent/katar
 	clickcd = 8
 
