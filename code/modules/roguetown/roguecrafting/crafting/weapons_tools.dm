@@ -445,3 +445,13 @@
 		/obj/item/grown/log/tree/stick = 2,
 		)
 	craftdiff = 2
+
+/datum/crafting_recipe/roguetown/survival/peasantry/boneclaw
+	name = "bone claw"
+	result = /obj/item/rogueweapon/bclaw
+	reqs = list(
+		/obj/item/natural/bone = 4,
+		/obj/item/grown/log/tree/stick = 2
+		/obj/item/natural/fibers = 5,
+		)
+	craftdiff = 3

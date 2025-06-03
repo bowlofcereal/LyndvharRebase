@@ -230,6 +230,31 @@
 	anvilrepair = /datum/skill/craft/weaponsmithing
 	smeltresult = /obj/item/ingot/steel
 
+/obj/item/rogueweapon/bclaw
+	slot_flags = ITEM_SLOT_HIP
+	force = 14 //slightly less then katar
+	possible_item_intents = list(/datum/intent/rend, /datum/intent/katar/cut, /datum/intent/katar/thrust) //Rend is super underused and I think it would be fitting for claws.
+	name = "bone claw"
+	desc = "A vicious set of claws with a leather handle, Common among unarmed fighters of The Northern Empty and Gronn."
+	icon_state = "bclaw"
+	icon = 'icons/roguetown/weapons/32.dmi'
+	lefthand_file = 'icons/mob/inhands/weapons/rogueclaw_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/weapons/rogueclaw_righthand.dmi'
+	gripsprite = FALSE
+	wlength = WLENGTH_SHORT
+	w_class = WEIGHT_CLASS_SMALL
+	parrysound = list('sound/combat/parry/bladed/bladedsmall (1).ogg','sound/combat/parry/bladed/bladedsmall (2).ogg','sound/combat/parry/bladed/bladedsmall (3).ogg')
+	max_blade_int = 100 //bones dull pretty quickly
+	max_integrity = 200 //bones are very durable
+	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
+	associated_skill = /datum/skill/combat/unarmed
+	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
+	throwforce = 12
+	wdefense = 4
+	wbalance = WBALANCE_SWIFT
+	thrown_bclass = BCLASS_CUT
+	anvilrepair = /datum/skill/craft/weaponsmithing
+
 /datum/intent/katar
 	clickcd = 8
 
