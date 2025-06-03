@@ -10,7 +10,6 @@
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
 		return TRUE
-	to_chat(follower, span_danger("I must be nearby a Pantheon Cross or within the church for my prayers to reach the gods..."))
 	return FALSE
 
 /datum/patron/divine/astrata
@@ -71,20 +70,6 @@
 		"I ANSWER THE CALL OF THE WILD!",
 	)
 	storyteller = /datum/storyteller/dendor
-
-//Dendorite special prayer code.
-/datum/patron/divine/dendor/can_pray(mob/living/follower)
-	// Allows prayer in the druid tower + houses in the forest
-	if(istype(get_area(follower), /area/rogue/indoors/shelter/woods))
-		return TRUE
-	// Allows prayer in outdoors wilderness, such as bog
-	if(istype(get_area(follower), /area/rogue/outdoors/rtfield))
-		return TRUE
-	// Fallback of being allowed to be near a psycross to pray; such as in the church.
-	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
-		return TRUE
-	to_chat(follower, span_danger("I must be in Dendor's wilds or near a Panetheon Cross for Dendor to hear my prays..."))
-	return FALSE
 
 /datum/patron/divine/abyssor
 	name = "Abyssor"
@@ -233,4 +218,67 @@
 		"HER BEAUTY IS EVEN IN THIS TORMENT!",
 		"I LOVE YOU, EVEN AS YOU TRESPASS AGAINST ME!",
 	)
+
 	storyteller = /datum/storyteller/eora
+
+/////////////////////////////////
+// Does God Hear Your Prayer ? //
+/////////////////////////////////
+
+// Astrata - In daylight, church, cross, or ritual chalk.
+/datum/patron/divine/astrata/can_pray(mob/living/follower)
+	..()
+	// Allows prayer during daytime if outside.
+	if(istype(get_area(follower), /area/rogue/outdoors) && (GLOB.tod == "day" || GLOB.tod == "dawn"))
+		return TRUE
+	// Allows praying atop ritual chalk of the god.
+	for(var/obj/structure/ritualcircle/astrata in view(1, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("For Astrata to hear my prayer I must be in her daylight, within the church, or either near a psycross or above her ritual symbol.."))
+	return FALSE
+
+
+// Noc - In moonlight, church, cross, or ritual chalk
+/datum/patron/divine/noc/can_pray(mob/living/follower)
+	..()
+	// Allows prayer during daytime if outside.
+	if(istype(get_area(follower), /area/rogue/outdoors) && (GLOB.tod == "night"))
+		return TRUE
+	// Allows praying atop ritual chalk of the god.
+	for(var/obj/structure/ritualcircle/noc in view(1, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("For Noc to hear my prayer I must be in his moonlight, within the church, or either near a psycross or above his ritual symbol.."))
+	return FALSE
+
+
+// Dendor - In grove, bog, cross, or ritual chalk 
+// Yes, he is NOT calling the master cus he's unique. Whole bog is his prayer zone. Druids exist for a reason instead of in the church.
+/datum/patron/divine/dendor/can_pray(mob/living/follower)
+	// Allows prayer in the druid tower + houses in the forest
+	if(istype(get_area(follower), /area/rogue/indoors/shelter/woods))
+		return TRUE
+	// Allows prayer in outdoors wilderness, such as bog
+	if(istype(get_area(follower), /area/rogue/outdoors/rtfield))
+		return TRUE
+	// Fallback of being allowed to be near a psycross to pray; such as in the church.
+	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
+		return TRUE
+	// Allows praying atop ritual chalk of the god.
+	for(var/obj/structure/ritualcircle/dendor in view(1, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("I must be in Dendor's wilds, the Grove, near a Panetheon Cross, or above his ritual symbol for Dendor to hear my prays..."))
+	return FALSE
+
+
+// Abyssor - Near ocean, water, cross, or ritual chalk
+/datum/patron/divine/abyssor/can_pray(mob/living/follower)
+	..()
+	// Allows prayer near any body of water turf.
+	for(var/turf/open/water in view(4, get_turf(follower)))
+		return TRUE
+	// Allows praying atop ritual chalk of the god.
+	for(var/obj/structure/ritualcircle/abyssor in view(1, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("For Abyssor to hear my prayer I must pray within the church, or either near a psycross or above his ritual symbol, or at any body of water so that the tides of prayer may flow.."))
+	return FALSE
+
