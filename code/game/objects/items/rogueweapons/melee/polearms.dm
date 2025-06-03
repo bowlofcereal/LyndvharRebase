@@ -229,7 +229,7 @@
 
 
 /obj/item/rogueweapon/spear
-	force = 18
+	force = 20
 	force_wielded = 30
 	possible_item_intents = list(SPEAR_THRUST, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	gripped_intents = list(SPEAR_THRUST, SPEAR_CUT, SPEAR_BASH)
