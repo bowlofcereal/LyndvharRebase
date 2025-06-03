@@ -60,7 +60,6 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	belt = /obj/item/storage/belt/rogue/leather/black
 	backr = /obj/item/storage/backpack/rogue/satchel/black
-	backpack_contents = list(/obj/item/roguekey/church = 1, /obj/item/clothing/neck/roguetown/psicross/astrata = 1)
 
 /datum/outfit/job/roguetown/hosp_knight/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -74,6 +73,14 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	if(H.gender == MALE)
+		backpack_contents += list(/obj/item/storage/keyring/sund/sund_kchapterm = 1,
+		/obj/item/clothing/neck/roguetown/psicross/astrata = 1,
+		)
+	else
+		backpack_contents += list(/obj/item/storage/keyring/sund/sund_kchapterf = 1,
+		/obj/item/clothing/neck/roguetown/psicross/astrata = 1,
+		)
 
 
 
@@ -219,7 +226,6 @@
 	armor = armors[armorchoice]
 
 
-
 /// SCHOOL OF THE AXE
 
 
@@ -361,6 +367,3 @@
 	)
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
-
-
-
