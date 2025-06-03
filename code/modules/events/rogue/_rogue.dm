@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(badomens, list())
 		if(OMEN_ROUNDSTART)
 			used = "Tenebris dies venit."
 		if(OMEN_NOLORD)
-			used = "The Markgraf is dead! May the Sherpherd have mercy on us all."
+			used = "The Lord Castellan is dead! May the Sherpherd have mercy on us all."
 		if(OMEN_NOPRIEST)
 			used = "The High Priest is dead! May the Sherpherd have mercy on us all."
 		if(OMEN_NOBLEDEATH)
