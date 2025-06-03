@@ -9,7 +9,7 @@
 	allowed_races = RACES_NO_CONSTRUCT
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	display_order = JDO_BAILIFF
-	tutorial = "You are the leader of the city's watch, your duty is to train and manage the city's watchmen on top of enforcing the Markgraf's laws."
+	tutorial = "You are the leader of the city's watch, your duty is to train and manage the city's watchmen on top of enforcing the Markgraf's laws. You also rent or sell the city's smaller homes and use the funds to pay your men, or yourself."
 	whitelist_req = FALSE
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard) // /obj/effect/proc_holder/spell/self/convertrole/bog
@@ -39,7 +39,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	id = /obj/item/scomstone
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/storage/keyring/guard = 1, /obj/item/signal_horn = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/storage/keyring/sund/sund_bailiff = 1, /obj/item/signal_horn = 1)
 	if(H.mind)
 		
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
