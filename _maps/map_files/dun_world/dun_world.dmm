@@ -7701,8 +7701,8 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "cGL" = (
-/obj/machinery/light/rogue/wallfire/candle/floorcandle/pink,
-/turf/open/floor/rogue/grass,
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt/pink,
+/turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/rtfield/eora)
 "cGN" = (
 /obj/structure/chair/wood/rogue{
@@ -8653,6 +8653,7 @@
 /obj/structure/flora/sakura,
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/ausbushes/ppflowers,
+/obj/effect/falling_sakura,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/eora)
 "cWD" = (
@@ -9953,6 +9954,13 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/bigrat/gethsmane,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
+"dtx" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/fluff/psycross{
+	color = "#e09dda"
+	},
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/rtfield/eora)
 "dtA" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -15506,6 +15514,7 @@
 "fnp" = (
 /obj/structure/flora/sakura,
 /obj/structure/flora/ausbushes/brflowers,
+/obj/effect/falling_sakura,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/rtfield/eora)
 "fnx" = (
@@ -34429,7 +34438,7 @@
 "lGD" = (
 /obj/structure/hotspring,
 /obj/effect/lily_petal,
-/turf/open/floor/rogue/grass,
+/turf/open/water,
 /area/rogue/outdoors/rtfield/eora)
 "lGH" = (
 /obj/item/reagent_containers/glass/cup/wooden{
@@ -35003,7 +35012,6 @@
 /obj/structure/table/church{
 	icon_state = "churchtable_end"
 	},
-/obj/item/clothing/neck/roguetown/psicross/eora,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/eora)
 "lRc" = (
@@ -35634,7 +35642,7 @@
 "mdB" = (
 /obj/structure/hotspring,
 /obj/effect/lily_petal/three,
-/turf/open/floor/rogue/grass,
+/turf/open/water,
 /area/rogue/outdoors/rtfield/eora)
 "mdC" = (
 /obj/structure/roguemachine/vendor{
@@ -37248,6 +37256,7 @@
 "mHw" = (
 /obj/structure/flora/sakura,
 /obj/structure/flora/hotspring_rocks/small/four,
+/obj/effect/falling_sakura,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/eora)
 "mHy" = (
@@ -37878,7 +37887,7 @@
 /obj/structure/hotspring,
 /obj/structure/flora/rock/pile/largejungle,
 /obj/effect/lily_petal,
-/turf/open/floor/rogue/grass,
+/turf/open/water,
 /area/rogue/outdoors/rtfield/eora)
 "mTu" = (
 /turf/closed/wall/mineral/rogue/pipe,
@@ -38980,6 +38989,11 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/tile,
 /area/rogue/under/town/sewer)
+"nlk" = (
+/obj/structure/flora/roguegrass,
+/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab/cabbit,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/rtfield/eora)
 "nlt" = (
 /turf/closed/wall/mineral/rogue/roofwall/outercorner{
 	dir = 1
@@ -40558,7 +40572,7 @@
 "nNa" = (
 /obj/structure/hotspring,
 /obj/effect/lily_petal/two,
-/turf/open/floor/rogue/grass,
+/turf/open/water,
 /area/rogue/outdoors/rtfield/eora)
 "nNr" = (
 /obj/structure/table/wood{
@@ -42841,7 +42855,7 @@
 "oCV" = (
 /obj/structure/hotspring,
 /obj/structure/flora/rock/jungle,
-/turf/open/floor/rogue/grass,
+/turf/open/water,
 /area/rogue/outdoors/rtfield/eora)
 "oCY" = (
 /obj/structure/mineral_door/wood/deadbolt{
@@ -44925,6 +44939,7 @@
 /obj/structure/flora/sakura,
 /obj/structure/flora/roguegrass/herb/hypericum,
 /obj/structure/flora/roguegrass,
+/obj/effect/falling_sakura,
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/rtfield/eora)
 "pmc" = (
@@ -50878,6 +50893,7 @@
 /area/rogue/indoors/shelter)
 "rkU" = (
 /obj/structure/flora/sakura,
+/obj/effect/falling_sakura,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/rtfield/eora)
 "rkY" = (
@@ -52632,7 +52648,6 @@
 /area/rogue/outdoors/mountains)
 "rQP" = (
 /obj/structure/table/church,
-/obj/item/candle/eora,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/eora)
 "rQS" = (
@@ -54887,6 +54902,11 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/roofs/keep)
+"szZ" = (
+/obj/machinery/light/rogue/torchholder/hotspring/standing,
+/obj/structure/flora/roguegrass,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/rtfield/eora)
 "sAf" = (
 /obj/structure/closet/crate/chest,
 /turf/open/floor/rogue/tile/bath,
@@ -58024,6 +58044,10 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town)
+"tET" = (
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/pink,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/outdoors/rtfield/eora)
 "tFc" = (
 /obj/structure/fermenting_barrel/beer,
 /turf/open/floor/rogue/blocks/platform,
@@ -63449,6 +63473,7 @@
 "vut" = (
 /obj/structure/flora/sakura,
 /obj/structure/flora/ausbushes/ywflowers,
+/obj/effect/falling_sakura,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/eora)
 "vuu" = (
@@ -66008,6 +66033,13 @@
 /obj/structure/flora/roguetree/pine,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/under/cave/goblinfort)
+"wiS" = (
+/obj/structure/flora/roguegrass,
+/obj/structure/fluff/psycross{
+	color = "#e09dda"
+	},
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/rtfield/eora)
 "wjh" = (
 /obj/structure/closet/crate/chest{
 	base_icon_state = "woodchestalt";
@@ -69322,7 +69354,7 @@
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/cave/skeletoncrypt)
 "xoF" = (
-/obj/structure/fluff/psycross/crafted,
+/obj/structure/fluff/statue/femalestatue2,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield/eora)
 "xoK" = (
@@ -71592,7 +71624,7 @@
 /area/rogue/under/town/basement/keep)
 "ygf" = (
 /obj/structure/hotspring,
-/turf/open/floor/rogue/grass,
+/turf/open/water,
 /area/rogue/outdoors/rtfield/eora)
 "ygt" = (
 /mob/living/carbon/human/species/goblin/npc/sea,
@@ -482659,7 +482691,7 @@ bxz
 bxz
 scU
 dif
-dLa
+szZ
 osI
 lkD
 rQD
@@ -483110,7 +483142,7 @@ aBB
 aBB
 bxz
 uyq
-rCh
+dtx
 rQP
 cGL
 cxC
@@ -483564,7 +483596,7 @@ jWD
 rQD
 xoF
 rEV
-cxC
+tET
 cxC
 cxC
 cxC
@@ -484014,7 +484046,7 @@ aBB
 aBB
 kGU
 wiP
-ntY
+wiS
 lQW
 cGL
 cxC
@@ -484470,7 +484502,7 @@ gyl
 tYQ
 xlK
 jOp
-ntY
+nlk
 fQS
 rQD
 cxC
@@ -494880,7 +494912,7 @@ jWD
 nKE
 nKE
 nKE
-nKE
+aRu
 nKE
 cxC
 cxC
@@ -495332,7 +495364,7 @@ bxz
 qTi
 nKE
 nKE
-nKE
+aRu
 lgU
 nKE
 cxC
