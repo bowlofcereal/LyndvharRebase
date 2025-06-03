@@ -451,7 +451,7 @@
 	result = /obj/item/rogueweapon/bclaw
 	reqs = list(
 		/obj/item/natural/bone = 4,
-		/obj/item/grown/log/tree/stick = 2
+		/obj/item/grown/log/tree/stick, = 2
 		/obj/item/natural/fibers = 5,
 		)
 	craftdiff = 3
