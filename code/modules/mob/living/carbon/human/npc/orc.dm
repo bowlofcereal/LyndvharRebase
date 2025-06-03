@@ -11,7 +11,7 @@
 					 /obj/item/bodypart/r_arm, /obj/item/bodypart/r_leg, /obj/item/bodypart/l_leg)
 	faction = list("orcs")
 	ambushable = FALSE
-	rot_type = null
+
 	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
 	a_intent = INTENT_HELP
 	possible_mmb_intents = list(INTENT_STEAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE)
@@ -22,6 +22,12 @@
 	mode = AI_IDLE
 	wander = FALSE
 	cmode_music = FALSE
+
+/// ROT STUFF
+	rot_type = /datum/component/rot/corpse
+	rot_time = 5 MINUTES
+	skeletonize_time = 8 MINUTES
+	dust_time = 10 MINUTES  // From rot to dust in the span of 10 minutes.
 
 /datum/outfit/job/roguetown/orc/npc/pre_equip(mob/living/carbon/human/H) //gives some default skills and equipment for player controlled orcs
 	..()
