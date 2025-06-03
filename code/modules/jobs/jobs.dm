@@ -60,8 +60,8 @@ GLOBAL_LIST_INIT(nonhuman_positions, list(
 	ROLE_PAI))
 
 GLOBAL_LIST_INIT(noble_positions, list(
-	"Markgraf",
-	"Consort",
+	"Lord Castellan",
+	"Lord Consort",
 	"Lord Heir",
 	"Hand",
 	"Steward",
@@ -71,6 +71,7 @@ GLOBAL_LIST_INIT(courtier_positions, list(
 	"Court Physician",
 	"Jester",
 	"Keep Servant",
+	"Dungeoneer",
 ))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
@@ -100,7 +101,6 @@ GLOBAL_LIST_INIT(church_positions, list(
 GLOBAL_LIST_INIT(watch_positions, list(
 	"Bailiff",
 	"Watchman",
-	"Dungeoneer"
 ))
 
 

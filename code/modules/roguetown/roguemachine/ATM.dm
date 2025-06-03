@@ -117,7 +117,7 @@
 				return
 			var/can_anyone_know = FALSE
 			for(var/mob/living/carbon/human/HJ in GLOB.player_list)
-				if(HJ.job == "Steward" || HJ.job == "Markgraf")
+				if(HJ.job == "Steward" || HJ.job == "Lord Castellan")
 					can_anyone_know = TRUE
 			if(!can_anyone_know)
 				to_chat(user, span_info("There is no one important for the transaction to flow through."))
@@ -173,7 +173,7 @@
 	else
 		loc.visible_message(span_warning("A horrible scraping sound emanates from the Crown as it does its work..."))
 		if(!has_reported)
-			send_ooc_note("A parasite of the Freefolk is draining a coinbiter! Location: [location_tag ? location_tag : "Unknown"]", job = list("Markgraf", "Steward", "Clerk"))
+			send_ooc_note("A parasite of the Freefolk is draining a coinbiter! Location: [location_tag ? location_tag : "Unknown"]", job = list("Lord Castellan", "Steward", "Clerk"))
 			has_reported = TRUE
 		playsound(src, 'sound/misc/TheDrill.ogg', 70, TRUE)
 		spawn(100) // The time it takes to complete an interval. If you adjust this, please adjust the sound too. It's 'about' perfect at 100. Anything less It'll start overlapping.

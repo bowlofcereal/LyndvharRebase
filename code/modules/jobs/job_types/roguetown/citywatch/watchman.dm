@@ -84,6 +84,8 @@
 
 	r_hand = /obj/item/rogueweapon/eaglebeak/lucerne
 	head = /obj/item/clothing/head/roguetown/helmet/leather
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson	
+	pants = /obj/item/clothing/under/roguetown/trou
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
 	beltr = /obj/item/rogueweapon/shield/buckler
 	backr = /obj/item/gwstrap		//Maybe give a buckler? Gave wood because 40 coverage is better than 10 but dunno.
@@ -132,6 +134,8 @@
 
 	head = /obj/item/clothing/head/roguetown/helmet/skullcap
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson	
+	pants = /obj/item/clothing/under/roguetown/trou
 	beltr = /obj/item/rogueweapon/mace/cudgel
 	backr = /obj/item/rogueweapon/shield/buckler		//Maybe give a buckler? Gave wood because 40 coverage is better than 10 but dunno.
 	backl = /obj/item/storage/backpack/rogue/satchel/black
@@ -179,6 +183,8 @@
 
 	head = /obj/item/clothing/head/roguetown/roguehood/red		//To-do: Make a guard hood come in kingdom's colors.
 	armor = /obj/item/clothing/suit/roguetown/armor/leather		//So they get default-dodge expert usage.
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson	
+	pants = /obj/item/clothing/under/roguetown/trou
 	beltr = /obj/item/quiver/bolts
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	backr = /obj/item/storage/backpack/rogue/satchel/black
