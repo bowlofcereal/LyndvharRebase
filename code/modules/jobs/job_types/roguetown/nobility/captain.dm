@@ -224,6 +224,7 @@
 		"Mace & Crossbow",
 		"Spear & Shield",
 		"Sabre & Shield",
+		"Lance + Kite Shield"
 		)
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
@@ -241,6 +242,9 @@
 			backl = /obj/item/rogueweapon/shield/tower/metal
 		if("Sabre & Shield")
 			beltr = /obj/item/rogueweapon/sword/sabre
+			backl = /obj/item/rogueweapon/shield/tower/metal
+		if("Lance + Kite Shield")
+			r_hand = /obj/item/rogueweapon/spear/lance
 			backl = /obj/item/rogueweapon/shield/tower/metal
 	var/helmets = list(
 		"Pigface Bascinet" 	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface,

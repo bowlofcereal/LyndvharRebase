@@ -269,7 +269,13 @@
 	H.change_stat("intelligence", 1)
 
 	H.adjust_blindness(-3)
-	var/weapons = list("Longsword + Crossbow","Billhook + Recurve Bow","Grand Mace + Longbow", "Sabre + Recurve Bow")
+	var/weapons = list(
+		"Longsword + Crossbow",
+		"Billhook + Recurve Bow",
+		"Grand Mace + Longbow", 
+		"Sabre + Recurve Bow",
+		"Lance + Kite Shield"
+	)
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
@@ -290,6 +296,9 @@
 			r_hand = /obj/item/rogueweapon/sword/sabre
 			beltr = /obj/item/quiver/arrows
 			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+		if("Lance + Kite Shield")
+			r_hand = /obj/item/rogueweapon/spear/lance
+			backl = /obj/item/rogueweapon/shield/tower/metal
 
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 	pants = /obj/item/clothing/under/roguetown/chainlegs

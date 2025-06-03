@@ -160,6 +160,24 @@
 	damfactor = 1.3 // Adds up to be slightly stronger than an unenhanced ebeak strike.
 	chargetime = 6 // Meant to be stronger than a bash, but with a delay.
 
+/datum/intent/spear/thrust/lance
+	damfactor = 1.5 // Turns its base damage into 30 on the 2hand thrust. It keeps the spear thrust one handed.
+
+/datum/intent/lance/
+	name = "lance"
+	icon_state = "inlance"
+	attack_verb = list("lances", "runs through", "skewers")
+	animname = "stab"
+	item_d_type = "stab"
+	penfactor = BLUNT_DEFAULT_PENFACTOR // Not a mistake, to prevent it from nuking through armor.
+	chargetime = 4 SECONDS
+	damfactor = 4 // 80 damage on hit. It is gonna hurt.
+	reach = 3 // Yep! 3 tiles
+	intdamage_factor = 2 // 4 hits to break coat of plate normally.
+
+/datum/intent/lance/onehand
+	chargetime = 5 SECONDS
+
 //polearm objs ฅ^•ﻌ•^ฅ
 
 /obj/item/rogueweapon/woodstaff
@@ -1030,3 +1048,19 @@
 	force_wielded = 33 // 10% base damage increase
 	wdefense = 6 // A little bit extra
 	max_blade_int = 150 // 50% more sharpness but it barely matter lol
+
+/obj/item/rogueweapon/spear/lance
+	name = "lance"
+	desc = "A long polearm designed to be used from horseback, couched under the arm. It has a vambrace to prevent the arm sliding up \
+	the shaft on impact. "
+	icon = 'icons/roguetown/weapons/polearms64.dmi'
+	icon_state = "lance"
+	force = 15 // Its gonna sucks for 1 handed use
+	force_wielded = 20 // Lower damage because a 3 tiles thrust without full charge time still deal base damage. 
+	wdefense = 4 // 2 Lower than spear
+	max_integrity = 200
+	max_blade_int = 200 // Better sharpness
+	possible_item_intents = list(SPEAR_THRUST, /datum/intent/lance/onehand, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+	gripped_intents = list(/datum/intent/spear/thrust/lance, /datum/intent/lance, SPEAR_BASH)
+	resistance_flags = null
+	blade_dulling = DULLING_SHAFT_REINFORCED
