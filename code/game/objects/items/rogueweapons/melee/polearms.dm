@@ -1029,6 +1029,7 @@
 	wdefense = 6
 	throwforce = 12	//Not a throwing weapon. Too heavy!
 	blade_dulling = DULLING_SHAFT_REINFORCED
+	icon_angle_wielded = 50
 
 /obj/item/rogueweapon/spear/partizan/getonmobprop(tag)
 	. = ..()
