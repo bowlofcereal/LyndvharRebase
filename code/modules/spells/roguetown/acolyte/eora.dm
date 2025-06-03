@@ -420,8 +420,10 @@
     var/list/tree_offerings = list()
     var/happiness_tier = 1
 
-    // Aura stats
-    var/aura_range = 5
+    /// Range of the aura
+    var/aura_range = 7
+    /// List of mobs currently affected by our aura
+    var/list/mob/living/affected_mobs = list()
 
 /obj/structure/eoran_pomegranate_tree/proc/get_farming_skill(mob/user)
     if(!user?.mind)
@@ -575,12 +577,35 @@
     . = ..()
     update_icon()
     START_PROCESSING(SSobj, src)
-    // Aura component will be added later
 
 /obj/structure/eoran_pomegranate_tree/process(delta_time)
     var/delta_seconds = delta_time / 10 // Convert delta_time (ticks) to seconds Delta time is the amount of time that has passed since the last time process was called.
 
     var/target_growth_rate_per_second = 0
+
+    if(growth_progress >= 50)
+        var/list/current_mobs = list()
+        var/atom/A = src
+
+    // Get all mobs in range
+        var/list/mobs_in_range
+        mobs_in_range = view(aura_range, A)
+
+        for(var/mob/living/L in mobs_in_range)
+            //Unconscious people can't harm others. Nor can they observe trees. Dead people are food.
+            if(L.stat == UNCONSCIOUS)
+                continue
+            current_mobs += L
+
+            // Apply effects if new mob
+            if(!affected_mobs[L])
+                apply_effects(L)
+                affected_mobs[L] = TRUE
+
+        // Remove effects from mobs that left range
+        for(var/mob/living/L in affected_mobs - current_mobs)
+            remove_effects(L)
+            affected_mobs -= L
 
     if (growth_stage == FRUITING && !fruit)
         // We need to grow from 75% to 100% in time_to_grow_fruit
@@ -599,6 +624,12 @@
     growth_progress = min(growth_progress + (target_growth_rate_per_second * delta_seconds), growth_threshold)
 
     check_growth_stage()
+
+/obj/structure/eoran_pomegranate_tree/proc/apply_effects(mob/living/target)
+    target.apply_status_effect(/datum/status_effect/debuff/pomegranate_aura, src)
+
+/obj/structure/eoran_pomegranate_tree/proc/remove_effects(mob/living/target)
+    target.remove_status_effect(/datum/status_effect/debuff/pomegranate_aura)
 
 /obj/structure/eoran_pomegranate_tree/proc/check_growth_stage()
     switch(growth_stage)
@@ -672,7 +703,7 @@
     owner.add_movespeed_modifier(MOVESPEED_ID_SANITY, update=TRUE, priority=100, override=FALSE, multiplicative_slowdown=0.5)
 
 /datum/status_effect/pomegranate_fatigue/on_remove()
-    owner.remove_movespeed_modifier(id)
+    owner.remove_movespeed_modifier(MOVESPEED_ID_SANITY)
     return ..()
 
 /atom/movable/screen/alert/status_effect/pomegranate_fatigue
@@ -691,7 +722,6 @@
         span_notice("You gently pick the glowing pomegranate.")
     )
     
-    // Transfer fruit to user
     var/obj/item/fruit_of_eora/new_fruit = new(user.loc)
     user.put_in_hands(new_fruit)
     
@@ -717,3 +747,77 @@
         return FALSE
     
     return TRUE
+
+#define POM_FILTER "pom_aura"
+
+/datum/status_effect/debuff/pomegranate_aura
+    id = "pomegranate_aura"
+    duration = -1
+    alert_type = /atom/movable/screen/alert/status_effect/pomegranate_aura
+    var/outline_colour ="#42001f"
+    var/datum/weakref/source_ref
+
+/datum/status_effect/debuff/pomegranate_aura/on_creation(mob/living/owner, tree)
+    source_ref = WEAKREF(tree)
+    var/str_change = 0
+    var/perc_change = 0
+
+    if(owner.patron.type != /datum/patron/divine/eora)
+        str_change = -8
+        perc_change = -8
+    else
+        str_change = -6
+        perc_change = -6
+    
+    effectedstats = list(
+        "strength" = str_change,
+        "perception" = perc_change
+    )
+
+    return ..()
+
+/datum/status_effect/debuff/pomegranate_aura/on_apply()
+    . = ..()
+    var/filter = owner.get_filter(POM_FILTER)
+    if (!filter)
+        owner.add_filter(POM_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 180, "size" = 1))
+
+/datum/status_effect/debuff/pomegranate_aura/on_remove()
+    . = ..()
+    owner.remove_filter(POM_FILTER)
+
+/datum/status_effect/debuff/pomegranate_aura/tick()
+    // Check if source tree still exists
+    var/obj/structure/eoran_pomegranate_tree/tree = source_ref?.resolve()
+    if(QDELETED(tree) || !istype(tree))
+        owner.remove_status_effect(src)
+        return
+
+    // Check distance to tree. This is a sanity check given the aura SHOULD remove already, but you can never be too safe :)
+    if(get_dist(owner, tree) > tree.aura_range)
+        owner.remove_status_effect(src)
+        return
+
+    if(ishuman(owner))
+        var/mob/living/carbon/human/H = owner
+        // Ugly people might get hurt
+        if(HAS_TRAIT(H, TRAIT_UNSEEMLY) && prob(2))
+            to_chat(H, span_warning("The tree's beauty burns your eyes!"))
+            H.Dizzy(5)
+            H.blur_eyes(5)
+            H.adjustBruteLoss(10, 0)
+
+        // Beautiful people might get healed
+        else if(HAS_TRAIT(H, TRAIT_BEAUTIFUL) && prob(10))
+            to_chat(H, span_good("The tree's beauty revitalizes you!"))
+            H.apply_status_effect(/datum/status_effect/buff/healing, 1)
+
+    // There is no beauty in death. Feed my tree.
+    if(owner.stat == DEAD)
+        owner.blood_volume = max(10, owner.blood_volume - 10)
+
+/atom/movable/screen/alert/status_effect/pomegranate_aura
+    name = "Eora's Blessing"
+    desc = "You feel a sense of peace near this sacred tree."
+
+#undef POM_FILTER
