@@ -35,6 +35,9 @@
 	swingdelay = 0
 	item_d_type = "stab"
 
+/datum/intent/sword/thrust/krieg
+	damfactor = 0.9
+
 /datum/intent/sword/strike
 	name = "pommel strike"
 	icon_state = "instrike"
@@ -1263,7 +1266,7 @@
 	icon = 'icons/roguetown/weapons/swords64.dmi'
 	icon_state = "kriegmesser"
 	possible_item_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/chop/falx, /datum/intent/rend/krieg, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/chop/falx, /datum/intent/rend/krieg, /datum/intent/sword/strike)
+	gripped_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/thrust/krieg, /datum/intent/rend/krieg, /datum/intent/sword/strike)
 	alt_intents = null // Can't mordhau this
 	smeltresult = /obj/item/ingot/steel
 
