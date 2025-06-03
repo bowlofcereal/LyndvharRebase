@@ -33,6 +33,12 @@
 	if(oldstate != erect_state && owner)
 		owner.update_body_parts(TRUE)
 
+/obj/item/organ/penis/tapered
+	name = "tapered penis"
+	penis_type = PENIS_TYPE_TAPERED
+	sheath_type = SHEATH_TYPE_SLIT
+
+/*
 /obj/item/organ/penis/knotted
 	name = "knotted penis"
 	penis_type = PENIS_TYPE_KNOTTED
@@ -51,10 +57,7 @@
 	penis_type = PENIS_TYPE_TAPERED
 	sheath_type = SHEATH_TYPE_NORMAL
 
-/obj/item/organ/penis/tapered
-	name = "tapered penis"
-	penis_type = PENIS_TYPE_TAPERED
-	sheath_type = SHEATH_TYPE_SLIT
+
 
 /obj/item/organ/penis/tapered_double
 	name = "hemi tapered penis"
@@ -80,7 +83,7 @@
 	name = "tentacle penis"
 	penis_type = PENIS_TYPE_TENTACLE
 	sheath_type = SHEATH_TYPE_NONE
-
+*/
 	
 /obj/item/organ/vagina
 	name = "vagina"

@@ -61,14 +61,13 @@
 		/datum/customizer/bodypart_feature/hair/facial/humanoid/shaved_default,
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
-		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/organ/snout/lizard,
 		/datum/customizer/organ/frills/lizard,
 		/datum/customizer/organ/horns/humanoid,
 		/datum/customizer/organ/testicles/anthro,
-		/datum/customizer/organ/penis/anthro,
+		/datum/customizer/organ/penis/kobold,
 		/datum/customizer/organ/breasts/animal,
-		/datum/customizer/organ/vagina/animal,
+		/datum/customizer/organ/vagina/kobold,
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,
