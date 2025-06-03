@@ -88,7 +88,7 @@
 	icon_state = "keep"
 
 /area/rogue/indoors/sund/keep/markgrafs_chambers	// Specific subtypes for notable areas.
-	name = "Markgraf's Chambers"
+	name = "Castellan's Chambers"
 	location_name = "the keep's bedchambers"
 
 /area/rogue/indoors/sund/keep/throne_room

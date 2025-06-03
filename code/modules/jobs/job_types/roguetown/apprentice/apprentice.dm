@@ -158,6 +158,7 @@
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 		belt = /obj/item/storage/belt/rogue/leather/rope
+		beltr = /obj/item/roguekey/sund/sund_tailor
 		cloak = /obj/item/clothing/cloak/apron/tailor
 		backr = /obj/item/storage/backpack/rogue/satchel
 		backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 2,
@@ -167,6 +168,7 @@
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 		belt = /obj/item/storage/belt/rogue/leather/rope
+		beltr = /obj/item/roguekey/sund/sund_tailor
 		armor = /obj/item/clothing/cloak/apron/tailor
 		backr = /obj/item/storage/backpack/rogue/satchel
 		backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 2,
@@ -208,6 +210,7 @@
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 		belt = /obj/item/storage/belt/rogue/leather/rope
+		beltr = /obj/item/roguekey/sund/sund_apoth
 		armor = /obj/item/clothing/suit/roguetown/shirt/robe/apprentice
 		backr = /obj/item/storage/backpack/rogue/satchel
 		backpack_contents = list(/obj/item/reagent_containers/glass/bottle = 1, /obj/item/reagent_containers/glass/alchemical = 1)

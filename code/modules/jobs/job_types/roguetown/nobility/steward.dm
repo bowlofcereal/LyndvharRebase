@@ -10,7 +10,7 @@
 	allowed_races = RACES_NO_CONSTRUCT
 	allowed_sexes = list(MALE, FEMALE)
 	display_order = NOBLE_RACES_TYPES
-	tutorial = "Coin, Coin, Coin! Oh beautiful coin: You're addicted to it, and you hold the position as the Markgraf's personal treasurer of both coin and information. You know the power silver and gold has on a man's mortal soul, and you know just what lengths they'll go to in order to get even more. Keep your festering economy alive- for it is the only thing you can weigh any trust into anymore."
+	tutorial = "Coin, Coin, Coin! Oh beautiful coin: You're addicted to it, and you hold the position as the Castellan's personal treasurer of both coin and information. You know the power silver and gold has on a man's mortal soul, and you know just what lengths they'll go to in order to get even more. Keep your festering economy alive- for it is the only thing you can weigh any trust into anymore."
 	outfit = /datum/outfit/job/roguetown/steward
 	give_bank_account = 22
 	noble_income = 16
@@ -43,7 +43,7 @@
 	name = "Lord Steward"
 	title = "Lord Steward"
 	f_title = "Lady Stewardess"
-	tutorial = "You are the Markgraf's most trusted advisor, and the steward of his lands.\
+	tutorial = "You are the Castellan's most trusted advisor, and the steward of his lands.\
 				You are responsible for the management of the realm's wealth, overseeing the economy, and ensuring that everything runs smoothly. \
 				You are amongst the few literate subjects in the realm able to assess the value of every items with just a glance."
 	outfit = /datum/outfit/job/roguetown/lord_steward
@@ -102,7 +102,7 @@
 	f_title = "Burgfrau"
 	allowed_races = RACES_ALL_KINDS
 	allowed_sexes = list(MALE, FEMALE)
-	tutorial = "Sworn to defend the Markgraf’s lands, you are both warrior and steward, entrusted with the keep’s defense and the care of its arms.\
+	tutorial = "Sworn to defend the Castellan's lands, you are both warrior and steward, entrusted with the keep’s defense and the care of its arms.\
 	 As Burgmann, you wield blade and shield with skill, but your duties extend beyond the battlefield. You are the quartermaster, \
 	responsible for ensuring the keep is stocked with weapons, armor, and supplies to face whatever threat may arise. You are moderately literate but can't\
 	gauge the value of items as well as the Lord Steward."

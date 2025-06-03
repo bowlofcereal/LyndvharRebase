@@ -1,7 +1,7 @@
 /datum/job/roguetown/dungeoneer
 	title = "Dungeoneer"
 	flag = DUNGEONEER
-	department_flag = CITYWATCH
+	department_flag = COURTIERS
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
@@ -11,7 +11,7 @@
 
 	display_order = JDO_DUNGEONEER
 
-	tutorial = "Be you an instrument of sadism for the Markgraf or the guarantor of his merciful hospitality, your duties are a service paid for most handsomely. Perhaps you were promoted from the garrison down to these cells to get your brutality off the town streets where cracked skulls caused outcries, or maybe your soft-hearted lord wanted to be sure his justice was done without malice by a faithful servant. In either case, your little world is the lowest office in the Realm; from it your guests see only hell."
+	tutorial = "Be you an instrument of sadism for the Lord Castellan or the guarantor of his merciful hospitality, your duties are a service paid for most handsomely. Perhaps you were promoted from the garrison down to these cells to get your brutality off the town streets where cracked skulls caused outcries, or maybe your soft-hearted lord wanted to be sure his justice was done without malice by a faithful servant. In either case, your little world is the lowest office in the Realm; from it your guests see only hell."
 	announce_latejoin = FALSE
 	outfit = /datum/outfit/job/roguetown/dungeoneer
 	give_bank_account = 25
