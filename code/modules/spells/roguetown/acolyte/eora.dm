@@ -393,7 +393,7 @@
 
 /obj/structure/eoran_pomegranate_tree
     name = "pomegranate tree"
-    desc = "A mystical tree blessed by Eora. It bears a single glowing fruit."
+    desc = "A mystical tree blessed by Eora."
     icon = 'icons/roguetown/misc/foliagetall.dmi'
     icon_state = "t1stump"
     anchored = TRUE
@@ -405,20 +405,171 @@
     var/growth_stage = SPROUT
     var/growth_progress = 0
     var/growth_threshold = 100
-    var/time_to_mature = 10 MINUTES // Total time from sprout (0%) to fully grown (100%) through GROWING stage
-    var/time_to_grow_fruit = 5 MINUTES 
-
-    // Tree care system
-    var/happiness = 0
-    var/last_care_time = 0
-    var/care_cooldown = 5 MINUTES
-
-    // Fruit management
+    //var/time_to_mature = 10 MINUTES // Total time from sprout 0% to fully grown 100% through GROWING stage
+    //var/time_to_grow_fruit = 5 MINUTES
+    var/time_to_mature = 15 SECONDS // Total time from sprout 0% to fully grown 100% through GROWING stage
+    var/time_to_grow_fruit = 15 SECONDS
     var/fruit = FALSE
     var/fruit_ready = FALSE
 
+    // Tree care system
+    var/happiness = 0
+    var/water_happiness = 0
+    var/fertilizer_happiness = 0
+    var/prune_count = 0
+    var/list/tree_offerings = list()
+    var/happiness_tier = 1
+
     // Aura stats
     var/aura_range = 5
+
+/obj/structure/eoran_pomegranate_tree/proc/get_farming_skill(mob/user)
+    if(!user?.mind)
+        return FALSE
+    return user.mind.get_skill_level(/datum/skill/labor/farming)
+
+/obj/structure/eoran_pomegranate_tree/proc/update_happiness_tier()
+    if(happiness >= 100)
+        happiness_tier = 4
+    else if(happiness >= 75)
+        happiness_tier = 3
+    else if(happiness >= 50)
+        happiness_tier = 2
+    else
+        happiness_tier = 1
+
+/obj/structure/eoran_pomegranate_tree/attackby(obj/item/I, mob/user)
+    if(istype(I, /obj/item/rogueweapon/huntingknife/scissors))
+        if(prune_count >= 4)
+            to_chat(user, span_warning("The tree has been fully pruned already!"))
+            return TRUE
+        var/skill = get_farming_skill(user)
+        var/prune_time = 25 SECONDS - (skill * 3.5 SECONDS)
+
+        to_chat(user, span_notice("You begin pruning the tree..."))
+
+        if(do_after(user, prune_time, target = src))
+            prune_count++
+            happiness = min(happiness + 5, 100)
+            update_happiness_tier()
+            
+            to_chat(user, span_notice("You prune some branches."))
+            update_icon()
+            return TRUE
+
+    if(istype(I, /obj/item/reagent_containers))
+        var/obj/item/reagent_containers/container = I
+        if(water_happiness >= 25)
+            to_chat(user, span_warning("The tree can't absorb any more water right now!"))
+            return TRUE
+
+        var/has_water = FALSE
+        if(container.reagents.has_reagent(/datum/reagent/water, 1))
+            has_water = TRUE
+
+        if(!has_water)
+            return
+
+        var/remaining_cap = 25 - water_happiness
+        var/skill = get_farming_skill(user)
+        var/potential_gain = 5 + (skill * 4)  // 5 at skill 0, 25 at skill 5+
+        var/actual_gain = min(potential_gain, remaining_cap)
+        var/action_time = 5 SECONDS - (skill * 0.5 SECONDS)
+
+        if(do_after(user, action_time, target = src))
+            container.reagents.remove_reagent(/datum/reagent/water, 1)
+
+            water_happiness += actual_gain
+            happiness = min(happiness + actual_gain, 100)
+            update_happiness_tier()
+
+            to_chat(user, span_notice("You water the tree."))
+            update_icon()
+            return TRUE
+
+    if(istype(I, /obj/item/compost) || istype(I, /obj/item/fertilizer))
+
+        if(fertilizer_happiness >= 25)
+            to_chat(user, span_warning("The tree can't absorb any more nutrients right now!"))
+            return TRUE
+
+        var/remaining_cap = 25 - fertilizer_happiness
+        var/skill = get_farming_skill(user)
+        var/potential_gain = 5 + (skill * 4)
+        var/actual_gain = min(potential_gain, remaining_cap)
+        var/action_time = 5 SECONDS - (skill * 0.5 SECONDS)
+
+        if(do_after(user, action_time, target = src))
+            qdel(I)
+
+            fertilizer_happiness += actual_gain
+            happiness = min(happiness + actual_gain, 100)
+            update_happiness_tier()
+
+            to_chat(user, span_notice("You fertilize the tree."))
+            update_icon()
+            return TRUE
+
+    if(istype(I, /obj/item/roguegem/ruby) || istype(I, /obj/item/alch/transisdust))
+
+        if(I.type in tree_offerings)
+            to_chat(user, span_warning("This object has already been offered to the tree!"))
+            return TRUE
+
+        if(length(tree_offerings) >= 3)
+            to_chat(user, span_warning("The tree has received enough offerings for now!"))
+            return TRUE
+  
+        qdel(I)
+        tree_offerings += I.type
+        
+        happiness = min(happiness + 10, 100)
+        update_happiness_tier()
+
+        to_chat(user, span_notice("The tree accepts your offering gracefully with a flutter of its leaves."))
+        update_icon()
+        return TRUE
+    
+    return ..()
+
+/obj/structure/eoran_pomegranate_tree/examine(mob/user)
+    . = ..()
+
+    if(happiness_tier == 1)
+        . += span_warning("The tree seems neglected. Branches are wilted.")
+    else if(happiness_tier == 2)
+        . += span_info("The tree appears content and healthy.")
+    else if(happiness_tier == 3)
+        . += span_good("The tree radiates vibrant energy.")
+    else if(happiness_tier == 4)
+        . += span_good("The tree bustles with an incandescent light. You feel... perfection.")
+
+    if(water_happiness < 25)
+        . += span_info("It could use more water.")
+    else
+        . += span_info("It is fully slaked.")
+
+    if(fertilizer_happiness < 25)
+        . += span_info("The roots could use more nutrients.")
+    else
+        . += span_info("It is fully sated.")
+
+    if(prune_count < 4)
+        . += span_info("The branches look messy. Perhaps a scissor can right this mess.")
+    else
+        . += span_info("The branches are elaborately pruned.")
+
+    if(length(tree_offerings) < 3)
+        . += span_info("The tree yearns for an offering. Whispers enter your mind. A red crystal that shimmers... Something that sculpts one's form... A glittering seed...")
+
+/obj/structure/eoran_pomegranate_tree/proc/reset_care()
+    //The benefit of rare offerings are kept through harvests.
+    happiness = 0 + (10 * length(tree_offerings))
+    water_happiness = 0
+    fertilizer_happiness = 0
+    prune_count = 0
+    update_happiness_tier()
+    update_icon()
 
 /obj/structure/eoran_pomegranate_tree/Initialize(mapload)
     . = ..()
@@ -446,10 +597,7 @@
             target_growth_rate_per_second = growth_threshold // Grow instantly if time is 0
 
     growth_progress = min(growth_progress + (target_growth_rate_per_second * delta_seconds), growth_threshold)
-    
-    if(world.time > last_care_time + care_cooldown * 2)
-        happiness = max(0, happiness - (0.2 * delta_time))
-    
+
     check_growth_stage()
 
 /obj/structure/eoran_pomegranate_tree/proc/check_growth_stage()
@@ -554,6 +702,7 @@
     fruit = FALSE
     fruit_ready = FALSE
     growth_progress = 75 // Return to fruiting stage baseline
+    reset_care()
     update_icon()
 
 // Check if user can pick fruit
