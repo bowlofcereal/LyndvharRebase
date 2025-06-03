@@ -37,7 +37,7 @@
 				if(4)
 					shown_patreon_level = "Knight of the Mark"
 				if(5)
-					shown_patreon_level = "<font color='#528152'><b>Lord Castellan-in-Sundberg</b></font>"
+					shown_patreon_level = "<font color='#528152'><b>Markgraf-in-Sundberg</b></font>"
 			to_chat(src, span_info("Donator Level: [shown_patreon_level]"))
 		client.recent_changelog()
 /*

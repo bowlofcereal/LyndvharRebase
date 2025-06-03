@@ -162,7 +162,6 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 			if(SSticker.job_change_locked)
 				return
 		if(SSticker.current_state <= GAME_STATE_PREGAME)
-/* minimum flavor text and ooc notes checks
 			if(tready == PLAYER_READY_TO_PLAY)
 				if(length(client.prefs.flavortext) < MINIMUM_FLAVOR_TEXT)
 					to_chat(src, span_boldwarning("You need a minimum of [MINIMUM_FLAVOR_TEXT] characters in your flavor text in order to play."))
@@ -170,7 +169,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 				if(length(client.prefs.ooc_notes) < MINIMUM_OOC_NOTES)
 					to_chat(src, span_boldwarning("You need at least a few words in your OOC notes in order to play."))
 					return
-*/
+
 			if(ready != tready)
 				ready = tready
 				if(ready && client && client.prefs.defiant)
@@ -268,7 +267,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 		if(client && client.prefs.is_active_migrant())
 			to_chat(usr, span_boldwarning("You are in the migrant queue."))
 			return
-/* minimum flavor text and ooc notes checks
+
 		if(length(client.prefs.flavortext) < MINIMUM_FLAVOR_TEXT)
 			to_chat(usr, span_boldwarning("You need a minimum of [MINIMUM_FLAVOR_TEXT] characters in your flavor text in order to play."))
 			return
@@ -276,7 +275,7 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 		if(length(client.prefs.ooc_notes) < MINIMUM_OOC_NOTES)
 			to_chat(src, span_boldwarning("You need at least a few words in your OOC notes in order to play."))
 			return
-*/
+
 		AttemptLateSpawn(href_list["SelectedJob"])
 		return
 

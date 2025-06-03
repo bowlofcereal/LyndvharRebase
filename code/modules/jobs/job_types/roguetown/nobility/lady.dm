@@ -1,6 +1,6 @@
 /datum/job/roguetown/lady
-	title = "Lord Consort"
-	f_title = "Lady Consort"
+	title = "Consort"
+	f_title = "Markgrafin Consort"
 	flag = LADY
 	department_flag = NOBLEMEN
 	faction = "Station"
@@ -9,7 +9,7 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = NOBLE_RACES_TYPES
-	tutorial = "Picked out of your political value rather than likely any form of love, you have become the Lord Castellan's most trusted confidant--and likely friend--throughout your marriage. Your loyalty and perhaps even your love will be tested this day... for the daggers that threaten your beloved are as equally pointed at your own throat."
+	tutorial = "Picked out of your political value rather than likely any form of love, you have become the Markgraf's most trusted confidant--and likely friend--throughout your marriage. Your loyalty and perhaps even your love will be tested this day... for the daggers that threaten your beloved are as equally pointed at your own throat."
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant,
 	/obj/effect/proc_holder/spell/self/grant_nobility)
@@ -23,8 +23,8 @@
 	round_contrib_points = 3
 
 /datum/job/roguetown/exlady //just used to change the ladys title
-	title = "Lord Consort Dowager"
-	f_title = "Lady Consort Dowager"
+	title = "Markgraf Dowager"
+	f_title = "Markgrafin Dowager"
 	flag = LADY
 	department_flag = NOBLEMEN
 	faction = "Station"

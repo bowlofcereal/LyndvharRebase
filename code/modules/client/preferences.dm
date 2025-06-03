@@ -66,8 +66,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/slot_randomized					//keeps track of round-to-round randomization of the character slot, prevents overwriting
 	var/real_name						//our character's name
 	var/gender = MALE					//gender of character (well duh) (LETHALSTONE EDIT: this no longer references anything but whether the masculine or feminine model is used)
-	var/pronouns = HE_HIM				// LETHALSTONE EDIT: character's pronouns (well duh)
-	var/voice_type = VOICE_TYPE_MASC	// LETHALSTONE EDIT: the type of soundpack the mob should use
+//	var/pronouns = HE_HIM				// LETHALSTONE EDIT: character's pronouns (well duh)
+//	var/voice_type = VOICE_TYPE_MASC	// LETHALSTONE EDIT: the type of soundpack the mob should use
 	var/datum/statpack/statpack	= new /datum/statpack/wildcard/fated // LETHALSTONE EDIT: the statpack we're giving our char instead of racial bonuses
 	var/datum/virtue/virtue = new /datum/virtue/none // LETHALSTONE EDIT: the virtue we get for not picking a statpack
 	var/datum/virtue/virtuetwo = new /datum/virtue/none
@@ -335,9 +335,9 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<BR>"
 			dat += "<b>Nickname:</b> "
 			dat += "<a href='?_src_=prefs;preference=nickname;task=input'>[nickname]</a><BR>"
-			// LETHALSTONE EDIT BEGIN: add pronoun prefs
-			dat += "<b>Pronouns:</b> <a href='?_src_=prefs;preference=pronouns;task=input'>[pronouns]</a><BR>"
-			// LETHALSTONE EDIT END
+			/*// LETHALSTONE EDIT BEGIN: add pronoun prefs
+			dat += "<b>Gender:</b> <a href='?_src_=prefs;preference=pronouns;task=input'>[pronouns]</a><BR>"
+			*/// LETHALSTONE EDIT END
 
 			dat += "<BR>"
 			dat += "<b>Race:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check(user) ? "" : " (!)"]<BR>"
@@ -1600,7 +1600,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						if (!istype(statpack, /datum/statpack/wildcard/virtuous) && virtue.type != /datum/virtue/none)
 							virtue = new /datum/virtue/none
 							to_chat(user, span_info("Your virtue has been removed due to taking a stat-altering statpack.")) */
-				// LETHALSTONE EDIT: add pronouns
+/*				// LETHALSTONE EDIT: add pronouns
 				if ("pronouns")
 					var pronouns_input = input(user, "Choose your character's pronouns", "Pronouns") as null|anything in GLOB.pronouns_list
 					if(pronouns_input)
@@ -1615,7 +1615,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(voicetype_input)
 						voice_type = voicetype_input
 						to_chat(user, "<font color='red'>Your character will now vocalize with a [lowertext(voice_type)] affect.</font>")
-
+*/
 				if("faith")
 					var/list/faiths_named = list()
 					for(var/path as anything in GLOB.preference_faiths)
@@ -2557,10 +2557,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 	character.ooc_extra = ooc_extra
 	// LETHALSTONE ADDITION BEGIN: additional customizations
-
+/*
 	character.pronouns = pronouns
 	character.voice_type = voice_type
-
+*/
 	// LETHALSTONE ADDITION END
 
 	if(parent)
