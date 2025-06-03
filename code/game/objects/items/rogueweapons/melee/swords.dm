@@ -1264,6 +1264,7 @@
 	icon_state = "kriegmesser"
 	possible_item_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/chop/falx, /datum/intent/rend/krieg, /datum/intent/sword/strike)
 	gripped_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/chop/falx, /datum/intent/rend/krieg, /datum/intent/sword/strike)
+	alt_intents = null // Can't mordhau this
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/rogueweapon/sword/long/dec
