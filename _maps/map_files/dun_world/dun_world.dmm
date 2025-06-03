@@ -259,6 +259,9 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/town/roofs)
+"aer" = (
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/town/church/basement)
 "aet" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -19020,15 +19023,8 @@
 	},
 /area/rogue/indoors/town/manor)
 "gzm" = (
-/obj/structure/fluff/walldeco/painting/queen{
-	pixel_y = 32
-	},
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "longtable_mid"
-	},
-/obj/item/flashlight/flare/torch/lantern/psycenser,
-/turf/open/floor/rogue/tile,
+/obj/structure/shard_holder,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/basement)
 "gzx" = (
 /obj/machinery/light/small{
@@ -20538,7 +20534,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "gZJ" = (
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement)
 "gZK" = (
 /obj/structure/bars/passage{
@@ -20922,16 +20918,6 @@
 /obj/item/bouquet/calendula,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/shop)
-"heY" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "longtable"
-	},
-/obj/item/clothing/head/roguetown/helmet/heavy/psydonbarbute,
-/obj/item/clothing/suit/roguetown/armor/plate/half/fluted,
-/obj/item/storage/belt/rogue/leather/steel/tasset,
-/turf/open/floor/rogue/tile,
-/area/rogue/indoors/town/church/basement)
 "hfa" = (
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/church)
@@ -39424,7 +39410,7 @@
 /area/rogue/outdoors/exposed/town/keep)
 "nwT" = (
 /obj/structure/fluff/psycross,
-/turf/open/floor/rogue/tile,
+/turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/basement)
 "nwZ" = (
 /obj/structure/roguemachine/scomm,
@@ -54954,13 +54940,14 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest)
 "sJF" = (
-/obj/structure/table/wood{
-	icon_state = "longtable"
-	},
 /obj/item/clothing/head/roguetown/helmet/heavy/psydonbarbute,
 /obj/item/clothing/suit/roguetown/armor/plate/half/fluted,
 /obj/item/storage/belt/rogue/leather/steel/tasset,
-/turf/open/floor/rogue/tile,
+/obj/structure/table/wood{
+	icon_state = "tablewood1";
+	pixel_y = -4
+	},
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/town/church/basement)
 "sKe" = (
 /mob/living/simple_animal/hostile/rogue/skeleton/bow,
@@ -140844,7 +140831,7 @@ kcq
 llO
 llO
 sJF
-gZJ
+aer
 gZJ
 jII
 llO
@@ -141296,7 +141283,7 @@ kcq
 fsa
 llO
 gzm
-gZJ
+aer
 gZJ
 fQE
 llO
@@ -141747,8 +141734,8 @@ oGg
 kcq
 llO
 llO
-heY
-gZJ
+sJF
+aer
 gZJ
 fQE
 oQY

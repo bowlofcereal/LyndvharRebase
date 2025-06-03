@@ -361,7 +361,7 @@
 				return list("shrink" = 0.4,"sx" = -4,"sy" = -6,"nx" = 5,"ny" = -6,"wx" = 0,"wy" = -6,"ex" = -1,"ey" = -6,"nturn" = 100,"sturn" = 156,"wturn" = 90,"eturn" = 180,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 /obj/item/rogueweapon/sword/long/ascendant //meant to be insanely OP; solo antag wep, variant of judgement but doesn't share a type-path so it can't be fed into the altar for free traits + stats
-	name = "\"The Redentor\""
+	name = "\"The Redemptor\"" //sword name in "old psydonic (latin)", means redeemer, no change from the previous spanish name's meaning.
 	desc = "An intricately forged sword of great power. And the preacher said: \"For the Lord is my tower, and He gives me the power to tear down the works of the enemy.\""
 	force = 50
 	force_wielded = 70

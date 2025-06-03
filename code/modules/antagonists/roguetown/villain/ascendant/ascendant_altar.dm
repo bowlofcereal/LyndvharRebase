@@ -1,9 +1,9 @@
 GLOBAL_LIST_INIT(psydon_pool, list(
 	/obj/item/roguegem/yellow,
-	/obj/item/roguegem/ruby,
+/obj/item/clothing/neck/roguetown/psicross/silver,
 	/obj/item/rogueweapon/sword/long/judgement,
 	/obj/item/rogueweapon/sword/long/martyr,
-	/obj/item/clothing/neck/roguetown/psicross/silver,
+	/obj/item/roguegem/ruby,
 	/obj/item/organ/heart,
 	/obj/item/roguegem/blue,
 	/obj/item/clothing/ring/active/nomag
@@ -13,11 +13,12 @@ GLOBAL_LIST_INIT(psydon_pool, list(
 GLOBAL_LIST_INIT(capstone_pool, list(
 	/obj/item/ingot/bronze,
 	/obj/item/ingot/silver,
-	/obj/item/flashlight/flare/torch/lantern/psycenser
+	/obj/item/roguegem/cometshard
 ))
 
 /datum/outfit/ascendant //you don't need armor, you have stats and skills buddy
 	head = /obj/item/clothing/head/roguetown/roguehood/psydon
+	cloak = /obj/item/clothing/cloak/templar/psydon
 	armor = /obj/item/clothing/suit/roguetown/shirt/rags
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 	beltr = /obj/item/rogueweapon/sword/long/ascendant
@@ -152,7 +153,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	switch(ascend_stage)
 		if(1)
 			ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
-			to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. A corpse. We are living on a corpse. And this deadite must be dealt with the same as the rest. My pace stiffens."))
+			to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. PSYDON turns his blind gaze upon me, unseeing in his delirium of near-death. I WEEP for PSYDON, as HE does for me. My pace stiffens."))
 			addomen(ASCEND_FIRST)
 			priority_announce("The leylines begin to tremble in unnatural perversion - MAJOR ARCANA: THE FOOL, UPRIGHT.", "THE DREAMER", 'sound/villain/dreamer_warning.ogg')
 		if(2)
@@ -174,7 +175,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.flash_fullscreen("redflash3")
 			user.emote("agony", forced = TRUE)
 			sleep(20)
-			to_chat(user, span_userdanger("THEW ORLD is not real. my BREATH IS gone. my heart barely baeats."))
+			to_chat(user, span_userdanger("The SHARD! SYON! PSYDON. my BREATH IS gone. my heart barely baeats. My ma#&nt*le..."))
 			ADD_TRAIT(user, TRAIT_NOHUNGER, TRAIT_GENERIC)
 			ADD_TRAIT(user, TRAIT_NOBREATH, TRAIT_GENERIC)
 
@@ -218,9 +219,10 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.STALUC += 10
 
 
-			heavensaysdanger() //Become the fifth ascendant! Take up the mantle of Fraggar!
+			heavensaysdanger() //Take up the power of PSYDON's COMET, SYON. But be careful, for power corrupts.
 			addomen(ASCEND_ASCENDANT)
 			sleep(15 SECONDS)
+			to_chat(user, span_userdanger("I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON "))
 			to_chat(user, span_mind_control("i muST go O TO THE TRHORne. THE THRONE. THE THRONE. MY KINGDO M. AWAITS. PSYd ONIA IS DEAD. I MUST ASC end "))
 
 			qdel(src)
@@ -232,6 +234,11 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	to_chat(user, span_userdanger("I have collected [ascend_stage] capstones and [ascendpoints] artefacts."))
 
 /obj/structure/ascendant_altar/proc/heavensaysdanger()
-	priority_announce("THE DREAMER HAS ASCENDED - MAJOR ARCANA : T$yh3 TOW##ER, RE v3RSED", "GOD IS COMING", 'sound/villain/ascendant_intro.ogg')
+	priority_announce("THE DREAMER HAS ASCENDED - MAJOR ARCANA : T$yh3 TOW##ER, RE v3RSED", "HE WEEPS, HE IS COMING", 'sound/villain/ascendant_intro.ogg')
 	sleep(15 SECONDS)
 	to_chat(world, span_danger("The ground underneath THE THRONE shakes. The sky is opening."))
+
+/obj/structure/shard_holder/proc/divinitystolen()
+	priority_announce("THE SHARD OF SYON HAS BEEN STOLEN, WEEP, YE FAITHFUL.", "DIVINITY STOLEN", 'sound/villain/wonder.ogg')
+	sleep(15 SECONDS)
+	to_chat(world, span_danger("The ground underneath YOUR FEET shakes. SOMETHING IS AWAKENING."))

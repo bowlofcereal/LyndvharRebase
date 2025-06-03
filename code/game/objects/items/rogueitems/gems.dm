@@ -207,3 +207,9 @@
 		/datum/crafting_recipe/roguetown/survival/bpearlcross,
 		/datum/crafting_recipe/roguetown/survival/abyssoramulet
 		)
+
+/obj/item/roguegem/cometshard
+	name = "cometshard"
+	icon_state = "cometshard"
+	desc = "A shard of the COMET SYON. It is a very piece of the WEEPING GOD. PSYDON ENDURES."
+	sellprice = 999999
