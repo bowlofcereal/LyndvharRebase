@@ -125,7 +125,6 @@
 	location_name = "the Sundburg"
 	keep_area = TRUE
 	town_area = TRUE
-	first_time_text = "The Sundburg"
 	ambientsounds = AMB_TOWNDAY
 	ambientnight = AMB_TOWNNIGHT
 	spookysounds = SPOOKY_CROWS
