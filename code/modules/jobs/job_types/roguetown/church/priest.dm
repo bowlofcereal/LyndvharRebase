@@ -91,7 +91,7 @@
 	for(var/mob/living/carbon/human/HU in get_step(src, src.dir))
 		if(!HU.mind)
 			continue
-		if(HU.mind.assigned_role == "Markgraf")
+		if(HU.mind.assigned_role == "Lord Castellan")
 			continue
 		if(!HU.head)
 			continue
@@ -101,21 +101,21 @@
 		//Abdicate previous King
 		for(var/mob/living/carbon/human/HL in GLOB.human_list)
 			if(HL.mind)
-				if(HL.mind.assigned_role == "Markgraf" || HL.mind.assigned_role == "Consort")
+				if(HL.mind.assigned_role == "Lord Castellan" || HL.mind.assigned_role == "Lord Consort")
 					HL.mind.assigned_role = "Towner" //So they don't get the innate traits of the king
 			//would be better to change their title directly, but that's not possible since the title comes from the job datum
-			if(HL.job == "Markgraf")
-				HL.job = "Markgraf Emeritus"
-			if(HL.job == "Consort")
-				HL.job = "Markgraf Dowager"
+			if(HL.job == "Lord Castellan")
+				HL.job = "Lord Castellan Emeritus"
+			if(HL.job == "Lord Consort")
+				HL.job = "Lord Castellan Dowager"
 
 		//Coronate new King (or Queen)
-		HU.mind.assigned_role = "Markgraf"
-		HU.job = "Markgraf"
+		HU.mind.assigned_role = "Lord Castellan"
+		HU.job = "Lord Castellan"
 		if(should_wear_femme_clothes(HU))
-			SSticker.rulertype = "Markgrafin"
+			SSticker.rulertype = "Lord Castellanin"
 		else
-			SSticker.rulertype = "Markgraf"
+			SSticker.rulertype = "Lord Castellan"
 		SSticker.rulermob = HU
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)

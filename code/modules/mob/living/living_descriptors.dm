@@ -133,7 +133,7 @@
 	else
 		him_replace = "her"
 	// LETHALSTONE EDIT: pronoun support
-/*	if (described.pronouns)
+	if (described.pronouns)
 		switch (described.pronouns)
 			if (HE_HIM)
 				they_replace = "he"
@@ -147,12 +147,13 @@
 				they_replace = "they"
 				man_replace = "person"
 				him_replace = "them"
-			if (THEY_THEM_F)
+	/*		if (THEY_THEM_F)
 				they_replace = "they"
 				man_replace = "person"
 				him_replace = "them"
+	*/
 	// LETHALSTONE EDIT END
-*/
+
 	string = replacetext(string, "%THEY%", they_replace)
 	if(they_replace == "they")
 		string = replacetext(string, "%HAVE%", "have")

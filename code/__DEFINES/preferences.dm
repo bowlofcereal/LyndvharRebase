@@ -120,13 +120,13 @@
 #define MIN_VOICE_PITCH		0.8
 #define MAX_VOICE_PITCH		1.35
 
-/*// Pronouns (LETHALSTONE)
+// Pronouns (LETHALSTONE)
 #define HE_HIM			"he/him"
 #define SHE_HER			"she/her"
-#define THEY_THEM		"they/them (Masculine)"
-#define THEY_THEM_F		"they/them (Feminine)"
+#define THEY_THEM		"they/them"
+//#define THEY_THEM_F		"they/them (Feminine)" //streamlining it
 
-GLOBAL_LIST_INIT(pronouns_list, list(HE_HIM, SHE_HER, THEY_THEM, THEY_THEM_F))
+GLOBAL_LIST_INIT(pronouns_list, list(HE_HIM, SHE_HER, THEY_THEM))
 
 // Voice types (LETHALSTONE)
 
@@ -135,4 +135,4 @@ GLOBAL_LIST_INIT(pronouns_list, list(HE_HIM, SHE_HER, THEY_THEM, THEY_THEM_F))
 #define VOICE_TYPE_ANDR	"Androgynous"
 
 GLOBAL_LIST_INIT(voice_types_list, list(VOICE_TYPE_MASC, VOICE_TYPE_FEM, VOICE_TYPE_ANDR))
-*/
+

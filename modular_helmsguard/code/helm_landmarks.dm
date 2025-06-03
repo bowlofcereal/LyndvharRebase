@@ -12,8 +12,8 @@
 	name = "Noble Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
-	"Markgraf",
-	"Consort",
+	"Lord Castellan",
+	"Lord Consort",
 	"Lord Heir",
 	"Hand",
 	"Steward"
@@ -26,7 +26,8 @@
 	jobspawn_override = list(
 	"Court Physician",
 	"Jester",
-	"Servant"
+	"Servant",
+	"Dungeoneer"
 	)
 	delete_after_roundstart = FALSE
 
@@ -77,7 +78,9 @@
 /obj/effect/landmark/start/helms/late/citywatch
 	name = "Citywatch Late (Helm)"
 	icon_state = "arrow"
-	jobspawn_override = list()
+	jobspawn_override = list("Bailiff",
+	"Watchman",
+	)
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/helms/late/peasant
@@ -115,11 +118,11 @@
 //These are roles exclusive to Helmsguard//
 
 /obj/effect/landmark/start/helms/noble/markgraf
-	name = "Markgraf"
+	name = "Lord Castellan"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/helms/noble/consort
-	name = "Consort"
+	name = "Lord Consort"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/helms/noble/heir

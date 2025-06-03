@@ -335,7 +335,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/lady
-	name = "Consort"
+	name = "Lord Consort"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/prince
