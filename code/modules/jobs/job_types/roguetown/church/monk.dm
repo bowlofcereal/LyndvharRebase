@@ -19,7 +19,7 @@
 	max_pq = null
 	round_contrib_points = 2
 
-	//No nobility for you, being a member of the clergy means you gave UP your nobility. It says this in many of the church tutorial texts.
+	//No nobility for you, being a member of the clergy means you gave UP your nobility. It says this in many of the church tutorial texts. - Depriciated AP lore.
 	virtue_restrictions = list(/datum/virtue/utility/noble)
 
 /datum/outfit/job/roguetown/monk

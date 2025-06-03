@@ -10,7 +10,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
-	tutorial = "You are not a soldier, but rather law enforcers. Your duty is to enforce the laws of the march and the words of your liege, and to keep troublemakers off the streets and the people safe. Only in desperate time would you be required to take up arms to defend the city."
+	tutorial = "You are not a soldier, but rather law enforcers. Your duty is to enforce the laws of the march and the words of your liege, and to keep troublemakers off the streets and the people safe. Answer to the Bailiff; only in desperate times will you be required to take up arms to defend the city."
 	display_order = JDO_WATCHMAN
 	whitelist_req = TRUE
 
@@ -47,11 +47,11 @@
 	cloak = /obj/item/clothing/cloak/stabard/watchman
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 
-/// LAMPLIGHTER
+// LAMPLIGHTER
 
 /datum/advclass/watchman/lamplighter
 	name = "Lamplighter"
-	tutorial = "Armed with a lucerne, dagger and buckler, but lightly armored."
+	tutorial = "Armed with a lucerne, dagger and buckler; you are lightly armored to keep your distance or run down suspects."
 	outfit = /datum/outfit/job/roguetown/guardsman/lamplighter
 
 	category_tags = list(CTAG_WATCH)
@@ -90,7 +90,7 @@
 	beltr = /obj/item/rogueweapon/shield/buckler
 	backr = /obj/item/gwstrap		//Maybe give a buckler? Gave wood because 40 coverage is better than 10 but dunno.
 	backl = /obj/item/storage/backpack/rogue/satchel/black
-	beltl = /obj/item/storage/keyring/guard
+	beltl = /obj/item/storage/keyring/sund/sund_watch
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/rope/chain = 1, /obj/item/signal_horn = 1)
@@ -100,7 +100,7 @@
 
 /datum/advclass/watchman/thieftaker
 	name = "Thieftaker"
-	tutorial = "Armed with a cudgel, dagger and buckler, and with medium armor."
+	tutorial = "Armed with a cudgel, dagger and buckler; your better armor will turn a brigand's blade."
 	outfit = /datum/outfit/job/roguetown/guardsman/thieftaker
 
 	category_tags = list(CTAG_WATCH)
@@ -139,7 +139,7 @@
 	beltr = /obj/item/rogueweapon/mace/cudgel
 	backr = /obj/item/rogueweapon/shield/buckler		//Maybe give a buckler? Gave wood because 40 coverage is better than 10 but dunno.
 	backl = /obj/item/storage/backpack/rogue/satchel/black
-	beltl = /obj/item/storage/keyring/guard
+	beltl = /obj/item/storage/keyring/sund/sund_watch
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/rope/chain = 1, /obj/item/signal_horn = 1)
@@ -188,7 +188,7 @@
 	beltr = /obj/item/quiver/bolts
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	backr = /obj/item/storage/backpack/rogue/satchel/black
-	beltl = /obj/item/storage/keyring/guard
+	beltl = /obj/item/storage/keyring/sund/sund_watch
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/rope/chain = 1, /obj/item/signal_horn = 1)

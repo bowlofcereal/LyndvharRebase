@@ -11,10 +11,7 @@
 
 	display_order = JDO_DUNGEONEER
 
-	tutorial = "Sometimes at night you stare into the vacant room and feel the loneliness of your existence crawl into whatever remains of your loathsome soul. \
-				You will never know hunger, thirst or want for anything with the groschen you make: Just as you’ll never forget the sounds a saw makes cutting through the bone, what a drowning man will gurgle out between the blood and teeth strangling his breath. \
-				You fall under the City Watch's command, obeying orders of the Bailiff and in their absence - the Master-at-Arms and the Lord Castellan. Tending to those awaiting condemning and dishing punishment are your specialties.."
-
+	tutorial = "Be you an instrument of sadism for the Markgraf or the guarantor of his merciful hospitality, your duties are a service paid for most handsomely. Perhaps you were promoted from the garrison down to these cells to get your brutality off the town streets where cracked skulls caused outcries, or maybe your soft-hearted lord wanted to be sure his justice was done without malice by a faithful servant. In either case, your little world is the lowest office in the Realm; from it your guests see only hell."
 	announce_latejoin = FALSE
 	outfit = /datum/outfit/job/roguetown/dungeoneer
 	give_bank_account = 25

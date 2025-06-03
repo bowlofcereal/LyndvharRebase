@@ -68,7 +68,6 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	head = /obj/item/clothing/head/roguetown/chaperon/greyscale
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/storage/keyring/steward
 	backl = /obj/item/storage/backpack/rogue/satchel
 
 	if(H.mind)
@@ -120,7 +119,6 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	head = /obj/item/clothing/head/roguetown/helmet/kettle
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/storage/keyring/steward
 	backl = /obj/item/storage/backpack/rogue/satchel
 
 	if(H.mind)
@@ -214,7 +212,6 @@
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	head = /obj/item/clothing/head/roguetown/chaperon/greyscale
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/storage/keyring/steward
 	backr = /obj/item/quiver/bolts
 	backl = /obj/item/storage/backpack/rogue/satchel
 	r_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
