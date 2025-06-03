@@ -26,21 +26,6 @@
 	lockid = "steward"
 	locked = TRUE
 	masterkey = TRUE
-
-/datum/roguestock/import/bogguard
-	name = "Bog Guard Equipment Crate"
-	desc = "Starting kit for a new Bog Guard."
-	item_type = /obj/structure/closet/crate/chest/steward/bogguard
-	export_price = 50
-	importexport_amt = 1
-
-/obj/structure/closet/crate/chest/steward/bogguard/Initialize()
-	. = ..()
-	new /obj/item/clothing/cloak/stabard/bog(src)
-	new /obj/item/storage/keyring/guard(src)
-	new /obj/item/clothing/suit/roguetown/armor/gambeson(src)
-	new /obj/item/rogueweapon/mace/cudgel(src)
-	new /obj/item/rope/chain(src)
 	
 /datum/roguestock/import/townguard
 	name = "Watchman Equipment Crate"
@@ -52,7 +37,7 @@
 /obj/structure/closet/crate/chest/steward/townguard/Initialize()
 	. = ..()
 	new /obj/item/clothing/cloak/stabard/guard(src)
-	new /obj/item/storage/keyring/guard(src)
+	new /obj/item/storage/keyring/sund/sund_watch(src)
 	new /obj/item/clothing/suit/roguetown/armor/gambeson(src)
 	new /obj/item/rogueweapon/mace/cudgel(src)
 	new /obj/item/rope/chain(src)
@@ -89,7 +74,7 @@
 	new /obj/item/clothing/suit/roguetown/armor/chainmail(src)
 	new /obj/item/clothing/suit/roguetown/armor/plate/full(src)
 	new /obj/item/clothing/shoes/roguetown/boots/armor(src)
-	new /obj/item/storage/keyring/guardcastle(src)
+	new /obj/item/storage/keyring/sund/sund_knight(src)
 	new /obj/item/storage/belt/rogue/leather/steel(src)
 	new /obj/item/rogueweapon/sword/long(src)
 
@@ -111,7 +96,7 @@
 	new /obj/item/clothing/suit/roguetown/armor/chainmail(src)
 	new /obj/item/clothing/suit/roguetown/armor/plate/half(src)
 	new /obj/item/clothing/shoes/roguetown/boots/armor(src)
-	new /obj/item/storage/keyring/guardcastle(src)
+	new /obj/item/storage/keyring/sund/sund_arms(src)
 	new /obj/item/storage/belt/rogue/leather/steel(src)
 	new /obj/item/rogueweapon/spear(src)
 
