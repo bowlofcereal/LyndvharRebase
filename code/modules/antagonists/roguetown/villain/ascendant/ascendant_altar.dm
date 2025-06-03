@@ -1,5 +1,5 @@
 GLOBAL_LIST_INIT(psydon_pool, list(
-	/obj/item/clothing/neck/roguetown/psicross,
+	/obj/item/clothing/neck/roguetown/psicross/silver,
 	/obj/item/roguegem/yellow,
 	/obj/item/rogueweapon/sword/long/judgement,
 	/obj/item/rogueweapon/sword/long/martyr,
