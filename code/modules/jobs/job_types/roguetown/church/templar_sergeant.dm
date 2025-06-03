@@ -52,7 +52,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	belt = /obj/item/storage/belt/rogue/leather/black
 	backr = /obj/item/storage/backpack/rogue/satchel/black
-
+	
 /datum/outfit/job/roguetown/templar/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
@@ -137,4 +137,13 @@
 	)
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
-	backpack_contents = list(/obj/item/roguekey/church, /obj/item/clothing/neck/roguetown/psicross/astrata)
+	if(H.gender == MALE)
+		backpack_contents += list(
+		/obj/item/storage/keyring/sund/sund_chapterm = 1,
+		/obj/item/clothing/neck/roguetown/psicross/astrata = 1, //Templar Knight Chapter Keyring
+		)
+	else
+		backpack_contents += list(
+		/obj/item/storage/keyring/sund/sund_chapterf = 1,
+		/obj/item/clothing/neck/roguetown/psicross/astrata = 1, //Templar Knight Chapter Keyring
+		)
