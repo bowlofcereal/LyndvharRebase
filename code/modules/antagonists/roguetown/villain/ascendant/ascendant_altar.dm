@@ -154,7 +154,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 		if(1)
 			ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 			to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. PSYDON turns his blind gaze upon me, unseeing in his delirium of near-death. I WEEP for PSYDON, as HE does for me. My pace stiffens."))
-			addomen(ASCEND_FIRST)
+			ascendantfirstomen()
 			priority_announce("The leylines begin to tremble in unnatural perversion - MAJOR ARCANA: THE FOOL, UPRIGHT.", "THE DREAMER", 'sound/villain/dreamer_warning.ogg')
 		if(2)
 			to_chat(user, span_danger("The second capstone. Stuck in filth- FILTH AND SHIT! I grab the rotted, fetted thing and begin to peel it back. LAYER BY LAYER- THE COMET SYON. THE ARCHDEVIL. IS HE DEAD, OR SLEEPING? ..."))
@@ -166,7 +166,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			to_chat(user, span_userdanger("GODISCOMINGGODISCOMING"))
 			to_chat(user, span_userdanger("You pull forth the sword and it's scabbard from the stone."))
 			user.equipOutfit(/datum/outfit/ascendant_level_two)
-			addomen(ASCEND_WAKENING)
+			ascendantsecondomen()
 			ADD_TRAIT(user, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(user, TRAIT_ANTIMAGIC, TRAIT_GENERIC)
 			priority_announce("The sky begins to turn quicker - MAJOR ARCANA: THE HANGED MAN, REVERSED", "THE DREAMER ", 'sound/villain/dreamer_warning.ogg')
@@ -174,10 +174,12 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			to_chat(user, span_danger("AGONY. SPLITTING HEADACHE. THROBBING OF THE SOUL."))
 			user.flash_fullscreen("redflash3")
 			user.emote("agony", forced = TRUE)
+			ascendantthirdomen()
 			sleep(20)
 			to_chat(user, span_userdanger("The SHARD! SYON! PSYDON. my BREATH IS gone. my heart barely baeats. My ma#&nt*le..."))
 			ADD_TRAIT(user, TRAIT_NOHUNGER, TRAIT_GENERIC)
 			ADD_TRAIT(user, TRAIT_NOBREATH, TRAIT_GENERIC)
+			ADD_TRAIT(user, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
 
 			sleep(50)
 			to_chat(user, span_userdanger("i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god. i am god."))
@@ -220,10 +222,9 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 
 
 			heavensaysdanger() //Take up the power of PSYDON's COMET, SYON. But be careful, for power corrupts.
-			addomen(ASCEND_ASCENDANT)
 			sleep(15 SECONDS)
 			to_chat(user, span_userdanger("I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON "))
-			to_chat(user, span_mind_control("i muST go O TO THE TRHORne. THE THRONE. THE THRONE. MY KINGDO M. AWAITS. PSYd ONIA IS DEAD. I MUST ASC end "))
+			to_chat(user, span_mind_control("i muST go O TO THE TRHORne. THE THRONE. THE THRONE. MY KINGDO M. AWAITS. PSYd ONIA IS DEAD. I MUST SLAY MY ENEMIES AS SYON DID ALL THOSE AEONS AGO "))
 
 			qdel(src)
 
@@ -234,9 +235,18 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	to_chat(user, span_userdanger("I have collected [ascend_stage] capstones and [ascendpoints] artefacts."))
 
 /obj/structure/ascendant_altar/proc/heavensaysdanger()
-	priority_announce("THE DREAMER HAS ASCENDED - MAJOR ARCANA : T$yh3 TOW##ER, RE v3RSED", "HE WEEPS, HE IS COMING", 'sound/villain/ascendant_intro.ogg')
+	priority_announce("THE DREAMER HAS TAKEN THE MANTLE - MAJOR ARCANA : T$yh3 TOW##ER, RE v3RSED", "HE WEEPS, HE IS COMING", 'sound/villain/ascendant_intro.ogg')
 	sleep(15 SECONDS)
 	to_chat(world, span_danger("The ground underneath THE THRONE shakes. The sky is opening."))
+
+/obj/structure/ascendant_altar/proc/ascendantfirstomen()
+	priority_announce("Magicka seems to fizzle out for a moment, your connections shattered... Then the moment passes, and all is right again.", "Bad Omen", 'sound/villain/wonder.ogg')
+
+/obj/structure/ascendant_altar/proc/ascendantsecondomen()
+	priority_announce("The very earth below you seems to tremble and creak for but a moment, as if someone were attempting to struggle, before returning to silence.", "Bad Omen", 'sound/villain/wonder.ogg')
+
+/obj/structure/ascendant_altar/proc/ascendantthirdomen()
+	priority_announce("GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING ", "Bad Omen", 'sound/villain/wonder.ogg')
 
 /obj/structure/shard_holder/proc/divinitystolen()
 	priority_announce("THE SHARD OF SYON HAS BEEN STOLEN, WEEP, YE FAITHFUL.", "DIVINITY STOLEN", 'sound/villain/wonder.ogg')
