@@ -72,6 +72,7 @@ var/psydon_ascend = psydon_pool[7]
 			var/sword_skill = dreamer.mind.get_skill_level(/datum/skill/combat/swords)
 			var/unarmed_skill = dreamer.mind.get_skill_level(/datum/skill/combat/unarmed)
 			var/wrestling_skill = dreamer.mind.get_skill_level(/datum/skill/combat/wrestling)
+			alert("WARNING: SCREEN EFFECTS CAN BE VERY INTENSE. IF YOU HAVE EPILEPSY, DO NOT USE THIS ANTAG ROLE, AND LET THE ADMINS KNOW.")
 			dreamer.overlay_fullscreen("dream", /atom/movable/screen/fullscreen/dreaming)
 			dreamer.mind.teach_crafting_recipe(/datum/crafting_recipe/roguetown/structure/ascendant)
 			if(sword_skill < 6)
