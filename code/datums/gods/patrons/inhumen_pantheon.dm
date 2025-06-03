@@ -26,6 +26,7 @@
 		"LONG LIVE ZIZO!",
 		"ZIZO IS QUEEN!",
 	)
+	storyteller = /datum/storyteller/zizo
 
 /datum/patron/inhumen/graggar
 	name = "Graggar"
@@ -44,6 +45,7 @@
 		"THROUGH VIOLENCE, DIVINITY!",
 		"THE GOD OF CONQUEST DEMANDS BLOOD!",
 	)
+	storyteller = /datum/storyteller/graggar
 
 /datum/patron/inhumen/matthios
 	name = "Matthios"
@@ -63,6 +65,7 @@
 		"MATTHIOS IS JUSTICE!",
 		"MATTHIOS IS MY LORD!",
 	)
+	storyteller = /datum/storyteller/matthios
 
 /datum/patron/inhumen/baotha
 	name = "Baotha"
@@ -81,3 +84,4 @@
 		"LIVE, LAUGH, LOVE!",
 		"BAOTHA IS MY JOY!",
 	)
+	storyteller = /datum/storyteller/baotha

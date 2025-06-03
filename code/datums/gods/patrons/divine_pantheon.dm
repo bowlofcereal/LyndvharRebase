@@ -30,6 +30,7 @@
 		"ASTRATA BRINGS LAW!",
 		"I SERVE THE GLORY OF THE SUN!",
 	)
+	storyteller = /datum/storyteller/astrata
 
 /datum/patron/divine/noc
 	name = "Noc"
@@ -48,6 +49,7 @@
 		"NOC SEES ALL!",
 		"I SEEK THE MYSTERIES OF THE MOON!",
 	)
+	storyteller = /datum/storyteller/noc
 
 /datum/patron/divine/dendor
 	name = "Dendor"
@@ -68,6 +70,7 @@
 		"THE TREEFATHER BRINGS BOUNTY!",
 		"I ANSWER THE CALL OF THE WILD!",
 	)
+	storyteller = /datum/storyteller/dendor
 
 //Dendorite special prayer code.
 /datum/patron/divine/dendor/can_pray(mob/living/follower)
@@ -103,6 +106,8 @@
 		"I AM DRAWN BY THE PULL OF THE TIDE!",
 	)
 
+	storyteller = /datum/storyteller/abyssor
+
 /datum/patron/divine/ravox
 	name = "Ravox"
 	domain = "God of Justice, Glory, Battle"
@@ -120,6 +125,7 @@
 		"THROUGH STRIFE, GRACE!",
 		"THROUGH PERSISTENCE, GLORY!",
 	)
+	storyteller = /datum/storyteller/ravox
 
 /datum/patron/divine/necra
 	name = "Necra"
@@ -139,6 +145,7 @@
 		"THE UNDERMAIDEN IS OUR FINAL REPOSE!",
 		"I FEAR NOT DEATH, MY LADY AWAITS ME!",
 	)
+	storyteller = /datum/storyteller/necra
 
 /datum/patron/divine/xylix
 	name = "Xylix"
@@ -163,6 +170,7 @@
 		"MALUM IS MY MUSE!",
 		"EORA BRINGS US TOGETHER!",
 	)
+	storyteller = /datum/storyteller/xylix
 
 /datum/patron/divine/pestra
 	name = "Pestra"
@@ -182,6 +190,7 @@
 		"DECAY IS A CONTINUATION OF LIFE!",
 		"MY AFFLICTION IS MY TESTAMENT!",
 	)
+	storyteller = /datum/storyteller/pestra
 
 /datum/patron/divine/malum
 	name = "Malum"
@@ -203,6 +212,9 @@
 		"I AM AN INSTRUMENT OF CREATION!",
 	)
 
+	storyteller = /datum/storyteller/malum
+
+
 /datum/patron/divine/eora
 	name = "Eora"
 	domain = "Goddess of Love, Life and Beauty"
@@ -221,3 +233,4 @@
 		"HER BEAUTY IS EVEN IN THIS TORMENT!",
 		"I LOVE YOU, EVEN AS YOU TRESPASS AGAINST ME!",
 	)
+	storyteller = /datum/storyteller/eora

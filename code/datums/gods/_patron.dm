@@ -29,6 +29,8 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	/// List of words that this god considers profane. (Master for all faiths.)
 	var/list/profane_words = list("zizo","cock","dick","fuck","shit","pussy","cuck","cunt","asshole", "pintle")
 
+	var/datum/storyteller/storyteller
+
 /datum/patron/proc/on_gain(mob/living/pious)
 	for(var/trait in mob_traits)
 		ADD_TRAIT(pious, trait, "[type]")
