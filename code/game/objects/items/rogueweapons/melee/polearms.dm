@@ -133,6 +133,7 @@
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
 	item_d_type = "stab"
 	no_early_release = TRUE
+	intdamage_factor = 0.6
 
 /datum/intent/partizan/peel
 	name = "armor peel"
@@ -1020,7 +1021,6 @@
 	throwforce = 12	//Not a throwing weapon. Too heavy!
 	max_integrity = 250
 	blade_dulling = DULLING_SHAFT_REINFORCED
-	intdamage_factor = 0.6
 
 /obj/item/rogueweapon/spear/partizan/getonmobprop(tag)
 	. = ..()
