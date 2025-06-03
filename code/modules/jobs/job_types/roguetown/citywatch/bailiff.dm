@@ -9,7 +9,7 @@
 	allowed_races = RACES_NO_CONSTRUCT
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	display_order = JDO_BAILIFF
-	tutorial = "You are the leader of the city's watch, your duty is to train and manage the city's watchmen on top of enforcing the Markgraf's laws."
+	tutorial = "You are the leader of the city's watch, your duty is to train and manage the city's watchmen on top of enforcing the Lord Castellan's laws."
 	whitelist_req = FALSE
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard) // /obj/effect/proc_holder/spell/self/convertrole/bog
@@ -139,7 +139,7 @@
 /proc/find_lord(required_stat = CONSCIOUS)
 	var/mob/living/lord
 	for(var/mob/living/carbon/human/H in GLOB.human_list)
-		if(!H.mind || H.job != "Markgraf" || (H.stat > required_stat))
+		if(!H.mind || H.job != "Lord Castellan" || (H.stat > required_stat))
 			continue
 		lord = H
 		break

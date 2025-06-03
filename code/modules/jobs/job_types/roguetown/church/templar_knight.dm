@@ -74,6 +74,15 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	if(H.gender == MALE)
+		backpack_contents += list(/obj/item/storage/keyring/sund/sund_kchapterm = 1,
+		/obj/item/clothing/neck/roguetown/psicross/astrata = 1,
+		)
+	else
+		backpack_contents += list(/obj/item/storage/keyring/sund/sund_kchapterf = 1,
+		/obj/item/clothing/neck/roguetown/psicross/astrata = 1,
+		)
+
 
 
 
