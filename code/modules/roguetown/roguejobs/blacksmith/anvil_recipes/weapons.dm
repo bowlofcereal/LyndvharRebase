@@ -474,8 +474,8 @@
 	created_item = /obj/item/rogueweapon/flail/sflail
 	craftdiff = 2
 
-/datum/anvil_recipe/weapons/steel/bastardsword
-	name = "Bastard Sword (+1 Steel)"
+/datum/anvil_recipe/weapons/steel/longsword
+	name = "Longsword (+1 Steel)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/rogueweapon/sword/long
