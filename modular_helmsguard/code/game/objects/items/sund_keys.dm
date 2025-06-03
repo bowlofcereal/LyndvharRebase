@@ -42,14 +42,14 @@
 // Castle and Retinue keys.
 
 /obj/item/roguekey/sund/sund_ruler
-	name = "Markgraf's key"
+	name = "Castellan's key"
 	desc = "This key is emblazoned with Sundmark's arms in gold."
 	icon_state = "bosskey"
 	lockid = "sund_ruler"
 
 /obj/item/roguekey/sund/sund_family
 	name = "emblazoned key"
-	desc = "This key is emblazoned with the Markgraf's family crest."
+	desc = "This key is emblazoned with the Castellan's family crest."
 	icon_state = "bosskey"
 	lockid = "sund_family"
 

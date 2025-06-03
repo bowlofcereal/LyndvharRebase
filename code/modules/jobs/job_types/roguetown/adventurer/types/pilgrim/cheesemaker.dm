@@ -8,7 +8,7 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/cheesemaker
 
-//	category_tags = list(CTAG_PILGRIM, CTAG_ARTISAN)
+	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 
 /datum/outfit/job/roguetown/adventurer/cheesemaker/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -29,6 +29,7 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	mouth = /obj/item/rogueweapon/huntingknife
 	belt = /obj/item/storage/belt/rogue/leather
+	beltr = /obj/item/roguekey/sund/sund_butcher
 	pants = /obj/item/clothing/under/roguetown/tights/random
 	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
 	cloak = /obj/item/clothing/cloak/apron

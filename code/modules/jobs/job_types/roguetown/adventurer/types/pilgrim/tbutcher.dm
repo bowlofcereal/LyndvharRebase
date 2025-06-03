@@ -21,6 +21,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
+	beltr = /obj/item/roguekey/sund/sund_butcher
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	backpack_contents = list(
 						/obj/item/kitchen/spoon,
