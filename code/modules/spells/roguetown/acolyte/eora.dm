@@ -532,7 +532,22 @@
         update_icon()
         return TRUE
     
-    return ..()
+    var/was_destroyed = obj_destroyed
+    to_chat(user, span_warning("A feeling of dread fills you as you chop into the tree!"))
+    . = ..()
+    if(.)
+        if(!was_destroyed && obj_destroyed)
+            if(iscarbon(user))
+                var/mob/living/carbon/c = user
+                if(c.patron.type == /datum/patron/divine/eora)
+                    c.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
+                else
+                    to_chat(c, span_warning("A divine curse strikes you for destroying the sacred tree!"))
+                    c.adjustFireLoss(100)
+                    c.IgniteMob()
+                    c.add_stress(/datum/stressevent/psycurse)
+            record_featured_stat(FEATURED_STATS_TREE_FELLERS, user)
+            GLOB.azure_round_stats[STATS_TREES_CUT]++
 
 /obj/structure/eoran_pomegranate_tree/examine(mob/user)
     . = ..()
@@ -766,6 +781,7 @@
         str_change = -8
         perc_change = -8
     else
+        //Eorans get a slight edge.
         str_change = -6
         perc_change = -6
     
@@ -781,10 +797,12 @@
     var/filter = owner.get_filter(POM_FILTER)
     if (!filter)
         owner.add_filter(POM_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 180, "size" = 1))
+    to_chat(owner, span_warning("My combat prowess is sapped by the tree!"))
 
 /datum/status_effect/debuff/pomegranate_aura/on_remove()
     . = ..()
     owner.remove_filter(POM_FILTER)
+    to_chat(owner, span_warning("As I leave the influence of the tree, my strength returns."))
 
 /datum/status_effect/debuff/pomegranate_aura/tick()
     // Check if source tree still exists
@@ -821,3 +839,64 @@
     desc = "You feel a sense of peace near this sacred tree."
 
 #undef POM_FILTER
+
+#define WILTING_FILTER "wilting_death"
+
+/datum/status_effect/debuff/eoran_wilting
+    id = "wilting"
+    duration = 10 SECONDS
+    alert_type = /atom/movable/screen/alert/status_effect/pomegranate_aura
+    var/outline_colour ="#2c2828"
+    var/datum/weakref/source_ref
+
+/datum/status_effect/debuff/eoran_wilting/on_apply()
+    if(isliving(owner))
+        owner.add_filter(WILTING_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 210, "size" = 2))
+        to_chat(owner, span_userdanger("You feel like your limbs are starting to detach horrifically, death is imminent!"))
+    return TRUE
+
+/datum/status_effect/debuff/eoran_wilting/on_remove()
+    if(isliving(owner))
+        var/mob/living/L = owner
+        L.remove_filter(WILTING_FILTER)
+    
+    dismember_owner()
+
+/datum/status_effect/debuff/eoran_wilting/tick()
+    if(isliving(owner))
+        var/mob/living/L = owner
+        L.flash_fullscreen("redflash3", 1)
+        
+        // Small damage to limbs as warning
+        if(iscarbon(L))
+            var/mob/living/carbon/C = L
+            for(var/obj/item/bodypart/BP in C.bodyparts)
+                if(BP.body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
+                    BP.receive_damage(1)
+
+/datum/status_effect/debuff/eoran_wilting/proc/dismember_owner()
+    if(!iscarbon(owner))
+        return
+    
+    var/mob/living/carbon/C = owner
+    playsound(C, 'sound/misc/eat.ogg', 100, TRUE)
+    
+    // Dismember limbs in sequence
+    var/static/list/dismember_order = list(
+        BODY_ZONE_L_ARM,
+        BODY_ZONE_R_ARM,
+        BODY_ZONE_L_LEG,
+        BODY_ZONE_R_LEG,
+        BODY_ZONE_HEAD
+    )
+    
+    C.visible_message(span_userdanger("[C]'s limbs wither and fall off in a gruesome display!"))
+    
+    for(var/zone in dismember_order)
+        var/obj/item/bodypart/BP = C.get_bodypart(zone)
+        if(BP)
+            C.adjustBruteLoss(50)
+            BP.dismember()
+            sleep(0.5 SECONDS)
+
+#undef WILTING_FILTER
