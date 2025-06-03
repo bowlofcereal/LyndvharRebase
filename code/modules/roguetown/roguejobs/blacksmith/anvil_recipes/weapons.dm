@@ -592,6 +592,13 @@
 	created_item = /obj/item/rogueweapon/spear/partizan
 	craftdiff = 4
 
+/datum/anvil_recipe/weapons/steel/boarspear
+	name = "Boar Spear (+1 Steel, +1 Small Log)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel, /obj/item/grown/log/tree/small)
+	created_item = /obj/item/rogueweapon/spear/boar
+	craftdiff = 4
+
 /datum/anvil_recipe/weapons/steel/tossblade
 	name = "Steel Tossblades 4x"
 	req_bar = /obj/item/ingot/steel
