@@ -28,18 +28,23 @@
 		if(3 to 5)
 			linked_alert.name = "Arillean Apotheosis"
 			linked_alert.desc = "Divine power courses through you, enhancing all abilities."
+			linked_alert.icon_state = "pom_god"
 		if(1 to 2)
 			linked_alert.name = "Waning Arillean Apotheosis"
 			linked_alert.desc = "The divine power within you is fading."
+			linked_alert.icon_state = "pom_god"
 		if(0)
 			linked_alert.name = "Arillean Peace"
 			linked_alert.desc = "The calm before the storm."
+			linked_alert.icon_state = "pom_anxiety"
 		if(-4 to -1)
 			linked_alert.name = "Ashen Scourge"
 			linked_alert.desc = "Your body is turning to ash!"
+			linked_alert.icon_state = "pom_regret"
 		if(-5)
 			linked_alert.name = "Arillean Husk"
 			linked_alert.desc = "Much of your body has deteriorated into ash. It is not through Eora's mercy if you are still alive somehow."
+			linked_alert.icon_state = "pom_regret"
 
 /datum/status_effect/buff/ashen_aril/on_apply()
 	// Apply stat boosts to all attributes
@@ -52,7 +57,7 @@
 		"fortune" = current_boost,
 		"speed" = current_boost
 	)
-	
+
 	// Apply Beautiful trait for positive boosts
 	if(current_boost == 5)
 		ADD_TRAIT(owner, TRAIT_BEAUTIFUL, TRAIT_MIRACLE)
@@ -63,7 +68,7 @@
 	else if (current_boost == -5)
 		ADD_TRAIT(owner, TRAIT_UNSEEMLY, TRAIT_MIRACLE)
 		to_chat(owner, span_notice("Your flesh is flaky and disgusting."))
-	
+
 	// Set visual appearance based on boost level
 	switch(current_boost)
 		if(3 to 5)
@@ -74,7 +79,7 @@
 			owner.add_filter(ASHEN_FILTER, 2, list("type" = "outline", "color" = "#a9a9a9", "alpha" = 160, "size" = 1))
 		if(-5)
 			owner.add_filter(ASHEN_FILTER, 2, list("type" = "outline", "color" = "#696969", "alpha" = 140, "size" = 1))
-	
+
 	return ..()
 
 /datum/status_effect/buff/ashen_aril/tick()
@@ -205,7 +210,7 @@
 		//Eorans get a slight edge.
 		str_change = -6
 		perc_change = -6
-	
+
 	effectedstats = list(
 		"strength" = str_change,
 		"perception" = perc_change
@@ -258,15 +263,21 @@
 /atom/movable/screen/alert/status_effect/pomegranate_aura
 	name = "Eora's Blessing"
 	desc = "You feel a sense of peace near this sacred tree."
+	icon_state = "pom_peace"
 
 #undef POM_FILTER
 
 #define WILTING_FILTER "wilting_death"
 
+/atom/movable/screen/alert/status_effect/eoran_wilting
+	name = "WILTING"
+	desc = "My limbs are falling off!"
+	icon_state = "pom_death"
+
 /datum/status_effect/debuff/eoran_wilting
 	id = "wilting"
 	duration = 10 SECONDS
-	alert_type = /atom/movable/screen/alert/status_effect/pomegranate_aura
+	alert_type = /atom/movable/screen/alert/status_effect/eoran_wilting
 	var/outline_colour ="#2c2828"
 	var/datum/weakref/source_ref
 
@@ -298,10 +309,10 @@
 /datum/status_effect/debuff/eoran_wilting/proc/dismember_owner()
 	if(!iscarbon(owner))
 		return
-	
+
 	var/mob/living/carbon/C = owner
 	playsound(C, 'sound/misc/eat.ogg', 100, TRUE)
-	
+
 	// Dismember limbs in sequence
 	var/static/list/dismember_order = list(
 		BODY_ZONE_L_ARM,
@@ -310,9 +321,9 @@
 		BODY_ZONE_R_LEG,
 		BODY_ZONE_HEAD
 	)
-	
+
 	C.visible_message(span_userdanger("[C]'s limbs wither and fall off in a gruesome display!"))
-	
+
 	for(var/zone in dismember_order)
 		var/obj/item/bodypart/BP = C.get_bodypart(zone)
 		if(BP)

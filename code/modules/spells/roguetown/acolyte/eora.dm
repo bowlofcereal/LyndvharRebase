@@ -375,7 +375,7 @@
     devotion_cost = 500
     recharge_time = 5 SECONDS
     chargetime = 1 SECONDS
-    overlay_state = "bread"
+    overlay_state = "tree"
     associated_skill = /datum/skill/magic/holy
     var/obj/structure/eoran_pomegranate_tree/my_little_tree = null
 
@@ -405,17 +405,19 @@
 
 #define SPROUT 0
 #define GROWING 1
-#define FRUITING 2
+#define MATURING 2
+#define FRUITING 3
 
 /obj/structure/eoran_pomegranate_tree
     name = "pomegranate tree"
     desc = "A mystical tree blessed by Eora."
-    icon = 'icons/roguetown/misc/foliagetall.dmi'
-    icon_state = "t1stump"
+    icon = 'modular_azurepeak/icons/obj/items/eora_tree.dmi'
+    icon_state = "sprout"
     anchored = TRUE
     density = TRUE
     max_integrity = 200
     resistance_flags = FIRE_PROOF
+    pixel_x = -8
 
     // Growth tracking
     var/growth_stage = SPROUT
@@ -537,7 +539,7 @@
         if(length(tree_offerings) >= 3)
             to_chat(user, span_warning("The tree has received enough offerings for now!"))
             return TRUE
-  
+
         qdel(I)
         tree_offerings += I.type
         
@@ -685,7 +687,7 @@
 /obj/structure/eoran_pomegranate_tree/proc/spawn_fruit()
     if(fruit)  // Already has fruit
         return
-    
+
     fruit = TRUE
     fruit_ready = FALSE
     update_icon()
@@ -700,16 +702,20 @@
     // Base icon states
     switch(growth_stage)
         if(SPROUT)
-            icon_state = "t1stump"
+            icon_state = "sprout"
         if(GROWING)
-            icon_state = "log1"
+            icon_state = "growing"
+        if(MATURING)
+            icon_state = "mature"
         if(FRUITING)
-            if(fruit_ready)
-                icon_state = "tallbush1"
-            else if(fruit)
-                icon_state = "t10"
-            else
-                icon_state = "mush1"
+            icon_state = "fruiting"
+
+    cut_overlays()
+
+    if(growth_stage == FRUITING && fruit_ready)
+        var/image/fruit_image = image(icon = initial(icon), icon_state = "fruit[happiness_tier]", layer = 1)
+        add_overlay(fruit_image)
+
     . = ..()
 
 /datum/status_effect/pomegranate_fatigue
@@ -735,18 +741,18 @@
     
     if(!can_pick_fruit(user))
         return
-    
+
     user.visible_message(
         span_notice("[user] carefully picks the fruit."),
         span_notice("You gently pick the glowing pomegranate.")
     )
-    
+
     var/obj/item/fruit_of_eora/new_fruit = new(user.loc, happiness_tier)
     user.put_in_hands(new_fruit)
-    
+
     // Apply picking debuff
     user.apply_status_effect(/datum/status_effect/pomegranate_fatigue)
-    
+
     // Reset tree
     fruit = FALSE
     fruit_ready = FALSE
@@ -759,18 +765,18 @@
     if(!fruit_ready)
         to_chat(user, span_warning("The fruit isn't ripe yet!"))
         return FALSE
-    
+
     // Eoran alignment check
     if(!(user.patron.type == /datum/patron/divine/eora))
         to_chat(user, span_warning("The fruit vanishes as you reach for it!"))
         return FALSE
-    
+
     return TRUE
 
 /obj/item/fruit_of_eora
     name = "fruit of eora"
     desc = "A mystical pomegranate glowing with inner light. It feels warm to the touch."
-    icon = 'icons/roguetown/items/produce.dmi'
+    icon = 'modular_azurepeak/icons/obj/items/eora_pom.dmi'
     icon_state = "pom"
     var/fruit_tier = 1
     var/list/aril_types = list()
@@ -786,15 +792,16 @@
     switch(fruit_tier)
         if(1)
             desc = "A rotten pomegranate."
-            icon_state = "pom_bad"
+            icon_state = "rotten"
         if(2)
             desc = "A blemished pomegranate, it's blue like azure."
-            icon_state = "pom_blemish"
+            icon_state = "blemished"
         if(3)
             desc = "A vibrant pomegranate pulsing with inner light. It radiates warmth."
+            icon_state = "pom"
         if(4)
             desc = "A flawless golden pomegranate blazing with divine light. It feels alive, thumping like a beating heart."
-            icon_state = "pom_gold"
+            icon_state = "golden"
 
 /obj/item/fruit_of_eora/proc/generate_arils()
     aril_types = list()
@@ -858,8 +865,8 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril
     name = "eoran aril"
     desc = "A glowing seed from the fruit of Eora. It pulses with divine energy."
-    icon = 'icons/roguetown/items/produce.dmi'
-    icon_state = "aril"
+    icon = 'modular_azurepeak/icons/obj/items/eora_pom.dmi'
+    icon_state = "auric"
     bitesize = 1
     faretype = FARE_NEUTRAL
     w_class = WEIGHT_CLASS_TINY
@@ -893,7 +900,7 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/crimson
     name = "crimson aril"
     desc = "A blood-red seed that seems to pulse with vitality."
-    icon_state = "aril_crimson"
+    icon_state = "crimson"
     effect_desc = "This fruit heals for a blood price."
     
     var/heal_amount = 45
@@ -918,7 +925,7 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/roseate
     name = "roseate aril"
     desc = "A pink seed that radiates beauty and grace."
-    icon_state = "aril_roseate"
+    icon_state = "roseate"
     effect_desc = "Grants fleeting beauty. Rejects the ugly."
     
     var/beauty_duration = 10 MINUTES
@@ -952,7 +959,7 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent
     name = "opalescent aril"
     desc = "An iridescent seed that shifts colors in the light."
-    icon_state = "aril_opalescent"
+    icon_state = "opalescent"
     effect_desc = "Transforms held gems into rubies."
     
 /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent/apply_effects(mob/living/eater)
@@ -968,7 +975,7 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/cerulean
     name = "cerulean aril"
     desc = "A deep blue seed that smells of the ocean."
-    icon_state = "aril_cerulean"
+    icon_state = "cerulean"
     effect_desc = "Excellent fishing bait that attracts treasure."
     baitpenalty = 5
     isbait = TRUE
@@ -1015,9 +1022,9 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/fractal
     name = "fractal aril"
     desc = "A geometrically perfect seed that hurts to look at."
-    icon_state = "aril_fractal"
+    icon_state = "fractal"
     effect_desc = "At a cost to constitution, Eora's mercy will melt unsightfulness away..."
-    
+
 /obj/item/reagent_containers/food/snacks/eoran_aril/fractal/apply_effects(mob/living/eater)
     if(ishuman(eater))
         var/mob/living/carbon/human/H = eater
@@ -1030,13 +1037,13 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/auric
     name = "auric aril"
     desc = "A golden seed that radiates warmth and life."
-    icon_state = "aril_auric"
+    icon_state = "auric"
     effect_desc = "Key ingredient in revival potions."
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/ashen
     name = "ashen aril"
     desc = "A grey seed that feels glacial to the touch. An IMMENSE sense of dread can be felt just looking at it."
-    icon_state = "aril_ashen"
+    icon_state = "ashen"
     effect_desc = "The forbidden aril. This one is not meant for you."
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/ashen/apply_effects(mob/living/carbon/eater)
@@ -1050,7 +1057,7 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/ochre
     name = "ochre aril"
     desc = "A blood-red seed that seems to pulse menacingly."
-    icon_state = "aril_ochre"
+    icon_state = "ochre"
     effect_desc = "Produce golden arils at the cost of your own life."
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/ochre/apply_effects(mob/living/carbon/eater)
@@ -1067,4 +1074,4 @@
 /obj/item/reagent_containers/lux/eoran_aril
     name = "incandescent aril"
     desc = "A blindingly bright seed that radiates pure life energy. It imitates lux, the essence of life."
-    icon_state = "aril_incandescent"
+    icon_state = "incandescent"
