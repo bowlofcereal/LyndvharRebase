@@ -2,7 +2,7 @@
 	name = "Ascendant"
 	roundend_category = "maniacs"
 	antagpanel_category = "LISTENER"
-	antag_memory = "<b>PSYDON IS DEAD. The Old Pantheon ARE WEAK, and the New Gods ARE FOOLISH. The WORLD IS DYING, AND I AM THE ONLY THING THAT MAY SAVE IT- COMET SYON'S BLADE BLOODY ME UNTIL IT IS DONE.</b>"
+	antag_memory = "<b>PSYDON IS MISSING. The Old Pantheon ARE WEAK, and the New Gods ARE FOOLISH. The WORLD IS DYING, AND I AM THE ONLY THING THAT MAY SAVE IT- COMET SYON'S BLADE BLOODY ME UNTIL IT IS DONE.</b>"
 	job_rank = ROLE_ASCENDANT
 	antag_hud_type = ANTAG_HUD_TRAITOR
 	antag_hud_name = "villain"
@@ -75,6 +75,7 @@ var/psydon_ascend = psydon_pool[7]
 			alert("WARNING: SCREEN EFFECTS CAN BE VERY INTENSE. IF YOU HAVE EPILEPSY, DO NOT USE THIS ANTAG ROLE, AND LET THE ADMINS KNOW.")
 			dreamer.overlay_fullscreen("dream", /atom/movable/screen/fullscreen/dreaming)
 			dreamer.mind.teach_crafting_recipe(/datum/crafting_recipe/roguetown/structure/ascendant)
+			dreamer.cmode_music = 'sound/music/combat_maniac2.ogg'
 			if(sword_skill < 6)
 				owner.adjust_skillrank(/datum/skill/combat/swords, 6 - sword_skill, TRUE)
 			if(unarmed_skill < 6)
