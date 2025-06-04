@@ -17,7 +17,7 @@
 		BODY_ZONE_R_LEG
 	)
 
-/datum/status_effect/buff/ashen_aril/on_creation(mob/living/new_owner, boost_level = 5, new_duration = 10 SECONDS)
+/datum/status_effect/buff/ashen_aril/on_creation(mob/living/new_owner, boost_level = 5, new_duration = 6 MINUTES)
 	current_boost = boost_level
 	duration = new_duration
 	next_wound_time = world.time - 1
@@ -78,24 +78,29 @@
 	return ..()
 
 /datum/status_effect/buff/ashen_aril/tick()
-	// Apply wounds at negative boost levels except -5
-	if(current_boost < 0 && current_boost > -5 && world.time > next_wound_time)
-		to_chat(world, span_bigbold("WOOPIE TRY TO INJUREEE"))
-		next_wound_time = world.time + rand(1 SECONDS, 2 SECONDS)
-		if(prob(100))
-			if(iscarbon(owner))
-				var/mob/living/carbon/C = owner
-				var/list/valid_parts = list()
-				to_chat(world, span_bigbold("LET'S GET THIS NERD."))
-				for(var/obj/item/bodypart/BP in C.bodyparts)
-					to_chat(world, span_bigbold("bloodyable? [BP.can_bloody_wound()] && in zone? [BP.body_zone in valid_body_zones]."))
-					if(BP.body_zone in valid_body_zones && BP.can_bloody_wound())
-						valid_parts += BP
-				to_chat(world, span_bigbold("[length(valid_parts)] parts!!!."))
-				if(length(valid_parts))
-					var/obj/item/bodypart/BP = pick(valid_parts)
-					BP.add_wound(/datum/wound/slash, FALSE, "Your flesh cracks and bleeds ash!")
-					new /obj/item/ash(owner.loc)
+    // Apply wounds at negative boost levels except -5
+    if(current_boost < 0 && current_boost > -5 && world.time > next_wound_time)
+        next_wound_time = world.time + rand(30 SECONDS, 60 SECONDS)
+        if(prob(25))
+            if(iscarbon(owner))
+                var/mob/living/carbon/C = owner
+                var/list/valid_parts = list()
+
+                for(var/obj/item/bodypart/BP in C.bodyparts)
+                    var/BP_name = BP.name
+                    if(!BP_name) BP_name = "Unnamed Bodypart" // Fallback
+
+                    var/bool_can_bloody_wound = BP.can_bloody_wound()
+                    var/bool_in_zone = (BP.body_zone in valid_body_zones)
+                    var/bool_combined_condition = (bool_in_zone && bool_can_bloody_wound)
+
+                    if(bool_combined_condition) //Idk but it works like this.
+                        valid_parts += BP
+
+                if(length(valid_parts))
+                    var/obj/item/bodypart/BP = pick(valid_parts)
+                    BP.add_wound(/datum/wound/slash, FALSE, "Your flesh cracks and bleeds ash!")
+                    new /obj/item/ash(owner.loc)
 
 /datum/status_effect/buff/ashen_aril/on_remove()
 	. = ..()
