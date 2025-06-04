@@ -2,7 +2,7 @@
 	name = null
 	associated_faith = /datum/faith/divine
 
-// Master for Divine gods - Dendor and Abyssor should probably be allowed to pray elsewhere. The rest should use church/psycross.
+// Master for Divine gods, some get unique areas/machines/whatever to pray near, and the rest should use church/psycross.
 /datum/patron/divine/can_pray(mob/living/follower)
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -231,10 +231,7 @@
 	// Allows prayer during daytime if outside.
 	if(istype(get_area(follower), /area/rogue/outdoors) && (GLOB.tod == "day" || GLOB.tod == "dawn"))
 		return TRUE
-	// Allows praying atop ritual chalk of the god.
-	for(var/obj/structure/ritualcircle/astrata in view(1, get_turf(follower)))
-		return TRUE
-	to_chat(follower, span_danger("For Astrata to hear my prayer I must be in her daylight, within the church, or either near a psycross or above her ritual symbol.."))
+	to_chat(follower, span_danger("For Astrata to hear my prayer I must either be in her blessed daylight, within the church, or near a psycross.."))
 	return FALSE
 
 
@@ -247,7 +244,7 @@
 	// Allows praying atop ritual chalk of the god.
 	for(var/obj/structure/ritualcircle/noc in view(1, get_turf(follower)))
 		return TRUE
-	to_chat(follower, span_danger("For Noc to hear my prayer I must be in his moonlight, within the church, or either near a psycross or above his ritual symbol.."))
+	to_chat(follower, span_danger("For Noc to hear my prayer I must either be in his blessed moonlight, within the church, or near a psycross."))
 	return FALSE
 
 
@@ -263,22 +260,83 @@
 	// Fallback of being allowed to be near a psycross to pray; such as in the church.
 	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
 		return TRUE
-	// Allows praying atop ritual chalk of the god.
-	for(var/obj/structure/ritualcircle/dendor in view(1, get_turf(follower)))
-		return TRUE
-	to_chat(follower, span_danger("I must be in Dendor's wilds, the Grove, near a Panetheon Cross, or above his ritual symbol for Dendor to hear my prays..."))
+	to_chat(follower, span_danger("I must either be in Dendor's wilds, the Grove, or near a Panetheon Cross for the 'Tree Father' to hear my prays..."))
 	return FALSE
 
 
-// Abyssor - Near ocean, water, cross, or ritual chalk
+// Abyssor - Near water, cross, or within the church.
 /datum/patron/divine/abyssor/can_pray(mob/living/follower)
 	..()
 	// Allows prayer near any body of water turf.
 	for(var/turf/open/water in view(4, get_turf(follower)))
 		return TRUE
-	// Allows praying atop ritual chalk of the god.
-	for(var/obj/structure/ritualcircle/abyssor in view(1, get_turf(follower)))
-		return TRUE
-	to_chat(follower, span_danger("For Abyssor to hear my prayer I must pray within the church, or either near a psycross or above his ritual symbol, or at any body of water so that the tides of prayer may flow.."))
+	to_chat(follower, span_danger("For Abyssor to hear my prayer I must either pray within the church, near a psycross, or at any body of water so that the tides of prayer may flow.."))
 	return FALSE
 
+
+// Ravox - Near a knight statue, cross, or within the church
+/datum/patron/divine/ravox/can_pray(mob/living/follower)
+	..()
+	// Allows prayer near any knight statue and its subtypes.
+	for(var/obj/structure/fluff/statue/knight in view(4, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("For Ravox to hear my prayer I must either pray within the church, near a psycross, or near a knighly statue in memorium of the fallen.."))
+	return FALSE
+
+
+// Necra - Near a grave, cross, or within the church
+/datum/patron/divine/necra/can_pray(mob/living/follower)
+	..()
+	// Allows prayer near a grave.
+	for(var/obj/structure/closet/dirthole/grave in view(4, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("For Necra to hear my prayer I must either pray within the church, near a psycross, or near a grave where we all go to be given our final embrace.."))
+	return FALSE
+
+
+// Xylix - Near a gambling machine, cross, or within the church
+/datum/patron/divine/xylix/can_pray(mob/living/follower)
+	..()
+	// Allows prayer near gambling machines.
+	for(var/obj/structure/roguemachine/lottery_roguetown in view(4, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("For Xylix to hear my prayer I must either pray within the church, near a psycross, or near a machine of fortune blessed by the grand jester.."))
+	return FALSE
+
+
+// Pestra - Near a well, cross, within the physicians, or within the church
+/datum/patron/divine/pesta/can_pray(mob/living/follower)
+	..()
+	// Allows prayer in the appothocary's building.
+	if(istype(get_area(follower), /area/rogue/indoors/town/physician))
+		return TRUE
+	// Allows prayer near wells. Weird one, but makes sense for health and disease. Miasma, water, etc.
+	for(var/obj/structure/well in view(4, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("For Pestra to hear my prayer I must either pray within the church, phyisican's building, near a psycross, or near a well to observe the full circle of life.."))
+	return FALSE
+
+
+// Malum - Near a smelter, hearth, cross, within the smithy, or within the church
+/datum/patron/divine/malum/can_pray(mob/living/follower)
+	..()
+	// Allows prayer in the smith's building.
+	if(istype(get_area(follower), /area/rogue/indoors/town/dwarfin))
+		return TRUE
+	// Allows prayer near hearths.
+	for(var/obj/machinery/light/rogue/hearth in view(4, get_turf(follower)))
+		return TRUE
+	// Allows prayer near smelters.
+	for(var/obj/machinery/light/rogue/smelter in view(4, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("For Malum to hear my prayer I must either pray within the church, the smithy's workshop, near a psycross, near a smelter, or hearth to bask in Malum's glory.."))
+	return FALSE
+
+// Eora - Near a gambling machine, cross, or within the church
+/datum/patron/divine/eora/can_pray(mob/living/follower)
+	..()
+	// Allows player to pray while wearing eoran bud.
+	if(HAS_TRAIT(follower, TRAIT_PACIFISM))
+		return TRUE
+	to_chat(follower, span_danger("For Eora to hear my prayer I must either pray within the church, near a psycross, or wearing one of her blessed flowers atop my head.."))
+	return FALSE
