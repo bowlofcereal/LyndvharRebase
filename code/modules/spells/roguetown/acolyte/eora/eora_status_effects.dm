@@ -117,7 +117,7 @@
 		owner.apply_status_effect(/datum/status_effect/buff/ashen_aril, current_boost - 1)
 	else
 		// Permanent at -5 with wilting effect
-		owner.apply_status_effect(/datum/status_effect/buff/ashen_aril, boost_level = -5, new_duration = -1)
+		owner.apply_status_effect(/datum/status_effect/buff/ashen_aril, -5, -1)
 		owner.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
 
 #undef ASHEN_FILTER
