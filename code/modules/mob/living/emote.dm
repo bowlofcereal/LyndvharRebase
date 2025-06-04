@@ -14,6 +14,8 @@
 	message = "prays something."
 	restraint_check = FALSE
 	emote_type = EMOTE_VISIBLE
+	// We let people pray unconcious for death-gasp style prayers in crit.
+	stat_allowed = list(CONSCIOUS, UNCONSCIOUS)
 
 /mob/living/carbon/human/verb/emote_pray()
 	set name = "Pray"
@@ -25,6 +27,10 @@
 /datum/emote/living/pray/run_emote(mob/user, params, type_override, intentional)
 	var/mob/living/carbon/follower = user
 	var/datum/patron/patron = follower.patron
+
+	// Stops prayers if you don't meet your patron's requirements to pray.
+	if(!patron?.can_pray(follower))
+		return
 
 	var/prayer = input("Whisper your prayer:", "Prayer") as text|null
 	if(!prayer)

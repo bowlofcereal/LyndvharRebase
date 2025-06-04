@@ -11,6 +11,13 @@
 
 // Master for Inhumen gods, letting them pray near an inverted cross. The rest will have their own unique stuff.
 /datum/patron/inhumen/can_pray(mob/living/follower)
+	// Allows death-bed prayers
+	if(follower.has_status_effect(STATUS_EFFECT_UNCONSCIOUS))
+		if(follower.has_status_effect(STATUS_EFFECT_SLEEPING))
+			to_chat(follower, span_danger("I musn't be sleeping to pray!"))
+			return FALSE	//Stops praying just by sleeping.
+		else
+			return TRUE
 	// Allows prayer in the Zzzzzzzurch(!)
 	if(istype(get_area(follower), /area/rogue/indoors/shelter/mountains))
 		return TRUE
