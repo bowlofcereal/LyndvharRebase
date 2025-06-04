@@ -14,7 +14,7 @@
 	// Allows death-bed prayers
 	if(follower.has_status_effect(STATUS_EFFECT_UNCONSCIOUS))
 		if(follower.has_status_effect(STATUS_EFFECT_SLEEPING))
-			to_chat(follower, span_danger("I musn't be sleeping to pray!"))
+			to_chat(follower, span_danger("I mustn't be sleeping to pray!"))
 			return FALSE	//Stops praying just by sleeping.
 		else
 			return TRUE
