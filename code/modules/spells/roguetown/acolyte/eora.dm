@@ -1025,7 +1025,7 @@
     //Instant heal, but you can only eat 2 before the next will make you pass out.
     var/list/wCount = eater.get_wounds()
     //No undead because they kinda don't have blood to give for this.
-    if(!eater.construct && !(target.mob_biotypes & MOB_UNDEAD))
+    if(!eater.construct && !(eater.mob_biotypes & MOB_UNDEAD))
         if(wCount.len > 0)
             eater.heal_wounds(heal_amount)
             eater.update_damage_overlays()
@@ -1164,7 +1164,7 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/ashen/apply_effects(mob/living/carbon/eater)
     if(ishuman(eater))
         var/mob/living/carbon/human/H = eater
-         H.apply_status_effect(/datum/status_effect/buff/ashen_aril)
+        H.apply_status_effect(/datum/status_effect/buff/ashen_aril)
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/ochre
     name = "ochre aril"
