@@ -152,8 +152,8 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 
 	switch(ascend_stage)
 		if(1)
-			ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
-			to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. PSYDON turns his blind gaze upon me, unseeing in his delirium of near-death. I WEEP for PSYDON, as HE does for me. My pace stiffens."))
+			ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC) 
+			to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. PSYDON turns his blind gaze upon me, unseeing in his delirium of near-death and un-waking life. I WEEP for PSYDON, as HE does for me. My pace stiffens. I will do what I must."))
 			ascendantfirstomen()
 			to_chat(user, span_userdanger("Though I may sacrifice myself as many others have, I must hope I shall prevail."))
 		if(2)
