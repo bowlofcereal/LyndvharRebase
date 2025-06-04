@@ -725,7 +725,7 @@
         span_notice("You gently pick the glowing pomegranate.")
     )
     
-    var/obj/item/fruit_of_eora/new_fruit = new(user.loc)
+    var/obj/item/fruit_of_eora/new_fruit = new(user.loc, happiness_tier)
     user.put_in_hands(new_fruit)
     
     // Apply picking debuff
@@ -928,33 +928,33 @@
             return
         if(2)
             possible_arils = list(
-                /obj/item/food/eoran_aril/crimson = 70,
-                /obj/item/food/eoran_aril/roseate = 10,
-                /obj/item/food/eoran_aril/opalescent = 20
+                /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 70,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 10,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 20
             )
         if(3)
             possible_arils = list(
-                /obj/item/food/eoran_aril/crimson = 30,
-                /obj/item/food/eoran_aril/roseate = 20,
-                /obj/item/food/eoran_aril/opalescent = 20,
-                /obj/item/food/eoran_aril/cerulean = 20,
-                /obj/item/food/eoran_aril/fractal = 5
+                /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 30,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 20,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 20,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/cerulean = 20,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/fractal = 5
             )
         if(4)
             possible_arils = list(
-                /obj/item/food/eoran_aril/crimson = 20,
-                /obj/item/food/eoran_aril/roseate = 20,
-                /obj/item/food/eoran_aril/opalescent = 15,
-                /obj/item/food/eoran_aril/cerulean = 15,
-                /obj/item/food/eoran_aril/fractal = 5,
-                /obj/item/food/eoran_aril/auric = 4,
-                /obj/item/food/eoran_aril/ashen = 1,
-                /obj/item/food/eoran_aril/ochre = 5
+                /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 20,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 20,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 15,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/cerulean = 15,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/fractal = 5,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/auric = 4,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/ashen = 1,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/ochre = 5
             )
 
     // Generate 4 arils
     for(var/i in 1 to 4)
-        var/aril_type = pick_weight(possible_arils)
+        var/aril_type = pickweight(possible_arils)
         aril_types += aril_type
 
 /obj/item/fruit_of_eora/attackby(obj/item/I, mob/user)
@@ -982,15 +982,22 @@
     desc = "A glowing seed from the fruit of Eora. It pulses with divine energy."
     icon = 'icons/roguetown/items/produce.dmi'
     icon_state = "aril"
-	bitesize = 1
+    bitesize = 1
     faretype = FARE_NEUTRAL
-	w_class = WEIGHT_CLASS_TINY
-	drop_sound = 'sound/foley/dropsound/food_drop.ogg'
+    w_class = WEIGHT_CLASS_TINY
+    drop_sound = 'sound/foley/dropsound/food_drop.ogg'
     var/effect_desc = "Unknown effects."
+    list_reagents = list(/datum/reagent/consumable/nutriment = 1)
+
+/obj/item/reagent_containers/food/snacks/eoran_aril/attack(mob/living/M, mob/living/user, def_zone)
+    if(M != user)
+        to_chat(user, span_info("The seed glows hot with Eora's rage as you try to forcefully feed her gift to another."))
+        return
+    . = ..()
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/On_Consume(mob/living/eater)
     . = ..()
-    if(iscarbon(user))
+    if(iscarbon(eater))
         var/mob/living/carbon/c = eater
         apply_effects(c)
 
@@ -1011,23 +1018,24 @@
     icon_state = "aril_crimson"
     effect_desc = "This fruit heals for a blood price."
     
-    var/heal_amount = 30
-    var/blood_loss = 450
+    var/heal_amount = 45
+    var/blood_loss = 225
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/crimson/apply_effects(mob/living/carbon/eater)
     //Instant heal, but you can only eat 2 before the next will make you pass out.
-	var/list/wCount = eater.get_wounds()
-	if(!eater.construct)
-		if(wCount.len > 0)
-			eater.heal_wounds(heal_amount)
-			eater.update_damage_overlays()
+    var/list/wCount = eater.get_wounds()
+    //No undead because they kinda don't have blood to give for this.
+    if(!eater.construct && !(target.mob_biotypes & MOB_UNDEAD))
+        if(wCount.len > 0)
+            eater.heal_wounds(heal_amount)
+            eater.update_damage_overlays()
         eater.blood_volume = max(0, eater.blood_volume - blood_loss)
-		eater.adjustBruteLoss(-heal_amount, 0)
-		eater.adjustFireLoss(-heal_amount, 0)
-		eater.adjustOxyLoss(-heal_amount, 0)
-		eater.adjustToxLoss(-heal_amount, 0)
-		eater.adjustOrganLoss(ORGAN_SLOT_BRAIN, -heal_amount)
-		eater.adjustCloneLoss(-heal_amount, 0)
+        eater.adjustBruteLoss(-heal_amount, 0)
+        eater.adjustFireLoss(-heal_amount, 0)
+        eater.adjustOxyLoss(-heal_amount, 0)
+        eater.adjustToxLoss(-heal_amount, 0)
+        eater.adjustOrganLoss(ORGAN_SLOT_BRAIN, -heal_amount)
+        eater.adjustCloneLoss(-heal_amount, 0)
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/roseate
     name = "roseate aril"
@@ -1041,9 +1049,27 @@
     if(ishuman(eater))
         var/mob/living/carbon/human/H = eater
         if(!HAS_TRAIT(H, TRAIT_UNSEEMLY) && !HAS_TRAIT(H, TRAIT_BEAUTIFUL))
-            H.add_trait(TRAIT_BEAUTIFUL)
-            //Could be a status effect too but it's such a simple effect I didn't see the need.
-            addtimer(CALLBACK(H, /mob/living/carbon/human.proc/remove_trait, TRAIT_BEAUTIFUL), beauty_duration)
+            H.apply_status_effect(/datum/status_effect/buff/eora_grace)
+
+/datum/status_effect/buff/eora_grace
+    id = "eora_grace"
+    duration = 10 MINUTES
+    alert_type = /atom/movable/screen/alert/status_effect/eora_grace
+
+/atom/movable/screen/alert/status_effect/eora_grace
+    name = "Eora's grace"
+    desc = "You feel beautiful."
+
+/datum/status_effect/buff/eora_grace/on_apply()
+    if(ishuman(owner))
+        var/mob/living/carbon/human/H = owner
+        ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_VIRTUE)
+    return TRUE
+
+/datum/status_effect/buff/eora_grace/on_remove()
+    if(ishuman(owner))
+        var/mob/living/carbon/human/H = owner
+        REMOVE_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_VIRTUE)
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent
     name = "opalescent aril"
@@ -1060,50 +1086,94 @@
         //Probably best not to allow 2 at once...
         break
 
+// TIER 2
 /obj/item/reagent_containers/food/snacks/eoran_aril/cerulean
     name = "cerulean aril"
     desc = "A deep blue seed that smells of the ocean."
     icon_state = "aril_cerulean"
     effect_desc = "Excellent fishing bait that attracts treasure."
-	baitpenalty = 5
-	isbait = TRUE
-	freshfishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/carp = 50,
-		/obj/item/reagent_containers/food/snacks/fish/sunny = 50,
-		/obj/item/reagent_containers/food/snacks/fish/salmon = 150,
-		/obj/item/reagent_containers/food/snacks/fish/eel = 50,
-		/obj/item/storage/belt/rogue/pouch/coins/poor = 50,
-		/obj/item/clothing/ring/gold = 15,
-		/obj/item/reagent_containers/glass/bottle/rogue/wine = 15,	
-	)
-	seafishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/cod = 190,
-		/obj/item/reagent_containers/food/snacks/fish/plaice = 210,
-		/obj/item/reagent_containers/food/snacks/fish/sole = 340,
-		/obj/item/reagent_containers/food/snacks/fish/angler = 140,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 150,
-		/obj/item/reagent_containers/food/snacks/fish/bass = 210,
-		/obj/item/reagent_containers/food/snacks/fish/clam = 40,
-		/obj/item/reagent_containers/food/snacks/fish/clownfish = 20,
-		/obj/item/grown/log/tree/stick = 3,
-		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
-		/obj/item/natural/cloth = 1,
-		/obj/item/ammo_casing/caseless/rogue/arrow = 1,
-		/obj/item/clothing/ring/gold = 1,
-		/obj/item/reagent_containers/food/snacks/smallrat = 1, //That's not a fish...?
-		/obj/item/reagent_containers/glass/bottle/rogue/wine = 1,		
-	)
-	mudfishloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/mudskipper = 200,
-		/obj/item/natural/worms/leech = 50,
-		/obj/item/clothing/ring/gold = 1,
-		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,				
-	)
-	// This is super trimmed down from the ratwood list to focus entirely on shellfishes
-	cageloot = list(
-		/obj/item/reagent_containers/food/snacks/fish/oyster = 214,
-		/obj/item/reagent_containers/food/snacks/fish/shrimp = 214,
-		/obj/item/reagent_containers/food/snacks/fish/crab = 214,
-		/obj/item/reagent_containers/food/snacks/fish/lobster = 214,
-	)
+    baitpenalty = 5
+    isbait = TRUE
+    freshfishloot = list(
+        /obj/item/reagent_containers/food/snacks/fish/carp = 50,
+        /obj/item/reagent_containers/food/snacks/fish/sunny = 50,
+        /obj/item/reagent_containers/food/snacks/fish/salmon = 150,
+        /obj/item/reagent_containers/food/snacks/fish/eel = 50,
+        /obj/item/storage/belt/rogue/pouch/coins/poor = 50,
+        /obj/item/storage/belt/rogue/pouch/coins/mid = 10,
+        /obj/item/clothing/ring/gold = 15,
+        /obj/item/reagent_containers/glass/bottle/rogue/wine = 15,	
+    )
+    seafishloot = list(
+        /obj/item/reagent_containers/food/snacks/fish/cod = 50,
+        /obj/item/reagent_containers/food/snacks/fish/plaice = 75,
+        /obj/item/reagent_containers/food/snacks/fish/sole = 50,
+        /obj/item/reagent_containers/food/snacks/fish/angler = 100,
+        /obj/item/reagent_containers/food/snacks/fish/lobster = 50,
+        /obj/item/reagent_containers/food/snacks/fish/bass = 50,
+        /obj/item/reagent_containers/food/snacks/fish/clam = 50,
+        /obj/item/reagent_containers/food/snacks/fish/clownfish = 200,
+        /obj/item/storage/belt/rogue/pouch/coins/poor = 75,
+        /obj/item/storage/belt/rogue/pouch/coins/mid = 25,
+        /obj/item/storage/belt/rogue/pouch/coins/rich = 10,
+        /obj/item/clothing/ring/gold = 25,
+        /obj/item/reagent_containers/glass/bottle/rogue/wine = 25,		
+    )
+    mudfishloot = list(
+        /obj/item/reagent_containers/food/snacks/fish/mudskipper = 200,
+        /obj/item/natural/worms/leech = 50,
+        /obj/item/clothing/ring/gold = 1,
+        /mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 25,				
+    )
+    // This is super trimmed down from the ratwood list to focus entirely on shellfishes
+    // this is a waste but it's useable. So I'm just not going to encourage it.
+    cageloot = list(
+        /obj/item/reagent_containers/food/snacks/fish/oyster = 214,
+        /obj/item/reagent_containers/food/snacks/fish/shrimp = 214,
+        /obj/item/reagent_containers/food/snacks/fish/crab = 214,
+        /obj/item/reagent_containers/food/snacks/fish/lobster = 214,
+    )
 
+/obj/item/reagent_containers/food/snacks/eoran_aril/fractal
+    name = "fractal aril"
+    desc = "A geometrically perfect seed that hurts to look at."
+    icon_state = "aril_fractal"
+    effect_desc = "At a cost to constitution, Eora's mercy will melt unsightfulness away..."
+    
+/obj/item/reagent_containers/food/snacks/eoran_aril/fractal/apply_effects(mob/living/eater)
+    if(ishuman(eater))
+        var/mob/living/carbon/human/H = eater
+        if(HAS_TRAIT(H, TRAIT_UNSEEMLY))
+            REMOVE_TRAIT(H, TRAIT_UNSEEMLY, TRAIT_VIRTUE)
+            H.change_stat("constitution", -1)
+            to_chat(eater, span_good("You feel your imperfections melt away, but your body feels more fragile."))
+
+// TIER 3
+/obj/item/reagent_containers/food/snacks/eoran_aril/auric
+    name = "auric aril"
+    desc = "A golden seed that radiates warmth and life."
+    icon_state = "aril_auric"
+    effect_desc = "Key ingredient in revival potions."
+
+/obj/item/reagent_containers/food/snacks/eoran_aril/ashen
+    name = "ashen aril"
+    desc = "A grey seed that feels glacial to the touch. An IMMENSE sense of dread can be felt just looking at it."
+    icon_state = "aril_ashen"
+    effect_desc = "The forbidden aril. This one is not meant for you. Eat this and you forsake me my child."
+
+/obj/item/reagent_containers/food/snacks/eoran_aril/ashen/apply_effects(mob/living/carbon/eater)
+    if(ishuman(eater))
+        var/mob/living/carbon/human/H = eater
+         H.apply_status_effect(/datum/status_effect/buff/ashen_aril)
+
+/obj/item/reagent_containers/food/snacks/eoran_aril/ochre
+    name = "ochre aril"
+    desc = "A blood-red seed that seems to pulse menacingly."
+    icon_state = "aril_ochre"
+    effect_desc = "Produce golden arils at the cost of your own life."
+
+//For now this is just artifical lux. But this may make the user/receiver indebted to eora eventually.
+/obj/item/reagent_containers/lux/eoran_aril
+    name = "incandescent aril"
+    desc = "A blindingly bright seed that radiates pure life energy. It imitates lux, the essence of life."
+    icon_state = "aril_incandescent"
