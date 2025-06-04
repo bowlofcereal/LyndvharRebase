@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			ascendantsecondomen()
 			ADD_TRAIT(user, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(user, TRAIT_ANTIMAGIC, TRAIT_GENERIC)
-			to_chat(user, span_danger("I can feel HIS GAZE upon me. LORD GOD, I WILL MANTLE YOUR DECAYING POWER!"))
+			to_chat(user, span_danger("I can feel HIS GAZE upon me!"))
 		if(3)
 			to_chat(user, span_danger("AGONY. SPLITTING HEADACHE. THROBBING OF THE SOUL."))
 			user.flash_fullscreen("redflash3")
@@ -220,7 +220,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.STAEND += 10
 			user.STASPD += 10
 			user.STALUC += 10
-			to_chat(user, span_danger("I can feel my mortal shell being slowly taken as the shard's power flows within me. I WILL ENDURE THIS AND DO WHAT I MUST!"))
+			to_chat(user, span_danger("I can feel my mortal shell being slowly turned to ash, bit by bit as the shard's power flows within me. I WILL ENDURE THIS AND DO WHAT I MUST!"))
 
 
 			heavensaysdanger() //Take up the power of PSYDON's COMET, SYON. But be careful, for power corrupts.
