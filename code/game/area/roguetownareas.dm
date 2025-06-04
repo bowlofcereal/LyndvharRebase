@@ -577,9 +577,9 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	name = "hauntedlabyrinth"
 	icon_state = "spidercave"
 	first_time_text = "NECRAN LABYRINTH"
-	droning_sound = 'sound/newmusic/lovecraft2.ogg'
-	droning_sound_dusk = 'sound/newmusic/lovecraft2.ogg'
-	droning_sound_night = 'sound/newmusic/lovecraft2.ogg'
+	droning_sound = 'sound/music/area/underworlddrone.ogg'
+	droning_sound_dusk = 'sound/music/area/underworlddrone.ogg'
+	droning_sound_night = 'sound/music/area/underworlddrone.ogg'
 	converted_type = /area/rogue/outdoors/dungeon1
 
 /area/rogue/under/cave/undeadmanor
