@@ -867,6 +867,7 @@
     name = "eoran aril"
     desc = "A glowing seed from the fruit of Eora. It pulses with divine energy."
     icon = 'modular_azurepeak/icons/obj/items/eora_pom.dmi'
+    dropshrink = 0.7
     icon_state = "auric"
     bitesize = 1
     faretype = FARE_NEUTRAL
@@ -1077,3 +1078,4 @@
     desc = "A blindingly bright seed that radiates pure life energy. It imitates lux, the essence of life."
     icon = 'modular_azurepeak/icons/obj/items/eora_pom.dmi'
     icon_state = "incandescent"
+    dropshrink = 0.7
