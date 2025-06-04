@@ -20,13 +20,7 @@
 // no he's dead - ok maybe he does
 
 /datum/patron/old_god/can_pray(mob/living/follower)
-	// Allows death-bed prayers
-	if(follower.has_status_effect(STATUS_EFFECT_UNCONSCIOUS))
-		if(follower.has_status_effect(STATUS_EFFECT_SLEEPING))
-			to_chat(follower, span_danger("I mustn't be sleeping to pray!"))
-			return FALSE	//Stops praying just by sleeping.
-		else
-			return TRUE
+	. = TRUE
 	// Allows prayer near psycross.
 	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
 		return TRUE

@@ -4,13 +4,7 @@
 
 // Master for Divine gods, some get unique areas/machines/whatever to pray near, and the rest should use church/psycross.
 /datum/patron/divine/can_pray(mob/living/follower)
-	// Allows death-bed prayers
-	if(follower.has_status_effect(STATUS_EFFECT_UNCONSCIOUS))
-		if(follower.has_status_effect(STATUS_EFFECT_SLEEPING))
-			to_chat(follower, span_danger("I mustn't be sleeping to pray!"))
-			return FALSE	//Stops praying just by sleeping.
-		else
-			return TRUE
+	. = TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -234,7 +228,7 @@
 
 // Astrata - In daylight, church, cross, or ritual chalk.
 /datum/patron/divine/astrata/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer during daytime if outside.
 	if(istype(get_area(follower), /area/rogue/outdoors) && (GLOB.tod == "day" || GLOB.tod == "dawn"))
 		return TRUE
@@ -244,7 +238,7 @@
 
 // Noc - In moonlight, church, cross, or ritual chalk
 /datum/patron/divine/noc/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer during daytime if outside.
 	if(istype(get_area(follower), /area/rogue/outdoors) && (GLOB.tod == "night"))
 		return TRUE
@@ -258,6 +252,7 @@
 // Dendor - In grove, bog, cross, or ritual chalk 
 // Yes, he is NOT calling the master cus he's unique. Whole bog is his prayer zone. Druids exist for a reason instead of in the church.
 /datum/patron/divine/dendor/can_pray(mob/living/follower)
+	. = ..()
 	// Allows prayer in the druid tower + houses in the forest
 	if(istype(get_area(follower), /area/rogue/indoors/shelter/woods))
 		return TRUE
@@ -273,7 +268,7 @@
 
 // Abyssor - Near water, cross, or within the church.
 /datum/patron/divine/abyssor/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer near any body of water turf.
 	for(var/turf/open/water in view(4, get_turf(follower)))
 		return TRUE
@@ -283,7 +278,7 @@
 
 // Ravox - Near a knight statue, cross, or within the church
 /datum/patron/divine/ravox/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer near any knight statue and its subtypes.
 	for(var/obj/structure/fluff/statue/knight in view(4, get_turf(follower)))
 		return TRUE
@@ -293,7 +288,7 @@
 
 // Necra - Near a grave, cross, or within the church
 /datum/patron/divine/necra/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer near a grave.
 	for(var/obj/structure/closet/dirthole/grave in view(4, get_turf(follower)))
 		return TRUE
@@ -303,7 +298,7 @@
 
 // Xylix - Near a gambling machine, cross, or within the church
 /datum/patron/divine/xylix/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer near gambling machines.
 	for(var/obj/structure/roguemachine/lottery_roguetown in view(4, get_turf(follower)))
 		return TRUE
@@ -313,7 +308,7 @@
 
 // Pestra - Near a well, cross, within the physicians, or within the church
 /datum/patron/divine/pesta/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer in the appothocary's building.
 	if(istype(get_area(follower), /area/rogue/indoors/town/physician))
 		return TRUE
@@ -326,7 +321,7 @@
 
 // Malum - Near a smelter, hearth, cross, within the smithy, or within the church
 /datum/patron/divine/malum/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer in the smith's building.
 	if(istype(get_area(follower), /area/rogue/indoors/town/dwarfin))
 		return TRUE
@@ -341,7 +336,7 @@
 
 // Eora - Near a gambling machine, cross, or within the church
 /datum/patron/divine/eora/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows player to pray while wearing eoran bud.
 	if(HAS_TRAIT(follower, TRAIT_PACIFISM))
 		return TRUE

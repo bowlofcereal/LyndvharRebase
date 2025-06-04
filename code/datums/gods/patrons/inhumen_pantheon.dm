@@ -11,20 +11,13 @@
 
 // Master for Inhumen gods, letting them pray near an inverted cross. The rest will have their own unique stuff.
 /datum/patron/inhumen/can_pray(mob/living/follower)
-	// Allows death-bed prayers
-	if(follower.has_status_effect(STATUS_EFFECT_UNCONSCIOUS))
-		if(follower.has_status_effect(STATUS_EFFECT_SLEEPING))
-			to_chat(follower, span_danger("I mustn't be sleeping to pray!"))
-			return FALSE	//Stops praying just by sleeping.
-		else
-			return TRUE
+	. = TRUE
 	// Allows prayer in the Zzzzzzzurch(!)
 	if(istype(get_area(follower), /area/rogue/indoors/shelter/mountains))
 		return TRUE
 	// Allows prayer near EEEVIL psycross
 	for(var/obj/structure/fluff/psycross/zizocross in view(4, get_turf(follower)))
 		return TRUE
-	return FALSE
 
 /datum/patron/inhumen/zizo
 	name = "Zizo"
@@ -109,7 +102,7 @@
 
 // Zizo - When the sun is blotted out, zchurch, bad-cross, or ritual chalk
 /datum/patron/inhumen/zizo/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer during the sun being blotted from the sky.
 	if(hasomen(OMEN_SUNSTEAL))
 		return TRUE
@@ -122,7 +115,7 @@
 
 // Graggar - When bleeding, near blood on ground, zchurch, bad-cross, or ritual chalk
 /datum/patron/inhumen/graggar/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer if actively bleeding.
 	if(follower.bleed_rate > 0)
 		return TRUE
@@ -137,7 +130,7 @@
 
 // Matthios - When near coin of at least 25 mammon, zchurch, bad-cross, or ritual talk
 /datum/patron/inhumen/matthios/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer if the user has more than 50 mammon on them.
 	var/mammon_count = get_mammons_in_atom(follower)
 	if(mammon_count >= 100)
@@ -157,7 +150,7 @@
 
 // Baotha 
 /datum/patron/inhumen/baotha/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayers in the bath house - whore.
 	if(istype(get_area(follower), /area/rogue/indoors/town/bath))
 		return TRUE
