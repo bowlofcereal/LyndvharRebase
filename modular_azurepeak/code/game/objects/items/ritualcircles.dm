@@ -202,7 +202,7 @@
 	name = "Rune of Forge"
 	desc = "A Holy Rune of Malum"
 	icon_state = "malum_chalky"
-var/forgerites = list("Ritual of Blessed Reforgance")
+	var/forgerites = list("Ritual of Blessed Reforgance")
 
 /obj/structure/ritualcircle/malum/attack_hand(mob/living/user)
 	if((user.patron?.type) != /datum/patron/divine/malum)
@@ -238,9 +238,6 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	var/ritualtargets = view(7, loc)
 	for(var/mob/living/carbon/human/target in ritualtargets)
 		target.flash_fullscreen("whiteflash") //Cool effect!
-	for (var/obj/item/ingot/silver/I in loc)
-		qdel(I)
-		new /obj/item/ingot/silverblessed(loc)
 	for (var/obj/item/ingot/steel/I in loc)
 		qdel(I)
 		new /obj/item/ingot/steelholy(loc)
@@ -478,3 +475,48 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/matthios
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/chainmantle
 	backr = /obj/item/rogueweapon/flail/peasantwarflail/matthios
+
+// PSYDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON ENDURES (just borrows the malum ritual for the silver cause we hate mass production without consent.)
+/obj/structure/ritualcircle/psydon
+	name = "Rune of Old God"
+	desc = "A Holy Rune of Psydon"
+	icon_state = "psydon_chalky"
+	var/psydonrites = list("Rite of the Shattered Star")
+
+/obj/structure/ritualcircle/psydon/attack_hand(mob/living/user)
+	if((user.patron?.type) != /datum/patron/old_god)
+		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		return
+	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
+		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		return
+	if(user.has_status_effect(/datum/status_effect/debuff/ritesexpended))
+		to_chat(user,span_smallred("I have performed enough rituals for the day... I must rest before communing more."))
+		return
+	var/riteselection = input(user, "Rituals of Creation", src) as null|anything in psydonrites
+	switch(riteselection) // put ur rite selection here
+		if("Rite of the Shattered Star")
+			if(do_after(user, 50))
+				user.say("HOLY LAMB, SACRIFICIAL HERO, BLESSED IDIOT!!!")
+				if(do_after(user, 50))
+					user.say("PSYDON YET LIVES! PSYDON YET ENDURES!!!")
+					if(do_after(user, 50))
+						user.say("I ENDURE ALONGSIDE HIM, AS A KNIGHT OF HUMENITY!!!")
+						to_chat(user,span_danger("You feel stench of rot within your mouth, yet you ENDURE.."))
+						if(do_after(user, 30))
+							icon_state = "psydon_active"
+							user.say("SEND UNTO ME HIS COMET, LEST WE CRUMBLE BEFORE TEMPTATION!!!")
+							loc.visible_message(span_warning("A wave of wind rushes out from the ritual circle before [user]. The metal is reforged in a flash of light!"))
+							playsound(loc, 'sound/magic/churn.ogg', 100, FALSE, -1)
+							shatteredstar(src)
+							user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
+							spawn(120)
+								icon_state = "psydon_chalky"
+
+/obj/structure/ritualcircle/psydon/proc/shatteredstar(src)
+	var/ritualtargets = view(7, loc)
+	for(var/mob/living/carbon/human/target in ritualtargets)
+		target.flash_fullscreen("whiteflash") //Cool effect!
+	for (var/obj/item/ingot/silver/I in loc)
+		qdel(I)
+		new /obj/item/ingot/silverblessed(loc)

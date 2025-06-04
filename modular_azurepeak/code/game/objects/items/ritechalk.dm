@@ -13,6 +13,8 @@
 
 	var/ritechoices = list()
 	switch (user.patron?.type)
+		if(/datum/patron/old_god)
+			ritechoices+="Rune of Old God"
 		if(/datum/patron/inhumen/zizo)
 			ritechoices+="Rune of ZIZO" 
 		if(/datum/patron/inhumen/matthios)
@@ -101,3 +103,8 @@
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/matthios(step_turf)
+		if("Rune of Old God")
+			to_chat(user,span_cultsmall("I begin inscribing the rune of His Endurance"))
+			if(do_after(user, 30, src))
+				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
+				new /obj/structure/ritualcircle/psydon(step_turf)
