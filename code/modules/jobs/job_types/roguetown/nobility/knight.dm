@@ -299,6 +299,7 @@
 		if("Lance + Kite Shield")
 			r_hand = /obj/item/rogueweapon/spear/lance
 			backl = /obj/item/rogueweapon/shield/tower/metal
+			H.mind.adjust_skillrank_up_to(/datum/skill/combat/shields, 2, TRUE) // Let them skip dummy hitting
 
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 	pants = /obj/item/clothing/under/roguetown/chainlegs
