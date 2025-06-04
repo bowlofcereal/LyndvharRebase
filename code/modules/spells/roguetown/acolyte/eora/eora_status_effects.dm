@@ -78,29 +78,30 @@
 	return ..()
 
 /datum/status_effect/buff/ashen_aril/tick()
-    // Apply wounds at negative boost levels except -5
-    if(current_boost < 0 && current_boost > -5 && world.time > next_wound_time)
-        next_wound_time = world.time + rand(30 SECONDS, 60 SECONDS)
-        if(prob(25))
-            if(iscarbon(owner))
-                var/mob/living/carbon/C = owner
-                var/list/valid_parts = list()
+	// Apply wounds at negative boost levels except -5
+	if(current_boost < 0 && current_boost > -5 && world.time > next_wound_time)
+		next_wound_time = world.time + rand(30 SECONDS, 60 SECONDS)
+		if(prob(25))
+			if(iscarbon(owner))
+				var/mob/living/carbon/C = owner
+				var/list/valid_parts = list()
 
-                for(var/obj/item/bodypart/BP in C.bodyparts)
-                    var/BP_name = BP.name
-                    if(!BP_name) BP_name = "Unnamed Bodypart" // Fallback
+				for(var/obj/item/bodypart/BP in C.bodyparts)
+					var/BP_name = BP.name
+					if(!BP_name) BP_name = "Unnamed Bodypart" // Fallback
 
-                    var/bool_can_bloody_wound = BP.can_bloody_wound()
-                    var/bool_in_zone = (BP.body_zone in valid_body_zones)
-                    var/bool_combined_condition = (bool_in_zone && bool_can_bloody_wound)
+					var/bool_can_bloody_wound = BP.can_bloody_wound()
+					var/bool_in_zone = (BP.body_zone in valid_body_zones)
+					var/bool_combined_condition = (bool_in_zone && bool_can_bloody_wound)
 
-                    if(bool_combined_condition) //Idk but it works like this.
-                        valid_parts += BP
+					if(bool_combined_condition) //Idk but it works like this.
+						valid_parts += BP
 
-                if(length(valid_parts))
-                    var/obj/item/bodypart/BP = pick(valid_parts)
-                    BP.add_wound(/datum/wound/slash, FALSE, "Your flesh cracks and bleeds ash!")
-                    new /obj/item/ash(owner.loc)
+				if(length(valid_parts))
+					var/obj/item/bodypart/BP = pick(valid_parts)
+					BP.add_wound(/datum/wound/slash, FALSE, "looks sickly and ashen.")
+					new /obj/item/ash(owner.loc)
+					to_chat(owner, span_warning("Your body cracks as a new wound opens, ash spilling forth."))
 
 /datum/status_effect/buff/ashen_aril/on_remove()
 	. = ..()
@@ -115,3 +116,208 @@
 		owner.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
 
 #undef ASHEN_FILTER
+
+/datum/status_effect/buff/eoran_balm_effect
+	id = "eoran_balm"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/healing
+	duration = -1
+	var/healing_power = 1.5
+	var/waiting_for_prompt = FALSE
+
+/datum/status_effect/buff/eoran_balm_effect/on_apply()
+	to_chat(owner, span_notice("A strange balm courses through my veins, an unnatural warmth spreads through my lifeless body..."))
+	. = ..()
+
+/datum/status_effect/buff/eoran_balm_effect/tick()
+	. = ..()
+	var/mob/living/carbon/M = owner
+	to_chat(world, span_bold("Eoran Balm Effect start: [M.name]"))
+	new /obj/effect/temp_visual/heal(get_turf(owner), "#cd2be2")
+
+	if(M.stat != DEAD)
+		M.remove_status_effect(src)
+		return
+
+	to_chat(world, span_bold("Eoran Balm Effect Processing: [M.name]"))
+
+	if(waiting_for_prompt)
+		return
+
+	M.adjustBruteLoss(-healing_power)
+	M.adjustFireLoss(-healing_power)
+	M.adjustToxLoss(-healing_power)
+	M.adjustOxyLoss(-healing_power)
+	M.adjustCloneLoss(-healing_power)
+
+	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
+		M.blood_volume = min(M.blood_volume + healing_power * 2, BLOOD_VOLUME_NORMAL)
+
+	var/list/wounds = M.get_wounds()
+	if(length(wounds))
+		M.heal_wounds(healing_power)
+		M.update_damage_overlays()
+
+	if(M.getBruteLoss() < 50 && M.getFireLoss() < 50 && M.getToxLoss() < 50 && M.getOxyLoss() < 50 && M.blood_volume >= BLOOD_VOLUME_SAFE)
+
+		new /obj/effect/temp_visual/heal(get_turf(M), "#8A2BE2")
+
+		if (M.mind)
+			waiting_for_prompt = TRUE
+			if(alert(M, "Are you ready to face the world, once more?", "Revival", "I must go on", "Let me rest") != "I must go on")
+				M.visible_message(span_warning("[M]'s body shudders but falls still again."))
+				M.remove_status_effect(src)
+				return
+
+		M.adjustOxyLoss(-M.getOxyLoss()) // Full oxygen healing
+		if(!M.revive(full_heal = FALSE))
+			M.visible_message(span_warning("[M]'s body shudders but fails to revive!"))
+			M.remove_status_effect(src)
+			return
+
+		M.emote("breathgasp")
+		M.Jitter(100)
+		GLOB.azure_round_stats[STATS_LUX_REVIVALS]++
+		M.update_body()
+		M.visible_message(span_notice("[M] is dragged back from Necra's hold!"), span_green("I awake from the void."))
+
+		M.remove_status_effect(/datum/status_effect/debuff/rotted_zombie)
+		M.apply_status_effect(/datum/status_effect/debuff/revived)
+		M.remove_status_effect(src)
+
+#define POM_FILTER "pom_aura"
+
+/datum/status_effect/debuff/pomegranate_aura
+	id = "pomegranate_aura"
+	duration = -1
+	alert_type = /atom/movable/screen/alert/status_effect/pomegranate_aura
+	var/outline_colour ="#42001f"
+	var/datum/weakref/source_ref
+
+/datum/status_effect/debuff/pomegranate_aura/on_creation(mob/living/owner, tree)
+	source_ref = WEAKREF(tree)
+	var/str_change = 0
+	var/perc_change = 0
+
+	if(owner.patron.type != /datum/patron/divine/eora)
+		str_change = -8
+		perc_change = -8
+	else
+		//Eorans get a slight edge.
+		str_change = -6
+		perc_change = -6
+	
+	effectedstats = list(
+		"strength" = str_change,
+		"perception" = perc_change
+	)
+
+	return ..()
+
+/datum/status_effect/debuff/pomegranate_aura/on_apply()
+	. = ..()
+	var/filter = owner.get_filter(POM_FILTER)
+	if (!filter)
+		owner.add_filter(POM_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 180, "size" = 1))
+	to_chat(owner, span_warning("My combat prowess is sapped by the tree!"))
+
+/datum/status_effect/debuff/pomegranate_aura/on_remove()
+	. = ..()
+	owner.remove_filter(POM_FILTER)
+	to_chat(owner, span_warning("As I leave the influence of the tree, my strength returns."))
+
+/datum/status_effect/debuff/pomegranate_aura/tick()
+	// Check if source tree still exists
+	var/obj/structure/eoran_pomegranate_tree/tree = source_ref?.resolve()
+	if(QDELETED(tree) || !istype(tree))
+		owner.remove_status_effect(src)
+		return
+
+	// Check distance to tree. This is a sanity check given the aura SHOULD remove already, but you can never be too safe :)
+	if(get_dist(owner, tree) > tree.aura_range)
+		owner.remove_status_effect(src)
+		return
+
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		// Ugly people might get hurt
+		if(HAS_TRAIT(H, TRAIT_UNSEEMLY) && prob(2))
+			to_chat(H, span_warning("The tree's beauty burns your eyes!"))
+			H.Dizzy(5)
+			H.blur_eyes(5)
+			H.adjustBruteLoss(10, 0)
+
+		// Beautiful people might get healed
+		else if(HAS_TRAIT(H, TRAIT_BEAUTIFUL) && prob(10))
+			to_chat(H, span_good("The tree's beauty revitalizes you!"))
+			H.apply_status_effect(/datum/status_effect/buff/healing, 1)
+
+	// There is no beauty in death. Feed my tree.
+	if(owner.stat == DEAD)
+		owner.blood_volume = max(10, owner.blood_volume - 10)
+
+/atom/movable/screen/alert/status_effect/pomegranate_aura
+	name = "Eora's Blessing"
+	desc = "You feel a sense of peace near this sacred tree."
+
+#undef POM_FILTER
+
+#define WILTING_FILTER "wilting_death"
+
+/datum/status_effect/debuff/eoran_wilting
+	id = "wilting"
+	duration = 10 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/pomegranate_aura
+	var/outline_colour ="#2c2828"
+	var/datum/weakref/source_ref
+
+/datum/status_effect/debuff/eoran_wilting/on_apply()
+	if(isliving(owner))
+		owner.add_filter(WILTING_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 210, "size" = 2))
+		to_chat(owner, span_userdanger("You feel like your limbs are starting to detach horrifically, death is imminent!"))
+	return TRUE
+
+/datum/status_effect/debuff/eoran_wilting/on_remove()
+	if(isliving(owner))
+		var/mob/living/L = owner
+		L.remove_filter(WILTING_FILTER)
+	
+	dismember_owner()
+
+/datum/status_effect/debuff/eoran_wilting/tick()
+	if(isliving(owner))
+		var/mob/living/L = owner
+		L.flash_fullscreen("redflash3", 1)
+		
+		// Small damage to limbs as warning
+		if(iscarbon(L))
+			var/mob/living/carbon/C = L
+			for(var/obj/item/bodypart/BP in C.bodyparts)
+				if(BP.body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
+					BP.receive_damage(1)
+
+/datum/status_effect/debuff/eoran_wilting/proc/dismember_owner()
+	if(!iscarbon(owner))
+		return
+	
+	var/mob/living/carbon/C = owner
+	playsound(C, 'sound/misc/eat.ogg', 100, TRUE)
+	
+	// Dismember limbs in sequence
+	var/static/list/dismember_order = list(
+		BODY_ZONE_L_ARM,
+		BODY_ZONE_R_ARM,
+		BODY_ZONE_L_LEG,
+		BODY_ZONE_R_LEG,
+		BODY_ZONE_HEAD
+	)
+	
+	C.visible_message(span_userdanger("[C]'s limbs wither and fall off in a gruesome display!"))
+	
+	for(var/zone in dismember_order)
+		var/obj/item/bodypart/BP = C.get_bodypart(zone)
+		if(BP)
+			C.adjustBruteLoss(50)
+			BP.dismember()
+			sleep(0.5 SECONDS)
+
+#undef WILTING_FILTER

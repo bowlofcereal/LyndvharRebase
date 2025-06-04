@@ -372,20 +372,36 @@
     desc = "Grow a cool tree."
     sound = 'sound/magic/magnet.ogg'
     req_items = list(/obj/item/clothing/neck/roguetown/psicross/eora)
-    devotion_cost = 1
-    recharge_time = 1 SECONDS
+    devotion_cost = 500
+    recharge_time = 5 SECONDS
+    chargetime = 1 SECONDS
     overlay_state = "bread"
     associated_skill = /datum/skill/magic/holy
+    var/obj/structure/eoran_pomegranate_tree/my_little_tree = null
 
 /obj/effect/proc_holder/spell/invoked/pomegranate/cast(list/targets, mob/living/user)
     . = ..()
+
+    if(QDELETED(my_little_tree))
+        my_little_tree = null
+
+    if(my_little_tree)
+        to_chat(user, span_warning("I cannot maintain more than a single tree for Eora. I must get rid of the other first, however painful."))
+        revert_cast()
+        return FALSE
+
     var/turf/T = get_turf(targets[1])
     if(isopenturf(T))
-        new /obj/structure/eoran_pomegranate_tree(T)
-        return TRUE
+        to_chat(user, span_notice("I begin growing Eora's sacred tree here. I should stop and reconsider if I don't want my only tree here."))
+        if(do_after(user, 30 SECONDS, FALSE))
+            if(isopenturf(T))
+                var/obj/structure/eoran_pomegranate_tree/tree = new /obj/structure/eoran_pomegranate_tree(T)
+                my_little_tree = tree
+                return TRUE
     else
-        to_chat(user, span_warning("The targeted location is blocked. My call fails to draw a mossback."))
-        return FALSE
+        to_chat(user, span_warning("The targeted location is blocked. Eora's seed cannot sprout here."))
+    revert_cast()
+    return FALSE
 
 #define SPROUT 0
 #define GROWING 1
@@ -512,7 +528,7 @@
             update_icon()
             return TRUE
 
-    if(istype(I, /obj/item/roguegem/ruby) || istype(I, /obj/item/alch/transisdust))
+    if(istype(I, /obj/item/roguegem/ruby) || istype(I, /obj/item/alch/transisdust) || istype(I, /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent))
 
         if(I.type in tree_offerings)
             to_chat(user, span_warning("This object has already been offered to the tree!"))
@@ -751,144 +767,6 @@
     
     return TRUE
 
-#define POM_FILTER "pom_aura"
-
-/datum/status_effect/debuff/pomegranate_aura
-    id = "pomegranate_aura"
-    duration = -1
-    alert_type = /atom/movable/screen/alert/status_effect/pomegranate_aura
-    var/outline_colour ="#42001f"
-    var/datum/weakref/source_ref
-
-/datum/status_effect/debuff/pomegranate_aura/on_creation(mob/living/owner, tree)
-    source_ref = WEAKREF(tree)
-    var/str_change = 0
-    var/perc_change = 0
-
-    if(owner.patron.type != /datum/patron/divine/eora)
-        str_change = -8
-        perc_change = -8
-    else
-        //Eorans get a slight edge.
-        str_change = -6
-        perc_change = -6
-    
-    effectedstats = list(
-        "strength" = str_change,
-        "perception" = perc_change
-    )
-
-    return ..()
-
-/datum/status_effect/debuff/pomegranate_aura/on_apply()
-    . = ..()
-    var/filter = owner.get_filter(POM_FILTER)
-    if (!filter)
-        owner.add_filter(POM_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 180, "size" = 1))
-    to_chat(owner, span_warning("My combat prowess is sapped by the tree!"))
-
-/datum/status_effect/debuff/pomegranate_aura/on_remove()
-    . = ..()
-    owner.remove_filter(POM_FILTER)
-    to_chat(owner, span_warning("As I leave the influence of the tree, my strength returns."))
-
-/datum/status_effect/debuff/pomegranate_aura/tick()
-    // Check if source tree still exists
-    var/obj/structure/eoran_pomegranate_tree/tree = source_ref?.resolve()
-    if(QDELETED(tree) || !istype(tree))
-        owner.remove_status_effect(src)
-        return
-
-    // Check distance to tree. This is a sanity check given the aura SHOULD remove already, but you can never be too safe :)
-    if(get_dist(owner, tree) > tree.aura_range)
-        owner.remove_status_effect(src)
-        return
-
-    if(ishuman(owner))
-        var/mob/living/carbon/human/H = owner
-        // Ugly people might get hurt
-        if(HAS_TRAIT(H, TRAIT_UNSEEMLY) && prob(2))
-            to_chat(H, span_warning("The tree's beauty burns your eyes!"))
-            H.Dizzy(5)
-            H.blur_eyes(5)
-            H.adjustBruteLoss(10, 0)
-
-        // Beautiful people might get healed
-        else if(HAS_TRAIT(H, TRAIT_BEAUTIFUL) && prob(10))
-            to_chat(H, span_good("The tree's beauty revitalizes you!"))
-            H.apply_status_effect(/datum/status_effect/buff/healing, 1)
-
-    // There is no beauty in death. Feed my tree.
-    if(owner.stat == DEAD)
-        owner.blood_volume = max(10, owner.blood_volume - 10)
-
-/atom/movable/screen/alert/status_effect/pomegranate_aura
-    name = "Eora's Blessing"
-    desc = "You feel a sense of peace near this sacred tree."
-
-#undef POM_FILTER
-
-#define WILTING_FILTER "wilting_death"
-
-/datum/status_effect/debuff/eoran_wilting
-    id = "wilting"
-    duration = 10 SECONDS
-    alert_type = /atom/movable/screen/alert/status_effect/pomegranate_aura
-    var/outline_colour ="#2c2828"
-    var/datum/weakref/source_ref
-
-/datum/status_effect/debuff/eoran_wilting/on_apply()
-    if(isliving(owner))
-        owner.add_filter(WILTING_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 210, "size" = 2))
-        to_chat(owner, span_userdanger("You feel like your limbs are starting to detach horrifically, death is imminent!"))
-    return TRUE
-
-/datum/status_effect/debuff/eoran_wilting/on_remove()
-    if(isliving(owner))
-        var/mob/living/L = owner
-        L.remove_filter(WILTING_FILTER)
-    
-    dismember_owner()
-
-/datum/status_effect/debuff/eoran_wilting/tick()
-    if(isliving(owner))
-        var/mob/living/L = owner
-        L.flash_fullscreen("redflash3", 1)
-        
-        // Small damage to limbs as warning
-        if(iscarbon(L))
-            var/mob/living/carbon/C = L
-            for(var/obj/item/bodypart/BP in C.bodyparts)
-                if(BP.body_zone in list(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
-                    BP.receive_damage(1)
-
-/datum/status_effect/debuff/eoran_wilting/proc/dismember_owner()
-    if(!iscarbon(owner))
-        return
-    
-    var/mob/living/carbon/C = owner
-    playsound(C, 'sound/misc/eat.ogg', 100, TRUE)
-    
-    // Dismember limbs in sequence
-    var/static/list/dismember_order = list(
-        BODY_ZONE_L_ARM,
-        BODY_ZONE_R_ARM,
-        BODY_ZONE_L_LEG,
-        BODY_ZONE_R_LEG,
-        BODY_ZONE_HEAD
-    )
-    
-    C.visible_message(span_userdanger("[C]'s limbs wither and fall off in a gruesome display!"))
-    
-    for(var/zone in dismember_order)
-        var/obj/item/bodypart/BP = C.get_bodypart(zone)
-        if(BP)
-            C.adjustBruteLoss(50)
-            BP.dismember()
-            sleep(0.5 SECONDS)
-
-#undef WILTING_FILTER
-
 /obj/item/fruit_of_eora
     name = "fruit of eora"
     desc = "A mystical pomegranate glowing with inner light. It feels warm to the touch."
@@ -949,7 +827,8 @@
                 /obj/item/reagent_containers/food/snacks/eoran_aril/fractal = 5,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/auric = 4,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/ashen = 1,
-                /obj/item/reagent_containers/food/snacks/eoran_aril/ochre = 5
+                /obj/item/reagent_containers/food/snacks/eoran_aril/ochre = 5,
+                /obj/item/reagent_containers/lux/eoran_aril = 1
             )
 
     // Generate 4 arils
@@ -971,7 +850,6 @@
     playsound(src, 'modular/Neu_Food/sound/slicing.ogg', 60, TRUE, -1)
     opened = TRUE
     
-    // Spawn arils at user's feet
     for(var/aril_type in aril_types)
         new aril_type(loc)
     
@@ -1159,11 +1037,14 @@
     name = "ashen aril"
     desc = "A grey seed that feels glacial to the touch. An IMMENSE sense of dread can be felt just looking at it."
     icon_state = "aril_ashen"
-    effect_desc = "The forbidden aril. This one is not meant for you. Eat this and you forsake me my child."
+    effect_desc = "The forbidden aril. This one is not meant for you."
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/ashen/apply_effects(mob/living/carbon/eater)
     if(ishuman(eater))
         var/mob/living/carbon/human/H = eater
+        if(H.patron.type == /datum/patron/divine/eora)
+            //Eora does not appreciate her followers ignoring her most sacred wishes.
+            H.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
         H.apply_status_effect(/datum/status_effect/buff/ashen_aril)
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/ochre
@@ -1172,7 +1053,17 @@
     icon_state = "aril_ochre"
     effect_desc = "Produce golden arils at the cost of your own life."
 
+/obj/item/reagent_containers/food/snacks/eoran_aril/ochre/apply_effects(mob/living/carbon/eater)
+    if(ishuman(eater))
+        var/mob/living/carbon/human/H = eater
+        if(H.patron.type == /datum/patron/divine/eora)
+            to_chat(H, span_notice("Golden seeds sprout from your skin and fall upon the floor."))
+            for(var/i in 1 to 2)
+                new /obj/item/reagent_containers/food/snacks/eoran_aril/auric(H.loc)
+            H.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
+
 //For now this is just artifical lux. But this may make the user/receiver indebted to eora eventually.
+//This is meant to be given guaranteed with T4 pommes for priests but given we don't have eoran priests yet I will implement this when we do.
 /obj/item/reagent_containers/lux/eoran_aril
     name = "incandescent aril"
     desc = "A blindingly bright seed that radiates pure life energy. It imitates lux, the essence of life."
