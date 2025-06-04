@@ -3455,8 +3455,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "blt" = (
-/obj/item/roguebin/water/gross,
-/obj/structure/fluff/walldeco/chains,
+/obj/structure/table/wood,
+/obj/item/rogueweapon/huntingknife/cleaver,
+/obj/item/natural/cloth,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
 "blI" = (
@@ -3800,18 +3801,9 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/shelter)
 "bsI" = (
-/obj/structure/fluff/railing/wood{
-	dir = 1;
-	layer = 2.7;
-	pixel_x = 2;
-	pixel_y = 7
-	},
-/obj/effect/decal/cobbleedge{
-	icon_state = "cobbleedge-n"
-	},
-/mob/living/simple_animal/hostile/retaliate/rogue/trufflepig,
-/turf/open/floor/rogue/hay,
-/area/rogue/indoors/town)
+/obj/structure/flora/roguegrass/bush/wall,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/town)
 "bsK" = (
 /obj/structure/fluff/walldeco/customflag{
 	pixel_x = 32
@@ -11551,12 +11543,15 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/mountains/decap)
 "ehi" = (
-/obj/structure/chair/stool/rogue,
 /obj/structure/roguemachine/scomm/l,
 /obj/effect/decal/cobbleedge{
 	dir = 5
 	},
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/fluff/railing/wood,
+/obj/effect/decal/cobbleedge{
+	icon_state = "cobbleedge-sread"
+	},
+/turf/open/floor/rogue/hay,
 /area/rogue/indoors/town)
 "ehj" = (
 /obj/structure/fluff/railing/border{
@@ -12187,6 +12182,13 @@
 /obj/item/natural/bone,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/dragonden)
+"erK" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-e"
+	},
+/turf/open/floor/rogue/hay,
+/area/rogue/indoors/town)
 "erO" = (
 /obj/structure/rack/rogue/shelf,
 /obj/item/quiver/javelin/steel{
@@ -17139,10 +17141,8 @@
 /turf/open/water/swamp,
 /area/rogue/under/town/sewer)
 "gdq" = (
-/obj/effect/decal/cobbleedge{
-	dir = 4
-	},
-/turf/open/floor/rogue/dirt/road,
+/obj/structure/meathook,
+/turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
 "gdz" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
@@ -18696,7 +18696,6 @@
 /obj/effect/decal/cobbleedge{
 	dir = 10
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/goat,
 /turf/open/floor/rogue/hay,
 /area/rogue/indoors/town)
 "gFY" = (
@@ -20081,6 +20080,9 @@
 /obj/structure/rack/rogue/shelf,
 /obj/item/reagent_containers/glass/bucket{
 	pixel_x = -6;
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/glass/bucket{
 	pixel_y = 15
 	},
 /turf/open/floor/rogue/ruinedwood/herringbone,
@@ -27066,11 +27068,8 @@
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "jxo" = (
-/obj/effect/decal/cobbleedge{
-	dir = 10;
-	pixel_y = 1
-	},
-/turf/open/floor/rogue/dirt/road,
+/mob/living/simple_animal/hostile/retaliate/rogue/swine,
+/turf/open/floor/rogue/hay,
 /area/rogue/indoors/town)
 "jxs" = (
 /obj/structure/chair/wood/rogue{
@@ -28028,6 +28027,26 @@
 /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
+"jPo" = (
+/obj/structure/fluff/railing/wood{
+	dir = 8
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-e"
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-w"
+	},
+/obj/machinery/light/rogue/torchholder{
+	pixel_y = 26
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "jPs" = (
 /obj/machinery/light/roguestreet{
 	dir = 1
@@ -28248,6 +28267,10 @@
 	icon_state = "plating2"
 	},
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
+"jTz" = (
+/obj/structure/mineral_door/swing_door,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town)
 "jTH" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
@@ -49061,10 +49084,8 @@
 	},
 /area/rogue/indoors/town/church/chapel)
 "rld" = (
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -6
-	},
-/turf/open/floor/rogue/cobble,
+/mob/living/simple_animal/hostile/retaliate/rogue/trufflepig,
+/turf/open/floor/rogue/hay,
 /area/rogue/indoors/town)
 "rlk" = (
 /obj/machinery/light/rogue/wallfire/candle/off/r,
@@ -50830,13 +50851,19 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/cave/goblinfort)
 "rTh" = (
-/obj/structure/mineral_door/wood/fancywood{
-	locked = 1;
-	lockid = "farm"
-	},
 /obj/effect/decal/cobbleedge{
 	dir = 10;
 	icon_state = "cobbleedge-e"
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 4
+	},
+/obj/structure/fluff/railing/wood{
+	dir = 8
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-w"
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town)
@@ -57787,6 +57814,18 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
+"ufg" = (
+/obj/machinery/light/rogue/torchholder/r,
+/obj/structure/fluff/railing/wood,
+/obj/effect/decal/cobbleedge{
+	icon_state = "cobbleedge-sread"
+	},
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-e"
+	},
+/turf/open/floor/rogue/hay,
+/area/rogue/indoors/town)
 "ufh" = (
 /obj/structure/chair/wood/rogue,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -62109,9 +62148,10 @@
 /area/rogue/outdoors/town)
 "vFi" = (
 /obj/effect/decal/cobbleedge{
-	dir = 10
+	dir = 10;
+	icon_state = "cobbleedge-n"
 	},
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/rogue/dirt,
 /area/rogue/indoors/town)
 "vFl" = (
 /obj/structure/fluff/railing/border{
@@ -65641,8 +65681,8 @@
 /obj/effect/decal/cobbleedge{
 	dir = 9
 	},
-/mob/living/simple_animal/hostile/retaliate/rogue/swine,
-/turf/open/floor/rogue/dirt,
+/mob/living/simple_animal/hostile/retaliate/rogue/goat,
+/turf/open/floor/rogue/hay,
 /area/rogue/indoors/town)
 "wQo" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mossback,
@@ -68604,13 +68644,14 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "xYx" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "longtable"
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-n"
 	},
-/obj/item/natural/cloth,
-/obj/item/rogueweapon/huntingknife/cleaver,
-/turf/open/floor/rogue/cobble,
+/obj/effect/decal/cobbleedge{
+	dir = 10
+	},
+/turf/open/floor/rogue/dirt,
 /area/rogue/indoors/town)
 "xYz" = (
 /obj/effect/decal/cobbleedge{
@@ -242857,15 +242898,15 @@ fpx
 fpx
 fpx
 fpx
-rcz
 pWT
-daQ
 pWT
-daQ
 pWT
-daQ
-daQ
-njB
+pWT
+pWT
+pWT
+pWT
+pWT
+pWT
 pWT
 pWT
 pWT
@@ -243309,16 +243350,16 @@ fdf
 pWT
 fpx
 fpx
-fpx
-fpx
+rcz
 pWT
-hpb
-hpb
-jCt
 jWn
+cDX
+mjH
+pqo
+cDX
 jWn
-jWn
-jCt
+njB
+pWT
 pWT
 pWT
 fVo
@@ -243761,17 +243802,17 @@ hpb
 mWD
 fpx
 fpx
-cDX
+bsI
+bsI
+hpb
 mjH
+gdq
+blt
 pqo
-cDX
-mjH
-pqo
-cDX
-mjH
-pqo
-cDX
 jWn
+jWn
+jCt
+pWT
 pWT
 fVo
 dzs
@@ -244213,17 +244254,17 @@ uBc
 cDX
 nok
 nok
-uAr
-piW
-kie
-oaZ
+cDX
+mjH
+pqo
+cDX
 jdu
 jdu
-uWy
-kie
-jzW
-uAr
-pWT
+cDX
+mjH
+pqo
+cDX
+jWn
 njB
 fVo
 fVo
@@ -244665,17 +244706,17 @@ ixh
 uBc
 fpx
 fpx
-gyu
-sVK
-qHy
-hLc
-gdq
-gdq
-bsI
-sVK
-iEx
-gyu
-jWn
+uAr
+piW
+kie
+oaZ
+jdu
+jdu
+uWy
+kie
+jzW
+uAr
+pWT
 pWT
 pWT
 fVo
@@ -245118,14 +245159,14 @@ uBc
 eib
 fpx
 gyu
+qHy
 sVK
-mdE
 hLc
 gbU
 gbU
 hvq
-edS
-iEx
+mdE
+sVK
 gyu
 jCt
 pWT
@@ -246474,13 +246515,13 @@ uBc
 pWT
 njB
 cDX
-lKo
+jPo
 rTh
 cDX
 jdu
 qWS
 cDX
-lCq
+jTz
 lKo
 cDX
 jWn
@@ -246926,8 +246967,8 @@ cDX
 edP
 pWT
 uAr
-blt
-vFi
+sVK
+sVK
 ehi
 jdu
 jdu
@@ -247379,8 +247420,8 @@ iPB
 pWT
 gyu
 rld
-gbU
-jxo
+edS
+hLc
 msd
 kBI
 pRw
@@ -247830,9 +247871,9 @@ ejH
 pWT
 pWT
 gyu
-bHY
-jdu
-jdu
+vFi
+jxo
+hLc
 jdu
 jdu
 bSF
@@ -248283,8 +248324,8 @@ pWT
 pWT
 lKO
 xYx
-jdu
-phz
+erK
+ufg
 jdu
 jdu
 iOV
@@ -254167,7 +254208,7 @@ fpx
 rcz
 rcz
 rcz
-fpx
+hvv
 cyn
 xkZ
 jWn
@@ -254615,10 +254656,10 @@ aFv
 fpx
 aFv
 bud
-aFv
+fpx
 xzx
-hvv
-hvv
+fpx
+fpx
 hvv
 cyn
 xkZ
@@ -358573,10 +358614,10 @@ aBB
 aBB
 aBB
 aBB
-aBB
-aBB
-aBB
-aBB
+cDX
+mjH
+pqo
+cDX
 aBB
 aBB
 aBB
@@ -359020,18 +359061,18 @@ nRO
 sqG
 fcS
 fcS
-oJW
-oJW
-cDX
+aBB
+aBB
+aBB
+aBB
+aBB
 mjH
+bzY
+bzY
 pqo
-cDX
-mjH
-pqo
-cDX
-mjH
-pqo
-cDX
+aBB
+aBB
+aBB
 aBB
 aBB
 aBB
@@ -359474,16 +359515,16 @@ fcS
 fcS
 oJW
 oJW
-uAr
+cDX
+mjH
+pqo
+cDX
 bzY
 bzY
-ktt
-bzY
-bzY
-ktt
-bzY
-bzY
-uAr
+cDX
+mjH
+pqo
+cDX
 aBB
 aBB
 aBB
@@ -359926,16 +359967,16 @@ fcS
 fcS
 oJW
 oJW
-gyu
+uAr
 bzY
 bzY
+ktt
 bzY
 bzY
+ktt
 bzY
 bzY
-bzY
-bzY
-gyu
+uAr
 aBB
 aBB
 aBB
@@ -473382,10 +473423,10 @@ aBB
 aBB
 aBB
 aBB
-aBB
-aBB
-aBB
-aBB
+nRO
+sqG
+sqG
+nRO
 aBB
 aBB
 aBB
