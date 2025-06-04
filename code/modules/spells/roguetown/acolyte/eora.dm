@@ -423,10 +423,8 @@
     var/growth_stage = SPROUT
     var/growth_progress = 0
     var/growth_threshold = 100
-    //var/time_to_mature = 10 MINUTES // Total time from sprout 0% to fully grown 100% through GROWING stage
-    //var/time_to_grow_fruit = 5 MINUTES
-    var/time_to_mature = 15 SECONDS // Total time from sprout 0% to fully grown 100% through GROWING stage
-    var/time_to_grow_fruit = 15 SECONDS
+    var/time_to_mature = 10 MINUTES // Total time from sprout 0% to fully grown 100% through GROWING stage
+    var/time_to_grow_fruit = 8 MINUTES //Fairly long but these fruits are potentially really good and there can be multiple acolytes
     var/fruit = FALSE
     var/fruit_ready = FALSE
 
@@ -774,7 +772,7 @@
     return TRUE
 
 /obj/item/fruit_of_eora
-    name = "fruit of eora"
+    name = "pomegranate"
     desc = "A mystical pomegranate glowing with inner light. It feels warm to the touch."
     icon = 'modular_azurepeak/icons/obj/items/eora_pom.dmi'
     icon_state = "pom"
@@ -791,15 +789,18 @@
 /obj/item/fruit_of_eora/proc/update_pom()
     switch(fruit_tier)
         if(1)
+            name = "rotten pomegranate"
             desc = "A rotten pomegranate."
             icon_state = "rotten"
         if(2)
+            name = "blemished pomegranate"
             desc = "A blemished pomegranate, it's blue like azure."
             icon_state = "blemished"
         if(3)
             desc = "A vibrant pomegranate pulsing with inner light. It radiates warmth."
             icon_state = "pom"
         if(4)
+            name = "golden pomegranate"
             desc = "A flawless golden pomegranate blazing with divine light. It feels alive, thumping like a beating heart."
             icon_state = "golden"
 
@@ -1074,4 +1075,5 @@
 /obj/item/reagent_containers/lux/eoran_aril
     name = "incandescent aril"
     desc = "A blindingly bright seed that radiates pure life energy. It imitates lux, the essence of life."
+    icon = 'modular_azurepeak/icons/obj/items/eora_pom.dmi'
     icon_state = "incandescent"
