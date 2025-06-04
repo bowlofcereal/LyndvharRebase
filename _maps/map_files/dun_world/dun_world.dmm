@@ -1163,12 +1163,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/orcdungeon)
-"asG" = (
-/obj/structure/bed/rogue/shit{
-	name = "makeshift bed"
-	},
-/turf/open/floor/rogue/church,
-/area/rogue/under/cave/scarymaze)
 "asJ" = (
 /obj/effect/decal/cleanable/debris/glassy,
 /turf/open/floor/rogue/naturalstone,
@@ -1479,9 +1473,7 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/town/sewer)
 "ayc" = (
-/obj/structure/bed/rogue/shit{
-	name = "makeshift bed"
-	},
+/obj/structure/fluff/statue/gargoyle/moss/candles,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/cave/scarymaze)
 "ayl" = (
@@ -2630,8 +2622,12 @@
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/exposed/town/keep)
 "aTk" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
-/turf/open/floor/rogue/church,
+/obj/structure/flora/roguetree/burnt{
+	pixel_x = -18;
+	name = "Necra's Hand";
+	color = "#454545"
+	},
+/turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/scarymaze)
 "aTs" = (
 /obj/machinery/light/rogue/wallfire/candle/off/r,
@@ -16748,8 +16744,9 @@
 /turf/open/water/pond,
 /area/rogue/outdoors/woods)
 "fKt" = (
-/obj/effect/spawner/lootdrop/roguetown/sewers,
-/turf/open/floor/rogue/churchbrick,
+/turf/closed/wall/mineral/rogue/stonebrick{
+	density = 0
+	},
 /area/rogue/under/cave/scarymaze)
 "fKG" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/cow,
@@ -20199,6 +20196,7 @@
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
+/obj/item/rogueweapon/huntingknife/stoneknife,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/scarymaze)
 "gTf" = (
@@ -22217,7 +22215,9 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town)
 "hyq" = (
-/obj/effect/spawner/lootdrop/roguetown/sewers,
+/obj/structure/closet/dirthole/closed/loot,
+/obj/structure/gravemarker,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/scarymaze)
 "hyt" = (
@@ -28631,10 +28631,6 @@
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/church,
 /area/rogue/indoors)
-"jHh" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/bigrat,
-/turf/open/floor/rogue/dirt,
-/area/rogue/under/cave/scarymaze)
 "jHk" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -30473,10 +30469,6 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/under/underdark)
-"koH" = (
-/obj/effect/spawner/lootdrop/roguetown/sewers,
-/turf/open/floor/rogue/church,
-/area/rogue/under/cave/scarymaze)
 "koN" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -33695,8 +33687,8 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/outdoors/mountains/decap)
 "ltm" = (
-/obj/structure/fluff/wallclock,
-/turf/open/floor/rogue/church,
+/obj/structure/fluff/statue/knight/interior/r,
+/turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/scarymaze)
 "ltr" = (
 /obj/structure/flora/roguegrass/water,
@@ -39119,6 +39111,7 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
+/obj/item/candle/skull/lit,
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/scarymaze)
 "nmO" = (
@@ -434163,9 +434156,9 @@ lRZ
 eAq
 lRZ
 lRZ
-lRZ
 oyf
-wHi
+oyf
+eWw
 eWw
 eWw
 eWw
@@ -434616,16 +434609,16 @@ eAq
 eAq
 lRZ
 oyf
-oyf
-wHi
 eWw
-ayc
+eWw
 ucA
 ini
+ini
+ini
+ini
+ini
+ini
 ucA
-ini
-ini
-fKt
 eWw
 cxA
 cxA
@@ -435066,15 +435059,15 @@ eAq
 eAq
 eAq
 eAq
-eAq
 oyf
 oyf
-wHi
 eWw
+ayc
+ini
+xfP
 ulq
 ulq
 ulq
-aTk
 qya
 qya
 ulq
@@ -435518,13 +435511,13 @@ eAq
 eAq
 lRZ
 eAq
-eAq
 oyf
 oyf
-wHi
 eWw
-asG
-asc
+ini
+xfP
+xfP
+xfP
 iET
 asc
 rlH
@@ -435969,14 +435962,14 @@ emo
 emo
 eAq
 sEo
-lRZ
-eAq
 eAq
 oyf
-wHi
+oyf
 eWw
-ulq
-asc
+ini
+xfP
+aTk
+xfP
 gTb
 asc
 asc
@@ -436421,14 +436414,14 @@ emo
 emo
 eAq
 lRZ
-lRZ
 eAq
 oyf
 oyf
-wHi
 eWw
-koH
-asc
+ini
+xfP
+xfP
+xfP
 nmM
 asc
 asc
@@ -436873,14 +436866,14 @@ oGG
 emo
 eAq
 lRZ
-lRZ
 eAq
 oyf
 oyf
-wHi
 eWw
-ltm
-asc
+ini
+xfP
+xfP
+xfP
 iET
 asc
 ecJ
@@ -437324,14 +437317,14 @@ fRR
 nHo
 emo
 eAq
-lRZ
 eAq
 eAq
 oyf
 oyf
-wHi
 eWw
-ulq
+ayc
+ini
+xfP
 ulq
 ulq
 ulq
@@ -437779,17 +437772,17 @@ eAq
 eAq
 eAq
 eAq
-emo
 oyf
-wHi
 eWw
-ayc
+eWw
 ucA
 ini
+ini
+ini
+ini
+ini
+ini
 ucA
-ini
-ini
-ini
 eWw
 cxA
 cxA
@@ -438231,9 +438224,9 @@ lRZ
 eAq
 eAq
 emo
-emo
 oyf
-wHi
+oyf
+eWw
 eWw
 eWw
 eWw
@@ -440498,7 +440491,7 @@ eWw
 eWw
 eWw
 eWw
-aim
+kNA
 eWw
 eWw
 eWw
@@ -441403,7 +441396,7 @@ xfP
 xfP
 xfP
 vPd
-jHh
+xfP
 xfP
 xfP
 eWw
@@ -441851,13 +441844,13 @@ oyf
 oyf
 wHi
 eWw
-jHh
+xfP
 xfP
 xfP
 vPd
 xfP
 xfP
-hyq
+xfP
 eWw
 cxA
 cxA
@@ -442304,9 +442297,9 @@ oyf
 wHi
 eWw
 roX
+hyq
 jpy
-jpy
-vPd
+ltm
 roX
 roX
 jpy
@@ -442758,7 +442751,7 @@ eWw
 eWw
 eWw
 eWw
-eWV
+fKt
 eWw
 eWw
 eWw
@@ -447278,7 +447271,7 @@ eWw
 sua
 eWw
 eWw
-kNA
+aim
 eWw
 vPd
 wRv
