@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 			to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. PSYDON turns his blind gaze upon me, unseeing in his delirium of near-death. I WEEP for PSYDON, as HE does for me. My pace stiffens."))
 			ascendantfirstomen()
-			priority_announce("The leylines begin to tremble in unnatural perversion - MAJOR ARCANA: THE FOOL, UPRIGHT.", "THE DREAMER", 'sound/villain/dreamer_warning.ogg')
+			to_chat(user, span_userdanger("Though I may sacrifice myself as many others have, I must hope I shall prevail."))
 		if(2)
 			to_chat(user, span_danger("The second capstone. Stuck in filth- FILTH AND SHIT! I grab the rotted, fetted thing and begin to peel it back. LAYER BY LAYER- THE COMET SYON. THE ARCHDEVIL. IS HE DEAD, OR SLEEPING? ..."))
 			sleep(30)
@@ -169,7 +169,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			ascendantsecondomen()
 			ADD_TRAIT(user, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(user, TRAIT_ANTIMAGIC, TRAIT_GENERIC)
-			priority_announce("The sky begins to turn quicker - MAJOR ARCANA: THE HANGED MAN, REVERSED", "THE DREAMER ", 'sound/villain/dreamer_warning.ogg')
+			to_chat(user, span_danger("I can feel HIS GAZE upon me. LORD GOD, I WILL MANTLE YOUR DECAYING POWER!"))
 		if(3)
 			to_chat(user, span_danger("AGONY. SPLITTING HEADACHE. THROBBING OF THE SOUL."))
 			user.flash_fullscreen("redflash3")
@@ -201,6 +201,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 					to_chat(user, span_userdanger("I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD I AM GOD "))
 			sleep(30)
 			user.flash_fullscreen("redflash3")
+			to_chat(user, span_danger("Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong Something is wrong "))
 
 //all goes dark. tp them over. give them their stats.
 			user.emote("agony", forced = TRUE)
@@ -219,11 +220,12 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.STAEND += 10
 			user.STASPD += 10
 			user.STALUC += 10
+			to_chat(user, span_danger("I can feel my mortal shell being slowly taken as the shard's power flows within me. I WILL ENDURE THIS AND DO WHAT I MUST!"))
 
 
 			heavensaysdanger() //Take up the power of PSYDON's COMET, SYON. But be careful, for power corrupts.
 			sleep(15 SECONDS)
-			to_chat(user, span_userdanger("I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON "))
+			to_chat(user, span_mind_control("I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON I AM PSYDON "))
 			to_chat(user, span_mind_control("i muST go O TO THE TRHORne. THE THRONE. THE THRONE. MY KINGDO M. AWAITS. PSYd ONIA IS DEAD. I MUST SLAY MY ENEMIES AS SYON DID ALL THOSE AEONS AGO "))
 
 			qdel(src)
