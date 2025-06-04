@@ -232,11 +232,12 @@
 
 /obj/item/rogueweapon/bclaw
 	slot_flags = ITEM_SLOT_HIP
-	force = 14 //slightly less then katar
-	possible_item_intents = list(/datum/intent/rend, /datum/intent/katar/cut, /datum/intent/katar/thrust) //Rend is super underused and I think it would be fitting for claws.
+	force = 15 //slightly less then katar
+	possible_item_intents = list(/datum/intent/katar/cut, /datum/intent/katar/thrust, /datum/intent/rend) //Rend is super underused and I think it would be fitting for claws.
 	name = "bone claw"
 	desc = "A vicious set of claws with a leather handle, Common among unarmed fighters of The Northern Empty and Gronn."
 	icon_state = "bclaw"
+	item_state = "bclaw"
 	icon = 'icons/roguetown/weapons/32.dmi'
 	lefthand_file = 'icons/mob/inhands/weapons/rogueclaw_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/rogueclaw_righthand.dmi'
@@ -254,6 +255,7 @@
 	wbalance = WBALANCE_SWIFT
 	thrown_bclass = BCLASS_CUT
 	anvilrepair = /datum/skill/craft/weaponsmithing
+	experimental_inhand = FALSE
 
 /datum/intent/katar
 	clickcd = 8
