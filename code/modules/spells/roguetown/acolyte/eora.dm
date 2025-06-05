@@ -424,7 +424,7 @@
     var/growth_progress = 0
     var/growth_threshold = 100
     var/time_to_mature = 10 MINUTES // Total time from sprout 0% to fully grown 100% through GROWING stage
-    var/time_to_grow_fruit = 8 MINUTES //Fairly long but these fruits are potentially really good and there can be multiple acolytes
+    var/time_to_grow_fruit = 6 MINUTES //Fairly long but these fruits are potentially really good and there can be multiple acolytes
     var/fruit = FALSE
     var/fruit_ready = FALSE
 
@@ -478,7 +478,7 @@
             update_icon()
             return TRUE
 
-    if(istype(I, /obj/item/reagent_containers))
+    if(istype(I, /obj/item/reagent_containers) && !istype(I, /obj/item/reagent_containers/food/snacks))
         var/obj/item/reagent_containers/container = I
         if(water_happiness >= 25)
             to_chat(user, span_warning("The tree can't absorb any more water right now!"))
@@ -865,6 +865,14 @@
 
 /obj/item/fruit_of_eora/attackby(obj/item/I, mob/user)
     if(!opened && I.get_sharpness())
+        if ( \
+            !isturf(src.loc) || \
+            !(locate(/obj/structure/table) in src.loc) && \
+            !(locate(/obj/structure/table/optable) in src.loc) && \
+            !(locate(/obj/item/storage/bag/tray) in src.loc) \
+            )
+            to_chat(user, span_warning("I need to use a table."))
+            return FALSE
         open_fruit(user)
         return TRUE
     return ..()
