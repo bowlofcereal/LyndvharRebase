@@ -162,7 +162,7 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			gloves = /obj/item/clothing/gloves/roguetown/chain 
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron 
-			beltl = /obj/item/flashlight/flare/torch/lantern/prelit
+			beltl = /obj/item/rogueweapon/mace/cudgel
 			belt = /obj/item/storage/belt/rogue/leather
 			backr = /obj/item/storage/backpack/rogue/satchel
 			id = /obj/item/scomstone/bad/wretch
@@ -171,7 +171,7 @@
 									/obj/item/rope/chain = 1, 
 									/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1, 
 									/obj/item/smokebomb = 1,
-									/obj/item/rogueweapon/mace/cudgel = 1)
+									/obj/item/flashlight/flare/torch/lantern/prelit = 1)
 			var/helmets = list(
 			"Simple Helmet" 	= /obj/item/clothing/head/roguetown/helmet,
 			"Kettle Helmet" 	= /obj/item/clothing/head/roguetown/helmet/kettle,
