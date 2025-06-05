@@ -1,6 +1,6 @@
 /datum/language/hellspeak
 	name = "Hellspeech"
-	desc = "Dnob yht si eugnet yht. Stcap lla ronoh. Lli on hsiw. Sehtao on raews. Denmad eb ey tsel!"
+	desc = "Dnob yht si eugnot yht. Stcap lla ronoh. Lli on hsiw. Sehtao on raews. Denmad eb ey tsel!"
 	speech_verb = "says"
 	ask_verb = "asks"
 	exclaim_verb = "yells"
