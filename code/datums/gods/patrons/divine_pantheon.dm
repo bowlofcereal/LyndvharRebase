@@ -303,7 +303,7 @@
 
 // Xylix - Near a gambling machine, cross, or within the church
 /datum/patron/divine/xylix/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer near gambling machines.
 	for(var/obj/structure/roguemachine/lottery_roguetown in view(4, get_turf(follower)))
 		return TRUE
