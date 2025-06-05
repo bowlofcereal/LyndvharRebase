@@ -19,16 +19,15 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/reagent_containers/glass/bottle/rogue/manapot
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	beltl = /obj/item/rogueweapon/huntingknife
+	beltl = /obj/item/flashlight/flare/torch/lantern/prelit
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/woodstaff/ruby
 	id = /obj/item/scomstone/bad/wretch
 	backpack_contents = list(/obj/item/spellbook_unfinished/pre_arcyne = 1, 
 							/obj/item/roguegem/amethyst = 1, 
 							/obj/item/roguekey/inhumen = 1,
-							/obj/item/flashlight/flare/torch/lantern/prelit = 1, 
+							/obj/item/rogueweapon/huntingknife = 1, 
 							/obj/item/necro_relics/necro_crystal = 1,
-							/obj/item/smokebomb = 1,
 							/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1)
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)

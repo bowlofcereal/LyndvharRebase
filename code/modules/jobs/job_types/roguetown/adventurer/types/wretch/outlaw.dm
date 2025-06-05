@@ -35,7 +35,13 @@
 			mask = /obj/item/clothing/mask/rogue/ragmask/black
 			beltr = /obj/item/quiver/bolts
 			r_hand = /obj/item/rogueweapon/mace/cudgel //From thief PR
-			backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/lockpickring/mundane = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1, /obj/item/rope/chain = 1, /obj/item/storage/roguebag = 1, /obj/item/ammo_casing/caseless/rogue/bolt/water = 3)
+			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1, 
+									/obj/item/lockpickring/mundane = 1, 
+									/obj/item/flashlight/flare/torch/lantern/prelit = 1, 
+									/obj/item/rope/chain = 1, 
+									/obj/item/storage/roguebag = 1, 
+									/obj/item/ammo_casing/caseless/rogue/bolt/water = 3,
+									/obj/item/smokebomb = 1)
 			H.mind.adjust_skillrank(/datum/skill/misc/tracking, 5, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -85,7 +91,11 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
 			mask = /obj/item/clothing/mask/rogue/ragmask/black
 			r_hand = /obj/item/rogueweapon/mace/cudgel //From thief PR
-			backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1, /obj/item/rope/chain = 1, /obj/item/storage/roguebag = 1)
+			backpack_contents = list(/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1, 
+									/obj/item/flashlight/flare/torch/lantern/prelit = 1, 
+									/obj/item/rope/chain = 1, 
+									/obj/item/storage/roguebag = 1,
+									/obj/item/smokebomb = 1)
 			H.mind.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
