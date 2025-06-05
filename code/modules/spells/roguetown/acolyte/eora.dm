@@ -840,15 +840,15 @@
         if(3)
             possible_arils = list(
                 /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 30,
-                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 20,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 10,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 20,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/cerulean = 20,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/fractal = 5
             )
         if(4)
             possible_arils = list(
-                /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 20,
-                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 20,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 15,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 10,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 15,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/cerulean = 15,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/fractal = 5,
@@ -858,8 +858,8 @@
                 /obj/item/reagent_containers/lux/eoran_aril = 1
             )
 
-    // Generate 4 arils
-    for(var/i in 1 to 4)
+    // Generate 4 arils +1 per tier.
+    for(var/i in 1 to 4 + (round(fruit_tier / 2)))
         var/aril_type = pickweight(possible_arils)
         aril_types += aril_type
 
