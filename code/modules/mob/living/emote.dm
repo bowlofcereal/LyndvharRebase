@@ -46,6 +46,10 @@
 	if(SEND_SIGNAL(follower, COMSIG_CARBON_PRAY, prayer) & CARBON_PRAY_CANCEL)
 		return
 
+	if(patron.hear_prayer(follower, prayer))
+		if(follower.has_flaw(/datum/charflaw/addiction/godfearing))
+			follower.sate_addiction()
+
 	for(var/mob/living/LICKMYBALLS in hearers(2,src))	// Lickmyballs = person in crit.
 		LICKMYBALLS.succumb_timer = world.time			//..succumb timer does nothing rn btw..
 

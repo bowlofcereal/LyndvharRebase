@@ -64,35 +64,34 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 /// Called when a patron's follower prays to them.
 /// Returns TRUE if their prayer was heard and the patron was not insulted
 /datum/patron/proc/hear_prayer(mob/living/follower, message)
-	if(!follower || !message)
-		return FALSE
-	var/prayer = sanitize_hear_message(message)
+    if(!follower || !message)
+        return FALSE
+    if(length(message) < 15)
+        to_chat(follower, span_warning("Your prayer is too weak to be considered!"))
+        return FALSE
+    var/prayer = sanitize_hear_message(message)
+    for(var/profanity in profane_words)
+        var/regex/cussjar = regex("([profanity])", "im")
+        if(cussjar.Find(prayer))
+            punish_prayer(follower)
+            return FALSE
 
-	if(length(profane_words))
-		for(var/profanity in profane_words)
-			if(findtext(prayer, profanity))
-				punish_prayer(follower)
-				return FALSE
+    var/patron_name = follower?.patron?.name
+    if(!patron_name)
+        CRASH("check_prayer called with null patron")
 
-	var/patron_name = follower?.patron?.name
-	if(!patron_name)
-		CRASH("check_prayer called with null patron")
+    if(follower.mob_timers[MT_PSYPRAY])
+        if(world.time < follower.mob_timers[MT_PSYPRAY] + 1 MINUTES)
+            follower.mob_timers[MT_PSYPRAY] = world.time
+            return FALSE
+    else
+        follower.mob_timers[MT_PSYPRAY] = world.time
 
-	if(length(prayer) <= 15)
-		to_chat(follower, span_danger("My prayer was kinda short..."))
-		return FALSE
+    . = TRUE //the prayer has succeeded by this point forward
 
-	if(follower.mob_timers[MT_PSYPRAY])
-		if(world.time < follower.mob_timers[MT_PSYPRAY] + 1 MINUTES)
-			follower.mob_timers[MT_PSYPRAY] = world.time
-			return FALSE
-	else
-		follower.mob_timers[MT_PSYPRAY] = world.time
-
-	. = TRUE //the prayer has succeeded by this point forward
-
-	if(findtext(prayer, name))
-		reward_prayer(follower)
+    var/regex/p_name = regex("([patron_name])", "im")
+    if(p_name.Find(prayer))
+        reward_prayer(follower)
 
 /// The follower has somehow offended the patron and is now being punished.
 /datum/patron/proc/punish_prayer(mob/living/follower)
@@ -103,7 +102,5 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 /// The follower has prayed in a special way to the patron and is being rewarded.
 /datum/patron/proc/reward_prayer(mob/living/follower)
 	SHOULD_CALL_PARENT(TRUE)
-	if(follower.has_flaw(/datum/charflaw/addiction/godfearing))
-		follower.sate_addiction()
 	follower.playsound_local(follower, 'sound/misc/notice (2).ogg', 100, FALSE)
 	follower.add_stress(/datum/stressevent/psyprayer)
