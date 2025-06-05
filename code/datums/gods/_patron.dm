@@ -58,7 +58,8 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 		if(follower.has_status_effect(STATUS_EFFECT_SLEEPING))
 			to_chat(follower, span_danger("I mustn't be sleeping to pray!"))
 			return FALSE	//Stops praying just by sleeping.
-	return TRUE
+	SHOULD_CALL_PARENT(TRUE)
+	. = TRUE
 
 /// Called when a patron's follower prays to them.
 /// Returns TRUE if their prayer was heard and the patron was not insulted
