@@ -779,7 +779,7 @@
 
 /obj/item/scomstone/bad/wretch
 	name = "silver ring"
-	desc = "A shoddy ring of silver. Looking closely, there's a cracked emerald gem in the center..."
+	desc = "A shoddy ring of silver. Looking closely, there's a cracked gemerald in the center..."
 	icon_state = "ring_lamerald"
 	listening = FALSE
 	sellprice = 20
