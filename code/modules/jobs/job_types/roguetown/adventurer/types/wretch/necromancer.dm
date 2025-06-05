@@ -27,7 +27,7 @@
 							/obj/item/roguegem/amethyst = 1, 
 							/obj/item/roguekey/inhumen = 1,
 							/obj/item/rogueweapon/huntingknife = 1, 
-							/obj/item/necro_relics/necro_crystal = 1,
+							/obj/item/necro_relics/necro_crystal = 2,
 							/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1)
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
