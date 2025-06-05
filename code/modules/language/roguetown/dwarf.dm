@@ -75,5 +75,4 @@
 "eidat",
 "zmas",
 "zavra",
-"azegan",
-"ELĲ")
+"azegan")
