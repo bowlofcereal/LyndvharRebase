@@ -53,7 +53,8 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 /// Called when a patron's follower attempts to pray.
 /// Returns TRUE if they satisfy the needed conditions.
 /datum/patron/proc/can_pray(mob/living/follower)
-	return TRUE
+	SHOULD_CALL_PARENT(TRUE)
+	. = TRUE
 
 /// Called when a patron's follower prays to them.
 /// Returns TRUE if their prayer was heard and the patron was not insulted
