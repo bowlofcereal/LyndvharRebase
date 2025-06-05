@@ -1,10 +1,10 @@
 /datum/language/etruscan
-	name = "Etrusco"
-	desc = "The language of the inhabitants of the Isles of Etrusca. Fast-paced, for those unused to its emotiveness."
+	name = "Tyrian"
+	desc = "The language of Tyre, man's empire and civilization, as eternal as bronze and as sharp as iron."
 	speech_verb = "remarks"
 	ask_verb = "inquires"
 	exclaim_verb = "asserts"
-	key = "u"
+	key = "t"
 	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 60
 	default_priority = 90
