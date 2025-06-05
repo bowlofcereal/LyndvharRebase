@@ -16,7 +16,7 @@
 	var/latched = FALSE
 	var/locked = FALSE
 	var/base_icon = "pillory_single"
-	var/list/lockid = list()
+	lockid = null
 
 /obj/structure/pillory/double
 	icon_state = "pillory_double"
@@ -27,16 +27,19 @@
 	base_icon = "pillory_reinforced"
 
 /obj/structure/pillory/town_square
-	lockid = list("keep_dungeon", "keep_barracks", "town_dungeon", "town_barracks", "bog_dungeon", "bog_barracks", "church")
+	lockid = ACCESS_GARRISON
+
+/obj/structure/pillory/church
+	lockid = ACCESS_CHURCH
 
 /obj/structure/pillory/reinforced/keep_dungeon
-	lockid = list("keep_dungeon")
+	lockid = ACCESS_DUNGEON
 
 /obj/structure/pillory/reinforced/town_dungeon
-	lockid = list("town_dungeon")
+	lockid = ACCESS_CAPTAIN
 
 /obj/structure/pillory/reinforced/bog_dungeon
-	lockid = list("bog_dungeon")
+	lockid = ACCESS_FOREST
 
 
 /obj/structure/pillory/Initialize()

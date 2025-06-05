@@ -86,9 +86,8 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/orcdungeon)
 "aq" = (
-/obj/structure/mineral_door/wood{
-	locked = 1
-	},
+/obj/structure/door,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/cave)
 "ar" = (
@@ -307,10 +306,10 @@
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/cave/dukecourt)
 "aZ" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 4;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 4
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/shelter)
 "ba" = (
@@ -338,7 +337,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter)
 "bk" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter)
 "bm" = (
@@ -399,7 +398,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/beach)
 "bK" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	icon_state = "wooddir";
 	dir = 1
 	},
@@ -530,20 +529,20 @@
 /turf/open/floor/rogue/rooftop/green/corner1,
 /area/rogue/outdoors/beach/forest)
 "cA" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
 /area/rogue/under/cave/dukecourt)
 "cE" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	icon_state = "wooddir";
 	dir = 1
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest)
 "cH" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/rogue/woodturned/nosmooth,
@@ -630,7 +629,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/beach)
 "dl" = (
-/obj/structure/mineral_door/bars{
+/obj/structure/door/iron/bars{
 	brokenstate = 1;
 	obj_broken = 1
 	},
@@ -671,11 +670,11 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/mazedungeon)
 "dA" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	icon_state = "wooddir";
-	dir = 1;
-	locked = 1
+	dir = 1
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/cave)
 "dB" = (
@@ -770,7 +769,7 @@
 	},
 /area/rogue/under/cave/dukecourt)
 "ej" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/door/red,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/orcdungeon)
 "el" = (
@@ -800,7 +799,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/cave)
 "ey" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/cave)
 "eA" = (
@@ -1383,7 +1382,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach)
 "ig" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/door/window,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/shelter)
 "ii" = (
@@ -1492,9 +1491,8 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/orcdungeon)
 "iU" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	locked = 1
-	},
+/obj/structure/door/weak/bolt,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "iW" = (
@@ -1624,7 +1622,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/beach/forest)
 "jX" = (
-/obj/structure/mineral_door/wood/red,
+/obj/structure/door/red,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "kb" = (
@@ -1837,7 +1835,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/beach/forest)
 "lJ" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	icon_state = "wooddir";
 	dir = 8
 	},
@@ -1890,7 +1888,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/orcdungeon)
 "md" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter)
 "me" = (
@@ -2025,7 +2023,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest)
 "ne" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/mazedungeon)
 "nj" = (
@@ -2157,7 +2155,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/orcdungeon)
 "oe" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -2166,9 +2164,8 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/dukecourt)
 "og" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1
-	},
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/mazedungeon)
 "oi" = (
@@ -2307,7 +2304,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/mazedungeon)
 "ph" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/rogue/wood,
@@ -2338,9 +2335,8 @@
 /obj/structure/stairs{
 	dir = 8
 	},
-/obj/structure/mineral_door/wood/red{
-	locked = 1
-	},
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/access/locker,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
@@ -2523,7 +2519,7 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/cave)
 "qr" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/beach)
 "qt" = (
@@ -2642,7 +2638,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/mazedungeon)
 "rj" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	icon_state = "wooddir";
 	dir = 1
 	},
@@ -2672,7 +2668,7 @@
 /turf/open/floor/rogue/sand,
 /area/rogue/outdoors/beach)
 "rq" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/rogue/cobble,
@@ -2693,16 +2689,15 @@
 	},
 /area/rogue/under/cave/dukecourt)
 "rt" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	icon_state = "wooddir";
 	dir = 1
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/beach)
 "rv" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	locked = 1
-	},
+/obj/structure/door/weak/bolt,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/beach)
 "rw" = (
@@ -2802,7 +2797,7 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/cave/orcdungeon)
 "rY" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/beach/forest)
 "rZ" = (
@@ -2829,7 +2824,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/dukecourt)
 "sm" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest)
 "sn" = (
@@ -3188,9 +3183,8 @@
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/under/cave/dukecourt)
 "uS" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1
-	},
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
 "uV" = (
@@ -3326,9 +3320,8 @@
 /turf/open/floor/rogue/tile/masonic,
 /area/rogue/under/cave/dukecourt)
 "vJ" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1
-	},
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/tile{
 	icon_state = "greenstone"
 	},
@@ -3387,9 +3380,8 @@
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/shelter)
 "wc" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1
-	},
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/orcdungeon)
 "we" = (
@@ -3689,7 +3681,7 @@
 	},
 /area/rogue/under/cave/dukecourt)
 "xX" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/blood/tracks,
@@ -3761,10 +3753,10 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/beach)
 "yE" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 1
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/shelter)
 "yG" = (
@@ -3774,7 +3766,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest)
 "yK" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	icon_state = "wooddir";
 	dir = 8
 	},
@@ -3880,12 +3872,12 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/dukecourt)
 "zx" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	icon_state = "donjondir";
 	dir = 1;
-	locked = 1;
 	lockid = "mansionvampire"
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/cave/dukecourt)
 "zA" = (
@@ -3901,7 +3893,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/dukecourt)
 "zE" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter)
 "zF" = (
@@ -4095,9 +4087,8 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/mazedungeon)
 "AT" = (
-/obj/structure/mineral_door/wood/fancywood{
-	locked = 1
-	},
+/obj/structure/door/fancy,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -4322,9 +4313,8 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
 "Cg" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1
-	},
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/indoors/shelter)
 "Cj" = (
@@ -4348,10 +4338,10 @@
 /turf/open/water/cleanshallow,
 /area/rogue/indoors/cave)
 "Cr" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 4;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 4
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/orcdungeon)
 "Ct" = (
@@ -4437,7 +4427,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "CT" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/shelter)
 "CU" = (
@@ -4497,7 +4487,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/shelter)
 "Du" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -4580,7 +4570,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/orcdungeon)
 "DV" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "mansionvampire"
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -4675,10 +4665,10 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/shelter)
 "EJ" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 8;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 8
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/cave)
 "EK" = (
@@ -4789,7 +4779,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "Fo" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/rogue/wood/nosmooth,
@@ -4816,7 +4806,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/cave)
 "Fz" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/door/window,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter)
 "FA" = (
@@ -4973,7 +4963,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/shelter)
 "GK" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "mansionvampire"
 	},
 /turf/open/floor/rogue/herringbone,
@@ -5083,7 +5073,7 @@
 /turf/closed/wall/mineral/rogue/stone/window,
 /area/rogue/outdoors/beach/forest)
 "Hu" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/door/window,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
 "Hx" = (
@@ -5120,7 +5110,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/shelter)
 "HQ" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "HS" = (
@@ -5148,9 +5138,8 @@
 /turf/open/floor/rogue/sand,
 /area/rogue/outdoors/beach)
 "HY" = (
-/obj/structure/mineral_door/wood/red{
-	locked = 1
-	},
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/beach/forest)
 "HZ" = (
@@ -5207,11 +5196,11 @@
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/cave)
 "Ik" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/cave/dukecourt)
 "Il" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	icon_state = "wooddir";
 	dir = 8
 	},
@@ -5280,7 +5269,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/shelter)
 "IA" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
 "IC" = (
@@ -5317,10 +5306,10 @@
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/under/cave/orcdungeon)
 "IP" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 4;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 4
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/beach/forest)
 "IU" = (
@@ -5582,11 +5571,10 @@
 /turf/closed/wall/mineral/rogue/decostone/cand,
 /area/rogue/under/cave/dukecourt)
 "Ks" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
+/obj/structure/door/violet{
 	lockid = "mansionvampire"
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/tile{
 	icon_state = "chess"
 	},
@@ -5657,9 +5645,8 @@
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/under/cave/dukecourt)
 "KQ" = (
-/obj/structure/mineral_door/wood/red{
-	locked = 1
-	},
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/cave/orcdungeon)
 "KR" = (
@@ -5707,9 +5694,8 @@
 /turf/open/water/sewer,
 /area/rogue/under/cave/orcdungeon)
 "Ll" = (
-/obj/structure/mineral_door/wood/red{
-	locked = 1
-	},
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/orcdungeon)
 "Lm" = (
@@ -5768,7 +5754,7 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter)
 "LI" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 4
 	},
 /turf/open/floor/rogue/dirt/road,
@@ -5911,7 +5897,7 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/cave/orcdungeon)
 "Mu" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "Mv" = (
@@ -5940,7 +5926,7 @@
 /turf/open/floor/rogue/volcanic,
 /area/rogue/under/cave/orcdungeon)
 "MJ" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
 "MK" = (
@@ -6046,9 +6032,8 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/beach/forest)
 "NE" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	locked = 1
-	},
+/obj/structure/door/weak/bolt,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/shelter)
 "NG" = (
@@ -6185,7 +6170,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/beach)
 "Ov" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},
@@ -6223,7 +6208,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "OF" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/door/window,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/shelter)
 "OG" = (
@@ -6472,9 +6457,8 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/basement)
 "QA" = (
-/obj/structure/mineral_door/wood/violet{
-	locked = 1
-	},
+/obj/structure/door/violet,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/cave)
 "QB" = (
@@ -6688,7 +6672,7 @@
 /area/rogue/indoors/cave)
 "RP" = (
 /obj/structure/spider/stickyweb,
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/rogue/hexstone,
@@ -6737,9 +6721,8 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter)
 "Si" = (
-/obj/structure/mineral_door/wood/fancywood{
-	locked = 1
-	},
+/obj/structure/door/fancy,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/mazedungeon)
 "Sk" = (
@@ -6854,7 +6837,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
 "SU" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/orcdungeon)
 "SV" = (
@@ -6882,9 +6865,8 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/beach/forest)
 "Tr" = (
-/obj/structure/mineral_door/wood/red{
-	locked = 1
-	},
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
 "Ts" = (
@@ -6964,9 +6946,8 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/cave)
 "TN" = (
-/obj/structure/mineral_door/wood/red{
-	locked = 1
-	},
+/obj/structure/door/red,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/orcdungeon)
 "TO" = (
@@ -7006,10 +6987,10 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue)
 "Uj" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 8;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 8
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/shelter)
 "Ul" = (
@@ -7331,7 +7312,7 @@
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/cave/mazedungeon)
 "Wu" = (
-/obj/structure/mineral_door/wood{
+/obj/structure/door{
 	lockid = "mansionvampire"
 	},
 /turf/open/floor/rogue/ruinedwood{
@@ -7392,7 +7373,7 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/shelter)
 "WO" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/mazedungeon)
 "WP" = (
@@ -7440,7 +7421,7 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/shelter)
 "Xc" = (
-/obj/structure/mineral_door/bars{
+/obj/structure/door/iron/bars{
 	lockid = "graveyard"
 	},
 /turf/open/floor/rogue/blocks,
@@ -7517,7 +7498,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/beach)
 "XH" = (
-/obj/structure/mineral_door/wood/violet,
+/obj/structure/door/violet,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/orcdungeon)
 "XI" = (
@@ -7630,9 +7611,8 @@
 	},
 /area/rogue/under/cave/dukecourt)
 "YB" = (
-/obj/structure/mineral_door/bars{
-	locked = 1
-	},
+/obj/structure/door/iron/bars,
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/beach/forest)
 "YD" = (
@@ -7832,7 +7812,7 @@
 	},
 /area/rogue/outdoors/beach)
 "ZP" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/door/swing,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
 	},

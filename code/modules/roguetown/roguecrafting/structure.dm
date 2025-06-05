@@ -54,7 +54,7 @@
 
 /datum/crafting_recipe/roguetown/structure/swing_door
 	name = "swing door"
-	result = /obj/structure/mineral_door/swing_door
+	result = /obj/structure/door/swing_door
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	verbage_simple = "construct"
 	verbage = "constructs"
@@ -62,7 +62,7 @@
 
 /datum/crafting_recipe/roguetown/structure/door
 	name = "wooden door"
-	result = /obj/structure/mineral_door/wood
+	result = /obj/structure/door/wood
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	verbage_simple = "construct"
 	verbage = "constructs"
@@ -70,7 +70,7 @@
 
 /datum/crafting_recipe/roguetown/structure/stonedoor
 	name = "stone door"
-	result = /obj/structure/mineral_door/wood/donjon/stone
+	result = /obj/structure/door/wood/donjon/stone
 	reqs = list(/obj/item/natural/stone = 2)
 	verbage_simple = "build"
 	verbage = "builds"
@@ -78,7 +78,7 @@
 
 /datum/crafting_recipe/roguetown/structure/doorbolt
 	name = "wooden door (deadbolt)"
-	result = /obj/structure/mineral_door/wood/deadbolt
+	result = /obj/structure/door/wood/deadbolt
 	reqs = list(/obj/item/grown/log/tree/small = 2,
 				/obj/item/grown/log/tree/stick = 1)
 	verbage_simple = "construct"
@@ -88,7 +88,7 @@
 
 /datum/crafting_recipe/roguetown/structure/fancydoor
 	name = "fancy door"
-	result = /obj/structure/mineral_door/wood/fancywood
+	result = /obj/structure/door/wood/fancywood
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	verbage_simple = "construct"
 	verbage = "constructs"

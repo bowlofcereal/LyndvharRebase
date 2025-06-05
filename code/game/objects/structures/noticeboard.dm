@@ -24,9 +24,6 @@
 //attaching papers!!
 /obj/structure/noticeboard/attackby(obj/item/O, mob/user, params)
 	if(istype(O, /obj/item/paper))
-		if(!allowed(user))
-			to_chat(user, "<span class='warning'>I are not authorized to add notices!</span>")
-			return
 		if(notices < 5)
 			if(!user.transferItemToLoc(O, src))
 				return
@@ -43,13 +40,13 @@
 
 /obj/structure/noticeboard/ui_interact(mob/user)
 	. = ..()
-	var/auth = allowed(user)
+	var/auth = TRUE
 	var/dat = "<B>[name]</B><BR>"
 	for(var/obj/item/P in src)
 		if(istype(P, /obj/item/paper))
-			dat += "<A href='?src=[REF(src)];read=[REF(P)]'>[P.name]</A> [auth ? "<A href='?src=[REF(src)];write=[REF(P)]'>Write</A> <A href='?src=[REF(src)];remove=[REF(P)]'>Remove</A>" : ""]<BR>"
+			dat += "<A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A> [auth ? "<A href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> <A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A>" : ""]<BR>"
 		else
-			dat += "<A href='?src=[REF(src)];read=[REF(P)]'>[P.name]</A> [auth ? "<A href='?src=[REF(src)];remove=[REF(P)]'>Remove</A>" : ""]<BR>"
+			dat += "<A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A> [auth ? "<A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A>" : ""]<BR>"
 	user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard")
 	onclose(user, "noticeboard")
 
@@ -57,7 +54,7 @@
 	..()
 	usr.set_machine(src)
 	if(href_list["remove"])
-		if((usr.stat || usr.restrained()))	//For when a player is handcuffed while they have the notice window open
+		if((usr.stat))	//For when a player is handcuffed while they have the notice window open / READD HANDCUFFED TO THIS
 			return
 		var/obj/item/I = locate(href_list["remove"]) in contents
 		if(istype(I) && I.loc == src)
@@ -67,7 +64,7 @@
 			icon_state = "nboard0[notices]"
 
 	if(href_list["write"])
-		if((usr.stat || usr.restrained())) //For when a player is handcuffed while they have the notice window open
+		if((usr.stat)) //For when a player is handcuffed while they have the notice window open / READD HANDCUFFED TO THIS
 			return
 		var/obj/item/P = locate(href_list["write"]) in contents
 		if(istype(P) && P.loc == src)

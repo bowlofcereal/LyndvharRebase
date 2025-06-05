@@ -94,7 +94,7 @@
 	// Check for doors and bars in the path
 	for(var/turf/traversal_turf in turf_list)
 		// Check for mineral doors
-		for(var/obj/structure/mineral_door/door in (traversal_turf.contents + T.contents))
+		for(var/obj/structure/door/door in (traversal_turf.contents + T.contents))
 			if(door.density)
 				to_chat(user, span_warning("I cannot blink through doors!"))
 				revert_cast()

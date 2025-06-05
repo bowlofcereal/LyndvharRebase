@@ -28,7 +28,6 @@
 #define ACCESS_EVA 18
 /// Bridge, EVA storage windoors, gateway shutters, AI integrity restorer, clone record deletion, comms console
 #define ACCESS_HEADS 19
-#define ACCESS_CAPTAIN 20
 #define ACCESS_ALL_PERSONAL_LOCKERS 21
 #define ACCESS_CHAPEL_OFFICE 22
 #define ACCESS_TECH_STORAGE 23
@@ -54,13 +53,11 @@
 #define ACCESS_RESEARCH 47
 #define ACCESS_MINING 48
 #define ACCESS_MAILSORTING 50
-#define ACCESS_VAULT 53
 #define ACCESS_MINING_STATION 54
 #define ACCESS_XENOBIOLOGY 55
 #define ACCESS_CE 56
 #define ACCESS_HOP 57
 #define ACCESS_HOS 58
-#define ACCESS_APOTHECARY 59
 /// Request console announcements
 #define ACCESS_RC_ANNOUNCE 59
 /// Used for events which require at least two people to confirm them
@@ -136,3 +133,95 @@
 #define ACCESS_MECH_SECURITY 302
 #define ACCESS_MECH_SCIENCE 303
 #define ACCESS_MECH_ENGINE 304
+
+
+
+// Town
+#define ACCESS_TAILOR "tailor"
+#define ACCESS_SMITH "blacksmith"
+#define ACCESS_INN "tavern"
+#define ACCESS_CLINIC "clinic"
+#define ACCESS_MERCHANT "merchant"
+#define ACCESS_FARM "soilson"
+#define ACCESS_BUTCHER "butcher"
+#define ACCESS_APOTHECARY "apothecary"
+#define ACCESS_FELDSHER "doctor"
+#define ACCESS_MATRON "orphanage"
+#define ACCESS_ELDER "elder"
+#define ACCESS_VETERAN "veteran"
+#define ACCESS_MERC "mercenary"
+#define ACCESS_TOWER "tower"
+#define ACCESS_WAREHOUSE "warehouse"
+#define ACCESS_ARTIFICER "artificer"
+#define ACCESS_BATHHOUSE "bathhouse"
+#define ACCESS_MINER "miner"
+#define ACCESS_GAFFER "gaffer"
+#define ACCESS_PHYSICIAN "physician"
+
+// Town Garrison (Including forest)
+#define ACCESS_GARRISON "garrison"
+#define ACCESS_FOREST "forest"
+#define ACCESS_CAPTAIN "captain"
+#define ACCESS_GATE "gate"
+
+// Church
+#define ACCESS_CHURCH "church"
+#define ACCESS_PRIEST "priest"
+#define ACCESS_RITTER "inquistion"
+#define ACCESS_GRAVE "graveyard"
+
+// Manor
+#define ACCESS_MANOR "manor"
+#define ACCESS_MANOR_GATE "walls"
+#define ACCESS_STEWARD "steward"
+#define ACCESS_DUNGEON "dungeon"
+#define ACCESS_HAND "hand"
+#define ACCESS_LORD "lord"
+#define ACCESS_VAULT "vault"
+#define ACCESS_ARCHIVE "archive"
+#define ACCESS_MAGE "mage"
+#define ACCESS_AT_ARMS "at_arms"
+#define ACCESS_GUEST "guest"
+
+// Shops
+#define ACCESS_SHOP_I "shop1"
+#define ACCESS_SHOP_II "shop2"
+#define ACCESS_SHOP_III "shop3"
+#define ACCESS_SHOP_IV "shop4"
+#define ACCESS_SHOP_V "shop5"
+
+// House
+#define ACCESS_HOUSE_I "house1"
+#define ACCESS_HOUSE_II "house2"
+#define ACCESS_HOUSE_III "house3"
+#define ACCESS_HOUSE_IV "house4"
+#define ACCESS_HOUSE_V "house5"
+
+// Waterfront
+#define ACCESS_WATER_I "waterfront1"
+#define ACCESS_WATER_II "waterfront2"
+#define ACCESS_WATER_III "waterfront3"
+#define ACCESS_WATER_IV "waterfront4"
+#define ACCESS_WATER_V "waterfront5"
+
+// Apartments
+#define ACCESS_APART_I "apartment1"
+#define ACCESS_APART_II "apartment2"
+#define ACCESS_APART_III "apartment3"
+#define ACCESS_APART_IV "apartment4"
+#define ACCESS_APART_V "apartment5"
+#define ACCESS_APART_VI "apartment6"
+#define ACCESS_APART_VII "apartment7"
+#define ACCESS_APART_VIII "apartment8"
+#define ACCESS_APART_IX "apartment9"
+#define ACCESS_APART_X "apartment10"
+#define ACCESS_APART_XI "apartment11"
+#define ACCESS_APART_XII "apartment12"
+#define ACCESS_APART_XIII "apartment13"
+#define ACCESS_APART_XIV "apartment14"
+#define ACCESS_APART_XV "apartment15"
+#define ACCESS_APART_XVI "apartment16"
+#define ACCESS_APART_XVII "apartment17"
+#define ACCESS_APART_XVIII "apartment18"
+#define ACCESS_APART_XIX "apartment19"
+#define ACCESS_APART_XX "apartment20"

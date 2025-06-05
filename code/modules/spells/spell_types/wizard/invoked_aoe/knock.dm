@@ -22,14 +22,14 @@
 /obj/effect/proc_holder/spell/invoked/knock/cast(list/targets, mob/user = usr)
 	playsound(get_turf(user), 'sound/misc/chestopen.ogg', 100, TRUE, -1)
 	for(var/turf/T in range(1, usr))
-		for(var/obj/structure/mineral_door/door in T.contents)
+		for(var/obj/structure/door/door in T.contents)
 			INVOKE_ASYNC(src, PROC_REF(open_door), door)
 		for(var/obj/structure/closet/C in T.contents)
 			INVOKE_ASYNC(src, PROC_REF(open_closet), C)
 		for(var/obj/structure/roguewindow/openclose/W in T.contents)
 			INVOKE_ASYNC(src, PROC_REF(open_window), W)
 
-/obj/effect/proc_holder/spell/invoked/knock/proc/open_door(obj/structure/mineral_door/door)
+/obj/effect/proc_holder/spell/invoked/knock/proc/open_door(obj/structure/door/door)
 	if(istype(door))
 		door.force_open()
 		door.locked = FALSE

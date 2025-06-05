@@ -36,8 +36,7 @@
 	var/anchorable = TRUE
 	var/icon_welded = "welded"
 	var/keylock = FALSE
-	var/lockhash
-	var/lockid = null
+	lockid = null
 	var/masterkey = FALSE
 	var/lock_strength = 100
 	throw_speed = 1
@@ -54,24 +53,6 @@
 	. = ..()
 	update_icon()
 	PopulateContents()
-
-	if(lockhash)
-		GLOB.lockhashes += lockhash
-	else if(keylock)
-		if(lockid)
-			if(GLOB.lockids[lockid])
-				lockhash = GLOB.lockids[lockid]
-			else
-				lockhash = rand(1000,9999)
-				while(lockhash in GLOB.lockhashes)
-					lockhash = rand(1000,9999)
-				GLOB.lockhashes += lockhash
-				GLOB.lockids[lockid] = lockhash
-		else
-			lockhash = rand(1000,9999)
-			while(lockhash in GLOB.lockhashes)
-				lockhash = rand(1000,9999)
-			GLOB.lockhashes += lockhash
 
 //USE THIS TO FILL IT, NOT INITIALIZE OR NEW
 /obj/structure/closet/proc/PopulateContents()
@@ -259,56 +240,53 @@
 /obj/structure/closet/attackby(obj/item/W, mob/user, params)
 	if(user in src)
 		return
-	if(istype(W, /obj/item/roguekey) || istype(W, /obj/item/storage/keyring))
+	if(istype(W, /obj/item/key) || istype(W, /obj/item/storage/keyring))
 		trykeylock(W, user)
 		return
 	if(istype(W, /obj/item/lockpick))
 		trypicklock(W, user)
 		return
-	if(istype(W,/obj/item/lockpickring))
-		var/obj/item/lockpickring/pickring = W
-		if(pickring.picks.len)
-			pickring.removefromring(user)
-			to_chat(user, span_warning("You clumsily drop a lockpick off the ring as you try to pick the lock with it."))
-		return
 	if(src.tool_interact(W,user))
 		return 1 // No afterattack
-	else
-		return ..()
+	return ..()
 
 /obj/structure/closet/proc/trykeylock(obj/item/I, mob/user)
 	if(opened)
 		return
 	if(!keylock)
-		to_chat(user, span_warning("There's no lock on this."))
+		to_chat(user, "<span class='warning'>There's no lock on this.</span>")
 		return
-	if(obj_broken)
-		to_chat(user, span_warning("The lock is obj_broken."))
+	if(broken)
+		to_chat(user, "<span class='warning'>The lock is broken.</span>")
 		return
 	if(istype(I,/obj/item/storage/keyring))
 		var/obj/item/storage/keyring/R = I
 		if(!R.contents.len)
 			return
-		var/list/keysy = shuffle(R.contents.Copy())
-		for(var/obj/item/roguekey/K in keysy)
-			if(user.cmode)
-				if(!do_after(user, 10, TRUE, src))
-					break
-			if(K.lockhash == lockhash)
+		for(var/obj/item/key/K as anything in shuffle(R.contents.Copy()))
+			var/combat = user.cmode
+			if(combat && !do_after(user, 1 SECONDS, src))
+				rattle()
+				break
+			if(K.lockid == lockid)
 				togglelock(user)
 				break
-			else
-				if(user.cmode)
-					playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
+			if(combat)
+				rattle()
 		return
-	else
-		var/obj/item/roguekey/K = I
-		if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
-			togglelock(user)
-			return
-		else
-			playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
-
+	var/obj/item/key/K = I
+	if(K.lockid != lockid)
+		rattle()
+		return
+	togglelock(user)
+/*
+/obj/structure/closet/proc/rattle()
+	playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
+	var/oldx = pixel_x
+	animate(src, pixel_x = oldx+1, time = 0.5)
+	animate(pixel_x = oldx-1, time = 0.5)
+	animate(pixel_x = oldx, time = 0.5)
+*/
 /obj/structure/closet/proc/trypicklock(obj/item/I, mob/user)
 	if(opened)
 		to_chat(user, "<span class='warning'>This cannot be picked while it is open.</span>")
@@ -316,12 +294,12 @@
 	if(!keylock)
 		to_chat(user, "<span class='warning'>There's no lock on this.</span>")
 		return
-	if(obj_broken)
-		to_chat(user, "<span class='warning'>The lock is obj_broken.</span>")
+	if(broken)
+		to_chat(user, "<span class='warning'>The lock is broken.</span>")
 		return
 	else
 		var/lockprogress = 0
-		var/locktreshold = lock_strength
+		var/locktreshold = 100
 
 		var/obj/item/lockpick/P = I
 		var/mob/living/L = user
@@ -346,37 +324,32 @@
 
 
 		while(!QDELETED(I) &&(lockprogress < locktreshold))
-			if(!do_after(user, picktime, target = src))
+			if(!do_after(user, picktime, src))
 				break
 			if(prob(pickchance))
 				lockprogress += moveup
 				playsound(src.loc, pick('sound/items/pickgood1.ogg','sound/items/pickgood2.ogg'), 5, TRUE)
 				to_chat(user, "<span class='warning'>Click...</span>")
 				if(L.mind)
-					add_sleep_experience(L, /datum/skill/misc/lockpicking, L.STAINT/2)
+					var/amt2raise = L.STAINT
+					L.mind.adjust_experience(/datum/skill/misc/lockpicking, amt2raise)
 				if(lockprogress >= locktreshold)
-					to_chat(user, "<span class='deadsay'>The locking mechanism gives.</span>")
-					record_featured_stat(FEATURED_STATS_CRIMINALS, user)
-					GLOB.azure_round_stats[STATS_LOCKS_PICKED]++
+					to_chat(user, "<span class='deadsay'>The locking mechanism gives way.</span>")
 					togglelock(user)
-					break
+					return
 				else
 					continue
 			else
 				playsound(loc, 'sound/items/pickbad.ogg', 40, TRUE)
 				I.take_damage(1, BRUTE, "blunt")
 				to_chat(user, "<span class='warning'>Clack.</span>")
-				add_sleep_experience(L, /datum/skill/misc/lockpicking, L.STAINT/4)
 				continue
-		return
 
 /obj/structure/closet/proc/tool_interact(obj/item/W, mob/user)//returns TRUE if attackBy call shouldnt be continued (because tool was used/closet was of wrong type), FALSE if otherwise
 	. = FALSE
 	if(opened)
 		if(user.transferItemToLoc(W, drop_location())) // so we put in unlit welder too
 			return TRUE
-
-
 
 /obj/structure/closet/proc/after_weld(weld_state)
 	return

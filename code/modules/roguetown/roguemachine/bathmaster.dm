@@ -15,7 +15,7 @@
 	var/budget = 0
 	var/upgrade_flags
 	var/current_cat = "1"
-	var/lockid = "nightman"
+	lockid = "nightman"
 	var/list/categories = list(
 		"Alcohols", 
 		"Bulk", 

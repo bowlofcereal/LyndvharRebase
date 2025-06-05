@@ -55,7 +55,7 @@
 /datum/anvil_recipe/engineering/bronze/keys
 	name = "Keys 2x"
 	req_bar = /obj/item/ingot/bronze
-	created_item = /obj/item/customblank
+	created_item = /obj/item/key/custom
 	createditem_num = 2
 	craftdiff = 1
 

@@ -11,6 +11,7 @@
 	var/climb_offset = 0 //offset up when climbed
 	var/mob/living/structureclimber
 	var/hammer_repair
+	var/broken = 0 //similar to machinery's stat BROKEN
 //	move_resist = MOVE_FORCE_STRONG
 
 /obj/structure/Initialize()
@@ -33,8 +34,8 @@
 			if(H.dir == get_dir(H,src) && H.m_intent == MOVE_INTENT_RUN && (H.mobility_flags & MOBILITY_STAND))
 				var/is_bigguy = FALSE
 				if(HAS_TRAIT(H,TRAIT_BIGGUY))
-					if(istype(src,/obj/structure/mineral_door))
-						var/obj/structure/mineral_door/S = src
+					if(istype(src,/obj/structure/door))
+						var/obj/structure/door/S = src
 						if(S.smashable)
 							is_bigguy = TRUE
 				if(is_bigguy && obj_integrity > max_integrity / 3)
@@ -87,6 +88,12 @@
 //		user.do_attack_animation(src)
 //		structureclimber.Paralyze(40)
 //		structureclimber.visible_message(span_warning("[structureclimber] has been knocked off [src].", "You're knocked off [src]!", "You see [structureclimber] get knocked off [src]."))
+
+/obj/structure/pre_lock_interact(mob/user)
+	if(broken)
+		to_chat(user, span_notice("[src] is broken, I cannot do this."))
+		return FALSE
+	return ..()
 
 /obj/structure/Crossed(atom/movable/AM)
 	. = ..()

@@ -7,10 +7,7 @@
 		CRASH("playsound(): source is an area")
 
 	var/turf/turf_source = get_turf(source)
-	if(isturf(source))
-		turf_source = source
-
-	if (!turf_source)
+	if(!turf_source)
 		return
 
 	//allocate a channel if necessary now so its the same for everyone

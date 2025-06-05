@@ -1,10 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/structure/vine,
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 1
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/town/basement)
 "ac" = (
@@ -99,7 +99,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/cavewet/bogcaves)
 "aJ" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/town/basement)
 "aK" = (
@@ -683,7 +683,7 @@
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "ft" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/town/basement)
 "fu" = (
@@ -1085,7 +1085,7 @@
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/shelter/woods)
 "iQ" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "iT" = (
@@ -1334,7 +1334,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "kZ" = (
-/obj/structure/mineral_door/wood/deadbolt/shutter{
+/obj/structure/door/weak/bolt/shutter{
 	dir = 8
 	},
 /obj/structure/table/wood{
@@ -2864,7 +2864,7 @@
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/shelter/woods)
 "xD" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt,
@@ -3159,7 +3159,7 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "Aj" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	dir = 1
 	},
 /turf/open/floor/rogue/hexstone,
@@ -3235,10 +3235,10 @@
 /turf/open/floor/rogue/greenstone,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "AE" = (
-/obj/structure/mineral_door/wood/deadbolt{
-	dir = 1;
-	locked = 1
+/obj/structure/door/weak/bolt{
+	dir = 1
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "AF" = (
@@ -4504,7 +4504,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/basement)
 "Kq" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/door/window,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors)
 "Ks" = (
@@ -4617,7 +4617,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/structure/mineral_door/wood/deadbolt/shutter{
+/obj/structure/door/weak/bolt/shutter{
 	dir = 8
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -4650,7 +4650,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter/woods)
 "Lz" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road,
@@ -4773,11 +4773,11 @@
 	},
 /area/rogue/outdoors/beach/forest)
 "MB" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
+/obj/structure/door{
 	lockid = "warden";
 	name = "warden's watchtower"
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/shelter/woods)
 "MD" = (
@@ -4913,7 +4913,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/town/basement)
 "NG" = (
-/obj/structure/mineral_door/bars,
+/obj/structure/door/iron/bars,
 /obj/effect/decal/cobbleedge{
 	dir = 1
 	},
@@ -4928,7 +4928,7 @@
 /turf/open/water/swamp/deep,
 /area/rogue/under/cavewet/bogcaves)
 "NN" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "NR" = (
@@ -4978,10 +4978,10 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "Oi" = (
-/obj/structure/mineral_door/bars{
-	locked = 1;
+/obj/structure/door/iron/bars{
 	lockid = "dungeon"
 	},
+/obj/effect/mapping_helpers/access/locker,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave)
 "Oj" = (
@@ -5158,7 +5158,7 @@
 /turf/open/water/sewer,
 /area/rogue/under/cave/dungeon1/gethsmane)
 "Qr" = (
-/obj/structure/mineral_door/wood/donjon{
+/obj/structure/door/viewport{
 	pixel_x = 0;
 	pixel_y = 0
 	},
@@ -5179,7 +5179,7 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/shelter/woods)
 "Qv" = (
-/obj/structure/mineral_door/wood/window,
+/obj/structure/door/window,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "Qw" = (
@@ -5417,7 +5417,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/woods)
 "Sm" = (
-/obj/structure/mineral_door/wood/deadbolt{
+/obj/structure/door/weak/bolt{
 	dir = 8
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -5888,7 +5888,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/woods)
 "VV" = (
-/obj/structure/mineral_door/wood,
+/obj/structure/door,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors)
 "VZ" = (
@@ -6259,7 +6259,7 @@
 /turf/open/floor/rogue/greenstone,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "YV" = (
-/obj/structure/mineral_door/swing_door,
+/obj/structure/door/swing,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "YW" = (
@@ -6374,7 +6374,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter/woods)
 "ZD" = (
-/obj/structure/mineral_door/wood/fancywood,
+/obj/structure/door/fancy,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors)
 "ZH" = (
@@ -6422,7 +6422,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 1
 	},
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/door/weak/bolt,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/town/basement)
 

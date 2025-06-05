@@ -1,4 +1,5 @@
 //returns TRUE if this mob has sufficient access to use this object
+/*
 /obj/proc/allowed(mob/M)
 	//check if it doesn't require any access at all
 	if(src.check_access(null))
@@ -23,7 +24,7 @@
 		if(check_access(A.get_active_held_item()))
 			return TRUE
 	return FALSE
-
+*/
 /obj/item/proc/GetAccess()
 	return list()
 
@@ -59,9 +60,10 @@
 			req_one_access += b
 
 // Check if an item has access to this object
+/*
 /obj/proc/check_access(obj/item/I)
 	return check_access_list(I ? I.GetAccess() : null)
-
+*/
 /obj/proc/check_access_list(list/access_list)
 	gen_access()
 
