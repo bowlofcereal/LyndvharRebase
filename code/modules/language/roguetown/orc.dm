@@ -1,6 +1,6 @@
 /datum/language/orcish
-	name = "Orcish"
-	desc = ""
+	name = "Orc-Speak"
+	desc = "An unwritten babble of tongues from the scattered Orcish tribes, sharing just enough common words to be shouted across the war-hosts."
 	speech_verb = "grumbles"
 	ask_verb = "asks"
 	exclaim_verb = "shouts"

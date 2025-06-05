@@ -1,6 +1,6 @@
 /datum/language/elvish
-	name = "Elfish"
-	desc = ""
+	name = "Elven"
+	desc = "The flowing language of all elves west of the Sea of Tears, and the elite of some human houses."
 	speech_verb = "states"
 	ask_verb = "questions"
 	exclaim_verb = "shouts"
