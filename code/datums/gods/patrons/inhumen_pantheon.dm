@@ -11,13 +11,14 @@
 
 // Master for Inhumen gods, letting them pray near an inverted cross. The rest will have their own unique stuff.
 /datum/patron/inhumen/can_pray(mob/living/follower)
-	. = TRUE
+	. = ..()
 	// Allows prayer in the Zzzzzzzurch(!)
 	if(istype(get_area(follower), /area/rogue/indoors/shelter/mountains))
 		return TRUE
 	// Allows prayer near EEEVIL psycross
 	for(var/obj/structure/fluff/psycross/zizocross in view(4, get_turf(follower)))
 		return TRUE
+	return FALSE
 
 /datum/patron/inhumen/zizo
 	name = "Zizo"
