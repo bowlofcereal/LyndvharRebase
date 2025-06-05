@@ -76,7 +76,7 @@ GLOBAL_LIST_EMPTY(preference_patrons)
             punish_prayer(follower)
             return FALSE
 
-    var/patron_name = follower?.patron?.name
+    var/patron_name = follower?.patron.name
     if(!patron_name)
         CRASH("check_prayer called with null patron")
 
