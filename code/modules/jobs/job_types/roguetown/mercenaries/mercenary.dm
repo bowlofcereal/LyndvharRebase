@@ -1,14 +1,14 @@
 /datum/job/roguetown/mercenary
 	title = "Mercenary"
 	flag = MERCENARY
-	department_flag = MERCENARIES
+	department_flag = RABBLE
 	faction = "Station"
 	total_positions = 8
 	spawn_positions = 8
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	tutorial = "Blood stains your hands and the coins you hold. You are a sell-sword, a mercenary, a contractor of war. Where you come from, what you are, who you serve.. none of it matters. What matters is that the groschen flows to your pocket."
-	display_order = JDO_MERCENARY
+	selection_color = JCOLOR_RABBLE
 	selection_color = JCOLOR_MERCENARY
 	min_pq = 2		//Will be handled by classes if PQ limiting is needed. --But Until then, learn escalation, mercs.
 	max_pq = null

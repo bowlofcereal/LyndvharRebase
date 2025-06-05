@@ -6,11 +6,18 @@
 	total_positions = 1
 	spawn_positions = 1
 
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
+	/datum/species/halforc,\
+	)
 	allowed_sexes = list(MALE, FEMALE)
 
 	display_order = JDO_DUNGEONEER
-
+	selection_color = JCOLOR_COURTIER
 	tutorial = "Be you an instrument of sadism for the Lord Castellan or the guarantor of his merciful hospitality, your duties are a service paid for most handsomely. Perhaps you were promoted from the garrison down to these cells to get your brutality off the town streets where cracked skulls caused outcries, or maybe your soft-hearted lord wanted to be sure his justice was done without malice by a faithful servant. In either case, your little world is the lowest office in the Realm; from it your guests see only hell."
 	announce_latejoin = FALSE
 	outfit = /datum/outfit/job/roguetown/dungeoneer

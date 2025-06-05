@@ -6,6 +6,8 @@
 	total_positions = 0
 	spawn_positions = 0
 
+	selection_color = JCOLOR_RABBLE
+
 	allowed_races = RACES_ALL_KINDS
 	allowed_ages = ALL_AGES_LIST
 	outfit = /datum/outfit/job/roguetown/vagrant

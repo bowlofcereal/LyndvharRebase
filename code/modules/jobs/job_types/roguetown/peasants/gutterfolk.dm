@@ -7,6 +7,7 @@
 	total_positions = 20
 	spawn_positions = 20
 
+
 	allowed_races = RACES_ALL_KINDS
 	allowed_ages = ALL_AGES_LIST
 	outfit = /datum/outfit/job/roguetown/gutterfolk
@@ -18,6 +19,7 @@
 
 	tutorial = "The stench of your piss-laden clothes doesn't bug you anymore, the glances of disgust and loathing others give you is just a friendly greeting after all! The only reason you've not been killed already is because Volfs are known to be repelled by the stench of decaying flesh. You're going to be a solemn reminder what happens when something unwanted is born into this world."
 	display_order = JDO_GUTTERFOLK
+	selection_color = JCOLOR_RABBLE	
 	show_in_credits = FALSE
 	can_random = FALSE
 	round_contrib_points = 3

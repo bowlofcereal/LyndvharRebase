@@ -8,7 +8,7 @@
 	spawn_positions = 1
 	selection_color = JCOLOR_CHURCH
 	f_title = "Priestess"
-	allowed_races = RACES_NO_CONSTRUCT		//Too recent arrivals to ascend to priesthood. 
+	allowed_races = TOLERATED_CLEARANCE	//Too recent arrivals to ascend to priesthood. 
 	allowed_patrons = list(/datum/patron/old_god)	// Must be Shepherdist.
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "To guide the Flock in green pastures is a fair thing, to Shepherd them through bitter winters is fairer still. You encourage the wavering and temper the vengeful, always seeking to guide both high and low-born to fix their attention on the good and the beautiful."

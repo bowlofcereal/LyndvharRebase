@@ -114,19 +114,14 @@
 
 /datum/virtue/utility/linguist/proc/linguist_apply(mob/living/carbon/human/recipient)
 	var/static/list/selectable_languages = list(
-		/datum/language/elvish,
-		/datum/language/dwarvish,
-		/datum/language/orcish, 
-		/datum/language/hellspeak,
-		/datum/language/draconic,
-		/datum/language/celestial,
-		/datum/language/canilunzt,
-		/datum/language/grenzelhoftian,
-		/datum/language/kazengunese,
-		/datum/language/otavan,
-		/datum/language/etruscan,
-		/datum/language/gronnic,
-		/datum/language/aavnic
+			/datum/language/common,
+			/datum/language/dwarvish,
+			/datum/language/elvish,
+			/datum/language/celestial,
+			/datum/language/hellspeak,
+			/datum/language/orcish,
+			/datum/language/grenzelhoftian,
+			/datum/language/etruscan,
 	)
 		
 	var/list/choices = list()

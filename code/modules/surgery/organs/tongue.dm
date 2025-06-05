@@ -11,21 +11,13 @@
 	var/modifies_speech = FALSE
 	var/static/list/languages_possible_base = typecacheof(list(
 		/datum/language/common,
-		/datum/language/dwarvish,
-		/datum/language/elvish,
-		/datum/language/celestial,
-		/datum/language/hellspeak,
-		/datum/language/beast,
-		/datum/language/orcish,
-		/datum/language/draconic,
-		/datum/language/canilunzt,
-		/datum/language/thievescant,
-		/datum/language/grenzelhoftian,
-		/datum/language/kazengunese,
-		/datum/language/otavan,
-		/datum/language/etruscan,
-		/datum/language/gronnic,
-		/datum/language/aavnic
+        /datum/language/dwarvish,
+        /datum/language/elvish,
+        /datum/language/celestial,
+        /datum/language/hellspeak,
+        /datum/language/orcish,
+        /datum/language/grenzelhoftian,
+        /datum/language/etruscan,
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)
