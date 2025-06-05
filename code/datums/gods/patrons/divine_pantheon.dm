@@ -243,7 +243,7 @@
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
 	// Allows prayer during nightime if outside.
-	if(istype(get_area(follower), /area/rogue/outdoors) && (GLOB.tod == "night"))
+	if(istype(get_area(follower), /area/rogue/outdoors) && (GLOB.tod == "night" || GLOB.tod == "dusk"))
 		return TRUE
 	// Allows praying atop ritual chalk of the god.
 	for(var/obj/structure/ritualcircle/noc in view(1, get_turf(follower)))
