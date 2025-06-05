@@ -313,7 +313,7 @@
 
 // Pestra - Near a well, cross, within the physicians, or within the church
 /datum/patron/divine/pesta/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer in the appothocary's building.
 	if(istype(get_area(follower), /area/rogue/indoors/town/physician))
 		return TRUE
