@@ -341,7 +341,7 @@
 
 // Eora - Near a gambling machine, cross, or within the church
 /datum/patron/divine/eora/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows player to pray while wearing eoran bud.
 	if(HAS_TRAIT(follower, TRAIT_PACIFISM))
 		return TRUE
