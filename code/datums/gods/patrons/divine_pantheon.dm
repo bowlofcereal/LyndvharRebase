@@ -262,7 +262,9 @@
 	// Allows prayer in outdoors wilderness, such as bog
 	if(istype(get_area(follower), /area/rogue/outdoors/rtfield))
 		return TRUE
-	to_chat(follower, span_danger("I must either be in Dendor's wilds, the Grove, or near a Panetheon Cross for the 'Tree Father' to hear my prays..."))
+	for(var/obj/structure/flora/roguetree/wise in view(4, get_turf(follower)))
+		return TRUE
+	to_chat(follower, span_danger("I must either be in Dendor's wilds, the Grove, near a wise tree, or near a Panetheon Cross for the 'Tree Father' to hear my prays..."))
 	return FALSE
 
 
