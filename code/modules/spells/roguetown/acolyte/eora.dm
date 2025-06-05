@@ -821,7 +821,7 @@
             return
         if(2)
             possible_arils = list(
-                /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 70,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 50,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 10,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 20
             )
