@@ -33,6 +33,75 @@
 		return TRUE
 	revert_cast()
 	return FALSE
+
+//T0 the fishing
+/obj/effect/proc_holder/spell/invoked/aquatic_compulsion
+	name = "Aquatic Compulsion"
+	overlay_state = "thebends"
+	releasedrain = 15
+	chargedrain = 0
+	chargetime = 0.5 SECONDS
+	range = 3
+	movement_interrupt = FALSE
+	chargedloop = null
+	sound = 'sound/foley/bubb (5).ogg'
+	invocation = "Splash forth."
+	invocation_type = "shout"
+	associated_skill = /datum/skill/magic/holy
+	antimagic_allowed = TRUE
+	recharge_time = 10 SECONDS
+	miracle = TRUE
+	devotion_cost = 10
+	//Horrendous carry-over from fishing code
+	var/frwt = list(/turf/open/water/river, /turf/open/water/cleanshallow, /turf/open/water/pond)
+	var/salwt = list(/turf/open/water/ocean, /turf/open/water/ocean/deep)
+	var/list/freshfishloot = list(
+		/obj/item/reagent_containers/food/snacks/fish/carp = 225,
+		/obj/item/reagent_containers/food/snacks/fish/sunny = 325,
+		/obj/item/reagent_containers/food/snacks/fish/salmon = 190,
+		/obj/item/reagent_containers/food/snacks/fish/eel = 140,
+		/obj/item/reagent_containers/food/snacks/smallrat = 1, //funny
+		/mob/living/simple_animal/hostile/retaliate/rogue/mudcrab = 20,			
+	)
+	var/list/seafishloot = list(
+		/obj/item/reagent_containers/food/snacks/fish/cod = 190,
+		/obj/item/reagent_containers/food/snacks/fish/plaice = 210,
+		/obj/item/reagent_containers/food/snacks/fish/sole = 340,
+		/obj/item/reagent_containers/food/snacks/fish/angler = 140,
+		/obj/item/reagent_containers/food/snacks/fish/lobster = 150,
+		/obj/item/reagent_containers/food/snacks/fish/bass = 210,
+		/obj/item/reagent_containers/food/snacks/fish/clam = 40,
+		/obj/item/reagent_containers/food/snacks/fish/clownfish = 20,
+		/obj/item/reagent_containers/food/snacks/smallrat = 1, //still funny
+		/mob/living/carbon/human/species/goblin/npc/sea = 25,
+		/mob/living/simple_animal/hostile/rogue/deepone = 30,
+		/mob/living/simple_animal/hostile/rogue/deepone/spit = 30,			
+	)
+
+/obj/effect/proc_holder/spell/invoked/aquatic_compulsion/cast(list/targets, mob/user = usr)
+	. = ..()
+	if(isturf(targets[1]))
+		var/turf/T = targets[1]
+		var/success
+		var/A
+		if(T.type in frwt)
+			A = pickweight(freshfishloot)
+			success = TRUE
+		if(T.type in salwt)
+			A = pickweight(seafishloot)
+			success = TRUE
+		if(success)
+			var/atom/movable/AF = new A(T)
+			AF.throw_at(get_turf(user), 5, 1, null)
+			playsound(T, 'sound/foley/footsteps/FTWAT_1.ogg', 100)
+			user.visible_message("<font color='yellow'>[user] makes a beckoning gesture at [T]!</font>")
+			return TRUE
+		else
+			revert_cast()
+			return FALSE
+	revert_cast()
+	return FALSE
+
 //T2, Abyssal Healing. Totally stole most of this from lesser heal.
 /obj/effect/proc_holder/spell/invoked/abyssheal
 	name = "Abyssal Healing"

@@ -68,10 +68,10 @@
 	worshippers = "Men of the Sea, Primitive Aquatics"
 	mob_traits = list(TRAIT_ABYSSOR_SWIM, TRAIT_SEA_DRINKER)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/aquatic_compulsion	= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/abyssor_bends			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/abyssheal				= CLERIC_T2,
-					/obj/effect/proc_holder/spell/invoked/call_mossback			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/call_dreamfiend		= CLERIC_T4,
 					/obj/effect/proc_holder/spell/invoked/abyssal_infusion		= CLERIC_T4
 	)
