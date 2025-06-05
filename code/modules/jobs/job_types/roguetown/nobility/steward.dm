@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 
-	allowed_races = RACES_NO_CONSTRUCT
+	allowed_races = NOBLE_RACES_TYPES
 	allowed_sexes = list(MALE, FEMALE)
 	display_order = NOBLE_RACES_TYPES
 	tutorial = "Coin, Coin, Coin! Oh beautiful coin: You're addicted to it, and you hold the position as the Castellan's personal treasurer of both coin and information. You know the power silver and gold has on a man's mortal soul, and you know just what lengths they'll go to in order to get even more. Keep your festering economy alive- for it is the only thing you can weigh any trust into anymore."
@@ -100,7 +100,7 @@
 	name = "Burgmann"
 	title = "Burgmann"
 	f_title = "Burgfrau"
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = NOBLE_RACES_TYPES
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "Sworn to defend the Castellan's lands, you are both warrior and steward, entrusted with the keep’s defense and the care of its arms.\
 	 As Burgmann, you wield blade and shield with skill, but your duties extend beyond the battlefield. You are the quartermaster, \

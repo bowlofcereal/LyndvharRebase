@@ -6,7 +6,14 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
+	/datum/species/halforc,\
+	)
 	allowed_patrons = ALL_DIVINE_PATRONS
 	tutorial = "You are the Gatemaster, the one who guards the gates of the march. You are charged with the duty of keeping the gates secure and to decide who may enter and leave. Your duty ends before the gates of the city, to leave the gate unattended is to leave the city unguarded."
 	display_order = JDO_GATEMASTER

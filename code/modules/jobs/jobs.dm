@@ -129,14 +129,14 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 
 GLOBAL_LIST_INIT(rabble_positions, list(
 	"Bawdyhouse Master",
-	"Wench",
+	"Rake",
 	"Gutterfolk",
 	"Adventurer",
 	"Pilgrim",
+	"Mercenary",
 ))
 
 GLOBAL_LIST_INIT(mercenary_positions, list(
-	"Mercenary",
 	"Grenzelhoft Mercenary",
 	"Desert Rider Mercenary",
 	"Veteran Mercenary",

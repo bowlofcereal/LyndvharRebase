@@ -13,7 +13,7 @@
 	outfit_female = null
 
 
-
+	selection_color = JCOLOR_RABBLE
 	display_order = JDO_BANDIT
 	announce_latejoin = FALSE
 	min_pq = 3

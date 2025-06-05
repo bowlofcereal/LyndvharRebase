@@ -9,7 +9,14 @@
 	selection_color = JCOLOR_SOLDIER
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
+	/datum/species/halforc,\
+	)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	tutorial = "You are a member of the march's garrison, you were either hired or levied to serve your liege and fight in their name. \
 	You answer to the Master-at-Arms, the Knights and the Marshall, therefore are expected to follow their orders."

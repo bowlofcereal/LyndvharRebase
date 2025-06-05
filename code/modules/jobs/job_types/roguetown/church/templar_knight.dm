@@ -8,7 +8,7 @@
 	 and they are tasked with protecting the faithful from the dangers of the world. They are trained to excel in a certain weapon type and combat style,\
 	and are very formidabel in combat. They are also trained to ride steeds."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = TOLERATED_CLEARANCE
 	allowed_patrons = ALL_CLERIC_PATRONS
 	outfit = /datum/outfit/job/roguetown/templar_knight
 	min_pq = 1

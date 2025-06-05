@@ -8,7 +8,7 @@
 	 and they are tasked with providing medical aids and healing to those in need. Despite the more passive nature of their duties,\
 	they are still formidable warriors and are trained to excel with specific weapon type and combat style, they are also trained to ride steeds."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = TOLERATED_CLEARANCE
 	allowed_patrons = ALL_CLERIC_PATRONS
 	outfit = /datum/outfit/job/roguetown/hosp_knight
 	min_pq = 1

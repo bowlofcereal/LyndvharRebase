@@ -3,12 +3,20 @@
 	f_title = "Watchwoman"
 	flag = WATCHMAN
 	department_flag = CITYWATCH
+	selection_color = JCOLOR_MERCENARY
 	faction = "Station"
 	total_positions = 6
 	spawn_positions = 6
 	selection_color = JCOLOR_SOLDIER
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
+	/datum/species/halforc,\
+	)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 	tutorial = "You are not a soldier, but rather law enforcers. Your duty is to enforce the laws of the march and the words of your liege, and to keep troublemakers off the streets and the people safe. Answer to the Bailiff; only in desperate times will you be required to take up arms to defend the city."
 	display_order = JDO_WATCHMAN
