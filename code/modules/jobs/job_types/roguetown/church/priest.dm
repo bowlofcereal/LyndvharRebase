@@ -9,9 +9,9 @@
 	selection_color = JCOLOR_CHURCH
 	f_title = "Priestess"
 	allowed_races = RACES_NO_CONSTRUCT		//Too recent arrivals to ascend to priesthood. 
-	allowed_patrons = ALL_DIVINE_PATRONS
+	allowed_patrons = list(/datum/patron/old_god)	// Must be Shepherdist.
 	allowed_sexes = list(MALE, FEMALE)
-	tutorial = "The Divine is all that matters in a world of the immoral. The Weeping God left his children to rule over us mortals--and you will preach their wisdom to any who still heed their will. The faithless are growing in number. It is up to you to shepard them toward a Gods-fearing future; for you are a priest of Astrata."
+	tutorial = "To guide the Flock in green pastures is a fair thing, to Shepherd them through bitter winters is fairer still. You encourage the wavering and temper the vengeful, always seeking to guide both high and low-born to fix their attention on the good and the beautiful."
 	whitelist_req = FALSE
 
 	spells = list(/obj/effect/proc_holder/spell/invoked/cure_rot, /obj/effect/proc_holder/spell/self/convertrole/monk)
@@ -23,11 +23,8 @@
 	max_pq = null
 	round_contrib_points = 3
 
-	//No nobility for you, being a member of the clergy means you gave UP your nobility. It says this in many of the church tutorial texts.
-	virtue_restrictions = list(/datum/virtue/utility/noble)
-
 /datum/outfit/job/roguetown/priest
-	allowed_patrons = list(/datum/patron/divine/astrata)
+	allowed_patrons = list(/datum/patron/old_god)	// Must be Shepherdist.
 
 /datum/outfit/job/roguetown/priest/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -44,8 +41,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 		/obj/item/needle/pestra = 1,
-		/obj/item/natural/worms/leech/cheele = 1, //little buddy
-		/obj/item/ritechalk,
+		/obj/item/natural/worms/leech/cheele = 1
 	)
 	ADD_TRAIT(H, TRAIT_CHOSEN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
@@ -77,16 +73,14 @@
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord
 	H.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 	H.verbs |= /mob/living/carbon/human/proc/churchannouncement
-//	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)		- You are literally disinherited. Begone......
-
 
 /mob/living/carbon/human/proc/coronate_lord()
 	set name = "Coronate"
 	set category = "Priest"
 	if(!mind)
 		return
-	if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-		to_chat(src, span_warning("I need to do this in the chapel."))
+	if(!istype(get_area(src), /area/rogue/indoors/sund/church/interior/cathedral))
+		to_chat(src, span_warning("I need to do this in the cathedral."))
 		return FALSE
 	for(var/mob/living/carbon/human/HU in get_step(src, src.dir))
 		if(!HU.mind)
@@ -119,7 +113,7 @@
 		SSticker.rulermob = HU
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)
-		say("By the authority of the gods, I pronounce you Ruler of all Sundmark!")
+		say("By the authority of the Church, I pronounce you Ruler of all Sundmark!")
 		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of SUNDMARK!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
 
 /mob/living/carbon/human/proc/churchexcommunicate()
@@ -134,7 +128,7 @@
 			return FALSE
 		if(inputty in GLOB.excommunicated_players)
 			GLOB.excommunicated_players -= inputty
-			priority_announce("[real_name] has forgiven [inputty]. Once more walk in the light!", title = "Hail the Ten!", sound = 'sound/misc/bell.ogg')
+			priority_announce("[real_name] has forgiven [inputty]. Once more walk in the light!", title = "Forgiveness!", sound = 'sound/misc/bell.ogg')
 			for(var/mob/living/carbon/human/H in GLOB.player_list)
 				if(H.real_name == inputty)
 					H.remove_stress(/datum/stressevent/psycurse)
@@ -149,7 +143,7 @@
 		if(!found)
 			return FALSE
 		GLOB.excommunicated_players += inputty
-		priority_announce("[real_name] has put Xylix's curse of woe on [inputty] for offending the church!", title = "SHAME", sound = 'sound/misc/excomm.ogg')
+		priority_announce("[real_name] has banished [inputty] from the Flock for offending the church!", title = "SHAME", sound = 'sound/misc/excomm.ogg')
 
 /mob/living/carbon/human/proc/churchannouncement()
 	set name = "Announcement"
@@ -177,7 +171,7 @@
 	new_role = "Hospitaler Sergeant"
 	overlay_state = "recruit_templar"
 	recruitment_faction = "Templars"
-	recruitment_message = "Pledge Thy Sword to the Hospital, %RECRUIT!"
+	recruitment_message = "Pledge thy sword to the Hospital, %RECRUIT!"
 	accept_message = "By the Shepherd's Will!"
 	refuse_message = "I refuse."
 
@@ -187,6 +181,6 @@
 	new_role = "Monk"
 	overlay_state = "recruit_acolyte"
 	recruitment_faction = "Church"
-	recruitment_message = "Serve the ten, %RECRUIT!"
-	accept_message = "FOR THE TEN!"
+	recruitment_message = "Serve the Flock, %RECRUIT!"
+	accept_message = "For the Lamb!"
 	refuse_message = "I refuse."
