@@ -91,7 +91,7 @@
 
 	user.client.spawn_lockpicking_UI(P, user, L, the_wedge, difficulty, shown_difficulty, user.mind.get_skill_level(/datum/skill/misc/lockpicking))
 	to_chat(P, span_notice("[user.name] starts picking the [P.name]'s lock..."))
-	user.visible_message(span_warning("[user.name] starts picking the [P.name]s lock."))
+	user.visible_message(span_warning("[user.name] starts picking the [P.name]'s lock."))
 	return TRUE
 
 //ui is spawned, users screen is updated
@@ -409,7 +409,7 @@
 		return FALSE
 
 	to_chat(user, "<span class='notice'>You pick [name]'s lock.</span>")
-	user.visible_message(span_warning("[user.name] picks [name]s lock."))
+	user.visible_message(span_warning("[user.name] picks [name]'s lock."))
 
 	being_picked = FALSE
 
