@@ -89,6 +89,11 @@
 		to_chat(user, "<span class='notice'>You need a wedge in order to lockpick [P]!</span>")
 		return
 
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		message_admins("[H.real_name]([key_name(user)]) is attempting to lockpick [P.name]. [ADMIN_JMP(src)]")
+		log_admin("[H.real_name]([key_name(user)]) is attempting to lockpick [P.name].")
+
 	user.client.spawn_lockpicking_UI(P, user, L, the_wedge, difficulty, shown_difficulty, user.mind.get_skill_level(/datum/skill/misc/lockpicking))
 	to_chat(P, span_notice("[user.name] starts picking the [P.name]'s lock..."))
 	user.visible_message(span_warning("[user.name] starts picking the [P.name]'s lock."))
@@ -394,10 +399,12 @@
 
 	//special cases that need telling what to do due to others shartcode
 	var/obj/structure/mineral_door/A = src
+	var/obj/effect/track/structure/new_track = new(get_turf(src))
 	if(istype(A))
 		A.locked = FALSE
 	lock_tampered = TRUE
 	playsound(loc, 'sound/items/LPWin.ogg', 150 - (15 * skill_level))
+	new_track.handle_creation(user)
 
 	var/amt2raise = user.STAINT + (50 / difficulty)
 	user.mind?.adjust_experience(/datum/skill/misc/lockpicking, amt2raise)
