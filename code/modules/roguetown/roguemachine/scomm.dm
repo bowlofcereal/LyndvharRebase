@@ -783,3 +783,4 @@
 	icon_state = "ring_lamerald"
 	listening = FALSE
 	sellprice = 20
+	hearrange = 0
