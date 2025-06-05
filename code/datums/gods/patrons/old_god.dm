@@ -25,8 +25,9 @@
 	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
 		return TRUE
 	// Allows prayer if raining and outside. Psydon weeps.
-	if(GLOB.forecast = "rain" && istype(get_area(follower), /area/rogue/outdoors))
-		return TRUE
+	if(GLOB.forecast == "rain")
+		if(istype(get_area(follower), /area/rogue/outdoors))
+			return TRUE
 	// Allows prayer if bleeding.
 	if(follower.bleed_rate > 0)
 		return TRUE

@@ -129,19 +129,18 @@
 	to_chat(follower, span_danger("For Graggar to hear my prayers I must either be in the church of the abandoned, near an inverted psycross, near fresh blood or draw blood of my own!"))
 	return FALSE
 
-// Matthios - When near coin of at least 25 mammon, zchurch, bad-cross, or ritual talk
+// Matthios - When near coin of at least 100 mammon, zchurch, bad-cross, or ritual talk
 /datum/patron/inhumen/matthios/can_pray(mob/living/follower)
 	. = ..()
-	// Allows prayer if the user has more than 50 mammon on them.
+	// Allows prayer if the user has more than 100 mammon on them.
 	var/mammon_count = get_mammons_in_atom(follower)
 	if(mammon_count >= 100)
 		return TRUE
-	// Spend 5/10 mammon to pray. Megachurch pastors be like......
-	if(istype(follower.get_active_held_item(), /obj/item/roguecoin/silver))
-		qdel(src)
-		return TRUE
-	if(istype(follower.get_active_held_item(), /obj/item/roguecoin/gold))
-		qdel(src)
+	// Spend 5/10 mammon to pray. Megachurch pastors be like.....
+	var/obj/item/held_item = follower.get_active_held_item()
+	var/helditemvalue = held_item.get_real_price()
+	if(istype(held_item, /obj/item/roguecoin) && helditemvalue >= 5)
+		qdel(held_item)
 		return TRUE
 	// Allows praying atop ritual chalk of the god.
 	for(var/obj/structure/ritualcircle/matthios in view(1, get_turf(follower)))
