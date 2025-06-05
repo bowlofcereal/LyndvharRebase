@@ -1,10 +1,10 @@
 /datum/language/celestial
-	name = "Sama'glos"
-	desc = ""
+	name = "Alasturian"
+	desc = "The luxurious tongue of the bright-elves living east of the Sea of Tears, the slightest twist in tone separates truth from lies."
 	speech_verb = "says"
 	ask_verb = "asks"
 	exclaim_verb = "yells"
-	key = "c"
+	key = "a"
 	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 60
 	default_priority = 80
