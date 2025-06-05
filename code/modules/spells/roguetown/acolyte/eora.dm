@@ -470,6 +470,9 @@
             prune_count++
             happiness = min(happiness + 5, 100)
             update_happiness_tier()
+            if(iscarbon(user))
+                var/mob/living/carbon/C = user
+                add_sleep_experience(user, /datum/skill/labor/farming, C.STAINT * 0.5)
             
             to_chat(user, span_notice("You prune some branches."))
             update_icon()
@@ -497,6 +500,9 @@
 
         if(do_after(user, action_time, target = src))
             container.reagents.remove_reagent(/datum/reagent/water, 1)
+            if(iscarbon(user))
+                var/mob/living/carbon/C = user
+                add_sleep_experience(user, /datum/skill/labor/farming, C.STAINT * 0.5)
 
             water_happiness += actual_gain
             happiness = min(happiness + actual_gain, 100)
@@ -520,6 +526,9 @@
 
         if(do_after(user, action_time, target = src))
             qdel(I)
+            if(iscarbon(user))
+                var/mob/living/carbon/C = user
+                add_sleep_experience(user, /datum/skill/labor/farming, C.STAINT * 0.5)
 
             fertilizer_happiness += actual_gain
             happiness = min(happiness + actual_gain, 100)
@@ -752,6 +761,9 @@
         span_notice("You gently pick the glowing pomegranate.")
     )
 
+    if(iscarbon(user))
+        var/mob/living/carbon/C = user
+        add_sleep_experience(user, /datum/skill/labor/farming, C.STAINT * 3)
     var/obj/item/fruit_of_eora/new_fruit = new(user.loc, happiness_tier)
     user.put_in_hands(new_fruit)
 
