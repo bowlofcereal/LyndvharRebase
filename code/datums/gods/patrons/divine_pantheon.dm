@@ -244,7 +244,7 @@
 
 // Noc - In moonlight, church, cross, or ritual chalk
 /datum/patron/divine/noc/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer during daytime if outside.
 	if(istype(get_area(follower), /area/rogue/outdoors) && (GLOB.tod == "night"))
 		return TRUE
