@@ -283,7 +283,7 @@
 
 // Ravox - Near a knight statue, cross, or within the church
 /datum/patron/divine/ravox/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer near any knight statue and its subtypes.
 	for(var/obj/structure/fluff/statue/knight in view(4, get_turf(follower)))
 		return TRUE
