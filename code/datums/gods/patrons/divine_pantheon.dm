@@ -326,7 +326,7 @@
 
 // Malum - Near a smelter, hearth, cross, within the smithy, or within the church
 /datum/patron/divine/malum/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer in the smith's building.
 	if(istype(get_area(follower), /area/rogue/indoors/town/dwarfin))
 		return TRUE
