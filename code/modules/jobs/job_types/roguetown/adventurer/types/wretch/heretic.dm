@@ -54,8 +54,13 @@
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/shield/tower/metal
-	beltl = /obj/item/roguekey/inhumen
-	backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/ritechalk = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1, /obj/item/rope/chain = 1)
+	beltl = /obj/item/flashlight/flare/torch/lantern/prelit
+	id = /obj/item/scomstone/bad/wretch
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife = 1,
+	 						/obj/item/ritechalk = 1,
+							/obj/item/roguekey/inhumen = 1,
+							/obj/item/rope/chain = 1,
+							/obj/item/smokebomb = 1) //They don't get a health pot. They're clerics - they can heal themselves at whim.
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR)	//Minor regen, can level up to T4.
 	wretch_select_bounty(H)

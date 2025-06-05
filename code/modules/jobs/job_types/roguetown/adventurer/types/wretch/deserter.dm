@@ -93,9 +93,13 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 			belt = /obj/item/storage/belt/rogue/leather/steel
-			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
+			id = /obj/item/scomstone/bad/wretch
+			beltl = /obj/item/flashlight/flare/torch/lantern/prelit
 			backl = /obj/item/storage/backpack/rogue/satchel //gwstraps landing on backr asyncs with backpack_contents
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1, /obj/item/rope/chain = 1)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, 
+									/obj/item/rope/chain = 1, 
+									/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1, 
+									/obj/item/smokebomb = 1)
 			wretch_select_bounty(H)
 
 		if("Abandoned Post") // The dreaded MaA Footman / Cavalryman without town-buffs. HORRIFYING. ZOOOOUNDS, EGAAAADS! - Average armory raider equipment, too. Minus the red. Otherwise, a worse Disgraced.
@@ -158,11 +162,16 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			gloves = /obj/item/clothing/gloves/roguetown/chain 
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron 
-			beltl = /obj/item/rogueweapon/mace/cudgel
+			beltl = /obj/item/flashlight/flare/torch/lantern/prelit
+			l_hand = /obj/item/rogueweapon/mace/cudgel
 			belt = /obj/item/storage/belt/rogue/leather
 			backr = /obj/item/storage/backpack/rogue/satchel
+			id = /obj/item/scomstone/bad/wretch
 
-			backpack_contents = list(/obj/item/natural/cloth = 1, /obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/rope/chain = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1,)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, 
+									/obj/item/rope/chain = 1, 
+									/obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1, 
+									/obj/item/smokebomb = 1)
 			var/helmets = list(
 			"Simple Helmet" 	= /obj/item/clothing/head/roguetown/helmet,
 			"Kettle Helmet" 	= /obj/item/clothing/head/roguetown/helmet/kettle,

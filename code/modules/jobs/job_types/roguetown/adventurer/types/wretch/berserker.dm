@@ -18,9 +18,11 @@
 	gloves = /obj/item/clothing/gloves/roguetown/plate
 	backr = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
+	beltl = /obj/item/flashlight/flare/torch/lantern/prelit
+	id = /obj/item/scomstone/bad/wretch
 	neck = /obj/item/clothing/neck/roguetown/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife = 1, /obj/item/flashlight/flare/torch/lantern/prelit = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/rope/chain = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife = 1, /obj/item/rope/chain = 1, /obj/item/smokebomb = 1, /obj/item/reagent_containers/glass/bottle/rogue/healthpotnew = 1)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)

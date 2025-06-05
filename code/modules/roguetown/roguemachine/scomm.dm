@@ -776,3 +776,10 @@
 	sellprice = 20
 	messagereceivedsound = 'sound/misc/garrisonscom.ogg'
 	hearrange = 0
+
+/obj/item/scomstone/bad/wretch
+	name = "silver ring"
+	desc = "A shoddy ring of silver. Looking closely, there's a cracked gem in the center..."
+	icon_state = "ring_sapphire"
+	listening = FALSE
+	sellprice = 20
