@@ -40,6 +40,10 @@
 // Proc for wretch to select a bounty
 /proc/wretch_select_bounty(mob/living/carbon/human/H)
 	var/bounty_poster = input(H, "Who placed a bounty on you?", "Bounty Poster") as anything in list("The Justiciary of Azuria", "The Grenzelhoftian Holy See", "The Otavan Holy See")
+	if(bounty_poster == "The Justiciary of Azuria")
+		GLOB.outlawed_players += H.real_name
+	else
+		GLOB.excommunicated_players += H.real_name
 	// Felinid said we should gate it at 100 or so on at the lowest, so that wretch cannot ezmode it.
 	var/bounty_severity = input(H, "How severe are your crimes?", "Bounty Amount") as anything in list("Misdeed", "Harm towards lyfe", "Horrific atrocities")
 	var/bounty_total = rand(350, 500) // Just in case
