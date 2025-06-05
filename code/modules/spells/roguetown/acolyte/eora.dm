@@ -549,7 +549,6 @@
         return TRUE
     
     var/was_destroyed = obj_destroyed
-    to_chat(user, span_warning("A feeling of dread fills you as you chop into the tree!"))
     . = ..()
     if(.)
         if(!was_destroyed && obj_destroyed)
@@ -564,6 +563,10 @@
                     c.add_stress(/datum/stressevent/psycurse)
             record_featured_stat(FEATURED_STATS_TREE_FELLERS, user)
             GLOB.azure_round_stats[STATS_TREES_CUT]++
+
+/obj/structure/eoran_pomegranate_tree/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", sound_effect = TRUE, attack_dir, armor_penetration = 0)
+    visible_message(span_notice("The tree shudders as it is harmed. You feel dread emanating from it."))
+    . = ..()
 
 /obj/structure/eoran_pomegranate_tree/examine(mob/user)
     . = ..()
@@ -668,6 +671,9 @@
             if(growth_progress >= 25)
                 advance_stage(GROWING)
         if(GROWING)
+            if(growth_progress >= 50)
+                advance_stage(MATURING)
+        if(MATURING)
             if(growth_progress >= 75)
                 advance_stage(FRUITING)
         if(FRUITING)
@@ -1079,3 +1085,8 @@
     icon = 'modular_azurepeak/icons/obj/items/eora_pom.dmi'
     icon_state = "incandescent"
     dropshrink = 0.7
+
+#undef SPROUT
+#undef GROWING
+#undef MATURING
+#undef FRUITING
