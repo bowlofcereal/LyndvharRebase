@@ -9,7 +9,14 @@
 	display_order = 6
 	min_pq = 0
 	selection_color = JCOLOR_YEOMAN
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
+	/datum/species/tieberian,\
+	)
 	display_order = JDO_TAILOR
 	outfit = /datum/outfit/job/roguetown/tailor
 	give_bank_account = 16

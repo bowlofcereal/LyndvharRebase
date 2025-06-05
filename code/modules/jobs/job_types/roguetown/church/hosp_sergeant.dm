@@ -8,7 +8,7 @@
 	 and they are tasked with providing medical aids and healing to those in need. Despite the more passive nature of their duties,\
 	they are still formidable warriors and are trained to fight with a variety of weapons."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = TOLERATED_CLEARANCE
 	allowed_patrons = ALL_CLERIC_PATRONS
 	outfit = /datum/outfit/job/roguetown/hospitaler
 	min_pq = 1

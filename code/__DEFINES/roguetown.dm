@@ -15,19 +15,20 @@
 #define RACES_RESPECTED \
 	/datum/species/human/northern,\
 	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	
 
 #define RACES_TOLERATED \
 	/datum/species/demihuman,\
-	/datum/species/kobold,\
-	/datum/species/elf/wood,\
-	/datum/species/dwarf/mountain,\
+	/datum/species/halforc,\
 
 #define RACES_SHUNNED \
 	/datum/species/tieberian,\
 
 #define RACES_DESPISED \
 	/datum/species/elf/dark,\
-	/datum/species/halforc,\
+	/datum/species/kobold,\
 	/datum/species/goblinp,\
 
 #define RACES_CONSTRUCT \
@@ -44,7 +45,27 @@
 #define NOBLE_RACES_TYPES list(\
 	/datum/species/human/northern,\
 	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
 )
+
+#define TRUSTED_CLEARANCE list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
+	/datum/species/halforc,\
+)
+
+#define TOLERATED_CLEARANCE list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
+)
+
 
 #define CLOTHED_RACES_TYPES list(\
 	/datum/species/human/northern,\

@@ -6,7 +6,14 @@
 	total_positions = 2
 	spawn_positions = 2
 
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = list(\
+	/datum/species/human/northern,\
+	/datum/species/human/halfelf,\
+	/datum/species/elf/wood,\
+	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
+	/datum/species/tieberian,\
+	)
 
 	tutorial = "As a Builder, your role is to construct and repair structures, craft essential tools, and assist your team in maintaining the town's infrastructure. Utilize your skills in carpentry, masonry, and engineering to ensure the town thrives. Be prepared to adapt and contribute to various tasks, including crafting, smelting, and even setting traps when necessary."
 

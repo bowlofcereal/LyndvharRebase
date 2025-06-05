@@ -8,7 +8,7 @@
 	 As the templars, you serve the will of the church through the guidance of the Priest. Your duty is to protect the church and to answer\
 	 the call of the church. You are the sword of the church, and you are to be feared by all who oppose its will."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = TOLERATED_CLEARANCE
 	allowed_patrons = ALL_CLERIC_PATRONS
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/knight_templar, /obj/effect/proc_holder/spell/self/convertrole/templar)
@@ -30,7 +30,6 @@
 	pants = /obj/item/clothing/under/roguetown/chainlegs
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/roguekey/church = 1, /obj/item/clothing/neck/roguetown/psicross/astrata = 1)
 	belt = /obj/item/storage/belt/rogue/leather/black
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
 	id = /obj/item/clothing/ring/silver
