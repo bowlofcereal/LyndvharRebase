@@ -273,7 +273,7 @@
 
 // Abyssor - Near water, cross, or within the church.
 /datum/patron/divine/abyssor/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer near any body of water turf.
 	for(var/turf/open/water in view(4, get_turf(follower)))
 		return TRUE
