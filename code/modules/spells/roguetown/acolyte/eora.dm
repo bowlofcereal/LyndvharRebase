@@ -859,7 +859,7 @@
             )
 
     // Generate 4 arils +1 per tier.
-    for(var/i in 1 to 4 + (round(fruit_tier / 2)))
+    for(var/i in 1 to 4 + (floor(fruit_tier / 2)))
         var/aril_type = pickweight(possible_arils)
         aril_types += aril_type
 
