@@ -486,6 +486,7 @@
             has_water = TRUE
 
         if(!has_water)
+            to_chat(user, span_warning("The tree accepts only fresh, clean water."))
             return
 
         var/remaining_cap = 25 - water_happiness
