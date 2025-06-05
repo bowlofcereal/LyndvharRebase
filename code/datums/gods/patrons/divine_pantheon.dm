@@ -293,7 +293,7 @@
 
 // Necra - Near a grave, cross, or within the church
 /datum/patron/divine/necra/can_pray(mob/living/follower)
-	..()
+	. = ..()
 	// Allows prayer near a grave.
 	for(var/obj/structure/closet/dirthole/grave in view(4, get_turf(follower)))
 		return TRUE
