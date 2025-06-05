@@ -4,7 +4,7 @@
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	exclaim_verb = "yells"
-	key = "k"
+	key = "g"
 	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 30
 	default_priority = 90
