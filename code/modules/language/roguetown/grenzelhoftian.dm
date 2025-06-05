@@ -1,10 +1,10 @@
 /datum/language/grenzelhoftian
-	name = "Grenzelhoftian Imperial"
-	desc = "The primary language of the Grenzelhoft Emperiate, a robust language filled with hearty words and enthusiastic enunciation. Often said to be similar to the Lupians Canilunzt."
+	name = "Eislersprech"
+	desc = "The mother-tongue of Eislers, a robust human language filled with hearty vowels and enthusiastic enunciation. It is notorious for its abuse of compound words."
 	speech_verb = "remarks"
 	ask_verb = "inquires"
 	exclaim_verb = "asserts"
-	key = "g"
+	key = "i"
 	flags = LANGUAGE_HIDE_ICON_IF_UNDERSTOOD | LANGUAGE_HIDE_ICON_IF_NOT_UNDERSTOOD
 	space_chance = 66
 	default_priority = 90
