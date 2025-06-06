@@ -7,8 +7,8 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
-		message_admins("Here")
 		return TRUE
+	return FALSE
 
 /datum/patron/divine/astrata
 	name = "Astrata"
@@ -226,9 +226,6 @@
 // Astrata - In daylight, church, cross, or ritual chalk.
 /datum/patron/divine/astrata/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -242,9 +239,6 @@
 // Noc - In moonlight, church, cross, or ritual chalk
 /datum/patron/divine/noc/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -262,9 +256,6 @@
 // Yes, he is NOT calling the master cus he's unique. Whole bog is his prayer zone. Druids exist for a reason instead of in the church.
 /datum/patron/divine/dendor/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the druid tower + houses in the forest
 	if(istype(get_area(follower), /area/rogue/indoors/shelter/woods))
 		return TRUE
@@ -280,9 +271,6 @@
 // Abyssor - Near water, cross, or within the church.
 /datum/patron/divine/abyssor/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -296,9 +284,6 @@
 // Ravox - Near a knight statue, cross, or within the church
 /datum/patron/divine/ravox/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -312,9 +297,6 @@
 // Necra - Near a grave, cross, or within the church
 /datum/patron/divine/necra/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -328,9 +310,6 @@
 // Xylix - Near a gambling machine, cross, or within the church
 /datum/patron/divine/xylix/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -344,9 +323,6 @@
 // Pestra - Near a well, cross, within the physicians, or within the church
 /datum/patron/divine/pesta/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -363,9 +339,6 @@
 // Malum - Near a smelter, hearth, cross, within the smithy, or within the church
 /datum/patron/divine/malum/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -384,9 +357,6 @@
 // Eora - Near a gambling machine, cross, or within the church
 /datum/patron/divine/eora/can_pray(mob/living/follower)
 	. = ..()
-	//If priors are true, return true
-	if(.)
-		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
