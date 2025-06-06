@@ -23,6 +23,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 	beltr = /obj/item/rogueweapon/sword/long/ascendant
 	beltl = /obj/item/flashlight/flare/torch/lantern/prelit
+	shoes = /obj/item/clothing/shoes/roguetown/sandals/aalloy
 
 /datum/outfit/ascendant_level_two
 	r_hand = /obj/item/rogueweapon/sword/long/ascendant
@@ -220,6 +221,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.STAEND += 10
 			user.STASPD += 10
 			user.STALUC += 10
+			ADD_TRAIT(user, TRAIT_ZOMBIE_IMMUNE, TRAIT_GENERIC)
 			to_chat(user, span_danger("I can feel my mortal shell being slowly turned to ash, bit by bit as the shard's power flows within me. I WILL ENDURE THIS AND DO WHAT I MUST!"))
 
 
