@@ -50,12 +50,11 @@ SUBSYSTEM_DEF(treasury)
 		stockpile_datums += D
 	return ..()
 
-/datum/controller/subsystem/treasury/diminishingreturns/Initialize()	// Ties the interest rate to the tax rate, using a square root function to create diminishing returns. Nikov.
-	interest_rate = sqrt(tax_value)*2	// “Everyone wants to live at the expense of the state. They forget that the state lives at the expense of everyone.” — Frédéric Bastiat
-
 /datum/controller/subsystem/treasury/fire(resumed = 0)
 	if(world.time > next_treasury_check)
 		next_treasury_check = world.time + rand(5 MINUTES, 8 MINUTES)
+		interest_rate = sqrt(tax_value)*2	// “Everyone wants to live at the expense of the state. They forget that the state lives at the expense of everyone.” — Frédéric Bastiat
+//		send_ooc_note("Interest rate: [interest_rate]", job = list("Lord Castellan", "Steward", "Clerk"))		Somewhat useful for testing, commented out for play.
 		vault_accounting = list()
 		if(SSticker.current_state == GAME_STATE_PLAYING)
 			for(var/datum/roguestock/X in stockpile_datums)
