@@ -63,8 +63,8 @@
 				if (situational_bonus > 0)
 					conditional_buff = TRUE
 			if(/datum/patron/divine/abyssor)
-				message_out = span_info("A mist of salt-scented vapour settles on [target]!")
-				message_self = span_notice("I'm invigorated by healing vapours!")
+				message_out = span_info("A lust for glory invigorates [target]!")
+				message_self = span_notice("My glory yet undone! My song yet unsung!")
 				// if our target is standing in water, heal a flat amount extra
 				if (istype(get_turf(target), /turf/open/water))
 					conditional_buff = TRUE
@@ -100,8 +100,8 @@
 				target.adjustToxLoss(-situational_bonus)
 				target.blood_volume += BLOOD_VOLUME_SURVIVE/2
 			if(/datum/patron/divine/malum)
-				message_out = span_info("A tempering heat is discharged out of [target]!")
-				message_self = span_info("I feel the heat of a forge soothing my pains!")
+				message_out = span_info("A thirst for life fills [target]!")
+				message_self = span_info("So much of life yet untasted, I must strive on!")
 				var/list/firey_stuff = list(/obj/machinery/light/rogue/torchholder, /obj/machinery/light/rogue/campfire, /obj/machinery/light/rogue/hearth, /obj/machinery/light/rogue/wallfire, /obj/machinery/light/rogue/wallfire/candle, /obj/machinery/light/rogue/forge)
 				// extra healing for every source of fire/light near us
 				situational_bonus = 0

@@ -4,95 +4,131 @@
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 
 /datum/patron/divine/astrata
-	name = "Astrata"
-	domain = "Twinned Goddess of the Sun, Day, and Order"
-	desc = "The she-form of the Twinned Gods, the combined amalgam of single-bodied Astrata and Noc that opens her eyes at glorious Dae. Men bask under the gift of the Sun. A single form begets two Gods that shift at Dusk and Dawn but always endures, even at night."
-	worshippers = "The Noble Hearted, Zealots and Farmers"
+	name = "Anar"
+	domain = "The Sun, Patriarchs and Wisdom."
+	desc = "The father of the Court of Saints paired with his wife Isil, priest of the Temple of the Six-Pointed Sun. The couple disappeared in the Eclipse of Anno Nihilo without a clearly defined heir, shattering the Sun Elves into the War of Brothers."
+	worshippers = "Fathers, Healers and the Enlightened."
 	mob_traits = list(TRAIT_APRICITY)
 	t1 = /obj/effect/proc_holder/spell/invoked/sacred_flame_rogue
 	t2 = /obj/effect/proc_holder/spell/invoked/heal
 	t3 = /obj/effect/proc_holder/spell/invoked/revive
 	confess_lines = list(
-		"ASTRATA IS MY LIGHT!",
-		"ASTRATA BRINGS LAW!",
-		"I SERVE THE GLORY OF THE SUN!",
+		"ANAR IS MY LIGHT!",
+		"ANAR IS THE ALL-FATHER!",
+		"I SERVE THE UNCONQUERED SUN!",
 	)
 
 /datum/patron/divine/noc
-	name = "Noc"
-	domain = "Twinned God of the Moon, Night, and Knowledge"
-	desc = "The he-form of the Twinned Gods, the combined amalgam of single-bodied Noc and Astrata that opens his eyes during pondorous Night. He gifted man knowledge of divinity and magicks. A single form begets two Gods that shift at Dusk and Dawn but always endures, even at dae."
-	worshippers = "Wizards and Scholars"
+	name = "Isil"
+	domain = "The Moon, Matriarchs and Mystery."
+	desc = "The mother of the Court of Saints paired with her husband Anar, priestess of the Temple of the Six-Pointed Sun. The couple disappeared in the Eclipse of Anno Nihilo, the mystery of their end dooming her beloved children to centuries of strife."
+	worshippers = "Mothers, Lovers and Whisperers."
 	mob_traits = list(TRAIT_NIGHT_OWL, TRAIT_NOCSIGHT)
 	t1 = /obj/effect/proc_holder/spell/invoked/blindness/miracle
 	t2 = /obj/effect/proc_holder/spell/invoked/invisibility/miracle
 	confess_lines = list(
-		"NOC IS NIGHT!",
-		"NOC SEES ALL!",
-		"I SEEK THE MYSTERIES OF THE MOON!",
+		"ISIL IS MY SHROUD!",
+		"ISIL HEARS MY CRIES!",
+		"I REVEL IN THE MOONLIGHT!",
+	)
+
+	// Patrons below should be selectable as the Elven Saints.
+
+/datum/patron/divine/abyssor
+	name = "Calarost"
+	domain = "Fame, Adventure and Vainglory"
+	desc = "Calarost, the ever-striving brother of Beroth, sought greatness and glory in adventures abroad. Slaying horrific monsters and venturing ever further upon his ships, his return from slaying a very dragon was overshadowed by the Couple's disappearance only days later at the eclipse of Anno Nihilo. Driven back to sea by Beroth's rage, he and Lissae established their realm east of what would become the Sea of Tears, fighting centuries of battle in the War of Brothers."
+	worshippers = "Adventurers, Champions and the Reckless."
+	mob_traits = list(TRAIT_ABYSSOR_SWIM, TRAIT_SEA_DRINKER)
+	t1 = /obj/effect/proc_holder/spell/invoked/abyssor_bends
+	t2 = /obj/effect/proc_holder/spell/invoked/abyssheal
+	t3 = /obj/effect/proc_holder/spell/invoked/call_mossback
+	confess_lines = list(
+		"REMEMBER MY NAME!",
+		"CALAROST! REMEMBER THEIR CRIMES!",
+		"IN GLORY I AM IMMORTAL!",
+	)
+
+/datum/patron/divine/malum
+	name = "Vanesse"
+	domain = "Beauty, Artifice and Indulgence."
+	desc = "Vanesse's fiery hair was a wonder that captivated the suitors who laid endless gifts before her, and so when she deigned at last to wed she issued a challenge. He who can create that which matches my beauty, she declared, shall have me. Despite gems and diadems from the greatest craftsmen, it was Calarost who won her challenge; presenting her with a silver mirror."
+	worshippers = "Artists and Artisans, the Vain and Self-Indulgent."
+	mob_traits = list(TRAIT_FORGEBLESSED, TRAIT_BETTER_SLEEP)	
+	t1 = /obj/effect/proc_holder/spell/invoked/vigorousexchange
+	t2 = /obj/effect/proc_holder/spell/invoked/heatmetal
+	t3 = /obj/effect/proc_holder/spell/invoked/hammerfall
+	t4 = /obj/effect/proc_holder/spell/invoked/craftercovenant
+	extra_spell = /obj/effect/proc_holder/spell/invoked/malum_flame_rogue
+	confess_lines = list(
+		"HER ART SHALL ENDURE!",
+		"BLISS AND BEAUTY, HOW FLEETING!",
+		"VANESSE! CURSE THESE RUINERS OF BEAUTY!",
+	)
+
+/datum/patron/divine/ravox
+	name = "Beroth"
+	domain = "Prowess and Valor, Tyranny."
+	desc = "Beroth was the Lord-Guardian of the Court of Saints, and the disappearance of the Couple wounded him grievously. Believing only betrayal could be responsible, he drove out his brother Calarost and brother-in-law Saeran, striving to imprison their families. Only the call of his wife Lissae for mercy stayed his hand from tyranny, although the War of Brothers would rage for centuries after."
+	worshippers = "Warriors, Oath-Keepers, and Rulers."
+	mob_traits = list(TRAIT_SHARPER_BLADES, TRAIT_JUSTICARSIGHT)
+	t1 = /obj/effect/proc_holder/spell/self/divine_strike
+	t2 = /obj/effect/proc_holder/spell/self/call_to_arms
+	t3 = /obj/effect/proc_holder/spell/invoked/persistence
+	confess_lines = list(
+		"BEROTH GIVE ME STRENGTH!",
+		"I KEEP MY OATHES!",
+		"BETRAYERS, ALL OF YOU!",
+	)
+
+/datum/patron/divine/eora
+	name = "Lissae"
+	domain = "Mercy, Altruism and Guilelessness"
+	desc = "Lissae was blinded by her own beauty, legends say, and Beroth heard from her the first tears wept by elves as she wandered sightless and lost in the primordial forest. Taking her hand and returning her to his hall, they were beloved ever since; yet as Lissae cannot imagine betrayal by the faithful Beroth, she likewise assumes the best in all."
+	worshippers = "Virgins and Faithful Brides, Charitable Souls, Innocent Fools."
+	mob_traits = list(TRAIT_EMPATH, TRAIT_EXTEROCEPTION)
+	t1 = /obj/effect/proc_holder/spell/invoked/bud
+	t2 = /obj/effect/proc_holder/spell/invoked/eoracurse
+	t3 = null
+	confess_lines = list(
+		"FORGIVE THEM!",
+		"PLEASE! HAVE YOU NO MERCY?",
+		"LISSAE FORGIVE YOU!",
 	)
 
 /datum/patron/divine/dendor
-	name = "Dendor"
-	domain = "God of the Earth and Nature"
-	desc = "The God of Wilds, born from Abyssor's feverish dreams. Spilt forth life from the oceans to land in a wild craze. The Father of Ground-Lyfe. Treefather."
-	worshippers = "Druids, Beasts, Madmen"
+	name = "Saeran"
+	domain = "Simplicity, the Hunt, and Seclusion."
+	desc = "Saeran boldly hunted for the Court of Saints, ranging ever further into the wilds as stone and civilization grew around the ancient Sun-Elf palaces. Solitary until nearly slain in a hunt, he was the first to realize death was possible even for elves, and strove to never be bound to a prize or place he was unwilling to forsake to spare his life or his beloved's. With the War of Brothers wandering elves gathered to the realm he formed with Naime, welcoming travellers until the fateful Betrayal."
+	worshippers = "Hunters, Druids, and Recluses."
 	mob_traits = list(TRAIT_KNEESTINGER_IMMUNITY, TRAIT_LEECHIMMUNE)
 	t1 = /obj/effect/proc_holder/spell/targeted/blesscrop
 	t2 = /obj/effect/proc_holder/spell/targeted/shapeshift/dendor
 	t3 = /obj/effect/proc_holder/spell/targeted/conjure_glowshroom
 	t4 = /obj/effect/proc_holder/spell/self/howl/call_of_the_moon
 	confess_lines = list(
-		"DENDOR PROVIDES!",
-		"THE TREEFATHER BRINGS BOUNTY!",
-		"I ANSWER THE CALL OF THE WILD!",
-	)
-
-/datum/patron/divine/abyssor
-	name = "Abyssor"
-	domain = "God of the Ocean, Storms and the Tide"
-	desc = "The strongest of the Ten; when awakened, the world flooded for a thousand daes and a thousand nights before he was put to slumber. Resting fitfully did Dendor split from his skull like a gaping wound. Communes rarely with his followers, only offering glimpses in dreams. Gifted primordial Man water. "
-	worshippers = "Men of the Sea, Primitive Aquatics"
-	mob_traits = list(TRAIT_ABYSSOR_SWIM, TRAIT_SEA_DRINKER)
-	t1 = /obj/effect/proc_holder/spell/invoked/abyssor_bends
-	t2 = /obj/effect/proc_holder/spell/invoked/abyssheal
-	t3 = /obj/effect/proc_holder/spell/invoked/call_mossback
-	confess_lines = list(
-		"ABYSSOR COMMANDS THE WAVES!",
-		"THE OCEAN'S FURY IS ABYSSOR'S WILL!",
-		"I AM DRAWN BY THE PULL OF THE TIDE!",
-	)
-	
-/datum/patron/divine/ravox
-	name = "Ravox"
-	domain = "God of Justice, Glory, Battle"
-	desc = "Stalwart warrior, glorious justicier; legends say he came down to the Basin to repel the vile hordes of demons with his own hands, and that he seeks warriors for his divine army among mortals."
-	worshippers = "Warriors, Sellswords & those who seek Justice"
-	mob_traits = list(TRAIT_SHARPER_BLADES, TRAIT_JUSTICARSIGHT)
-	t1 = /obj/effect/proc_holder/spell/self/divine_strike
-	t2 = /obj/effect/proc_holder/spell/self/call_to_arms
-	t3 = /obj/effect/proc_holder/spell/invoked/persistence
-	confess_lines = list(
-		"RAVOX IS JUSTICE!",
-		"THROUGH STRIFE, GRACE!",
-		"THROUGH PERSISTENCE, GLORY!",
+		"SAERAN! FREE ME OF THIS SNARE!",
+		"THE HUNTER SHALL HAVE YOUR SCENT!",
+		"YOU SLAVES TO STONE AND GOLD! FREE ME!",
 	)
 
 /datum/patron/divine/necra
-	name = "Necra"
-	domain = "Goddess of Death and the Afterlife"
-	desc = "Veiled Lady of the underworld, equally feared and respected by mortals. She taught mortals the inevitability of death and cares for them as they reach the afterlife."
-	worshippers = "The Dead, Mourners, Gravekeepers"
+	name = "Naime"
+	domain = "Forbearance, Humility and Regret."
+	desc = "Naime, Veiled Lady of the Wood, came upon Saeran as he lay near death from the failed hunt of a dire bear. With all her art she returned him to health, teaching him at last the value of another. With the fall of their shared realm after the Betrayal, she is yet thought to wander seeking the near-dead, as many wounded claim to have seen her pale face before their strength returns."
+	worshippers = "The Humble, Wandering Healers, and Mourners."
 	mob_traits = list(TRAIT_SOUL_EXAMINE, TRAIT_NOSTINK)	//No stink is generic but they deal with dead bodies so.. makes sense, I suppose?
-	t1 = /obj/effect/proc_holder/spell/invoked/avert
+	t1 = /obj/effect/proc_holder/spell/invoked/avert		// Move healer spells to 'necra' when said spells work with 'necra' amulets, I suppose.
 	t2 = /obj/effect/proc_holder/spell/targeted/abrogation
-	t3 = /obj/effect/proc_holder/spell/targeted/churn
+	t3 = /obj/effect/proc_holder/spell/targeted/churn		
 	extra_spell = /obj/effect/proc_holder/spell/targeted/soulspeak
 	confess_lines = list(
-		"ALL SOULS FIND THEIR WAY TO NECRA!",
-		"THE UNDERMAIDEN IS OUR FINAL REPOSE!",
-		"I FEAR NOT DEATH, MY LADY AWAITS ME!",
+		"I SUFFER AS NAIME WEEPS!",
+		"NAIME WILL TURN HER FACE FROM YOU!",
+		"WOE UPON YOU ALL!",
 	)
+
+	// Patrons below should be non-selectable until their features integrated elsewhere and they are removed.
 
 /datum/patron/divine/xylix
 	name = "Xylix"
@@ -127,41 +163,7 @@
 	t3 = /obj/effect/proc_holder/spell/invoked/attach_bodypart
 	t4 = /obj/effect/proc_holder/spell/invoked/cure_rot
 	confess_lines = list(
-		"PESTRA SOOTHES ALL ILLS!",
-		"DECAY IS A CONTINUATION OF LIFE!",
-		"MY AFFLICTION IS MY TESTAMENT!",
-	)
-
-/datum/patron/divine/malum
-	name = "Malum"
-	domain = "God of Fire, Destruction and Rebirth"
-	desc = "Opinionless god of the crafts. He teaches that great works for killing or saving are great works, either way. The well-oiled guillotine and the well-sharpened axe are tools, and there is no good and evil to their craft."
-	worshippers = "Smiths, Miners, Engineers"
-	mob_traits = list(TRAIT_FORGEBLESSED, TRAIT_BETTER_SLEEP)
-	t1 = /obj/effect/proc_holder/spell/invoked/vigorousexchange
-	t2 = /obj/effect/proc_holder/spell/invoked/heatmetal
-	t3 = /obj/effect/proc_holder/spell/invoked/hammerfall
-	t4 = /obj/effect/proc_holder/spell/invoked/craftercovenant
-	extra_spell = /obj/effect/proc_holder/spell/invoked/malum_flame_rogue
-	confess_lines = list(
-		"MALUM IS MY MUSE!",
-		"TRUE VALUE IS IN THE TOIL!",
-		"I AM AN INSTRUMENT OF CREATION!",
-	)
-
-//Eora content from Stonekeep
-
-/datum/patron/divine/eora
-	name = "Eora"
-	domain = "Goddess of Love, Life and Beauty"
-	desc = "Baotha's fairer half, made from blind, unconditional love. She is without a shred of hate in her heart and taught mankind that true love that even transcends Necra's grasp."
-	worshippers = "Lovers, the romantically inclined, and Doting Grandparents"
-	mob_traits = list(TRAIT_EMPATH, TRAIT_EXTEROCEPTION)
-	t1 = /obj/effect/proc_holder/spell/invoked/bud
-	t2 = /obj/effect/proc_holder/spell/invoked/eoracurse
-	t3 = null
-	confess_lines = list(
-		"EORA BRINGS US TOGETHER!",
-		"HER BEAUTY IS EVEN IN THIS TORMENT!",
-		"I LOVE YOU, EVEN AS YOU TRESPASS AGAINST ME!",
+		"I SUFFER AS NAIME WEEPS!",
+		"DO I DESERVE SUCH TORMENT?",
+		"WHY, WHY MUST I SUFFER SO!",
 	)

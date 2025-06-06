@@ -759,7 +759,7 @@
 	REMOVE_TRAIT(owner, TRAIT_STRONGBITE, TRAIT_GENERIC)
 
 /atom/movable/screen/alert/status_effect/buff/pacify
-	name = "Blessing of Eora"
+	name = "Blessing of Lissae"
 	desc = "I feel my heart as light as feathers. All my worries have washed away."
 	icon_state = "buff"
 
