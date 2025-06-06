@@ -98,7 +98,7 @@
 	recharge_time = 12 SECONDS
 	devotion_cost = 30
 	var/leap_dist = 4	//3 tiles (+1 to account for origin tile)
-	var/list/static/sounds = list('sound/magic/xylix_slip1.ogg','sound/magic/xylix_slip2.ogg','sound/magic/xylix_slip3.ogg','sound/magic/xylix_slip4.ogg')
+	var/static/list/sounds = list('sound/magic/xylix_slip1.ogg','sound/magic/xylix_slip2.ogg','sound/magic/xylix_slip3.ogg','sound/magic/xylix_slip4.ogg')
 	
 /obj/effect/proc_holder/spell/self/xylixslip/cast(list/targets, mob/user = usr)
 	. = ..()

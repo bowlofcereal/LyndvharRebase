@@ -220,3 +220,40 @@
 		to_chat(user, span_warning("I need a holy cross."))
 		return FALSE
 	return TRUE
+
+/obj/effect/proc_holder/spell/invoked/pestra_leech
+	name = "Leeching Purge"
+	overlay_state = "limb_attach"
+	releasedrain = 30
+	chargedrain = 0
+	chargetime = 0
+	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
+	range = 4
+	warnie = "sydwarning"
+	movement_interrupt = FALSE
+	sound = 'sound/gore/flesh_eat_03.ogg'
+	invocation_type = "none"
+	associated_skill = /datum/skill/magic/holy
+	antimagic_allowed = TRUE
+	recharge_time = 60 SECONDS
+	miracle = TRUE
+	devotion_cost = 30
+
+/obj/effect/proc_holder/spell/invoked/pestra_leech/cast(list/targets, mob/living/user)
+	if(iscarbon(targets[1]))
+		var/mob/living/carbon/C = targets[1]
+		if(C.cmode)
+			to_chat(user, span_warning("They're too tense for the delicate arts!"))
+			revert_cast()
+			return FALSE
+		C.vomit()
+		C.adjustToxLoss(-30)
+		if(C.blood_volume < BLOOD_VOLUME_NORMAL)
+			C.blood_volume = min(C.blood_volume+30, BLOOD_VOLUME_NORMAL)
+		C.visible_message(span_warning("[C] expels some leeches out of them!"), span_warning("Something roils within me!"))
+		new /obj/item/natural/worms/leech(get_turf(C))
+		if(prob( (user.mind?.get_skill_level(/datum/skill/magic/holy) * 10) ))
+			new /obj/item/natural/worms/leech(get_turf(C))
+		return TRUE
+	revert_cast()
+	return FALSE

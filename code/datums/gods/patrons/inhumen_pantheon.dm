@@ -15,7 +15,8 @@
 	worshippers = "Necromancers, Researchers, Warlocks, and the Undead"
 	mob_traits = list(TRAIT_CABAL)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison					= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 					= CLERIC_T0,
+					/obj/effect/proc_holder/spell/self/zizo_snuff						= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/projectile/profane/miracle 	= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/raise_lesser_undead/miracle 	= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/rituos/miracle 				= CLERIC_T3
@@ -53,9 +54,10 @@
 	worshippers = "Highwaymen, Alchemists, Downtrodden Peasants, and Merchants"
 	mob_traits = list(TRAIT_COMMIE, TRAIT_MATTHIOS_EYES)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison					= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 					= CLERIC_T0,
-					/obj/effect/proc_holder/spell/invoked/appraise						= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/appraise						= CLERIC_ORI,
+					/obj/effect/proc_holder/spell/targeted/touch/lesserknock/miracle	= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/transact						= CLERIC_T1,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 					= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/equalize						= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/churnwealthy					= CLERIC_T3,
 	)
