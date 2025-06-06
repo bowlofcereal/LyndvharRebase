@@ -1,8 +1,8 @@
 //Eora content from Stonekeep
 
 /obj/item/clothing/head/peaceflower
-	name = "eoran bud"
-	desc = "A flower of gentle petals, associated with Eora or Necra. Usually adorned as a headress or laid at graves as a symbol of love or peace."
+	name = "Lissae bud"
+	desc = "A flower of gentle petals, associated with Lissae or Naime. Usually adorned as a headress or laid at graves as a symbol of love or peace."
 	icon = 'icons/roguetown/items/produce.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
 	icon_state = "peaceflower"
@@ -35,7 +35,7 @@
 	return ..()
 
 /obj/effect/proc_holder/spell/invoked/bud
-	name = "Eoran Bloom"
+	name = "Lissae's Bloom"
 	desc = ""
 	clothes_req = FALSE
 	range = 7
@@ -58,22 +58,22 @@
 		if(!C.get_item_by_slot(SLOT_HEAD))
 			var/obj/item/clothing/head/peaceflower/F = new(get_turf(C))
 			C.equip_to_slot_if_possible(F, SLOT_HEAD, TRUE, TRUE)
-			to_chat(C, "<span class='info'>A flower of Eora blooms on my head. I feel at peace.</span>")
+			to_chat(C, "<span class='info'>A flower of Lissae blooms on my head. I feel at peace.</span>")
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>The target's head is covered. The flowers of Eora need an open space to bloom.</span>")
+			to_chat(user, "<span class='warning'>The target's head is covered. The flowers of Lissae need an open space to bloom.</span>")
 			revert_cast()
 			return FALSE
 	var/turf/T = get_turf(targets[1])
 	if(!isclosedturf(T))
 		new /obj/item/clothing/head/peaceflower(T)
 		return TRUE
-	to_chat(user, "<span class='warning'>The targeted location is blocked. The flowers of Eora refuse to grow.</span>")
+	to_chat(user, "<span class='warning'>The targeted location is blocked. The flowers of Lissae refuse to grow.</span>")
 	revert_cast()
 	return FALSE
 
 /obj/effect/proc_holder/spell/invoked/eoracurse
-	name = "Eora's Curse"
+	name = "Lissae's Peace"
 	overlay_state = "curse2"
 	releasedrain = 50
 	chargetime = 30
