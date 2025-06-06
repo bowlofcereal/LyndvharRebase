@@ -1078,10 +1078,21 @@
 /obj/item/reagent_containers/food/snacks/eoran_aril/ashen/apply_effects(mob/living/carbon/eater)
     if(ishuman(eater))
         var/mob/living/carbon/human/H = eater
+
         if(H.patron.type == /datum/patron/divine/eora)
-            //Eora does not appreciate her followers ignoring her most sacred wishes.
+            // Eora does not appreciate her followers ignoring her most sacred wishes.
             H.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
-        H.apply_status_effect(/datum/status_effect/buff/ashen_aril)
+        else
+            var/datum/status_effect/buff/ashen_aril/existing_effect = H.has_status_effect(/datum/status_effect/buff/ashen_aril)
+
+            if(existing_effect)
+                // Already burnt by an aril, simply stave off the ashing for 30 minutes.
+                existing_effect.prevent_reapply = TRUE
+                H.remove_status_effect(/datum/status_effect/buff/ashen_aril)
+                H.remove_filter("ashen_filter")
+                H.apply_status_effect(/datum/status_effect/buff/ashen_aril, 0, 30 MINUTES)
+            else
+                H.apply_status_effect(/datum/status_effect/buff/ashen_aril, 5, 6 MINUTES)
 
 /obj/item/reagent_containers/food/snacks/eoran_aril/ochre
     name = "ochre aril"

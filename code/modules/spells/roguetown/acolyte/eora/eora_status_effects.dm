@@ -8,6 +8,7 @@
 	id = "ashen"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/ashen_aril
 	duration = 6 MINUTES
+	var/prevent_reapply = FALSE
 	var/current_boost = 5
 	var/next_wound_time = 0
 	var/static/list/valid_body_zones = list(
@@ -110,15 +111,16 @@
 
 /datum/status_effect/buff/ashen_aril/on_remove()
 	. = ..()
-	owner.remove_filter("ashen_glow")
-	
+	owner.remove_filter(ASHEN_FILTER)
+
+	if(!prevent_reapply)
 	// Handle effect progression
-	if(current_boost > -4)
-		owner.apply_status_effect(/datum/status_effect/buff/ashen_aril, current_boost - 1)
-	else
-		// Permanent at -5 with wilting effect
-		owner.apply_status_effect(/datum/status_effect/buff/ashen_aril, -5, -1)
-		owner.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
+		if(current_boost > -4)
+			owner.apply_status_effect(/datum/status_effect/buff/ashen_aril, current_boost - 1)
+		else
+			// Permanent at -5 with wilting effect
+			owner.apply_status_effect(/datum/status_effect/buff/ashen_aril, -5, -1)
+			owner.apply_status_effect(/datum/status_effect/debuff/eoran_wilting)
 
 #undef ASHEN_FILTER
 
