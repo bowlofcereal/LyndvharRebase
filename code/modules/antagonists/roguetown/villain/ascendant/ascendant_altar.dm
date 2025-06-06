@@ -22,7 +22,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	armor = /obj/item/clothing/suit/roguetown/shirt/rags
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 	beltr = /obj/item/rogueweapon/sword/long/ascendant
-	beltl = /obj/item/flashlight/flare/torch/lantern/prelit
+	beltl = /obj/item/flashlight/flare/light/syon
 	shoes = /obj/item/clothing/shoes/roguetown/sandals/aalloy
 
 /datum/outfit/ascendant_level_two

@@ -124,9 +124,6 @@
 			while(newamt < 1)
 				newamt++
 				BUFSTR--
-			while(newamt > 20)
-				newamt--
-				BUFSTR++
 			STASTR = newamt
 
 		if("perception")
@@ -144,9 +141,6 @@
 			while(newamt < 1)
 				newamt++
 				BUFPER--
-			while(newamt > 20)
-				newamt--
-				BUFPER++
 			STAPER = newamt
 
 			update_fov_angles()
@@ -166,9 +160,6 @@
 			while(newamt < 1)
 				newamt++
 				BUFINT--
-			while(newamt > 20)
-				newamt--
-				BUFINT++
 			STAINT = newamt
 
 		if("constitution")
@@ -186,9 +177,6 @@
 			while(newamt < 1)
 				newamt++
 				BUFCON--
-			while(newamt > 20)
-				newamt--
-				BUFCON++
 			STACON = newamt
 
 		if("endurance")
@@ -206,9 +194,6 @@
 			while(newamt < 1)
 				newamt++
 				BUFEND--
-			while(newamt > 20)
-				newamt--
-				BUFEND++
 			STAEND = newamt
 
 		if("speed")
@@ -226,9 +211,6 @@
 			while(newamt < 1)
 				newamt++
 				BUFSPE--
-			while(newamt > 20)
-				newamt--
-				BUFSPE++
 			STASPD = newamt
 
 		if("fortune")
@@ -246,9 +228,6 @@
 			while(newamt < 1)
 				newamt++
 				BUFLUC--
-			while(newamt > 20)
-				newamt--
-				BUFLUC++
 			STALUC = newamt
 
 /proc/generic_stat_comparison(userstat as num, targetstat as num)
