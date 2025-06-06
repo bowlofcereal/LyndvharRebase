@@ -22,7 +22,10 @@
 /datum/patron/old_god/can_pray(mob/living/follower)
 	. = TRUE
 	// Allows prayer near psycross.
-	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer if raining and outside. Psydon weeps.
 	if(GLOB.forecast == "rain")
