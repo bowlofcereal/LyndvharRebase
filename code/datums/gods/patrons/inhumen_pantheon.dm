@@ -2,12 +2,18 @@
 	name = null
 	associated_faith = /datum/faith/inhumen
 	undead_hater = FALSE
+	var/crafting_recipes = list(/datum/crafting_recipe/roguetown/structure/zizo_shrine)			//Allows construction of unique bad shrine.
 	profane_words = list("cock","dick","fuck","shit","pussy","cuck","cunt","asshole", "pintle")	//Same as master but 'Zizo' is allowed now.
 	confess_lines = list(
 		"PSYDON IS THE DEMIURGE!",
 		"THE TEN ARE WORTHLESS COWARDS!",
 		"THE TEN ARE DECEIVERS!",
 	)
+
+/datum/patron/inhumen/on_gain()
+	if(ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		H.mind.teach_crafting_recipe(/datum/crafting_recipe/roguetown/structure/zizo_shrine)
 
 /datum/patron/inhumen/zizo
 	name = "Zizo"
@@ -98,6 +104,9 @@
 		return TRUE
 	// Allows prayer near EEEVIL psycross
 	for(var/obj/structure/fluff/psycross/zizocross/cross in view(4, get_turf(follower)))
+		if(cross.divine == TRUE)
+			to_chat(follower, span_danger("That acursed cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer near a grave.
 	for(var/obj/structure/closet/dirthole/grave/G in view(4, get_turf(follower)))
@@ -120,6 +129,9 @@
 		return TRUE
 	// Allows prayer near EEEVIL psycross
 	for(var/obj/structure/fluff/psycross/zizocross/cross in view(4, get_turf(follower)))
+		if(cross.divine == TRUE)
+			to_chat(follower, span_danger("That acursed cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer if actively bleeding.
 	if(follower.bleed_rate > 0)
@@ -141,6 +153,9 @@
 		return TRUE
 	// Allows prayer near EEEVIL psycross
 	for(var/obj/structure/fluff/psycross/zizocross/cross in view(4, get_turf(follower)))
+		if(cross.divine == TRUE)
+			to_chat(follower, span_danger("That acursed cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer if the user has more than 100 mammon on them.
 	var/mammon_count = get_mammons_in_atom(follower)
@@ -166,6 +181,9 @@
 		return TRUE
 	// Allows prayer near EEEVIL psycross
 	for(var/obj/structure/fluff/psycross/zizocross/cross in view(4, get_turf(follower)))
+		if(cross.divine == TRUE)
+			to_chat(follower, span_danger("That acursed cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayers in the bath house - whore.
 	if(istype(get_area(follower), /area/rogue/indoors/town/bath))

@@ -1,14 +1,7 @@
 /datum/patron/divine
 	name = null
 	associated_faith = /datum/faith/divine
-/*
-// Master for Divine gods, some get unique areas/machines/whatever to pray near, and the rest should use church/psycross.
-/datum/patron/divine/can_pray(mob/living/follower)
-	. = ..()
-	// Allows prayer near psycross
-	for(var/obj/structure/fluff/psycross in range(4, get_turf(follower)))
-		return TRUE
-*/
+
 /datum/patron/divine/astrata
 	name = "Astrata"
 	domain = "Twinned Goddess of the Sun, Day, and Order"
@@ -227,6 +220,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -243,6 +239,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -263,6 +262,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the druid tower + houses in the forest
 	if(istype(get_area(follower), /area/rogue/indoors/shelter/woods))
@@ -281,6 +283,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -297,6 +302,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -313,6 +321,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -329,6 +340,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -345,6 +359,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -364,6 +381,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
@@ -385,6 +405,9 @@
 	. = ..()
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		if(cross.divine == FALSE)
+			to_chat(follower, span_danger("That defiled cross interupts my prayers!"))
+			return FALSE
 		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
