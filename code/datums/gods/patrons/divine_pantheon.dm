@@ -370,7 +370,7 @@
 	if(istype(get_area(follower), /area/rogue/indoors/town/physician))
 		return TRUE
 	// Allows prayer near wells. Weird one, but makes sense for health and disease. Miasma, water, etc.
-	for(var/obj/structure/well in view(4, get_turf(follower)))
+	for(var/obj/structure/well/W in view(4, get_turf(follower)))
 		return TRUE
 	to_chat(follower, span_danger("For Pestra to hear my prayer I must either pray within the church, phyisican's building, near a psycross, or near a well to observe the full circle of life.."))
 	return FALSE
