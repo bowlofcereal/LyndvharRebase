@@ -842,14 +842,16 @@
                 /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 30,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 10,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 20,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/pearlescent = 20,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/cerulean = 20,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/fractal = 5
             )
         if(4)
             possible_arils = list(
                 /obj/item/reagent_containers/food/snacks/eoran_aril/crimson = 15,
-                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 10,
-                /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 15,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/roseate = 5,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/opalescent = 10,
+                /obj/item/reagent_containers/food/snacks/eoran_aril/pearlescent = 10,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/cerulean = 15,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/fractal = 5,
                 /obj/item/reagent_containers/food/snacks/eoran_aril/auric = 4,
@@ -1117,6 +1119,17 @@
     icon = 'modular_azurepeak/icons/obj/items/eora_pom.dmi'
     icon_state = "incandescent"
     dropshrink = 0.7
+
+/obj/item/reagent_containers/food/snacks/eoran_aril/pearlescent
+    name = "pearlescent aril"
+    desc = "A milky-white seed that pulses with purifying energy."
+    icon_state = "pearlescent"
+    effect_desc = "Transforms poisons within your body into lifeblood at the cost of diluting strong lifeblood."
+
+/obj/item/reagent_containers/food/snacks/eoran_aril/pearlescent/apply_effects(mob/living/carbon/eater)
+    if(ishuman(eater))
+        var/mob/living/carbon/human/H = eater
+        H.apply_status_effect(/datum/status_effect/pearlescent_aril)
 
 #undef SPROUT
 #undef GROWING
