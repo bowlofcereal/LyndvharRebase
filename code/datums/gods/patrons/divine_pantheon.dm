@@ -1,15 +1,14 @@
 /datum/patron/divine
 	name = null
 	associated_faith = /datum/faith/divine
-
+/*
 // Master for Divine gods, some get unique areas/machines/whatever to pray near, and the rest should use church/psycross.
 /datum/patron/divine/can_pray(mob/living/follower)
 	. = ..()
 	// Allows prayer near psycross
-	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
+	for(var/obj/structure/fluff/psycross in range(4, get_turf(follower)))
 		return TRUE
-	return FALSE
-
+*/
 /datum/patron/divine/astrata
 	name = "Astrata"
 	domain = "Twinned Goddess of the Sun, Day, and Order"
@@ -226,6 +225,9 @@
 // Astrata - In daylight, church, cross, or ritual chalk.
 /datum/patron/divine/astrata/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -239,6 +241,9 @@
 // Noc - In moonlight, church, cross, or ritual chalk
 /datum/patron/divine/noc/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -256,6 +261,9 @@
 // Yes, he is NOT calling the master cus he's unique. Whole bog is his prayer zone. Druids exist for a reason instead of in the church.
 /datum/patron/divine/dendor/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the druid tower + houses in the forest
 	if(istype(get_area(follower), /area/rogue/indoors/shelter/woods))
 		return TRUE
@@ -271,6 +279,9 @@
 // Abyssor - Near water, cross, or within the church.
 /datum/patron/divine/abyssor/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -284,11 +295,14 @@
 // Ravox - Near a knight statue, cross, or within the church
 /datum/patron/divine/ravox/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
 	// Allows prayer near any knight statue and its subtypes.
-	for(var/obj/structure/fluff/statue/knight in view(4, get_turf(follower)))
+	for(var/obj/structure/fluff/statue/knight/K in view(4, get_turf(follower)))
 		return TRUE
 	to_chat(follower, span_danger("For Ravox to hear my prayer I must either pray within the church, near a psycross, or near a knighly statue in memorium of the fallen.."))
 	return FALSE
@@ -297,11 +311,14 @@
 // Necra - Near a grave, cross, or within the church
 /datum/patron/divine/necra/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
 	// Allows prayer near a grave.
-	for(var/obj/structure/closet/dirthole/grave in view(4, get_turf(follower)))
+	for(var/obj/structure/closet/dirthole/grave/G in view(4, get_turf(follower)))
 		return TRUE
 	to_chat(follower, span_danger("For Necra to hear my prayer I must either pray within the church, near a psycross, or near a grave where we all go to be given our final embrace.."))
 	return FALSE
@@ -310,11 +327,14 @@
 // Xylix - Near a gambling machine, cross, or within the church
 /datum/patron/divine/xylix/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
 	// Allows prayer near gambling machines.
-	for(var/obj/structure/roguemachine/lottery_roguetown in view(4, get_turf(follower)))
+	for(var/obj/structure/roguemachine/lottery_roguetown/L in view(4, get_turf(follower)))
 		return TRUE
 	to_chat(follower, span_danger("For Xylix to hear my prayer I must either pray within the church, near a psycross, or near a machine of fortune blessed by the grand jester.."))
 	return FALSE
@@ -323,6 +343,9 @@
 // Pestra - Near a well, cross, within the physicians, or within the church
 /datum/patron/divine/pesta/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -339,6 +362,9 @@
 // Malum - Near a smelter, hearth, cross, within the smithy, or within the church
 /datum/patron/divine/malum/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
@@ -346,10 +372,10 @@
 	if(istype(get_area(follower), /area/rogue/indoors/town/dwarfin))
 		return TRUE
 	// Allows prayer near hearths.
-	for(var/obj/machinery/light/rogue/hearth in view(4, get_turf(follower)))
+	for(var/obj/machinery/light/rogue/hearth/H in view(4, get_turf(follower)))
 		return TRUE
 	// Allows prayer near smelters.
-	for(var/obj/machinery/light/rogue/smelter in view(4, get_turf(follower)))
+	for(var/obj/machinery/light/rogue/smelter/H in view(4, get_turf(follower)))
 		return TRUE
 	to_chat(follower, span_danger("For Malum to hear my prayer I must either pray within the church, the smithy's workshop, near a psycross, near a smelter, or hearth to bask in Malum's glory.."))
 	return FALSE
@@ -357,6 +383,9 @@
 // Eora - Near a gambling machine, cross, or within the church
 /datum/patron/divine/eora/can_pray(mob/living/follower)
 	. = ..()
+	// Allows prayer near psycross
+	for(var/obj/structure/fluff/psycross/cross in view(4, get_turf(follower)))
+		return TRUE
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
