@@ -40,10 +40,11 @@
 			if(!ispath(private, /datum/patron/old_god))
 				for(var/mob/living/carbon/human/H in viewers(world.view, src))
 					var/pass = FALSE
-					if(H.patron?.type == private || private == /datum/patron/divine/xylix)	//Xylixians will always flash the observer's religion to them.
+/*					if(H.patron?.type == private || private == /datum/patron/divine/xylix)	//Xylixians will always flash the observer's religion to them.
 						vis_contents += new /obj/effect/temp_visual/stress_event/invisible(null, H, icon_path, "sign_[H.patron.name]", offset_list, y_offset, icon_plane)
 						pass = TRUE
-					else if(HAS_TRAIT(H, TRAIT_HERETIC_SEER) && istype(private,/datum/patron/inhuman))	//Seers should see all inhuman symbols.
+*/
+					if(HAS_TRAIT(H, TRAIT_HERETIC_SEER) && istype(private,/datum/patron/inhuman))	//Seers should see all inhuman symbols.
 						vis_contents += new /obj/effect/temp_visual/stress_event/invisible(null, H, icon_path, "sign_[patron?.name]", offset_list, y_offset, icon_plane)
 						pass = TRUE
 					if(soundin && pass)

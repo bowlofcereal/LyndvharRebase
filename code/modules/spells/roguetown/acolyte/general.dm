@@ -86,19 +86,21 @@
 					if (C.health <= (C.maxHealth * 0.25))
 						conditional_buff = TRUE
 						situational_bonus = 2.5
-			if(/datum/patron/divine/xylix)
+/*			if(/datum/patron/divine/xylix)
 				message_out = span_info("A fugue seems to manifest briefly across [target]!")
 				message_self = span_notice("My wounds vanish as if they had never been there! ")
 				// half of the time, heal a little (or a lot) more - flip the coin
 				if (prob(50))
 					conditional_buff = TRUE
 					situational_bonus = rand(1, 2.5)
+
 			if(/datum/patron/divine/pestra)
 				message_out = span_info("An aura of clinical care encompasses [target]!")
 				message_self = span_notice("I'm sewn back together by sacred medicine!")
 				// pestra always heals a little more toxin damage and restores a bit more blood
 				target.adjustToxLoss(-situational_bonus)
 				target.blood_volume += BLOOD_VOLUME_SURVIVE/2
+*/
 			if(/datum/patron/divine/malum)
 				message_out = span_info("A thirst for life fills [target]!")
 				message_self = span_info("So much of life yet untasted, I must strive on!")

@@ -130,6 +130,7 @@
 
 	// Patrons below should be non-selectable until their features integrated elsewhere and they are removed.
 
+/*
 /datum/patron/divine/xylix
 	name = "Xylix"
 	domain = "God of Trickery, Freedom and Inspiration"
@@ -167,3 +168,4 @@
 		"DO I DESERVE SUCH TORMENT?",
 		"WHY, WHY MUST I SUFFER SO!",
 	)
+*/

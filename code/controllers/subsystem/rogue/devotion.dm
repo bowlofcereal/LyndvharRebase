@@ -107,7 +107,7 @@
 	if(!H || !H.mind || !patron)
 		return
 
-	var/list/spelllist = list(patron.extra_spell, /obj/effect/proc_holder/spell/targeted/touch/orison, patron.t0, patron.t1)
+	var/list/spelllist = list(patron.t0, patron.t1)
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue

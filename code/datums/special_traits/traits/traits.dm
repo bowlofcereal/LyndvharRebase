@@ -311,6 +311,7 @@
 /datum/special_trait/gourmand/on_apply(mob/living/carbon/human/character, silent)
 	ADD_TRAIT(character, TRAIT_NASTY_EATER, "[type]")
 
+/*
 /datum/special_trait/lucky
 	name = "Fortune's Grace"
 	greet_text = span_notice("Xylix favor me, I am extremely lucky.")
@@ -320,7 +321,7 @@
 
 /datum/special_trait/lucky/on_apply(mob/living/carbon/human/character, silent)
 	character.STALUC = rand(15, 20) //In other words, In the next round following the special, you are effectively lucky.
-
+*/
 //neutral
 /datum/special_trait/backproblems
 	name = "Giant"
