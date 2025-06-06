@@ -5,13 +5,10 @@
 // Master for Divine gods, some get unique areas/machines/whatever to pray near, and the rest should use church/psycross.
 /datum/patron/divine/can_pray(mob/living/follower)
 	. = ..()
-	if(!.)
-		return FALSE
 	// Allows prayer near psycross
 	for(var/obj/structure/fluff/psycross in view(4, get_turf(follower)))
 		message_admins("Here")
 		return TRUE
-	return FALSE
 
 /datum/patron/divine/astrata
 	name = "Astrata"
