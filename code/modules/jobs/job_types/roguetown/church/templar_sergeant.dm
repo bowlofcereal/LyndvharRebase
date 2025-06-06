@@ -9,7 +9,7 @@
 	and are very formidabel in combat."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = TOLERATED_CLEARANCE
-	allowed_patrons = ALL_CLERIC_PATRONS
+	allowed_patrons = list(/datum/patron/old_god)
 	outfit = /datum/outfit/job/roguetown/templar
 	min_pq = 1
 	max_pq = null

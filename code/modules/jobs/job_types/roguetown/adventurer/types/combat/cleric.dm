@@ -7,7 +7,7 @@
 	traits_applied = list(TRAIT_OUTLANDER)
 	vampcompat = FALSE
 	outfit = /datum/outfit/job/roguetown/adventurer/cleric
-	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
+//	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
 	classes = list("Monk" = "You are a wandering acolyte, versed in both miracles and martial arts. You forego the heavy armor paladins wear in favor of a more nimble approach to combat, utilizing your fists.",
 					"Paladin" = "A holy warrior. Where others of the clergy may have spent their free time studying scriptures, you have instead honed your skills with a blade.",
 					"Missionary" = "You are a devout worshipper of the divine with a strong connection to your patron god. You've spent years studying scriptures and serving your deity - now you wander into foreign lands, spreading the word of your faith.",
@@ -153,12 +153,13 @@
 				if (/datum/patron/divine/ravox)
 					cloak = /obj/item/clothing/cloak/templar/ravox
 					head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold
-				if (/datum/patron/divine/xylix)
+/*				if (/datum/patron/divine/xylix)
 					cloak = /obj/item/clothing/cloak/templar/xylix
 					head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket
 				if (/datum/patron/divine/pestra)
 					cloak = /obj/item/clothing/cloak/templar/pestra
 					head = /obj/item/clothing/head/roguetown/helmet/heavy/pestran
+*/
 				else
 					cloak = /obj/item/clothing/cloak/cape/crusader
 					head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket
@@ -234,10 +235,11 @@
 					cloak = /obj/item/clothing/cloak/templar/eora
 				if (/datum/patron/divine/ravox)
 					cloak = /obj/item/clothing/cloak/templar/ravox
-				if (/datum/patron/divine/xylix)
+/*				if (/datum/patron/divine/xylix)
 					cloak = /obj/item/clothing/cloak/templar/xylix
 				if (/datum/patron/divine/pestra)
 					cloak = /obj/item/clothing/cloak/templar/pestra
+*/
 				else
 					cloak = /obj/item/clothing/cloak/cape/crusader
 			var/weapons = list("Harp","Lute","Accordion","Guitar","Hurdy-Gurdy","Viola","Vocal Talisman")
@@ -334,8 +336,8 @@
 			neck = /obj/item/clothing/neck/roguetown/psicross/dendor
 		if(/datum/patron/divine/necra)
 			neck = /obj/item/clothing/neck/roguetown/psicross/necra
-		if(/datum/patron/divine/pestra)
-			neck = /obj/item/clothing/neck/roguetown/psicross/pestra
+//		if(/datum/patron/divine/pestra)
+//			neck = /obj/item/clothing/neck/roguetown/psicross/pestra
 		if(/datum/patron/divine/ravox)
 			neck = /obj/item/clothing/neck/roguetown/psicross/ravox
 		if(/datum/patron/divine/malum)
@@ -346,7 +348,7 @@
 			H.cmode_music = 'sound/music/combat_cult.ogg'
 		if (/datum/patron/inhuman/matthios)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
-		if(/datum/patron/divine/xylix) // Random pricross for Xylix
+/*		if(/datum/patron/divine/xylix) // Random pricross for Xylix
 			var/list/psicross_options = list(
 			/obj/item/clothing/neck/roguetown/psicross,
 			/obj/item/clothing/neck/roguetown/psicross/astrata,
@@ -360,5 +362,5 @@
 			/obj/item/clothing/neck/roguetown/psicross/eora
 			)
 			neck = pick(psicross_options)
-
+*/
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)

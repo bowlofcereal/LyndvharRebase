@@ -9,7 +9,7 @@
 	 the call of the church. You are the sword of the church, and you are to be feared by all who oppose its will."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = TOLERATED_CLEARANCE
-	allowed_patrons = ALL_CLERIC_PATRONS
+	allowed_patrons = list(/datum/patron/old_god)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/knight_templar, /obj/effect/proc_holder/spell/self/convertrole/templar)
 	cmode_music = 'sound/music/combat_holy.ogg'

@@ -8,11 +8,11 @@
 /* LATEJOIN SUNDMARK */
 ///////////////////////
 
-/obj/effect/landmark/start/helms/late/noble
+/obj/effect/landmark/start/helms/late/noblelate
 	name = "Noble Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
-	"Lord Castellan",
+//	"Lord Castellan",
 	"Lord Consort",
 	"Lord Heir",
 	"Hand",
@@ -20,7 +20,7 @@
 	)
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/courtier
+/obj/effect/landmark/start/helms/late/courtierlate
 	name = "Courtier Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
@@ -31,7 +31,7 @@
 	)
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/garrison
+/obj/effect/landmark/start/helms/late/garrisonlate
 	name = "Retinue Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
@@ -42,7 +42,7 @@
 	)
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/church
+/obj/effect/landmark/start/helms/late/churchlate
 	name = "Church Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(	
@@ -57,7 +57,7 @@
 	)
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/towner
+/obj/effect/landmark/start/helms/late/townerlate
 	name = "Towner Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
@@ -75,7 +75,7 @@
 	)
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/citywatch
+/obj/effect/landmark/start/helms/late/citywatchlate
 	name = "Citywatch Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
@@ -84,7 +84,7 @@
 	)
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/peasant
+/obj/effect/landmark/start/helms/late/peasantlate
 	name = "Peasant Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
@@ -93,7 +93,7 @@
 	)
 	delete_after_roundstart = FALSE
 
-/obj/effect/landmark/start/helms/late/rabble
+/obj/effect/landmark/start/helms/late/rabblelate
 	name = "Peasant Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(
@@ -104,7 +104,7 @@
 	delete_after_roundstart = FALSE
 
 
-/obj/effect/landmark/start/helms/late/adventurer
+/obj/effect/landmark/start/helms/late/adventurerlate
 	name = "Adventurer Late (Helm)"
 	icon_state = "arrow"
 	jobspawn_override = list(

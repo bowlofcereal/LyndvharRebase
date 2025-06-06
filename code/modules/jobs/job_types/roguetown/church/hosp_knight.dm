@@ -9,7 +9,7 @@
 	they are still formidable warriors and are trained to excel with specific weapon type and combat style, they are also trained to ride steeds."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = TOLERATED_CLEARANCE
-	allowed_patrons = ALL_CLERIC_PATRONS
+	allowed_patrons = list(/datum/patron/old_god)
 	outfit = /datum/outfit/job/roguetown/hosp_knight
 	min_pq = 1
 	max_pq = null

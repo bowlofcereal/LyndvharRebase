@@ -57,7 +57,7 @@
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/magic/holy, 5, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
@@ -67,7 +67,7 @@
 		H.change_stat("endurance", 1)
 		H.change_stat("speed", -1)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron) // This creates the cleric holder used for devotion spells
-	C.grant_spells_priest(H)
+	C.grant_spells(H)
 	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
 
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord
@@ -123,8 +123,8 @@
 		return
 	var/inputty = input("Curse someone... (curse them again to remove it)", "Sinner Name") as text|null
 	if(inputty)
-		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-			to_chat(src, span_warning("I need to do this from the chapel."))
+		if(!istype(get_area(src), /area/rogue/indoors/sund/church/interior/cathedral))
+			to_chat(src, span_warning("I need to do this from the cathedral."))
 			return FALSE
 		if(inputty in GLOB.excommunicated_players)
 			GLOB.excommunicated_players -= inputty
@@ -152,8 +152,8 @@
 		return
 	var/inputty = input("Make an announcement", "ROGUETOWN") as text|null
 	if(inputty)
-		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-			to_chat(src, span_warning("I need to do this from the chapel."))
+		if(!istype(get_area(src), /area/rogue/indoors/sund/church/interior/cathedral))
+			to_chat(src, span_warning("I need to do this from the cathedral."))
 			return FALSE
 		priority_announce("[inputty]", title = "The Priest Speaks", sound = 'sound/misc/bell.ogg')
 
