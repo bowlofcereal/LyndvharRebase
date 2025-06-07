@@ -8,7 +8,7 @@
 
 /area/rogue/outdoors/dread/dreadwoods
 	name = "Dreadwood Forest"
-
+	discover_sound = 'sound/misc/area_4.ogg'
 	icon_state = "dreadwood"
 	ambush_types = list(
 				/turf/open/floor/rogue/dirt,
@@ -68,22 +68,22 @@
 //NIGHTKEEP
 
 /area/rogue/indoors/dread/nightkeep
-	name = "nightkeep"
-	first_time_text = "The Nightkeep"
+	name = "nebelwacht"
 	icon_state = "nightkeep"
-	droning_sound = null
-	droning_sound_dusk = null
-	droning_sound_night = null
-	location_name = "Nightkeep"
+	droning_sound = 'sound/music/area/dreadwood.ogg'
+	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
+	location_name = "somewhere near Nebelwacht Castle"
 
 /area/rogue/outdoors/dread/nightkeep
-	name = "nightkeep_outside"
-	first_time_text = "Nightkeep Gates"
+	name = "nebelwacht_outside"
+	first_time_text = "Nebelwacht Castle"
+	discover_sound = 'sound/misc/area_2.ogg'
 	icon_state = "nightkeep_outside"
-	droning_sound = null
-	droning_sound_dusk = null
-	droning_sound_night = null
-	location_name = "Nightkeep Gates"
+	droning_sound = 'sound/music/area/dreadwood.ogg'
+	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
+	location_name = "somewhere from inside Nebelwacht Castle"
 
 
 ///GOBLIN OUTPOST
@@ -91,27 +91,29 @@
 /area/rogue/indoors/dread/gobcamp
 	name = "gobcamp"
 	icon_state = "gobcamp"
-	droning_sound = null
-	droning_sound_dusk = null
-	droning_sound_night = null
+	droning_sound = 'sound/music/area/dreadwood.ogg'
+	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
 	location_name = "deep inside of the Goblin Outpost"
 
 /area/rogue/outdoors/dread/gobcamp_outside
 	name = "gobcamp_outside"
 	first_time_text = "Goblin Outpost"
+	discover_sound = 'sound/misc/area_3.ogg'
 	icon_state = "nightkeep_outside"
-	droning_sound = null
-	droning_sound_dusk = null
-	droning_sound_night = null
+	droning_sound = 'sound/music/area/dreadwood.ogg'
+	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
 	location_name = "Goblin Outpost"
 
 /area/rogue/indoors/dread/forgottenkeep
 	name = "forgotten keep"
 	icon_state = "forgottenkeep"
 	first_time_text = "Forgotten Keep"
-	droning_sound = null
-	droning_sound_dusk = null
-	droning_sound_night = null
+	discover_sound = 'sound/misc/area_2.ogg'
+	droning_sound = 'sound/music/area/dreadwood.ogg'
+	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
 	location_name = "deep within the Forgotten Keep"
 
 // UNDERBOROUGH

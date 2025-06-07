@@ -115,12 +115,9 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/dread/nightkeep)
 "aU" = (
-/obj/structure/fluff/signage{
-	name = "RIVERLANDS - EAST";
-	desc = "A sign pointing to the east."
-	},
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/indoors/dread/gobcamp)
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/blocks/nosmooth,
+/area/rogue/indoors/dread/nightkeep)
 "aW" = (
 /obj/structure/spacevine,
 /turf/closed/wall/mineral/rogue/stone,
@@ -180,6 +177,11 @@
 /obj/effect/decal/stone/blockedge,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/dread/church)
+"bC" = (
+/obj/structure/bed/rogue/inn,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/cobble2,
+/area/rogue/indoors/dread/nightkeep)
 "bD" = (
 /obj/structure/fluff/statue/knightalt/r,
 /turf/open/floor/rogue/carpet/lord/right,
@@ -226,6 +228,7 @@
 	dir = 10
 	},
 /obj/structure/spacevine,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/dread/nightkeep)
 "cd" = (
@@ -235,6 +238,10 @@
 /obj/structure/spacevine,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
+"cf" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/dirt,
+/area/rogue/indoors/dread/nightkeep)
 "cg" = (
 /obj/structure/spacevine,
 /turf/open/floor/rogue/blocks,
@@ -299,6 +306,16 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/dread/forgottenkeep)
+"cL" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/dread/forgottenkeep)
+"cM" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/blocks/platform,
+/area/rogue/outdoors/dread/dreadwoods)
 "cN" = (
 /obj/structure/spider/stickyweb{
 	dir = 1;
@@ -464,6 +481,14 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/dread/dreadwoods)
+"dR" = (
+/obj/structure/table/wood/crafted,
+/obj/machinery/light/rogue/torchholder{
+	icon_state = "torchwall1";
+	dir = 4
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/dread/gobcamp)
 "dS" = (
 /obj/structure/fluff/statue/gargoyle,
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -600,6 +625,10 @@
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/dread/forgottenkeep)
+"eI" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/blocks/platform,
+/area/rogue/outdoors/dread/dreadwoods)
 "eL" = (
 /obj/structure/fluff/customsign{
 	wrotesign = "SUNDBERG - NORTH";
@@ -720,6 +749,11 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/indoors/dread/forgottenkeep)
+"fC" = (
+/obj/structure/closet/crate/chest,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/indoors/dread/nightkeep)
 "fG" = (
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/dread/merc_spawn)
@@ -732,6 +766,11 @@
 /obj/structure/fluff/statue/gargoyle,
 /turf/open/floor/rogue/blocks/stone,
 /area/rogue/indoors/dread/forgottenkeep)
+"fK" = (
+/obj/structure/fermenting_barrel,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/cobble/mossy3,
+/area/rogue/indoors/dread/nightkeep)
 "fN" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -936,6 +975,13 @@
 /obj/structure/ladder,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/indoors/dread/nightkeep)
+"hy" = (
+/obj/machinery/light/rogue/torchholder{
+	icon_state = "torchwall1";
+	dir = 4
+	},
+/turf/open/floor/rogue/blocks/platform,
+/area/rogue/indoors/dread/forgottenkeep)
 "hz" = (
 /obj/effect/decal/stone/mossy{
 	dir = 1
@@ -1035,6 +1081,10 @@
 /obj/effect/mobspawner/skeleton_spawner_simple,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/dread/forgottenkeep)
+"ii" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/transparent/openspace,
+/area/rogue/indoors/dread/nightkeep)
 "il" = (
 /obj/structure/stairs,
 /turf/open/floor/rogue/blocks,
@@ -1089,6 +1139,10 @@
 /obj/item/rogueweapon/huntingknife/cleaver,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/dread/forgottenkeep)
+"iK" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/cobble2,
+/area/rogue/indoors/dread/nightkeep)
 "iL" = (
 /obj/effect/decal/stone/blockedge{
 	dir = 10
@@ -1108,6 +1162,7 @@
 /obj/structure/spider/stickyweb{
 	icon_state = "stickyweb2"
 	},
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/dread/nightkeep)
 "iR" = (
@@ -1259,6 +1314,12 @@
 /obj/item/reagent_containers/glass/cup/wooden,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/dread/forgottenkeep)
+"jV" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 8
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/dread/gobcamp)
 "jX" = (
 /obj/structure/table/wood/crafted,
 /turf/open/floor/rogue/naturalstone,
@@ -1294,6 +1355,10 @@
 	redstone_id = "nightkeep_vault"
 	},
 /turf/open/floor/rogue/carpet/lord/center,
+/area/rogue/indoors/dread/nightkeep)
+"kf" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/cobble,
 /area/rogue/indoors/dread/nightkeep)
 "kh" = (
 /obj/structure/stairs/stone{
@@ -1902,6 +1967,7 @@
 /obj/structure/chair/bench/coucha,
 /obj/effect/decal/border,
 /obj/structure/spacevine,
+/obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -2012,6 +2078,7 @@
 /area/rogue/indoors/dread/forgottenkeep)
 "qm" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
+/obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/blocks/stone/stonepattern2,
 /area/rogue/indoors/dread/nightkeep)
 "qn" = (
@@ -2064,6 +2131,7 @@
 	dir = 8;
 	icon_state = "stickyweb2"
 	},
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/blocks/stone/stonepattern2,
 /area/rogue/indoors/dread/nightkeep)
 "qL" = (
@@ -2204,6 +2272,10 @@
 /obj/structure/spacevine,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/dread/nightkeep)
+"rS" = (
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/dread/forgottenkeep)
 "rT" = (
 /obj/item/grown/log/tree/small,
 /obj/item/grown/log/tree/small,
@@ -2352,9 +2424,12 @@
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/indoors/dread/nightkeep)
 "sW" = (
-/obj/structure/stairs/stone,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/dread/dreadwoods)
+/obj/effect/decal/cobbleedge{
+	dir = 8
+	},
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/dirt,
+/area/rogue/indoors/dread/nightkeep)
 "ta" = (
 /turf/open/floor/rogue/tile{
 	icon_state = "greenstone"
@@ -2667,6 +2742,10 @@
 /obj/structure/spacevine,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/dread/nightkeep)
+"vc" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors/dread/nightkeep)
 "vh" = (
 /obj/structure/fluff/walldeco/chains{
 	pixel_x = 23;
@@ -2691,6 +2770,10 @@
 /obj/structure/spacevine,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/dread/forgottenkeep)
+"vn" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/indoors/dread/nightkeep)
 "vq" = (
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/rogue/cobble/mossy,
@@ -2731,6 +2814,10 @@
 "vR" = (
 /turf/closed/mineral/random/rogue/high,
 /area/rogue/under/cavewet/dreadcave)
+"vU" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/indoors/dread/nightkeep)
 "vV" = (
 /obj/structure/spacevine,
 /turf/closed/wall/mineral/rogue/stone,
@@ -2774,9 +2861,12 @@
 /turf/open/floor/rogue/blocks/paving,
 /area/rogue/indoors/dread/toll)
 "wm" = (
-/obj/structure/stairs/stone,
-/turf/closed/mineral/random/rogue,
-/area/rogue/outdoors/dread/dreadwoods)
+/obj/effect/spawner/dungeons/maybechest,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/dread/nightkeep)
 "wn" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/church,
@@ -2799,6 +2889,13 @@
 "ww" = (
 /obj/structure/bed/rogue,
 /turf/open/floor/rogue/cobble,
+/area/rogue/indoors/dread/nightkeep)
+"wC" = (
+/obj/effect/decal/stone/mossy{
+	dir = 4
+	},
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/dirt,
 /area/rogue/indoors/dread/nightkeep)
 "wE" = (
 /turf/open/water/swamp/deep,
@@ -2869,6 +2966,10 @@
 	icon_state = "stickyweb2"
 	},
 /turf/open/floor/rogue/tile,
+/area/rogue/indoors/dread/nightkeep)
+"xa" = (
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors/dread/nightkeep)
 "xc" = (
 /obj/effect/spawner/dungeons/maybechest,
@@ -2941,6 +3042,15 @@
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/dread/forgottenkeep)
+"xy" = (
+/obj/structure/spacevine,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/blocks/stone/stonepattern2,
+/area/rogue/indoors/dread/nightkeep)
+"xC" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/blocks/platform,
+/area/rogue/indoors/dread/nightkeep)
 "xE" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10
@@ -2980,6 +3090,9 @@
 /area/rogue/indoors/dread/toll)
 "xN" = (
 /obj/effect/mobspawner/hole/goblins/wall/west,
+/obj/machinery/light/rogue/torchholder{
+	dir = 8
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/dread/gobcamp)
 "xO" = (
@@ -3027,6 +3140,10 @@
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/transparent/openspace,
 /area/rogue/indoors/dread/gobcamp)
+"yp" = (
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/turf/open/floor/rogue/blocks/stone/stonepattern2,
+/area/rogue/indoors/dread/nightkeep)
 "yv" = (
 /obj/structure/spider/stickyweb{
 	dir = 8;
@@ -3043,6 +3160,7 @@
 /obj/structure/spider/stickyweb{
 	icon_state = "stickyweb2"
 	},
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
 "yz" = (
@@ -3059,9 +3177,23 @@
 /obj/structure/fluff/walldeco/rpainting/forest,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/dread/nightkeep)
+"yO" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/dread/nightkeep)
 "yR" = (
 /turf/closed/mineral/random/rogue,
 /area/rogue/outdoors/dread/nightkeep)
+"yS" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/blocks/platform,
+/area/rogue/indoors/dread/nightkeep)
+"yU" = (
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/dread/nightkeep)
 "yV" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grass,
@@ -3163,6 +3295,11 @@
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/dread/forgottenkeep)
+"zz" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/dread/forgottenkeep)
 "zB" = (
@@ -3270,6 +3407,7 @@
 /area/rogue/indoors/dread/forgottenkeep)
 "Ak" = (
 /obj/effect/decal/cleanable/blood/tracks,
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/dread/forgottenkeep)
 "Al" = (
@@ -3314,6 +3452,7 @@
 /area/rogue/indoors/dread/church)
 "Au" = (
 /obj/effect/spawner/dungeons/maybechest,
+/obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "horzw"
 	},
@@ -3364,6 +3503,7 @@
 /obj/structure/spider/stickyweb{
 	dir = 4
 	},
+/obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/dread/nightkeep)
 "AM" = (
@@ -3374,6 +3514,10 @@
 /obj/effect/spawner/dungeons/maybechest,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/dread/forgottenkeep)
+"AP" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/blocks/stone/stonepattern2,
+/area/rogue/indoors/dread/nightkeep)
 "AS" = (
 /obj/effect/spawner/dungeons/maybechest,
 /turf/open/floor/rogue/blocks,
@@ -3442,6 +3586,10 @@
 /obj/structure/spacevine,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
+"BK" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/cobble2,
+/area/rogue/indoors/dread/nightkeep)
 "BN" = (
 /obj/structure/spacevine,
 /turf/closed/wall/mineral/rogue/craftstone/window{
@@ -3485,6 +3633,11 @@
 	dir = 4
 	},
 /area/rogue/outdoors/dread/dreadwoods)
+"Ce" = (
+/obj/item/rogueweapon/sword/long/zizo,
+/obj/structure/closet/crate/chest/dungeon/treasure,
+/turf/open/floor/rogue/churchmarble,
+/area/rogue/indoors/dread/nightkeep)
 "Ci" = (
 /obj/structure/curtain/bounty{
 	color = "grey"
@@ -3926,12 +4079,16 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/toll)
+"Fg" = (
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/outdoors/dread/nightkeep)
 "Fh" = (
-/obj/structure/stairs/stone{
-	dir = 1
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "wooden_floort"
 	},
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/dread/dreadwoods)
+/area/rogue/outdoors/dread/nightkeep)
 "Fj" = (
 /obj/structure/spacevine,
 /turf/closed/wall/mineral/rogue/decostone,
@@ -4032,6 +4189,10 @@
 /obj/structure/spacevine,
 /turf/open/floor/rogue/cobble2,
 /area/rogue/indoors/dread/nightkeep)
+"FK" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/blocks/stone/stonepattern2,
+/area/rogue/indoors/dread/nightkeep)
 "FL" = (
 /obj/structure/table/wood{
 	icon_state = "largetable";
@@ -4044,6 +4205,10 @@
 /obj/effect/mobspawner/undead_all,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
+"FQ" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/dread/nightkeep)
 "FT" = (
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /obj/structure/spider/stickyweb{
@@ -4261,6 +4426,11 @@
 /obj/effect/decal/cleanable/dirt/cobweb/cobweb2,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
+"HD" = (
+/obj/effect/mobspawner/skeleton_spawner_simple,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/indoors/dread/nightkeep)
 "HG" = (
 /obj/structure/bars/passage{
 	redstone_id = "dreadchurch_crypt"
@@ -4383,6 +4553,10 @@
 /obj/structure/rack/rogue/shelf,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/dread/forgottenkeep)
+"IG" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/dread/nightkeep)
 "IJ" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/structure/spider/stickyweb{
@@ -4512,6 +4686,10 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/dread/nightkeep)
+"JI" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/trollbog,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/dread/dreadwoods)
 "JK" = (
 /obj/effect/decal/stone/mossy{
 	dir = 1
@@ -4676,6 +4854,15 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/dread/gobcamp_outside)
+"KL" = (
+/obj/structure/spacevine,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/blocks/stone/stonepattern2,
+/area/rogue/indoors/dread/nightkeep)
+"KM" = (
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/tile,
+/area/rogue/indoors/dread/nightkeep)
 "KV" = (
 /obj/structure/table/wood{
 	dir = 5;
@@ -4864,6 +5051,7 @@
 "MB" = (
 /obj/structure/chair/bench/couch,
 /obj/effect/decal/cleanable/dirt/cobweb,
+/obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -4989,6 +5177,14 @@
 	dir = 1
 	},
 /area/rogue/outdoors/dread/dreadwoods)
+"Nt" = (
+/obj/effect/decal/cobbleedge{
+	dir = 10;
+	icon_state = "cobbleedge-w"
+	},
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/dirt,
+/area/rogue/indoors/dread/nightkeep)
 "Nu" = (
 /obj/structure/lever{
 	redstone_id = "nightbasement"
@@ -5137,6 +5333,7 @@
 "OE" = (
 /obj/structure/table/wood,
 /obj/structure/spacevine,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/dread/nightkeep)
 "OF" = (
@@ -5985,6 +6182,10 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/dread/forgottenkeep)
+"Vj" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors/dread/forgottenkeep)
 "Vm" = (
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
@@ -6045,6 +6246,7 @@
 	dir = 1;
 	icon_state = "stickyweb2"
 	},
+/obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "wooden_floort"
 	},
@@ -6302,10 +6504,15 @@
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/closed/mineral/random/rogue,
 /area/rogue/indoors/dread/nightkeep)
+"XG" = (
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/carpet/lord/right,
+/area/rogue/indoors/dread/nightkeep)
 "XH" = (
 /obj/structure/table/wood/crafted,
 /obj/structure/spacevine,
 /obj/effect/decal/cleanable/dirt/cobweb,
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/dread/nightkeep)
 "XO" = (
@@ -6396,6 +6603,10 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/dread/forgottenkeep)
+"YH" = (
+/mob/living/simple_animal/hostile/retaliate/rogue/trollbog,
+/turf/open/water/swamp/deep,
+/area/rogue/outdoors/dread/dreadwoods)
 "YL" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10
@@ -6555,6 +6766,10 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/dread/toll)
+"ZO" = (
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/carpet/lord/left,
+/area/rogue/indoors/dread/nightkeep)
 "ZR" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/cobble,
@@ -43565,7 +43780,7 @@ cA
 Kp
 IB
 NO
-IB
+kf
 ww
 jM
 pi
@@ -44626,7 +44841,7 @@ XH
 If
 xc
 If
-If
+vU
 CS
 wJ
 aW
@@ -44788,11 +45003,11 @@ cA
 XZ
 AM
 kc
-qa
+HD
 If
 If
 If
-If
+vU
 xc
 cA
 pi
@@ -45139,7 +45354,7 @@ pi
 tq
 Dq
 cA
-AM
+yp
 AM
 cA
 If
@@ -45150,7 +45365,7 @@ WS
 pz
 cA
 XF
-dv
+BK
 dv
 dv
 IO
@@ -45865,7 +46080,7 @@ iO
 WC
 Mo
 If
-If
+vn
 Bd
 xv
 cA
@@ -46201,13 +46416,13 @@ tq
 tq
 Dq
 cA
+yU
 IB
-IB
 Rh
 Rh
 Rh
 Rh
-IB
+yU
 IB
 Dy
 Dy
@@ -46388,7 +46603,7 @@ IB
 IB
 IB
 IB
-IB
+IG
 IB
 IB
 IB
@@ -46792,7 +47007,7 @@ ur
 tm
 zX
 jn
-zX
+az
 jn
 zX
 NN
@@ -47152,7 +47367,7 @@ zX
 NN
 pj
 MR
-pj
+cL
 gU
 Qr
 Qr
@@ -47267,7 +47482,7 @@ IB
 IB
 cA
 BW
-dv
+iK
 IB
 IB
 IB
@@ -47277,7 +47492,7 @@ sk
 sk
 IB
 IB
-Ow
+sW
 eO
 IB
 IB
@@ -47440,7 +47655,7 @@ tq
 tq
 pi
 jM
-IB
+yU
 IB
 Rh
 cA
@@ -48037,7 +48252,7 @@ cK
 NN
 ko
 ZH
-ZH
+fP
 ZH
 Ok
 ZH
@@ -49633,11 +49848,11 @@ ZH
 ZH
 ZH
 Vh
-ko
+zz
 ZH
 up
 up
-ZH
+fP
 rF
 NN
 pi
@@ -49794,7 +50009,7 @@ ZH
 Td
 Lx
 ZH
-ZH
+rS
 Lx
 ZH
 ZH
@@ -49980,7 +50195,7 @@ ZH
 up
 up
 ZH
-ZH
+DP
 Td
 Td
 Td
@@ -49989,7 +50204,7 @@ ZH
 vk
 gI
 ZH
-ZH
+DP
 ZH
 up
 rF
@@ -52984,7 +53199,7 @@ VF
 sB
 NN
 JF
-fv
+Vj
 Im
 MT
 NN
@@ -61341,7 +61556,7 @@ vY
 Uy
 Uy
 Uy
-Uy
+JI
 Uy
 Uy
 Uy
@@ -62542,7 +62757,7 @@ wE
 wE
 wE
 wE
-wE
+YH
 wE
 wE
 wE
@@ -63989,7 +64204,7 @@ vY
 vY
 Bl
 yz
-sW
+dh
 dk
 dk
 Uy
@@ -64166,7 +64381,7 @@ vY
 vY
 Bl
 yz
-wm
+dh
 dk
 Al
 Al
@@ -68307,7 +68522,7 @@ yz
 yz
 Qa
 Ad
-Ad
+cM
 Ad
 Qa
 Wf
@@ -70077,7 +70292,7 @@ yz
 LA
 Qa
 Vu
-Ad
+eI
 Ad
 Qa
 Wf
@@ -70088,12 +70303,12 @@ Wf
 cA
 Aq
 OF
-OF
+fK
 EN
 sO
 EN
 Dw
-Wk
+wC
 qP
 dn
 rW
@@ -71153,7 +71368,7 @@ Xw
 aW
 JY
 nc
-fR
+fC
 tM
 fR
 cA
@@ -71510,7 +71725,7 @@ dn
 rW
 qd
 dM
-rW
+vc
 xm
 jx
 If
@@ -71708,7 +71923,7 @@ cA
 kF
 na
 kt
-na
+aU
 Cq
 cA
 vY
@@ -72037,11 +72252,11 @@ Bl
 Bl
 pL
 ZC
-rW
+KM
 Vt
 rW
 mx
-rW
+KM
 Mb
 jx
 If
@@ -72403,7 +72618,7 @@ jx
 Az
 dv
 xV
-vi
+Nt
 vi
 vi
 dv
@@ -72586,7 +72801,7 @@ dv
 dv
 nJ
 xV
-dv
+iK
 dv
 dv
 wu
@@ -72745,11 +72960,11 @@ Bl
 Bl
 cA
 Rh
-rW
+KM
 EU
 rW
 jo
-rW
+KM
 tP
 jx
 If
@@ -72947,7 +73162,7 @@ jM
 dv
 Gl
 JW
-kF
+cf
 Ga
 cA
 vY
@@ -73109,7 +73324,7 @@ jx
 Bd
 Bd
 cA
-Sa
+ii
 Sa
 jM
 tH
@@ -73632,12 +73847,12 @@ cA
 HP
 Gl
 of
-Jb
+KL
 xH
 AM
 AM
 AM
-AM
+AP
 Jb
 wu
 dv
@@ -73817,21 +74032,21 @@ rW
 rW
 AM
 wu
-dv
+iK
 dv
 dv
 xV
 xV
 Gl
 dv
-dv
+iK
 dv
 dv
 dv
 vq
 dv
 JW
-Ow
+sW
 kF
 kF
 cA
@@ -74361,7 +74576,7 @@ dv
 dv
 dv
 dv
-dv
+BK
 cA
 Bl
 vY
@@ -74516,13 +74731,13 @@ Bl
 cA
 Ft
 AM
-AM
+FK
 AM
 uE
 sk
 sk
 Pg
-AM
+FK
 Vv
 cA
 qI
@@ -74535,7 +74750,7 @@ GD
 Fr
 pL
 dv
-dv
+iK
 dv
 dv
 dv
@@ -74956,7 +75171,7 @@ BC
 Qf
 eQ
 jX
-jX
+dR
 DX
 DX
 Bl
@@ -75238,7 +75453,7 @@ Bl
 aW
 pp
 kx
-Qx
+bC
 kx
 Qx
 cA
@@ -75641,7 +75856,7 @@ eV
 je
 pP
 Ho
-Ho
+hy
 Ho
 Ho
 xw
@@ -75650,7 +75865,7 @@ jO
 vW
 Ho
 Ho
-Ho
+hy
 Ho
 Ho
 Ho
@@ -75673,7 +75888,7 @@ jk
 eQ
 Gt
 Gt
-aU
+eQ
 eQ
 eQ
 Bl
@@ -76546,7 +76761,7 @@ Gt
 yo
 EI
 eQ
-eQ
+jV
 eQ
 eQ
 eQ
@@ -77363,9 +77578,9 @@ vY
 vY
 vY
 Bl
-dk
-dk
-dk
+iR
+iR
+iR
 Bl
 vY
 vY
@@ -77439,7 +77654,7 @@ eQ
 eQ
 eQ
 eQ
-eQ
+jV
 eQ
 Gt
 Bl
@@ -77536,7 +77751,7 @@ Dx
 Dx
 Dx
 Dx
-Uy
+Al
 Uy
 Uy
 dk
@@ -77711,8 +77926,8 @@ vY
 Dx
 Dx
 Dx
-Uy
-Uy
+Al
+Al
 Uy
 Uy
 Uy
@@ -77888,7 +78103,7 @@ Dx
 Dx
 Dx
 Dx
-yV
+Ht
 Uy
 Uy
 Uy
@@ -78065,7 +78280,7 @@ Dx
 Dx
 Dx
 Dx
-Uy
+Al
 Uy
 Uy
 Uy
@@ -78240,9 +78455,9 @@ wE
 wE
 Dx
 Os
-Uy
-Uy
-Uy
+Al
+Al
+Al
 Uy
 Uy
 Uy
@@ -78419,8 +78634,8 @@ Dx
 Dx
 Dx
 Dx
-Uy
-Uy
+Al
+Al
 Uy
 LA
 Al
@@ -78590,14 +78805,14 @@ wE
 wE
 wE
 wE
-wE
+YH
 kD
 wE
 Dx
 Dx
 Dx
 Dx
-Uy
+Al
 LA
 LA
 Al
@@ -78786,9 +79001,9 @@ Uy
 Uy
 Uy
 Uy
-Uy
-Uy
-Uy
+Al
+Al
+Al
 vY
 vY
 vY
@@ -78962,8 +79177,8 @@ Uy
 Uy
 Uy
 Uy
-Uy
-Uy
+Al
+Al
 Dx
 Dx
 vY
@@ -79138,8 +79353,8 @@ LA
 Uy
 yV
 Uy
-Uy
-Uy
+Al
+Al
 Dx
 wE
 vY
@@ -79310,12 +79525,12 @@ Dx
 Dx
 Dx
 Al
-Uy
-Uy
-Uy
-Uy
-Uy
-Uy
+Al
+Al
+Al
+Al
+Al
+Al
 Dx
 wE
 wE
@@ -79490,7 +79705,7 @@ Dx
 Dx
 Dx
 Dx
-Uy
+Al
 Dx
 Dx
 Dx
@@ -79655,7 +79870,7 @@ Dx
 Dx
 Dx
 Dx
-Uy
+Al
 Dx
 Dx
 Dx
@@ -79832,8 +80047,8 @@ Dx
 Dx
 Dx
 Dx
-Uy
-Uy
+Al
+Al
 Dx
 Dx
 Dx
@@ -80008,8 +80223,8 @@ Dx
 Dx
 Os
 Dx
-Uy
-Uy
+Al
+Al
 Al
 Al
 Al
@@ -80183,8 +80398,8 @@ Dx
 Dx
 Dx
 Dx
-Uy
-Uy
+Al
+Al
 Uy
 Uy
 Al
@@ -80198,7 +80413,7 @@ Dx
 wE
 wE
 wE
-wE
+YH
 wE
 wE
 wE
@@ -80359,7 +80574,7 @@ vY
 Dx
 Dx
 Dx
-Uy
+Al
 Uy
 Uy
 Uy
@@ -80535,8 +80750,8 @@ vY
 Dx
 Dx
 Dx
-Uy
-Uy
+Al
+Al
 Uy
 Uy
 LA
@@ -80710,9 +80925,9 @@ vY
 vY
 Dx
 Dx
-Uy
-Uy
-Uy
+Al
+Al
+Al
 Uy
 Uy
 Uy
@@ -80724,7 +80939,7 @@ Al
 Al
 Al
 Al
-Uy
+Al
 Dx
 Dx
 wE
@@ -80885,9 +81100,9 @@ vY
 vY
 vY
 LA
-Uy
-Uy
-Uy
+Al
+Al
+Al
 Uy
 Uy
 Uy
@@ -80901,7 +81116,7 @@ Al
 Al
 Al
 Al
-Uy
+Al
 Dx
 Dx
 wE
@@ -81078,8 +81293,8 @@ Al
 Al
 Al
 yV
-Uy
-Uy
+Al
+Al
 Dx
 wE
 wE
@@ -81256,7 +81471,7 @@ Al
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 wE
 kD
@@ -81433,7 +81648,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 Dx
 wE
@@ -81610,7 +81825,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 Dx
 wE
@@ -81787,7 +82002,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 Dx
 wE
@@ -81963,7 +82178,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 yV
 Dx
 Dx
@@ -82140,7 +82355,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 Dx
 Dx
@@ -82237,7 +82452,7 @@ vY
 vY
 sM
 yz
-sW
+dh
 dk
 dk
 Al
@@ -82317,7 +82532,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 Dx
 Dx
@@ -82414,7 +82629,7 @@ vY
 vY
 sM
 yz
-sW
+dh
 dk
 dk
 Al
@@ -82493,8 +82708,8 @@ Uy
 Uy
 Uy
 Uy
-Uy
-Uy
+Al
+Al
 Dx
 Dx
 Dx
@@ -82670,7 +82885,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 Dx
 Dx
@@ -82847,7 +83062,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 Dx
 vY
@@ -83024,7 +83239,7 @@ Uy
 Uy
 Uy
 Uy
-yV
+Ht
 Dx
 vY
 vY
@@ -83201,7 +83416,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 Dx
 vY
 vY
@@ -83378,7 +83593,7 @@ Uy
 Uy
 Uy
 Uy
-Uy
+Al
 vY
 vY
 vY
@@ -94692,7 +94907,7 @@ Vm
 Vm
 lD
 Vm
-Vm
+Fh
 Vm
 Vm
 Vm
@@ -94706,7 +94921,7 @@ Vm
 Vm
 Vm
 Vm
-Vm
+Fh
 Vm
 Vm
 Vm
@@ -94858,7 +95073,7 @@ yz
 yz
 gi
 jx
-jx
+xC
 Nb
 Az
 tx
@@ -96628,7 +96843,7 @@ yz
 yz
 Az
 lB
-jx
+yS
 jx
 Az
 tx
@@ -96640,13 +96855,13 @@ Ic
 mY
 gt
 Wb
-Wb
-Wb
-Wb
-ft
+yO
 Wb
 Wb
 ft
+Wb
+Wb
+wm
 Wb
 jM
 IZ
@@ -96810,7 +97025,7 @@ Az
 Rh
 tx
 tx
-tx
+Fg
 tx
 tx
 mm
@@ -97704,11 +97919,11 @@ WH
 Zw
 ZZ
 ZZ
-ZZ
+FQ
 ZZ
 FF
 tU
-ZZ
+FQ
 ZZ
 cA
 IZ
@@ -98589,14 +98804,14 @@ yz
 iE
 cA
 kV
-dH
+ZO
 qZ
 dH
 dH
 dH
 dH
 dH
-dH
+ZO
 Rh
 ER
 Ws
@@ -98953,9 +99168,9 @@ Sv
 Sv
 Sv
 Ws
+xa
 Ws
-Ws
-Ws
+Ce
 cA
 IZ
 IZ
@@ -99297,14 +99512,14 @@ yz
 iE
 jM
 bD
-iA
+XG
 LG
 iA
 iA
 iA
 iA
 iA
-iA
+XG
 Rh
 mh
 Ws
@@ -100367,7 +100582,7 @@ cA
 qm
 AM
 tU
-Jb
+xy
 AM
 AM
 Az
@@ -111142,7 +111357,7 @@ Al
 Al
 Al
 Al
-Fh
+DB
 yz
 yz
 yz
@@ -111319,7 +111534,7 @@ Al
 Al
 Al
 Al
-Fh
+DB
 yz
 yz
 yz
