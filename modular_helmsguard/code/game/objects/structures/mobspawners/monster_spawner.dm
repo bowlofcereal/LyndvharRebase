@@ -18,13 +18,13 @@
 	/mob/living/simple_animal/hostile/retaliate/rogue/spider = 3,
 	/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated = 1,
 	/mob/living/simple_animal/hostile/retaliate/rogue/mossback = 6,
-	/mob/living/simple_animal/hostile/retaliate/rogue/bogtroll = 4,
-	/mob/living/simple_animal/hostile/retaliate/rogue/cavetroll = 4,
+	/mob/living/simple_animal/hostile/retaliate/rogue/halftroll = 4,
+	/mob/living/simple_animal/hostile/retaliate/rogue/halftroll_cave = 4,
 	/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 7,
 	/mob/living/simple_animal/hostile/retaliate/rogue/mole = 6
 
 	)
-	text_faction = "Some monsters"	//for spawning string		//for spawning string
+	text_faction = "Some monsters"
 	objfaction = list("caves")
 
 /obj/effect/mobspawner/monster_spawner_minotaurs
@@ -40,7 +40,7 @@
 	/mob/living/simple_animal/hostile/retaliate/rogue/minotaur/female = 5,
 	/mob/living/simple_animal/hostile/retaliate/rogue/minotaur/axe/female = 3
 	)
-	text_faction = "Minotaurs"	//for spawning string		//for spawning string
+	text_faction = "Minotaurs"
 	objfaction = list("caves")
 
 /obj/effect/mobspawner/monster_spawner_animals
@@ -56,12 +56,12 @@
 	/mob/living/simple_animal/hostile/retaliate/rogue/spider = 3,
 	/mob/living/simple_animal/hostile/retaliate/rogue/spider/mutated = 1,
 	/mob/living/simple_animal/hostile/retaliate/rogue/mossback = 4,
-	/mob/living/simple_animal/hostile/retaliate/rogue/bogtroll = 2,
-	/mob/living/simple_animal/hostile/retaliate/rogue/cavetroll = 1,
+	/mob/living/simple_animal/hostile/retaliate/rogue/halftroll = 2,
+	/mob/living/simple_animal/hostile/retaliate/rogue/halftroll_cave = 1,
 	/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 6,
 	/mob/living/simple_animal/hostile/retaliate/rogue/mole = 4
 	)
-	text_faction = "Some wild animals"	//for spawning string		//for spawning string
+	text_faction = "Some wild animals"
 	objfaction = list("caves")
 
 /obj/effect/mobspawner/monster_spawner_wolfs
@@ -100,8 +100,8 @@
 	min_mobs = 2
 	max_mobs = 3
 	mob_types = list(
-	/mob/living/simple_animal/hostile/retaliate/rogue/bogtroll = 1,
-	/mob/living/simple_animal/hostile/retaliate/rogue/cavetroll = 1
+	/mob/living/simple_animal/hostile/retaliate/rogue/halftroll = 1,
+	/mob/living/simple_animal/hostile/retaliate/rogue/halftroll_cave = 1
 	)
 	text_faction = "Trolls"	//for spawning string
 	objfaction = list("caves")

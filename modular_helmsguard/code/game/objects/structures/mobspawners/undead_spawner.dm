@@ -26,12 +26,9 @@
 	/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard_spear = 2,
 	/mob/living/simple_animal/hostile/rogue/gravelord = 1,
 	/mob/living/simple_animal/hostile/rogue/ghost/wraith = 3,
-	/mob/living/simple_animal/hostile/rogue/ghost/wraith/wraith2 = 3,
-	/mob/living/simple_animal/hostile/rogue/ghost/wraith/wraith3 = 3,
-	/mob/living/simple_animal/hostile/rogue/ghost/cursed = 3,
-	/mob/living/simple_animal/hostile/rogue/ghost/cursed/cursed2 = 3
-	)
-	text_faction = "Skeletons"	//for spawning string
+	/mob/living/simple_animal/hostile/rogue/ghost/cursed = 3)
+
+	text_faction = "Skeletons"
 	objfaction = list("undead")
 
 /obj/effect/mobspawner/skeleton_spawner_hard
@@ -48,7 +45,7 @@
 	/mob/living/carbon/human/species/skeleton/npc/dungeon = 3,
 	/mob/living/simple_animal/hostile/rogue/skeleton/guard/xbow = 3,
 	/mob/living/carbon/human/species/skeleton/dwarf/npc/dungeon = 2)
-	text_faction = "Skeletons"	//for spawning string		//for spawning string
+	text_faction = "Skeletons"
 	objfaction = list("undead")
 
 /obj/effect/mobspawner/skeleton_spawner_simple
@@ -70,7 +67,7 @@
 	/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard_spear = 2,
 	/mob/living/simple_animal/hostile/rogue/gravelord = 1
 	)
-	text_faction = "Skeletons"	//for spawning string		//for spawning string
+	text_faction = "Skeletons"
 	objfaction = list("undead")
 
 
@@ -83,12 +80,9 @@
 	max_mobs = 3
 	mob_types = list(
 	/mob/living/simple_animal/hostile/rogue/ghost/wraith = 1,
-	/mob/living/simple_animal/hostile/rogue/ghost/wraith/wraith2 = 1,
-	/mob/living/simple_animal/hostile/rogue/ghost/wraith/wraith3 = 1,
-	/mob/living/simple_animal/hostile/rogue/ghost/cursed = 1,
-	/mob/living/simple_animal/hostile/rogue/ghost/cursed/cursed2 = 1
+	/mob/living/simple_animal/hostile/rogue/ghost/cursed = 1
 		)
-	text_faction = "Wraiths"	//for spawning string		//for spawning string
+	text_faction = "Wraiths"
 	objfaction = list("undead")
 
 
@@ -97,14 +91,12 @@
 	desc = ""
 	anchored = TRUE
 	density = FALSE
-	min_mobs = 2
-	max_mobs = 3
+	min_mobs = 1
+	max_mobs = 2
 	mob_types = list(
-	/mob/living/simple_animal/hostile/rogue/ghost/wraith = 1,
-	/mob/living/simple_animal/hostile/rogue/ghost/wraith/wraith2 = 1,
-	/mob/living/simple_animal/hostile/rogue/ghost/wraith/wraith3 = 1
+	/mob/living/simple_animal/hostile/rogue/ghost/wraith = 1
 		)
-	text_faction = "Wraiths"	//for spawning string		//for spawning string
+	text_faction = "Wraiths"
 	objfaction = list("undead")
 
 /obj/effect/mobspawner/ghosts_cursedsouls
@@ -115,8 +107,7 @@
 	min_mobs = 2
 	max_mobs = 3
 	mob_types = list(
-	/mob/living/simple_animal/hostile/rogue/ghost/cursed = 1,
-	/mob/living/simple_animal/hostile/rogue/ghost/cursed/cursed2 = 1
+	/mob/living/simple_animal/hostile/rogue/ghost/cursed = 1
 		)
-	text_faction = "Cursed souls"	//for spawning string		//for spawning string
+	text_faction = "Cursed souls"	
 	objfaction = list("undead")

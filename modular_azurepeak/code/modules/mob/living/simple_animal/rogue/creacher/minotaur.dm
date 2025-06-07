@@ -18,7 +18,7 @@
 	STASPD = 5
 	base_intents = list(/datum/intent/simple/minotaur_unarmed)
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 10,
-						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2)
+						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2, /obj/item/natural/mino_head = 1)
 	faction = list("caves")
 
 	health = MINOTAUR_HEALTH
@@ -69,10 +69,13 @@
 	icon_state = "MinotaurFem"
 	icon_living = "MinotaurFem"
 	icon_dead = "MinotaurFem_dead"
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 10,
+						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2, /obj/item/natural/mino_head/female = 1)
+
 
 /mob/living/simple_animal/hostile/retaliate/rogue/minotaur/axe
 	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 10,
-						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2, /obj/item/rogueweapon/greataxe/steel/doublehead = 1) //Acquiring an axe from their cold, dead hands.
+						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2, /obj/item/natural/mino_head = 1, /obj/item/rogueweapon/greataxe/steel/doublehead = 1) //Acquiring an axe from their cold, dead hands.
 	icon_state = "MinotaurMale_Axe"
 	icon_living = "MinotaurMale_Axe"
 	icon_dead = "MinotaurMale_dead"
@@ -85,6 +88,8 @@
 	icon_state = "MinotaurFem_Axe"
 	icon_living = "MinotaurFem_Axe"
 	icon_dead = "MinotaurFem_dead"
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 10,
+						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2, /obj/item/natural/mino_head/female = 1, /obj/item/rogueweapon/greataxe/steel/doublehead = 1)
 
 /mob/living/simple_animal/hostile/retaliate/rogue/minotaur/death(gibbed)
 	..()
@@ -190,3 +195,22 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/minotaur/original
 	AIStatus = AI_ON
 	can_have_ai = TRUE
+
+
+/obj/item/natural/mino_head
+	name = "minotaur's head"
+	icon = 'modular_hearthstone/icons/obj/items/mino_head.dmi'
+	icon_state = "mino_head"
+	desc = "Dismembered head of a mighty minotaur."
+	dropshrink = null
+	force = 0
+	throwforce = 0
+	w_class = WEIGHT_CLASS_BULKY
+	resistance_flags = FLAMMABLE
+	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	sellprice = 80
+
+
+/obj/item/natural/mino_head/female
+	icon_state = "fmino_head"
+	desc = "Dismembered head of a mighty female minotaur."

@@ -5,7 +5,7 @@
 /obj/effect/mob_spawn/human/npc/orc
 
 	mob_name = "Orc"
-	mob_type = /mob/living/carbon/human/species/orc/npc
+	mob_type = /mob/living/carbon/human/species/halforc/orc_raider
 	mob_species = /datum/species/halforc
 	brute_damage = 80
 

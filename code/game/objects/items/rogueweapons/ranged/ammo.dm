@@ -332,6 +332,23 @@
 	woundclass = BCLASS_STAB
 	flag = "piercing"
 	speed = 2
+
+/obj/projectile/bullet/reusable/bolt/ancient
+	damage = 15
+	damage_type = BRUTE
+	armor_penetration = 30
+	icon = 'icons/roguetown/weapons/ammo.dmi'
+	icon_state = "arrow_proj"
+	ammo_type = /obj/projectile/bullet/reusable/bolt
+	range = 15
+	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
+	embedchance = 100
+	woundclass = BCLASS_STAB
+	flag = "bullet"
+	speed = 2
+
+
+
 //deep one stone
 /obj/projectile/bullet/reusable/deepone
 	name = "stone"

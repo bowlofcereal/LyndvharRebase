@@ -12,11 +12,8 @@
 	/mob/living/carbon/human/species/goblin/npc = 6,
 	/mob/living/simple_animal/hostile/retaliate/rogue/goblin/cave = 3,		//archer
 	/mob/living/simple_animal/hostile/retaliate/rogue/goblin = 3,		//archer
-	/mob/living/carbon/human/species/goblin/npc/hell = 1,
-	/mob/living/carbon/human/species/goblin/npc/cave = 4,
-	/mob/living/carbon/human/species/goblin/npc/sea= 1,
-	/mob/living/carbon/human/species/goblin/npc/moon = 1)
-	text_faction = "Goblins"	//for spawning string		//for spawning string
+	/mob/living/carbon/human/species/goblin/npc/cave = 4,)
+	text_faction = "Goblins"
 	objfaction = list("orcs")
 
 /obj/effect/mobspawner/orc_spawner
@@ -31,7 +28,7 @@
 	/mob/living/carbon/human/species/halforc/orc_raider = 5,		//archer
 	/mob/living/simple_animal/hostile/retaliate/rogue/orc/ranged = 5		//archer
 	)
-	text_faction = "Orcs"	//for spawning string		//for spawning string
+	text_faction = "Orcs"
 	objfaction = list("orcs")
 
 /obj/effect/mobspawner/greenskin_spawner
@@ -49,7 +46,7 @@
 	/mob/living/carbon/human/species/halforc/orc_raider = 4,
 	/mob/living/simple_animal/hostile/retaliate/rogue/orc/ranged = 3		//archer
 	)
-	text_faction = "Greenskins"	//for spawning string		//for spawning string
+	text_faction = "Greenskins"
 	objfaction = list("orcs")
 
 
@@ -69,7 +66,7 @@
 	/mob/living/carbon/human/species/halforc/orc_raider = 4,
 	/mob/living/simple_animal/hostile/retaliate/rogue/orc/ranged = 3		//archer
 	)
-	text_faction = "Greenskins"	//for spawning string		//for spawning string
+	text_faction = "Greenskins"
 	objfaction = list("orcs")
 
 
@@ -98,8 +95,8 @@
 	/mob/living/carbon/human/species/halforc/orc_raider = 4,
 	/mob/living/simple_animal/hostile/retaliate/rogue/orc/ranged = 3		//archer
 	)
-	text_faction = "Greenskins"	//for spawning string
-	spawn_text = "rallied around"		//for spawning string
+	text_faction = "Greenskins"	
+	spawn_text = "rallied around"
 	spawn_sound = list(
 		'modular_helmsguard/sound/items/horns2/orc 1.ogg',
 		'modular_helmsguard/sound/items/horns2/orc 2.ogg',

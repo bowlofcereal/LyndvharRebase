@@ -109,10 +109,16 @@
 	icon_state = "arrow"
 	jobspawn_override = list(
 	"Adventurer",
-	"Mercenary",
 	)
 	delete_after_roundstart = FALSE
 
+/obj/effect/landmark/start/helms/late/mercenarylate
+	name = "Mercenary Late (Helm)"
+	icon_state = "arrow"
+	jobspawn_override = list(
+	"Mercenary",
+	)
+	delete_after_roundstart = FALSE
 
 ///////////////////////
 /* ROUNDSTART SPAWN */

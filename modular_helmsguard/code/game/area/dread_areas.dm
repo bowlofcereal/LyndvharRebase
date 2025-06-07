@@ -23,7 +23,7 @@
 				/mob/living/carbon/human/species/goblin/npc/ambush/cave = 30)
 	droning_sound = 'sound/music/area/dreadwood.ogg'
 	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
-	droning_sound_night = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
 	spookysounds = SPOOKY_FROG
 	spookynight = SPOOKY_GEN
 	location_name = "Dreadwood Forest"
@@ -35,7 +35,7 @@
 	icon_state = "dreadwood"
 	droning_sound = 'sound/music/area/dreadwood.ogg'
 	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
-	droning_sound_night = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
 	location_name = "Somewhere in Dreadwood"
 
 /area/rogue/indoors/dread/church
@@ -44,7 +44,7 @@
 	icon_state = "dreadchurch"
 	droning_sound = 'sound/music/area/dreadwood.ogg'
 	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
-	droning_sound_night = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
 	location_name = "Dreadwood Church"
 
 /area/rogue/indoors/dread/toll
@@ -55,6 +55,14 @@
 	droning_sound_dusk = null
 	droning_sound_night = null
 	location_name = "Dreadwood Toll House"
+
+/area/rogue/outdoors/dread/merc_spawn
+	name = "mercenary spawn"
+	icon_state = "mercenary_spawn"
+	droning_sound = 'sound/music/area/dreadwood.ogg'
+	droning_sound_dusk = 'sound/music/area/dreadwood.ogg'
+	droning_sound_night = 'sound/music/area/dreadwood_night.ogg'
+	location_name = "Mercenary Camp"
 
 
 //NIGHTKEEP
