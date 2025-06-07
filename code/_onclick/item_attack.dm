@@ -211,12 +211,12 @@
 		used_str--
 	if(used_str >= 11)
 		var/strmod
-		if(used_str > STRENGTH_SOFTCAP)
-			strmod = ((STRENGTH_SOFTCAP - 10) * 0.1)
-			var/strcappedmod = ((used_str - STRENGTH_SOFTCAP) * 0.05)
+		if(used_str > STRENGTH_SOFTCAP && !HAS_TRAIT(user, TRAIT_STRENGTH_UNCAPPED))
+			strmod = ((STRENGTH_SOFTCAP - 10) * STRENGTH_MULT)
+			var/strcappedmod = ((used_str - STRENGTH_SOFTCAP) * STRENGTH_CAPPEDMULT)
 			strmod += strcappedmod
 		else
-			strmod = ((used_str - 10) * 0.1)
+			strmod = ((used_str - 10) * STRENGTH_MULT)
 		newforce = newforce + (newforce * strmod)
 	else if(used_str <= 9)
 		newforce = newforce - (newforce * ((10 - used_str) * 0.1))
