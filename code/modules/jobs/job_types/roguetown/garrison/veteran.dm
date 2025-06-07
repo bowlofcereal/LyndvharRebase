@@ -99,7 +99,7 @@
 		if("Great Mace")
 			r_hand = /obj/item/rogueweapon/mace/goden/steel
 		if("Warhammer + Buckler")
-			beltr = /obj/item/rogueweapon/mace/warhammer
+			beltr = /obj/item/rogueweapon/mace/warhammer/steel
 			backl = /obj/item/rogueweapon/shield/buckler
 		if("Sabre + Buckler")
 			beltl = /obj/item/rogueweapon/sword/sabre
@@ -193,7 +193,7 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Warhammer & Shield")
-			beltr = /obj/item/rogueweapon/mace/warhammer
+			beltr = /obj/item/rogueweapon/mace/warhammer/steel
 			backl = /obj/item/rogueweapon/shield/wood
 		if("Sabre & Shield")
 			beltr = /obj/item/rogueweapon/sword/sabre
@@ -301,21 +301,21 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Bastard Sword + Crossbow")
-			beltl = /obj/item/rogueweapon/sword/long
-			r_hand = /obj/item/quiver/bolts
+			r_hand = /obj/item/rogueweapon/sword/long
+			beltl = /obj/item/quiver/bolts
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 		if("Billhook + Recurve Bow")
 			r_hand = /obj/item/rogueweapon/spear/billhook
 			backl = /obj/item/gwstrap
-			l_hand = /obj/item/quiver/arrows
-			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+			beltl = /obj/item/quiver/arrows
+			l_hand = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 		if("Grand Mace + Longbow")
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow
-			r_hand = /obj/item/quiver/arrows
-			beltl = /obj/item/rogueweapon/mace/goden/steel
+			beltl = /obj/item/quiver/arrows
+			r_hand = /obj/item/rogueweapon/mace/goden/steel
 		if("Sabre + Recurve Bow")
 			r_hand = /obj/item/rogueweapon/sword/sabre
-			l_hand = /obj/item/quiver/arrows
+			backl = /obj/item/quiver/arrows
 			beltl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 
 	var/helmets = list(
