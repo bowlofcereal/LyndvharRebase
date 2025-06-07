@@ -153,7 +153,6 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 		if(1)
 			ADD_TRAIT(user, TRAIT_LONGSTRIDER, TRAIT_GENERIC) 
 			to_chat(user, span_danger("The first capstone. My mind opens. The world around me seems to get smaller. PSYDON turns his blind gaze upon me, unseeing in his delirium of near-death and un-waking life. I WEEP for PSYDON, as HE does for me. My pace stiffens. I will do what I must."))
-			ascendantfirstomen()
 			to_chat(user, span_userdanger("Though I may sacrifice myself as many others have, I must hope I shall prevail."))
 		if(2)
 			to_chat(user, span_danger("The second capstone. Stuck in filth- FILTH AND SHIT! I grab the rotted, fetted thing and begin to peel it back. LAYER BY LAYER- THE COMET SYON. THE ARCHDEVIL. IS HE DEAD, OR SLEEPING? ..."))
@@ -165,14 +164,14 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			to_chat(user, span_userdanger("GODISCOMINGGODISCOMING"))
 			to_chat(user, span_userdanger("You pull forth the sword and it's scabbard from the stone."))
 			user.equipOutfit(/datum/outfit/ascendant_level_two)
-			ascendantsecondomen()
+			user.overlay_fullscreen("dream", /atom/movable/screen/fullscreen/dreaming)
 			ADD_TRAIT(user, TRAIT_ANTIMAGIC, TRAIT_GENERIC)
 			to_chat(user, span_danger("I can feel HIS GAZE upon me!"))
+			ascendantsecondomen()
 		if(3)
 			to_chat(user, span_danger("AGONY. SPLITTING HEADACHE. THROBBING OF THE SOUL."))
 			user.flash_fullscreen("redflash3")
 			user.emote("agony", forced = TRUE)
-			ascendantthirdomen()
 			sleep(20)
 			to_chat(user, span_userdanger("The SHARD! SYON! PSYDON. my BREATH IS gone. my heart barely baeats. My ma#&nt*le..."))
 			ADD_TRAIT(user, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -207,7 +206,7 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 			user.delete_equipment()
 			user.equipOutfit(/datum/outfit/ascendant)
 			to_chat(user, span_reallybig("THE WORLD GOES DARK!"))
-			var/turf/location = get_spawn_turf_for_job("Pilgrim")
+			var/turf/location = get_spawn_turf_for_job("Vagabond")
 			user.forceMove(location)
 			user.Stun(50)
 			user.cmode_music = 'sound/music/combat_ascended.ogg'
@@ -241,14 +240,9 @@ GLOBAL_LIST_INIT(capstone_pool, list(
 	sleep(15 SECONDS)
 	to_chat(world, span_danger("The ground underneath THE THRONE shakes. The sky is opening."))
 
-/obj/structure/ascendant_altar/proc/ascendantfirstomen()
-	priority_announce("Magicka seems to fizzle out for a moment, your connections shattered... Then the moment passes, and all is right again.", "Bad Omen", 'sound/villain/wonder.ogg')
-
 /obj/structure/ascendant_altar/proc/ascendantsecondomen()
 	priority_announce("The very earth below you seems to tremble and creak for but a moment, as if someone were attempting to struggle, before returning to silence.", "Bad Omen", 'sound/villain/wonder.ogg')
 
-/obj/structure/ascendant_altar/proc/ascendantthirdomen()
-	priority_announce("GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING GOD IS COMING ", "Bad Omen", 'sound/villain/wonder.ogg')
 
 /obj/structure/shard_holder/proc/divinitystolen()
 	priority_announce("THE SHARD OF SYON HAS BEEN STOLEN, WEEP, YE FAITHFUL.", "DIVINITY STOLEN", 'sound/villain/wonder.ogg')
