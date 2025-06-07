@@ -1,3 +1,6 @@
+GLOBAL_VAR_INIT(total_spawned_mobs, 0)
+GLOBAL_VAR_INIT(max_total_spawned_mobs, 400) // New global variable for the total limit
+
 /// ONLY TEMPLATE ///
 /*
 	MADE BY STONEDELF A.K.A FERALAPE
@@ -30,10 +33,10 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 	var/max_mobs = 3
 	var/mobs = 0
 	var/mobs_to_spawn = 3
-	var/mob_types = list(/mob/living/simple_animal/hostile/carp = 100)
+	var/mob_types = list(/mob/living/carbon/human/species/skeleton/npc = 100)
 	var/text_faction = "Space carps"	//for spawning string
 	var/spawn_text = "emerges from"		//for spawning string
-	var/list/spawn_sound = list('sound/misc/jumpscare (1).ogg', 'sound/misc/jumpscare (2).ogg', 'sound/misc/jumpscare (3).ogg', 'sound/misc/jumpscare (4).ogg')
+	var/list/spawn_sound = list()
 	var/list/objfaction = list("test")
 	var/list/mymobs = list()
 
@@ -56,7 +59,8 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 			if((objfaction[1] in M.faction) || M.incapacitated() || M.restrained() || M.IsSleeping() || (M.stat == DEAD) || M.InFullCritical())
 				continue
 			else
-				playsound(src, pick(spawn_sound), 100)
+				if(spawn_sound)
+					playsound(src, pick(spawn_sound), 100)
 //				shake_camera(M, 3, 1)
 				M.visible_message("<span class='danger'>[text_faction] [spawn_text] [src]</span>")
 				activated = TRUE
@@ -75,11 +79,11 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 				activate()*/
 
 /obj/structure/mobspawner/proc/activate()
-	for(var/mob/living/M in view(detect_range, src))
-		shake_camera(M, 3, 1)
+//	for(var/mob/living/M in view(detect_range, src))
+//		shake_camera(M, 3, 1)
 	last_activated = world.time
 	mobs_to_spawn = rand(min_mobs, max_mobs)
-	while(mobs < mobs_to_spawn)
+	while(mobs < mobs_to_spawn && GLOB.max_total_spawned_mobs)
 		spawn_mob()
 		if(mobs >= mobs_to_spawn)
 			reset()
@@ -161,12 +165,12 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 	var/min_mobs = 1
 	var/max_mobs = 3
 	var/mobs_to_spawn = 3
-	var/mob_types = list(/mob/living/simple_animal/hostile/carp = 100)
+	var/mob_types = list(/mob/living/carbon/human/species/skeleton/npc = 100)
 	var/text_faction = "Space carps"	//for spawning string
 	var/list/notification_strings = list("appeared from hiding!", "laid an ambush!", "emerges from the shadows!", "lunged from their hiding place!",
 	"revealed themselves suddenly!")
 	var/picked_string = null
-	var/list/spawn_sound = list('sound/misc/jumpscare (1).ogg', 'sound/misc/jumpscare (2).ogg', 'sound/misc/jumpscare (3).ogg', 'sound/misc/jumpscare (4).ogg')
+//	var/list/spawn_sound = list()
 	var/list/objfaction = list("test")
 	var/list/mymobs = list()
 
@@ -190,7 +194,8 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 			if((objfaction[1] in M.faction) || M.incapacitated() || M.restrained() || M.IsSleeping() || (M.stat == DEAD) || M.InFullCritical())
 				continue
 			else
-				playsound(src, pick(spawn_sound), 100)
+//				if(spawn_sound)
+//					playsound(src, pick(spawn_sound), 100)
 	//			shake_camera(M, 3, 1)
 				M.visible_message("<span class='danger'>[text_faction] [picked_string]</span>")
 				activated = TRUE
@@ -200,7 +205,7 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 
 /obj/effect/mobspawner/proc/activate()
 	for(var/mob/living/M in view(detect_range, src))
-		shake_camera(M, 3, 1)
+//		shake_camera(M, 3, 1)
 	last_activated = world.time
 	mobs_to_spawn = rand(min_mobs, max_mobs)
 	while(mobs < mobs_to_spawn)
@@ -258,11 +263,12 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 	min_mobs = 1
 	max_mobs = 2
 	mobs_to_spawn = 3
-	mob_types = list(/mob/living/simple_animal/hostile/carp = 100)
+	mob_types = list(/mob/living/carbon/human/species/skeleton/npc = 100)
 	text_faction = null
 	notification_strings = list("climbs out of")
 	picked_string = null
 	notification_strings = list("climbs out of", "emerges from", "crawls out of", "creeps out from")
+	var/spawn_sound = list('sound/foley/climb.ogg')
 	objfaction = list("test")
 	mymobs = list()
 	debris = list(/obj/item/natural/rock = 3, /obj/item/natural/stone = 3)
@@ -319,7 +325,8 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 	var/spawnmob = pickweight(mob_types)
 	var/mob/living/damob = spawnmob
 	src.visible_message("<span class='danger'>[damob.name] [picked_string] [src]!</span>")
-	playsound(src, pick(spawn_sound), 100)
+	if(spawn_sound)
+		playsound(src, pick(spawn_sound), 100)
 	mymobs += new spawnmob(get_turf(src))
 	mobs ++
 	for(var/mob/living/c in mymobs)
@@ -364,3 +371,4 @@ THESE SPAWNERS SPAWN MOBS BY CHOOSING RANDOM TILES AROUND IT AND SCATTERING THE 
 				src.visible_message("<span class='danger'>[user] collapsed [src] with [attacking_pick]!</span>")
 				Destroy()
 	..()
+

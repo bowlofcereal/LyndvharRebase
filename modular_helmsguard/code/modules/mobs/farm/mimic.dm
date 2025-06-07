@@ -117,12 +117,16 @@
 /mob/living/simple_animal/hostile/rogue/mimic/AttackingTarget()
 	. = ..()
 	emote("aggro")
-	if(. && prob(60) && iscarbon(target))
+	if(iscarbon(target))
 		var/mob/living/carbon/C = target
-		C.Immobilize(50)
-		C.visible_message(span_danger("\The [src] grips onto \the [C]"), \
-				span_danger("\The [src] grips onto me!"))
-		emote("aggro")
+		if(prob(50) && iscarbon(C) && Adjacent(C) && (C.mobility_flags & MOBILITY_STAND))
+			src.loc = C.loc
+			C.Immobilize(50)
+			C.Stun(100)
+			C.Knockdown(100)
+			C.visible_message(span_danger("\The [src] pins \the [C] down with its large fleshy claws!"), \
+					span_danger("\The [src] pins me down with its large fleshy claws!"))
+			emote("aggro")
 
 
 

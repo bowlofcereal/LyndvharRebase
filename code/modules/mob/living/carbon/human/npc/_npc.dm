@@ -14,7 +14,6 @@
 	var/maxStepsTick = 6
 	var/resisting = FALSE
 	var/pickpocketing = FALSE
-	var/del_on_deaggro = null
 	var/last_aggro_loss = null
 	var/wander = TRUE
 	var/ai_when_client = FALSE

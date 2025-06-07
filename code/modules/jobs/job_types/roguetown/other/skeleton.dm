@@ -47,8 +47,8 @@
 			QDEL_NULL(H.charflaw)
 		H.mob_biotypes = MOB_UNDEAD
 		H.faction = list("undead")
-		H.name = "skelelon"
-		H.real_name = "skelelon"
+		H.name = "skeleton"
+		H.real_name = "skeleton"
 		ADD_TRAIT(H, TRAIT_NOMOOD, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOROGSTAM, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)

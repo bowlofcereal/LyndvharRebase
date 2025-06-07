@@ -532,6 +532,12 @@
 
 /obj/structure/closet/crate/chest/dungeon/mimic
 
+/obj/structure/closet/crate/chest/dungeon/mimic/examine(mob/user)
+	. = ..()
+	if(user.mind)
+		var/mob/living/examiner = user
+		if(examiner.STAPER >= 12)
+			. += span_notice("It looks like a normal chest, but something about it seems off...")
 
 /obj/structure/closet/crate/chest/dungeon/mimic/attack_hand(mob/living/user)
 	. = ..()

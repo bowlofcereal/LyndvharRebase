@@ -101,6 +101,77 @@
 			)
 	ai_controller = /datum/ai_controller/skeleton_ranged
 
+
+
+/mob/living/simple_animal/hostile/rogue/skeleton/guard/spear
+	base_intents = list(/datum/intent/simple/spear)
+	icon_state = "skeleton_guard_spear"
+	icon_living = "skeleton_guard_spear"
+	icon_dead = ""
+	loot = list(/obj/item/natural/bone,	/obj/item/natural/bone, /obj/item/natural/bone,	/obj/item/rogueweapon/spear, /obj/item/skull)
+	ai_controller = /datum/ai_controller/skeleton_spear
+	
+/mob/living/simple_animal/hostile/rogue/skeleton/guard/shield
+	base_intents = list(/datum/intent/simple/spear)
+	icon_state = "skeleton_guard_shield"
+	icon_living = "skeleton_guard_shield"
+	icon_dead = ""
+	loot = list(/obj/item/natural/bone,	/obj/item/natural/bone, /obj/item/natural/bone,	/obj/item/rogueweapon/sword/iron, /obj/item/rogueweapon/shield/tower, /obj/item/skull)
+
+/mob/living/simple_animal/hostile/rogue/skeleton/guard/xbow
+	base_intents = list(/datum/intent/simple/claw/skeleton_unarmed)
+	icon_state = "skeleton_guard_xbow"
+	icon_living = "skeleton_guard_xbow"
+	icon_dead = ""
+	loot = list(/obj/item/natural/bone,	/obj/item/natural/bone, /obj/item/natural/bone,	/obj/item/gun/ballistic/revolver/grenadelauncher/crossbow, /obj/item/ammo_casing/caseless/rogue/bolt,
+	/obj/item/ammo_casing/caseless/rogue/bolt, /obj/item/ammo_casing/caseless/rogue/bolt, /obj/item/skull)
+	projectiletype = /obj/projectile/bullet/reusable/bolt/ancient
+	projectilesound = 'sound/combat/Ranged/crossbow-small-shot-02.ogg'
+	ranged = 1
+	retreat_distance = 2
+	minimum_distance = 5
+	ranged_cooldown_time = 80
+	check_friendly_fire = 1
+	maxHealth = 100
+	health = 100
+	ai_controller = /datum/ai_controller/skeleton_ranged
+
+/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard
+	name = "Crypt Guard"
+	base_intents = list(/datum/intent/simple/spear)
+	icon_state = "crypt_guard"
+	icon_living = "crypt_guard"
+	icon_dead = ""
+	loot = list(/obj/item/natural/bone,	/obj/item/natural/bone, /obj/item/natural/bone,	/obj/item/clothing/mask/rogue/facemask, /obj/item/rogueweapon/sword/iron, /obj/item/rogueweapon/shield/tower, /obj/item/skull)
+	melee_damage_lower = 30
+	melee_damage_upper = 40
+	maxHealth = 200
+	health = 200
+
+/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard/necro
+	name = "Necromancer Guard"
+	faction = "summoner"
+
+/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard_spear
+	name = "Crypt Guard"
+	base_intents = list(/datum/intent/simple/spear)
+	icon_state = "crypt_guard2"
+	icon_living = "crypt_guard2"
+	icon_dead = ""
+	loot = list(/obj/item/natural/bone,	/obj/item/natural/bone, /obj/item/natural/bone,	/obj/item/clothing/mask/rogue/facemask, /obj/item/rogueweapon/halberd, /obj/item/skull)
+	melee_damage_lower = 30
+	melee_damage_upper = 40
+	maxHealth = 200
+	health = 200
+	ai_controller = /datum/ai_controller/skeleton_spear
+
+
+
+
+
+
+
+
 /mob/living/simple_animal/hostile/rogue/skeleton/get_sound(input)
 	switch(input)
 		if("aggro")
@@ -186,8 +257,6 @@
 	chargetime = 1
 	animname = "stab"
 
-
-
 /mob/living/simple_animal/hostile/rogue/skeleton/axe/event
 	ai_controller = /datum/ai_controller/simple_skeleton/event
 /mob/living/simple_animal/hostile/rogue/skeleton/spear/event
@@ -196,4 +265,3 @@
 	ai_controller = /datum/ai_controller/simple_skeleton/event
 /mob/living/simple_animal/hostile/rogue/skeleton/bow/event
 	ai_controller = /datum/ai_controller/skeleton_ranged/event
-	

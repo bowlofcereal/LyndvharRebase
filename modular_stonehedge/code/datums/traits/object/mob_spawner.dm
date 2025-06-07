@@ -1,5 +1,6 @@
 /// TAKEN FROM STONEHEDGE OR DREAMKEEP
 
+/*
 GLOBAL_VAR_INIT(total_spawned_mobs, 0)
 GLOBAL_VAR_INIT(max_total_spawned_mobs, 400) // New global variable for the total limit
 
@@ -101,3 +102,101 @@ GLOBAL_VAR_INIT(max_total_spawned_mobs, 400) // New global variable for the tota
 		if (H.client)
 			return TRUE
 	return FALSE
+
+
+/// SPAWNERS FOR SPECIFIC MOB TYPES
+
+
+/obj/effect/mob_spawner/goblin
+	max_spawned_mobs = 8
+	mobs_to_spawn = 4
+	spawn_interval = 3000 //5 minutes. Do not touch this, it needs to be low enough to spawn in mobs before players get to the dungeon.
+	spawn_range = 9
+	player_range = 13
+	ambush_mobs = list(
+		/mob/living/carbon/human/species/goblin/npc = 6,
+		/mob/living/carbon/human/species/goblin/npc/cave = 4,
+		/mob/living/simple_animal/hostile/retaliate/rogue/goblin = 3,
+		/mob/living/simple_animal/hostile/retaliate/rogue/goblin/cave = 3,
+		)
+
+/obj/effect/mob_spawner/skeleton
+	max_spawned_mobs = 6
+	mobs_to_spawn = 3
+	spawn_interval = 3600
+	spawn_range = 10
+	player_range = 15
+	ambush_mobs = list(
+		/mob/living/simple_animal/hostile/rogue/skeleton/guard/shield = 40,
+		/mob/living/simple_animal/hostile/rogue/skeleton/guard/xbow = 30,
+		/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard = 20,
+		/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard_spear = 20,
+		/mob/living/carbon/human/species/skeleton/dwarf = 20,
+		/mob/living/carbon/human/species/skeleton/dwarf/npc/dungeon = 20,
+		/mob/living/carbon/human/species/skeleton/npc/dungeon = 30,
+			)
+
+/obj/effect/mob_spawner/minotaur
+	max_spawned_mobs = 4
+	mobs_to_spawn = 2
+	spawn_interval = 3600
+	spawn_range = 10
+	player_range = 15
+	ambush_mobs = list(
+	/mob/living/simple_animal/hostile/retaliate/rogue/minotaur = 20,
+	/mob/living/simple_animal/hostile/retaliate/rogue/minotaur/axe = 5,
+	/mob/living/simple_animal/hostile/retaliate/rogue/minotaur/female = 20,
+	/mob/living/simple_animal/hostile/retaliate/rogue/minotaur/axe/female = 5)
+
+/obj/effect/mob_spawner/mossback
+	max_spawned_mobs = 4
+	mobs_to_spawn = 2
+	spawn_interval = 3000
+	spawn_range = 10
+	player_range = 15
+	accepted_turf = /turf/open/water/cleanshallow
+	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/rogue/mossback)
+
+/obj/effect/mob_spawner/wilderness
+	max_spawned_mobs = 6
+	mobs_to_spawn = 3
+	spawn_interval = 3000
+	spawn_range = 15
+	player_range = 20
+	accepted_turf = /turf/open/floor/rogue/dirt
+	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/rogue/saiga = 10,
+	/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck = 15,
+	/mob/living/simple_animal/hostile/retaliate/rogue/goat = 10,
+	/mob/living/simple_animal/hostile/retaliate/rogue/goatmale = 15,
+	/mob/living/simple_animal/hostile/retaliate/rogue/trufflepig = 15)
+
+/obj/effect/mob_spawner/wilderness/hostile
+	max_spawned_mobs = 4
+	mobs_to_spawn = 2
+	spawn_interval = 6000
+	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 10,
+	/mob/living/simple_animal/hostile/retaliate/rogue/spider = 5,
+	/mob/living/simple_animal/hostile/retaliate/rogue/bigrat = 15)
+
+/obj/effect/mob_spawner/skeleton/lich
+	max_spawned_mobs = 10
+	mobs_to_spawn = 10
+	spawn_interval = 3000
+	spawn_range = 7
+	player_range = 20
+	ambush_mobs = list(
+		/mob/living/simple_animal/hostile/rogue/skeleton/guard/shield/lich = 20,
+		/mob/living/simple_animal/hostile/rogue/skeleton/guard/xbow/lich = 20,
+		/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard/lich = 20,
+		/mob/living/simple_animal/hostile/rogue/skeleton/guard/crypt_guard_spear/lich = 20,
+		/mob/living/carbon/human/species/skeleton/npc/dungeon/lich = 10)
+
+/obj/effect/mob_spawner/temporary/lich/boss
+	max_spawned_mobs = 1
+	mobs_to_spawn = 1
+	spawn_interval = 3000
+	spawn_range = 0
+	player_range = 1
+	temporary = TRUE
+	ambush_mobs = list(/mob/living/simple_animal/hostile/retaliate/rogue/boss/lich)
+*/

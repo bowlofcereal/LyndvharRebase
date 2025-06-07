@@ -182,3 +182,4 @@
 
 	var/domhand = 0
 	var/mounted = FALSE
+	var/del_on_deaggro = 0
