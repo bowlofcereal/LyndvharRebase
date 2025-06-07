@@ -112,15 +112,5 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		if(fails & BAD_INIT_SLEPT)
 			TEST_FAIL("[path] slept during Initialize()")
 
-	cache_for_sonic_speed = SSatoms.BadInitializeCalls
-	for(var/path in cache_for_sonic_speed)
-		var/fails = cache_for_sonic_speed[path]
-		if(fails & BAD_INIT_NO_HINT)
-			Fail("[path] didn't return an Initialize hint")
-		if(fails & BAD_INIT_QDEL_BEFORE)
-			Fail("[path] qdel'd in New()")
-		if(fails & BAD_INIT_SLEPT)
-			Fail("[path] slept during Initialize()")
-
 	//This shouldn't be needed, but let's be polite
 	SSgarbage.collection_timeout[GC_QUEUE_CHECK] = GC_CHECK_QUEUE
