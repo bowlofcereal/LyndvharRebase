@@ -928,7 +928,7 @@
 
 #define BLOODRAGE_FILTER "bloodrage"
 
-/atom/movable/screen/alert/status_effect/graggar_bloodrage
+/atom/movable/screen/alert/status_effect/buff/graggar_bloodrage
 	name = "BLOODRAGE"
 	desc = "GRAGGAR! GRAGGAR! GRAGGAR!"
 	icon_state = "bloodrage"
