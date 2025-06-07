@@ -194,13 +194,13 @@
 	switch(weapon_choice)
 		if("Warhammer & Shield")
 			beltr = /obj/item/rogueweapon/mace/warhammer/steel
-			backl = /obj/item/rogueweapon/shield/wood
+			backl = /obj/item/rogueweapon/shield/metal
 		if("Sabre & Shield")
 			beltr = /obj/item/rogueweapon/sword/sabre
-			backl = /obj/item/rogueweapon/shield/wood
+			backl = /obj/item/rogueweapon/shield/metal
 		if("Axe & Shield")
 			beltr = /obj/item/rogueweapon/stoneaxe/woodcut/steel
-			backl = /obj/item/rogueweapon/shield/wood
+			backl = /obj/item/rogueweapon/shield/metal
 		if("Billhook")
 			r_hand = /obj/item/rogueweapon/spear/billhook 
 			backl = /obj/item/gwstrap
