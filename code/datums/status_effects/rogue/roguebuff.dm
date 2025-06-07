@@ -958,6 +958,7 @@
 	owner.visible_message(span_warning("[owner] wavers, their rage simmering down."))
 	owner.OffBalance(3 SECONDS)
 	owner.remove_filter(BLOODRAGE_FILTER)
+	owner.emote("breathgasp", forced = TRUE)
 	owner.Slowdown(3)
 
 #undef BLOODRAGE_FILTER
