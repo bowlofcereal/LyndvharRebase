@@ -15,7 +15,7 @@
 	maximum_antags = 1
 
 	weight = 2 
-	max_occurrences = 1
+	max_occurrences = 0 //ADMIN ONLY FOR TESTING!
 
 	earliest_start = 0 SECONDS
 
