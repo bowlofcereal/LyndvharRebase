@@ -87,6 +87,8 @@
 	var/droning_channel = CHANNEL_BUZZ
 	var/droning_frequency = 0
 
+	var/discover_sound = 'sound/misc/area.ogg'
+
 	var/list/spookysounds = null
 	var/list/spookynight = null
 
@@ -424,7 +426,7 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	T.maptext_height = 209
 	T.maptext_x = 12
 	T.maptext_y = 64
-	playsound_local(src, 'sound/misc/area.ogg', 100, FALSE)
+	playsound_local(src, A.discover_sound, 100, FALSE)
 	animate(T, alpha = 255, time = 10, easing = EASE_IN)
 	addtimer(CALLBACK(src, PROC_REF(clear_area_text), T), 35)
 

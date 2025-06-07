@@ -4,7 +4,7 @@
 	outfit = /datum/outfit/job/roguetown/mercenary/vaquero
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled
 	cmode_music = 'sound/music/combat_vaquero.ogg'
-	category_tags = list(CTAG_MERCENARY)
+//	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
 
 /datum/advclass/mercenary/vaquero/equipme(mob/living/carbon/human/H)
