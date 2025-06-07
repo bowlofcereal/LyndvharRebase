@@ -179,3 +179,74 @@
 	owner.remove_filter(CHURN_FILTER)
 
 #undef CHURN_FILTER
+
+
+/obj/effect/proc_holder/spell/invoked/necra_vow
+	name = "Vow to Necra"
+	range = 1
+	overlay_state = "necra"
+	releasedrain = 30
+	chargedloop = /datum/looping_sound/invokeholy
+	chargetime = 50
+	chargedrain = 0.5
+	recharge_time = 30 SECONDS
+	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
+	sound = 'sound/magic/churn.ogg'
+	associated_skill = /datum/skill/magic/holy
+	invocation = "The Undermaiden Protects."
+	invocation_type = "shout" 
+	miracle = TRUE
+	devotion_cost = 100
+
+/obj/effect/proc_holder/spell/invoked/necra_vow/cast(list/targets, mob/living/user = usr)
+	if(ishuman(targets[1]))
+		var/mob/living/carbon/human/H = targets[1]
+		if(HAS_TRAIT(H, TRAIT_ROTMAN) || HAS_TRAIT(H, TRAIT_NOBREATH) || H.mob_biotypes & MOB_UNDEAD)	//No Undead, no Rotcured, no Deathless
+			to_chat(user, span_warning("Necra cares not for the vows of the corrupted."))
+			revert_cast()
+			return FALSE
+		if(H.has_status_effect(/datum/status_effect/buff/necras_vow) || H.patron?.type != /datum/patron/divine/necra)
+			to_chat(user, span_notice("They have already pledged a vow."))
+			revert_cast()
+			return FALSE
+		var/choice = alert(H, "You are being asked to pledge a vow. Your chances of revival or recovery of limb will be greatly reduced. You will harm undeath and heal yourself at a slow rate. Do you agree?", "VOW", "Yes", "No")
+		if(choice != "Yes")
+			to_chat(user, span_notice("They declined."))
+			return TRUE
+		user.visible_message(span_warning("[user] grants [H] the blessing of their promise."))
+		to_chat(H, span_warning("I have committed. There is no going back."))
+		H.apply_status_effect(/datum/status_effect/buff/necras_vow)
+		H.apply_status_effect(/datum/status_effect/buff/healing/necras_vow)
+
+/atom/movable/screen/alert/status_effect/buff/necras_vow
+	name = "Vow to Necra"
+	desc = "I have pledged a promise to Necra. Undeath shall be harmed or lit aflame if they strike me. Rot will not claim me. Lost limbs can only be restored if they are myne."
+	icon_state = "necravow"
+
+#define NECRAVOW_FILTER "necravow_glow"
+
+/datum/status_effect/buff/necras_vow
+	var/outline_colour ="#929186" // A dull grey.
+	id = "necravow"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/necras_vow
+	effectedstats = list("constitution" = 2)
+	duration = -1
+
+/datum/status_effect/buff/haste/on_creation(mob/living/new_owner, var/new_duration = null)
+	if(new_duration)
+		duration = new_duration
+	. = ..()
+
+/datum/status_effect/buff/haste/on_apply()
+	. = ..()
+	var/filter = owner.get_filter(NECRAVOW_FILTER)
+	if (!filter)
+		owner.add_filter(NECRAVOW_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 200, "size" = 1))
+	to_chat(owner, span_warning("My limbs feel more alive than ever... I feel whole..."))
+
+/datum/status_effect/buff/haste/on_remove()
+	. = ..()
+	owner.remove_filter(NECRAVOW_FILTER)
+	to_chat(owner, span_warning("My body feels strange... hollow..."))
+
+#undef NECRAVOW_FILTER

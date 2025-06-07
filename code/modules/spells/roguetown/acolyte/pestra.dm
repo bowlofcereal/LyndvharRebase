@@ -133,7 +133,14 @@
 /obj/effect/proc_holder/spell/invoked/attach_bodypart/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
 		var/mob/living/carbon/human/human_target = targets[1]
+		var/same_owner = FALSE
+		if(human_target.has_status_effect(/datum/status_effect/buff/necras_vow))
+			same_owner = TRUE
+			to_chat(user, span_warning("This one has pledged a vow to Necra. Only their own limbs will be accepted."))
 		for(var/obj/item/bodypart/limb as anything in get_limbs(human_target, user))
+			if(!human_target.get_bodypart(limb.body_zone) && same_owner)
+				if(limb.original_owner != human_target)
+					continue
 			if(human_target.get_bodypart(limb.body_zone) || !limb.attach_limb(human_target))
 				continue
 			human_target.visible_message(span_info("\The [limb] attaches itself to [human_target]!"), \
