@@ -899,7 +899,7 @@
 
 /datum/status_effect/buff/bloodrage
 	id = "bloodrage"
-	alert_type = /atom/movable/screen/alert/status_effect/graggar_bloodrage
+	alert_type = /atom/movable/screen/alert/status_effect/buff/graggar_bloodrage
 	var/outline_color = "#ad0202"
 	duration = 15 SECONDS
 
