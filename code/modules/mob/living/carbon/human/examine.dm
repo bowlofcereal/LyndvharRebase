@@ -118,8 +118,8 @@
 			if(H.marriedto == name)
 				. += span_love("It's my spouse.")
 
-        if(name in GLOB.excommunicated_players && HAS_TRAIT(user, TRAIT_INQUISITION))
-            . += span_userdanger("HERETIC! SHAME!")
+		if(name in GLOB.excommunicated_players && HAS_TRAIT(user, TRAIT_INQUISITION))
+			. += span_userdanger("HERETIC! SHAME!")
 
 		if(HAS_TRAIT(user, TRAIT_JUSTICARSIGHT) && !HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
 			for(var/datum/bounty/b in GLOB.head_bounties) //I hate this.
