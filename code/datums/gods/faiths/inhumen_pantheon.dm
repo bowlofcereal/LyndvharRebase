@@ -1,7 +1,8 @@
 /datum/faith/inhuman
-	name = "Ascendents"
-	desc = "The Holy Ecclesial is a series of sects formed by a violent schism with the Holy See that split the church in twain. \n\
-		The Holy Ecclesial accepts the Four Ascendents as True Divinity, proof that Mortals can ascend past their limits.  \
-		So close to the seat of the Holy See, worship of the Four is considered heretical, and they are denounced as the INHUMEN. But we laugh, and spit in their face."
-	worshippers = "Cultists, those spurned by the Ten."
+	name = "The Tribunal"
+	desc = "Three lesser saints, or perhaps greater sinners, make up the Tribunal. \n\
+		Those who seek perfection beyond the Six-Pointed-Sun have fallen into several cults of personality, each promising to restore the world in their image or free their adherents from worldly concerns.  \
+		Facets-of-gems, blood-stained swords, foul magics manifest; all of these are murmured about by the sheep of the Church and pitiful followers of false Saints. \
+		Even to have given up hope is to be prey to their call."
+	worshippers = "Warriors, Hedonists, Cultists, Outcasts."
 	godhead = /datum/patron/inhuman/zizo
