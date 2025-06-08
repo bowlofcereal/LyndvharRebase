@@ -164,7 +164,7 @@
 	to_chat(src,"My devotion is [devotion.devotion].")
 	return TRUE
 
-/mob/living/carbon/human/proc/clericpray(mob/user,)
+/mob/living/carbon/human/proc/clericpray()
 	set name = "Give Prayer"
 	set category = "Cleric"
 
@@ -180,6 +180,7 @@
 		if(!do_after(src, 30))
 			break
 		// Stops prayers if you don't meet your patron's requirements to pray.
+		var/mob/user
 		var/mob/living/carbon/follower = user
 		var/datum/patron/patron = follower.patron
 		if(!patron?.can_pray(user))
