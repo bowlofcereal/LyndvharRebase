@@ -208,7 +208,7 @@
 
 /obj/item/rogueweapon/katar
 	slot_flags = ITEM_SLOT_HIP
-	force = 16
+	force = 20
 	possible_item_intents = list(/datum/intent/katar/cut, /datum/intent/katar/thrust)
 	name = "katar"
 	desc = "A blade that sits above the users fist. Commonly used by those proficient at unarmed fighting"
@@ -238,12 +238,13 @@
 	icon_state = "incut"
 	attack_verb = list("cuts", "slashes")
 	animname = "cut"
-	blade_class = BCLASS_CUT
+	blade_class = BCLASS_CHOP
 	hitsound = list('sound/combat/hits/bladed/smallslash (1).ogg', 'sound/combat/hits/bladed/smallslash (2).ogg', 'sound/combat/hits/bladed/smallslash (3).ogg')
 	penfactor = 0
 	chargetime = 0
 	swingdelay = 0
-	clickcd = 8
+	damfactor = 1.3
+	clickcd = CLICK_CD_INTENTCAP
 	item_d_type = "slash"
 
 /datum/intent/katar/thrust
@@ -253,9 +254,9 @@
 	animname = "stab"
 	blade_class = BCLASS_STAB
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
-	penfactor = 40
+	penfactor = 50	//Should be able to penetrate 80 armor if the user has 17 STR
 	chargetime = 0
-	clickcd = 8
+	clickcd = CLICK_CD_INTENTCAP
 	item_d_type = "stab"
 
 /obj/item/rogueweapon/katar/getonmobprop(tag)
@@ -292,7 +293,7 @@
 	swingsound = list('sound/combat/wooshes/punch/punchwoosh (1).ogg','sound/combat/wooshes/punch/punchwoosh (2).ogg','sound/combat/wooshes/punch/punchwoosh (3).ogg')
 	associated_skill = /datum/skill/combat/unarmed
 	throwforce = 12
-	wdefense = 4
+	wdefense = 5
 	wbalance = WBALANCE_SWIFT
 	blade_dulling = DULLING_SHAFT_WOOD
 	anvilrepair = /datum/skill/craft/weaponsmithing
