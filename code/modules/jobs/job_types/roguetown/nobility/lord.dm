@@ -32,7 +32,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	give_bank_account = 1000
 	required = TRUE
 	cmode_music = 'sound/music/combat_noble.ogg'
-	allowed_patrons = NON_PSYDON_PATRONS		//No Psydonites - Lore reason: Town is Astratan town, you are crowned by Astrata for right to rule. (Inhuman people pose as Ten worshipers.)
+	allowed_patrons = ALL_PATRONS		// The Tribunal are secret cults, elves and half-elves could be Saint-followers, but Shepherdism should be the church's preferred power. Everyone loves a good Church-State fight, though. - Nikov
 
 /datum/job/roguetown/exlord //just used to change the lords title
 	title = "Lord Castellan Emeritus"
