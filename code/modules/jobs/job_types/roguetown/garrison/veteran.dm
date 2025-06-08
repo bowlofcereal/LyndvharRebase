@@ -59,7 +59,7 @@
 	cloak = /obj/item/clothing/cloak/half/vet
 	belt = /obj/item/storage/belt/rogue/leather/black
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
-	gloves = /obj/item/clothing/gloves/roguetown/plate 
+	gloves = /obj/item/clothing/gloves/roguetown/chain // Boss said no plate gauntlets, just trade it in at the blacksmith for one like everyone else  
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
@@ -122,10 +122,10 @@
 		head = helmets[helmchoice]
 
 	var/armors = list(
-		"Brigandine"		= /obj/item/clothing/suit/roguetown/armor/brigandine,
-		"Coat of Plates"	= /obj/item/clothing/suit/roguetown/armor/brigandine/coatplates,
+		"Light Brigandine"		= /obj/item/clothing/suit/roguetown/armor/brigandine/light,
 		"Steel Cuirass"		= /obj/item/clothing/suit/roguetown/armor/plate/half,
 		"Fluted Cuirass"	= /obj/item/clothing/suit/roguetown/armor/plate/half/fluted,
+		"Scalemail"	= /obj/item/clothing/suit/roguetown/armor/plate/scale,
 	)
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
@@ -249,7 +249,7 @@
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 	pants = /obj/item/clothing/under/roguetown/chainlegs
-	gloves = /obj/item/clothing/gloves/roguetown/plate
+	gloves = /obj/item/clothing/gloves/roguetown/chain // Plate gauntlets too OP 
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	beltr = /obj/item/storage/keyring/guardcastle
@@ -335,10 +335,10 @@
 		head = helmets[helmchoice]
 
 	var/armors = list(
-		"Brigandine"		= /obj/item/clothing/suit/roguetown/armor/brigandine,
-		"Coat of Plates"	= /obj/item/clothing/suit/roguetown/armor/brigandine/coatplates,
+		"Steel Half-Plate"		= /obj/item/clothing/suit/roguetown/armor/plate,
 		"Steel Cuirass"		= /obj/item/clothing/suit/roguetown/armor/plate/half,
 		"Fluted Cuirass"	= /obj/item/clothing/suit/roguetown/armor/plate/half/fluted,
+		"Fluted Half-Plate"		= /obj/item/clothing/suit/roguetown/armor/plate/fluted,
 	)
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
