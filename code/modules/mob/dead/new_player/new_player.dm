@@ -1,5 +1,6 @@
 #define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
 GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
+GLOBAL_LIST_INIT(server_rules, world.file2list("strings/rt/server_rules.txt"))
 
 /mob/dead/new_player
 	var/ready = 0
@@ -308,6 +309,20 @@ GLOBAL_LIST_INIT(roleplay_readme, world.file2list("strings/rt/rp_prompt.txt"))
 		var/datum/browser/popup = new(src, "Primer", "HELMSGUARD", 460, 550)
 		popup.set_content(dat.Join())
 		popup.open()
+
+
+/mob/dead/new_player/verb/show_rules()
+	set name = "Server Rules"
+	set category = "Memory"
+	var/list/dat = list()
+	dat += GLOB.server_rules
+	if(dat)
+		var/datum/browser/popup = new(src, "Server Rules", "HELMSGUARD", 460, 550)
+		popup.set_content(dat.Join())
+		popup.open()
+
+
+
 
 //When you cop out of the round (NB: this HAS A SLEEP FOR PLAYER INPUT IN IT)
 /mob/dead/new_player/proc/make_me_an_observer()
