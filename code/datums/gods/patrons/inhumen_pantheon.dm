@@ -4,31 +4,31 @@
 	undead_hater = FALSE
 	t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	confess_lines = list(
-		"PSYDON IS THE DEMIURGE!",
-		"THE TEN ARE WORTHLESS COWARDS!",
-		"THE TEN ARE DECEIVERS!",
+		"WE KNOW THE TRUTH!",
+		"DARE YOU CALL US TRAITOR?",
+		"THE SIX DECEIVE YOU ALL!",
 	)
 
 /datum/patron/inhuman/zizo
-	name = "Zizo"
-	domain = "Progress, Undeath, Hubris, Left Hand Magicks"
-	desc = "A once-mortal snow elf turned god. Her hubris in thinking she could harvest lux from the planet itself led to the elimination of her entire race. Her works are still used to this dae in some cases."
-	worshippers = "Necromancers, Researchers, Warlocks, and the Undead"
+	name = "Lhanc"
+	domain = "Perfection in Undeath."
+	desc = "Once a councilor to Saeran before the Betrayal, Lhanc thereafter bent his will to attaining revenge upon all humanity. The bones of Tyrian soldiers tremble in ancient tombs and men are twisted into the form of wolves, yet perhaps his most terrible creation is yet unknown."
+	worshippers = "Dusk Elves, Necromancers, Vampires, Revenge-Seekers."
 	mob_traits = list(TRAIT_CABAL)
 	t1 = /obj/effect/proc_holder/spell/invoked/projectile/profane/miracle
 	t2 = /obj/effect/proc_holder/spell/invoked/raise_lesser_undead/miracle
 	t3 = /obj/effect/proc_holder/spell/invoked/rituos/miracle
 	confess_lines = list(
-		"PRAISE ZIZO!",
-		"LONG LIVE ZIZO!",
-		"ZIZO IS QUEEN!",
+		"DEATH CANNOT HOLD US!",
+		"MAY YOUR BONES RISE AND SLAY YOUR BELOVED!",
+		"KILL ME! REVENGE IS LHANC'S!",
 	)
 
 /datum/patron/inhuman/graggar
-	name = "Graggar"
-	domain = "God of Conquest, War, Strategy, Bind-Breaking"
-	desc = "Slave orc turned deity, said by the Holy Ecclesial to have been blessed by Ravox himself. He took his blessings to wage a bloody war against his once-captors, and then continued his conquest in his own name. Some Graggarites might care for honor, however many do not- what matters are results, and victory at a reasonable cost."
-	worshippers = "Prisoners, Slaves, Militants, and the Cruel"
+	name = "Ectar"
+	domain = "Perfection in Power."
+	desc = "Champion of Beroth's armies in the War of Brothers, Ectar fought countless duels in pursuit of victory. Insisting upon duels to the death, he was disgraced when Beroth learned of his excesses and cast him out, refusing the challenge of a last duel of honor. Ectar's followers believe power is all but abhor the slaughter of innocents, seeking a warrior to give them honor or a warrior's death."
+	worshippers = "Dawn Elves, Champions, the Mighty, the Feared."
 	mob_traits = list(TRAIT_HORDE, TRAIT_ORGAN_EATER)
 	t1 = /obj/effect/proc_holder/spell/self/call_to_slaughter
 	t2 = /obj/effect/proc_holder/spell/invoked/projectile/blood_net
@@ -39,33 +39,35 @@
 		"THE GOD OF CONQUEST DEMANDS BLOOD!",
 	)
 
+/datum/patron/inhuman/baotha
+	name = "Alinde"
+	domain = "Perfection in Pleasure."
+	desc = "Lover of Calarost before he spurned her for Vannesse's petty challenge, Alinde lost her opportunity to join the Court of Saints, yet persisted in her aspirations. Held in high regard by Alasturion's nobility to the point it borders on blasphemy, what is known of her teaching is that death is but an illusion for elves, and rebirth certain for lives not spent in misery."
+	worshippers = "Bright Elves, Hedonists, and Conspirators."
+	mob_traits = list(TRAIT_DEPRAVED, TRAIT_CRACKHEAD)
+	t1 = /obj/effect/proc_holder/spell/invoked/baothablessings
+	t2 = /obj/effect/proc_holder/spell/invoked/projectile/blowingdust
+	t3 = /obj/effect/proc_holder/spell/invoked/painkiller
+	confess_lines = list(
+		"ALINDE, EASE MY PAIN!",
+		"LIFE WITHOUT WANT, PERFECTION!",
+		"I AM THE THOUSAND-FACET GEM!",
+	)
+
+//		AP made Matthios unrecognizable. Alchemist? Thief? Plate armor rituals? Full Plate Alchemist? Full... Metal. Alchemist. Goddamnit AP.
+
 /datum/patron/inhuman/matthios
-	name = "Matthios"
-	domain = "God of Exchange, Alchemy, Theft, and Greed"
-	desc = "The Man who stole fire from the sun and used it in his pursuit of immortality; exchanging the knowledge of how to make fire with the lessers for safety in doing so. He guides those who live in the dark, away from the flame of civilization; and those who believe in his cause bring the wealth of the undeserving in the light to the deserving in the dark."
-	worshippers = "Highwaymen, Alchemists, Downtrodden Peasants, and Merchants"
+	name = "Sylvan Wanderers"
+	domain = "Sacrifice, Wanderlust and Remorse."
+	desc = "When Saeran's people were scattered, a weary few struck out into far deeper wilds. Shunning anything they cannot carry lightly, they consider all of civilization a curse compared to the happy life of the ancient times. Outcasts of men and even dwarves sometimes go far afield to learn their ways, sacrificing gold and returning to free their loved ones from the bonds of wealth."
+	worshippers = "Gloam-elves, Woodsmen, Outcasts."
 	mob_traits = list(TRAIT_COMMIE, TRAIT_MATTHIOS_EYES)
 	t0 = /obj/effect/proc_holder/spell/invoked/appraise
 	t1 = /obj/effect/proc_holder/spell/invoked/transact
 	t2 = /obj/effect/proc_holder/spell/invoked/equalize
 	t3 = /obj/effect/proc_holder/spell/invoked/churnwealthy
 	confess_lines = list(
-		"MATTHIOS STEALS FROM THE WORTHLESS!",
-		"MATTHIOS IS JUSTICE!",
-		"MATTHIOS IS MY LORD!",
-	)
-
-/datum/patron/inhuman/baotha
-	name = "Baotha"
-	domain = "Goddess of Hedonism, Addiction, Anguish, and Heartbreak"
-	desc = "The twin sister of Eora, fallen to disgrace. She brings comfort to those who can't find it elsewhere but the bottom of a bottle; and she tempts those who have lost much into her fold through offers of relief and pleasure, yet they soon find themselves unable to escape her grasp. Seen as a scorned lover by many, and followed by such."
-	worshippers = "Widows, Gamblers, Addicts, and Scorned Lovers"
-	mob_traits = list(TRAIT_DEPRAVED, TRAIT_CRACKHEAD)
-	t1 = /obj/effect/proc_holder/spell/invoked/baothablessings
-	t2 = /obj/effect/proc_holder/spell/invoked/projectile/blowingdust
-	t3 = /obj/effect/proc_holder/spell/invoked/painkiller
-	confess_lines = list(
-		"BAOTHA DEMANDS PLEASURE!",
-		"LIVE, LAUGH, LOVE!",
-		"BAOTHA IS MY JOY!",
+		"LIFE IS ALL WORTH HOLDING!",
+		"TAKE ALL FROM ME, LET ME GO!",
+		"SAERAN! DID I NOT HEED YOUR CALL?",
 	)
