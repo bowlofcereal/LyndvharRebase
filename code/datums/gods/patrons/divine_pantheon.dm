@@ -413,8 +413,13 @@
 	// Allows prayer in the church
 	if(istype(get_area(follower), /area/rogue/indoors/town/church))
 		return TRUE
+	// Allows Eorans to pray using flowers
+	var/obj/item/held_item = follower.get_active_held_item()
+	if(istype(held_item, /obj/item/reagent_containers/food/snacks/grown/rogue/poppy))
+		qdel(held_item)
+		return TRUE
 	// Allows player to pray while wearing eoran bud.
 	if(HAS_TRAIT(follower, TRAIT_PACIFISM))
 		return TRUE
-	to_chat(follower, span_danger("For Eora to hear my prayer I must either pray within the church, near a psycross, or wearing one of her blessed flowers atop my head.."))
+	to_chat(follower, span_danger("For Eora to hear my prayer I must either pray within the church, near a psycross, offering her poppy flowers, or wearing one of her blessed flowers atop my head.."))
 	return FALSE
