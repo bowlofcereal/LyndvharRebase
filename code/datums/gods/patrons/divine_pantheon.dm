@@ -36,7 +36,7 @@
 
 /datum/patron/divine/abyssor
 	name = "Calarost"
-	domain = "Fame, Adventure and Vainglory"
+	domain = "Fame, Adventure and Vainglory."
 	desc = "Calarost, the ever-striving brother of Beroth, sought greatness and glory in adventures abroad. Slaying horrific monsters and venturing ever further upon his ships, his return from slaying a very dragon was overshadowed by the Couple's disappearance only days later at the eclipse of Anno Nihilo. Driven back to sea by Beroth's rage, he and Lissae established their realm east of what would become the Sea of Tears, fighting centuries of battle in the War of Brothers."
 	worshippers = "Adventurers, Champions and the Reckless."
 	mob_traits = list(TRAIT_ABYSSOR_SWIM, TRAIT_SEA_DRINKER)
@@ -83,7 +83,7 @@
 
 /datum/patron/divine/eora
 	name = "Lissae"
-	domain = "Mercy, Altruism and Guilelessness"
+	domain = "Mercy, Altruism and Guilelessness."
 	desc = "Lissae was blinded by her own beauty, legends say, and Beroth heard from her the first tears wept by elves as she wandered sightless and lost in the primordial forest. Taking her hand and returning her to his hall, they were beloved ever since; yet as Lissae cannot imagine betrayal by the faithful Beroth, she likewise assumes the best in all."
 	worshippers = "Virgins and Faithful Brides, Charitable Souls, Innocent Fools."
 	mob_traits = list(TRAIT_EMPATH, TRAIT_EXTEROCEPTION)

@@ -21,7 +21,7 @@
 #define TRAIT_DECEIVING_MEEKNESS "Deceiving Meekness"
 #define TRAIT_CRITICAL_RESISTANCE "Critical Resistance"
 #define TRAIT_CRITICAL_WEAKNESS "Critical Weakness"
-#define TRAIT_MANIAC_AWOKEN "Awoken"
+#define TRAIT_MANIAC_AWOKEN "NSRVN"
 #define TRAIT_NOROGSTAM "Indefatigable" //for ai
 #define TRAIT_NUDIST "Nudist" //you can't wear most clothes
 #define TRAIT_CYCLOPS_LEFT "Cyclops (Left)" //poked left eye
@@ -44,7 +44,7 @@
 #define TRAIT_SQUIRE_REPAIR "Squire Knowledge"
 #define TRAIT_TRAINED_SMITH "Trained Smith"
 #define TRAIT_GUARDSMAN "Vigilant Guardsman"
-#define TRAIT_KNIGHTSMAN "Royal Defiance"
+#define TRAIT_KNIGHTSMAN "Gallant Defender"
 #define TRAIT_WOODSMAN "Talented Woodsman"
 #define TRAIT_DEATHBARGAIN "Death Bargain" // Used by UNDERMAIDEN'S BARGAIN
 #define TRAIT_RITUALIST "Ritualist"  // Allows use of ritual chalk
@@ -62,7 +62,7 @@
 
 //Hearthstone port (Tracking)
 #define TRAIT_PERFECT_TRACKER "Perfect Tracker" //Will always find any tracks and analyzes them perfectly.
-#define TRAIT_NOCSIGHT "Blessing of Noc" // I can see just a bit more clearly in darkness.
+#define TRAIT_NOCSIGHT "Light of Isil" // I can see just a bit more clearly in darkness.
 #define TRAIT_DEATHSIGHT "Veiled Whispers" // Is notified when a player character dies, but not told exactly where or how.
 //Hearthstone/Azure end.
 
@@ -72,30 +72,35 @@
 #define TRAIT_WATERBREATHING "Water Breathing"
 
 // PATRON GOD TRAITS
+// Needs a more thorough overhall for Helmsguard lore.
+
 #define TRAIT_ROT_EATER "Blessing of Pestra" //can eat rotten food
-#define TRAIT_ORGAN_EATER "Blessing of Graggar" //can eat organs
-#define TRAIT_KNEESTINGER_IMMUNITY "Blessing of Dendor"
+#define TRAIT_ORGAN_EATER "Feast of Champions" //can eat organs
+#define TRAIT_KNEESTINGER_IMMUNITY "The Huntsman's Path"
 #define TRAIT_SOUL_EXAMINE "Blessing of Necra" //can check bodies to see if they have departed
-#define TRAIT_CRACKHEAD "Blessing of Baotha" //will never overdose
-#define TRAIT_CHOSEN "Astrata's Chosen"
-#define TRAIT_ABYSSOR_SWIM "Blessing of Abyssor" //less base fatigue drain when swimming
+#define TRAIT_CRACKHEAD "Alinde's Indulgence" //will never overdose
+#define TRAIT_CHOSEN "Anar's Chosen"
+#define TRAIT_ABYSSOR_SWIM "Oarsman of Calarost" //less base fatigue drain when swimming
 #define TRAIT_XYLIX "Blessing of Xylix" //secret thieves cant language
-#define TRAIT_FORGEBLESSED "Blessing of Malum" //Reduces the fatigue cost of smithing a bit.
+#define TRAIT_FORGEBLESSED "Obsessive Artisan" //Reduces the fatigue cost of smithing a bit.
 #define TRAIT_APRICITY	"Apricity" //Decreased stamina regen time during "day"
 #define TRAIT_SHARPER_BLADES "Sharper Blades" //Weapons lose less blade integrity
-#define TRAIT_JUSTICARSIGHT "Blessing of Ravox" //Allows seeing bounties and crimes when examining outlaws.
+#define TRAIT_JUSTICARSIGHT "Tyrant's Clarity" //Allows seeing bounties and crimes when examining outlaws.
 #define TRAIT_EXTEROCEPTION	"Exteroception" //See others' hunger and thirst; pairs well with empath.
 #define TRAIT_BLACKLEG	"Blackleg" //Rig coin, dice, cards in your favor - UNUSED FOR NOW
 #define TRAIT_BETTER_SLEEP	"Better Sleep" //Recover more energy (blue bar) when sleeping
 #define TRAIT_LEECHIMMUNE "Unleechable" //leeches wont attach in bog squares + dendor boon.
 #define TRAIT_LONGSTRIDER "Longstrider"
 
-// ASCENDANT CULTIST TRAITS (all of them recognize each other)
-#define TRAIT_COMMIE "Blessing of Matthios" //recognized by bandits as an ally
+// ASCENDANT CULTIST TRAITS (all of them recognize each other) - Old AP standard.
+// Needs a more thorough overhall for Helmsguard lore.
+// I really do not like all the cultist recognizing fellow cultists and would prefer they only reveal themselves voluntarily through the faith sign system in place. - Nikov
+
+#define TRAIT_COMMIE "Scent of Hunters" //recognized by bandits as an ally
 #define TRAIT_CABAL "Of the Cabal" //Zizo cultists recognize each other too
-#define TRAIT_HORDE "Anointed" //Graggarites also recognize each other
-#define TRAIT_DEPRAVED "Fallen" //Baothans also recognize each other
-#define TRAIT_MATTHIOS_EYES	"Eyes of Matthios" //Examine to see the most expensive item someone has (Replaces shitty-appraisal)
+#define TRAIT_HORDE "Champion of Ectar" //Graggarites also recognize each other
+#define TRAIT_DEPRAVED "Perfume of Alinde" //Alinde also recognize each other
+#define TRAIT_MATTHIOS_EYES	"Chains of Gold" //Examine to see the most expensive item someone has
 
 #define TRAIT_BASHDOORS "Door Basher"
 #define TRAIT_NOMOOD "Moodless"
@@ -158,7 +163,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DEATHBARGAIN = span_info("A horrible deal has been prepared in your name. May you never see it fulfilled..."),
 	TRAIT_RITUALIST = span_info("I am skilled in the holy arts. Using ritual chalk, I can more deftly channel my God's powers via runes."),
 	TRAIT_INQUISITION = span_info("I am a member of the Inquisition. I can easily identify others of my cadre at a glance."),
-	TRAIT_CHOSEN = "Astrata choose you to represent her glory.",
+	TRAIT_CHOSEN = "Anar choose you to represent his glory.",
 	TRAIT_WEBWALK = "I can move freely between webs.",
 	TRAIT_NOSTINK = span_dead("My nose is numb to the smell of decay."),
 	TRAIT_ZJUMP = "Time to reach a new high.",
@@ -174,7 +179,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_SEEPRICES = "I can tell the prices of things down to the zenny.",
 	TRAIT_SEEPRICES_SHITTY = "I can tell the prices of things... <i>Kind of</i>.",
 	TRAIT_STRONGBITE = span_info("Stronger bites, critical bite attacks."),
-	TRAIT_NOBLE = span_blue("I'm of noble blood."),
+	TRAIT_NOBLE = span_blue("I'm of noble blood, or lifted to it."),
 	TRAIT_EMPATH = span_info("I can notice when people are in pain."),
 	TRAIT_BREADY = span_info("Defensive stance does not passively fatigue me."),
 	TRAIT_MEDIUMARMOR = span_info("I can move freely in medium armor."),
@@ -184,7 +189,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DECEIVING_MEEKNESS = span_info("People look at me and think I am a weakling. They are mistaken. I've learned feinting, and how to hide my vices and heretical beliefs."),
 	TRAIT_CRITICAL_RESISTANCE = "I am resistant to wounds that would be life threatening to others.",
 	TRAIT_CRITICAL_WEAKNESS = span_danger("I am weak to wounds that others could survive."),
-	TRAIT_MANIAC_AWOKEN = span_danger("I am <b>WAKING UP</b> and the sheeple know this. They will resist."),
+	TRAIT_MANIAC_AWOKEN = span_danger("I have gained <b>WISDOM</b> and the fools know this. They will resist my undoing of NSRVN and the mending of this mortal prison!"),
 	TRAIT_NOROGSTAM = "I have boundless energy, I will never tire.",
 	TRAIT_NUDIST = "I <b>refuse</b> to wear clothes. They are a hindrance to my freedom.",
 	TRAIT_CYCLOPS_LEFT = span_warning("My left eye has been poked out..."),
@@ -213,7 +218,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_LIMPDICK = span_crit("My soldier refuses to rise to attention! Curses!"),
 	TRAIT_SEEDKNOW = span_info("I know which seeds grow which crops."),
 	TRAIT_PERFECT_TRACKER = span_info("I am the perfect tracker. No tracks will deceive my eyes, nor will they hide their secrets from me."),//Hearthstone port.
-	TRAIT_NOCSIGHT = span_info("Noc blesses my eyes to be unburdened by the night."), //Hearthstone change.
+	TRAIT_NOCSIGHT = span_info("Isil blesses my eyes to be unburdened by the night."), //Hearthstone change.
 	TRAIT_CIVILIZEDBARBARIAN = span_info("My rigorous training in the martial arts has turned me into a living weapon. No limb is out of reach for my fists and feet, and my unarmed strikes now have a higher chance to inflict critical damage."),
 	TRAIT_COMICSANS = span_sans("I am cursed with a odd voice."),
 	TRAIT_SQUIRE_REPAIR = span_info("I know my way around my Master's tools."),
@@ -222,13 +227,13 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ABYSSOR_SWIM = span_info("I get far less tired when swimming than my peers."),
 	TRAIT_LONGSTRIDER = span_info("Each of my steps finds it's footing no matter how treacherous the terrain is."),
 	TRAIT_TRAINED_SMITH = span_info("I've spent long training, and with some more, I will be able to smith legendary items."),
-	TRAIT_DEATHSIGHT = span_info("I can feel when someone nearby draws the Undermaiden's attention."),
+	TRAIT_DEATHSIGHT = span_info("I can feel when someone nearby draws the Veiled Lady's attention."),
 	TRAIT_FORGEBLESSED = span_info("Countless long nights spent forging metal have honed my endurance, allowing me to work an anvil far longer than most without tiring."),
 	TRAIT_XYLIX = span_info("I know how to speak in code that only fellow tricksters can understand."),
-	TRAIT_APRICITY = span_info("Astrata's light blesses and rejuvenates me, allowing me to regain my stamina quicker during the dae."),
+	TRAIT_APRICITY = span_info("Anar's light blesses and rejuvenates me, allowing me to regain my stamina quicker during the dae."),
 	TRAIT_SHARPER_BLADES = span_info("My blades go dull slower, ensuring they stay sharp longer."),
-	TRAIT_CABAL = span_info("In secret, I have studied the ways of Her ascension, and know of others of the Cabal."),
-	TRAIT_HORDE = span_info("BY BLOOD AND BONE, I AM OF GRAGGAR'S ANOINTED! I FEEL THE STRENGTH IN OTHERS WHO ARE THE SAME."),
+	TRAIT_CABAL = span_info("I know of others of the Cabal."),
+	TRAIT_HORDE = span_info("Ectar praises the glory of single combat! I shirk no challenge from equals, nor spare the fallen challenger, but those unworthy of my sword shall not taste it's sting!"),
 	TRAIT_FORTITUDE = span_info("The typical drain I feel from day to day life is lessened, my athleticism greater."),
 	TRAIT_GUIDANCE = span_info("The arcyne aides me in battle."),
 	TRAIT_DEPRAVED = span_info("The languid scent of Her debauchery is known to me, and I can detect its sordid presence upon others."),
@@ -242,7 +247,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_INTELLECTUAL = span_info("I have a keen eye and can assess a person's prowess in wit and blade."),
 	TRAIT_COUNTERCOUNTERSPELL = span_info("I automatically know when to counter Counterspells, and can do so without even thinking about it."),
 	TRAIT_UNSEEMLY = span_info("My face is ugly and makes everyone who looks at me miserable."),
-	TRAIT_HERETIC_SEER = span_info("I can tell other Ascendant followers without sharing their faith."),
+	TRAIT_HERETIC_SEER = span_info("I can tell other Tribunal followers without sharing their faith."),
 	TRAIT_DUALWIELDER = span_info("If I wield two identical weapons, I  roll twice for my attacks, and so will the enemy against me. I do not suffer penalties from using my off-hand in combat."),
 	TRAIT_SENTINELOFWITS = span_info("My Intelligence aids in my defense. Every 2 points above 10 INT become an additional 10% chance to dodge or parry. Does not count positive buffs from potions or substances."),
 	TRAIT_KEENEARS = span_info("I've a good pair of ears, and can tell who is speaking, even when they're out of sight. I can also hear whispers from further away."),
@@ -262,7 +267,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ZOMBIE_IMMUNE = span_info("Deadite bites cannot infect me."),
 	TRAIT_NOHUNGER = span_info("I do not hunger, or thirst."),
 	TRAIT_DARKVISION = span_info("I can see better in the dark."),
-	TRAIT_RESIDENT = span_info("I've been granted a Meister account, and the ownership of a house in Sundmark."),
+	TRAIT_RESIDENT = span_info("I've been granted a Coinmaster account, and the ownership of a house in Sundmark."),
 	TRAIT_LIGHT_STEP = span_info("My steps are light and swift. I make less noise while sneaking, and can sneak much quicker."),
 	TRAIT_NOMOOD = span_info("I feel no sorrow, no joy, and no stress."),
 	//TRAIT_LOCALNATIVE = span_info("I've grown up and lived all my lyfe in these lands. I can only trigger ambushes if I sprint through them."),

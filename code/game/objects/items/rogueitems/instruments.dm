@@ -1,7 +1,7 @@
 /datum/looping_sound/instrument
-	mid_length = 2400 // 4 minutes for some reason. better would be each song having a specific length
+	mid_length = 3600 // 6 minutes, as folk music and instrumentals often go longer than pop. - Nikov, Helmsguard
 	volume = 100
-	extra_range = 5
+	extra_range = 7 // Up from 5, lets entertain the whole room.
 	persistent_loop = TRUE
 	var/stress2give = /datum/stressevent/music
 	sound_group = /datum/sound_group/instruments //reserves sound channels for up to 10 instruments at a time
@@ -111,7 +111,7 @@
 					to_chat(user, span_warning("SONG MUST BE AN OGG."))
 					return
 				if(file_size > 6485760)
-					to_chat(user, span_warning("TOO BIG. 6 MEGS OR LESS."))
+					to_chat(user, span_warning("TOO BIG. 6 MEGS OR LESS."))	// This controls song size; length is arbitrary. There is no need to throttle music by loop length. - Nikov
 					return
 				lastfilechange = world.time
 				fcopy(infile,"data/jukeboxuploads/[user.ckey]/[filename]")

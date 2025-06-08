@@ -1,7 +1,7 @@
 
 /datum/looping_sound/dmusloop
 	mid_sounds = list()
-	mid_length = 2400
+	mid_length = 3600	// Six minute music. File size is throttled elsewhere. - Nikov
 	volume = 100
 	falloff = 2
 	extra_range = 5
@@ -96,7 +96,7 @@
 		to_chat(user, span_warning("SONG MUST BE AN OGG."))
 		return
 	if(file_size > 6485760)
-		to_chat(user, span_warning("TOO BIG. 6 MEGS OR LESS."))
+		to_chat(user, span_warning("TOO BIG. 6 MEGS OR LESS."))		// Throttles file size. No need to throttle by loop length.
 		return
 	lastfilechange = world.time
 	fcopy(infile,"data/jukeboxuploads/[user.ckey]/[filename]")
