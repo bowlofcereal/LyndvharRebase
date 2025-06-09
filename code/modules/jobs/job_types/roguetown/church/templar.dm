@@ -228,9 +228,9 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
@@ -260,7 +260,7 @@
 
 /datum/outfit/job/roguetown/templar/crusader/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	var/weapons = list("Bastard Sword","Flail","Mace","Battle Axe")
+	var/weapons = list("Longsword","Flail","Mace","Battle Axe")
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata) //Unique patron weapons, more can be added here if wanted.
 			weapons += "Solar Judgement"
@@ -282,7 +282,7 @@
 			weapons += "The Heartstring"
 	var/weapon_choice = input(H,"Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	switch(weapon_choice)
-		if("Bastard Sword")
+		if("Longsword")
 			H.put_in_hands(new /obj/item/rogueweapon/sword/long(H), TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		if("Flail")

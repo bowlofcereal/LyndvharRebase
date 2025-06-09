@@ -161,10 +161,10 @@
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1)	//Capped to T1 miracles.
-			var/weapons = list("Bastard Sword","Mace","Flail")
+			var/weapons = list("Longsword","Mace","Flail")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
-				if("Bastard Sword")
+				if("Longsword")
 					H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 					beltr = /obj/item/rogueweapon/sword/long
 				if("Mace")
@@ -310,6 +310,7 @@
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe 
 					head = /obj/item/clothing/head/roguetown/roguehood
 					H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
+					H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
 				else
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe //placeholder, anyone who doesn't have cool patron drip sprites just gets generic robes
 					head = /obj/item/clothing/head/roguetown/roguehood
