@@ -9,6 +9,7 @@
 	density = FALSE
 	min_mobs = 2
 	max_mobs = 3
+	restart_time = 6 MINUTES
 	mob_types = list(
 	/mob/living/carbon/human/species/skeleton/npc = 3,
 	/mob/living/simple_animal/hostile/rogue/skeleton/bow = 3,
@@ -38,6 +39,7 @@
 	density = FALSE
 	min_mobs = 2
 	max_mobs = 3
+	restart_time = 6 MINUTES
 	mob_types = list(
 	/mob/living/carbon/human/species/skeleton/npc = 6,
 	/mob/living/simple_animal/hostile/rogue/skeleton/bow = 4,
@@ -53,6 +55,7 @@
 	desc = ""
 	anchored = TRUE
 	density = FALSE
+	restart_time = 6 MINUTES
 	min_mobs = 5
 	max_mobs = 8
 	mob_types = list(
@@ -76,6 +79,7 @@
 	desc = ""
 	anchored = TRUE
 	density = FALSE
+	restart_time = 6 MINUTES
 	min_mobs = 2
 	max_mobs = 3
 	mob_types = list(
@@ -91,6 +95,7 @@
 	desc = ""
 	anchored = TRUE
 	density = FALSE
+	restart_time = 6 MINUTES
 	min_mobs = 1
 	max_mobs = 2
 	mob_types = list(
@@ -104,6 +109,7 @@
 	desc = ""
 	anchored = TRUE
 	density = FALSE
+	restart_time = 6 MINUTES
 	min_mobs = 2
 	max_mobs = 3
 	mob_types = list(
