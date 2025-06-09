@@ -4799,6 +4799,15 @@
 /obj/structure/well,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/town)
+"bHe" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/obj/machinery/light/rogue/lanternpost{
+	dir = 1
+	},
+/turf/open/floor/rogue/woodturned,
+/area/rogue/outdoors/beach)
 "bHf" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5
@@ -8088,6 +8097,13 @@
 "cPy" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cave/goblindungeon)
+"cPA" = (
+/obj/structure/stairs,
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/rogue/woodturned,
+/area/rogue/outdoors/beach)
 "cPE" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/rope/chain,
@@ -11021,10 +11037,6 @@
 	},
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/indoors/town/manor)
-"dTh" = (
-/obj/machinery/light/rogue/lanternpost,
-/turf/open/floor/rogue/wood,
-/area/rogue/outdoors/beach)
 "dTl" = (
 /obj/effect/landmark/start/orphan,
 /turf/open/floor/rogue/cobble,
@@ -15902,6 +15914,16 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/shelter/mountains)
+"fvr" = (
+/obj/structure/stairs,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood{
+	dir = 1;
+	icon_state = "vertw"
+	},
+/area/rogue/outdoors/rtfield)
 "fvv" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -46470,6 +46492,13 @@
 	icon_state = "horzw"
 	},
 /area/rogue/outdoors/rtfield)
+"pOL" = (
+/obj/structure/stairs,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/woodturned,
+/area/rogue/outdoors/beach)
 "pOT" = (
 /obj/structure/closet/crate/chest,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
@@ -48512,6 +48541,16 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/town/roofs)
+"qxK" = (
+/obj/structure/stairs,
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood{
+	dir = 1;
+	icon_state = "vertw"
+	},
+/area/rogue/outdoors/rtfield)
 "qxL" = (
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/hexstone,
@@ -50444,7 +50483,7 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "rgb" = (
-/obj/structure/chair/stool/rogue,
+/obj/structure/chair/bench/church/smallbench,
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/beach)
 "rgf" = (
@@ -58321,6 +58360,10 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
+"tNy" = (
+/obj/machinery/light/rogue/lanternpost,
+/turf/open/floor/rogue/AzureSand,
+/area/rogue/outdoors/beach)
 "tNz" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/tile,
@@ -62582,6 +62625,13 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/orcdungeon)
+"viJ" = (
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall"
+	},
+/turf/open/water/ocean,
+/area/rogue/outdoors/beach)
 "viL" = (
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/outdoors/woods)
@@ -146616,7 +146666,7 @@ miF
 miF
 bhJ
 bhJ
-svv
+iTM
 svv
 fce
 fce
@@ -147067,9 +147117,9 @@ miF
 miF
 bhJ
 bhJ
-svv
-svv
-svv
+iTM
+dSz
+iTM
 fce
 fce
 fce
@@ -147519,9 +147569,9 @@ miF
 miF
 bhJ
 bhJ
-svv
-svv
-fce
+iTM
+iTM
+sTT
 fce
 fce
 fce
@@ -147971,8 +148021,8 @@ miF
 bhJ
 bhJ
 bhJ
-svv
-fce
+iTM
+sTT
 fce
 fce
 fce
@@ -148423,7 +148473,7 @@ miF
 bhJ
 bhJ
 bhJ
-svv
+iTM
 fce
 fce
 fce
@@ -148869,16 +148919,16 @@ miF
 miF
 miF
 miF
-bhJ
-bhJ
-bhJ
-bhJ
-sxx
-wqz
-wqz
-csA
-qic
-qic
+ahC
+wdB
+uwl
+uwl
+uwl
+uwl
+lAT
+uIy
+uIy
+pOL
 csA
 tXb
 tXb
@@ -149322,15 +149372,15 @@ bhJ
 bhJ
 bhJ
 bhJ
-bhJ
-bhJ
-bhJ
-csA
-wqz
-wqz
-csA
-qic
-qic
+wdB
+wdB
+uwl
+uwl
+uwl
+bHe
+vkf
+vkf
+cPA
 csA
 tXb
 tXb
@@ -149774,12 +149824,12 @@ lyr
 lyr
 lyr
 bhJ
-bhJ
-bhJ
-fce
-fce
-fce
-fce
+wdB
+wdB
+iTM
+iTM
+dSz
+iTM
 fce
 fce
 fce
@@ -150226,12 +150276,12 @@ lyr
 iTM
 lyr
 lyr
-bhJ
+daw
+pgx
+aCJ
+iTM
 fce
-fce
-fce
-fce
-fce
+sTT
 fce
 fce
 fce
@@ -150678,10 +150728,10 @@ iTM
 sTT
 fce
 fce
-fce
-fce
-fce
-fce
+ygi
+rMt
+viJ
+sTT
 fce
 fce
 fce
@@ -151130,9 +151180,9 @@ fce
 fce
 fce
 fce
-fce
-fce
-fce
+ygi
+rMt
+viJ
 fce
 fce
 fce
@@ -151582,9 +151632,9 @@ fce
 fce
 fce
 fce
-fce
-fce
-fce
+ygi
+rMt
+viJ
 fce
 fce
 fce
@@ -152034,12 +152084,12 @@ fce
 fce
 fce
 fce
+ygi
+rMt
+viJ
 fce
 fce
 fce
-tXb
-tXb
-tXb
 tXb
 tXb
 tXb
@@ -152486,12 +152536,12 @@ fce
 fce
 fce
 fce
-tXb
-tXb
-tXb
-tXb
-tXb
-tXb
+ygi
+rMt
+viJ
+fce
+fce
+fce
 tXb
 tXb
 tXb
@@ -152938,11 +152988,11 @@ fce
 fce
 fce
 fce
+ygi
+rMt
+viJ
 fce
-tXb
-tXb
-tXb
-tXb
+fce
 tXb
 tXb
 tXb
@@ -153388,11 +153438,11 @@ fce
 fce
 iTM
 fce
+sTT
 fce
-fce
-fce
-fce
-fce
+ygi
+rMt
+viJ
 fce
 fce
 fce
@@ -153842,8 +153892,8 @@ iTM
 iTM
 iTM
 fce
-fce
-fce
+ygi
+oAT
 iTM
 fce
 fce
@@ -154293,9 +154343,9 @@ iTM
 gPW
 iTM
 dSz
-iTM
-iTM
-iTM
+tNy
+gyL
+wdB
 bAn
 gGL
 rGP
@@ -154746,7 +154796,7 @@ iTM
 iTM
 iTM
 iTM
-dTh
+wdB
 wdB
 wdB
 fjA
@@ -264136,11 +264186,11 @@ aoe
 aoe
 aoe
 ebU
-flo
-flo
-flo
-flo
-flo
+ebU
+ebU
+ebU
+ebU
+fvr
 flo
 flo
 qic
@@ -264588,11 +264638,11 @@ aoe
 aoe
 ebU
 ebU
-qiL
-qiL
-qiL
-qiL
-qiL
+ebU
+ebU
+ebU
+ebU
+qxK
 qiL
 qiL
 qic
