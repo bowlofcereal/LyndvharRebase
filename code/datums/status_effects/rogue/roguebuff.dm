@@ -941,7 +941,8 @@
 
 /datum/status_effect/buff/bloodrage/on_apply()
 	ADD_TRAIT(owner, TRAIT_STRENGTH_UNCAPPED, TRAIT_MIRACLE)
-	duration = ((15 SECONDS) * owner.mind?.get_skill_level(/datum/skill/magic/holy))
+	var/holyskill = owner.mind?.get_skill_level(/datum/skill/magic/holy)
+	duration = ((15 SECONDS) * holyskill)
 	var/filter = owner.get_filter(BLOODRAGE_FILTER)
 	if(!filter)
 		owner.add_filter(BLOODRAGE_FILTER, 2, list("type" = "outline", "color" = outline_color, "alpha" = 60, "size" = 2))
@@ -949,7 +950,10 @@
 		if(owner.STASTR < STRENGTH_SOFTCAP)
 			effectedstats = list("strength" = (STRENGTH_SOFTCAP - owner.STASTR))
 			return TRUE
-	effectedstats = list("strength" = 2)
+	if(holyskill >= SKILL_LEVEL_APPRENTICE)
+		effectedstats = list("strength" = 2)
+	else
+		effectedstats = list("strength" = 1)
 	return TRUE
 
 /datum/status_effect/buff/bloodrage/on_remove()
