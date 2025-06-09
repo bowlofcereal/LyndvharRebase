@@ -47,6 +47,7 @@
 	/datum/species/human/halfelf,\
 	/datum/species/elf/wood,\
 	/datum/species/dwarf/mountain,\
+	/datum/species/demihuman,\
 )
 
 #define TRUSTED_CLEARANCE list(\
