@@ -232,21 +232,92 @@
 	effectedstats = list("constitution" = 2)
 	duration = -1
 
-/datum/status_effect/buff/haste/on_creation(mob/living/new_owner, var/new_duration = null)
-	if(new_duration)
-		duration = new_duration
-	. = ..()
-
-/datum/status_effect/buff/haste/on_apply()
+/datum/status_effect/buff/necras_vow/on_apply()
 	. = ..()
 	var/filter = owner.get_filter(NECRAVOW_FILTER)
 	if (!filter)
 		owner.add_filter(NECRAVOW_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 200, "size" = 1))
 	to_chat(owner, span_warning("My limbs feel more alive than ever... I feel whole..."))
 
-/datum/status_effect/buff/haste/on_remove()
+/datum/status_effect/buff/necras_vow/on_remove()
 	. = ..()
 	owner.remove_filter(NECRAVOW_FILTER)
 	to_chat(owner, span_warning("My body feels strange... hollow..."))
 
 #undef NECRAVOW_FILTER
+
+/obj/effect/proc_holder/spell/invoked/necras_sight
+	name = "Necra's Sight"
+	desc = "Latch onto the mind of one who is familiar to you, whispering a message into their head."
+	releasedrain = 30
+	chargetime = 3 SECONDS
+	recharge_time = 10 SECONDS
+	warnie = "spellwarning"
+	invocation_type = "whisper"
+	invocation = "Undermaiden guide my gaze..."
+	associated_skill = /datum/skill/magic/holy
+	overlay_state = "message"
+	miracle = TRUE
+	devotion_cost = 30
+	range = 1
+	var/static/list/whitelisted_objects = list(/obj/structure/gravemarker)
+	var/list/marked_objects = list()
+	var/outline_color = "#085da3"
+	var/last_index = 1
+
+/obj/effect/proc_holder/spell/invoked/necras_sight/cast(list/targets, mob/user)
+	if(isobj(targets[1]))
+		var/obj/O = targets[1]
+		if((O.type in whitelisted_objects))
+			add_to_scry(O, user)
+			return TRUE
+	if(isturf(targets[1]))
+		var/turf/T = targets[1]
+		for(var/obj/O in T)
+			if((O.type in whitelisted_objects))
+				add_to_scry(O, user)
+				return TRUE
+	if(ismob(targets[1]))
+		if(length(marked_objects) && ishuman(user))
+			try_scry(user)
+			return TRUE
+	revert_cast()
+	return FALSE
+
+#define GRAVE_SPY "grave_spy"
+
+/obj/effect/proc_holder/spell/invoked/necras_sight/proc/try_scry(mob/living/carbon/human/user)
+	var/selected_grave = input(user, "Which Grave shall we peer through?", "") as null|anything in marked_objects
+	if(selected_grave)
+		var/obj/structure/gravemarker/spygrave = selected_grave
+		var/filter = spygrave.get_filter(GRAVE_SPY)
+		if(!filter)
+			spygrave.add_filter(GRAVE_SPY, 2, list("type" = "outline", "color" = outline_color, "alpha" = 50, "size" = 3))
+		var/mob/dead/observer/screye/S = user.scry_ghost()
+		if(!S)
+			return
+		S.ManualFollow(spygrave)
+		user.visible_message(span_danger("[user] blinks, [user.p_their()] eyes rolling back into [user.p_their()] head."))
+		addtimer(CALLBACK(S, TYPE_PROC_REF(/mob/dead/observer, reenter_corpse)), (8 SECONDS))
+		addtimer(CALLBACK(spygrave, TYPE_PROC_REF(/atom/movable, remove_filter), GRAVE_SPY), (8 SECONDS))
+
+#undef GRAVE_SPY
+
+/obj/effect/proc_holder/spell/invoked/necras_sight/proc/add_to_scry(obj/O, mob/living/carbon/human/user)
+	if(O in marked_objects)
+		revert_cast()
+		return
+	var/holyskill = user.mind?.get_skill_level(/datum/skill/magic/holy)
+	if(length(marked_objects) >= holyskill)
+		to_chat(user, span_warning("I'm focusing on too many gravestones already! I will replace this one with the first I recall."))
+		marked_objects[last_index] = O
+		last_index++
+		if(last_index >= holyskill)
+			last_index = 1
+		return
+	to_chat(user, span_info("I incant a whisper and touch the gravestone, marking it for later use..."))
+	for(var/i in 1 to holyskill)
+		if(!LAZYACCESS(marked_objects, i))
+			LAZYADD(marked_objects, O)
+		else
+			continue

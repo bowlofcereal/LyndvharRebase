@@ -483,14 +483,19 @@
 	outline_colour = "#bbbbbb"
 
 /datum/status_effect/buff/healing/necras_vow/on_apply()
+	healing_on_tick = max(owner.mind?.get_skill_level(/datum/skill/magic/holy), 2)
 	return TRUE
 
 /datum/status_effect/buff/healing/necras_vow/tick()
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
 	H.color = "#a5a5a5"
+	var/list/wCount = owner.get_wounds()
 	if(!owner.construct)
 		if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
-			owner.blood_volume = min(owner.blood_volume+2, BLOOD_VOLUME_NORMAL)
+			owner.blood_volume = min(owner.blood_volume + (healing_on_tick + 10), BLOOD_VOLUME_NORMAL)
+		if(wCount.len > 0)
+			owner.heal_wounds(healing_on_tick, list(/datum/wound/puncture, /datum/wound/bite, /datum/wound/bruise))
+			owner.update_damage_overlays()
 		owner.adjustBruteLoss(-healing_on_tick, 0)
 		owner.adjustFireLoss(-healing_on_tick, 0)
 		owner.adjustOxyLoss(-healing_on_tick, 0)

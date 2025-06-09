@@ -50,9 +50,11 @@
 					IgniteMob()
 				else
 					if(prob(30))
-						to_chat(src, span_warning("The foul blessing of the Undermaiden hurts us!"))
-					adjust_blurriness(2)
-					adjustBruteLoss(5)
+						to_chat(src, span_warning("The Undermaiden protects me!"))
+						to_chat(L, span_warning("The foul blessing of the Undermaiden hurts us!"))
+				adjust_blurriness(2)
+				adjustBruteLoss(rand(5, 10))
+				apply_status_effect(/datum/status_effect/churned, L)
 		
 		if(L.checkmiss(src))
 			return
