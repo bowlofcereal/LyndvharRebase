@@ -208,7 +208,7 @@
 
 /obj/item/rogueweapon/katar
 	slot_flags = ITEM_SLOT_HIP
-	force = 20
+	force = 24
 	possible_item_intents = list(/datum/intent/katar/cut, /datum/intent/katar/thrust)
 	name = "katar"
 	desc = "A blade that sits above the users fist. Commonly used by those proficient at unarmed fighting"
@@ -219,7 +219,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	parrysound = list('sound/combat/parry/bladed/bladedsmall (1).ogg','sound/combat/parry/bladed/bladedsmall (2).ogg','sound/combat/parry/bladed/bladedsmall (3).ogg')
 	max_blade_int = 150
-	max_integrity = 150
+	max_integrity = 80
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	associated_skill = /datum/skill/combat/unarmed
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
@@ -254,7 +254,7 @@
 	animname = "stab"
 	blade_class = BCLASS_STAB
 	hitsound = list('sound/combat/hits/bladed/genstab (1).ogg', 'sound/combat/hits/bladed/genstab (2).ogg', 'sound/combat/hits/bladed/genstab (3).ogg')
-	penfactor = 50	//Should be able to penetrate 80 armor if the user has 17 STR
+	penfactor = 40
 	chargetime = 0
 	clickcd = CLICK_CD_INTENTCAP
 	item_d_type = "stab"
@@ -273,7 +273,8 @@
 	name = "barotrauma"
 	desc = "A gift from a creature of the sea. The claw is sharpened to a wicked edge."
 	icon_state = "abyssorclaw"
-	force = 20
+	force = 27	//Its thrust will be able to pen 80 stab armor if the wielder has 17 STR. (With softcap)
+	max_integrity = 150
 
 
 /obj/item/rogueweapon/knuckles

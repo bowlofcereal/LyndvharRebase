@@ -59,6 +59,9 @@
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltl = /obj/item/flashlight/flare/torch
 
+			var/datum/devotion/C = new /datum/devotion(H, H.patron)
+			C.grant_miracles(recipient, cleric_tier = CLERIC_T0, passive_gain = FALSE, devotion_limit = (CLERIC_REQ_1 - 20))	//Capped to T0 miracles.
+
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
 			H.cmode_music = 'sound/music/combat_vagarian.ogg'
@@ -92,6 +95,9 @@
 			belt = /obj/item/storage/belt/rogue/leather
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltl = /obj/item/flashlight/flare/torch
+
+			var/datum/devotion/C = new /datum/devotion(H, H.patron)
+			C.grant_miracles(recipient, cleric_tier = CLERIC_T0, passive_gain = FALSE, devotion_limit = (CLERIC_REQ_1 - 20))	//Capped to T0 miracles.
 
 			ADD_TRAIT(H, TRAIT_STRONGBITE, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC) //No weapons. Just beating them to death as God intended.
