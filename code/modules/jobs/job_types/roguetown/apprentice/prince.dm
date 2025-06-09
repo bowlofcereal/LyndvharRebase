@@ -20,7 +20,7 @@
 	max_pq = null
 	round_contrib_points = 3
 	cmode_music = 'sound/music/combat_noble.ogg'
-	allowed_patrons = NON_PSYDON_PATRONS		//Same reason as lord. See Lord.
+	allowed_patrons = ALL_PATRONS		// The Tribunal are secret cults, elves and half-elves could be Saint-followers, but Shepherdism should be the church's preferred power. Everyone loves a good Church-State fight, though. - Nikov
 
 
 /datum/job/roguetown/prince/after_spawn(mob/living/H, mob/M, latejoin)
