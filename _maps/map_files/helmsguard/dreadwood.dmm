@@ -1100,6 +1100,11 @@
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
+"iu" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon,
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/dread/toll)
 "iv" = (
 /obj/structure/stairs,
 /turf/open/floor/rogue/cobble,
@@ -2435,6 +2440,10 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/indoors/dread/forgottenkeep)
+"tb" = (
+/obj/effect/spawner/dungeons/maybechest,
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/dread/toll)
 "tg" = (
 /obj/structure/roguewindow/openclose{
 	dir = 1
@@ -3448,6 +3457,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
+/obj/effect/spawner/dungeons/maybechest,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/dread/church)
 "Au" = (
@@ -5075,6 +5085,7 @@
 "MF" = (
 /obj/structure/rack/rogue,
 /obj/effect/decal/cleanable/dirt/cobweb,
+/obj/effect/spawner/lootdrop/roguetown/dungeon,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/toll)
 "MH" = (
@@ -5320,8 +5331,10 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/dread/nightkeep)
 "Oy" = (
-/obj/structure/gate/bars{
+/obj/structure/gate/bars/preopen{
 	gid = "nightkeep_gate";
+	name = "rusty gates";
+	desc = "A gate of strong iron bars.";
 	redstone_id = "nightkeep_gate"
 	},
 /turf/open/floor/rogue/cobblerock,
@@ -6760,6 +6773,10 @@
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/dread/gobcamp)
+"ZM" = (
+/obj/effect/spawner/dungeons/maybechest,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/dread/toll)
 "ZN" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 8
@@ -15369,7 +15386,7 @@ uz
 uz
 uz
 rE
-uR
+tb
 uR
 kr
 su
@@ -42448,7 +42465,7 @@ pi
 EO
 MF
 fW
-fW
+iu
 xL
 fW
 uR
@@ -42623,13 +42640,13 @@ pi
 pi
 pi
 EO
-fW
+iu
 uR
 uR
 uR
 uR
 uR
-uR
+tb
 EO
 pi
 pi
@@ -42800,13 +42817,13 @@ pi
 pi
 pi
 EO
+iu
+iu
 fW
 fW
-fW
-fW
-fW
+iu
 uR
-fW
+iu
 EO
 pi
 pi
@@ -42983,7 +43000,7 @@ uR
 uR
 uR
 uR
-uR
+tb
 EO
 pi
 pi
@@ -43156,7 +43173,7 @@ pi
 EO
 Wj
 fW
-fW
+iu
 fW
 eB
 DZ
@@ -95020,7 +95037,7 @@ eu
 eu
 EO
 jr
-bc
+ZM
 bc
 tw
 yz
