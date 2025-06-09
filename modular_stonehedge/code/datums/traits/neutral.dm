@@ -70,7 +70,6 @@
 	value = 0
 	gain_text = span_notice("I want to feel a monster inside.. or inside a monster.")
 	lose_text = span_notice("I no longer am a degenerate.")
-*/
 
 /datum/quirk/monsterhuntermale
 	name = "Monster \"Hunter\" (Males)"
@@ -92,6 +91,7 @@
 	name = "Freeky"
 	desc = "I can use my 'orifices' to store things and do more strange sexual things that wouldn't come to sane mind."
 	value = 0
+*/
 
 /datum/quirk/virgin
 	name = "Virgin"
@@ -102,4 +102,3 @@
 /datum/quirk/virgin/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.virginity = TRUE
-	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
