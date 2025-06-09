@@ -143,6 +143,7 @@
 	var/rain_sound = FALSE
 	var/last_droning_sound
 	var/sound/droning_sound
+	authenticate = 0
 
 /client/proc/update_weather(force)
 	if(!mob)
