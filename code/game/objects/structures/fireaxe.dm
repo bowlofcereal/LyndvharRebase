@@ -217,22 +217,21 @@
 	if(.)
 		return
 	var/mob/living/carbon/human/H = user
-	if(!H.mind.special_role == "Ascendant")
-		return
-	else
+	if(H.mind.special_role == "Ascendant")
 		if(open || obj_broken)
 			if(syon)
 				user.put_in_hands(syon)
 				syon = null
 				to_chat(user, "<span class='notice'>I take the HOLY SHARD from the [name].</span>")
 				src.add_fingerprint(user)
-				if(ishuman(user))
-					var/mob/living/carbon/human/H = user
-					message_admins("[H.real_name]([key_name(user)]) stole the comet shard. [ADMIN_JMP(src)]")
-					log_admin("[H.real_name]([key_name(user)]) stole the comet shard.")
+				message_admins("[H.real_name]([key_name(user)]) stole the comet shard. [ADMIN_JMP(src)]")
+				log_admin("[H.real_name]([key_name(user)]) stole the comet shard.")
 				update_icon()
 				divinitystolen()
 				return
+	else
+		to_chat(user, "I dare not touch the shard, lest I be reduced to ashes by the divine.")
+		return
 	if(locked)
 		to_chat(user, "<span class='warning'>The [name] won't budge!</span>")
 		return
