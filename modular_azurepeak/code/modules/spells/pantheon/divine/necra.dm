@@ -248,9 +248,9 @@
 
 /obj/effect/proc_holder/spell/invoked/necras_sight
 	name = "Necra's Sight"
-	desc = "Latch onto the mind of one who is familiar to you, whispering a message into their head."
+	desc = "Mark a psycross or a grave marker, and peer through them."
 	releasedrain = 30
-	chargetime = 3 SECONDS
+	chargetime = 0 SECONDS
 	recharge_time = 10 SECONDS
 	warnie = "spellwarning"
 	invocation_type = "whisper"
@@ -260,9 +260,9 @@
 	miracle = TRUE
 	devotion_cost = 30
 	range = 1
-	var/static/list/whitelisted_objects = list(/obj/structure/gravemarker)
+	var/static/list/whitelisted_objects = list(/obj/structure/gravemarker, /obj/structure/fluff/psycross)
 	var/list/marked_objects = list()
-	var/outline_color = "#085da3"
+	var/outline_color = "#4ea1e6"
 	var/last_index = 1
 
 /obj/effect/proc_holder/spell/invoked/necras_sight/cast(list/targets, mob/user)
@@ -277,8 +277,10 @@
 			if((O.type in whitelisted_objects))
 				add_to_scry(O, user)
 				return TRUE
+		if(length(marked_objects))
+			try_scry(user)
 	if(ismob(targets[1]))
-		if(length(marked_objects) && ishuman(user))
+		if(length(marked_objects))
 			try_scry(user)
 			return TRUE
 	revert_cast()
@@ -287,17 +289,20 @@
 #define GRAVE_SPY "grave_spy"
 
 /obj/effect/proc_holder/spell/invoked/necras_sight/proc/try_scry(mob/living/carbon/human/user)
+	listclearnulls(marked_objects)
 	var/selected_grave = input(user, "Which Grave shall we peer through?", "") as null|anything in marked_objects
 	if(selected_grave)
 		var/obj/structure/gravemarker/spygrave = selected_grave
 		var/filter = spygrave.get_filter(GRAVE_SPY)
 		if(!filter)
-			spygrave.add_filter(GRAVE_SPY, 2, list("type" = "outline", "color" = outline_color, "alpha" = 50, "size" = 3))
+			spygrave.add_filter(GRAVE_SPY, 2, list("type" = "outline", "color" = outline_color, "alpha" = 200, "size" = 1))
 		var/mob/dead/observer/screye/S = user.scry_ghost()
+		spygrave.visible_message(span_warning("[spygrave] shimmers with an eerie glow."))
 		if(!S)
 			return
 		S.ManualFollow(spygrave)
 		user.visible_message(span_danger("[user] blinks, [user.p_their()] eyes rolling back into [user.p_their()] head."))
+		user.playsound_local(get_turf(user), 'sound/magic/necra_sight.ogg', 80)
 		addtimer(CALLBACK(S, TYPE_PROC_REF(/mob/dead/observer, reenter_corpse)), (8 SECONDS))
 		addtimer(CALLBACK(spygrave, TYPE_PROC_REF(/atom/movable, remove_filter), GRAVE_SPY), (8 SECONDS))
 
@@ -319,5 +324,6 @@
 	for(var/i in 1 to holyskill)
 		if(!LAZYACCESS(marked_objects, i))
 			LAZYADD(marked_objects, O)
+			break
 		else
 			continue

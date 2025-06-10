@@ -16,6 +16,11 @@
 	xp_gain = TRUE
 	cost = 2
 
+/obj/effect/proc_holder/spell/targeted/touch/darkvision/miracle
+	cost = 0
+	spell_tier = 0
+	associated_skill = /datum/skill/magic/holy
+
 /obj/item/melee/touch_attack/darkvision
 	name = "\improper arcyne focus"
 	desc = "Touch a creature to grant them Darkvision for 15 minutes."
@@ -34,7 +39,7 @@
 		var/mob/living/spelltarget = target
 		if(!do_after(user, 5 SECONDS, target = spelltarget))
 			return
-		spelltarget.apply_status_effect(/datum/status_effect/buff/darkvision)
+		spelltarget.apply_status_effect(/datum/status_effect/buff/darkvision, user.mind?.get_skill_level(associated_skill))
 		user.rogfat_add(80)
 		if(spelltarget != user)
 			user.visible_message("[user] draws a glyph in the air and touches [spelltarget] with an arcyne focus.")

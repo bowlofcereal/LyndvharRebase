@@ -293,7 +293,9 @@
 	alert_type = /atom/movable/screen/alert/status_effect/buff/darkvision
 	duration = 15 MINUTES
 
-/datum/status_effect/buff/darkvision/on_apply()
+/datum/status_effect/buff/darkvision/on_apply(mob/living/new_owner, assocskill)
+	if(assocskill)
+		duration += 5 MINUTES * assocskill
 	. = ..()
 	to_chat(owner, span_warning("The darkness fades somewhat."))
 	ADD_TRAIT(owner, TRAIT_DARKVISION, MAGIC_TRAIT)
@@ -479,11 +481,11 @@
 	id = "healing"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/healing
 	duration = -1
-	healing_on_tick = 1
+	healing_on_tick = 3
 	outline_colour = "#bbbbbb"
 
 /datum/status_effect/buff/healing/necras_vow/on_apply()
-	healing_on_tick = max(owner.mind?.get_skill_level(/datum/skill/magic/holy), 2)
+	healing_on_tick = max(owner.mind?.get_skill_level(/datum/skill/magic/holy) * 1.5, 3)
 	return TRUE
 
 /datum/status_effect/buff/healing/necras_vow/tick()
@@ -494,7 +496,7 @@
 		if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
 			owner.blood_volume = min(owner.blood_volume + (healing_on_tick + 10), BLOOD_VOLUME_NORMAL)
 		if(wCount.len > 0)
-			owner.heal_wounds(healing_on_tick, list(/datum/wound/puncture, /datum/wound/bite, /datum/wound/bruise))
+			owner.heal_wounds(healing_on_tick, list(/datum/wound/slash, /datum/wound/puncture, /datum/wound/bite, /datum/wound/bruise))
 			owner.update_damage_overlays()
 		owner.adjustBruteLoss(-healing_on_tick, 0)
 		owner.adjustFireLoss(-healing_on_tick, 0)

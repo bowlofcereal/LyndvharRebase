@@ -184,7 +184,7 @@
 	invocation_type = "shout"
 	antimagic_allowed = FALSE
 	miracle = TRUE
-	devotion_cost = 30
+	devotion_cost = 25
 	var/pull_distance = 1
 	var/slowdown = 1
 
@@ -216,6 +216,7 @@
 			user.visible_message(span_boldwarning("[user] yanks on a transluscent chain sticking out of [target]!"))
 			if(count > 3)	//More than half of the stats are in our favor.
 				pull_distance++
+				slowdown++
 			if(prob(chance))
 				H.throw_at(user, pull_distance, 1, H, FALSE)
 				H.visible_message(span_warning("[H]'s body moves on its own!"))

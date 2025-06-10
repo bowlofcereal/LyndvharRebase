@@ -66,8 +66,14 @@
 			continue
 		if(heal_amount <= 0)
 			continue
-		if(!(wound?.type in specific_types))
-			continue
+		if(length(specific_types))
+			var/found = FALSE
+			for(var/woundtype in specific_types)
+				if(istype(wound, woundtype))
+					found = TRUE
+					break
+			if(!found)
+				continue
 		var/amount_healed = wound.heal_wound(heal_amount)
 		if(amount_healed)
 			heal_amount -= amount_healed
