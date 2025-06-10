@@ -93,6 +93,26 @@
 	. = ..()
 	AddComponent(/datum/component/adjustable_clothing, NECK, null, null, 'sound/foley/equip/cloak (3).ogg', null, (UPD_HEAD|UPD_MASK))	//Standard hood
 
+/obj/item/clothing/head/roguetown/beekeeper
+	name = "beekeeper's hood"
+	desc = ""
+	flags_inv = HIDEEARS|HIDEHAIR
+	icon_state = "beekeeper"
+	item_state = "beekeeper"
+	icon = 'icons/roguetown/clothing/head.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
+	alternate_worn_layer  = 8.9 //On top of helmet
+	body_parts_covered = HEAD|HAIR|EARS|NECK
+	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	sleevetype = null
+	sleeved = null
+	dynamic_hair_suffix = ""
+	edelay_type = 1
+	adjustable = CANT_CADJUST
+	toggle_icon_state = FALSE
+	max_integrity = 100
+	sewrepair = TRUE
+
 /obj/item/clothing/head/roguetown/roguehood/shalal
 	name = "keffiyeh"
 	desc = "A protective covering worn by those native to the desert."
@@ -1625,6 +1645,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	slot_flags = ITEM_SLOT_HEAD
 	detail_tag = "_detail"
+	altdetail_tag = "_detailalt"
 	dynamic_hair_suffix = ""
 	max_integrity = 150
 	body_parts_covered = HEAD|HAIR|EARS
@@ -1632,6 +1653,9 @@
 	armor = ARMOR_SPELLSINGER // spellsinger hat stats
 	sewrepair = TRUE
 	var/picked = FALSE
+	color = "#262927"
+	detail_color = "#FFFFFF"
+	altdetail_color = "#9c2525"
 
 /obj/item/clothing/head/roguetown/grenzelhofthat/attack_right(mob/user)
 	..()
@@ -1654,6 +1678,13 @@
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
+
+	if(get_altdetail_tag())
+		var/mutable_appearance/pic2 = mutable_appearance(icon(icon, "[icon_state][altdetail_tag]"))
+		pic2.appearance_flags = RESET_COLOR
+		if(get_altdetail_color())
+			pic2.color = get_altdetail_color()
+		add_overlay(pic2)
 
 //Eora content from Stonekeep
 

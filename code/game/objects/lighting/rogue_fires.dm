@@ -221,6 +221,7 @@
 	icon_state = "floorcandle1"
 	base_state = "floorcandle"
 	pixel_y = 0
+	layer = TABLE_LAYER
 	cookonme = FALSE
 
 /obj/machinery/light/rogue/wallfire/candle/floorcandle/alt
@@ -281,14 +282,13 @@
 	. = ..()
 
 /obj/machinery/light/rogue/torchholder/OnCrafted(dirin, user)
-	if(dirin == NORTH)
-		pixel_y = 32
 	dirin = turn(dirin, 180)
 	QDEL_NULL(torchy)
 	on = FALSE
 	set_light(0)
 	update_icon()
-	. = ..(dirin)
+
+	..(dirin, user)
 
 /obj/machinery/light/rogue/torchholder/process()
 	if(on)
