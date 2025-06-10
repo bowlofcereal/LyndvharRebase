@@ -954,6 +954,7 @@
 		effectedstats = list("strength" = 2)
 	else
 		effectedstats = list("strength" = 1)
+	. = ..()
 	return TRUE
 
 /datum/status_effect/buff/bloodrage/on_remove()
