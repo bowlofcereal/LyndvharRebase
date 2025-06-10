@@ -1,4 +1,4 @@
-/datum/advclass/trader
+/*/datum/advclass/trader
 	name = "Trader"
 	tutorial = "A traveling salesman, a peddler of goods - commerce is your expertise, and you've come to this land to make a fortune."
 	allowed_sexes = list(MALE, FEMALE)
@@ -207,7 +207,7 @@
 				if("Viola")
 					backr = /obj/item/rogue/instrument/viola
 				if("Vocal Talisman")
-					backr = /obj/item/rogue/instrument/vocals
+					backr = /obj/item/rogue/instrument/vocals*/
 
 /obj/item/clothing/mask/rogue/ragmask/black
 	color = CLOTHING_BLACK

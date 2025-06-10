@@ -1,4 +1,4 @@
-//shield
+/*//shield
 /datum/advclass/cleric
 	name = "Cleric"
 	tutorial = "Disciples of the divine - clerics are blessed with the power of miracles from the gods themselves."
@@ -363,4 +363,4 @@
 			)
 			neck = pick(psicross_options)
 */
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)*/

@@ -1,4 +1,4 @@
-/datum/advclass/noble
+/*/datum/advclass/noble
 	name = "Noble"
 	tutorial = "Traveling nobility from other regions of the world."
 	allowed_sexes = list(MALE, FEMALE)
@@ -182,4 +182,4 @@
 			H.change_stat("strength", 1)
 			H.change_stat("perception", 1)
 			H.change_stat("intelligence", 2)
-			H.change_stat("speed", 1)
+			H.change_stat("speed", 1)*/

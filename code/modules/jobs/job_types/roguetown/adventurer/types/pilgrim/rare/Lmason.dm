@@ -1,4 +1,4 @@
-//dwarf master mason
+/*//dwarf master mason
 
 /datum/advclass/grandmastermason
 	name = "Grandmaster Mason"
@@ -50,3 +50,4 @@
 	H.change_stat("endurance", 2)
 	H.change_stat("constitution", 2)
 	H.change_stat("speed", 2)
+*/

@@ -1,4 +1,4 @@
-/datum/advclass/farmermaster
+/*/datum/advclass/farmermaster
 	name = "Master Farmer"
 	tutorial = "A master farmer, a story simlar to the likes of Goliath and David, \
 	You, a simple peasent, through sheer determination have conquered nature \
@@ -47,4 +47,4 @@
 	beltr = /obj/item/flint
 	backr = /obj/item/rogueweapon/hoe
 	H.change_stat("strength", 1)
-	H.change_stat("speed", -1)
+	H.change_stat("speed", -1)*/
