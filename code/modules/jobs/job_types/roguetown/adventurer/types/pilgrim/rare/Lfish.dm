@@ -1,4 +1,4 @@
-//human master fisher
+/*//human master fisher
 
 /datum/advclass/fishermaster
 	name = "Master Fisher"
@@ -74,3 +74,4 @@
 				H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 			H.change_stat("constitution", 1)
 			H.change_stat("perception", 2)
+*/
