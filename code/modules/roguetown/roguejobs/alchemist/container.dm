@@ -25,10 +25,10 @@
 	list_reagents = list(/datum/reagent/medicine/strongstam = 45)
 
 /obj/item/reagent_containers/glass/bottle/rogue/strongpoison
-	list_reagents = list(/datum/reagent/strongpoison = 15)
+	list_reagents = list(/datum/reagent/toxin/strongpoison = 15)
 
 /obj/item/reagent_containers/glass/bottle/rogue/stampoison
-	list_reagents = list(/datum/reagent/stampoison = 15)
+	list_reagents = list(/datum/reagent/toxin/stampoison = 15)
 
 /obj/item/reagent_containers/glass/bottle/rogue/strongstampoison
 	list_reagents = list(/datum/reagent/strongstampoison = 15)

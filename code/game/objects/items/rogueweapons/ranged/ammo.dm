@@ -149,7 +149,7 @@
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/iron
 	range = 15
 	hitsound = 'sound/combat/hits/hi_arrow2.ogg'
-	poisontype = /datum/reagent/berrypoison //Support for future variations of poison for arrow-crafting
+	poisontype = /datum/reagent/toxin/berrypoison //Support for future variations of poison for arrow-crafting
 	poisonfeel = "burning" //Ditto
 	poisonamount = 5 //Support and balance for bodkins, which will hold less poison due to how
 
