@@ -1,4 +1,4 @@
-//dwarf, master miner
+/*//dwarf, master miner
 
 /datum/advclass/minermaster
 	name = "Master Miner"
@@ -42,4 +42,4 @@
 		H.change_stat("constitution", 1)
 		H.change_stat("perception", 1)
 		H.change_stat("fortune", 4)
-
+*/
