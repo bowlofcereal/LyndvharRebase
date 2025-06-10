@@ -170,7 +170,7 @@
 
 /obj/effect/proc_holder/spell/invoked/tug_of_war
 	name = "Tug of War"
-	overlay = "createlight"
+	overlay_state = "ravox_tug"
 	recharge_time = 1 MINUTES
 	movement_interrupt = TRUE
 	chargedrain = 0

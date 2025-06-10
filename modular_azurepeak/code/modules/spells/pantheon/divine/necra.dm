@@ -256,7 +256,7 @@
 	invocation_type = "whisper"
 	invocation = "Undermaiden guide my gaze..."
 	associated_skill = /datum/skill/magic/holy
-	overlay_state = "message"
+	overlay_state = "bigpsy"
 	miracle = TRUE
 	devotion_cost = 30
 	range = 1

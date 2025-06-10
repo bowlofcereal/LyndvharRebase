@@ -225,9 +225,11 @@
 	chargetime = 0
 	chargedloop = /datum/looping_sound/invokeholy
 	sound = 'sound/magic/zizo_snuff.ogg'
+	overlay_state = "rune2"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
 	recharge_time = 12 SECONDS
+	miracle = TRUE
 	devotion_cost = 30
 	range = 2
 	
@@ -238,3 +240,4 @@
 		return FALSE
 	for(var/obj/O in range((range + user.mind?.get_skill_level(/datum/skill/magic/holy)), user))	//+1 range per holy skill up to a potential of 8.
 		O.extinguish()
+	return TRUE

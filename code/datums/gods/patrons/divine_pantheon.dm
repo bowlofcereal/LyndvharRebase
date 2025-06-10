@@ -50,9 +50,9 @@
 	worshippers = "Druids, Beasts, Madmen"
 	mob_traits = list(TRAIT_KNEESTINGER_IMMUNITY, TRAIT_LEECHIMMUNE)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/spiderspeak 			= CLERIC_T0,
-					/obj/effect/proc_holder/spell/targeted/blesscrop			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/targeted/blesscrop			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/targeted/shapeshift/dendor	= CLERIC_T2,
 					/obj/effect/proc_holder/spell/targeted/conjure_glowshroom	= CLERIC_T3,
 					/obj/effect/proc_holder/spell/self/howl/call_of_the_moon	= CLERIC_T4,
@@ -179,8 +179,8 @@
 	worshippers = "Smiths, Miners, Engineers"
 	mob_traits = list(TRAIT_FORGEBLESSED, TRAIT_BETTER_SLEEP)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/malum_flame_rogue 	= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/vigorousexchange		= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heatmetal				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/hammerfall			= CLERIC_T3,
@@ -200,7 +200,8 @@
 	worshippers = "Lovers, the romantically inclined, and Doting Grandparents"
 	mob_traits = list(TRAIT_EMPATH, TRAIT_EXTEROCEPTION)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/eora_blessing			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/bless_food            = CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/bud					= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heartweave			= CLERIC_T2,
@@ -212,4 +213,5 @@
 		"HER BEAUTY IS EVEN IN THIS TORMENT!",
 		"I LOVE YOU, EVEN AS YOU TRESPASS AGAINST ME!",
 	)
+	traits_tier = list(TRAIT_EORAN_CALM = CLERIC_T0, TRAIT_EORAN_SERENE = CLERIC_T2)
 	storyteller = /datum/storyteller/eora

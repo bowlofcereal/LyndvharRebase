@@ -96,7 +96,7 @@
 //T0 that tells the user the person's vice.
 /obj/effect/proc_holder/spell/invoked/baothavice
 	name = "Tell Vice"
-	overlay_state = "appraise"
+	overlay_state = "baotha_vice"
 	releasedrain = 10
 	chargedrain = 0
 	chargetime = 0

@@ -167,7 +167,7 @@
 //15 PER peer-ahead.
 /obj/effect/proc_holder/spell/invoked/noc_sight
 	name = "Noc's Gaze"
-	overlay_state = ""
+	overlay_state = "noc_sight"
 	desc = "Peer ahead."
 	chargetime = 0
 	chargedrain = 0

@@ -153,6 +153,8 @@
 #define TRAIT_ARCYNE_T2 "Arcyne Training (Apprentice)"
 #define TRAIT_ARCYNE_T3 "Arcyne Training (Expert)"
 #define TRAIT_ARCYNE_T4 "Arcyne Training (Master)"
+#define TRAIT_EORAN_CALM "Eoran Calm"
+#define TRAIT_EORAN_SERENE "Eoran Serenity"
 
 
 GLOBAL_LIST_INIT(roguetraits, list(
@@ -279,7 +281,9 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_ARCYNE_T3 = span_notice("I am a full-fledged mage, and have access to devastating spells that affects a wide area."),
 	TRAIT_ARCYNE_T4 = span_notice("I'm a master of the Arcyne arts, and has access to some of the most powerful spells ever devised."),
 	TRAIT_NOFATIGUE = span_notice ("I don't need rest; I won't ever feel fatigue."),
-	TRAIT_PERMAMUTE = span_notice("I am a mute. I cannot speak.")
+	TRAIT_PERMAMUTE = span_notice("I am a mute. I cannot speak."),
+	TRAIT_EORAN_CALM = span_notice("Eora has touched me, granting me some calm. She protects me from the peaks of my stress."),
+	TRAIT_EORAN_SERENE = span_greentext("Eora has blessed me with all-encompassing serenity. I feel no more stress.")
 ))
 
 // trait accessor defines

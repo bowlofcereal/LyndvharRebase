@@ -37,7 +37,7 @@
 //T0 the fishing
 /obj/effect/proc_holder/spell/invoked/aquatic_compulsion
 	name = "Aquatic Compulsion"
-	overlay_state = "thebends"
+	overlay_state = "aqua"
 	releasedrain = 15
 	chargedrain = 0
 	chargetime = 0.5 SECONDS

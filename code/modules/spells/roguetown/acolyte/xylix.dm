@@ -88,6 +88,7 @@
 
 /obj/effect/proc_holder/spell/self/xylixslip
 	name = "Xylixian Slip"
+	overlay_state = "xylix_slip"
 	releasedrain = 10
 	chargedrain = 0
 	chargetime = 0

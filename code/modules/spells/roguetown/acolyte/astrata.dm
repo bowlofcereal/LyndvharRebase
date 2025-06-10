@@ -135,6 +135,7 @@
 //T0. Removes cone vision for a dynamic duration.
 /obj/effect/proc_holder/spell/self/astrata_gaze
 	name = "Astratan Gaze"
+	overlay_state = "astrata_gaze"
 	releasedrain = 10
 	chargedrain = 0
 	chargetime = 0

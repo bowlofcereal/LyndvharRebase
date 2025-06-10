@@ -230,7 +230,7 @@
 
 /obj/effect/proc_holder/spell/invoked/pestra_leech
 	name = "Leeching Purge"
-	overlay_state = "limb_attach"
+	overlay_state = "leech_purge"
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
