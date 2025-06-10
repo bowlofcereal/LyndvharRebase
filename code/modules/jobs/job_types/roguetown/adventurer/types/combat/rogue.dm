@@ -1,3 +1,4 @@
+/* COPIED TO THE "THIEF" CLASS FOR THE GUTTERFOLK
 /datum/advclass/rogue
 	name = "Rogue"
 	tutorial = "Thieves, scoundrels, and silver-tongued charlatans from all walks of life."
@@ -14,7 +15,8 @@
 /datum/outfit/job/roguetown/adventurer/rogue/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind?.adjust_skillrank(/datum/skill/combat/axesmaces, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
@@ -32,8 +34,8 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/rogueweapon/mace/cudgel // knockout stick
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-	backpack_contents = list(/obj/item/lockpick, /obj/item/rogueweapon/knife/dagger, /obj/item/clothing/mask/rogue/shepherd/rag)
-	ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
+	backpack_contents = list(/obj/item/lockpick, /obj/item/rogueweapon/huntingknife/idagger, /obj/item/clothing/mask/rogue/shepherd)
+	//ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	H.change_stat("strength", -2)
@@ -42,3 +44,6 @@
 	H.change_stat("speed", 2)
 	H.grant_language(/datum/language/thievescant)
 	to_chat(H, "<span class='info'>I can gesture in thieves' cant with ,t before my speech.</span>")
+*/ 
+
+

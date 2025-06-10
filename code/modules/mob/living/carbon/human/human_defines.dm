@@ -126,7 +126,7 @@
 	/datum/rmb_intent/weak)
 
 	rot_type = /datum/component/rot/corpse
-	rot_time = 10 MINUTES
+	rot_time = 12 MINUTES
 	dust_time = 40 MINUTES
 
 
