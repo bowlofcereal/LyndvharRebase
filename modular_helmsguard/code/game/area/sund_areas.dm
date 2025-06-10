@@ -75,7 +75,7 @@
 	location_name = "the keep"
 	keep_area = TRUE
 	town_area = TRUE
-	first_time_text = "Sundburg Keep"
+	first_time_text = "Helmsguard Keep"
 	icon_state = "keep"
 	droning_sound = 'sound/music/area/sargoth.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
@@ -122,7 +122,7 @@
 // Castle
 
 /area/rogue/outdoors/sund/castle
-	location_name = "the Sundburg"
+	location_name = "Helmsguard"
 	keep_area = TRUE
 	town_area = TRUE
 	ambientsounds = AMB_TOWNDAY
