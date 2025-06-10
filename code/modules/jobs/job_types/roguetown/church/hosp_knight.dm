@@ -97,24 +97,24 @@
 
 /datum/outfit/job/roguetown/hosp/lance/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE) //Polearms are pretty much explicitly a two-handed weapon, so I gave them a polearm option.
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)	// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)	// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)		// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/polearms, 4, TRUE) //Polearms are pretty much explicitly a two-handed weapon, so I gave them a polearm option.
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/swords, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/shields, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/axes, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/maces, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/firearms, 2, TRUE)	
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 2, TRUE)	
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/medicine, 3, TRUE)	// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/alchemy, 2, TRUE)	// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/sewing, 2, TRUE)		// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/cooking, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 2, TRUE)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Halberd","Bardische","Eaglebeak")
@@ -167,24 +167,24 @@
 
 /datum/outfit/job/roguetown/hosp/sword/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE) 
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)	// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)	// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)		// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/polearms, 2, TRUE) 
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/shields, 4, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/axes, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/maces, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/firearms, 2, TRUE)	
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 2, TRUE)	
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/medicine, 3, TRUE)	// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/alchemy, 2, TRUE)	// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/sewing, 2, TRUE)		// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/cooking, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 2, TRUE)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Zweihander","Bastard Sword","Steel Greatsword")
@@ -238,24 +238,24 @@
 
 /datum/outfit/job/roguetown/hosp/axe/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE) 
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)	// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)	// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)		// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/polearms, 2, TRUE) 
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/swords, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/shields, 4, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/axes, 4, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/maces, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/firearms, 2, TRUE)	
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 2, TRUE)	
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/medicine, 3, TRUE)	// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/alchemy, 2, TRUE)	// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/sewing, 2, TRUE)		// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/cooking, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 2, TRUE)
 
 	H.adjust_blindness(-3)
 	var/weapons = list("Battle Axe","Steel Great Axe","Great Double-Headed Axe")
@@ -309,25 +309,25 @@
 
 /datum/outfit/job/roguetown/hosp/mace/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE) 
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/firearms, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)	
-	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)	// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)	// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)		// HOSPITALER MEDICAL SKILL
-	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/polearms, 2, TRUE) 
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/swords, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/shields, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/axes, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/maces, 4, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/firearms, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 4, TRUE)	
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 2, TRUE)	
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/medicine, 3, TRUE)	// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/alchemy, 2, TRUE)	// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/sewing, 2, TRUE)		// HOSPITALER MEDICAL SKILL
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/cooking, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_blindness(-3)
 
 	var/weapons = list("Goden Mace","Steel Warhammer","Flail")

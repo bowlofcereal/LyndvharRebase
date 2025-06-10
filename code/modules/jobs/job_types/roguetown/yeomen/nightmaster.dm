@@ -36,19 +36,19 @@
 	ADD_TRAIT(H, TRAIT_NUTCRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC)
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE) // Need the strongarm to wrestle people out of the baths
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE) // Below here are skills bath attendants have. Only makes sense to have them >= for the head honcho
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE) // Being a more rowdy type, they should be capable with a knife
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 4, TRUE) // Need the strongarm to wrestle people out of the baths
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/sneaking, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/stealing, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/medicine, 2, TRUE) // Below here are skills bath attendants have. Only makes sense to have them >= for the head honcho
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 3, TRUE) // Being a more rowdy type, they should be capable with a knife
 		H.change_stat("strength", 1)
 		H.change_stat("intelligence", -1)
 		H.change_stat("constitution", 1)
