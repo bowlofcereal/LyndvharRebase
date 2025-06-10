@@ -237,6 +237,8 @@
 	var/filter = owner.get_filter(NECRAVOW_FILTER)
 	if (!filter)
 		owner.add_filter(NECRAVOW_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 200, "size" = 1))
+	ADD_TRAIT(owner, TRAIT_NECRAS_VOW, TRAIT_MIRACLE)
+	owner.rot_type = null
 	to_chat(owner, span_warning("My limbs feel more alive than ever... I feel whole..."))
 
 /datum/status_effect/buff/necras_vow/on_remove()

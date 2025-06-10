@@ -35,7 +35,7 @@
 	if(target.mind && !target.mind.active)
 		to_chat(user, "[target]'s heart is inert. Maybe it will respond later?")
 		return FALSE
-	if(target.has_status_effect(/datum/status_effect/buff/necras_vow))
+	if(HAS_TRAIT(target, TRAIT_NECRAS_VOW))
 		to_chat(user, "[target] has pledged a vow to Necra. This will not work.")
 		return FALSE
 

@@ -71,6 +71,10 @@
 		if(!target.mind)
 			revert_cast()
 			return FALSE
+		if(HAS_TRAIT(target, TRAIT_NECRAS_VOW))
+			to_chat(user, "This one has pledged themselves whole to Necra. They are Hers.")
+			revert_cast()
+			return FALSE
 		if(!target.mind.active)
 			to_chat(user, "Astrata is not done with [target], yet.")
 			revert_cast()
@@ -180,6 +184,7 @@
 		duration *= assocskill
 	if(GLOB.tod == "day" || GLOB.tod == "dawn")
 		per_bonus++
+		duration *= 2
 	if(per_bonus > 0)
 		effectedstats = list("perception" = per_bonus)
 	to_chat(owner, span_info("She shines through me! I can perceive all clear as dae!"))

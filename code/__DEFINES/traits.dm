@@ -155,6 +155,7 @@
 #define TRAIT_ARCYNE_T4 "Arcyne Training (Master)"
 #define TRAIT_EORAN_CALM "Eoran Calm"
 #define TRAIT_EORAN_SERENE "Eoran Serenity"
+#define TRAIT_NECRAS_VOW "Necra's Vow"
 
 
 GLOBAL_LIST_INIT(roguetraits, list(
@@ -283,7 +284,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_NOFATIGUE = span_notice ("I don't need rest; I won't ever feel fatigue."),
 	TRAIT_PERMAMUTE = span_notice("I am a mute. I cannot speak."),
 	TRAIT_EORAN_CALM = span_notice("Eora has touched me, granting me some calm. She protects me from the peaks of my stress."),
-	TRAIT_EORAN_SERENE = span_greentext("Eora has blessed me with all-encompassing serenity. I feel no more stress.")
+	TRAIT_EORAN_SERENE = span_greentext("Eora has blessed me with all-encompassing serenity. I feel no more stress."),
+	TRAIT_NECRAS_VOW = span_warning("I've pledged myself to Necra. If I fall, I am Hers.")
 ))
 
 // trait accessor defines
