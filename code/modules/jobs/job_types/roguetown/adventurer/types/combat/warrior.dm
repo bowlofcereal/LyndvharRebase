@@ -1,18 +1,17 @@
 /datum/advclass/sfighter
-	name = "Warrior"
-	tutorial = "Trained warriors and estemeed swordsmen from all corners of the world, \
-	warriors are defined by martial prowess - whether with a blade or their bare fists."
+	name = "Vagrant"
+	tutorial = "Wandering peasants, milita, deserters... many and varied folk turn to the path of the vagrant. Very few meet anything greater than the bottom of a tankard or the wrong end of a noose."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/sfighter
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER)
 	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
-	classes = list("Battlemaster" = "You are a seasoned weapon specialist, clad in maille, with years of experience in warfare and battle under your belt.",
+/*	classes = list("Battlemaster" = "You are a seasoned weapon specialist, clad in maille, with years of experience in warfare and battle under your belt.",
 					"Duelist"= "You are an esteemed swordsman who foregoes armor in exchange for a more nimble fighting style.",
 					"Barbarian" = "You are a brutal warrior who foregoes armor in order to showcase your raw strength. You specialize in unarmed combat and wrestling.",
 					"Monster Hunter" = "You specialize in hunting down monsters and the undead, carrying two blades - one of silver, one of steel.",
 					"Flagellant" = "You are a pacifistic warrior who embraces suffering, believing pain is the path to enlightenment. You take the suffering of others upon yourself.")
-
+*/ //Helmsguard edit
 
 /datum/outfit/job/roguetown/adventurer/sfighter/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -92,7 +91,7 @@
 			else
 				shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
 			if(prob(50))
-				head = /obj/item/clothing/head/roguetown/helmet/nasal
+				head = /obj/item/clothing/head/roguetown/helmet
 			else
 				head = /obj/item/clothing/head/roguetown/helmet/kettle
 			if(prob(50))
@@ -105,7 +104,7 @@
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 			H.change_stat("strength", 1)
 		if("Spear")
-			backl = /obj/item/rogueweapon/polearm/spear
+			backl = /obj/item/rogueweapon/spear
 			H.mind?.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		if("Messer")
 			beltl = /obj/item/rogueweapon/sword/iron/messer

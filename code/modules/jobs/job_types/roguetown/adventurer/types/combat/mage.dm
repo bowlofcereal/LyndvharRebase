@@ -46,7 +46,7 @@
 			H.mind.adjust_spellpoints(1)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 			ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
-		if("Spellsinger")
+		if("Bard")
 			to_chat(H, span_warning("You belong to a school of bards renowned for their study of both the arcane and the arts."))
 			head = /obj/item/clothing/head/roguetown/roguehood/mage
 			shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
@@ -56,7 +56,7 @@
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/mage
 			backl = /obj/item/storage/backpack/rogue/satchel
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-			r_hand = /obj/item/rogueweapon/polearm/woodstaff
+			r_hand = /obj/item/rogueweapon/woodstaff
 			backpack_contents = list(/obj/item/flashlight/flare/torch = 1)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)

@@ -11,12 +11,12 @@
 	max_mobs = 3
 	restart_time = 6 MINUTES
 	mob_types = list(
-	/mob/living/carbon/human/species/skeleton/npc = 3,
+	/mob/living/carbon/human/species/skeleton/npc = 1,
 	/mob/living/simple_animal/hostile/rogue/skeleton/bow = 3,
-	/mob/living/carbon/human/species/skeleton/dwarf/npc = 2,
-	/mob/living/carbon/human/species/skeleton/npc/dungeon = 2,
+	/mob/living/carbon/human/species/skeleton/dwarf/npc = 1,
+	/mob/living/carbon/human/species/skeleton/npc/dungeon = 1,
 	/mob/living/simple_animal/hostile/rogue/skeleton/guard/xbow = 2,
-	/mob/living/carbon/human/species/skeleton/dwarf/npc/dungeon = 2,
+	/mob/living/carbon/human/species/skeleton/dwarf/npc/dungeon = 1,
 	/mob/living/simple_animal/hostile/rogue/skeleton/axe = 5,
 	/mob/living/simple_animal/hostile/rogue/skeleton/bow = 4,
 	/mob/living/simple_animal/hostile/rogue/skeleton/spear = 6,
