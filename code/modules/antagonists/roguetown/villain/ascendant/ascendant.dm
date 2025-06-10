@@ -19,6 +19,7 @@
 		TRAIT_SCHIZO_AMBIENCE,
 		TRAIT_SHOCKIMMUNE,
 		TRAIT_MANIAC_AWOKEN, //as stated in lunatic, just gives flavortext and the trait
+		TRAIT_STEELHEARTED
 	)
 
 	/// Cached old stats in case we get removed
