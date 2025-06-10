@@ -253,7 +253,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	name = "Rune of Death"
 	desc = "A Holy Rune of Necra"
 	icon_state = "necra_chalky"
-	var/deathrites = list("Undermaiden's Bargain")
+	var/deathrites = list("Undermaiden's Bargain", "Vow to the Undermaiden")
 
 /obj/structure/ritualcircle/necra/attack_hand(mob/living/user)
 	if((user.patron?.type) != /datum/patron/divine/necra)
@@ -306,7 +306,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 							spawn(120)
 								icon_state = "necra_chalky"
 						else
-							loc.visible_message(span_warning("Then... nothing. The Undermaiden does not care for the vows of the damned."))
+							loc.visible_message(span_warning("Then... nothing. The Undermaiden does not care for the vows of the damned, or those of other faiths."))
 
 
 
@@ -320,9 +320,12 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	for(var/mob/living/carbon/human/target in ritualtargets)
 		if(HAS_TRAIT(target, TRAIT_ROTMAN) || HAS_TRAIT(target, TRAIT_NOBREATH) || target.mob_biotypes & MOB_UNDEAD)	//No Undead, no Rotcured, no Deathless
 			return FALSE
+		if(target.patron.type != /datum/patron/divine/necra)
+			return FALSE
 		target.apply_status_effect(/datum/status_effect/buff/necras_vow)
 		target.apply_status_effect(/datum/status_effect/buff/healing/necras_vow)
-	return TRUE
+		return TRUE
+	return FALSE
 
 /obj/structure/ritualcircle/eora
 	name = "Rune of Love"
