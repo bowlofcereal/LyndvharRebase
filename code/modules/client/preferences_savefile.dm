@@ -206,8 +206,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	S["defiant"]			>> defiant
 
-	S["nsfw"]			>> nsfw
-
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
 		update_preferences(needs_update, S)		//needs_update = savefile_version if we need an update (positive integer)
@@ -503,11 +501,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if(!valid_nsfw_headshot_link(null, nsfw_headshot_link, TRUE))
 		nsfw_headshot_link = null
 
-	S["nsfw_info"]		>> nsfw_info
-	if(!valid_nsfw_info(null, nsfw_info, TRUE))
-		nsfw_info = null
-
-
 	S["char_accent"]		>> char_accent
 	if (!char_accent)
 		char_accent = "No accent"
@@ -679,11 +672,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		WRITE_FILE(S["loadout3"] , loadout3.type)
 	else
 		WRITE_FILE(S["loadout3"] , null)
-
-	WRITE_FILE(S["flavor_text"] , flavor_text)
-
-	WRITE_FILE(S["nsfw_info"] , nsfw_info)
-
 	return TRUE
 
 

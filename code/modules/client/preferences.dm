@@ -160,13 +160,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/update_mutant_colors = TRUE
 
 	var/headshot_link
-	
-	var/flavor_text
 
-	var/ooc_notes
-	
 	var/nsfw_headshot_link
-	var/nsfw_info
 	
 	var/ooc_extra_link
 	var/ooc_extra
@@ -454,12 +449,10 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<br><img src='[headshot_link]' width='250px' height='250px'>"
 			dat += "<br><b>Flavor Text:</b> <a href='?_src_=prefs;preference=flavor;task=input'>Change</a>"
 			dat += "<br><b>Loadout Item:</b> <a href='?_src_=prefs;preference=loadout_item;task=input'>[loadout ? loadout.name : "None"]</a>"
-			if(user.client.prefs.nsfw)
-				dat += "<br><b>NSFW Headshot:</b> <a href='?_src_=prefs;preference=nsfw_headshot;task=input'>Change</a>"
-				if(nsfw_headshot_link != null)
-					dat += "<br><img src='[nsfw_headshot_link]' width='250px' height='250px'>"
-				dat += "<br><b>NSFW Info:</b> <a href='?_src_=prefs;preference=nsfwinfo;task=input'>Change</a>"
-				dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+			dat += "<br><b>NSFW Headshot:</b> <a href='?_src_=prefs;preference=nsfw_headshot;task=input'>Change</a>"
+			if(nsfw_headshot_link != null)
+				dat += "<br><img src='[nsfw_headshot_link]' width='250px' height='250px'>"
+			dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
 			if(is_legacy)
 				dat += "<br><i><font size = 1>(Legacy)<a href='?_src_=prefs;preference=legacyhelp;task=input'>(?)</a></font></i>"
 
@@ -751,7 +744,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	dat += "</td>"
 	dat += "<td width='33%' align='right'>"
 	// dat += "<b>Be defiant:</b> <a href='?_src_=prefs;preference=be_defiant'>[(defiant) ? "Yes":"No"]</a><br>"
-	dat += "<b>Enable NSFW Content:</b> <a href='?_src_=prefs;preference=be_nsfw'>[(nsfw) ? "Yes":"No"]</a><br>"
 	dat += "<b>Be voice:</b> <a href='?_src_=prefs;preference=schizo_voice'>[(toggles & SCHIZO_VOICE) ? "Enabled":"Disabled"]</a>"
 	dat += "</td>"
 	dat += "</tr>"
@@ -1812,24 +1804,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					nsfw_headshot_link = new_nsfw_headshot_link
 					to_chat(user, "<span class='notice'>Successfully updated NSFW Headshot picture</span>")
 					log_game("[user] has set their NSFW Headshot image to '[nsfw_headshot_link]'.")
-		
-				if("nsfwinfo")
-					to_chat(user, "<span class='notice'>Please use this for things such as image links, f-list links, or any additional NSFW information.</span>")
-					var/new_nsfw_info = input(user, "Type your NSFW Info here:", "NSFW Info", nsfw_info) as message|null
-					if(new_nsfw_info == null)
-						return
-					if(new_nsfw_info == "")
-						nsfw_info = null
-						ShowChoices(user)
-						return
-					if(!valid_nsfw_info(user, new_nsfw_info))
-						nsfw_info = null
-						ShowChoices(user)
-						return
-					nsfw_info = new_nsfw_info
-					to_chat(user, "<span class='notice'>Successfully updated NSFW Info.</span>")
-					log_game("[user] has set their NSFW Info to '[nsfw_info]'.")
-
 
 					var/ooc = ooc_notes
 					ooc = html_encode(ooc)
@@ -1863,7 +1837,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(ooc_notes && ooc_notes_display)
 						dat += "<br>"
 						dat += "<div align='center'><b>OOC notes</b></div>"
-						dat += "<div align='left'>[ooc_notes_display]</div>"
 					if(ooc_extra)
 						dat += "[ooc_extra]"
 					var/datum/browser/popup = new(user, "[real_name]", nwidth = 600, nheight = 800)
@@ -2591,13 +2564,9 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 	character.headshot_link = headshot_link
 
-	character.flavor_text = flavor_text
-
 	character.ooc_notes = ooc_notes
 
 	character.nsfw_headshot_link = nsfw_headshot_link
-
-	character.nsfw_info = nsfw_info
 
 	character.statpack = statpack
 
@@ -2740,22 +2709,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			to_chat(usr, "<span class='warning'>The image must be hosted on one of the following sites: 'Gyazo, Lensdump, Imgbox, Catbox'</span>")
 		return FALSE
 	return TRUE
-/proc/valid_flavor_text(mob/user, value, silent = FALSE)
 
-	if(!length(value))
-		return FALSE
-	return TRUE
-/proc/valid_ooc_notes(mob/user, value, silent = FALSE)
-
-	if(!length(value))
-		return FALSE
-	return TRUE
-
-/proc/valid_nsfw_info(mob/user, value, silent = FALSE)
-
-	if(!length(value))
-		return FALSE
-	return TRUE
 /datum/preferences/proc/is_active_migrant()
 	if(!migrant)
 		return FALSE
