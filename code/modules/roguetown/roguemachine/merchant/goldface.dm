@@ -29,6 +29,7 @@
 	var/current_cat = "1"
 	var/lockid = "merchant"
 	var/list/categories = list(
+		"Adventuring Supplies",
 		"Alcohols",
 		"Apparel",
 		"Light Armor",
