@@ -16,7 +16,7 @@
 		return FALSE
 	if(!get_location_accessible(user, BODY_ZONE_PRECISE_R_FOOT))
 		return FALSE
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
+	if(target.wear_mask)
 		return FALSE
 	return TRUE
 

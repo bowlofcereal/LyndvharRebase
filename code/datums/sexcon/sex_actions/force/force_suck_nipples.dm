@@ -15,7 +15,7 @@
 		return FALSE
 	if(!get_location_accessible(user, BODY_ZONE_CHEST, TRUE))
 		return FALSE
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
+	if(target.wear_mask)
 		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_BREASTS))
 		return FALSE
