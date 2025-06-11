@@ -99,7 +99,7 @@
 			to_chat(target, span_warning("My skins feels like pins and needles, as if something were ripping and tearing at me!"))
 			return ..()
 
-//Bloodrage -- Uncapped STR buff.
+//Bloodrage T0 -- Uncapped STR buff.
 /obj/effect/proc_holder/spell/self/graggar_bloodrage
 	name = "Bloodrage"
 	desc = "Grants you unbound strength for a short while."
