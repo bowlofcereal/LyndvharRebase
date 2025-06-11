@@ -47,7 +47,7 @@
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	id = /obj/item/scomstone
+	id = /obj/item/scomstone/garrison
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/storage/keyring/sund/sund_bailiff = 1, /obj/item/war_horn/human = 1)
 	if(H.mind)
 		

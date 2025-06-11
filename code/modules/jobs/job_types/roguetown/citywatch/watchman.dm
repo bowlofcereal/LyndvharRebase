@@ -101,6 +101,7 @@
 	beltl = /obj/item/storage/keyring/sund/sund_watch
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/leather
+	id = /obj/item/scomstone/bad/garrison
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/rope/chain = 1, /obj/item/signal_horn = 1)
 
 
