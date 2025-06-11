@@ -111,7 +111,11 @@
 	releasedrain = 30
 	miracle = TRUE
 	devotion_cost = 80
-	var/static/list/purged_effects = list(/datum/status_effect/incapacitating/immobilized, /datum/status_effect/incapacitating/paralyzed, /datum/status_effect/incapacitating/unconscious, /datum/status_effect/incapacitating/sleeping)
+	var/static/list/purged_effects = list(
+	/datum/status_effect/incapacitating/immobilized,
+	/datum/status_effect/incapacitating/paralyzed,
+	/datum/status_effect/incapacitating/stun,
+	/datum/status_effect/incapacitating/knockdown,)
 
 /obj/effect/proc_holder/spell/self/graggar_bloodrage/cast(list/targets, mob/user)
 	. = ..()
