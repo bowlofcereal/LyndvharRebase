@@ -148,7 +148,6 @@
 	H.mind.adjust_skillrank_up_to(/datum/skill/labor/lumberjacking, 3, TRUE)
 	H.mind.special_items["Axe"] = /obj/item/rogueweapon/stoneaxe/woodcut
 
-/* reenable when firearms are back
 /datum/quirk/training7
 	name = "Firearms Training"
 	desc = "I have journeyman firearms skills."
@@ -157,7 +156,6 @@
 /datum/quirk/training7/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.mind.adjust_skillrank_up_to(/datum/skill/combat/firearms, 3, TRUE)
-*/
 
 /datum/quirk/training9
 	name = "Unarmed Training"
@@ -285,12 +283,14 @@
 /datum/quirk/mastercraftsmen // Named this way to absorb the old quirk. Keeps old saves cleaner without them needing to reset quirks.
 	name = "Jack of All Trades"
 	desc = "I've always had steady hands. I'm experienced enough in most fine craftsmanship to make a career out of it, if I can procure my own tools."
-	value = 3 //
+	value = 3
 
 /datum/quirk/mastercraftsmen/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
 	H.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 3, TRUE)
 	H.mind.adjust_skillrank_up_to(/datum/skill/craft/blacksmithing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/weaponsmithing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/armorsmithing, 3, TRUE)
 	H.mind.adjust_skillrank_up_to(/datum/skill/craft/carpentry, 3, TRUE)
 	H.mind.adjust_skillrank_up_to(/datum/skill/craft/masonry, 3, TRUE)
 	H.mind.adjust_skillrank_up_to(/datum/skill/craft/cooking, 3, TRUE)
@@ -315,18 +315,34 @@
 
 /datum/quirk/mastersmith
 	name = "Practiced Smith"
-	desc = "I am a metalworker by trade, and I have the tools for my practice stashed away." // Needs looking at after the smithing rework goes through.
+	desc = "I used to meddle with metalworks here and there, I have the tools for my practice stashed away." // Needs looking at after the smithing rework goes through.
 	value = 1 // Armor-making. Weapon-making. Everyone wants the gamer gear.
 
 /datum/quirk/mastersmith/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
-	H.mind.adjust_skillrank_up_to(/datum/skill/craft/blacksmithing, 4, TRUE)
-	H.mind.adjust_skillrank_up_to(/datum/skill/craft/engineering, 4, TRUE)
-	H.mind.adjust_skillrank_up_to(/datum/skill/craft/smelting, 4, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/weaponsmithing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/armorsmithing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/blacksmithing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/engineering, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/smelting, 3, TRUE)
 	H.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 3, TRUE)
 	H.mind.special_items["Hammer"] = /obj/item/rogueweapon/hammer/claw // works same as normal hammer.
 	H.mind.special_items["Tongs"] = /obj/item/rogueweapon/tongs
 	H.mind.special_items["Coal"] = /obj/item/rogueore/coal
+
+/datum/quirk/mastertailor
+	name = "Practiced Tailor"
+	desc = "I'm practiced in working with needle, thread, and loom. I also have a needle, thread, and scissors hidden away."
+	value = 1
+
+/datum/quirk/mastertailor/on_spawn()
+	var/mob/living/carbon/human/H = quirk_holder
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/sewing, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/crafting, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/medicine, 3, TRUE)//Being skilled with a needle offers some overlap with stitching up peoples' wounds. Also, weaving isn't a skill anymore so...
+	H.mind.special_items["Scissors"] = /obj/item/rogueweapon/huntingknife/scissors/steel
+	H.mind.special_items["Needle"] = /obj/item/needle
+	H.mind.special_items["Thread"] = /obj/item/natural/bundle/fibers/full
 
 /datum/quirk/bleublood
 	name = "Noble Lineage"
@@ -370,6 +386,21 @@
 	H.change_stat("speed", -2)
 	H.transform = H.transform.Scale(1.25, 1.25)
 	H.transform = H.transform.Translate(0, (0.25 * 16))
+	H.update_transform()
+
+/datum/quirk/shelfproblems
+	name = "Dwarfism"
+	desc = "I am smaller than the rest of my kind..."
+	value = 0
+
+/datum/quirk/shelfproblems/on_spawn()
+	var/mob/living/carbon/human/H = quirk_holder
+	//we cant make quirk blackslists but this basically cancel out the giantism
+	H.change_stat("strength", -2)
+	H.change_stat("constitution", -1)
+	H.change_stat("speed", 2)
+	H.transform = H.transform.Scale(0.85, 0.85)
+	H.transform = H.transform.Translate(0, (-0.25 * 16))
 	H.update_transform()
 
 //negative

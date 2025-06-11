@@ -89,6 +89,7 @@
 	H.change_stat("endurance", 1)
 	H.change_stat("constitution", 2)
 	H.change_stat("speed", -1)
+	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC)
 
 // THIEF
 
@@ -126,6 +127,7 @@
 	//ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC) //rogues get this normally but this is....
 	H.change_stat("strength", -2)
 	H.change_stat("perception", 2)
 	H.change_stat("endurance", 1)
