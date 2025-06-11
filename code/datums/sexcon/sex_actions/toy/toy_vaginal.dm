@@ -10,7 +10,7 @@
 		return FALSE
 	return TRUE
 
-/datum/sex_action/toy_vagina/can_perform(mob/living/user, mob/living/target)
+/datum/sex_action/toy_vagina/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user != target)
 		return FALSE
 	if(user.wear_pants)

@@ -6,7 +6,7 @@
 		return FALSE
 	return TRUE
 
-/datum/sex_action/rimming/can_perform(mob/living/user, mob/living/target)
+/datum/sex_action/rimming/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
 	if(target.wear_pants)
