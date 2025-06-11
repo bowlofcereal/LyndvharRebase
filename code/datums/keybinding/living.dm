@@ -118,6 +118,7 @@
 
 /datum/keybinding/living/sneak/down(client/user)
 	var/mob/M = user.mob
+	var/mob/living/carbon/HMN = user.mob
 	if(!isliving(M))
 		return
 	if(HMN.has_status_effect(/datum/status_effect/debuff/stealthcd))
