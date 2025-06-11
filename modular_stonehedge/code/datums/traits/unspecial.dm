@@ -155,7 +155,7 @@
 
 /datum/quirk/training7/on_spawn()
 	var/mob/living/carbon/human/H = quirk_holder
-	H.mind.adjust_skillrank_up_to(/datum/skill/combat/firearms, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/firearms, 2, TRUE) // Cut down from 3 to 2 by stonedelf
 
 /datum/quirk/training9
 	name = "Unarmed Training"
@@ -399,8 +399,8 @@
 	H.change_stat("strength", -2)
 	H.change_stat("constitution", -1)
 	H.change_stat("speed", 2)
-	H.transform = H.transform.Scale(0.85, 0.85)
-	H.transform = H.transform.Translate(0, (-0.25 * 16))
+	H.transform = H.transform.Scale(0.90, 0.90)
+	H.transform = H.transform.Translate(0, -2.2)
 	H.update_transform()
 
 //negative
