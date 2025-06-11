@@ -226,6 +226,7 @@
 		return TRUE
 	if(isliving(M))
 		var/mob/living/L = M
+		M.mob_timers[MT_SNEAKATTACK] = world.time //Why shouldn't you know you're walking into someone stealthed? You JUST bumped into them.
 		if(HAS_TRAIT(L, TRAIT_PUSHIMMUNE))
 			return TRUE
 
@@ -1800,7 +1801,10 @@
 				marked = TRUE
 				M.mob_timers[MT_INVISIBILITY] = world.time
 				M.update_sneak_invis()
+				emote("huh")
+				playsound(M, 'modular_stonehedge/sound/mgsalert.ogg', 100, TRUE)
 				to_chat(M, span_danger("[src] sees me! I'm found!"))
+				M.apply_status_effect(/datum/status_effect/debuff/stealthcd)
 				if(M.m_intent == MOVE_INTENT_SNEAK)
 					emote("huh")
 					M.mob_timers[MT_FOUNDSNEAK] = world.time

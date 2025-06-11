@@ -188,7 +188,7 @@
 				new /obj/item/reagent_containers/powder/spice(src)
 
 /obj/item/storage/backpack/rogue/satchel/black
-	color = CLOTHING_BLACK
+	color = "#585858" //pitch black is hard to see
 
 /obj/item/storage/backpack/rogue/attack_right(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)

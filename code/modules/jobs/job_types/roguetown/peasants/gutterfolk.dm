@@ -61,18 +61,18 @@
 
 /datum/outfit/job/roguetown/gutterfolk/thug/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE) 
-	H.mind.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/labor/lumberjacking, 1, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/axes, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 2, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/maces, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/craft/cooking, 1, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 4, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/swimming, 3, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 2, TRUE) 
+	H.mind.adjust_skillrank_up_to(/datum/skill/labor/mining, 1, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/labor/lumberjacking, 1, TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/labor/farming, 1, TRUE)
 	head = /obj/item/clothing/head/roguetown/roguehood/random 
 	belt = /obj/item/storage/belt/rogue/leather
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
@@ -89,6 +89,7 @@
 	H.change_stat("endurance", 1)
 	H.change_stat("constitution", 2)
 	H.change_stat("speed", -1)
+	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC)
 
 // THIEF
 
@@ -103,17 +104,17 @@
 /datum/outfit/job/roguetown/gutterfolk/thief/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
-		H.mind?.adjust_skillrank(/datum/skill/craft/traps, 1, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/axes, 1, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/maces, 1, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 2, TRUE)
+		H.mind?.adjust_skillrank_up_to(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind?.adjust_skillrank_up_to(/datum/skill/misc/swimming, 2, TRUE)
+		H.mind?.adjust_skillrank_up_to(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind?.adjust_skillrank_up_to(/datum/skill/misc/sewing, 1, TRUE)
+		H.mind?.adjust_skillrank_up_to(/datum/skill/misc/sneaking, 3, TRUE)
+		H.mind?.adjust_skillrank_up_to(/datum/skill/misc/stealing, 3, TRUE)
+		H.mind?.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, 3, TRUE)
+		H.mind?.adjust_skillrank_up_to(/datum/skill/craft/traps, 1, TRUE)
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless
 	pants = /obj/item/clothing/under/roguetown/trou/leather
@@ -126,6 +127,7 @@
 	//ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC) //rogues get this normally but this is....
 	H.change_stat("strength", -2)
 	H.change_stat("perception", 2)
 	H.change_stat("endurance", 1)
@@ -149,14 +151,14 @@
 	armor = /obj/item/clothing/suit/roguetown/shirt/rags	
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant
 	pants = /obj/item/clothing/under/roguetown/tights/vagrant
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, rand(2,5), TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, rand(2,5), TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/athletics, rand(2,4), TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/sneaking, rand(2,5), TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/stealing, rand(3,5), TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, rand(2,5), TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE) //very good reading he is wise
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, rand(2,5), TRUE) // dog beating staff
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, rand(2,5), TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, rand(2,5), TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, rand(2,4), TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/sneaking, rand(2,5), TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/stealing, rand(3,5), TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, rand(2,5), TRUE)
+	H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 4, TRUE) //very good reading he is wise
+	H.mind.adjust_skillrank_up_to(/datum/skill/combat/polearms, rand(2,5), TRUE) // dog beating staff
 	H.STASTR = rand(1, 20)
 	H.STAINT = rand(5, 20)
 	H.STALUC = rand(1, 20)

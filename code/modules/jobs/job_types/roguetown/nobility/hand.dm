@@ -71,20 +71,20 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	beltr = /obj/item/rogueweapon/sword/rapier/dec
-	id = /obj/item/scomstone
+	id = /obj/item/scomstone/garrison
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/tracking, 1, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/maces, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/crossbows, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/tracking, 1, TRUE)
 		H.change_stat("strength", 2)
 		H.change_stat("perception", 3)
 		H.change_stat("intelligence", 3)
@@ -108,31 +108,31 @@
 		gloves = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
 		mask = /obj/item/clothing/mask/rogue/shepherd/shadowmask
 		pants = /obj/item/clothing/under/roguetown/trou/shadowpants
-		id = /obj/item/scomstone
+		id = /obj/item/scomstone/garrison
 	else
 		cloak = /obj/item/clothing/cloak/raincloak/mortus //cool spymaster cloak
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 		backr = /obj/item/storage/backpack/rogue/satchel/black
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 		pants = /obj/item/clothing/under/roguetown/tights/black
-		id = /obj/item/scomstone
+		id = /obj/item/scomstone/garrison
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 6, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE) // not like they're gonna break into the vault.
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/maces, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/crossbows, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/bows, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/swords, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/knives, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 6, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/tracking, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/sneaking, 5, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/stealing, 5, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, 5, TRUE) // not like they're gonna break into the vault.
 	H.change_stat("strength", -1)
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 4)
@@ -140,6 +140,8 @@
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 
 /datum/advclass/hand/advisor
@@ -156,21 +158,21 @@
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/storage/keyring/sund/sund_steward = 1, /obj/item/reagent_containers/glass/bottle/rogue/poison = 1) //starts with a vial of poison, like all wizened evil advisors do!
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 	pants = /obj/item/clothing/under/roguetown/tights/black
-	id = /obj/item/scomstone
+	id = /obj/item/scomstone/garrison
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/crossbows, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/swords, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/reading, 5, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/riding, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/tracking, 2, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/craft/alchemy, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/medicine, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/misc/lockpicking, 4, TRUE)
+		H.mind.adjust_skillrank_up_to(/datum/skill/magic/arcane, 2, TRUE)
 		H.change_stat("intelligence", rand(4,5))
 		H.change_stat("perception", 3)
 		H.mind.adjust_spellpoints(4)
