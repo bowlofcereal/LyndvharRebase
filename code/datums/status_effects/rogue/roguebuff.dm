@@ -949,6 +949,7 @@
 	if(!HAS_TRAIT(owner, TRAIT_DODGEEXPERT))
 		if(owner.STASTR < STRENGTH_SOFTCAP)
 			effectedstats = list("strength" = (STRENGTH_SOFTCAP - owner.STASTR))
+			. = ..()
 			return TRUE
 	if(holyskill >= SKILL_LEVEL_APPRENTICE)
 		effectedstats = list("strength" = 2)
