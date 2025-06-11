@@ -89,7 +89,7 @@
 	H.change_stat("endurance", 1)
 	H.change_stat("constitution", 2)
 	H.change_stat("speed", -1)
-	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC)
+//	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC) // Disabled by Stonedelf until further review
 
 // THIEF
 
@@ -127,7 +127,7 @@
 	//ADD_TRAIT(H, TRAIT_THIEVESGUILD, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_LIGHT_STEP, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC) //rogues get this normally but this is....
+//	ADD_TRAIT(H, TRAIT_BLINDFIGHTING, TRAIT_GENERIC) //rogues get this normally but this is.... // Disabled by Stonedelf until further review
 	H.change_stat("strength", -2)
 	H.change_stat("perception", 2)
 	H.change_stat("endurance", 1)
