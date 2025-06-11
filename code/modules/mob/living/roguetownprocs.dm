@@ -14,6 +14,8 @@
 		return zone
 	if( (target.dir == turn(get_dir(target,user), 180)))
 		return zone
+	if(!(target.cmode)) // Someone who isn't alert will let you line up a shot. Maybe this should just be a modifier.
+		return zone
 
 	var/chance2hit = 0
 
@@ -476,8 +478,12 @@
 	if(L.rogfat >= L.maxrogfat)
 		return FALSE
 	if(L)
-		if(H?.check_dodge_skill())
-			prob2defend = prob2defend + (L.STASPD * 15)
+		if(HAS_TRAIT(H, TRAIT_DODGEEXPERT) && (H.wear_armor.armor_class == ARMOR_CLASS_HEAVY || H.wear_shirt.armor_class == ARMOR_CLASS_HEAVY || H.wear_pants.armor_class == ARMOR_CLASS_HEAVY))
+			prob2defend = prob2defend + (L.STASPD * 10)
+		else if(HAS_TRAIT(H, TRAIT_DODGEEXPERT) && (H.wear_armor.armor_class == ARMOR_CLASS_MEDIUM || H.wear_shirt.armor_class == ARMOR_CLASS_MEDIUM || H.wear_pants.armor_class == ARMOR_CLASS_MEDIUM))
+			prob2defend = prob2defend + (L.STASPD * 12)
+		else if(HAS_TRAIT(H, TRAIT_DODGEEXPERT))
+			prob2defend = prob2defend + (L.STASPD * 14)
 		else
 			prob2defend = prob2defend + (L.STASPD * 10)
 	if(U)
@@ -493,14 +499,9 @@
 		if(!H?.check_armor_skill() || H?.legcuffed)
 			H.Knockdown(1)
 			return FALSE
-		/* Commented out due to gaping imbalance
-			if(H?.check_dodge_skill())
-				drained = drained - 5  commented out for being too much. It was giving effectively double stamina efficiency compared to everyone else.
-			if(H.mind)
-				drained = drained + max((H.checkwornweight() * 10)-(mind.get_skill_level(/datum/skill/misc/athletics) * 10),0)
-			else
-				drained = drained + (H.checkwornweight() * 10)
-		*/
+		if(HAS_TRAIT(H, TRAIT_DODGEEXPERT))
+			drained = drained - 5
+
 		if(I) //the enemy attacked us with a weapon
 			if(!I.associated_skill) //the enemy weapon doesn't have a skill because its improvised, so penalty to attack
 				prob2defend = prob2defend + 10

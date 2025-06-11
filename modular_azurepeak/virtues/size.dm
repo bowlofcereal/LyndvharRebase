@@ -1,3 +1,5 @@
+/*
+
 /datum/virtue/size/giant
 	name = "Giant"
 	desc = "I've always been larger, stronger and hardier than the average person. I tend to lumber around a lot, and my immense size can break down frail, wooden doors."
@@ -22,3 +24,4 @@
 //recipient.transform = recipient.transform.Translate(0, 0)
 	recipient.update_transform()
 
+*/

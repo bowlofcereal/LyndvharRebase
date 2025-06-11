@@ -452,8 +452,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<br><b>Loadout Item:</b> <a href='?_src_=prefs;preference=loadout_item;task=input'>[loadout ? loadout.name : "None"]</a>"
 			dat += "<br><b>NSFW Headshot:</b> <a href='?_src_=prefs;preference=nsfw_headshot;task=input'>Change</a>"
 			if(nsfw_headshot_link != null)
-				dat += "<br><img src='[nsfw_headshot_link]' width='250px' height='250px'>"
-			dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+				dat += "<br><img src='[nsfw_headshot_link]' width='250px' height='300px'>"
 			if(is_legacy)
 				dat += "<br><i><font size = 1>(Legacy)<a href='?_src_=prefs;preference=legacyhelp;task=input'>(?)</a></font></i>"
 
@@ -1831,7 +1830,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(is_legacy)
 						dat += "<center><i><font color = '#b9b9b9'; font size = 1>This is a LEGACY Profile from naive days of Psydon.</font></i></center>"
 					if(valid_headshot_link(null, headshot_link, TRUE))
-						dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='325px'></div>")
+						dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='375px'></div>")
 					if(flavortext && flavortext_display)
 						dat += "<div align='left'>[flavortext_display]</div>"
 					if(ooc_notes && ooc_notes_display)
@@ -1839,6 +1838,16 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						dat += "<div align='center'><b>OOC notes</b></div>"
 					if(ooc_extra)
 						dat += "[ooc_extra]"
+					if(nsfw_headshot_link)
+						dat += "<div align='center'><b>NSFW</b></div>"
+					if(ishuman(parent.mob)) //incase runtime, also preview
+						var/mob/living/carbon/human/parent_human = parent.mob
+						if(nsfw_headshot_link && !parent_human.wear_armor && !parent_human.wear_shirt)
+							dat += ("<div align='center'><img src='[nsfw_headshot_link]' width='425px' height='475px'></div>")
+						else if(nsfw_headshot_link && (parent_human.wear_armor || parent_human.wear_shirt || parent_human.wear_pants))
+							dat += "<br><center><i><font color = '#9d0080'; font size = 4>There is more to see but they are not naked...</font></i></center>"
+					if(isnewplayer(parent) && nsfw_headshot_link)
+						dat += ("<div align='center'><img src='[nsfw_headshot_link]'></div>")
 					var/datum/browser/popup = new(user, "[real_name]", nwidth = 600, nheight = 800)
 					popup.set_content(dat.Join())
 					popup.open(FALSE)
