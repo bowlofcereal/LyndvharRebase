@@ -1,4 +1,4 @@
-//human master chef
+/*//human master chef
 
 /datum/advclass/masterchef
 	name = "Master Chef"
@@ -87,3 +87,4 @@
 				/obj/item/reagent_containers/food/snacks/rogue/handpie = 1,
 				/obj/item/book/rogue/yeoldecookingmanual = 1,
 				)
+*/

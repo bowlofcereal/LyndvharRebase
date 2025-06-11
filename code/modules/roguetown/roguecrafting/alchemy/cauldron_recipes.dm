@@ -19,25 +19,25 @@
 	recipe_name = "Poison"
 	smells_like = "death"
 	skill_required = SKILL_LEVEL_JOURNEYMAN // Basic poison should be harder to handle
-	output_reagents = list(/datum/reagent/berrypoison = 81)
+	output_reagents = list(/datum/reagent/toxin/berrypoison = 81)
 
 /datum/alch_cauldron_recipe/doompoison
 	recipe_name = "Strong Poison"
 	smells_like = "doom"
 	skill_required = SKILL_LEVEL_EXPERT // Strong poison should be more difficult to make
-	output_reagents = list(/datum/reagent/berrypoison = 81,/datum/reagent/additive = 81)
+	output_reagents = list(/datum/reagent/toxin/berrypoison = 81,/datum/reagent/additive = 81)
 
 /datum/alch_cauldron_recipe/stam_poison
 	recipe_name = "Stamina Poison"
 	smells_like = "a slow breeze"
 	skill_required = SKILL_LEVEL_JOURNEYMAN // Basic poison should be harder to handle
-	output_reagents = list(/datum/reagent/stampoison = 81)
+	output_reagents = list(/datum/reagent/toxin/stampoison = 81)
 
 /datum/alch_cauldron_recipe/big_stam_poison
 	recipe_name = "Strong Stamina Poison"
 	smells_like = "stagnant air"
 	skill_required = SKILL_LEVEL_EXPERT // Strong poison should be more difficult to make
-	output_reagents = list(/datum/reagent/stampoison = 81,/datum/reagent/additive = 81)
+	output_reagents = list(/datum/reagent/toxin/stampoison = 81,/datum/reagent/additive = 81)
 
 /datum/alch_cauldron_recipe/gender_potion
 	recipe_name = "Gender Potion"

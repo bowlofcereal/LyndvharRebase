@@ -1,6 +1,6 @@
 //Dwarf-exclusive mercenary class with unique armor setups.
 /datum/advclass/mercenary/grudgebearer
-	name = "Grudgebearer"
+	name = "Shieldbearer"
 	tutorial = "Bound by eternal grudges of eons past that have not been forgotten, the Grudgebearers are left to wander the surface, as every other clan has a grudge against you, and you against them. This putrid swampland of a Duchy has also wronged you and your people, you care little for it. Coins are a means to an end -- something you can mine and forge yourself. Trinkets -- made by true smiths, now that will carry respect among your clan. However, such artifacts might not buy you food, or a roof."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
@@ -14,10 +14,10 @@
 /datum/outfit/job/roguetown/mercenary/grudgebearer/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		var/classes = list("Smith", "Soldier")
+		var/classes = list("Hammerbearer", "Axebearer")
 		var/classchoice = input("Choose your archetype", "Available archetypes") as anything in classes
 		switch(classchoice)
-			if("Smith")	//Because the armor is race-exclusive for repairs, these guys *should* be able to repair their own guys armor layers. A Dwarf smith isn't guaranteed, after all.
+			if("Hammerbearer")	//Because the armor is race-exclusive for repairs, these guys *should* be able to repair their own guys armor layers. A Dwarf smith isn't guaranteed, after all.
 				H.change_stat("intelligence", 3)
 				H.change_stat("perception", 3)	//"Strikes deftly" is based on PER
 				H.change_stat("endurance", 3)
@@ -43,10 +43,10 @@
 				gloves = /obj/item/clothing/gloves/roguetown/plate/dwarven
 				pants = /obj/item/clothing/under/roguetown/trou/leather
 				armor = /obj/item/clothing/suit/roguetown/armor/plate/half
-				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/hammer, /obj/item/paper/scroll/grudge, /obj/item/natural/feather, /obj/item/rogueweapon/tongs = 1, /obj/item/clothing/head/roguetown/helmet/heavy/dwarven)
+				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/hammer, /obj/item/rogueweapon/tongs = 1, /obj/item/clothing/head/roguetown/helmet/heavy/dwarven)
 				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 				ADD_TRAIT(H, TRAIT_TRAINED_SMITH, TRAIT_GENERIC)
-			if("Soldier")
+			if("Axebearer")
 				H.change_stat("constitution", 5)
 				H.change_stat("endurance", 4)
 				H.change_stat("strength", 2)
@@ -70,7 +70,7 @@
 				pants = /obj/item/clothing/under/roguetown/trou/leather
 				armor = /obj/item/clothing/suit/roguetown/armor/plate/full/dwarven
 				head = /obj/item/clothing/head/roguetown/helmet/heavy/dwarven
-				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/hammer, /obj/item/paper/scroll/grudge, /obj/item/natural/feather)
+				backpack_contents = list(/obj/item/storage/belt/rogue/pouch/coins/poor, /obj/item/rogueweapon/hammer)
 				var/weapons = list("Axe", "Mace")
 				var/wepchoice = input("Choose your weapon", "Available weapons") as anything in weapons
 				switch(wepchoice)

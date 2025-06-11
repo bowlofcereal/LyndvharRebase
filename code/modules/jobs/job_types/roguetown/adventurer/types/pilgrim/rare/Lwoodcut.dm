@@ -1,4 +1,4 @@
-//human treesbane
+/*//human treesbane
 
 /datum/advclass/masterwoodcutter
 	name = "Master Lumberjack"
@@ -48,4 +48,4 @@
 	H.change_stat("constitution", 1)
 	H.change_stat("perception", 1)
 	H.change_stat("intelligence", 2)
-
+*/

@@ -1,3 +1,4 @@
+/*
 /datum/advclass/thug
 	name = "Thug"
 	tutorial = "You might not have ever been the smartest person in town. But you may have been the sturdiest. Good enough for soilers to pay you to cart around saigashit. Good enough for miners to offload some of their work to you. Good enough for a carpenter who doesn't want to pay top mams for chopped wood. And good enough for just about anyone who wants a meathead to look scary with."
@@ -230,3 +231,4 @@
 			H.change_stat("strength", 1)
 			H.change_stat("endurance", 1)
 			H.change_stat("speed", 2)
+*/

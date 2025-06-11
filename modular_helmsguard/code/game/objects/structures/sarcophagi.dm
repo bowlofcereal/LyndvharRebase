@@ -74,6 +74,14 @@
 		)
 	lootcount = 1
 
+/obj/effect/spawner/lootdrop/roguetown/dungeon/corpses_no_soldiers
+	loot = list(
+	/mob/living/carbon/human/species/skeleton/dead/adventurer = 5,
+	/mob/living/carbon/human/species/skeleton/dead/noble = 3,
+	/obj/effect/decal/remains/human = 5,
+		)
+	lootcount = 1
+
 /obj/structure/closet/crate/coffin/sarcophagus/danger
 	name = "sarcophagus"
 	icon_state = "sarcophagus"
@@ -121,15 +129,9 @@
 /obj/structure/closet/crate/coffin/sarcophagus/dungeon/PopulateContents()
 	..()
 	occupant = pick(/mob/living/carbon/human/species/skeleton/dead/adventurer,
-					/mob/living/carbon/human/species/skeleton/dead/manatarms,
-					/mob/living/carbon/human/species/skeleton/dead/knight,
 					/mob/living/carbon/human/species/skeleton/dead/noble,
 					) 
 	new occupant(src)
-
-
-
-
 
 
 /obj/effect/spawner/lootdrop/roguetown/sarcophagi

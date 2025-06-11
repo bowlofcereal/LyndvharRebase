@@ -1,4 +1,4 @@
-//human master carpenter
+/*//human master carpenter
 
 /datum/advclass/masterlaborer
 	name = "Master Laborer"
@@ -58,3 +58,4 @@
 	H.change_stat("constitution", 1)
 	H.change_stat("intelligence", 1)
 	H.change_stat("speed", -1)
+*/
