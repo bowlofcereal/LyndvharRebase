@@ -238,6 +238,10 @@
 	if(!ishuman(user))
 		revert_cast()
 		return FALSE
-	for(var/obj/O in range((range + user.mind?.get_skill_level(/datum/skill/magic/holy)), user))	//+1 range per holy skill up to a potential of 8.
+	var/checkrange = (range + user.mind?.get_skill_level(/datum/skill/magic/holy)) //+1 range per holy skill up to a potential of 8.
+	for(var/obj/O in range(checkrange, user))	
 		O.extinguish()
+	for(var/mob/M in range(checkrange, user))
+		for(var/obj/O in M.contents)
+			O.extinguish()
 	return TRUE

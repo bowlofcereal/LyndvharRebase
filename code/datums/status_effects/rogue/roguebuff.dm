@@ -486,7 +486,6 @@
 
 /datum/status_effect/buff/healing/necras_vow/on_apply()
 	healing_on_tick = max(owner.mind?.get_skill_level(/datum/skill/magic/holy), 3)
-	ADD_TRAIT(owner, TRAIT_NECRAS_VOW, TRAIT_MIRACLE)
 	return TRUE
 
 /datum/status_effect/buff/healing/necras_vow/tick()

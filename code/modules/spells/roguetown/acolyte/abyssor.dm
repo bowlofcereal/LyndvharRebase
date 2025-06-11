@@ -16,17 +16,18 @@
 	recharge_time = 20 SECONDS
 	miracle = TRUE
 	devotion_cost = 15
+	var/base_fatdrain = 10
 
 /obj/effect/proc_holder/spell/invoked/abyssor_bends/cast(list/targets, mob/user = usr)
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		user.visible_message("<font color='yellow'>[user] makes a fist at [target]!</font>")
-		if(target.anti_magic_check(TRUE, TRUE))
-			return FALSE
 		if(istype(target, /mob/living/carbon))
 			var/mob/living/carbon = target
-			carbon.adjustStaminaLoss(-50)
+			if(carbon.patron?.type != /datum/patron/divine/abyssor)
+				var/fatdrain = user.mind?.get_skill_level(associated_skill) * base_fatdrain
+				carbon.rogfat_add(fatdrain)
 		target.Dizzy(10)
 		target.blur_eyes(20)
 		target.emote("drown")
@@ -173,10 +174,11 @@
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	recharge_time = 180 SECONDS
+	recharge_time = 10 SECONDS
 	miracle = TRUE
 	devotion_cost = 100
 	var/townercrab = TRUE //I was looking at this for three days and i am utterly stupid for not fixing it
+	var/mob/living/simple_animal/hostile/retaliate/rogue/mossback/summoned
 
 /obj/effect/proc_holder/spell/invoked/call_mossback/cast(list/targets, mob/living/user)
 	. = ..()
@@ -184,7 +186,8 @@
 	if(isopenturf(T))
 		if(!user.mind.has_spell(/obj/effect/proc_holder/spell/invoked/minion_order))
 			user.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
-		new /mob/living/simple_animal/hostile/retaliate/rogue/mossback(T, user, townercrab)
+		QDEL_NULL(summoned)
+		summoned = new /mob/living/simple_animal/hostile/retaliate/rogue/mossback(T, user, townercrab)
 		return TRUE
 	else
 		to_chat(user, span_warning("The targeted location is blocked. My call fails to draw a mossback."))
