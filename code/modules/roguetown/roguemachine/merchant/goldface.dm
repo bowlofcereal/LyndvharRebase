@@ -4,6 +4,12 @@
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+// DESIGN NOTE
+// Merchants need to be able to sell nearly all items that adventurers and combat roles need.
+// At a price designed to be undercuttable by economic roles
+// But also keep them honest so producer cannot charge a 2x margin and still be competitive
+// Merchant provides the primary source of money sinks in the economy, an alternative to producer roles
+
 #define UPGRADE_NOTAX		(1<<0)
 
 /obj/structure/roguemachine/goldface
@@ -39,7 +45,8 @@
 		"Tools",
 		"Wardrobe",
 		"Ranged Weapons",
-		"Weapons"
+		"Iron Weapons and Shields",
+		"Steel Weapons"
 	)
 
 /obj/structure/roguemachine/goldface/Initialize()

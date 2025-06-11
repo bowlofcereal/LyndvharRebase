@@ -379,7 +379,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/weapons/iron/polemace
-	name = "Warclub (+1 Small Log)"
+	name = "Goedendag (+1 Small Log)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/grown/log/tree/small)
 	created_item = /obj/item/rogueweapon/mace/goden
