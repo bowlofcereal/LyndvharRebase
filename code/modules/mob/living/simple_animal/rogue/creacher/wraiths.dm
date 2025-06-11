@@ -66,6 +66,48 @@
 		return // Ignore attacks from weapons that are not silver
 	..()
 
+/mob/living/simple_animal/hostile/rogue/ghost/wraith/throw_impact(obj/item/I, mob/living/user)
+	if(I)
+		user.visible_message(span_danger("\The [I.name] passes through the [src.name]!"))
+		return // Ignore thrown items
+	if(I && istype(I, /obj/item/rogueweapon) && I.is_silver)
+		user.visible_message(span_danger("\The [I.name] strikes the [src.name], harming it!"))
+		return ..() // Resume parent procedure if hit by a rogueweapon with is_silver
+	..()
+
+
+/mob/living/simple_animal/hostile/rogue/ghost/wraith/Bump(obj/item/I)
+	. = ..()
+	if(I)
+		src.visible_message(span_danger("\The [I.name] passes through the [src.name]!"))
+		return // Ignore thrown items
+	if(I && istype(I, /obj/item/rogueweapon) && I.is_silver)
+		src.visible_message(span_danger("\The [I.name] strikes the [src.name], harming it!"))
+		return ..() // Resume parent procedure if hit by a rogueweapon with is_silver
+	..()
+
+/mob/living/simple_animal/hostile/rogue/ghost/wraith/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_flag)
+	// Handle interactions when hit by an object
+	if(AM && istype(AM, /obj/item) && istype(AM, /obj/item/rogueweapon))
+		var/obj/item/rogueweapon/thrown = AM
+		if(thrown.is_silver)
+			visible_message(span_danger("\The [AM.name] strikes the [src.name], harming it!"))
+			return ..() // Resume parent procedure if hit by a rogueweapon with is_silver
+		else
+			visible_message(span_danger("\The [AM.name] passes through the [src.name]!"))
+			return
+
+
+
+
+
+/mob/living/simple_animal/hostile/rogue/ghost/wraith/bullet_act(var/obj/projectile/P)
+	if(P && !P.is_silver)
+		P.visible_message(span_danger("\The [P.name] passes through the [src.name]!"))
+		return FALSE // Ignore projectiles
+	..()
+
+
 /mob/living/simple_animal/hostile/rogue/ghost/wraith/electrocute_act(shock_damage, source, siemens_coeff = 1, flags = NONE)
 	return FALSE
 

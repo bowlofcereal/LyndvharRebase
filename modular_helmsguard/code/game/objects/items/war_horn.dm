@@ -253,3 +253,5 @@
 		else
 			to_chat(player, span_warning("I hear a foreign signal somewhere[disttext][dirtext]!"))
 		player.playsound_local(get_turf(player), soundtouse, 35, FALSE, pressure_affected = FALSE, channel = hornchannel)
+	message_admins("[user] sent out a horn signal: [inputty] from [ADMIN_VERBOSEJMP(user.loc)]")
+	log_game("[user] sent out a horn signal: [inputty] from [loc_name(user.loc)]")

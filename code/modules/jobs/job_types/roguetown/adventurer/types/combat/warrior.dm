@@ -15,10 +15,10 @@
 
 /datum/outfit/job/roguetown/adventurer/sfighter/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind?.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-	H.mind?.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+	H.mind?.adjust_skillrank_up_to(/datum/skill/misc/athletics, 2, TRUE)
+	H.mind?.adjust_skillrank_up_to(/datum/skill/combat/shields, 1, TRUE)
+	H.mind?.adjust_skillrank_up_to(/datum/skill/misc/swimming, 1, TRUE)
+	H.mind?.adjust_skillrank_up_to(/datum/skill/misc/climbing, 2, TRUE)
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
