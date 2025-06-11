@@ -49,7 +49,7 @@
 	export_price = 50
 	importexport_amt = 1
 
-/obj/structure/closet/crate/chest/steward/redpotion/Initialize()
+/obj/structure/closet/crate/chest/steward/redpotionweak/Initialize()
 	. = ..()
 	new /obj/item/reagent_containers/glass/bottle/rogue/minorhealthpot(src)
 	new /obj/item/reagent_containers/glass/bottle/rogue/minorhealthpot(src)

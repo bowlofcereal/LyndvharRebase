@@ -9,8 +9,7 @@
 /datum/sex_action/facesitting/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-	if(user.wear_pants)
-		return FALSE
+
 	if(target.wear_mask)
 		return FALSE
 	// Need to stand up

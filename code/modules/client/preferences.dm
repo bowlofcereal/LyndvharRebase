@@ -1846,7 +1846,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							dat += ("<div align='center'><img src='[nsfw_headshot_link]' width='425px' height='475px'></div>")
 						else if(nsfw_headshot_link && (parent_human.wear_armor || parent_human.wear_shirt || parent_human.wear_pants))
 							dat += "<br><center><i><font color = '#9d0080'; font size = 4>There is more to see but they are not naked...</font></i></center>"
-					if(isnewplayer(parent) && nsfw_headshot_link)
+					if(isnewplayer(user) && nsfw_headshot_link)
 						dat += ("<div align='center'><img src='[nsfw_headshot_link]'></div>")
 					var/datum/browser/popup = new(user, "[real_name]", nwidth = 600, nheight = 800)
 					popup.set_content(dat.Join())

@@ -548,6 +548,14 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		if(mind?.has_antag_datum(/datum/antagonist/vampirelord/lesser))
 			rogstam_add(10)
 		return
+
+	if(ishuman(src))
+		var/mob/living/carbon/human/human_mob = src
+		if(HAS_TRAIT(src, TRAIT_NUDE_SLEEPER))
+			if(human_mob.wear_shirt || human_mob.wear_pants || human_mob.wear_armor)
+				to_chat(src, span_warning("I need to be nude to be comfortable..."))
+				return
+
 	//Healing while sleeping in a bed
 	if(IsSleeping())
 		var/sleepy_mod = 0.5
@@ -616,7 +624,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 				rogstam_add(sleepy_mod * 10)
 		// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
 		else if(!(mobility_flags & MOBILITY_STAND))
-			if(eyesclosed)
+			if(eyesclosed && !HAS_TRAIT(src, TRAIT_NUDE_SLEEPER))
 				var/armor_blocked = FALSE
 				if(ishuman(src) && stat == CONSCIOUS)
 					var/mob/living/carbon/human/H = src

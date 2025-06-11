@@ -12,10 +12,8 @@
 /datum/sex_action/anal_sex/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-	if(user.wear_pants)
-		return FALSE
-	if(target.wear_pants)
-		return FALSE
+
+
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))
 		return FALSE
 	if(!user.sexcon.can_use_penis())
