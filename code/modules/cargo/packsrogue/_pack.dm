@@ -10,6 +10,7 @@
 	var/crate_name = "crate"
 	var/desc = ""//no desc by default
 	var/crate_type = /obj/structure/closet/crate
+	var/no_name_quantity = FALSE // If TRUE, do not display the name as "[Name] x [Amount]".
 	var/dangerous = FALSE // Should we message admins?
 	var/special = FALSE //Event/Station Goals/Admin enabled packs
 	var/special_enabled = FALSE

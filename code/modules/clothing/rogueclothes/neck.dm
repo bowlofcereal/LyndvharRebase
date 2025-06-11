@@ -50,6 +50,7 @@
 	armor = ARMOR_LEATHER_GOOD
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_SMASH)
 	sewrepair = TRUE
+	sellprice = 10
 	max_integrity = 150
 	salvage_result = /obj/item/natural/hide/cured
 	salvage_amount = 1

@@ -1475,6 +1475,7 @@
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	icon_state = "leatherhelm"
 	armor = ARMOR_HEAD_HELMET_BAD
+	sellprice = 10
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
 	anvilrepair = null
 	smeltresult = null
@@ -1850,6 +1851,7 @@
 	desc = "Sturdy, durable, flexible. A comfortable and reliable hood made of hardened leather."
 	icon_state = "leatherhelm"
 	max_integrity = 250
+	sellprice = 15
 	body_parts_covered = HEAD|EARS|HAIR|NOSE
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	armor = ARMOR_HEAD_LEATHER

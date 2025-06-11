@@ -1,4 +1,3 @@
-
 /datum/supply_pack/rogue/ranged_weapons
 	group = "Ranged Weapons"
 	crate_name = "merchant guild's crate"
@@ -103,4 +102,28 @@
 					/obj/item/bomb,
 					/obj/item/bomb,
 					/obj/item/bomb
+				)
+
+/datum/supply_pack/rogue/ranged_weapons/slingandpouch
+	name = "Sling and Pouch"
+	cost = 15
+	no_name_quantity = TRUE
+	contains = list(
+					/obj/item/gun/ballistic/revolver/grenadelauncher/sling,
+					/obj/item/quiver/sling,
+				)
+
+/datum/supply_pack/rogue/ranged_weapons/slingiron
+	name = "Sling Bullets Pouch, Iron"
+	cost = 30
+	contains = list(
+					/obj/item/quiver/sling/iron,
+				)
+
+/datum/supply_pack/rogue/ranged_weapons/net
+	name = "Net"
+	cost = 20
+	contains = list(
+					/obj/item/net,
+					/obj/item/net
 				)

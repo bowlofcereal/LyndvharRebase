@@ -31,7 +31,8 @@
 	var/list/categories = list(
 		"Alcohols",
 		"Apparel",
-		"Armor",
+		"Light Armor",
+		"Medium and Heavy Armor",
 		"Consumable",
 		"Foreign Weapons",
 		"Gems",
@@ -190,7 +191,8 @@
 			var/costy = PA.cost
 			if(!(upgrade_flags & UPGRADE_NOTAX))
 				costy=round(costy+(SStreasury.tax_value * costy))
-			contents += "[PA.name] [PA.contains.len > 1?"x[PA.contains.len]":""] - ([costy])<a href='?src=[REF(src)];buy=[PA.type]'>BUY</a><BR>"
+			var/quantified_name = PA.no_name_quantity ? PA.name : "[PA.name] [PA.contains.len > 1?"x[PA.contains.len]":""]"
+			contents += "[quantified_name] - ([costy])<a href='?src=[REF(src)];buy=[PA.type]'>BUY</a><BR>"
 
 	if(!canread)
 		contents = stars(contents)
