@@ -38,6 +38,7 @@
 		"Seeds",
 		"Tools",
 		"Wardrobe",
+		"Ranged Weapons",
 		"Weapons"
 	)
 

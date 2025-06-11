@@ -114,13 +114,36 @@
 		var/obj/item/ammo_casing/caseless/rogue/bolt/A = new()
 		arrows += A
 	update_icon()
+
 /obj/item/quiver/Wbolts/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
 		var/obj/item/ammo_casing/caseless/rogue/bolt/water/A = new()
 		arrows += A
 	update_icon()
-/*
+
+/obj/item/quiver/pyrobolts/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/ammo_casing/caseless/rogue/bolt/pyro/A = new()
+		arrows += A
+	update_icon()
+
+
+/obj/item/quiver/poisonarrows/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/ammo_casing/caseless/rogue/arrow/poison/A = new()
+		arrows += A
+	update_icon()
+
+/obj/item/quiver/pyroarrows/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/ammo_casing/caseless/rogue/arrow/pyro/A = new()
+		arrows += A
+	update_icon()
+
 /obj/item/quiver/Parrows/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
@@ -128,13 +151,6 @@
 		arrows += A
 	update_icon()
 
-/obj/item/quiver/Pbolts/Initialize()
-	. = ..()
-	for(var/i in 1 to max_storage)
-		var/obj/item/ammo_casing/caseless/rogue/bolt/poison/A = new()
-		arrows += A
-	update_icon()
-*/
 /obj/item/quiver/Warrows/Initialize()
 	. = ..()
 	for(var/i in 1 to max_storage)
