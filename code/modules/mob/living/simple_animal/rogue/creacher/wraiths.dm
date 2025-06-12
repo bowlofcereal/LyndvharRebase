@@ -48,7 +48,7 @@
 	faction = list("undead")
 	footstep_type = null
 	defprob = 20 //decently skilled
-	defdrain = 20
+	defdrain = 8
 	dodgetime = 10
 	canparry = TRUE
 	retreat_health = null

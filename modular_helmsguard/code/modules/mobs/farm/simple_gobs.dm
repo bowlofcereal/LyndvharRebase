@@ -10,6 +10,7 @@
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BEAST
 	environment_smash = ENVIRONMENT_SMASH_STRUCTURES
 	robust_searching = 1
+	ranged_cooldown = 6 SECONDS 
 	speak_chance = 5
 	turns_per_move = 1
 	move_to_delay = 3
