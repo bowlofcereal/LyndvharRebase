@@ -1836,6 +1836,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(ooc_notes && ooc_notes_display)
 						dat += "<br>"
 						dat += "<div align='center'><b>OOC notes</b></div>"
+						dat += "<div align='left'>[ooc_notes_display]</div>"
 					if(ooc_extra)
 						dat += "[ooc_extra]"
 					if(nsfw_headshot_link)
