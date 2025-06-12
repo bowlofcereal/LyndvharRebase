@@ -55,6 +55,9 @@
 /area/rogue/indoors/dread/nightkeep)
 "aF" = (
 /obj/effect/landmark/start/helms/late/mercenarylate,
+/obj/effect/landmark/start/adventurer,
+/obj/effect/landmark/start/adventurerlate,
+/obj/effect/landmark/start/helms/late/adventurerlate,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/dread/merc_spawn)
 "aH" = (
@@ -1796,10 +1799,6 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/dread/church)
-"nV" = (
-/obj/effect/mobspawner/skeleton_spawner_simple,
-/turf/closed/wall/mineral/rogue/decostone,
-/area/rogue/indoors/dread/nightkeep)
 "nW" = (
 /obj/structure/lever/wall{
 	dir = 4;
@@ -3850,9 +3849,9 @@
 /turf/open/water/swamp,
 /area/rogue/outdoors/dread/dreadwoods)
 "Dy" = (
-/obj/effect/mobspawner/hole/goblins/wall/east,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/indoors/dread/forgottenkeep)
+/obj/effect/mobspawner/skeleton_spawner_simple,
+/turf/closed/wall/mineral/rogue/decostone,
+/area/rogue/indoors/dread/nightkeep)
 "Dz" = (
 /obj/structure/rack/rogue,
 /obj/effect/spawner/lootdrop/roguetown/dungeon,
@@ -4077,6 +4076,9 @@
 /area/rogue/indoors/dread/nightkeep)
 "EW" = (
 /obj/effect/landmark/start/helms/late/mercenarylate,
+/obj/effect/landmark/start/adventurer,
+/obj/effect/landmark/start/adventurerlate,
+/obj/effect/landmark/start/helms/late/adventurerlate,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/dread/merc_spawn)
 "EZ" = (
@@ -6010,6 +6012,10 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/dread/toll)
+"TF" = (
+/obj/effect/mobspawner/hole/goblins/wall/east,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/dread/forgottenkeep)
 "TH" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -26838,7 +26844,7 @@ NN
 Td
 Td
 ui
-Dy
+TF
 ui
 zX
 zX
@@ -46263,7 +46269,7 @@ IB
 IB
 IB
 IB
-nV
+Dy
 jM
 cA
 sk
