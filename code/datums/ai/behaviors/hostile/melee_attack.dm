@@ -66,7 +66,7 @@
 		controller.clear_blackboard_key(target_key)
 
 /datum/ai_behavior/basic_ranged_attack
-	action_cooldown = 0.6 SECONDS
+	action_cooldown = 10 SECONDS
 	behavior_flags = AI_BEHAVIOR_MOVE_AND_PERFORM
 	required_distance = 3
 

@@ -29,8 +29,8 @@
 	attack_sound = 'sound/blank.ogg'
 	canparry = TRUE
 	d_intent = INTENT_PARRY
-	defprob = 50
-	defdrain = 20
+	defprob = 70
+	defdrain = 8
 	speak_emote = list("grunts")
 	loot = list(/obj/item/natural/bone,	/obj/item/natural/bone, /obj/item/natural/bone,	/obj/item/skull)
 	faction = list("undead")
@@ -87,7 +87,7 @@
 	ranged = 1
 	retreat_distance = 2
 	minimum_distance = 5
-	ranged_cooldown_time = 60
+	ranged_cooldown_time = 8 SECONDS
 	check_friendly_fire = 1
 	loot = list(
 			/obj/item/natural/bone,
@@ -130,7 +130,7 @@
 	ranged = 1
 	retreat_distance = 2
 	minimum_distance = 5
-	ranged_cooldown_time = 80
+	ranged_cooldown_time = 10 SECONDS
 	check_friendly_fire = 1
 	maxHealth = 100
 	health = 100

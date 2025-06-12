@@ -8,7 +8,7 @@
 
 
 /datum/mapGenerator/bog
-	modules = list(/datum/mapGeneratorModule/ambushing,/datum/mapGeneratorModule/boggrassturf,/datum/mapGeneratorModule/bog,/datum/mapGeneratorModule/bogroad,/datum/mapGeneratorModule/boggrass)
+	modules = list(/datum/mapGeneratorModule/ambushing,/datum/mapGeneratorModule/boggrassturf, /datum/mapGeneratorModule/boggrass, /datum/mapGeneratorModule/bog,/datum/mapGeneratorModule/bogroad)
 
 
 /datum/mapGeneratorModule/bog
@@ -17,6 +17,8 @@
 	excluded_turfs = list(/turf/open/floor/rogue/dirt/road)
 	spawnableAtoms = list(/obj/structure/flora/newtree = 30,
 						/obj/structure/flora/roguetree/elder = 15,
+						/obj/structure/flora/roguetree/pine = 15,
+						/obj/structure/flora/roguetree/pine/dead = 13,
 							/obj/structure/flora/roguegrass/bush = 10,
 							/obj/structure/flora/roguegrass = 26,
 							/obj/structure/flora/roguegrass/maneater = 13,
@@ -31,7 +33,7 @@
 							/obj/structure/flora/roguegrass/swampweed = 10,
 							/obj/structure/flora/roguegrass/herb/random = 12,
 							/obj/structure/flora/roguegrass/bush/westleach = 10,
-							/obj/structure/flora/roguegrass/maneater/real = 3)
+							/obj/structure/flora/roguegrass/maneater/real = 2)
 	spawnableTurfs = list(/turf/open/floor/rogue/dirt/road=2,
 						/turf/open/water/swamp=1)
 	allowed_areas = list(/area/rogue/outdoors/bog, /area/rogue/outdoors/dread/dreadwoods)
@@ -53,15 +55,15 @@
 	allowed_turfs = list( /turf/open/floor/rogue/grass, /turf/open/floor/rogue/grassyel)
 	excluded_turfs = list()
 	allowed_areas = list(/area/rogue/outdoors/bog, /area/rogue/outdoors/dread/dreadwoods)
-	spawnableAtoms = list(/obj/structure/glowshroom = 20,
-							/obj/structure/flora/roguetree = 30,
-							/obj/structure/flora/roguetree/elder = 15,
+	spawnableAtoms = list(/obj/structure/glowshroom = 12,
+	//						/obj/structure/flora/roguetree = 12,
+		//					/obj/structure/flora/roguetree/elder = 12,
 							/obj/structure/flora/roguegrass/bush/random = 13,
 							/obj/structure/flora/roguegrass/pyroclasticflowers = 13,
 							/obj/structure/flora/roguegrass/herb/random = 12,
 							/obj/structure/flora/roguegrass = 44,
 							/obj/structure/flora/roguegrass/maneater = 15,
-							/obj/structure/flora/roguegrass/maneater/real = 10,
+//							/obj/structure/flora/roguegrass/maneater/real = 10,
 							/obj/item/natural/stone = 6,
 							/obj/item/natural/rock = 1,
 							/obj/item/grown/log/tree/stick = 3,
