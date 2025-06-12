@@ -114,8 +114,7 @@
 		else
 			r_hand = /obj/item/rogueweapon/knuckles/aknuckles
 		return
-	if(skeletonclass < 9) // Skeletal MAA Equal. Getting kinda up there in being dangerous.
-		cloak = /obj/item/clothing/cloak/stabard/surcoat/guard // Ooo Spooky Old Dead MAA
+	if(skeletonclass < 9) // Skeletal MAA Equal. Getting kinda up there in being dangerous. No guard tabard because it gets confusing for some people.
 		head = /obj/item/clothing/head/roguetown/helmet/heavy/aalloy
 		armor = /obj/item/clothing/suit/roguetown/armor/plate/half/aalloy
 		shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/aalloy
