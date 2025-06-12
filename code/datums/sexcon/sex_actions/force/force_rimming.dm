@@ -11,9 +11,8 @@
 /datum/sex_action/force_rimming/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-	if(!get_location_accessible(user, BODY_ZONE_PRECISE_GROIN, TRUE))
-		return FALSE
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
+
+	if(target.wear_mask)
 		return FALSE
 	return TRUE
 

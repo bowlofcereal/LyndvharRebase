@@ -123,7 +123,7 @@
 	qdel(src)
 
 /obj/item/grown/log/tree/stick/attackby(obj/item/I, mob/living/user, params)
-	user.changeNext_move(CLICK_CD_MELEE)
+	user.changeNext_move(CLICK_CD_RAPID)
 	if(user.used_intent?.blade_class == BCLASS_CUT)
 		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
 		if(do_after(user, 20))

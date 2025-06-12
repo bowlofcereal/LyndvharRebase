@@ -275,7 +275,7 @@
 /datum/crafting_recipe/roguetown/turfs/twigplatform
 	name = "twig platform"
 	result = /turf/open/floor/rogue/twig/platform
-	reqs = list(/obj/item/grown/log/tree/stick = 3)
+	reqs = list(/obj/item/grown/log/tree/stick = 2)
 	skillcraft = /datum/skill/craft/crafting
 	verbage_simple = "assemble"
 	verbage = "assembles"

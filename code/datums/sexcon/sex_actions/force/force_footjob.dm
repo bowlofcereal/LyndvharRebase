@@ -14,12 +14,6 @@
 /datum/sex_action/force_footjob/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_L_FOOT))
-		return FALSE
-	if(!get_location_accessible(target, BODY_ZONE_PRECISE_R_FOOT))
-		return FALSE
-	if(!get_location_accessible(user, BODY_ZONE_PRECISE_GROIN, TRUE))
-		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))
 		return
 	return TRUE

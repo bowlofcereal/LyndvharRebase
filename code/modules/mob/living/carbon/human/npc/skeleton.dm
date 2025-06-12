@@ -7,7 +7,7 @@
 					 /obj/item/bodypart/r_arm, /obj/item/bodypart/r_leg, /obj/item/bodypart/l_leg)
 	faction = list("undead")
 	var/skel_outfit = /datum/outfit/job/roguetown/npc/skeleton
-	var/skel_fragile = FALSE
+	var/skel_fragile = TRUE
 	ambushable = FALSE
 	rot_type = null
 	base_intents = list(INTENT_HELP, INTENT_DISARM, INTENT_GRAB, /datum/intent/unarmed/claw)
@@ -58,7 +58,7 @@
 	faction = list("undead")
 	name = "Skeleton"
 	real_name = "Skeleton"
-//	voice_type = VOICE_TYPE_MASC //So that "Unknown Man" properly substitutes in with face cover
+	voice_type = VOICE_TYPE_MASC //So that "Unknown Man" properly substitutes in with face cover
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOROGSTAM, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
