@@ -9,7 +9,8 @@
 /datum/sex_action/masturbate_anus/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user != target)
 		return FALSE
-
+	if(user.wear_pants)
+		return FALSE
 	return TRUE
 
 /datum/sex_action/masturbate_anus/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)

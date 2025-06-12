@@ -11,7 +11,8 @@
 /datum/sex_action/force_crotch_nuzzle/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-
+	if(user.wear_pants)
+		return FALSE
 	if(target.wear_mask)
 		return FALSE
 	return TRUE

@@ -12,7 +12,8 @@
 /datum/sex_action/masturbate_other_vagina/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-
+	if(target.wear_pants)
+		return FALSE
 	if(!target.getorganslot(ORGAN_SLOT_VAGINA))
 		return FALSE
 	return TRUE
