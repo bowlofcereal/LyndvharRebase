@@ -396,9 +396,9 @@
 
 
 /mob/living/proc/npc_detect_sneak(mob/living/target, extra_prob = 0)
-	if (target.alpha > 0 || !target.rogue_sneaking)
+	if (target.alpha > 100 || !target.rogue_sneaking)
 		return TRUE
-	var/probby = 4 * STAPER //this is 10 by default - npcs get an easier time to detect to slightly thwart cheese
+	var/probby = 3 * STAPER //this is 10 by default - npcs get an easier time to detect to slightly thwart cheese
 	probby += extra_prob
 	var/sneak_bonus = 0
 	if(target.mind)
@@ -407,7 +407,9 @@
 			sneak_bonus = (max(target.mind?.get_skill_level(/datum/skill/magic/arcane), target.mind?.get_skill_level(/datum/skill/magic/holy)) * 10)
 			probby -= 20 // also just a fat lump of extra difficulty for the npc since spells are hard, you know?
 		else
-			sneak_bonus = (target.mind?.get_skill_level(/datum/skill/misc/sneaking) * 5)
+			sneak_bonus = (target.mind?.get_skill_level(/datum/skill/misc/sneaking) * 10)
+			if(target.mind?.get_skill_level(/datum/skill/misc/sneaking) > SKILL_EXP_EXPERT)
+				probby -= 20 //if cheesecasters are getting it so will stealth experts.
 		probby -= sneak_bonus
 	if(!target.check_armor_skill())
 		probby += 85 //armor is loud as fuck
