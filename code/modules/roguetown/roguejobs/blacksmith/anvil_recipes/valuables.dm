@@ -151,12 +151,14 @@
 	craftdiff = 3
 	i_type = "Weapons"
 
+/*
 /datum/anvil_recipe/valuables/dragon
 	name = "Dragon Ring (+ Secrets)"
 	req_bar =  /obj/item/ingot/blacksteel
 	additional_items = list(/obj/item/ingot/gold, /obj/item/roguegem/blue, /obj/item/roguegem/violet, /obj/item/clothing/neck/roguetown/psicross/silver)
 	created_item = /obj/item/clothing/ring/dragon_ring
 	craftdiff = 6
+*/
 
 /datum/anvil_recipe/roguetown/sewing/goldanklet
 	name = "exotic silk anklets"
