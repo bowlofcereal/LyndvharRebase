@@ -562,7 +562,7 @@
 	craftdiff = 3
 
 // --------- BLACKSTEEL RECIPES-----------
-
+/*
 /datum/anvil_recipe/armor/blacksteel/cuirass
 	name = "Blacksteel Cuirass (+1 B.Steel)"
 	req_bar = /obj/item/ingot/blacksteel
@@ -610,3 +610,4 @@
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/wolfplate
 	craftdiff = 3
 	i_type = "Armor"
+*/

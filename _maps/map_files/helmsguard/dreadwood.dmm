@@ -1746,6 +1746,10 @@
 /obj/machinery/light/rogue/forge,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
+"no" = (
+/obj/effect/spawner/dungeons/maybechest,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/cavewet/dreadcave)
 "np" = (
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/rogue/blocks/nosmooth,
@@ -1853,6 +1857,10 @@
 /obj/effect/mobspawner/greenskin_spawner,
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/dread/forgottenkeep)
+"on" = (
+/obj/structure/spacevine,
+/turf/open/floor/rogue/cobble,
+/area/rogue/under/cavewet/dreadcave)
 "ow" = (
 /obj/structure/table/vtable,
 /obj/item/reagent_containers/glass/cup/silver,
@@ -2204,6 +2212,10 @@
 /obj/structure/fluff/statue,
 /turf/open/water/swamp,
 /area/rogue/indoors/dread/forgottenkeep)
+"rj" = (
+/obj/effect/spawner/dungeons/maybechest,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/dreadcave)
 "rn" = (
 /obj/structure/fluff/statue/knight/interior,
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -2629,6 +2641,11 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/dread/nightkeep)
+"uo" = (
+/obj/structure/mineral_door/wood,
+/obj/structure/spacevine,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/cavewet/dreadcave)
 "up" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/dread/forgottenkeep)
@@ -2967,7 +2984,6 @@
 	lockid = "dungeon"
 	},
 /obj/effect/decal/cleanable/blood/tracks,
-/obj/effect/mobspawner/goblin_spawner,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
 "wZ" = (
@@ -3390,6 +3406,10 @@
 "zX" = (
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
+"Ac" = (
+/obj/structure/mineral_door/wood,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/cavewet/dreadcave)
 "Ad" = (
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/dread/dreadwoods)
@@ -3684,6 +3704,9 @@
 "Cu" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/dread/church)
+"Cw" = (
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/cavewet/dreadcave)
 "Cy" = (
 /obj/structure/stairs{
 	dir = 8
@@ -3704,6 +3727,10 @@
 /obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/dread/toll)
+"CE" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/cavewet/dreadcave)
 "CH" = (
 /obj/structure/bars/passage{
 	redstone_id = "excalever_butcher"
@@ -3942,6 +3969,14 @@
 /obj/effect/spawner/dungeons/maybechest,
 /turf/open/floor/rogue/carpet/lord/center,
 /area/rogue/indoors/dread/nightkeep)
+"Eg" = (
+/obj/structure/stairs/stone,
+/obj/structure/lever/wall{
+	dir = 4;
+	redstone_id = "excalever_butcher"
+	},
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/dread/forgottenkeep)
 "Ej" = (
 /obj/structure/table/wood{
 	icon_state = "largetable";
@@ -5452,6 +5487,10 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/dread/forgottenkeep)
+"PN" = (
+/obj/machinery/light/rogue/wallfire/candle/blue/l,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/cavewet/dreadcave)
 "PO" = (
 /obj/structure/rack/rogue,
 /obj/structure/spacevine,
@@ -23670,12 +23709,12 @@ zX
 Td
 Td
 NN
-Dq
-Dq
-Dq
-Dq
-Dq
-Dq
+Cw
+Cw
+PN
+Cw
+Cw
+mH
 Dq
 Dq
 eV
@@ -23847,12 +23886,12 @@ zX
 zX
 Td
 NN
-Dq
-pi
-pi
-pi
-pi
-pi
+Cw
+Cw
+tq
+Cw
+Cw
+mH
 Dq
 Dq
 eV
@@ -24024,12 +24063,12 @@ zX
 zX
 zX
 NN
-Dq
-pi
-pi
-pi
-pi
-pi
+Cw
+tq
+tq
+Cw
+Cw
+mH
 Dq
 MT
 NN
@@ -24201,12 +24240,12 @@ zX
 zX
 zX
 NN
-Dq
-pi
-pi
-pi
-pi
-pi
+rj
+tq
+tq
+tq
+Cw
+mH
 Dq
 NN
 SL
@@ -24378,12 +24417,12 @@ MT
 Ym
 Ym
 MT
-Dq
-pi
-pi
-pi
-pi
-pi
+mH
+mH
+mH
+mH
+Ac
+mH
 Dq
 NN
 vD
@@ -24554,13 +24593,13 @@ eV
 NN
 zX
 zX
-NN
-Dq
-pi
-pi
-pi
-pi
-pi
+vV
+as
+as
+CE
+as
+as
+mH
 Dq
 NN
 ZH
@@ -24731,13 +24770,13 @@ eV
 NN
 ZH
 zX
-NN
-Dq
-pi
-pi
-pi
-pi
-pi
+vV
+tq
+tq
+tq
+as
+as
+mH
 Dq
 NN
 bg
@@ -24908,13 +24947,13 @@ eV
 ur
 AO
 ZH
-NN
-Dq
-pi
-pi
-pi
-pi
-pi
+ZH
+tq
+tq
+as
+as
+as
+mH
 Dq
 NN
 pr
@@ -25086,12 +25125,12 @@ NN
 zX
 ZH
 NN
-Dq
-pi
-pi
-pi
-pi
-pi
+as
+as
+tq
+tq
+as
+mH
 Dq
 MT
 NN
@@ -25262,13 +25301,13 @@ eV
 NN
 zX
 zX
-NN
-Dq
-pi
-pi
-pi
-pi
-pi
+vV
+on
+as
+as
+as
+as
+mH
 Dq
 Dq
 Dq
@@ -25439,14 +25478,14 @@ NN
 MT
 Ym
 Ym
-MT
-Dq
-pi
-pi
-pi
-pi
-pi
-pi
+zq
+uo
+mH
+mH
+mH
+mH
+mH
+mH
 pi
 pi
 pi
@@ -25617,13 +25656,13 @@ zc
 dV
 dV
 NN
-Dq
-pi
-pi
-pi
-pi
-pi
-pi
+Cw
+tq
+PN
+Cw
+Cw
+no
+mH
 pi
 pi
 pi
@@ -25794,13 +25833,13 @@ ZH
 ZH
 dV
 NN
-Dq
-pi
-pi
-pi
-pi
-pi
-pi
+Cw
+tq
+Cw
+Cw
+Cw
+Cw
+mH
 pi
 pi
 pi
@@ -25971,13 +26010,13 @@ OM
 dY
 OM
 NN
-Dq
-Dq
-Dq
-Dq
-Dq
-pi
-pi
+Cw
+Cw
+Cw
+Cw
+Cw
+no
+mH
 pi
 pi
 pi
@@ -26152,9 +26191,9 @@ NN
 NN
 NN
 NN
-Dq
-pi
-pi
+mH
+mH
+mH
 pi
 pi
 pi
@@ -53579,7 +53618,7 @@ Ar
 zX
 jO
 qY
-ZR
+Eg
 CH
 Om
 dV
@@ -54810,7 +54849,7 @@ Dq
 NN
 hG
 dV
-MT
+JM
 NN
 MT
 NN

@@ -2,7 +2,7 @@
 
 //easy
 
-
+/*
 /obj/item/mundane/puzzlebox/easy
 	name = "\improper wooden puzzle-box"
 	desc = "A puzzle box."
@@ -141,3 +141,4 @@
 			finished_ckeys += ckey
 			playsound(src.loc, 'sound/foley/doors/lockrattle.ogg', 75, TRUE)
 
+*/

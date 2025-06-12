@@ -529,6 +529,7 @@
 
 // BLACKSTEEL
 
+/*
 /datum/anvil_recipe/weapons/blackflamb
 	name = "Flamberge"
 	req_bar = /obj/item/ingot/blacksteel
@@ -536,7 +537,7 @@
 	created_item = /obj/item/rogueweapon/sword/long/blackflamb
 	craftdiff = 5
 
-
+*/
 /datum/anvil_recipe/weapons/swarhammer
 	name = "Warhammer (+1 Steel)"
 	req_bar = /obj/item/ingot/steel

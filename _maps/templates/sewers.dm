@@ -56,8 +56,8 @@
 		/obj/item/paper = 6,
 		/obj/item/reagent_containers/glass/bowl = 6,
 		/obj/item/storage/bag/tray = 6,
-		/obj/item/mundane/puzzlebox/medium = 2,
-		/obj/item/mundane/puzzlebox/easy = 4,
+	//	/obj/item/mundane/puzzlebox/medium = 2,
+	//	/obj/item/mundane/puzzlebox/easy = 4,
 
 		//medical
 		/obj/item/needle = 4,

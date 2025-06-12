@@ -17,8 +17,6 @@
 	excluded_turfs = list(/turf/open/floor/rogue/dirt/road)
 	spawnableAtoms = list(/obj/structure/flora/newtree = 30,
 						/obj/structure/flora/roguetree/elder = 15,
-						/obj/structure/flora/roguetree/pine = 15,
-						/obj/structure/flora/roguetree/pine/dead = 13,
 							/obj/structure/flora/roguegrass/bush = 10,
 							/obj/structure/flora/roguegrass = 26,
 							/obj/structure/flora/roguegrass/maneater = 13,
