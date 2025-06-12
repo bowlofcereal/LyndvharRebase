@@ -8,7 +8,7 @@
 	density = FALSE
 	min_mobs = 2
 	max_mobs = 3
-	restart_time = 15 MINUTES
+	restart_time = 10 MINUTES
 	mob_types = list(
 	/mob/living/carbon/human/species/goblin/npc = 6,
 	/mob/living/simple_animal/hostile/retaliate/rogue/goblin/cave = 3,		//archer
@@ -24,7 +24,7 @@
 	density = FALSE
 	min_mobs = 2
 	max_mobs = 3
-	restart_time = 15 MINUTES
+	restart_time = 10 MINUTES
 	mob_types = list(
 	/mob/living/carbon/human/species/halforc/orc_raider/savage_orc = 6,
 	/mob/living/carbon/human/species/halforc/orc_raider = 5,		//archer
@@ -40,7 +40,7 @@
 	density = FALSE
 	min_mobs = 2
 	max_mobs = 5
-	restart_time = 15 MINUTES
+	restart_time = 10 MINUTES
 	mob_types = list(
 	/mob/living/carbon/human/species/goblin/npc = 5,
 	/mob/living/simple_animal/hostile/retaliate/rogue/goblin/cave = 4,		//archer
