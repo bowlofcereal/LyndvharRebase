@@ -136,7 +136,7 @@
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
 
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/signal_horn = 1, /obj/item/war_horn/human = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/war_horn = 1, /obj/item/war_horn/human = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
 
 
 // SWORDSMAN
@@ -202,7 +202,7 @@
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
 
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/signal_horn = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/war_horn = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
 	
 // AXEMAN
 
@@ -266,7 +266,7 @@
 	)
 	var/armorchoice = input("Choose your armor.", "TAKE UP ARMOR") as anything in armors
 	armor = armors[armorchoice]
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/signal_horn = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/war_horn = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
 
 // MACEMAN
 
@@ -333,7 +333,7 @@
 	armor = armors[armorchoice]
 
 
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/signal_horn = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/war_horn = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
 
 
 
