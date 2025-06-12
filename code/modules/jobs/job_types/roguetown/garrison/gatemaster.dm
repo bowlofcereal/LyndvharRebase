@@ -111,7 +111,7 @@
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Bastard Sword + Crossbow")
-			beltl = /obj/item/rogueweapon/sword/long
+			r_hand = /obj/item/rogueweapon/sword/long
 			beltr = /obj/item/rogueweapon/mace/cudgel
 			beltl = /obj/item/quiver/bolts
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
@@ -129,7 +129,7 @@
 
 
 			beltr = /obj/item/ammopouch/bullets
-			belt =  /obj/item/gun/ballistic/arquebus_pistol
+			beltl =  /obj/item/gun/ballistic/arquebus_pistol 
 			backl = /obj/item/rogueweapon/sword
 			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/powderflask = 1, /obj/item/rope/chain = 1, /obj/item/storage/keyring/sund/sund_gate)
 
