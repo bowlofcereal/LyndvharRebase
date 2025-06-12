@@ -343,6 +343,7 @@
 	icon_state = "stealthcd"
 
 /datum/status_effect/debuff/stealthcd/on_apply()
+	playsound(owner.loc, 'modular_stonehedge/sound/mgsalert.ogg', 75, FALSE)
 	if(owner.mind)
 		duration = duration - ((owner.mind.get_skill_level(/datum/skill/misc/sneaking)) SECONDS * 2)
 	if(owner.m_intent == MOVE_INTENT_SNEAK)

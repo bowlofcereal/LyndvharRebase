@@ -11,7 +11,8 @@
 /datum/sex_action/cunnilingus/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-
+	if(target.wear_pants)
+		return FALSE
 	if(!get_location_accessible(user, BODY_ZONE_PRECISE_MOUTH))
 		return FALSE
 	if(!target.getorganslot(ORGAN_SLOT_VAGINA))

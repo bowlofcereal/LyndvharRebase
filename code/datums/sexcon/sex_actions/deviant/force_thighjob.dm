@@ -11,7 +11,8 @@
 /datum/sex_action/force_thighjob/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-
+	if(target.wear_pants)
+		return FALSE
 	if(!target.getorganslot(ORGAN_SLOT_PENIS))
 		return FALSE
 	return TRUE

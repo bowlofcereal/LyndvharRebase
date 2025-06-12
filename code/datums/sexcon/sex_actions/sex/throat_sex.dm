@@ -12,7 +12,8 @@
 /datum/sex_action/throat_sex/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
 		return FALSE
-
+	if(user.wear_pants)
+		return FALSE
 	if(!get_location_accessible(target, BODY_ZONE_PRECISE_MOUTH))
 		return FALSE
 	if(!user.getorganslot(ORGAN_SLOT_PENIS))

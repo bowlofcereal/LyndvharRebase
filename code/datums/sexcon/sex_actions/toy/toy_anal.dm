@@ -11,7 +11,8 @@
 /datum/sex_action/toy_anal/can_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user != target)
 		return FALSE
-
+	if(user.wear_pants)
+		return FALSE
 	if(!get_dildo_in_either_hand(user))
 		return FALSE
 	return TRUE
