@@ -11,9 +11,8 @@
 	max_integrity = 200
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = "woodimpact"
-	debris = list(/obj/item/grown/log/tree/small = 1)
 	var/state = 0
-	var/list/allowed_books = list(/obj/item/book, /obj/item/storage/book) //Things allowed in the bookcase
+	var/list/allowed_books = list(/obj/item/book, /obj/item/storage/book, /obj/item/recipe_book) //Things allowed in the bookcase
 
 /obj/structure/bookcase/examine(mob/user)
 	. = ..()
@@ -68,11 +67,11 @@
 				choice.forceMove(drop_location())
 			update_icon()
 
-/obj/structure/bookcase/Destroy()
+/obj/structure/bookcase/deconstruct(disassembled = TRUE)
 	for(var/obj/item/book/B in contents)
 		B.forceMove(get_turf(src))
+	new /obj/item/grown/log/tree/small(get_turf(src.loc))
 	qdel(src)
-	return ..()
 
 /obj/structure/bookcase/update_icon()
 	if((contents.len >= 1) && (contents.len <= 15))

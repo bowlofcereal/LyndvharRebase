@@ -24,6 +24,7 @@
 				if(do_after(user, 50, needhand = 1, target = src))
 					facial_hairstyle = "None"
 					update_hair()
+					GLOB.azure_round_stats[STATS_BEARDS_SHAVED]++
 					if(dna?.species)
 						if(dna.species.id == "dwarf")
 							add_stress(/datum/stressevent/dwarfshaved)
@@ -78,6 +79,8 @@
 	var/obj/item/bodypart/affecting
 	var/dam = levels * rand(10,50)
 	add_stress(/datum/stressevent/felldown)
+	GLOB.azure_round_stats[STATS_MOAT_FALLERS]-- // If you get your ankles broken you fall. This makes sure only those that DIDN'T get damage get counted.
+	GLOB.azure_round_stats[STATS_ANKLES_BROKEN]++
 	var/chat_message
 	switch(rand(1,4))
 		if(1)
@@ -704,8 +707,11 @@
 
 /mob/living/carbon/human/MouseDrop_T(mob/living/target, mob/living/user)
 	if(pulling == target && stat == CONSCIOUS)
-		//If they dragged themselves and we're currently aggressively grabbing them try to piggyback
+		//If they dragged themselves and we're currently aggressively grabbing them try to piggyback (not on cmode)
 		if(user == target && can_piggyback(target))
+			if(cmode)
+				to_chat(target, span_warning("[src] won't let you on!"))
+				return FALSE
 			piggyback(target)
 			return TRUE
 		//If you dragged them to you and you're aggressively grabbing try to carry them

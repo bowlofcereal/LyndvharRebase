@@ -31,12 +31,18 @@
 		fruit.reagents.remove_reagent(/datum/reagent/consumable/nutriment, fruit.reagents.total_volume)
 		fruit.reagents.trans_to(src, fruit.reagents.total_volume)
 	if(fruit.distill_reagent)
-		reagents.add_reagent(fruit.distill_reagent, fruit.distill_amt)
+		reagents.add_reagent(fruit.distill_reagent, fruit.distill_amt * 3)
 	qdel(fruit)
 	playsound(src, "bubbles", 100, TRUE)
 	return TRUE
 
 /obj/structure/fermenting_barrel/attackby(obj/item/I, mob/user, params)
+	if(istype(I,/obj/item/reagent_containers/glass))
+		..()
+		return TRUE
+	if(user.mind.get_skill_level(/datum/skill/craft/cooking) < 3)
+		to_chat(user, span_notice("I am not knowledgable enough to brew."))
+		return FALSE
 	if(istype(I,/obj/item/reagent_containers/food/snacks/grown))
 		if(try_ferment(I, user))
 			return TRUE
@@ -47,31 +53,38 @@
 		playsound(src, "bubbles", 100, TRUE)
 		return TRUE
 	if(istype(I,/obj/item/storage/roguebag) && I.contents.len)
-		var/success
-		for(var/obj/item/reagent_containers/food/snacks/grown/bagged_fruit in I.contents)
-			if(try_ferment(bagged_fruit, user, TRUE))
-				success = TRUE
-		if(success)
-			to_chat(user, span_info("I dump the contents of [I] into [src]."))
-			I.update_icon()
-		else
-			to_chat(user, span_warning("There's nothing in [I] that I can ferment."))
-		return TRUE
+		var/obj/item/storage/roguebag/baggie = I
+		var/success = try_ferment_roguebag(baggie, user)
+		return success
 	..()
 
-/obj/structure/fermenting_barrel/proc/try_ferment(obj/item/reagent_containers/food/snacks/grown/fruit, mob/user, batch_process)
+/obj/structure/fermenting_barrel/proc/try_ferment(obj/item/reagent_containers/food/snacks/grown/fruit, mob/user)
 	if(!fruit.can_distill)
-		if(!batch_process)
-			to_chat(user, span_warning("I can't ferment this into anything."))
+		to_chat(user, span_warning("I can't ferment this into anything."))
 		return FALSE
 	else if(!user.transferItemToLoc(fruit,src))
-		if(!batch_process)
-			to_chat(user, span_warning("[fruit] is stuck to my hand!"))
+		to_chat(user, span_warning("[fruit] is stuck to my hand!"))
 		return FALSE
-	if(!batch_process)
-		to_chat(user, span_info("I place [fruit] into [src]."))
+	to_chat(user, span_info("I place [fruit] into [src]."))
 	addtimer(CALLBACK(src, PROC_REF(makeWine), fruit), rand(1 MINUTES, 3 MINUTES))
 	return TRUE
+
+/obj/structure/fermenting_barrel/proc/try_ferment_roguebag(obj/item/storage/roguebag/baggie, mob/user)
+	var/success = FALSE
+	var/datum/component/storage/STR = baggie.GetComponent(/datum/component/storage)
+	if(!STR)
+		return FALSE
+	for(var/obj/item/reagent_containers/food/snacks/grown/bagged_fruit in baggie.contents)
+		if(bagged_fruit.can_distill)
+			success = TRUE
+			STR.remove_from_storage(bagged_fruit, src)
+			addtimer(CALLBACK(src, PROC_REF(makeWine), bagged_fruit), rand(1 MINUTES, 3 MINUTES))
+	if(success)
+		to_chat(user, span_info("I dump the fermentable contents of [baggie] into [src]."))
+		return TRUE
+	else
+		to_chat(user, span_warning("There's nothing in [baggie] that I can ferment."))
+		return FALSE
 
 //obj/structure/fermenting_barrel/attack_hand(mob/user)
 //	open = !open
@@ -90,7 +103,7 @@
 		icon_state = "barrel_open"
 	else
 		icon_state = "barrel"
-	if(broken)
+	if(obj_broken)
 		icon_state = "barrel_destroyed"
 
 /obj/structure/fermenting_barrel/random/water
@@ -219,3 +232,25 @@
 /obj/structure/fermenting_barrel/nocshine/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/nocshine,900)
+
+/obj/structure/fermenting_barrel/coffee
+	desc = "A barrel with the mark of a brewed cup of coffee.  A strong, bitter drink that rejuvenates the body and mind."
+
+/obj/structure/fermenting_barrel/coffee/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/consumable/caffeine/coffee, 900)
+
+/obj/structure/fermenting_barrel/tea
+	desc = "A barrel with several Kazengunese characters on it indicating the vintage of the tea within. A mild, refreshing drink that calms the mind and body. Hopefully its quality is \
+	still intact after being stored in a barrel."
+
+/obj/structure/fermenting_barrel/tea/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/consumable/caffeine/tea, 900)
+
+/obj/structure/fermenting_barrel/rose_tea
+	desc = "A barrel with a mark of a rose over it. Generic rose tea brewed with rose. Refreshing and calming, with minor restorative effects."
+
+/obj/structure/fermenting_barrel/rose_tea/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/water/rosewater, 900)

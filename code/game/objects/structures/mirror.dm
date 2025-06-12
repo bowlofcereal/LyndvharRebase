@@ -1,7 +1,7 @@
 //wip wip wup
 /obj/structure/mirror
 	name = "mirror"
-	desc = ""
+	desc = "Mirror, mirror, on the wall..."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "mirror"
 	density = FALSE
@@ -18,7 +18,7 @@
 
 /obj/structure/mirror/Initialize(mapload)
 	. = ..()
-	if(icon_state == "mirror_broke" && !broken)
+	if(icon_state == "mirror_broke" && !obj_broken)
 		obj_break(null, mapload)
 
 /obj/structure/mirror/attack_hand(mob/user)
@@ -34,7 +34,7 @@
 		to_chat(H, span_warning("You look into the mirror but see only your normal reflection."))
 		return
 	
-	if(broken || !Adjacent(user))
+	if(obj_broken || !Adjacent(user))
 		return
 
 	var/should_update = FALSE
@@ -84,7 +84,7 @@
 						should_update = TRUE
 
 		if("hair color")
-			var/new_hair_color = color_pick_sanitized_lumi(user, "Choose your hair color", "Hair Color", H.hair_color)
+			var/new_hair_color = color_pick_sanitized(user, "Choose your hair color", "Hair Color", H.hair_color)
 			if(new_hair_color)
 				var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 				if(head && head.bodypart_features)
@@ -118,7 +118,7 @@
 						should_update = TRUE
 
 		if("facial hair color")
-			var/new_facial_hair_color = color_pick_sanitized_lumi(user, "Choose your facial hair color", "Facial Hair Color", H.facial_hair_color)
+			var/new_facial_hair_color = color_pick_sanitized(user, "Choose your facial hair color", "Facial Hair Color", H.facial_hair_color)
 			if(new_facial_hair_color)
 				var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 				if(head && head.bodypart_features)
@@ -146,7 +146,7 @@
 						should_update = TRUE
 
 		if("eye color")
-			var/new_eye_color = color_pick_sanitized_lumi(user, "Choose your eye color", "Eye Color", H.eye_color)
+			var/new_eye_color = color_pick_sanitized(user, "Choose your eye color", "Eye Color", H.eye_color)
 			if(new_eye_color)
 				new_eye_color = sanitize_hexcolor(new_eye_color, 6, TRUE)
 				var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)
@@ -193,7 +193,7 @@
 						should_update = TRUE
 
 		if("natural gradient color")
-			var/new_gradient_color = color_pick_sanitized_lumi(user, "Choose your natural gradient color", "Natural Gradient Color", H.hair_color)
+			var/new_gradient_color = color_pick_sanitized(user, "Choose your natural gradient color", "Natural Gradient Color", H.hair_color)
 			if(new_gradient_color)
 				var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 				if(head && head.bodypart_features)
@@ -255,7 +255,7 @@
 						should_update = TRUE
 
 		if("dye gradient color")
-			var/new_gradient_color = color_pick_sanitized_lumi(user, "Choose your dye gradient color", "Dye Gradient Color", H.hair_color)
+			var/new_gradient_color = color_pick_sanitized(user, "Choose your dye gradient color", "Dye Gradient Color", H.hair_color)
 			if(new_gradient_color)
 				var/obj/item/bodypart/head/head = H.get_bodypart(BODY_ZONE_HEAD)
 				if(head && head.bodypart_features)
@@ -459,7 +459,7 @@
 						vagina.Insert(H, TRUE, FALSE)
 					vagina.accessory_type = valid_vagina_types[new_style]
 					
-					var/new_color = color_pick_sanitized_lumi(user, "Choose your vagina color", "Vagina Color", vagina.color || H.dna.features["mcolor"])
+					var/new_color = color_pick_sanitized(user, "Choose your vagina color", "Vagina Color", vagina.color || H.dna.features["mcolor"])
 					if(new_color)
 						vagina.color = sanitize_hexcolor(new_color, 6, TRUE)
 					else
@@ -560,7 +560,7 @@
 		if("tail color one")
 			var/obj/item/organ/tail/tail = H.getorganslot(ORGAN_SLOT_TAIL)
 			if(tail)
-				var/new_color = color_pick_sanitized_lumi(user, "Choose your primary tail color", "Tail Color One", "#FFFFFF")
+				var/new_color = color_pick_sanitized(user, "Choose your primary tail color", "Tail Color One", "#FFFFFF")
 				if(new_color)
 					tail.Remove(H)
 					var/list/colors = list()
@@ -580,7 +580,7 @@
 		if("tail color two")
 			var/obj/item/organ/tail/tail = H.getorganslot(ORGAN_SLOT_TAIL)
 			if(tail)
-				var/new_color = color_pick_sanitized_lumi(user, "Choose your secondary tail color", "Tail Color Two", "#FFFFFF")
+				var/new_color = color_pick_sanitized(user, "Choose your secondary tail color", "Tail Color Two", "#FFFFFF")
 				if(new_color)
 					tail.Remove(H)
 					var/list/colors = list()
@@ -603,16 +603,16 @@
 		H.update_body_parts()
 
 /obj/structure/mirror/examine_status(mob/user)
-	if(broken)
+	if(obj_broken)
 		return list() // no message spam
 	return ..()
 
 /obj/structure/mirror/obj_break(damage_flag, mapload)
-	if(!broken && !(flags_1 & NODECONSTRUCT_1))
+	if(!obj_broken && !(flags_1 & NODECONSTRUCT_1))
 		icon_state = "[icon_state]1"
 		if(!mapload)
 			new /obj/item/natural/glass/shard (get_turf(src))
-		broken = TRUE
+		obj_broken = TRUE
 	..()
 
 /obj/structure/mirror/deconstruct(disassembled = TRUE)
@@ -626,7 +626,7 @@
 	if(user.used_intent.type == INTENT_HARM)
 		return FALSE
 
-	if(!broken)
+	if(!obj_broken)
 		return TRUE
 
 	if(!I.tool_start_check(user, amount=0))
@@ -635,7 +635,7 @@
 	to_chat(user, span_notice("I begin repairing [src]..."))
 	if(I.use_tool(src, user, 10, volume=50))
 		to_chat(user, span_notice("I repair [src]."))
-		broken = 0
+		obj_broken = 0
 		icon_state = initial(icon_state)
 		desc = initial(desc)
 
@@ -758,7 +758,7 @@
 				H.update_hair()
 
 		if("eyes")
-			var/new_eye_color = color_pick_sanitized_lumi(user, "Choose your eye color", "Eye Color", H.eye_color)
+			var/new_eye_color = color_pick_sanitized(user, "Choose your eye color", "Eye Color", H.eye_color)
 			if(new_eye_color)
 				new_eye_color = sanitize_hexcolor(new_eye_color, 6, TRUE)
 				var/obj/item/organ/eyes/eyes = H.getorganslot(ORGAN_SLOT_EYES)

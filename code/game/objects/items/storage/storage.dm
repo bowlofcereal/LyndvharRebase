@@ -1,21 +1,21 @@
 /obj/item/storage
 	name = "storage"
-	icon = 'icons/obj/storage.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 	var/rummage_if_nodrop = TRUE
 	var/component_type = /datum/component/storage/concrete
 	var/list/populate_contents = list()
 	obj_flags = CAN_BE_HIT
 
-/obj/item/storage/get_dumping_location(obj/item/storage/source,mob/user)
+/obj/item/storage/get_dumping_location(obj/item/storage/source, mob/user)
 	return src
 
-/obj/item/storage/Initialize()
+/obj/item/storage/Initialize(mapload)
 	. = ..()
+	AddComponent(component_type)
 	PopulateContents()
 
-/obj/item/storage/ComponentInitialize()
-	AddComponent(component_type)
+	for (var/obj/item/item in src)
+		item.item_flags |= IN_STORAGE
 
 /obj/item/storage/AllowDrop()
 	return FALSE

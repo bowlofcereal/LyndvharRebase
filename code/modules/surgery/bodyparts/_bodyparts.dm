@@ -32,6 +32,7 @@
 	var/stamina_dam = 0
 	var/max_stamina_damage = 0
 	var/max_damage = 0
+	var/max_pain_damage = 100
 
 	var/cremation_progress = 0 //Gradually increases while burning when at full damage, destroys the limb when at 100
 
@@ -393,6 +394,8 @@
 	if((rotted || skeletonized) && !(owner.mob_biotypes & MOB_UNDEAD))
 		return BODYPART_DISABLED_ROT
 	for(var/datum/wound/ouchie as anything in wounds)
+		if(isnull(ouchie) || !istype(ouchie, /datum/wound))
+			continue
 		if(!ouchie.disabling)
 			continue
 		return BODYPART_DISABLED_WOUND
@@ -665,6 +668,7 @@
 /obj/item/bodypart/deconstruct(disassembled = TRUE)
 	drop_organs()
 	return ..()
+
 /obj/item/bodypart/chest
 	name = BODY_ZONE_CHEST
 	desc = ""
@@ -676,6 +680,7 @@
 	px_y = 0
 	stam_damage_coeff = 1
 	max_stamina_damage = 120
+	max_pain_damage = 150
 	var/obj/item/cavity_item
 	subtargets = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_GROIN)
 	grabtargets = list(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_STOMACH, BODY_ZONE_PRECISE_GROIN)

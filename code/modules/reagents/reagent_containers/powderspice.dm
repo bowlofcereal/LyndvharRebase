@@ -90,6 +90,7 @@
 		if(canconsume(C, silent = TRUE))
 			if(reagents.total_volume)
 				playsound(C, 'sound/items/sniff.ogg', 100, FALSE)
+				GLOB.azure_round_stats[STATS_DRUGS_SNORTED]++
 				reagents.trans_to(C, 1, transfered_by = thrownthing.thrower, method = "swallow")
 	qdel(src)
 
@@ -115,9 +116,13 @@
 				return FALSE
 
 	playsound(M, 'sound/items/sniff.ogg', 100, FALSE)
+	GLOB.azure_round_stats[STATS_DRUGS_SNORTED]++
 
 	if(reagents.total_volume)
 		reagents.trans_to(M, reagents.total_volume, transfered_by = user, method = "swallow")
+		SEND_SIGNAL(M, COMSIG_DRUG_SNIFFED, user)
+		record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+		GLOB.azure_round_stats[STATS_DRUGS_SNORTED]++
 	qdel(src)
 	return TRUE
 
@@ -149,6 +154,26 @@
 	grind_results = list(/datum/reagent/floure = 10)
 	volume = 1
 	sellprice = 0
+
+/obj/item/reagent_containers/powder/rocknut
+	name = "rocknut powder"
+	desc = ""
+	gender = PLURAL
+	icon_state = "rocknut"
+	volume = 1
+	sellprice = 0
+
+/obj/item/reagent_containers/powder/rocknut/Initialize()
+	. = ..()
+	var/static/list/slapcraft_recipe_list = list(
+		/datum/crafting_recipe/roguetown/survival/rocknutdry,
+		)
+
+	AddElement(
+		/datum/element/slapcrafting,\
+		slapcraft_recipes = slapcraft_recipe_list,\
+		)
+
 /datum/reagent/floure
 	name = "flour"
 	description = ""
@@ -190,7 +215,7 @@
 	qdel(src)
 
 /obj/item/reagent_containers/powder/ozium
-	name = "powder"
+	name = "ozium"
 	desc = ""
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "ozium"

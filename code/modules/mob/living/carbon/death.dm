@@ -1,4 +1,4 @@
-/mob/living/carbon/death(gibbed)
+/mob/living/carbon/death(gibbed, nocutscene = FALSE)
 	if(stat == DEAD)
 		return
 	stop_looking()
@@ -14,9 +14,6 @@
 	for(var/T in get_traumas())
 		var/datum/brain_trauma/BT = T
 		BT.on_death()
-
-	if(SSticker.mode)
-		SSticker.mode.check_win() //Calls the rounds wincheck, mainly for wizard, malf, and changeling now
 
 /mob/living/carbon/dust(just_ash, drop_items, force)
 	if(drop_items)

@@ -66,9 +66,17 @@
 	seed_identity = "oat seeds"
 	plant_def_type = /datum/plant_def/oat
 
+/obj/item/seeds/rice
+	seed_identity = "rice seeds"
+	plant_def_type = /datum/plant_def/rice
+
 /obj/item/seeds/apple
 	seed_identity = "apple seeds"
 	plant_def_type = /datum/plant_def/apple
+
+/obj/item/seeds/nut
+	seed_identity = "rocknut"
+	plant_def_type = /datum/plant_def/nut
 
 /obj/item/seeds/pipeweed
 	seed_identity = "westleach leaf seeds"
@@ -101,9 +109,19 @@
 /obj/item/seeds/fyritius
     seed_identity = "fyritius seeds"
     plant_def_type = /datum/plant_def/fyritiusflower
+
 /obj/item/seeds/poppy
 	seed_identity = "poppy seeds"
 	plant_def_type = /datum/plant_def/poppy
+
 /obj/item/seeds/garlick
 	seed_identity = "garlick seeds"
 	plant_def_type = /datum/plant_def/garlick
+
+/obj/item/seeds/coffee
+	seed_identity = "coffee seeds"
+	plant_def_type = /datum/plant_def/coffee
+
+/obj/item/seeds/tea
+	seed_identity = "tea seeds"
+	plant_def_type = /datum/plant_def/tea

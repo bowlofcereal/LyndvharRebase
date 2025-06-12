@@ -106,6 +106,12 @@
 	if(mob.force_moving)
 		return FALSE
 
+	if(mob.shifting)
+		mob.pixel_shift(direct)
+		return FALSE
+	else if(mob.is_shifted)
+		mob.unpixel_shift()
+
 	var/mob/living/L = mob  //Already checked for isliving earlier
 	if(L.incorporeal_move)	//Move though walls
 		Process_Incorpmove(direct)
@@ -214,19 +220,34 @@
 			move_delay = world.time + 10
 			to_chat(src, span_warning("I can't move!"))
 			return TRUE
-		else if(mob.incapacitated(ignore_restraints = 1))
+		if(mob.incapacitated(ignore_restraints = 1))
 			move_delay = world.time + 10
 			to_chat(src, span_warning("I can't move!"))
 			return TRUE
-		else if(mob.restrained(ignore_grab = 1))
+		if(mob.restrained(ignore_grab = 1))
 			move_delay = world.time + 10
 			to_chat(src, span_warning("I'm restrained! I can't move!"))
 			return TRUE
-		else
-//			return mob.resist_grab(1)
-			move_delay = world.time + 10
-			to_chat(src, span_warning("I can't move!"))
-			return TRUE
+		move_delay = world.time + 10
+		to_chat(src, span_warning("I can't move!"))
+		return TRUE
+
+	if(mob.pulling && isliving(mob.pulling))
+		if (issimple(mob.pulling))
+			return FALSE
+		var/mob/living/L = mob.pulling
+		var/mob/living/M = mob
+		if(!L.cmode)
+			return FALSE
+		if (L.resting)
+			return FALSE
+		if (L.incapacitated())
+			return FALSE
+		if (M.grab_state > GRAB_PASSIVE)
+			return FALSE
+		move_delay = world.time + 10
+		to_chat(src, span_warning("[L] still has footing! I need a stronger grip!"))
+		return TRUE    
 
 /**
   * Allows mobs to ignore density and phase through objects
@@ -771,7 +792,7 @@
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 
 /client/proc/hearallasghost()
-	set category = "GameMaster"
+	set category = "Prefs - Admin"
 	set name = "HearAllAsAdmin"
 	if(!holder)
 		return

@@ -1,4 +1,5 @@
 /datum/anvil_recipe/armor
+	abstract_type = /datum/anvil_recipe/armor
 	appro_skill = /datum/skill/craft/armorsmithing
 	i_type = "Armor"
 	craftdiff = 1
@@ -6,6 +7,222 @@
 //For the sake of keeping the code modular with the introduction of new metals, each recipe has had it's main resource added to it's datum
 //This way, we can avoid having to name things in strange ways and can simply have iron/cuirass, stee/cuirass, blacksteel/cuirass->
 //-> and not messy names like ibreastplate and hplate
+
+// --------- COPPER RECIPES -----------
+/datum/anvil_recipe/armor/copper/
+	abstract_type = /datum/anvil_recipe/armor/copper
+
+/datum/anvil_recipe/armor/copper/mask
+	name = "Copper Mask"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/mask/rogue/facemask/copper
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/copper/bracers
+	name = "Copper Bracers"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/wrists/roguetown/bracers/copper
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/copper/cap
+	name = "Lamellar Cap"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/head/roguetown/helmet/coppercap
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/copper/gorget
+	name = "Copper Neck Protector"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/neck/roguetown/gorget/copper
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/copper/chest
+	name = "Copper Heart Protector"
+	req_bar = /obj/item/ingot/copper
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/half/copper
+	craftdiff = 0
+
+
+// --------- Decrepit Alloy RECIPES -----------
+
+/datum/anvil_recipe/armor/aalloy/barbute
+	name = "Decrepit Alloy Barbute(+1 Alloy)"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/barbute
+	name = "Purified Alloy Barbute(+1 Alloy)"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/paalloy
+	additional_items = /obj/item/ingot/aalloy
+	craftdiff = 3
+
+
+/datum/anvil_recipe/armor/aalloy/savoyard
+	name = "Decrepit Alloy Savoyard(+1 Alloy)"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/guard/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/savoyard
+	name = "Purified Alloy Savoyard(+1 Purified Alloy)"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/guard/paalloy
+	additional_items = /obj/item/ingot/purifiedaalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/mask
+	name = "Decrepit Alloy Mask"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/mask/rogue/facemask/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/mask
+	name = "Purified Alloy Mask"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/mask/rogue/facemask/steel/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/coif
+	name = "Decrepit Alloy Coif"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/neck/roguetown/chaincoif/iron/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/coif
+	name = "Purified Alloy Coif"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/neck/roguetown/chaincoif/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/gorget
+	name = "Decrepit Alloy Gorget"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/neck/roguetown/gorget/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/gorget
+	name = "Purified Alloy Gorget"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/neck/roguetown/gorget/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/cuirass
+	name = "Decrepit Alloy Cuirass (+1 Alloy)"
+	req_bar = /obj/item/ingot/aalloy
+	additional_items = list(/obj/item/ingot/aalloy)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/half/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/cuirass
+	name = "Purified Alloy Cuirass (+1 Purified Alloy)"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	additional_items = list(/obj/item/ingot/purifiedaalloy)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/half/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/halfplate
+	name = "Decrepit Alloy Half-Plate Armour (+2 Alloy, +1 Cured Leather)"
+	req_bar = /obj/item/ingot/aalloy
+	additional_items = list(/obj/item/ingot/aalloy,/obj/item/ingot/aalloy,/obj/item/natural/hide/cured)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/halfplate
+	name = "Purified Alloy Half-Plate Armour (+2 Purified Alloy, +1 Cured Leather)"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	additional_items = list(/obj/item/ingot/purifiedaalloy,/obj/item/ingot/purifiedaalloy,/obj/item/natural/hide/cured)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/chainmail
+	name = "Decrepit Alloy Chainmail"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/suit/roguetown/armor/chainmail/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/chainmail
+	name = "Purified Alloy Chainmail"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/suit/roguetown/armor/chainmail/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/hauberk
+	name = "Decrepit Alloy Hauberk(+1 Alloy)"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/aalloy
+	additional_items = list(/obj/item/ingot/aalloy)
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/hauberk
+	name = "Purified Alloy Hauberk(+1 Purified Alloy)"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/paalloy
+	additional_items = list(/obj/item/ingot/purifiedaalloy)
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/bracers
+	name = "Decrepit Alloy Bracers"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/wrists/roguetown/bracers/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/bracers
+	name = "Purified Alloy Bracers"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/wrists/roguetown/bracers/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/chaingaunts
+	name = "Decrepit Alloy Chain Gauntlets"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/gloves/roguetown/chain/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/chaingaunts
+	name = "Purified Alloy Chain Gauntlets"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/gloves/roguetown/chain/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/plategaunts
+	name = "Decrepit Alloy Plate Gauntlets"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/gloves/roguetown/plate/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/plategaunts
+	name = "Purified Alloy Plate Gauntlets"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/gloves/roguetown/plate/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/chainkilt
+	name = "Decrepit Alloy Chainkilt"
+	req_bar = /obj/item/ingot/aalloy
+	created_item = /obj/item/clothing/under/roguetown/chainlegs/kilt/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/chainkilt
+	name = "Purified Alloy Chainkilt"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	created_item = /obj/item/clothing/under/roguetown/chainlegs/kilt/paalloy
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/aalloy/platelegs
+	name = "Decrepit Alloy Plated Chausses (+1 Steel)"
+	req_bar = /obj/item/ingot/aalloy
+	additional_items = list(/obj/item/ingot/aalloy)
+	created_item = /obj/item/clothing/under/roguetown/platelegs/aalloy
+	craftdiff = 1
+
+/datum/anvil_recipe/armor/paalloy/platelegs
+	name = "Purified Alloy Plated Chausses (+1 Steel)"
+	req_bar = /obj/item/ingot/purifiedaalloy
+	additional_items = list(/obj/item/ingot/purifiedaalloy)
+	created_item = /obj/item/clothing/under/roguetown/platelegs/paalloy
+	craftdiff = 3
 
 // --------- IRON RECIPES -----------
 
@@ -47,10 +264,23 @@
 	created_item = /obj/item/clothing/under/roguetown/chainlegs/iron
 	craftdiff = 0
 
+/datum/anvil_recipe/armor/iron/chainleg/kilt
+	name = "Chain Kilt"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/under/roguetown/chainlegs/iron/kilt
+	craftdiff = 0
+
 /datum/anvil_recipe/armor/iron/mask
 	name = "Iron Mask"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/mask/rogue/facemask
+	createditem_num = 1
+	craftdiff = 0
+
+/datum/anvil_recipe/armor/iron/mask/hound
+	name = "Mask (Hound)"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/mask/rogue/facemask/hound
 	createditem_num = 1
 	craftdiff = 0
 
@@ -74,16 +304,23 @@
 	created_item = /obj/item/clothing/head/roguetown/helmet/skullcap
 
 /datum/anvil_recipe/armor/iron/studded
-	name = "Studded Leather Armor (+Leather Armor)"
+	name = "Studded Leather Armor (+ Leather Armor)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/clothing/suit/roguetown/armor/leather)
 	created_item = /obj/item/clothing/suit/roguetown/armor/leather/studded
 
 /datum/anvil_recipe/armor/studdedbikini
-	name = "Studded Leather Bikini (+Leather Bikini)"
+	name = "Studded Leather Corslet (+ Leather Corslet)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/clothing/suit/roguetown/armor/leather)
 	created_item = /obj/item/clothing/suit/roguetown/armor/leather/studded/bikini
+
+/datum/anvil_recipe/armor/iron/helmethorned
+	name = "Horned Helmet"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/head/roguetown/helmet/horned
+	craftdiff = 2
+	
 /*
 /datum/anvil_recipe/armor/helmetgoblin
 	name = "Goblin Helmet (+1 Iron)"
@@ -108,7 +345,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/chainkini
-	name = "Chainmail Bikini (+1 Cloth)"
+	name = "Chainmail Corslet (+1 Cloth)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/natural/cloth)
 	created_item = /obj/item/clothing/suit/roguetown/armor/chainmail/bikini
@@ -127,6 +364,20 @@
 	created_item = /obj/item/clothing/suit/roguetown/armor/plate
 	craftdiff = 3
 
+/datum/anvil_recipe/armor/steel/halfplate/fluted
+	name = "Fluted Half-Plate Armour (+2 Steel, +1 Iron, +1 Cured Leather)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/ingot/iron, /obj/item/natural/hide/cured)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/fluted
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/steel/halfplate/fluted/ornate
+	name = "Psydonite Half-Plate Armour (+ P.Cuirass, +1 Steel, +1 Blessed Silver, +1 Cured Leather)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate, /obj/item/ingot/steel, /obj/item/ingot/silverblessed, /obj/item/natural/hide/cured)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate
+	craftdiff = 3
+
 /datum/anvil_recipe/armor/steel/fullplate
 	name = "Full-Plate Armour (+3 Steel, +1 Cured Leather)"
 	req_bar = /obj/item/ingot/steel
@@ -134,15 +385,36 @@
 	created_item = /obj/item/clothing/suit/roguetown/armor/plate/full
 	craftdiff = 4
 
+/datum/anvil_recipe/armor/steel/fullplate/fluted
+	name = "Fluted Full-Plate Armour (+3 Steel, +1 Iron, +1 Cured Leather)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/ingot/iron, /obj/item/natural/hide/cured)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/full/fluted
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/steel/fullplate/fluted/ornate
+	name = "Psydonite Full-Plate Armour (+ P.Half-Plate, +1 Blessed Silver, +1 Cured Leather)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate, /obj/item/ingot/silverblessed, /obj/item/natural/hide/cured)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
+	craftdiff = 4
+
+/datum/anvil_recipe/armor/steel/fullplate/fluted/ornate/alt
+	name = "Psydonite Full-Plate Armour (+ P.Hauberk, +1 Steel, +2 Blessed Silver, +1 Cured Leather)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate, /obj/item/ingot/steel, /obj/item/ingot/silverblessed, /obj/item/ingot/silverblessed, /obj/item/natural/hide/cured)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
+	craftdiff = 4
+
 /datum/anvil_recipe/armor/steel/platebikini
-	name = "Half-Plate Bikini (+1 Steel, +1 Cured Leather)"
+	name = "Half-Plate Corslet (+1 Steel, +1 Cured Leather)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/suit/roguetown/armor/plate/bikini
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/fullplatebikini
-	name = "Full-Plate Bikini (+2 Steel, +1 Cured Leather)"
+	name = "Full-Plate Corslet (+2 Steel, +1 Cured Leather)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/steel, /obj/item/natural/hide/cured)
 	created_item = /obj/item/clothing/suit/roguetown/armor/plate/full/bikini
@@ -166,6 +438,13 @@
 	name = "Chain Coif"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/neck/roguetown/chaincoif
+	createditem_num = 1
+	craftdiff = 2
+
+/datum/anvil_recipe/armor/steel/chainmantle
+	name = "Chain Mantle"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/neck/roguetown/chaincoif/chainmantle
 	createditem_num = 1
 	craftdiff = 2
 
@@ -195,6 +474,12 @@
 	created_item = /obj/item/clothing/under/roguetown/chainlegs
 	craftdiff = 2
 
+/datum/anvil_recipe/armor/steel/chainlegs/kilt
+	name = "Chain Kilt"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/under/roguetown/chainlegs/kilt
+	craftdiff = 2
+
 /datum/anvil_recipe/armor/steel/brayette
 	name = "Brayette"
 	req_bar = /obj/item/ingot/steel
@@ -206,7 +491,7 @@
 	created_item = /obj/item/clothing/under/roguetown/chainlegs/skirt
 
 /datum/anvil_recipe/armor/steel/plateskirt
-	name = "Plated Skirt (+1 Steel)"
+	name = "Plate Tassets (+1 Steel)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/under/roguetown/platelegs/skirt
@@ -219,11 +504,25 @@
 	created_item = /obj/item/clothing/under/roguetown/platelegs
 	craftdiff = 2
 
-/datum/anvil_recipe/armor/stee/cuirass
+/datum/anvil_recipe/armor/steel/cuirass
 	name = "Cuirass (+1 Steel)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/suit/roguetown/armor/plate/half
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/steel/cuirass/fluted
+	name = "Fluted Cuirass (+1 Steel, +1 Iron)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel, /obj/item/ingot/iron)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/half/fluted
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/steel/cuirass/fluted/ornate
+	name = "Psydonite Cuirass (+1 Blessed Silver)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/silverblessed)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/scalemail
@@ -245,12 +544,6 @@
 	created_item = /obj/item/clothing/head/roguetown/helmet
 	craftdiff = 2
 
-/datum/anvil_recipe/armor/steel/helmethorned
-	name = "Horned Helmet"
-	req_bar = /obj/item/ingot/steel
-	created_item = /obj/item/clothing/head/roguetown/helmet/horned
-	craftdiff = 2
-
 /datum/anvil_recipe/armor/steel/helmetwinged
 	name = "Winged Helmet"
 	req_bar = /obj/item/ingot/steel
@@ -263,6 +556,13 @@
 	created_item = /obj/item/clothing/head/roguetown/helmet/kettle
 	craftdiff = 2
 
+/datum/anvil_recipe/armor/steel/widehelmetkettle
+	name = "Wide Kettle Helmet"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/head/roguetown/helmet/kettle/wide
+	craftdiff = 2
+
+
 /datum/anvil_recipe/armor/steel/bevor
 	name = "Bevor"
 	req_bar = /obj/item/ingot/steel
@@ -274,6 +574,12 @@
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/neck/roguetown/gorget/steel
 	craftdiff = 2
+
+/datum/anvil_recipe/armor/iron/cursed_collar
+	name = "Cursed Collar"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/neck/roguetown/gorget/cursed_collar
+	craftdiff = 1
 
 /datum/anvil_recipe/armor/steel/helmetsall
 	name = "Sallet"
@@ -315,6 +621,13 @@
 	created_item = /obj/item/clothing/head/roguetown/helmet/bascinet
 	craftdiff = 2
 
+/datum/anvil_recipe/armor/steel/etruscanbascinet
+	name = "Etruscan Bascinet (+1 Steel)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/roguetown/helmet/bascinet/etruscan
+	craftdiff = 3
+
 /datum/anvil_recipe/armor/steel/helmetknight
 	name = "Knight's Helmet (+1 Steel)"
 	req_bar = /obj/item/ingot/steel
@@ -327,6 +640,13 @@
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/knight/armet
+	craftdiff = 3
+
+/datum/anvil_recipe/armor/steel/slittedkettle
+	name = "Slitted Kettle (+1 Steel)"
+	req_bar = /obj/item/ingot/steel
+	additional_items = list(/obj/item/ingot/steel)
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle
 	craftdiff = 3
 
 /datum/anvil_recipe/armor/steel/savoyard
@@ -354,6 +674,13 @@
 	name = "Steel Mask"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/mask/rogue/facemask/steel
+	createditem_num = 1
+	craftdiff = 2
+
+/datum/anvil_recipe/armor/steel/mask/hound
+	name = "Mask (Hound)"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/mask/rogue/facemask/steel/hound
 	createditem_num = 1
 	craftdiff = 2
 
@@ -403,6 +730,12 @@
 	name = "Steel Plated Belt"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/storage/belt/rogue/leather/steel
+	craftdiff = 2
+
+/datum/anvil_recipe/armor/steel/belt/tasset
+	name = "Tasseted Steel Plated Belt"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/storage/belt/rogue/leather/steel/tasset
 	craftdiff = 2
 
 // --------- SILVER RECIPES-----------

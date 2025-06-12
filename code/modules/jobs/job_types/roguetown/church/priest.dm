@@ -7,7 +7,7 @@
 	spawn_positions = 1
 	selection_color = JCOLOR_CHURCH
 	f_title = "Priestess"
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_NO_CONSTRUCT		//Too recent arrivals to ascend to priesthood.
 	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
 	tutorial = "The Divine is all that matters in a world of the immoral. The Weeping God left his children to rule over us mortals--and you will preach their wisdom to any who still heed their will. The faithless are growing in number. It is up to you to shepard them toward a Gods-fearing future; for you are a priest of Astrata."
@@ -22,8 +22,12 @@
 	max_pq = null
 	round_contrib_points = 3
 
+	//No nobility for you, being a member of the clergy means you gave UP your nobility. It says this in many of the church tutorial texts.
+	virtue_restrictions = list(/datum/virtue/utility/noble)
+
 /datum/outfit/job/roguetown/priest
-	allowed_patrons = list(/datum/patron/divine/astrata)
+	job_bitflag = BITFLAG_CHURCH
+	allowed_patrons = list(/datum/patron/divine/astrata)	//We lock this cus head of church, acktully
 
 /datum/outfit/job/roguetown/priest/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -41,7 +45,8 @@
 	backpack_contents = list(
 		/obj/item/needle/pestra = 1,
 		/obj/item/natural/worms/leech/cheele = 1, //little buddy
-		/obj/item/ritechalk,
+		/obj/item/ritechalk = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/steel/holysee = 1,	//Unique knife from the Holy See
 	)
 	ADD_TRAIT(H, TRAIT_CHOSEN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
@@ -59,7 +64,6 @@
 		H.mind.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/magic/holy, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 3, TRUE)
 		if(H.age == AGE_OLD)
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 		H.change_stat("strength", -1)
@@ -68,14 +72,20 @@
 		H.change_stat("endurance", 1)
 		H.change_stat("speed", -1)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron) // This creates the cleric holder used for devotion spells
-	C.grant_spells_priest(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
 
 	H.verbs |= /mob/living/carbon/human/proc/coronate_lord
 	H.verbs |= /mob/living/carbon/human/proc/churchexcommunicate
 	H.verbs |= /mob/living/carbon/human/proc/churchannouncement
-//	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+//	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)		- You are literally disinherited. Begone......
 
+/datum/job/priest/vice //just used to change the priest title
+	title = "Vice Priest"
+	f_title = "Vice Priestess"
+	flag = PRIEST
+	department_flag = CHURCHMEN
+	total_positions = 0
+	spawn_positions = 0
 
 /mob/living/carbon/human/proc/coronate_lord()
 	set name = "Coronate"
@@ -109,13 +119,10 @@
 		//Coronate new King (or Queen)
 		HU.mind.assigned_role = "Grand Duke"
 		HU.job = "Grand Duke"
-		switch(HU.pronouns)
-			if(SHE_HER)
-				SSticker.rulertype = "Grand Duchess"
-			if(THEY_THEM_F)
-				SSticker.rulertype = "Grand Duchess"
-			else
-				SSticker.rulertype = "Grand Duke"
+		if(should_wear_femme_clothes(HU))
+			SSticker.rulertype = "Grand Duchess"
+		else
+			SSticker.rulertype = "Grand Duke"
 		SSticker.rulermob = HU
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)

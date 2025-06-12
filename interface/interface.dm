@@ -59,7 +59,7 @@
 /client/verb/mentorhelp()
 	set name = "Mentorhelp"
 	set desc = ""
-	set category = "Admin"
+	set category = "-Admin-"
 	if(mob)
 		var/msg = input("Submit your question to the Voices:", "Mentorhelp Input") as text|null
 		if(msg)
@@ -148,7 +148,7 @@ Hotkey-Mode: (hotkey-mode must be on)
 \tMMB (no intent) = Special Interaction
 \tSHIFT + LMB = Examine something
 \tSHIFT + RMB = Focus
-\tCTRL + LMB = TileAtomList
+\tALT + RMB = TileAtomList
 \tCTRL + RMB = Point at something
 </font>"}
 

@@ -28,6 +28,7 @@
 #define TOGGLE_FULLSCREEN		(1<<20)
 #define SCHIZO_VOICE			(1<<21)
 #define ROLEPLAY_ADS			(1<<22)
+#define CMODE_STRIPPING			(1<<23)
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP|SOUND_MIDI|SOUND_AMBIENCE|SOUND_LOBBY|MEMBER_PUBLIC|INTENT_STYLE|MIDROUND_ANTAG|SOUND_INSTRUMENTS|SOUND_SHIP_AMBIENCE|SOUND_PRAYERS|SOUND_ANNOUNCEMENTS|TOGGLE_FULLSCREEN)
 
@@ -126,8 +127,10 @@
 #define THEY_THEM		"they/them (Masc Clothes)"
 #define THEY_THEM_F		"they/them (Femme Clothes)"
 #define IT_ITS			"it/its"
+#define HE_HIM_F		"he/him (Femme Clothes)"
+#define SHE_HER_M		"she/her (Masc Clothes)"
 
-GLOBAL_LIST_INIT(pronouns_list, list(HE_HIM, SHE_HER, THEY_THEM, THEY_THEM_F, IT_ITS))
+GLOBAL_LIST_INIT(pronouns_list, list(HE_HIM, SHE_HER, THEY_THEM, THEY_THEM_F, IT_ITS, HE_HIM_F, SHE_HER_M))
 
 // Voice types (LETHALSTONE)
 

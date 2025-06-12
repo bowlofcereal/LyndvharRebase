@@ -74,8 +74,8 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 /mob/dead/observer/rogue/nodraw
 	draw_icon = FALSE
 	icon = 'icons/roguetown/mob/misc.dmi'
-	icon_state = "ghost"
-	alpha = 100
+	icon_state = "hollow"
+	alpha = 150
 
 /mob/dead/observer/rogue/Move(n, direct)
 	if(world.time < next_gmove)
@@ -782,7 +782,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	var/bt = world.time
 	SEND_SOUND(src, sound('sound/misc/notice (2).ogg'))
-	if(alert(src, "A lich has summoned you to destroy ROGUETOWN!", "Join the Horde", "Yes", "No") == "Yes")
+	if(alert(src, "You have been summoned you to destroy Azuria!", "Join the Horde", "Yes", "No") == "Yes")
 		if(world.time > bt + 5 MINUTES)
 			to_chat(src, span_warning("Too late."))
 			return FALSE

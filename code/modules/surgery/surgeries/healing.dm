@@ -21,7 +21,8 @@
 	requires_tech = TRUE
 	replaced_by = /datum/surgery_step
 	repeating = TRUE
-	surgery_flags = SURGERY_BLOODY | SURGERY_INCISED | SURGERY_CLAMPED
+	repeatingonfail = TRUE
+	surgery_flags = SURGERY_BLOODY | SURGERY_CLAMPED
 	skill_min = SKILL_LEVEL_APPRENTICE
 	skill_median = SKILL_LEVEL_APPRENTICE
 	success_sound = 'sound/surgery/retractor2.ogg'
@@ -89,6 +90,7 @@
 	display_results(user, target, span_notice("[umsg]."),
 		"[tmsg].",
 		"[tmsg].")
+	target.update_damage_hud()
 	return TRUE
 
 /datum/surgery_step/heal/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)
@@ -102,27 +104,28 @@
 		urdamageamt_burn += round((target.getFireLoss()/(missinghpbonus*2)),0.1)
 
 	target.take_bodypart_damage(urdamageamt_brute, urdamageamt_burn)
+	target.update_damage_hud()
 	return TRUE
 
 /********************BRUTE STEPS********************/
 /datum/surgery_step/heal/brute/basic
 	name = "Tend bruises"
 	brutehealing = 10
-	missinghpbonus = 7.5
+	missinghpbonus = 6
 	requires_tech = FALSE
 	replaced_by = /datum/surgery_step/heal/brute/upgraded
 
 /datum/surgery_step/heal/brute/upgraded
 	name = "Tend bruises (Adv.)"
-	brutehealing = 10
-	missinghpbonus = 5
+	brutehealing = 20
+	missinghpbonus = 4
 	requires_tech = TRUE
 	replaced_by = /datum/surgery_step/heal/brute/upgraded/femto
 
 /datum/surgery_step/heal/brute/upgraded/femto
 	name = "Tend bruises (Exp.)"
-	brutehealing = 10
-	missinghpbonus = 2.5
+	brutehealing = 30
+	missinghpbonus = 2
 	requires_tech = TRUE
 	replaced_by = null
 

@@ -28,15 +28,15 @@
 	if(!isnull(major_pot))
 		var/datum/alch_cauldron_recipe/rec = locate(major_pot) in GLOB.alch_cauldron_recipes
 		major_smell = rec.smells_like
-		major_name = rec.recipe_name
+		major_name = rec.name
 	if(!isnull(med_pot))
 		var/datum/alch_cauldron_recipe/rec = locate(med_pot) in GLOB.alch_cauldron_recipes
 		med_smell = rec.smells_like
-		med_name = rec.recipe_name
+		med_name = rec.name
 	if(!isnull(minor_pot))
 		var/datum/alch_cauldron_recipe/rec = locate(minor_pot) in GLOB.alch_cauldron_recipes
 		minor_smell = rec.smells_like
-		minor_name = rec.recipe_name
+		minor_name = rec.name
 
 /obj/item/alch/examine(mob/user)
 	. = ..()
@@ -89,7 +89,7 @@
 	icon_state = "seeddust"
 	major_pot = /datum/alch_cauldron_recipe/big_stamina_potion
 	med_pot = /datum/alch_cauldron_recipe/stamina_potion
-	minor_pot = /datum/alch_cauldron_recipe/disease_cure
+	minor_pot = /datum/alch_cauldron_recipe/strong_antidote
 
 /obj/item/alch/runedust
 	name = "raw essentia"
@@ -108,7 +108,7 @@
 /obj/item/alch/silverdust
 	name = "silver dust"
 	icon_state = "silverdust"
-	major_pot = /datum/alch_cauldron_recipe/disease_cure
+	major_pot = /datum/alch_cauldron_recipe/strong_antidote
 	med_pot = /datum/alch_cauldron_recipe/antidote
 	minor_pot = /datum/alch_cauldron_recipe/big_health_potion
 
@@ -179,7 +179,7 @@
 	grid_width = 32
 	grid_height = 64
 
-	major_pot = /datum/alch_cauldron_recipe/disease_cure
+	major_pot = /datum/alch_cauldron_recipe/strong_antidote
 	med_pot = /datum/alch_cauldron_recipe/health_potion
 	minor_pot = /datum/alch_cauldron_recipe/con_potion
 
@@ -211,7 +211,7 @@
 
 	major_pot = /datum/alch_cauldron_recipe/spd_potion
 	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
-	minor_pot = /datum/alch_cauldron_recipe/disease_cure
+	minor_pot = /datum/alch_cauldron_recipe/strong_antidote
 
 /obj/item/alch/ozium
 	name = "alchemical ozium"
@@ -223,13 +223,61 @@
 	minor_pot = /datum/alch_cauldron_recipe/int_potion
 
 /obj/item/alch/transisdust
-	name = "transis dust"
-	desc = "A long mix of herb that product a special powder."
+	name = "sui dust"
+	desc = "A long mix of herbs resulting in a special dust. For you. Use it while held."
 	icon_state = "transisdust"
 
-	major_pot = /datum/alch_cauldron_recipe/gender_potion
-	med_pot = /datum/alch_cauldron_recipe/gender_potion
-	minor_pot = /datum/alch_cauldron_recipe/gender_potion
+/obj/item/alch/transisdust/attack_self(mob/living/user)
+	..()
+
+	if(alert("Do you wish to change your self?", "Dust of Self", "Yes", "No") != "Yes")
+		return
+	user.visible_message(
+		span_warn("[user] begins to use [src]."), 
+		span_warn("I begin to apply [src] on myself.")
+	)
+	if(!do_after(user, 5 SECONDS))
+		return
+
+	var/p_input = input(user, "Choose your character's pronouns", "Pronouns") as null|anything in GLOB.pronouns_list
+	if(p_input)
+		user.pronouns = p_input
+	if(alert("Do you wish to change your frame?", "Body Type", "Yes", "No") == "Yes")
+		user.gender = "male" ? "female" : "male"
+
+	if(!do_after(user, 5 SECONDS))
+		return
+
+	user.regenerate_icons()
+	to_chat(user, span_notice("Tis' complete."))
+	qdel(src)
+
+/obj/item/alch/puresalt
+	name = "purified salts"
+	desc = "Salts that have been finely sifted to enchance their healing properties and to bolster its connection to the arcyne."
+	icon_state = "puresalt"
+
+	major_pot = /datum/alch_cauldron_recipe/antidote
+	med_pot = /datum/alch_cauldron_recipe/strong_antidote
+	minor_pot = /datum/alch_cauldron_recipe/big_mana_potion
+
+/obj/item/alch/mineraldust
+	name = "mineral dusts"
+	desc = "Elements of gems ground and sifted of impurities to help draw out its useful alchemical minerals."
+	icon_state = "mineraldust"
+
+	major_pot = /datum/alch_cauldron_recipe/doompoison
+	med_pot = /datum/alch_cauldron_recipe/big_mana_potion
+	minor_pot = /datum/alch_cauldron_recipe/big_stam_poison
+
+/obj/item/alch/berrypowder
+	name = "berry powder"
+	desc = "Berries ground and dried into a soft fragrant powder."
+	icon_state = "berrypowder"
+
+	major_pot = /datum/alch_cauldron_recipe/berrypoison
+	med_pot = /datum/alch_cauldron_recipe/mana_potion
+	minor_pot = /datum/alch_cauldron_recipe/big_mana_potion
 
 //BEGIN THE HERBS
 
@@ -362,10 +410,7 @@
 	spitoutmouth = FALSE
 	muteinmouth = FALSE
 	alternate_worn_layer  = 8.9 //On top of helmet
-
-	major_pot = /datum/alch_cauldron_recipe/rosewater_potion
-	med_pot = /datum/alch_cauldron_recipe/rosewater_potion
-	minor_pot = /datum/alch_cauldron_recipe/rosewater_potion
+	mill_result = /obj/item/reagent_containers/food/snacks/grown/rogue/rosa_petals
 
 /obj/item/alch/rosa/equipped(mob/living/carbon/human/user, slot)
 	. = ..()

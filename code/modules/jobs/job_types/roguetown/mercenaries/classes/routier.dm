@@ -13,7 +13,7 @@
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
-	var/classes = list("Swordsman","Macebearer","Flailman")
+	var/classes = list("Swordsman","Macebearer","Flailman", "Foot Lancer")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 	H.set_blindness(0)
 	to_chat(H, span_warning("You are a Knight of Otava, well experienced in the use of your chosen arms."))
@@ -31,6 +31,7 @@
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 	H.change_stat("strength", 2)
 	H.change_stat("endurance", 2)
 	H.change_stat("constitution", 4)
@@ -39,27 +40,31 @@
 	switch(classchoice)
 		if("Swordsman")
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			r_hand = /obj/item/rogueweapon/sword/falchion
+			beltl = /obj/item/rogueweapon/sword/falchion
 		if("Macebearer")
 			H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-			r_hand = /obj/item/rogueweapon/mace/steel/morningstar
+			beltl = /obj/item/rogueweapon/mace/steel/morningstar
 		if("Flailman")
 			H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
-			r_hand = /obj/item/rogueweapon/flail/sflail
+			beltl = /obj/item/rogueweapon/flail/sflail
+		if("Foot Lancer")
+			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+			r_hand = /obj/item/rogueweapon/spear/lance
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/flashlight/flare/torch
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	neck = /obj/item/clothing/neck/roguetown/fencerguard
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/otavan
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan
 	head = /obj/item/clothing/head/roguetown/helmet/otavan
-	armor = /obj/item/clothing/suit/roguetown/armor/otavan
-	pants = /obj/item/clothing/under/roguetown/trou/otavan
-	shoes = /obj/item/clothing/shoes/roguetown/otavan
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/otavan
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/otavan
+	shoes = /obj/item/clothing/shoes/roguetown/boots/otavan
 	gloves = /obj/item/clothing/gloves/roguetown/otavan
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/rogueweapon/shield/tower/metal
-	backpack_contents = list(/obj/item/roguekey/mercenary)
+	backpack_contents = list(/obj/item/roguekey/mercenary = 1, /obj/item/flashlight/flare/torch = 1)
 
+	H.grant_language(/datum/language/otavan)
+	
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

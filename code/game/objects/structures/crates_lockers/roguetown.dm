@@ -19,6 +19,12 @@
 	icon_state = "chest3"
 	base_icon_state = "chest3"
 
+/obj/structure/closet/crate/chest/reliquary
+	name = "Otavan Reliquary"
+	desc = "A foreboding red chest with a intricate lock design. It seems to only fit a very specific key. Choose wisely."
+	icon_state = "chestweird1"
+	base_icon_state = "chestweird1"
+
 //obj/structure/closet/crate/chest/Initialize(mapload)
 //	. = ..()
 //	base_icon_state = "chestweird2"
@@ -45,7 +51,7 @@
 		/obj/item/clothing/mask/cigarette/pipe/westman=10,
 		/obj/item/storage/backpack/rogue/satchel=33,
 		/obj/item/storage/roguebag=33,
-		/obj/item/roguegem=1,
+		/obj/item/roguegem/ruby=1,
 		/obj/item/roguegem/blue=2,
 		/obj/item/roguegem/violet=4,
 		/obj/item/roguegem/green=6,

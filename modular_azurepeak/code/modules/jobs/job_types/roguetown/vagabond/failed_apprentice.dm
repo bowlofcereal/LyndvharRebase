@@ -8,9 +8,9 @@
 
 /datum/outfit/job/roguetown/vagabond/mage/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
+	if(should_wear_femme_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/shirt/rags
-	else
+	else if(should_wear_masc_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/tights/vagrant
 		if(prob(50))
 			pants = /obj/item/clothing/under/roguetown/tights/vagrant/l
@@ -27,11 +27,12 @@
 	if (H.mind)
 		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-		H.mind.adjust_spellpoints(1)
+		H.mind.adjust_spellpoints(9)
 		ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_ARCYNE_T2, TRAIT_GENERIC)
 		H.change_stat("intelligence", 2)
 		H.change_stat("constitution", -1)
 		H.change_stat("endurance", -1)

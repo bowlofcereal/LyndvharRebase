@@ -24,24 +24,17 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 	var/list/confess_lines
 	/// Some patrons have related traits, why not?
 	var/list/mob_traits
-	/// Tier 0 spell
-	var/t0
-	/// Tier 1 spell
-	var/t1
-	/// Tier 2 spell
-	var/t2
-	/// Tier 3 spell
-	var/t3
-	/// Final tier spell
-	var/t4
-	/// For patrons with more spells than tiers. eg. Malum's Fire
-	var/extra_spell
+	/// Assoc list of miracles it grants. Type = Cleric_Tier
+	var/list/miracles = list()
+
+	var/datum/storyteller/storyteller
 
 /datum/patron/proc/on_gain(mob/living/pious)
 	for(var/trait in mob_traits)
 		ADD_TRAIT(pious, trait, "[type]")
 	if(HAS_TRAIT(pious, TRAIT_XYLIX))
 		pious.grant_language(/datum/language/thievescant)
+		pious.verbs += /mob/living/carbon/human/proc/emote_ffsalute
 	if (HAS_TRAIT(pious, TRAIT_CABAL))
 		pious.faction |= "cabal"
 

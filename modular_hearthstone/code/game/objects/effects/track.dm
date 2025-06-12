@@ -42,6 +42,23 @@
 /turf/open/floor/rogue/cobble
 	track_prob = 3
 
+/turf/open/floor/rogue/blocks
+	track_prob = 10
+
+/turf/open/floor/rogue/tile/bath
+	track_prob = 20
+
+/turf/open/floor/rogue/tile
+	track_prob = 10
+
+/turf/open/floor/rogue/hexstone
+	track_prob = 10
+
+/turf/open/floor/rogue/churchmarble
+	track_prob = 5
+
+/turf/open/floor/rogue/churchbrick
+	track_prob = 5
 //Probabilities end (albeit mud is handled seperately).
 
 //For highlighting tracks
@@ -89,9 +106,13 @@
 	///The timer handling deletion. Saved to potentially adjust it.
 	var/deletion_timer
 	///For determining if it's been highlighted for marked person purposes
-	var/highlighted = FALSE
+	var/highlighted = list()
 	///A preserved dir for the highlights
 	var/original_dir
+	///Whether this track allows its owner to be Marked
+	var/markable = TRUE
+	///Base difficulty for noticing these tracks
+	var/base_diff = 11
 
 /obj/effect/track/Initialize()
 	. = ..()
@@ -127,7 +148,7 @@
 		return FALSE
 	var/success = FALSE
 	if(!HAS_TRAIT(user, TRAIT_PERFECT_TRACKER))
-		var/diff = 11 //Base Tracking Difficulty
+		var/diff = base_diff //Base Tracking Difficulty
 		diff += tracking_modifier
 		diff += round((world.time - creation_time) / (60 SECONDS), 1) //Gets more difficult to spot the older.
 		diff += rand(0, 5) //Entropy.
@@ -206,8 +227,15 @@
 ///Adds a new person to the list of people who can see this track.
 /obj/effect/track/proc/add_knower(mob/living/tracker, competence = 1)
 	known_by[tracker] = competence
-	if(tracker.client)
-		tracker.client.images += real_image
+	if(ishuman(tracker))
+		var/mob/living/carbon/human/H = tracker
+		if(HAS_TRAIT(tracker, TRAIT_SLEUTH) && H.current_mark == creator)
+			if(!(tracker in highlighted))
+				real_icon_state = "tracks_marked"
+				real_image = image(icon, src, real_icon_state, ABOVE_OPEN_TURF_LAYER, original_dir)
+				LAZYADD(highlighted, tracker)
+		if(tracker.client)
+			tracker.client.images += real_image
 	RegisterSignal(tracker, COMSIG_PARENT_QDELETING, PROC_REF(remove_knower), override = TRUE)
 
 ///Removes a knower from the known ones. Usually only done when qdeleted.
@@ -216,6 +244,7 @@
 	UnregisterSignal(tracker, COMSIG_PARENT_QDELETING)
 	if(tracker.client)
 		tracker.client.images -= real_image
+	LAZYREMOVE(highlighted, tracker)
 	known_by -= tracker
 	if(creator == tracker)
 		creator = null
@@ -237,10 +266,11 @@
 		return //Huh?
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.current_mark)
-			if(H.current_mark == creator && !highlighted)
+		if(!isnull(H.current_mark))
+			if(H.current_mark == creator && !(H in highlighted))
 				real_icon_state = "tracks_marked"
 				real_image = image(icon, src, real_icon_state, ABOVE_OPEN_TURF_LAYER, original_dir)
+				LAZYADD(highlighted, H)
 				if(H.client)
 					H.client.images += real_image
 	. += knowledge_readout(user, knowledge)
@@ -272,9 +302,10 @@
 		else if(overwrites >= 2)
 			. += "[span_warning("There are traces of around [overwrites] older tracks here, too..")]<br>"
 		var/mob/living/carbon/human/H = user
-		if(H.current_mark && H.current_mark == creator)
+		if(!isnull(H.current_mark) && H.current_mark == creator)
 			. += span_nicegreen("This track belongs to your mark.")
-			highlighted = TRUE
+		if(H.mind?.get_skill_level(/datum/skill/misc/tracking) >= SKILL_LEVEL_EXPERT)
+			. += span_nicegreen("<i><font size = 2>Right-click this track to Mark its owner.</font></i>")
 	return .
 
 ///Gets special info for a track relative to a mob, such as type and depth. Override if desiring tracking modifier adjustment.
@@ -293,9 +324,8 @@
 				var/static/list/weapon_types = list(/obj/item/rogueweapon/sword, /obj/item/rogueweapon/mace, /obj/item/rogueweapon/spear, /obj/item/rogueweapon/greatsword, /obj/item/rogueweapon/pick, /obj/item/rogueweapon/huntingknife/idagger, /obj/item/rogueweapon/whip, /obj/item/lockpick)
 				for(var/type in weapon_types)
 					if(istype(holding, type))
-						var/obj/item/rogueweapon/found = new type
-						weapon = found.name
-						qdel(found)
+						var/obj/item/rogueweapon/found = type
+						weapon = initial(found.name)
 
 			if(weapon)
 				this.tool_used_ambiguous = weapon
@@ -394,6 +424,7 @@
 /obj/effect/track/structure
 	name = "clue"
 	real_icon_state = "tracks_structure"
+	markable = FALSE
 	var/skill_level
 	var/tool_used
 	var/tool_used_ambiguous
@@ -440,6 +471,8 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.mind?.get_skill_level(/datum/skill/misc/tracking) > SKILL_LEVEL_JOURNEYMAN)	//Expert+
+			if(!markable)
+				to_chat(H, span_warning("This is not enough to Mark them. I need proper tracks."))
 			to_chat(H, span_info("You start taking note of the person's gait, weight and other distinct features."))
 			if(do_after(user, (50 - H.STAPER*2)))
 				H.current_mark = creator
@@ -447,6 +480,35 @@
 		else
 			to_chat(H, span_info("I am not skilled enough for this! (Expert level required)"))
 
+/obj/effect/track/thievescant
+	name = "engraved symbols"
+	gender = PLURAL
+	real_icon_state = "thieves_cant"
+	markable = FALSE
+	base_diff = 5 //Easier to notice
+	var/message
+
+/obj/effect/track/thievescant/handle_creation(mob/living/track_source, thiefmessage)
+	creator = track_source
+	RegisterSignal(track_source, COMSIG_PARENT_QDELETING, PROC_REF(clear_creator_reference))
+	creation_time = world.time
+	track_source.get_track_info(src)
+	real_image = image(icon, src, real_icon_state, BULLET_HOLE_LAYER, track_source.dir)
+	alpha = 128
+	message = thiefmessage
+
+/obj/effect/track/thievescant/knowledge_readout(mob/user, knowledge)
+	if(!user.has_language(/datum/language/thievescant))
+		. += "Looks like a bunch of meaningless engravings..."
+	else
+		. += "An engraved message left by [creator == user ? "me" : "one of my fellows"]. It reads...<br>"
+		. += "<font color = '#0d5381'>\"[message]\"</font>"
+
+	return .
+
+/obj/effect/track/thievescant/attack_right(mob/user)
+	to_chat(user,span_info("You can't distinguish an object like this."))
+	return
 
 #undef ANALYSIS_TERRIBLE
 #undef ANALYSIS_BAD

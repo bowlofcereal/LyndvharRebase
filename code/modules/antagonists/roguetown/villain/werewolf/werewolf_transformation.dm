@@ -58,7 +58,7 @@
 				to_chat(H, span_warning("Daylight shines around me... the curse begins to fade."))
 
 
-/mob/living/carbon/human/species/werewolf/death(gibbed)
+/mob/living/carbon/human/species/werewolf/death(gibbed, nocutscene = FALSE)
 	werewolf_untransform(TRUE, gibbed)
 
 /mob/living/carbon/human/proc/werewolf_transform()
@@ -145,6 +145,7 @@
 	ADD_TRAIT(W, TRAIT_HARDDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_PIERCEIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_SPELLCOCKBLOCK, TRAIT_GENERIC)
+	ADD_TRAIT(W, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
 
 	invisibility = oldinv
 

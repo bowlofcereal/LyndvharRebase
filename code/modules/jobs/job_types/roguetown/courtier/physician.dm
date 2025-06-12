@@ -25,6 +25,9 @@
 	cmode_music = 'sound/music/combat_physician.ogg'
 
 /datum/outfit/job/roguetown/physician
+	job_bitflag = BITFLAG_ROYALTY
+
+/datum/outfit/job/roguetown/physician
 	name = "Physician"
 	jobtype = /datum/job/roguetown/physician
 
@@ -48,13 +51,13 @@
 		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 		/obj/item/natural/worms/leech/cheele = 1, //little buddy
 		/obj/item/reagent_containers/glass/bottle/waterskin = 1,
-		/obj/item/storage/belt/rogue/pouch/coins/poor = 1
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+		/obj/item/recipe_book/alchemy = 1,
 	)
 	ADD_TRAIT(H, TRAIT_EMPATH, "[type]")
 	ADD_TRAIT(H, TRAIT_NOSTINK, "[type]")
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)

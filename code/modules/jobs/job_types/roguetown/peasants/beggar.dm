@@ -93,9 +93,9 @@
 		gloves = /obj/item/clothing/gloves/roguetown/fingerless
 	else
 		gloves = null
-	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
+	if(should_wear_femme_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/shirt/rags
-	else
+	else if(should_wear_masc_clothes(H))
 		armor = null
 		pants = /obj/item/clothing/under/roguetown/tights/vagrant
 		if(prob(50))
@@ -121,6 +121,7 @@
 	H.change_stat("intelligence", -4)
 	H.change_stat("constitution", -3)
 	H.change_stat("endurance", -3)
+	H.grant_language(/datum/language/thievescant)
 	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NASTY_EATER, TRAIT_GENERIC)
 

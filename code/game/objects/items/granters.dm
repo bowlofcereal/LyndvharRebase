@@ -39,10 +39,6 @@
 
 
 /obj/item/book/granter/attack_self(mob/living/user)
-	if(user.mind?.has_studied == TRUE)
-		to_chat(user, span_notice("These symbols assault my mind -- I cannot control the book's power!"))
-		recoil(user)
-		return FALSE
 	if(reading)
 		to_chat(user, span_warning("I'm already reading this!"))
 		return FALSE
@@ -226,9 +222,9 @@
 	icon_state ="scrolldarkred"
 	remarks = list("Mediolanum ventis..", "Sana damnatorum..", "Frigidus ossa mortuorum..")
 
-/obj/item/book/granter/spell/blackstone/acidsplash5e
+/obj/item/book/granter/spell/blackstone/acidsplash
 	name = "Scroll of Acid Splash"
-	spell = /obj/effect/proc_holder/spell/invoked/projectile/acidsplash5e
+	spell = /obj/effect/proc_holder/spell/invoked/projectile/acidsplash
 	spellname = "Acid Splash"
 	icon_state ="scrolldarkred"
 	remarks = list("Lapides corrodunt..", "Spuma venenosa..", "Guttae flavescentes..")
@@ -255,9 +251,9 @@
 	remarks = list("Ventos adversos..", "Terra sibilat..", "Lapides vetusti..")
 
 
-/obj/item/book/granter/spell/blackstone/poisonspray5e
+/obj/item/book/granter/spell/blackstone/aerosolize
 	name = "Scroll of Aerosolize"
-	spell = /obj/effect/proc_holder/spell/invoked/poisonspray5e
+	spell = /obj/effect/proc_holder/spell/invoked/aerosolize
 	spellname = "Aerosolize"
 	icon_state ="scrolldarkred"
 	remarks = list("Lapides corrodunt..", "Spuma venenosa..", "Guttae flavescentes..")
@@ -293,14 +289,14 @@
 
 /obj/item/book/granter/spell/blackstone/ensnare
 	name = "Scroll of Ensnare"
-	spell = /obj/effect/proc_holder/spell/invoked/slowdown_spell_aoe
+	spell = /obj/effect/proc_holder/spell/invoked/ensnare
 	spellname = "Ensnare"
 	icon_state ="scrolldarkred"
 	remarks = list("Qui intrat..", "Radices in tenebris..", "Nexus occultus..")
 
 /obj/item/book/granter/spell/blackstone/forcewall_weak
 	name = "Scroll of Forcewall"
-	spell = /obj/effect/proc_holder/spell/invoked/forcewall_weak
+	spell = /obj/effect/proc_holder/spell/invoked/forcewall
 	spellname = "Forcewall"
 	icon_state ="scrolldarkred"
 	remarks = list("Murus non solum hostem..", "Manus invisibiles saxa invicem..", "Infracta moenia..")
@@ -326,7 +322,7 @@
 	icon_state ="scrolldarkred"
 	remarks = list("Altitudinem revelat..", "Cuius pedes in aere volant..", "In levitate audacia..")
 
-//scroll for giving the reader a spell point, this should be dungeon loot
+//scroll for giving the reader 3 spell points, this should be dungeon loot
 /obj/item/book/granter/spell_points
 	name = "Arcyne Insight"
 	icon_state = "scrollpurple"
@@ -339,7 +335,7 @@
 	var/arcaneskill = user.mind.get_skill_level(/datum/skill/magic/arcane)
 	if(arcaneskill >= SKILL_LEVEL_NOVICE) //Required arcane skill of NOVICE or higher to use the granter
 		to_chat(user, span_notice("I absorb the insights on the scroll, and feel more adept at spellcraft!"))
-		user.mind.adjust_spellpoints(1)
+		user.mind.adjust_spellpoints(3)
 		onlearned(user)
 	else
 		to_chat(user, span_notice("I don't know what to make of this."))

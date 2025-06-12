@@ -6,6 +6,8 @@
 	outfit = /datum/outfit/job/roguetown/mercenary/atgervi
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
+	classes = list("Varangian" = "You are a Varangian of the Gronn Highlands. Warrior-Traders whose exploits into the Raneshen Empire will be forever remembered by historians.",
+					"Shaman" = "You are a Shaman of the Fjall, The Northern Empty. Savage combatants who commune with the Ecclesical Beast gods through ritualistic violence, rather than idle prayer.")
 
 /datum/outfit/job/roguetown/mercenary/atgervi
 	allowed_patrons = ALL_INHUMEN_PATRONS
@@ -21,7 +23,7 @@
 	switch(classchoice)
 		if("Varangian")
 			H.set_blindness(0)
-			to_chat(H, span_warning("You are a Varangian of the Gronn Highlands. Warrior-Traders whose exploits into the Zybantine Empire will be forever remembered by historians."))
+			to_chat(H, span_warning("You are a Varangian of the Gronn Highlands. Warrior-Traders whose exploits into the Raneshen Empire will be forever remembered by historians."))
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -45,7 +47,8 @@
 
 			head = /obj/item/clothing/head/roguetown/helmet/bascinet/atgervi
 			gloves = /obj/item/clothing/gloves/roguetown/angle/atgervi
-			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/atgervi
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/atgervi	//This is in armor and not shirt just to avoid seeing titty through it.
 			pants = /obj/item/clothing/under/roguetown/trou/leather/atgervi
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/atgervi
@@ -56,11 +59,12 @@
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltl = /obj/item/flashlight/flare/torch
 
-			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)	
+			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
 			H.cmode_music = 'sound/music/combat_vagarian.ogg'
 		if("Shaman")
 			H.set_blindness(0)
-			to_chat(H, span_warning("You are a Shaman of the Northern Empty. Savage combatants who commune with their gods through gut-wrenching violence, rather than idle prayer."))
+			to_chat(H, span_warning("You are a Shaman of the Fjall, The Northern Empty. Savage combatants who commune with the Ecclesical Beast gods through ritualistic violence, rather than idle prayer."))
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -69,7 +73,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
-
+			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 			H.change_stat("strength", 3) 
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 2)
@@ -80,6 +84,7 @@
 			head = /obj/item/clothing/head/roguetown/helmet/leather/saiga/atgervi
 			gloves = /obj/item/clothing/gloves/roguetown/plate/atgervi
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/atgervi
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 			pants = /obj/item/clothing/under/roguetown/trou/leather/atgervi
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/atgervi
@@ -93,7 +98,9 @@
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) //Their entire purpose is to rip people apart with their hands and teeth. I don't think they'd be too preturbed to see someone lose a limb.
 			ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC) //Either no armor, or light armor.
 			ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
-			H.cmode_music = 'sound/music/combat_shaman.ogg'
+			H.cmode_music = 'sound/music/combat_shaman2.ogg'
+
+	H.grant_language(/datum/language/gronnic)
 	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife)
 
 
@@ -105,7 +112,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/atgervi
 	name = "shamanic coat"
-	desc = "A lightly protective coat, It embodies the second trial of the Northern shamans. To honor the leopard is too desire for more."
+	desc = "A furred protective coat, Often made by hand it embodies the second trial of the Iskarn Shamans. To honor the leopard is too desire for more."
 	icon_state = "atgervi_shaman_coat"
 	item_state = "atgervi_shaman_coat"
 
@@ -140,7 +147,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/leather/saiga/atgervi
 	name = "moose hood"
-	desc = "A deceptively strong hood of hide with a pair of large heavy antlers. It is the fourth and final trial of the Shamans, To slay a Grinning moose with naught but metal claw and teeth."
+	desc = "A deceptively strong hood of hide with a pair of large heavy antlers. It is the reward of the fourth trial of the Iskarn Shamans, To slay a Grinning moose in the final hunt alone and fashion a hood from it's head."
 	icon_state = "atgervi_shaman"
 	item_state = "atgervi_shaman"
 	flags_inv = HIDEEARS|HIDEFACE
@@ -149,10 +156,12 @@
 	bloody_icon = 'icons/effects/blood64.dmi'
 	worn_x_dimension = 32
 	worn_y_dimension = 48
+	experimental_inhand = FALSE
+	experimental_onhip = FALSE
 
 /obj/item/clothing/shoes/roguetown/boots/leather/atgervi
-	name = "heavy leather boots"
-	desc = "A pair of strong leather boots, designed to endure battle and the chill of the north both."
+	name = "hardened leather boots"
+	desc = "A pair of strong leather boots, designed to endure battle and the chill of the frozen north both."
 	icon_state = "atgervi_boots"
 	item_state = "atgervi_boots"
 

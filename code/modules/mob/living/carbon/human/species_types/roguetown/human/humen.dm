@@ -5,7 +5,7 @@
 	name = "Humen"
 	id = "humen"
 	desc = "<b>Humen</b><br>\
-	Humens (or \"Humans\") are the eldest of the Weeping God's creations. Noted for their\
+	Humens (or \"Humans\") are the eldest of the Weeping God's creations. Noted for their \
 	tenacity and overwhelming population, humens are the most commonly seen race across the lands, \
 	at a rate of about ten to one in regions such as Grenzelhoft. However, to the west \
 	the opposite is true. Humens come from a vast swathe of cultures and ethnicities, most of which \
@@ -68,18 +68,13 @@
 		/datum/body_marking/eyeliner,
 		/datum/body_marking/tonage,
 		/datum/body_marking/nose,
+		/datum/body_marking/bangs,
+		/datum/body_marking/bun,
 	)
 
 /datum/species/human/northern/check_roundstart_eligible()
 	return TRUE
 	
-/datum/species/human/northern/on_species_gain(mob/living/carbon/foreign, datum/species/old_species)
-	..()
-	languages(foreign)
-	
-/datum/species/human/northern/proc/languages(mob/living/carbon/human/foreign)
-	if(foreign.skin_tone == SKIN_COLOR_GRENZELHOFT)
-		foreign.grant_language(/datum/language/grenzelhoftian)
 
 /datum/species/human/northern/get_skin_list()
 	return list(
@@ -90,9 +85,9 @@
 		"Otava" = SKIN_COLOR_OTAVA,
 		"Etrusca" = SKIN_COLOR_ETRUSCA,
 		"Gronn" = SKIN_COLOR_GRONN,
-		"North Zybantia (Giza)" = SKIN_COLOR_GIZA,
-		"West Zybantia (Shalvistine)" = SKIN_COLOR_SHALVISTINE,
-		"East Zybantia (Lalvestine)" = SKIN_COLOR_LALVESTINE,
+		"North Raneshen (Chorodiaki)" = SKIN_COLOR_GIZA,
+		"West Raneshen (Vrdaqnan)" = SKIN_COLOR_SHALVISTINE,
+		"East Raneshen (Nshkormh)" = SKIN_COLOR_LALVESTINE,
 		"Naledi" = SKIN_COLOR_NALEDI,
 		"Kazengun" = SKIN_COLOR_KAZENGUN
 	)

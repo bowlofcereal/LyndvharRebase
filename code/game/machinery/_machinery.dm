@@ -1,6 +1,5 @@
 /obj/machinery
 	name = "machinery"
-	icon = 'icons/obj/stationobjs.dmi'
 	desc = ""
 	verb_say = "beeps"
 	verb_yell = "blares"
@@ -32,7 +31,7 @@
 
 /obj/machinery/Initialize()
 	if(!armor)
-		armor = list("blunt" = 25, "slash" = 25, "stab" = 25,  "piercing" = 10, "fire" = 50, "acid" = 70)
+		armor = ARMOR_MACHINERY
 	. = ..()
 	GLOB.machines += src
 
@@ -152,7 +151,7 @@
 
 /obj/machinery/obj_break(damage_flag)
 	SHOULD_CALL_PARENT(TRUE)
-	. = ..()
+	..()
 	if(!(stat & BROKEN) && !(flags_1 & NODECONSTRUCT_1))
 		stat |= BROKEN
 		SEND_SIGNAL(src, COMSIG_MACHINERY_BROKEN, damage_flag)

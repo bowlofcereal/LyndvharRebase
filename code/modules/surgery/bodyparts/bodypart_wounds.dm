@@ -100,8 +100,9 @@
 	var/bleed_rate = 0
 	if(bandage && !HAS_BLOOD_DNA(bandage))
 		return 0
-	for(var/datum/wound/wound as anything in wounds)
-		bleed_rate += wound.bleed_rate
+	for(var/datum/wound/wound in wounds)
+		if(istype(wound, /datum/wound))
+			bleed_rate += wound.bleed_rate
 	for(var/obj/item/embedded as anything in embedded_objects)
 		if(!embedded.embedding.embedded_bloodloss)
 			continue
@@ -129,7 +130,7 @@
 	if(user)
 		if(user.goodluck(2))
 			dam += 10
-		if(istype(user.rmb_intent, /datum/rmb_intent/weak))
+		if(istype(user.rmb_intent, /datum/rmb_intent/weak) || bclass == BCLASS_PEEL)
 			do_crit = FALSE
 	testing("bodypart_attacked_by() dam [dam]")
 	var/added_wound
@@ -221,6 +222,8 @@
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
+			if(user?.client)
+				GLOB.azure_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
 
@@ -265,11 +268,16 @@
 		if(prob(used))
 			if((zone_precise == BODY_ZONE_PRECISE_STOMACH) && !resistance)
 				attempted_wounds += /datum/wound/slash/disembowel
-			attempted_wounds += /datum/wound/artery
+			if(HAS_TRAIT(owner, TRAIT_CRITICAL_WEAKNESS))
+				attempted_wounds += /datum/wound/artery/chest
+			else
+				attempted_wounds += /datum/wound/artery
 
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
+			if(user?.client)
+				GLOB.azure_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
 
@@ -302,7 +310,7 @@
 		if(HAS_TRAIT(src, TRAIT_BRITTLE))
 			used += 20
 		if(user)
-			if(istype(user.rmb_intent, /datum/rmb_intent/strong))
+			if(istype(user.rmb_intent, /datum/rmb_intent/strong) || (user.m_intent == MOVE_INTENT_SNEAK))
 				used += 10
 		if(!owner.stat && !resistance && (zone_precise in knockout_zones) && (bclass != BCLASS_CHOP) && prob(used))
 			owner.next_attack_msg += " <span class='crit'><b>Critical hit!</b> [owner] is knocked out[from_behind ? " FROM BEHIND" : ""]!</span>"
@@ -377,6 +385,8 @@
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)
+			if(user?.client)
+				GLOB.azure_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
 
@@ -386,14 +396,21 @@
 		return FALSE
 	if(owner && ((owner.status_flags & GODMODE) || HAS_TRAIT(owner, TRAIT_PIERCEIMMUNE)))
 		return FALSE
+	if(istype(embedder, /obj/item/natural/worms/leech))
+		GLOB.azure_round_stats[STATS_LEECHES_EMBEDDED]++
 	LAZYADD(embedded_objects, embedder)
 	embedder.is_embedded = TRUE
 	embedder.forceMove(src)
 	if(owner)
 		embedder.add_mob_blood(owner)
-		if(!silent)
-			owner.emote("embed")
+		if (!silent)
 			playsound(owner, 'sound/combat/newstuck.ogg', 100, vary = TRUE)
+			if (owner.has_status_effect(/datum/status_effect/buff/ozium))
+				owner.emote ("exhales")
+			if (owner.has_status_effect(/datum/status_effect/buff/drunk) && !owner.has_status_effect(/datum/status_effect/buff/ozium))
+				owner.emote("pain")
+			if (!owner.has_status_effect(/datum/status_effect/buff/drunk) && !owner.has_status_effect(/datum/status_effect/buff/ozium))
+				owner.emote("embed")
 		if(crit_message)
 			owner.next_attack_msg += " <span class='userdanger'>[embedder] runs through [owner]'s [src]!</span>"
 		update_disabled()
@@ -506,10 +523,12 @@
 	var/static/list/retracting_behaviors = list(
 		TOOL_RETRACTOR,
 		TOOL_CROWBAR,
+		TOOL_IMPROVISED_RETRACTOR,
 	)
 	var/static/list/clamping_behaviors = list(
 		TOOL_HEMOSTAT,
 		TOOL_WIRECUTTER,
+		TOOL_IMPROVISED_HEMOSTAT,
 	)
 	for(var/obj/item/embedded as anything in embedded_objects)
 		if((embedded.tool_behaviour in retracting_behaviors) || embedded.embedding?.retract_limbs)
@@ -520,6 +539,8 @@
 		returned_flags |= SURGERY_DISLOCATED
 	if(has_wound(/datum/wound/fracture))
 		returned_flags |= SURGERY_BROKEN
+	if(has_wound(/datum/wound/slash/vein))
+		returned_flags |= SURGERY_CUTVEIN
 	for(var/datum/wound/puncture/drilling/drilling in wounds)
 		if(drilling.is_sewn())
 			continue

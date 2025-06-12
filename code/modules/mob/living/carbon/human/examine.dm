@@ -10,6 +10,10 @@
 		user.add_stress(/datum/stressevent/jesterphobia)
 	if(HAS_TRAIT(src, TRAIT_BEAUTIFUL))
 		user.add_stress(/datum/stressevent/beautiful)
+		// Apply Xylix buff when examining someone with the beautiful trait
+		if(HAS_TRAIT(user, TRAIT_XYLIX) && !user.has_status_effect(/datum/status_effect/buff/xylix_joy))
+			user.apply_status_effect(/datum/status_effect/buff/xylix_joy)
+			to_chat(user, span_info("Their beauty brings a smile to my face, and fortune to my steps!"))
 	if(HAS_TRAIT(src, TRAIT_UNSEEMLY))
 		if(!HAS_TRAIT(user, TRAIT_UNSEEMLY))
 			user.add_stress(/datum/stressevent/unseemly)
@@ -98,6 +102,17 @@
 		if (HAS_TRAIT(src, TRAIT_OUTLANDER) && !HAS_TRAIT(user, TRAIT_OUTLANDER)) 
 			. += span_phobia("A foreigner...")
 
+		//For tennite schism god-event
+		if(length(GLOB.tennite_schisms))
+			var/datum/tennite_schism/S = GLOB.tennite_schisms[1]
+			var/user_side = (WEAKREF(user) in S.supporters_astrata) ? "astrata" : (WEAKREF(user) in S.supporters_challenger) ? "challenger" : null
+			var/mob_side = (WEAKREF(src) in S.supporters_astrata) ? "astrata" : (WEAKREF(src) in S.supporters_challenger) ? "challenger" : null
+
+			if(user_side && mob_side)
+				var/datum/patron/their_god = (mob_side == "astrata") ? S.astrata_god.resolve() : S.challenger_god.resolve()
+				if(their_god)
+					. += (user_side == mob_side) ? span_notice("Fellow [their_god.name] supporter!") : span_userdanger("Vile [their_god.name] supporter!")
+
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
 			if(H.marriedto == name)
@@ -144,6 +159,8 @@
 				. += span_secradio("[m1] marked by scars inflicted for pleasure. A delectable target for my urges.")
 			if(has_flaw(/datum/charflaw/addiction/sadist) && user.has_flaw(/datum/charflaw/masochist))
 				. += span_secradio("[m1] looking with eyes filled with a desire to inflict pain. So exciting.")
+			if(HAS_TRAIT(user, TRAIT_EMPATH) && HAS_TRAIT(src, TRAIT_PERMAMUTE))
+				. += span_notice("[m1] lacks a voice. [m1] is a mute!")
 
 		var/villain_text = get_villain_text(user)
 		if(villain_text)
@@ -175,6 +192,11 @@
 					. += span_redtext("[m1] repugnant!")
 				if (THEY_THEM, THEY_THEM_F, IT_ITS)
 					. += span_redtext("[m1] repulsive!")
+
+	if(user != src && HAS_TRAIT(user, TRAIT_MATTHIOS_EYES))
+		var/atom/item = get_most_expensive()
+		if(item)
+			. += span_notice("You get the feeling [m2] most valuable possession is \a [item].")
 
 	var/is_stupid = FALSE
 	var/is_smart = FALSE
@@ -225,7 +247,7 @@
 		var/str = "[m3] [wear_pants.get_examine_string(user)][accessory_msg]. "
 		if(!wear_armor)
 			if(is_normal && !is_smart)
-				str += "[wear_pants.integrity_check(simple = TRUE)]"
+				str += "[wear_pants.integrity_check()]"
 			else if(is_stupid)
 				str = "[m3] a pair of some pants! "
 		else if(is_smart)
@@ -244,7 +266,7 @@
 			else
 				str = "[m3] some kinda hat!"
 		else
-			str += "[head.integrity_check(simple = TRUE)]"
+			str += "[head.integrity_check()]"
 		. += str
 
 	//suit/armor
@@ -269,7 +291,7 @@
 						else
 							. += "[m3] some heavy metal stuff!"
 		else
-			str += "[wear_armor.integrity_check(simple = TRUE)]"
+			str += "[wear_armor.integrity_check()]"
 		. += str
 		//suit/armor storage
 		if(s_store && !(SLOT_S_STORE in obscured))
@@ -328,7 +350,7 @@
 		if(is_smart)
 			str += gloves.integrity_check()
 		else if(!is_stupid)
-			str += "[gloves.integrity_check(simple = TRUE)]"
+			str += "[gloves.integrity_check()]"
 		else
 			str = "[m3] a pair of gloves of some kind!"
 		. += str
@@ -373,7 +395,7 @@
 		if(is_smart)
 			str += shoes.integrity_check()
 		else if(!is_stupid)
-			str += "[shoes.integrity_check(simple = TRUE)]"
+			str += "[shoes.integrity_check()]"
 		else
 			str = "[m3] some shoes on [m2] feet!"
 		. += str
@@ -386,7 +408,7 @@
 		else if(is_stupid)
 			str = "[m3] some kinda thing on [m2] face!"
 		else
-			str += wear_mask.integrity_check(simple = TRUE)
+			str += wear_mask.integrity_check()
 		. += str
 
 	//mouth
@@ -397,7 +419,7 @@
 		else if(is_stupid)
 			str = "[m3] some kinda thing on [m2] mouth!"
 		else
-			str += "[mouth.integrity_check(simple = TRUE)]"
+			str += "[mouth.integrity_check()]"
 		. += str
 
 	//neck
@@ -408,7 +430,7 @@
 		else if (is_stupid)
 			str = "[m3] something on [m2] neck!"
 		else
-			str += "[wear_neck.integrity_check(simple = TRUE)]"
+			str += "[wear_neck.integrity_check()]"
 		. += str
 
 	//eyes
@@ -446,7 +468,7 @@
 		else if (is_stupid)
 			str = "[m3] something on [m2] wrists!"
 		else
-			str += "[wear_wrists.integrity_check(simple = TRUE)]"
+			str += "[wear_wrists.integrity_check()]"
 		. += str
 
 	//handcuffed?
@@ -557,14 +579,30 @@
 	if(pulledby && pulledby.grab_state)
 		msg += "[m1] being grabbed by [pulledby]."
 
-	//Nutrition
+	//Nutrition and Thirst
 	if(nutrition < (NUTRITION_LEVEL_STARVING - 50))
-		msg += "[m1] looking starved."
+		msg += "[m1] looking emaciated."
 //	else if(nutrition >= NUTRITION_LEVEL_FAT)
 //		if(user.nutrition < NUTRITION_LEVEL_STARVING - 50)
 //			msg += "[t_He] [t_is] plump and delicious looking - Like a fat little piggy. A tasty piggy."
 //		else
 //			msg += "[t_He] [t_is] quite chubby."
+
+	if(HAS_TRAIT(user, TRAIT_EXTEROCEPTION))
+		switch(nutrition)
+			if(NUTRITION_LEVEL_HUNGRY to NUTRITION_LEVEL_FED)
+				msg += "[m1] looking peckish."
+			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_HUNGRY)
+				msg += "[m1] looking hungry."
+			if(NUTRITION_LEVEL_STARVING-50 to NUTRITION_LEVEL_STARVING)
+				msg += "[m1] looking starved."
+		switch(hydration)
+			if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_SMALLTHIRST)
+				msg += "[m1] looking like [m2] mouth is dry."
+			if(HYDRATION_LEVEL_DEHYDRATED to HYDRATION_LEVEL_THIRSTY)
+				msg += "[m1] looking thirsty for a drink."
+			if(0 to HYDRATION_LEVEL_DEHYDRATED)
+				msg += "[m1] looking parched."
 
 	//Fire/water stacks
 	if(fire_stacks > 0)
@@ -736,7 +774,7 @@
 				
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(get_dist(src, H) <= 2 + clamp(floor(((H.STAPER - 10) / 2)),-1, 2) && (!obscure_name || client?.prefs.masked_examine))
+		if(get_dist(src, H) <= ((2 + clamp(floor(((H.STAPER - 10))),-1, 4)) + HAS_TRAIT(user, TRAIT_INTELLECTUAL)))
 			. += "<a href='?src=[REF(src)];task=assess;'>Assess</a>"
 
 	if((!obscure_name || client?.prefs.masked_examine) && (flavortext || headshot_link || ooc_notes))
@@ -765,7 +803,7 @@
 
 /// Returns patron-related examine text for the mob, if any. Can return null.
 /mob/living/proc/get_heretic_text(mob/examiner)
-	var/heretic_text
+	var/heretic_text = null
 	var/seer
 
 	if(HAS_TRAIT(src,TRAIT_DECEIVING_MEEKNESS))
@@ -786,22 +824,16 @@
 			heretic_text += "A member of Zizo's cabal."
 			if(HAS_TRAIT(examiner, TRAIT_CABAL))
 				heretic_text += " May their ambitions not interfere with mine."
-		else if(HAS_TRAIT(examiner, TRAIT_CABAL))
-			heretic_text += "Another of the Cabal!"
 	else if((HAS_TRAIT(src, TRAIT_HORDE)))
 		if(seer)
 			heretic_text += "Hardened by Graggar's Rituals."
 			if(HAS_TRAIT(examiner, TRAIT_HORDE))
 				heretic_text += " Mine were a glorious memory."
-		else if(HAS_TRAIT(examiner, TRAIT_HORDE))
-			heretic_text += "Anointed!"
 	else if((HAS_TRAIT(src, TRAIT_DEPRAVED)))
 		if(seer)
 			heretic_text += "Baotha's Touched."
 			if(HAS_TRAIT(examiner, TRAIT_DEPRAVED))
 				heretic_text += " She leads us to the greatest ends."
-		else if(HAS_TRAIT(examiner, TRAIT_DEPRAVED))
-			heretic_text += "Debased!"
 	
 	return heretic_text
 
@@ -848,3 +880,18 @@
 			villain_text += span_userdanger("LUNATIC!")
 
 	return villain_text
+
+/proc/get_blade_dulling_text(obj/item/rogueweapon/I, verbose = FALSE)
+	switch(I.blade_dulling)
+		if(DULLING_SHAFT_WOOD)
+			return "[verbose ? "Wooden shaft" : "(W. shaft)"]"
+		if(DULLING_SHAFT_REINFORCED)
+			return "[verbose ? "Reinforced shaft" : "(R. shaft)"]"
+		if(DULLING_SHAFT_METAL)
+			return "[verbose ? "Metal shaft" : "(M. shaft)"]"
+		if(DULLING_SHAFT_GRAND)
+			return "[verbose ? "Grand shaft" : "(G. shaft)"]"
+		if(DULLING_SHAFT_CONJURED)
+			return "[verbose ? "Conjured shaft" : "(C. shaft)"]"
+		else
+			return null

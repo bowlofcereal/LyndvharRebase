@@ -4,6 +4,8 @@
 	icon_state = "dragon"
 	icon_living = "dragon"
 	icon_dead = "dragon_dead"
+	pixel_x = -32
+	pixel_y = -16
 	footstep_type = FOOTSTEP_MOB_HEAVY
 	gender = MALE
 	emote_hear = null
@@ -17,7 +19,11 @@
 	minbodytemp = 0
 	maxbodytemp = INFINITY
 	damage_coeff = list(BRUTE = 1, BURN = 0.2, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 20,
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 5,
+						/obj/item/natural/hide = 3, /obj/item/natural/bundle/bone/full = 4) // Not a whole lot. Treasure should make up for it.
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 10,
+						/obj/item/natural/hide = 5, /obj/item/natural/bundle/bone/full = 4) // 1/2 of what it was before.
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 10, // You get to nuke the meat/hide industry. (Standard before.)
 						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 4)
 	mob_biotypes = MOB_ORGANIC|MOB_BEAST
 	health = DRAGON_HEALTH
@@ -41,7 +47,6 @@
 	STASPD = 13
 	deaggroprob = 0
 	defprob = 40
-	defdrain = 10
 	del_on_deaggro = 9999 SECONDS
 	retreat_health = 0.3
 	food = 0

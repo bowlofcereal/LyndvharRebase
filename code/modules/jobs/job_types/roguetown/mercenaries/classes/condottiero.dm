@@ -44,4 +44,6 @@
 		H.change_stat("speed", 2)
 		H.change_stat("intelligence", 1)
 
+	H.grant_language(/datum/language/etruscan)
+	H.grant_language(/datum/language/thievescant)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

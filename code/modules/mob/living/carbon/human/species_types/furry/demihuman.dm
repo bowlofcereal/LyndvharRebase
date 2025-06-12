@@ -69,6 +69,8 @@
 	body_marking_sets = list(
 		/datum/body_marking_set/none,
 		/datum/body_marking_set/socks,
+		/datum/body_marking_set/tiger,
+		/datum/body_marking_set/tiger_dark,
 	)
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
@@ -77,6 +79,8 @@
 		/datum/body_marking/socklonger,
 		/datum/body_marking/tips,
 		/datum/body_marking/nose,
+		/datum/body_marking/bangs,
+		/datum/body_marking/bun,
 	)
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
@@ -97,14 +101,6 @@
 
 /datum/species/demihuman/qualifies_for_rank(rank, list/features)
 	return TRUE
-
-/datum/species/demihuman/on_species_gain(mob/living/carbon/foreign, datum/species/old_species)
-	..()
-	languages(foreign)
-	
-/datum/species/demihuman/proc/languages(mob/living/carbon/human/foreign)
-	if(foreign.skin_tone == SKIN_COLOR_GRENZELHOFT)
-		foreign.grant_language(/datum/language/grenzelhoftian)
 
 /datum/species/demihuman/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST
@@ -142,9 +138,9 @@
 		"Otava" = SKIN_COLOR_OTAVA,
 		"Etrusca" = SKIN_COLOR_ETRUSCA,
 		"Gronn" = SKIN_COLOR_GRONN,
-		"North Zybantia (Giza)" = SKIN_COLOR_GIZA,
-		"West Zybantia (Shalvistine)" = SKIN_COLOR_SHALVISTINE,
-		"East Zybantia (Lalvestine)" = SKIN_COLOR_LALVESTINE,
+		"North Raneshen (Chorodiaki)" = SKIN_COLOR_GIZA,
+		"West Raneshen (Vrdaqnan)" = SKIN_COLOR_SHALVISTINE,
+		"East Raneshen (Nshkormh)" = SKIN_COLOR_LALVESTINE,
 		"Naledi" = SKIN_COLOR_NALEDI,
 		"Kazengun" = SKIN_COLOR_KAZENGUN,
 	)

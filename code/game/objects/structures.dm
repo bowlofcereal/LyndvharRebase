@@ -10,13 +10,12 @@
 	var/climbable = FALSE
 	var/climb_offset = 0 //offset up when climbed
 	var/mob/living/structureclimber
-	var/broken = 0 //similar to machinery's stat BROKEN
 	var/hammer_repair
 //	move_resist = MOVE_FORCE_STRONG
 
 /obj/structure/Initialize()
 	if (!armor)
-		armor = list("blunt" = 0, "slash" = 0, "stab" = 0, "piercing" = 0, "fire" = 50, "acid" = 50)
+		armor = ARMOR_STRUCTURE
 	. = ..()
 	if(smooth)
 		queue_smooth(src)

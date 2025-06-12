@@ -8,9 +8,9 @@
 
 /datum/outfit/job/roguetown/vagabond/excommunicated/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
+	if(should_wear_femme_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/shirt/rags
-	else
+	else if(should_wear_masc_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/tights/vagrant
 		if(prob(50))
 			pants = /obj/item/clothing/under/roguetown/tights/vagrant/l
@@ -35,7 +35,5 @@
 		H.change_stat("endurance", -1)
 
 		var/datum/devotion/C = new /datum/devotion(H, H.patron)
-		C.grant_spells(H)
-		START_PROCESSING(SSobj, C)
-		H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+		C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR)	//Minor regen, can level up to T4.
 		GLOB.excommunicated_players += H.real_name // john roguetown, you are EXCOMMUNICADO.

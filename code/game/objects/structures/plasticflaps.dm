@@ -2,9 +2,8 @@
 	name = "iron bars"
 	desc = "It seems pretty rusty."
 	gender = PLURAL
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "plasticflaps"
-	armor = list("blunt" = 100, "slash" = 80, "stab" = 90, "piercing" = 80, "fire" = 50, "acid" = 50) //what?
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "bars_passage"
 	density = FALSE
 	anchored = TRUE
 	CanAtmosPass = ATMOS_PASS_NO

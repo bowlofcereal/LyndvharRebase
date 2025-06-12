@@ -58,8 +58,6 @@
 	if(machine)
 		machine.check_eye(src)
 
-	handle_typing_indicator()
-
 	if(istype(loc, /turf/open/water))
 		handle_inwater(loc)
 
@@ -78,7 +76,6 @@
 		handle_blood()
 	update_sneak_invis()
 	handle_fire()
-	handle_typing_indicator()
 	if(istype(loc, /turf/open/water))
 		handle_inwater(loc)
 
@@ -89,8 +86,8 @@
 	//random painstun
 	if(!stat && !HAS_TRAIT(src, TRAIT_NOPAINSTUN))
 		if(world.time > mob_timers["painstun"] + 600)
-			if(getBruteLoss() + getFireLoss() >= (STAEND * 10))
-				var/probby = 53 - (STAEND * 2)
+			if(getBruteLoss() + getFireLoss() >= (STACON * 10))
+				var/probby = 53 - (STACON * 2)
 				if(!(mobility_flags & MOBILITY_STAND))
 					probby = probby - 20
 				if(prob(probby))
@@ -125,10 +122,12 @@
 /mob/living/proc/handle_wounds()
 	if(stat >= DEAD)
 		for(var/datum/wound/wound as anything in get_wounds())
-			wound.on_death()
+			if(istype(wound, /datum/wound))
+				wound.on_death()
 		return
 	for(var/datum/wound/wound as anything in get_wounds())
-		wound.on_life()
+		if(istype(wound, /datum/wound))
+			wound.on_life()
 
 /obj/item/proc/on_embed_life(mob/living/user, obj/item/bodypart/bodypart)
 	return

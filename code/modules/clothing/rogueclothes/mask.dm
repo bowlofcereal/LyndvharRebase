@@ -1,3 +1,12 @@
+/obj/item/clothing/mask/rogue/MiddleClick(mob/user) 
+	overarmor = !overarmor
+	to_chat(user, span_info("I [overarmor ? "wear \the [src] under my hair" : "wear \the [src] over my hair"]."))
+	if(overarmor)
+		alternate_worn_layer = HOOD_LAYER //Below Hair Layer
+	else
+		alternate_worn_layer = BACK_LAYER //Above Hair Layer
+	user.update_inv_wear_mask()
+
 /obj/item/clothing/mask/rogue
 	name = ""
 	icon = 'icons/roguetown/clothing/masks.dmi'
@@ -5,6 +14,8 @@
 	body_parts_covered = FACE
 	slot_flags = ITEM_SLOT_MASK
 	experimental_inhand = FALSE
+	experimental_onhip = FALSE
+	var/overarmor = TRUE
 
 /obj/item/clothing/mask/rogue/spectacles
 	name = "spectacles"
@@ -79,14 +90,14 @@
 
 /obj/item/clothing/mask/rogue/wildguard
 	name = "wild guard"
-	desc = "A mask shaped after the beasts of dendor."
+	desc = "A mask shaped after the snarling beasts of Dendor."
 	icon_state = "wildguard"
 	blocksound = PLATEHIT
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	max_integrity = 100
 	resistance_flags = FIRE_PROOF
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "fire" = 0, "acid" = 0)
+	armor = ARMOR_MASK_METAL
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	flags_inv = HIDEFACE|HIDESNOUT
 	body_parts_covered = FACE
@@ -103,7 +114,39 @@
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	resistance_flags = FIRE_PROOF
-	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "fire" = 0, "acid" = 0)
+	armor = ARMOR_MASK_METAL
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
+	flags_inv = HIDEFACE|HIDESNOUT
+	body_parts_covered = FACE
+	block2add = FOV_BEHIND
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	experimental_onhip = TRUE
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/iron
+
+/obj/item/clothing/mask/rogue/facemask/aalloy
+	name = "decrepit mask"
+	desc = "A decrepit creepy old mask. Aeon's grasp is upon it."
+	icon_state = "ancientmask"
+	max_integrity = 75
+	smeltresult = /obj/item/ingot/aalloy
+
+/obj/item/clothing/mask/rogue/facemask/copper
+	name = "copper mask"
+	icon_state = "cmask"
+	desc = "A heavy copper mask that conceals and protects the face, though not very effectively."
+	armor = ARMOR_MASK_METAL_BAD
+	smeltresult = /obj/item/ingot/copper
+
+/obj/item/clothing/mask/rogue/facemask/hound
+	name = "hound mask"
+	icon_state = "imask_hound"
+	max_integrity = 100
+	blocksound = PLATEHIT
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
+	resistance_flags = FIRE_PROOF
+	armor = ARMOR_MASK_METAL
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	flags_inv = HIDEFACE|HIDESNOUT
 	body_parts_covered = FACE
@@ -115,7 +158,7 @@
 
 /obj/item/clothing/mask/rogue/facemask/psydonmask
 	name = "psydonian mask"
-	desc = "A silver mask, forever locked in a rigor of uncontestable joy. The Order of Saint Xylix can't decide on whether it's meant to represent Psydon's 'mirthfulness', 'theatricality', or the unpredictable melding of both."
+	desc = "A silver mask, forever locked in a rigor of uncontestable joy. The Order of Saint Xylix can't decide on whether it's meant to represent Psydon's 'mirthfulness,' 'theatricality,' or the unpredictable melding of both."
 	icon_state = "psydonmask"
 	item_state = "psydonmask"
 
@@ -163,12 +206,12 @@
 		ADD_TRAIT(user, TRAIT_SPELLCOCKBLOCK, "cursedmask")
 		if(HAS_TRAIT(user, TRAIT_RITUALIST))
 			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
-		var/timer = 20 SECONDS
+		var/timer = 20 MINUTES
 
 		if(bounty_amount >= 100)
 			var/additional_time = bounty_amount * 0.1
 			additional_time = round(additional_time)
-			timer += additional_time SECONDS
+			timer += additional_time MINUTES
 
 		var/timer_minutes = timer / 600
 
@@ -181,6 +224,17 @@
 	icon_state = "smask"
 	max_integrity = 200
 	smeltresult = /obj/item/ingot/steel
+
+/obj/item/clothing/mask/rogue/facemask/steel/paalloy
+	name = "ancient mask"
+	desc = "A mask forged of ancient alloys. Aeon's grasp has been lifted from its form."
+	icon_state = "ancientmask"
+
+
+/obj/item/clothing/mask/rogue/facemask/steel/hound
+	name = "steel hound mask"
+	desc = "A steel mask, made for those who have snouts, protecting the eyes, nose and muzzle while obscuring the face."
+	icon_state = "smask_hound"
 
 /obj/item/clothing/mask/rogue/facemask/goldmask
 	name = "Gold Mask"
@@ -200,25 +254,8 @@
 	experimental_onhip = TRUE
 	sewrepair = TRUE
 
-/obj/item/clothing/mask/rogue/shepherd/AdjustClothes(mob/user)
-	if(loc == user)
-		if(adjustable == CAN_CADJUST)
-			adjustable = CADJUSTED
-			if(toggle_icon_state)
-				icon_state = "[initial(icon_state)]_t"
-			flags_inv = null
-			body_parts_covered = NECK
-			if(ishuman(user))
-				var/mob/living/carbon/H = user
-				H.update_inv_wear_mask()
-		else if(adjustable == CADJUSTED)
-			ResetAdjust(user)
-			flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
-			body_parts_covered = NECK|MOUTH
-			if(user)
-				if(ishuman(user))
-					var/mob/living/carbon/H = user
-					H.update_inv_wear_mask()
+/obj/item/clothing/mask/rogue/shepherd/ComponentInitialize()
+	AddComponent(/datum/component/adjustable_clothing, NECK, null, null, 'sound/foley/equip/rummaging-03.ogg', null, (UPD_HEAD|UPD_MASK))	//Standard mask
 
 /obj/item/clothing/mask/rogue/shepherd/shadowmask
 	name = "purple halfmask"
@@ -229,8 +266,8 @@
 	name = "plague mask"
 	desc = "What better laboratory than the blood-soaked battlefield?"
 	icon_state = "physmask"
-	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDEEARS|HIDESNOUT
-	body_parts_covered = FACE|EARS|EYES|MOUTH|NECK
+	flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	body_parts_covered = FACE|EYES|MOUTH
 	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
 	sewrepair = TRUE
 
@@ -244,7 +281,7 @@
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	resistance_flags = FIRE_PROOF
-	armor = list("blunt" = 10, "slash" = 40, "stab" = 40, "fire" = 0, "acid" = 0)
+	armor = ARMOR_HEAD_BAD
 	prevent_crits = null
 	flags_inv = HIDEFACE|HIDESNOUT
 	body_parts_covered = FACE
@@ -264,29 +301,63 @@
 	experimental_onhip = TRUE
 	sewrepair = TRUE
 
-/obj/item/clothing/mask/rogue/ragmask/AdjustClothes(mob/user)
-	if(loc == user)
-		if(adjustable == CAN_CADJUST)
-			adjustable = CADJUSTED
-			if(toggle_icon_state)
-				icon_state = "[initial(icon_state)]_t"
-			flags_inv = null
-			body_parts_covered = NECK
-			if(ishuman(user))
-				var/mob/living/carbon/H = user
-				H.update_inv_wear_mask()
-		else if(adjustable == CADJUSTED)
-			ResetAdjust(user)
-			flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
-			body_parts_covered = NECK|MOUTH
-			if(user)
-				if(ishuman(user))
-					var/mob/living/carbon/H = user
-					H.update_inv_wear_mask()
+/obj/item/clothing/mask/rogue/ragmask/ComponentInitialize()
+	AddComponent(/datum/component/adjustable_clothing, NECK, null, null, 'sound/foley/equip/rummaging-03.ogg', null, (UPD_HEAD|UPD_MASK))	//Standard mask
+
+/obj/item/clothing/mask/rogue/ragmask/red //predyed mask for NPCs
+	color = CLOTHING_RED
 
 /obj/item/clothing/mask/rogue/lordmask/naledi
 	name = "war scholar's mask"
 	item_state = "naledimask"
 	icon_state = "naledimask"
-	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian psycross."
+	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian psycross. Armored to protect the wearer's face."
+	max_integrity = 100
+	armor = ARMOR_MASK_METAL
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	sellprice = 0
+
+/obj/item/clothing/mask/rogue/exoticsilkmask
+	name = "exotic silk mask"
+	icon_state = "exoticsilkmask"
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	body_parts_covered = NECK|MOUTH
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	sewrepair = TRUE
+	adjustable = CAN_CADJUST
+	toggle_icon_state = FALSE
+
+/obj/item/clothing/mask/rogue/exoticsilkmask/ComponentInitialize()
+	AddComponent(/datum/component/adjustable_clothing, NECK, null, null, 'sound/foley/equip/rummaging-03.ogg', null, (UPD_HEAD|UPD_MASK))	//Standard mask
+
+/obj/item/clothing/mask/rogue/blindfold
+	name = "blindfold"
+	desc = "A strip of cloth tied around the eyes to block vision."
+	icon_state = "blindfold"
+	item_state = "blindfold"
+	body_parts_covered = EYES
+	sewrepair = TRUE
+	tint = 3
+	mob_overlay_icon = 'icons/mob/clothing/eyes.dmi'
+	icon = 'icons/obj/clothing/glasses.dmi'
+
+/obj/item/clothing/mask/rogue/blindfold/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_MASK)
+		user.become_blind("blindfold_[REF(src)]")
+
+/obj/item/clothing/mask/rogue/blindfold/dropped(mob/living/carbon/human/user)
+	..()
+	user.cure_blind("blindfold_[REF(src)]")
+
+/obj/item/clothing/mask/rogue/duelmask
+	name = "duelist's mask"
+	desc = "A black cloth mask for those masked duelists, doesn't grant any protection, but covers your eyes, and your identity... somehow."
+	icon_state = "duelmask"
+	flags_inv = HIDEFACE
+	body_parts_covered = EYES
+	slot_flags = ITEM_SLOT_MASK
+	color = COLOR_ALMOST_BLACK	
+	detail_tag = "_detail"
+	detail_color = COLOR_SILVER
+	sewrepair = TRUE

@@ -93,7 +93,7 @@
 					user.Immobilize(30)
 					addtimer(CALLBACK(user, TYPE_PROC_REF(/mob/living, Knockdown), 30), 10)
 
-/turf/open/water/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_type = "blunt")
+/turf/open/water/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_flag = "blunt")
 	..()
 	playsound(src, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg','sound/foley/water_land3.ogg'), 100, FALSE)
 
@@ -117,6 +117,11 @@
 	for(var/obj/structure/S in src)
 		if(S.obj_flags & BLOCK_Z_OUT_DOWN)
 			return
+	if(istype(AM, /obj/item/reagent_containers/food/snacks/fish))
+		var/obj/item/reagent_containers/food/snacks/fish/F = AM
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOBAL_FISH_RELEASED, F.type, F.rarity_rank)
+		F.visible_message("<span class='warning'>[F] dives into \the [src] and disappears!</span>")
+		qdel(F)
 	if(isliving(AM) && !AM.throwing)
 		var/mob/living/L = AM
 		if(!(L.mobility_flags & MOBILITY_STAND) || water_level == 3)
@@ -214,10 +219,13 @@
 	if(water_top_overlay)
 		QDEL_NULL(water_top_overlay)
 
-/turf/open/water/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_type = "blunt")
-	if(isobj(AM))
-		var/obj/O = AM
-		O.extinguish()
+/turf/open/water/hitby(atom/movable/AM, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum, damage_flag = "blunt")
+	if(!isobj(AM))
+		return
+	var/obj/O = AM
+	if(!O.extinguishable)
+		return
+	O.extinguish()
 
 /turf/open/water/get_slowdown(mob/user)
 	var/returned = slowdown
@@ -271,14 +279,33 @@
 	wash_in = TRUE
 	water_reagent = /datum/reagent/water/gross
 
+/turf/open/water/bloody
+	name = "blood"
+	desc = "Is that... a river of blood? EVIL!"
+	icon = 'icons/turf/roguefloor.dmi'
+	icon_state = "dirtW2"
+	water_level = 2
+	water_color = "#880808"
+	slowdown = 3
+	wash_in = TRUE
+	water_reagent = /datum/reagent/blood
+
 /turf/open/water/swamp/Initialize()
 	icon_state = "dirt"
 	dir = pick(GLOB.cardinals)
 	water_color = pick("#705a43")
 	.  = ..()
 
+/turf/open/water/bloody/Initialize()
+	icon_state = "dirt"
+	dir = pick(GLOB.cardinals)
+	water_color = pick("#880808")
+	.  = ..()
+
 /turf/open/water/swamp/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
+	if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+		return
 	if(isliving(AM) && !AM.throwing)
 		if(ishuman(AM))
 			var/mob/living/carbon/human/C = AM
@@ -314,6 +341,8 @@
 
 /turf/open/water/swamp/deep/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
+	if(HAS_TRAIT(AM, TRAIT_LEECHIMMUNE))
+		return
 	if(isliving(AM) && !AM.throwing)
 		if(ishuman(AM))
 			var/mob/living/carbon/human/C = AM
@@ -355,7 +384,7 @@
 
 /turf/open/water/river
 	name = "river"
-	desc = "Crystal clear water! Flowing swiflty along the river."
+	desc = "A river of crystal clear water flows swiftly along the contours of the land."
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "rivermove"
 	water_level = 3

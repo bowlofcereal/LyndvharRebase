@@ -118,6 +118,39 @@
 		icon_state = "scroll_closed"
 		name = "scroll"
 
+//Fake reskin of a scroll for the dwarf mercs -- just a fluffy toy
+/obj/item/paper/scroll/grudge
+	name = "Book of Grudges"
+	desc = "A copy you've taken with you. Unfortunately the dampness of Azuria made it unreadable. You can still add new entries, however. It looks bulky enough to act as a mild blunt weapon."
+	icon_state ="grudge_closed"
+	drop_sound = 'sound/foley/dropsound/book_drop.ogg'
+	grid_width = 32
+	grid_height = 32
+	force = 10
+	possible_item_intents = list(/datum/intent/mace/strike)
+
+/obj/item/paper/scroll/grudge/update_icon_state()
+	if(open)
+		if(info)
+			icon_state = "grudgewrite"
+		else
+			icon_state = "grudge"
+	else
+		icon_state = "grudge_closed"
+
+/obj/item/paper/scroll/grudge/attack_right(mob/user)
+	if(!open)
+		slot_flags &= ~ITEM_SLOT_HIP
+		open = TRUE
+		playsound(loc, 'sound/items/book_open.ogg', 100, FALSE, -1)
+	else
+		slot_flags |= ITEM_SLOT_HIP
+		open = FALSE
+		playsound(loc, 'sound/items/book_close.ogg', 100, FALSE, -1)
+	update_icon_state()
+	user.update_inv_hands()
+
+
 /obj/item/paper/scroll/cargo
 	name = "shipping order"
 	icon_state = "contractunsigned"
@@ -230,3 +263,67 @@
 		M.add_stress(/datum/stressevent/confessed)
 		signed = M.real_name
 		info = "THE GUILTY PARTY ADMITS THEIR SIN AND THE WEAKENING OF PSYDON'S HOLY FLOCK. THEY WILL REPENT AND SUBMIT TO ANY PUNISHMENT THE CLERGY DEEMS APPROPRIATE, OR BE RELEASED IMMEDIATELY. LET THIS RECORD OF THEIR SIN WEIGH ON THE ANGEL GABRIEL'S JUDGEMENT AT THE MANY-SPIKED GATES OF HEAVEN.<br/><br/>SIGNED,<br/><font color='red'>[signed]</font>"
+
+/obj/item/paper/scroll/sell_price_changes
+	name = "updated purchasing prices"
+	icon_state = "contractsigned"
+
+	var/list/sell_prices
+	var/writers_name
+	var/faction
+
+/obj/item/paper/scroll/sell_price_changes/New(loc, list/prices, faction_name)
+	. = ..()
+
+	faction = faction_name
+	if(!faction)
+		faction = pick("Heartfelt", "Hammerhold", "Grenzelhoft", "Kingsfield")		//add more as time goes, idk
+
+	sell_prices = prices
+	if(!length(sell_prices))
+		sell_prices = generated_test_data()
+	writers_name = pick( world.file2list("strings/rt/names/human/humnorm.txt") )
+	rebuild_info()
+
+/obj/item/paper/scroll/sell_price_changes/update_icon_state()
+	if(open)
+		icon_state = "contractsigned"
+		name = initial(name)
+	else
+		icon_state = "scroll_closed"
+		name = "scroll"
+
+
+/obj/item/paper/scroll/sell_price_changes/proc/rebuild_info()
+	info = null
+	info += "<div style='vertical-align:top'>"
+	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Purchasing Prices</h2>"
+	info += "<hr/>"
+
+	if(sell_prices.len)
+		info += "<ul>"
+		for(var/atom/type_path as anything in sell_prices)
+			var/list/prices = sell_prices[type_path]
+			info += "<li style='color:#06080F;font-size:9px;font-family:\"Segoe Script\"'>[initial(type_path.name)] [prices[1]] > [prices[2]] mammons</li><br/>"
+		info += "</ul>"
+
+	info += "<br/></font>"
+
+	info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[writers_name] Shipwright of [faction]</font>"
+
+	info += "</div>"
+
+/obj/item/paper/scroll/sell_price_changes/proc/generated_test_data()
+
+	var/list/prices = list()
+	for(var/i = 1 to rand(2, 4))
+		var/datum/supply_pack/pack = pick(SSmerchant.supply_packs)
+		if(islist(pack.contains))
+			continue
+		var/path = pack.contains
+		if(!path)
+			continue
+		prices |= path
+		var/starting_rand  = rand(100, 50)
+		prices[path] = list("[starting_rand]", "[round(starting_rand * 0.5, 1)]")
+	sell_prices = prices

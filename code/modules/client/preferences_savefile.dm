@@ -5,7 +5,9 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	30
+
+//	This also works with decimals.
+#define SAVEFILE_VERSION_MAX	31
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -46,6 +48,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 		parent.update_movement_keys()
 		to_chat(parent, span_danger("Empty keybindings, setting default to [hotkeys ? "Hotkey" : "Classic"] mode"))
+	if(current_version < 31) // RAISE THIS TO SAVEFILE_VERSION_MAX (and make sure to add +1 to the version) EVERY TIME YOU ADD SERVER-CHANGING KEYBINDS LIKE CHANGING HOW SAY WORKS!!
+		force_reset_keybindings_direct(TRUE)
+		addtimer(CALLBACK(src, PROC_REF(force_reset_keybindings)), 30)
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	if(current_version < 19)
@@ -238,11 +243,25 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	pda_style		= sanitize_inlist(pda_style, GLOB.pda_styles, initial(pda_style))
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_islist(key_bindings, list())
-
+	
 	//ROGUETOWN
 	parallax = PARALLAX_INSANE
 
+	verify_keybindings_valid()
 	return TRUE
+
+/datum/preferences/proc/verify_keybindings_valid()
+	// Sanitize the actual keybinds to make sure they exist.
+	for(var/key in key_bindings)
+		if(!islist(key_bindings[key]))
+			key_bindings -= key
+		var/list/binds = key_bindings[key]
+		for(var/bind in binds)
+			if(!GLOB.keybindings_by_name[bind])
+				binds -= bind
+		if(!length(binds))
+			key_bindings -= key
+	// End
 
 /datum/preferences/proc/save_preferences()
 	if(!path)
@@ -368,6 +387,19 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if (loadout_type)
 		loadout = new loadout_type()
 
+/datum/preferences/proc/_load_loadout2(S)
+	var/loadout_type2
+	S["loadout2"] >> loadout_type2
+	if (loadout_type2)
+		loadout2 = new loadout_type2()
+
+/datum/preferences/proc/_load_loadout3(S)
+	var/loadout_type3
+	S["loadout3"] >> loadout_type3
+	if (loadout_type3)
+		loadout3 = new loadout_type3()
+
+
 /datum/preferences/proc/_load_appearence(S)
 	S["real_name"]			>> real_name
 	S["gender"]				>> gender
@@ -377,6 +409,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["hair_color"]			>> hair_color
 	S["facial_hair_color"]	>> facial_hair_color
 	S["eye_color"]			>> eye_color
+	S["extra_language"]		>> extra_language
 	S["voice_color"]		>> voice_color
 	S["voice_pitch"]		>> voice_pitch
 	if (!voice_pitch)
@@ -430,6 +463,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	_load_statpack(S)
 
 	_load_loadout(S)
+	_load_loadout2(S)
+	_load_loadout3(S)
 
 	if(!S["features["mcolor"]"] || S["features["mcolor"]"] == "#000")
 		WRITE_FILE(S["features["mcolor"]"]	, "#FFF")
@@ -519,6 +554,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	age				= sanitize_inlist(age, pref_species.possible_ages)
 	eye_color		= sanitize_hexcolor(eye_color, 3, 0)
+	extra_language  = extra_language
 	voice_color		= voice_color
 	voice_pitch		= voice_pitch
 	skin_tone		= skin_tone
@@ -580,6 +616,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["hair_color"]			, hair_color)
 	WRITE_FILE(S["facial_hair_color"]	, facial_hair_color)
 	WRITE_FILE(S["eye_color"]			, eye_color)
+	WRITE_FILE(S["extra_language"]		, extra_language)
 	WRITE_FILE(S["voice_color"]			, voice_color)
 	WRITE_FILE(S["voice_pitch"]			, voice_pitch)
 	WRITE_FILE(S["skin_tone"]			, skin_tone)
@@ -646,6 +683,14 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		WRITE_FILE(S["loadout"] , loadout.type)
 	else
 		WRITE_FILE(S["loadout"] , null)
+	if(loadout2)
+		WRITE_FILE(S["loadout2"] , loadout2.type)
+	else
+		WRITE_FILE(S["loadout2"] , null)
+	if(loadout3)
+		WRITE_FILE(S["loadout3"] , loadout3.type)
+	else
+		WRITE_FILE(S["loadout3"] , null)
 
 
 	return TRUE

@@ -64,6 +64,19 @@
 	maturation_time = 5 MINUTES
 	produce_time = 2 MINUTES
 
+/datum/plant_def/rice
+	name = "rice stalks"
+	icon = 'icons/roguetown/misc/crops.dmi'
+	icon_state = "rice"
+	produce_type = /obj/item/natural/chaff/rice
+	produce_amount_min = 3
+	produce_amount_max = 4
+	uproot_loot = list(/obj/item/natural/fibers, /obj/item/natural/fibers)
+	maturation_nutrition = 30
+	produce_nutrition = 20
+	maturation_time = 5 MINUTES
+	produce_time = 2 MINUTES
+
 /datum/plant_def/apple
 	name = "apple tree"
 	icon = 'icons/roguetown/misc/crops.dmi'
@@ -151,6 +164,7 @@
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/potato/rogue
 	produce_amount_min = 3
 	produce_amount_max = 4
+
 /datum/plant_def/poppy
 	name = "poppies"
 	icon_state = "poppy"
@@ -160,3 +174,33 @@
 	maturation_nutrition = 30
 	water_drain_rate = 1 / (2 MINUTES)
 
+/datum/plant_def/nut
+	name = "rocknut tree"
+	icon = 'icons/roguetown/misc/crops.dmi'
+	icon_state = "nuts"
+	produce_type = /obj/item/reagent_containers/food/snacks/grown/nut
+	uproot_loot = list(/obj/item/grown/log/tree/small)
+	perennial = TRUE
+	produce_amount_max = 3
+	maturation_nutrition = 60
+	produce_nutrition =  35
+	maturation_time = 6 MINUTES
+	produce_time = 3 MINUTES
+	water_drain_rate = 1 / (2 MINUTES)
+
+/datum/plant_def/coffee
+	name = "coffee bush"
+	icon = 'icons/roguetown/misc/crops.dmi'
+	icon_state = "coffee"
+	produce_type = /obj/item/reagent_containers/food/snacks/grown/coffee
+	produce_amount_min = 2
+	produce_amount_max = 3
+
+
+/datum/plant_def/tea
+	name = "tea bush"
+	icon = 'icons/roguetown/misc/crops.dmi'
+	icon_state = "tea"
+	produce_type = /obj/item/reagent_containers/food/snacks/grown/tea
+	produce_amount_min = 2
+	produce_amount_max = 3

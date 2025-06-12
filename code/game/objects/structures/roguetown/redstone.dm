@@ -40,6 +40,19 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 			icon_state = "leverfloor[toggled]"
 			playsound(src, 'sound/foley/lever.ogg', 100, extrarange = 3)
 
+/obj/structure/lever/onkick(mob/user)
+	if(isliving(user))
+		var/mob/living/L = user
+		L.changeNext_move(CLICK_CD_MELEE)
+		user.visible_message("<span class='warning'>[user] kicks the lever!</span>")
+		playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
+		if(prob(L.STASTR * 4))
+			for(var/obj/structure/O in redstone_attached)
+				spawn(0) O.redstone_triggered()
+			toggled = !toggled
+			icon_state = "leverfloor[toggled]"
+			playsound(src, 'sound/foley/lever.ogg', 100, extrarange = 3)
+
 /obj/structure/lever/wall
 	icon_state = "leverwall0"
 
@@ -47,8 +60,48 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	. = ..()
 	icon_state = "leverwall[toggled]"
 
+/obj/structure/lever/wall/onkick(mob/user)
+	. = ..()
+	icon_state = "leverwall[toggled]"
 
+/obj/structure/pressure_plate //vanderlin port
+	name = "pressure plate"
+	desc = "Be careful. Stepping on this could either mean a bomb exploding or a door closing on you."
+	icon = 'icons/roguetown/misc/traps.dmi'
+	icon_state = "pressureplate"
+	max_integrity = 45 // so it gets destroyed when used to explode a bomb
+	density = FALSE
+	anchored = TRUE
 
+/obj/structure/pressure_plate/Crossed(atom/movable/AM)
+	. = ..()
+	if(!anchored)
+		return
+	if(isliving(AM))
+		var/mob/living/L = AM
+		to_chat(L, "<span class='info'>I feel something click beneath me.</span>")
+		AM.log_message("has activated a pressure plate", LOG_GAME)
+		playsound(src, 'sound/misc/pressurepad_down.ogg', 65, extrarange = 2)
+
+/obj/structure/pressure_plate/Uncrossed(atom/movable/AM)
+	. = ..()
+	if(!anchored)
+		return
+	if(isliving(AM))
+		triggerplate()
+
+/obj/structure/pressure_plate/proc/triggerplate()
+	playsound(src, 'sound/misc/pressurepad_up.ogg', 65, extrarange = 2)
+	for(var/obj/structure/O in redstone_attached)
+		spawn(0) O.redstone_triggered()
+/*
+/obj/structure/pressure_plate/attack_hand(mob/user) //commented out for now, they're stuposed to be anchored structures for dungeons. End of vanderlin traps port. Maybe an artificer subtype craft in the future.
+	. = ..()
+	if(user.used_intent.type == INTENT_HARM)
+		playsound(loc, 'sound/combat/hits/punch/punch (1).ogg', 100, FALSE, -1)
+		triggerplate()
+		anchored = !anchored
+*/
 /obj/structure/floordoor
 	name = "floorhatch"
 	desc = "A handy floor hatch for people who need privacy upstairs."
@@ -84,6 +137,12 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	else
 		icon_state = "[base_state]1"
 		obj_flags = BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
+
+/obj/structure/floordoor/open
+		icon_state = "floorhatch0"
+		base_state = "floorhatch"
+		togg = TRUE
+		obj_flags = null
 
 /obj/structure/floordoor/gatehatch
 	name = ""
