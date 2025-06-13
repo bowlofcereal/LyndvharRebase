@@ -195,8 +195,11 @@
 					if((intenty.masteritem.wbalance == WBALANCE_SWIFT) && (user.STASPD > src.STASPD)) //enemy weapon is quick, so get a bonus based on spddiff
 						var/spdmod = ((user.STASPD - src.STASPD) * 10)
 						var/permod = ((src.STAPER - user.STAPER) * 10)
+						var/intmod = ((src.STAINT - user.STAINT) * 3)
 						if(permod > 0)
 							spdmod -= permod
+						if(intmod > 0)
+							spdmod -= intmod
 						var/finalmod = clamp(spdmod, 0, 30)
 						prob2defend -= finalmod
 				else
