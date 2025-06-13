@@ -39,7 +39,7 @@
 
 /datum/supply_pack/rogue/tools/paper
 	name = "Paper"
-	cost = 3
+	cost = 20
 	contains = list(
 					/obj/item/paper/scroll,
 					/obj/item/paper/scroll,
