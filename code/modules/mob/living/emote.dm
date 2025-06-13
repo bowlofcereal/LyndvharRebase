@@ -28,14 +28,19 @@
 	var/mob/living/carbon/follower = user
 	var/datum/patron/patron = follower.patron
 
-	// Stops prayers if you don't meet your patron's requirements to pray.
-	if(!patron?.can_pray(follower))
-		return
-
 	var/prayer = input("Whisper your prayer:", "Prayer") as text|null
 	if(!prayer)
 		return
 	
+	//If God can hear your prayer (long enough, no bad words, etc.)
+	if(patron.hear_prayer(follower, prayer))
+		if(follower.has_flaw(/datum/charflaw/addiction/godfearing))
+			// Stops prayers if you don't meet your patron's requirements to pray.
+			if(!patron?.can_pray(follower))
+				return
+			else
+				follower.sate_addiction()
+
 	/* admin stuff - tells you the followers name, key, and what patron they follow */
 	var/follower_ident = "[follower.key]/([follower.real_name]) (follower of [patron])"
 	message_admins("[follower_ident] [ADMIN_SM(follower)] [ADMIN_FLW(follower)] prays: [span_info(prayer)]")
@@ -45,10 +50,6 @@
 
 	if(SEND_SIGNAL(follower, COMSIG_CARBON_PRAY, prayer) & CARBON_PRAY_CANCEL)
 		return
-
-	if(patron.hear_prayer(follower, prayer))
-		if(follower.has_flaw(/datum/charflaw/addiction/godfearing))
-			follower.sate_addiction()
 
 	for(var/mob/living/LICKMYBALLS in hearers(2,src))	// Lickmyballs = person in crit.
 		LICKMYBALLS.succumb_timer = world.time			//..succumb timer does nothing rn btw..
