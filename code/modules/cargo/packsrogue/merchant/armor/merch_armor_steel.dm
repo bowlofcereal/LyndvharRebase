@@ -17,7 +17,6 @@
 	cost = 50
 	contains = list(/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk)
 
-// Fluted is +20 despite 
 /datum/supply_pack/rogue/armor_steel/halfplate
 	name = "Half-Plate Armor"
 	cost = 80

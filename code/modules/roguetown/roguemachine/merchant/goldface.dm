@@ -51,6 +51,18 @@
 		"Iron Weapons and Shields",
 		"Steel Weapons"
 	)
+	var/is_public = FALSE // Whether it is a public access vendor.
+	var/extra_fee = 0 // Extra Guild Fees on purchases. Meant to make publicface very unprofitable. 
+
+/obj/structure/roguemachine/goldface/public
+	name = "SILVERFACE"
+	extra_fee = 0.5
+	is_public = TRUE
+	locked = FALSE
+
+/obj/structure/roguemachine/goldface/public/examine()
+	. = ..()
+	. += "<span class='info'>A public version of the GOLDFACE. The guild charges a hefty fee for its usage. When locked, can be used to browse the inventory a merchant has.</span>"
 
 /obj/structure/roguemachine/goldface/Initialize()
 	. = ..()
@@ -97,7 +109,7 @@
 	if(!ishuman(usr))
 		return
 	var/mob/living/carbon/human/human_mob = usr
-	if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+	if(!usr.canUseTopic(src, BE_CLOSE) || (locked && !is_public))
 		return
 	if(href_list["buy"])
 		var/mob/M = usr
@@ -106,11 +118,11 @@
 			message_admins("silly MOTHERFUCKER [usr.key] IS TRYING TO BUY A [path] WITH THE GOLDFACE")
 			return
 		var/datum/supply_pack/PA = SSmerchant.supply_packs[path]
-		var/cost = PA.cost
-		var/tax_amt=round(SStreasury.tax_value * cost)
-		cost=cost+tax_amt
+		var/cost = round(PA.cost + PA.cost * extra_fee) 
+		var/tax_amt = round(SStreasury.tax_value * cost)
+		cost = cost + tax_amt
 		if(upgrade_flags & UPGRADE_NOTAX)
-			cost = PA.cost
+			cost = round(PA.cost + PA.cost * extra_fee) 
 		if(budget >= cost)
 			budget -= cost
 			if(!(upgrade_flags & UPGRADE_NOTAX))
@@ -140,7 +152,7 @@
 		var/select = input(usr, "Please select an option.", "", null) as null|anything in options
 		if(!select)
 			return
-		if(!usr.canUseTopic(src, BE_CLOSE) || locked)
+		if(!usr.canUseTopic(src, BE_CLOSE) || (locked & !is_public))
 			return
 		switch(select)
 			if("Enable Paying Taxes")
@@ -157,18 +169,21 @@
 		return
 	if(!ishuman(user))
 		return
-	if(locked)
+	if(locked && !is_public)
 		to_chat(user, span_warning("It's locked. Of course."))
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	playsound(loc, 'sound/misc/gold_menu.ogg', 100, FALSE, -1)
 	var/canread = user.can_read(src, TRUE)
 	var/contents
-	contents = "<center>GOLDFACE - In the name of greed.<BR>"
+	if(is_public)
+		contents = "<center>SILVERFACE - In the name of greed.<BR>"
+	else
+		contents = "<center>GOLDFACE - In the name of greed.<BR>"
 	contents += "<a href='?src=[REF(src)];change=1'>MAMMON LOADED:</a> [budget]<BR>"
 
 	var/mob/living/carbon/human/H = user
-	if(H.job in list("Merchant","Shophand"))
+	if(H.job in list("Merchant","Shophand") && !is_public)
 		if(canread)
 			contents += "<a href='?src=[REF(src)];secrets=1'>Secrets</a>"
 		else
@@ -190,11 +205,14 @@
 			if(PA.group == current_cat)
 				pax += PA
 		for(var/datum/supply_pack/PA in sortNames(pax))
-			var/costy = PA.cost
+			var/costy = round(PA.cost + PA.cost * extra_fee)
 			if(!(upgrade_flags & UPGRADE_NOTAX))
-				costy=round(costy+(SStreasury.tax_value * costy))
+				costy = round(costy + (SStreasury.tax_value * PA.cost))
 			var/quantified_name = PA.no_name_quantity ? PA.name : "[PA.name] [PA.contains.len > 1?"x[PA.contains.len]":""]"
-			contents += "[quantified_name] - ([costy])<a href='?src=[REF(src)];buy=[PA.type]'>BUY</a><BR>"
+			if(is_public && locked) 
+				contents += "[quantified_name]<BR>"
+			else
+				contents += "[quantified_name] - ([costy])<a href='?src=[REF(src)];buy=[PA.type]'>BUY</a><BR>"
 
 	if(!canread)
 		contents = stars(contents)
