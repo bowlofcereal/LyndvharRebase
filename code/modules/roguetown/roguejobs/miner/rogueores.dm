@@ -227,7 +227,7 @@
 	desc = "Sacrificing the holy elements of silver for raw strength, this strange and powerful ingot's origin carries dark rumors.."
 	icon_state = "ingotblacksteel"
 	smeltresult = /obj/item/ingot/blacksteel
-	sellprice = 120
+	sellprice = 100
 
 //Blessed Ingots
 /obj/item/ingot/steelholy/

@@ -178,7 +178,7 @@
 					var/steelalloyiron
 					var/bronzealloy
 					var/purifiedalloy
-//					var/blacksteelalloy
+					var/blacksteelalloy // Idk why Blacksteel were removed but we don't have an overabundance of steel and such anymore
 
 					for(var/obj/item/I in ore)
 						if(I.smeltresult == /obj/item/rogueore/coal)
@@ -193,10 +193,10 @@
 							purifiedalloy = purifiedalloy + 3
 						if(I.smeltresult == /obj/item/ingot/gold)
 							purifiedalloy = purifiedalloy + 2
-//						if(I.smeltresult == /obj/item/ingot/silver)
-//							blacksteelalloy = blacksteelalloy + 1
-//						if(I.smeltresult == /obj/item/ingot/steel)
-//							blacksteelalloy = blacksteelalloy + 2
+						if(I.smeltresult == /obj/item/ingot/silver)
+							blacksteelalloy = blacksteelalloy + 1
+						if(I.smeltresult == /obj/item/ingot/steel)
+							blacksteelalloy = blacksteelalloy + 2
 
 					if(steelalloycoal && steelalloyiron && steelalloycoal == steelalloyiron)
 						maxore = 0
@@ -210,9 +210,8 @@
 						alloy = /obj/item/ingot/bronze
 					else if(purifiedalloy == 10)
 						alloy = /obj/item/ingot/purifiedaalloy // 2 aalloy, 2 gold, makes 3 purified alloy.
-//					else if(blacksteelalloy == 15)
-//						testing("BLACKSTEEL ALLOYED")
-//						alloy = /obj/item/ingot/blacksteel
+					else if(blacksteelalloy == 7)
+						alloy = /obj/item/ingot/blacksteel
 					else
 						alloy = null
 
