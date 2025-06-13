@@ -158,7 +158,7 @@
 	base_state = "smelter"
 	anchored = TRUE
 	density = TRUE
-	maxore = 4
+	maxore = 6
 	climbable = FALSE
 
 /obj/machinery/light/rogue/smelter/great/process()
@@ -172,16 +172,19 @@
 			else
 				if(cooking == 30)
 					var/alloy //moving each alloy to it's own var allows for possible additions later
-					var/steelalloy
+					// Steel Alloy requires a 1 coal to 1 iron ratio. Yes. Doesn't make sense but it is to make
+					// Steel more expensive to make
+					var/steelalloycoal
+					var/steelalloyiron
 					var/bronzealloy
 					var/purifiedalloy
 //					var/blacksteelalloy
 
 					for(var/obj/item/I in ore)
 						if(I.smeltresult == /obj/item/rogueore/coal)
-							steelalloy = steelalloy + 1
+							steelalloycoal += 1
 						if(I.smeltresult == /obj/item/ingot/iron)
-							steelalloy = steelalloy + 2
+							steelalloyiron += 1
 						if(I.smeltresult == /obj/item/ingot/tin)
 							bronzealloy = bronzealloy + 1
 						if(I.smeltresult == /obj/item/ingot/copper)
@@ -195,9 +198,12 @@
 //						if(I.smeltresult == /obj/item/ingot/steel)
 //							blacksteelalloy = blacksteelalloy + 2
 
-					if(steelalloy == 7)
-						testing("STEEL ALLOYED")
-						maxore = 3 // 3 iron + 1 coal = 3 steel
+					if(steelalloycoal && steelalloyiron && steelalloycoal == steelalloyiron)
+						maxore = 0
+						for(var/i = 1 to steelalloycoal)
+							steelalloyiron--
+							steelalloycoal--
+							maxore += 1 // 1 coal + 1 iron = 1 steel
 						alloy = /obj/item/ingot/steel
 					else if(bronzealloy == 7)
 						testing("BRONZE ALLOYED")
