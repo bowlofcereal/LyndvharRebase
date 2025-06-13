@@ -2,7 +2,7 @@
 // Each Steel Ingot is 25 each, 30 minimum price.
 
 /datum/supply_pack/rogue/armor_steel
-	group = "Steel Armor"
+	group = "Armor (Steel)"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 

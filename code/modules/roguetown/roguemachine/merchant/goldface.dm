@@ -29,14 +29,9 @@
 	var/current_cat = "1"
 	var/lockid = "merchant"
 	var/list/categories = list(
-		"Adventuring Supplies",
 		"Alcohols",
 		"Apparel",
-		"Light Armor",
-		"Iron Armor",
-		"Steel Armor",
 		"Consumable",
-		"Foreign Weapons",
 		"Gems",
 		"Instruments",
 		"Luxury",
@@ -47,9 +42,16 @@
 		"Seeds",
 		"Tools",
 		"Wardrobe",
-		"Ranged Weapons",
-		"Iron Weapons and Shields",
-		"Steel Weapons"
+	)
+	var/list/categories_gamer = list(
+		"Adventuring Supplies",
+		"Armor (Light)",
+		"Armor (Iron)",
+		"Armor (Steel)",
+		"Weapons (Ranged)",
+		"Weapons (Iron and Shields)",
+		"Weapons (Steel)",
+		"Weapons (Foreign)",
 	)
 	var/is_public = FALSE // Whether it is a public access vendor.
 	var/extra_fee = 0 // Extra Guild Fees on purchases. Meant to make publicface very unprofitable. 
@@ -192,10 +194,18 @@
 	contents += "</center><BR>"
 
 	if(current_cat == "1")
-		contents += "<center>"
-		for(var/X in categories)
-			contents += "<a href='?src=[REF(src)];changecat=[X]'>[X]</a><BR>"
-		contents += "</center>"
+		contents += "<table style='width: 100%' line-height: 20px;'>"
+		for(var/i = 1, i <= categories.len, i++)
+			contents += "<tr>"
+			contents += "<td style='width: 50%; text-align: center;'>\
+				<a href='?src=[REF(src)];changecat=[categories[i]]'>[categories[i]]</a>\
+				</td>"
+			if(i <= categories_gamer.len)
+				contents += "<td style='width: 50%; text-align: center;'>\
+					<a href='?src=[REF(src)];changecat=[categories_gamer[i]]'>[categories_gamer[i]]</a>\
+				</td>"
+			contents += "</tr>"
+		contents += "</table>"
 	else
 		contents += "<center>[current_cat]<BR></center>"
 		contents += "<center><a href='?src=[REF(src)];changecat=1'>\[RETURN\]</a><BR><BR></center>"
@@ -217,7 +227,7 @@
 	if(!canread)
 		contents = stars(contents)
 
-	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 600)
+	var/datum/browser/popup = new(user, "VENDORTHING", "", 500, 800)
 	popup.set_content(contents)
 	popup.open()
 

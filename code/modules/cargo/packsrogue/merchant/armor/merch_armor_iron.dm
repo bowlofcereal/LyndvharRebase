@@ -4,7 +4,7 @@
 // For body pieces, steel minimum price is 30.
 
 /datum/supply_pack/rogue/armor_iron
-	group = "Iron Armor"
+	group = "Armor (Iron)"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 

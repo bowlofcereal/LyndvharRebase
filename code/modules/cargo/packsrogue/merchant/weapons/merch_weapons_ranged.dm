@@ -1,5 +1,5 @@
 /datum/supply_pack/rogue/ranged_weapons
-	group = "Ranged Weapons"
+	group = "Weapons (Ranged)"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 

@@ -2,7 +2,7 @@
 // Minimum price of 30
 // They need to make a profit + possible tax too.
 /datum/supply_pack/rogue/steel_weapons
-	group = "Steel Weapons"
+	group = "Weapons (Steel)"
 	crate_name = "merchant guild's crate"
 	crate_type = /obj/structure/closet/crate/chest/merchant
 
