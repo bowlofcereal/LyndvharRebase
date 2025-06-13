@@ -1,4 +1,5 @@
 // Steel Weapons - Base price of 25 per steel ingot
+// Minimum price of 30
 // They need to make a profit + possible tax too.
 /datum/supply_pack/rogue/steel_weapons
 	group = "Steel Weapons"
@@ -7,7 +8,7 @@
 
 /datum/supply_pack/rogue/steel_weapons/dagger
 	name = "Dagger"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/huntingknife/idagger/steel,
 				)
@@ -15,49 +16,49 @@
 
 /datum/supply_pack/rogue/steel_weapons/katar
 	name = "Katar"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/katar
 				)
 
 /datum/supply_pack/rogue/steel_weapons/steelknuckle
 	name = "Steel Knuckle"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/knuckles
 				)
 
 /datum/supply_pack/rogue/steel_weapons/rapier
 	name = "Rapier"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/sword/rapier,
 				)
 				
 /datum/supply_pack/rogue/steel_weapons/cutlass
 	name = "Cutlass"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/sword/cutlass,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/shortsword
 	name = "Shortsword"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/sword/short,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/falchion
 	name = "Falchion"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/sword/falchion,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/messer
 	name = "Messer"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/sword/short/messer,
 				)
@@ -66,14 +67,14 @@
 
 /datum/supply_pack/rogue/steel_weapons/sabre
 	name = "Sabre"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/sword/sabre,
 				)
 
 /datum/supply_pack/rogue/steel_weapons/flail
 	name = "Flail"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/flail/sflail,
 				)
@@ -212,7 +213,7 @@
 
 /datum/supply_pack/rogue/steel_weapons/falx
 	name = "Falx"
-	cost = 25
+	cost = 30
 	contains = list(
 					/obj/item/rogueweapon/sword/falx,
 				)

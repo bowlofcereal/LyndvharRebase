@@ -1,7 +1,5 @@
-// Medium / Heavy Armor, including metallic bracers and boots etc.
-// Pricing Principles is based on 15 per iron ingot, 25 per steel ingot.
-// Minimum Cost is 20 however.
-// For body pieces, steel minimum price is 30.
+// Steel Armor
+// Each Steel Ingot is 25 each, 30 minimum price.
 
 /datum/supply_pack/rogue/armor_steel
 	group = "Steel Armor"
@@ -62,27 +60,27 @@
 
 /datum/supply_pack/rogue/armor_steel/chaincoif_steel
 	name = "Chain Coif"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/neck/roguetown/chaincoif)
 
 /datum/supply_pack/rogue/armor_steel/chainmantle
 	name = "Chain Mantle"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/neck/roguetown/chaincoif/chainmantle)
 
 /datum/supply_pack/rogue/armor_steel/chaingloves_steel
 	name = "Gauntlets, Chain"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/gloves/roguetown/chain)
 
 /datum/supply_pack/rogue/armor_steel/plategloves
 	name = "Gauntlets, Plate"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/gloves/roguetown/plate)
 
 /datum/supply_pack/rogue/armor_steel/chainleg_steel
 	name = "Chausses, Chain"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/under/roguetown/chainlegs)
 
 /datum/supply_pack/rogue/armor_steel/platelegs
@@ -92,27 +90,27 @@
 
 /datum/supply_pack/rogue/armor_steel/bracers_plate
 	name = "Bracers, Plate"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/wrists/roguetown/bracers)
 
 /datum/supply_pack/rogue/armor_steel/helmet_nasal
 	name = "Helmet, Nasal"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/head/roguetown/helmet)
 
 /datum/supply_pack/rogue/armor_steel/helmet_winged
 	name = "Helmet, Winged"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/head/roguetown/helmet/winged)
 
 /datum/supply_pack/rogue/armor_steel/helmet_kettle
 	name = "Helmet, Kettle"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/head/roguetown/helmet/kettle)
 
 /datum/supply_pack/rogue/armor_steel/helmet_sallet
 	name = "Helmet, Sallet"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/head/roguetown/helmet/sallet)
 
 /datum/supply_pack/rogue/armor_steel/helmet_sallet_visor
@@ -167,35 +165,35 @@
 
 /datum/supply_pack/rogue/armor_steel/bevor
 	name = "Bevor"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/neck/roguetown/bevor)
 
 /datum/supply_pack/rogue/armor_steel/gorget_steel
 	name = "Gorget"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/neck/roguetown/gorget/steel)
 
 /datum/supply_pack/rogue/armor_steel/boots_steel
 	name = "Plated Boots"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/shoes/roguetown/boots/armor)
 
 /datum/supply_pack/rogue/armor_steel/mask_steel
 	name = "Mask"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/mask/rogue/facemask/steel)
 
 /datum/supply_pack/rogue/armor_steel/mask_steel_hound
 	name = "Mask, Hound"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/clothing/mask/rogue/facemask/steel/hound)
 
 /datum/supply_pack/rogue/armor_steel/steel/belt
 	name = "Belt"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/storage/belt/rogue/leather/steel)
 
 /datum/supply_pack/rogue/armor_steel/steel/belt
 	name = "Belt, Tasseted"
-	cost = 25
+	cost = 30
 	contains = list(/obj/item/storage/belt/rogue/leather/steel/tasset)
