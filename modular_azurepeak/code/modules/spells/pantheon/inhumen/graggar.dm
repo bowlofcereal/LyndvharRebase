@@ -111,6 +111,7 @@
 	releasedrain = 30
 	miracle = TRUE
 	devotion_cost = 80
+	antimagic_allowed = FALSE
 	var/static/list/purged_effects = list(
 	/datum/status_effect/incapacitating/immobilized,
 	/datum/status_effect/incapacitating/paralyzed,
