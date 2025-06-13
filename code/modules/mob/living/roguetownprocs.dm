@@ -773,7 +773,7 @@
 			if(higher_intfactor > 1)	//Make sure to keep your weapon and intent intfactors consistent to avoid problems here!
 				used_intfactor = higher_intfactor
 			damage *= used_intfactor
-		if(IM.wbalance < 0)
+		if(IM.wbalance == WBALANCE_HEAVY)
 			damage *= 1.5
 		IU.take_damage(max(damage,1), BRUTE, IM.d_type)
 		visible_message(span_suicide("[src] ripostes [H] with \the [IM]!"))
