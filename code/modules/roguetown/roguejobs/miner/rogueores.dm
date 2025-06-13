@@ -168,7 +168,7 @@
 	desc = "Forged strength. Essential for crafting."
 	icon_state = "ingotiron"
 	smeltresult = /obj/item/ingot/iron
-	sellprice = 25
+	sellprice = 15
 
 /obj/item/ingot/iron/Initialize(mapload, smelt_quality)
 	. = ..()
@@ -206,7 +206,7 @@
 	desc = "A hard and durable alloy favored by engineers and followers of Ravox alike."
 	icon_state = "ingotbronze"
 	smeltresult = /obj/item/ingot/bronze
-	sellprice = 30
+	sellprice = 25
 
 /obj/item/ingot/silver
 	name = "silver bar"
@@ -220,14 +220,14 @@
 	desc = "This ingot is a stalwart defender of the realm."
 	icon_state = "ingotsteel"
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 40
+	sellprice = 20
 
 /obj/item/ingot/blacksteel
 	name = "blacksteel bar"
 	desc = "Sacrificing the holy elements of silver for raw strength, this strange and powerful ingot's origin carries dark rumors.."
 	icon_state = "ingotblacksteel"
 	smeltresult = /obj/item/ingot/blacksteel
-	sellprice = 90
+	sellprice = 120
 
 //Blessed Ingots
 /obj/item/ingot/steelholy/
@@ -235,7 +235,7 @@
 	desc = "This ingot of steel has been touched by Malum. It radiates heat, even when outside a forge."
 	icon_state = "ingotsteelholy"
 	smeltresult = /obj/item/ingot/steel //Smelting it removes the blessing
-	sellprice = 60
+	sellprice = 20
 
 /obj/item/ingot/silverblessed/
 	name = "blessed silver bar"
