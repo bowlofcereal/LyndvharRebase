@@ -764,9 +764,15 @@
 		clash(user, IM, IU)
 	else	//Otherwise, we just riposte them.
 		var/damage = get_complex_damage(IM, src, IU.blade_dulling)
-		if(IM.intdamage_factor > 0 || used_intent.intent_intdamage_factor > 0)
+		if(IM.intdamage_factor != 1 || used_intent.intent_intdamage_factor != 1)
 			var/higher_intfactor = max(IM.intdamage_factor, used_intent.intent_intdamage_factor)
-			damage *= higher_intfactor
+			var/lowest_intfactor = min(IM.intdamage_factor, used_intent.intent_intdamage_factor)
+			var/used_intfactor
+			if(lowest_intfactor < 1)	//Our intfactor multiplier can be either 0 to 1, or 1 to whatever.
+				used_intfactor = lowest_intfactor
+			if(higher_intfactor > 1)	//Make sure to keep your weapon and intent intfactors consistent to avoid problems here!
+				used_intfactor = higher_intfactor
+			damage *= used_intfactor
 		if(IM.wbalance < 0)
 			damage *= 1.5
 		IU.take_damage(max(damage,1), BRUTE, IM.d_type)
