@@ -28,6 +28,16 @@
 	cost = 30
 	contains = list(/obj/item/clothing/suit/roguetown/armor/plate/half/iron)
 
+/datum/supply_pack/rogue/armor_iron/brigandine_light
+	name = "Brigandine, Light"
+	cost = 30
+	contains = list(/obj/item/clothing/suit/roguetown/armor/brigandine/light)
+
+/datum/supply_pack/rogue/armor_iron/rearbraces
+	name = "Rererbraces, Brigandine"
+	cost = 25
+	contains = list(/obj/item/clothing/wrists/roguetown/splintarms)
+
 /datum/supply_pack/rogue/armor_iron/chaingloves_iron
 	name = "Gauntlets, Chain"
 	cost = 20
@@ -37,6 +47,11 @@
 	name = "Chausses, Chain"
 	cost = 20
 	contains = list(/obj/item/clothing/under/roguetown/chainlegs/iron)
+
+/datum/supply_pack/rogue/armor_iron/chausses_brigandine
+	name = "Chausses, Brigandine"
+	cost = 25
+	contains = list(/obj/item/clothing/under/roguetown/splintlegs)
 
 /datum/supply_pack/rogue/armor_iron/mask_iron
 	name = "Mask"
