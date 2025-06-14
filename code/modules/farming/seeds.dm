@@ -75,8 +75,12 @@
 	plant_def_type = /datum/plant_def/apple
 
 /obj/item/seeds/nut
-	seed_identity = "rocknut"
+	seed_identity = "rocknut seeds"
 	plant_def_type = /datum/plant_def/nut
+
+/obj/item/seeds/sugarcane
+	seed_identity = "sugarcane seeds"
+	plant_def_type = /datum/plant_def/sugarcane
 
 /obj/item/seeds/pipeweed
 	seed_identity = "westleach leaf seeds"

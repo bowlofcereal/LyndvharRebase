@@ -53,7 +53,7 @@
 	foodtype = GRAIN
 	tastes = list("wheat" = 1)
 	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer
+	distill_reagent = /datum/reagent/consumable/ethanol
 	distill_amt = 24
 	grind_results = list(/datum/reagent/floure = 10)
 	mill_result = /obj/item/reagent_containers/powder/flour
@@ -110,7 +110,7 @@
 	worn_y_dimension = 64
 	rotprocess = 20 MINUTES
 	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/cider
+	distill_reagent = /datum/reagent/consumable/ethanol/cider
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/fruit/apple_sliced
 	slices_num = 3
 	chopping_sound = TRUE
@@ -163,7 +163,7 @@
 	dropshrink = 0.75
 	var/color_index = "good"
 	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/jackberrywine
+	distill_reagent = /datum/reagent/consumable/ethanol/jackberrywine
 	rotprocess = 15 MINUTES
 
 /obj/item/reagent_containers/food/snacks/grown/berries/rogue/Initialize()
@@ -218,6 +218,28 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/acorn_powder = 4, /datum/reagent/drug/nicotine = 1)
 	grind_results = list(/datum/reagent/consumable/acorn_powder = 4)
 	mill_result = /obj/item/reagent_containers/powder/rocknut
+
+/obj/item/reagent_containers/food/snacks/grown/sugarcane
+	seed = /obj/item/seeds/sugarcane
+	name = "sugarcane"
+	desc = "A tall, leafy plant with a thick, fibrous stalk. It can be milled into sugar. Commonly eaten as a snack in part of the former Zhongese dynasty."
+	icon_state = "sugarcane"
+	throwforce = 0
+	w_class = WEIGHT_CLASS_TINY
+	throw_speed = 1
+	throw_range = 3
+	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 5)
+	dropshrink = 0.8
+	rotprocess = null
+	mill_result = /obj/item/reagent_containers/food/snacks/sugar
+
+/obj/item/reagent_containers/food/snacks/sugar
+	name = "sugar"
+	desc ="Milled sugarcane, sweet as can be."
+	icon = 'icons/roguetown/items/produce.dmi'
+	icon_state = "salt"
+	tastes = list("sweet" = 1)
+	list_reagents = list(/datum/reagent/consumable/sugar = 15)
 
 //pyroclastic flowers - stonekeep port
 /obj/item/reagent_containers/food/snacks/grown/rogue/fyritius
@@ -367,7 +389,7 @@
 	bitesize = 2
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/onion
+	distill_reagent = /datum/reagent/consumable/ethanol/onion
 	rotprocess = null
 	seed = /obj/item/seeds/onion
 
@@ -382,7 +404,7 @@
 	slices_num = 3
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced
 	chopping_sound = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/fireleaf
+	distill_reagent = /datum/reagent/consumable/ethanol/fireleaf
 	rotprocess = SHELFLIFE_LONG
 	seed = /obj/item/seeds/cabbage
 
@@ -399,7 +421,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked
 	chopping_sound = TRUE
 	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/beer/voddena
+	distill_reagent = /datum/reagent/consumable/ethanol/voddena
 	rotprocess = null
 	seed = /obj/item/seeds/potato
 
