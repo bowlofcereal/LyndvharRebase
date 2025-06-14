@@ -157,14 +157,19 @@
 					/obj/item/storage/keyring,
 					/obj/item/storage/keyring)
 
+/datum/supply_pack/rogue/tools/scythe
+	name = "Scythe"
+	cost = 25
+	contains = list(/obj/item/rogueweapon/scythe)
+
 /datum/supply_pack/rogue/tools/handsaw
 	name = "Handsaw"
-	cost = 60
+	cost = 35
 	contains = list(/obj/item/rogueweapon/handsaw)
 
 /datum/supply_pack/rogue/tools/hammer
 	name = "Hammer"
-	cost = 60
+	cost = 35
 	contains = list(/obj/item/rogueweapon/hammer/iron)
 
 /datum/supply_pack/rogue/tools/fryingpan
@@ -175,6 +180,7 @@
 /datum/supply_pack/rogue/tools/shopkeyy
 	name = "Spare Shopkey"
 	cost = 10
+	not_in_public = TRUE
 	contains = list(/obj/item/roguekey/shop)
 
 /datum/supply_pack/rogue/tools/alch_bottle

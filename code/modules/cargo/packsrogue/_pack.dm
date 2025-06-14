@@ -11,6 +11,7 @@
 	var/desc = ""//no desc by default
 	var/crate_type = /obj/structure/closet/crate
 	var/no_name_quantity = FALSE // If TRUE, do not display the name as "[Name] x [Amount]".
+	var/not_in_public = FALSE // If true, this pack will not be listed in the public goldface.
 	var/dangerous = FALSE // Should we message admins?
 	var/special = FALSE //Event/Station Goals/Admin enabled packs
 	var/special_enabled = FALSE
