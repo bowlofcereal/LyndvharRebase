@@ -78,14 +78,14 @@
 	icon_state = "orecoal[rand(1,3)]"
 	..()
 
-/obj/item/rogueore/charcoal
+/obj/item/rogueore/coal/charcoal
 	name = "charcoal"
 	icon_state = "oreada"
-	desc = "Burnt lumps of wood."
+	desc = "Wood that has been burnt and transformed into charcoal. Can be used to fuel fires or used to smelt iron."
 	dropshrink = 0.8
 	color = "#929292"
 	firefuel = 15 MINUTES
-	smeltresult = /obj/item/rogueore/charcoal
+	smeltresult = /obj/item/rogueore/coal/charcoal
 	sellprice = 1
 
 /obj/item/ingot

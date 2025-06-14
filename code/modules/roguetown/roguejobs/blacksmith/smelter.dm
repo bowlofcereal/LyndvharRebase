@@ -206,6 +206,8 @@
 					for(var/obj/item/I in ore)
 						if(I.smeltresult == /obj/item/rogueore/coal)
 							steelalloycoal += 1
+						if(I.smeltresult == /obj/item/rogueore/coal/charcoal)
+							steelalloycoal += 1
 						if(I.smeltresult == /obj/item/ingot/iron)
 							steelalloyiron += 1
 						if(I.smeltresult == /obj/item/ingot/tin)
