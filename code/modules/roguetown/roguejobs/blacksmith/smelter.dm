@@ -24,6 +24,15 @@
 	fueluse = 30 MINUTES
 	crossfire = FALSE
 
+/obj/machinery/light/rogue/smelter/examine(mob/user, params)
+	. = ..()
+	. += span_info("It can hold up to [maxore] ores at a time.")
+	. += span_info("Left click to insert an item. If it is a fuel item, a prompt will show on whether you want to fuel or smelt it. Right click on the furnace to put an item inside for smelting only.")
+	if(ore.len)
+		. += span_notice("Peeking inside, you can see:")
+	for(var/obj/item/I in ore)
+		. += span_info("- [I]")
+
 /obj/machinery/light/rogue/smelter/attackby(obj/item/W, mob/living/user, params)
 	if(istype(W, /obj/item/rogueweapon/tongs))
 		if(!actively_smelting) // Prevents an exp gain exploit. - Foxtrot
@@ -100,6 +109,20 @@
 	else
 		if(!W.firefuel && !istype(W, /obj/item/flint) && !istype(W, /obj/item/flashlight/flare/torch) && !istype(W, /obj/item/rogueore/coal))
 			to_chat(user, span_warning("\The [W.name] cannot be smelted."))
+	return ..()
+
+/obj/machinery/light/rogue/smelter/attack_right(mob/user)
+	var/obj/item/I = user.get_active_held_item()
+	if(I && I.smeltresult)
+		if(!I)
+			return
+		if(user.get_active_held_item() != I)
+			to_chat(user, span_warning("That item is no longer in my hand..."))
+			return
+		if(ore.len < maxore)
+			user.dropItemToGround(I)
+			I.forceMove(src)
+			ore += I
 	return ..()
 
 // Gaining experience from just retrieving bars with your hands would be a hard-to-patch exploit.
