@@ -137,6 +137,48 @@
 			if(equippedloc != H.loc)
 				H.dropItemToGround(H.head)
 
+/obj/item/reagent_containers/food/snacks/grown/fruit
+	name = "generic fruit"
+	desc = "Uh oh, this shouldn't be here."
+	bitesize = 2
+	foodtype = FRUIT
+	rotprocess = SHELFLIFE_DECENT
+
+/obj/item/reagent_containers/food/snacks/grown/fruit/pear
+	name = "pear"
+	seed = /obj/item/seeds/pear
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "pear"
+	tastes = list("pear" = 1)
+
+/obj/item/reagent_containers/food/snacks/grown/fruit/lemon
+	name = "lemon"
+	seed = /obj/item/seeds/lemon
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "lemon"
+	tastes = list("lemon" = 1)
+
+/obj/item/reagent_containers/food/snacks/grown/fruit/lime
+	name = "lime"
+	seed = /obj/item/seeds/lime
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "lemon" // Need a real icon
+	tastes = list("lime" = 1)
+
+/obj/item/reagent_containers/food/snacks/grown/fruit/tangerine
+	name = "tangerine"
+	seed = /obj/item/seeds/tangerine
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "tangerine"
+	tastes = list("tangerine" = 1)
+
+/obj/item/reagent_containers/food/snacks/grown/fruit/plum
+	name = "plum"
+	seed = /obj/item/seeds/plum
+	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	icon_state = "plum"
+	tastes = list("plum" = 1)
+
 /obj/item/reagent_containers/food/snacks/grown/berries/rogue
 	seed = /obj/item/seeds/berryrogue
 	name = "jacksberries"

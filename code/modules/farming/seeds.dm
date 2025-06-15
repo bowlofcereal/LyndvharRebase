@@ -72,7 +72,27 @@
 
 /obj/item/seeds/apple
 	seed_identity = "apple seeds"
-	plant_def_type = /datum/plant_def/apple
+	plant_def_type = /datum/plant_def/tree/apple
+
+/obj/item/seeds/pear
+	seed_identity = "pear seeds"
+	plant_def_type = /datum/plant_def/tree/pear
+
+/obj/item/seeds/lemon
+	seed_identity = "lemon seeds"
+	plant_def_type = /datum/plant_def/tree/lemon
+
+/obj/item/seeds/lime
+	seed_identity = "lime seeds"
+	plant_def_type = /datum/plant_def/tree/lime
+
+/obj/item/seeds/tangerine
+	seed_identity = "tangerine seeds"
+	plant_def_type = /datum/plant_def/tree/tangerine
+
+/obj/item/seeds/plum
+	seed_identity = "plum seeds"
+	plant_def_type = /datum/plant_def/tree/plum
 
 /obj/item/seeds/nut
 	seed_identity = "rocknut seeds"
