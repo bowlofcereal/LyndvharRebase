@@ -7951,10 +7951,12 @@
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/town/roofs)
 "cNG" = (
+/obj/item/recipe_book/sewing,
 /obj/structure/table/wood{
 	dir = 1;
 	icon_state = "longtable"
 	},
+/obj/item/recipe_book/leatherworking,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "cNI" = (
@@ -9056,6 +9058,8 @@
 	dir = 1;
 	icon_state = "longtable"
 	},
+/obj/item/recipe_book/sewing,
+/obj/item/recipe_book/leatherworking,
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/town)
 "dgV" = (
@@ -12181,6 +12185,8 @@
 	icon_state = "largetable";
 	pixel_x = 5
 	},
+/obj/item/recipe_book/blacksmithing,
+/obj/item/recipe_book/engineering,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/dwarfin)
 "elY" = (
@@ -13253,6 +13259,12 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/shelter/woods)
+"eCs" = (
+/obj/structure/flora/roguegrass,
+/obj/structure/flora/ausbushes/ywflowers,
+/obj/item/recipe_book/cooking,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/town)
 "eCG" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -15325,6 +15337,9 @@
 	icon_state = "shelf_biggest";
 	pixel_y = 0
 	},
+/obj/item/bottle_kit,
+/obj/item/bottle_kit,
+/obj/item/bottle_kit,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/town/basement)
 "fkU" = (
@@ -31601,6 +31616,10 @@
 /obj/item/cooking/pan,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
+"kLc" = (
+/obj/item/bottle_kit,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/town)
 "kLe" = (
 /obj/structure/fluff/railing/wood,
 /obj/structure/well,
@@ -36696,6 +36715,7 @@
 	},
 /obj/item/natural/clay/glassbatch,
 /obj/item/natural/clay/glassbatch,
+/obj/item/recipe_book/ceramics,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town)
 "myg" = (
@@ -50396,6 +50416,8 @@
 	dir = 4;
 	icon_state = "largetable"
 	},
+/obj/item/recipe_book/blacksmithing,
+/obj/item/recipe_book/engineering,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/dwarfin)
 "rdZ" = (
@@ -50563,6 +50585,8 @@
 "rgx" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/wooden,
+/obj/item/recipe_book/blacksmithing,
+/obj/item/recipe_book/engineering,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -56149,6 +56173,9 @@
 	dir = 8;
 	icon_state = "largetable"
 	},
+/obj/item/recipe_book/engineering,
+/obj/item/recipe_book/blacksmithing,
+/obj/item/recipe_book/builder,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/indoors/town)
 "tbn" = (
@@ -61194,6 +61221,7 @@
 	dir = 1;
 	icon_state = "longtable_mid"
 	},
+/obj/item/recipe_book/survival,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/tavern)
 "uHE" = (
@@ -249773,8 +249801,8 @@ sns
 uZQ
 trN
 xJw
-pWT
-aZo
+kLc
+eCs
 lKo
 pqo
 lKo
