@@ -69,7 +69,7 @@
 		html += "<h3>Items Required</h3>"
 		for(var/atom/path as anything in needed_crops)
 			var/count = needed_crops[path]
-			html += "[icon2html(new path, user)] [count] parts [initial(path.name)]<br>"
+			html += "[count] parts [initial(path.name)]<br>"
 		for(var/atom/path as anything in needed_items)
 			var/count = needed_items[path]
 			html += "[count] parts [initial(path.name)]<br>"
@@ -93,6 +93,8 @@
 	if(ages)
 		for(var/datum/reagent/path as anything in age_times)
 			html += "After aging for [age_times[path] * 0.1] Seconds, becomes [initial(path.name)].<br>"
+	if(sell_value)
+		html += "A barrel sells for: [sell_value] mammons.<br>"
 
 	html += {"
 		</div>

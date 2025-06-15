@@ -1,5 +1,6 @@
 /datum/brewing_recipe/aqua_vitae
 	name = "Aqua Vitae - Apple"
+	category = "Aqua Vitae"
 	brewed_amount = 3
 	brew_time = 8 MINUTES
 	sell_value = 70

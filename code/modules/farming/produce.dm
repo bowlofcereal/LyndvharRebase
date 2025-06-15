@@ -3,9 +3,6 @@
 	dried_type = null
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
-	var/can_distill = FALSE //If FALSE, this object cannot be distilled into an alcohol.
-	var/distill_reagent //If NULL and this object can be distilled, it uses a generic fruit_wine reagent and adjusts its variables.
-	var/distill_amt = 12
 	var/list/pipe_reagents = list()
 	var/seed
 	var/bitesize_mod = 0
@@ -52,9 +49,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("wheat" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol
-	distill_amt = 24
 	grind_results = list(/datum/reagent/floure = 10)
 	mill_result = /obj/item/reagent_containers/powder/flour
 
@@ -69,9 +63,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("oat" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/ale
-	distill_amt = 24
 	grind_results = list(/datum/reagent/floure = 10)
 	mill_result = /obj/item/reagent_containers/powder/flour
 
@@ -86,9 +77,6 @@
 	bitesize_mod = 2
 	foodtype = GRAIN
 	tastes = list("rice" = 1)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/sake
-	distill_amt = 24
 	grind_results = list(/datum/reagent/floure = 10)
 	mill_result = /obj/item/reagent_containers/powder/flour
 
@@ -109,8 +97,6 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	worn_y_dimension = 64
 	rotprocess = 20 MINUTES
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/cider
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/fruit/apple_sliced
 	slices_num = 3
 	chopping_sound = TRUE
@@ -162,8 +148,6 @@
 	faretype = FARE_NEUTRAL
 	dropshrink = 0.75
 	var/color_index = "good"
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/jackberrywine
 	rotprocess = 15 MINUTES
 
 /obj/item/reagent_containers/food/snacks/grown/berries/rogue/Initialize()
@@ -388,8 +372,6 @@
 	tastes = list("spicy sweetness" = 1)
 	bitesize = 2
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/onion
 	rotprocess = null
 	seed = /obj/item/seeds/onion
 
@@ -400,11 +382,9 @@
 	tastes = list("blandness" = 1)
 	bitesize = 10
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
-	can_distill = TRUE
 	slices_num = 3
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced
 	chopping_sound = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/fireleaf
 	rotprocess = SHELFLIFE_LONG
 	seed = /obj/item/seeds/cabbage
 
@@ -420,8 +400,6 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked
 	chopping_sound = TRUE
-	can_distill = TRUE
-	distill_reagent = /datum/reagent/consumable/ethanol/voddena
 	rotprocess = null
 	seed = /obj/item/seeds/potato
 
@@ -435,7 +413,6 @@
 	tastes = list("pungent umami" = 1)
 	bitesize = 2
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1) //add a reagent that harms vampires later
-	can_distill = FALSE
 	rotprocess = null
 	chopping_sound = TRUE
 	seed = /obj/item/seeds/garlick

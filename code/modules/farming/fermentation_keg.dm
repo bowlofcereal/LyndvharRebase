@@ -249,6 +249,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		to_chat(user, span_notice("I am not knowledgable enough to brew."))
 		return FALSE
 
+	options = sortList(options)
 	var/choice = input(user,"What brew do you want to make?", name) as null|anything in options
 
 	if(!choice)
