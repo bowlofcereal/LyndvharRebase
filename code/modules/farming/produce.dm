@@ -179,6 +179,34 @@
 	icon_state = "plum"
 	tastes = list("plum" = 1)
 
+/obj/item/reagent_containers/food/snacks/grown/fruit/strawberry
+	name = "strawberry"
+	seed = /obj/item/seeds/strawberry
+	desc = "A small, red fruit with a sweet taste. It is often used in desserts."
+	icon_state = "strawberry"
+	tastes = list("strawberry" = 1)
+
+/obj/item/reagent_containers/food/snacks/grown/fruit/blackberry
+	name = "blackberry"
+	seed = /obj/item/seeds/blackberry
+	desc = "A small, dark fruit with a sweet and slightly tart taste. It is often used in desserts."
+	icon_state = "blackberry"
+	tastes = list("blackberry" = 1)
+
+/obj/item/reagent_containers/food/snacks/grown/fruit/raspberry
+	name = "raspberry"
+	seed = /obj/item/seeds/raspberry
+	desc = "A small, red fruit with a sweet and slightly tart taste. It is often used in desserts."
+	icon_state = "raspberry"
+	tastes = list("raspberry" = 1)
+
+/obj/item/reagent_containers/food/snacks/grown/fruit/tomato
+	name = "tomato"
+	seed = /obj/item/seeds/tomato
+	desc = "A red fruit that is often mistaken for a vegetable. It is commonly used in salads and sauces."
+	icon_state = "tomato"
+	tastes = list("tomato" = 1)
+
 /obj/item/reagent_containers/food/snacks/grown/berries/rogue
 	seed = /obj/item/seeds/berryrogue
 	name = "jacksberries"
@@ -261,11 +289,44 @@
 
 /obj/item/reagent_containers/food/snacks/sugar
 	name = "sugar"
-	desc ="Milled sugarcane, sweet as can be."
+	desc = "Milled sugarcane, sweet as can be."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "salt"
 	tastes = list("sweet" = 1)
 	list_reagents = list(/datum/reagent/consumable/sugar = 15)
+
+/obj/item/reagent_containers/food/snacks/grown/vegetable/turnip
+	name = "turnip"
+	desc = "A shield against hunger, naught else."
+	seed = /obj/item/seeds/turnip
+	icon_state = "turnip"
+	tastes = list("dirt" = 1)
+	bitesize = 1
+	slices_num = 1
+	slice_path = /obj/item/reagent_containers/food/snacks/veg/turnip_sliced
+	foodtype = VEGETABLES
+	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
+	chopping_sound = TRUE
+	dropshrink = 0.9
+	rotprocess = SHELFLIFE_EXTREME
+
+/*	..................   Sunflower   ................... */
+/obj/item/reagent_containers/food/snacks/grown/sunflower
+	name = "sunflower"
+	desc = "A large, bright yellow flower. Can be worn on the head. Can be roasted directly to make roasted sunflower seeds. Do not attempt to roast its actual seeds."
+	icon_state = "sunflower"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head_items.dmi'
+	seed = /obj/item/seeds/sunflower
+	slot_flags = ITEM_SLOT_HEAD
+	throwforce = 0
+	w_class = WEIGHT_CLASS_TINY
+	throw_speed = 1
+	throw_range = 3
+	list_reagents = list(/datum/reagent/consumable/nutriment = 0)
+	dropshrink = 0.8
+	rotprocess = null
+	cooked_type = /obj/item/reagent_containers/food/snacks/roastseeds // Yeah..
+	fried_type = /obj/item/reagent_containers/food/snacks/roastseeds // Whatever I am not refactoring this yet
 
 //pyroclastic flowers - stonekeep port
 /obj/item/reagent_containers/food/snacks/grown/rogue/fyritius
@@ -329,8 +390,8 @@
 	qdel(src)
 	return TRUE
 
-/obj/item/reagent_containers/food/snacks/grown/rogue/sweetleaf
-	seed = /obj/item/seeds/sweetleaf
+/obj/item/reagent_containers/food/snacks/grown/rogue/swampweed
+	seed = /obj/item/seeds/swampweed
 	name = "swampweed"
 	desc = "A pipeweed with pungent odor and a sparkling surface."
 	icon_state = "swampweed"
@@ -380,7 +441,7 @@
 		slapcraft_recipes = slapcraft_recipe_list,\
 		)
 
-/obj/item/reagent_containers/food/snacks/grown/rogue/sweetleafdry
+/obj/item/reagent_containers/food/snacks/grown/rogue/swampweeddry
 	seed = null
 	name = "swampweed"
 	desc = "A prepared pipeweed prized for its foggy effects."
@@ -391,7 +452,7 @@
 	grind_results = list(/datum/reagent/drug/space_drugs = 5)
 	eat_effect = /datum/status_effect/debuff/badmeal
 
-/obj/item/reagent_containers/food/snacks/grown/rogue/sweetleafdry/Initialize()
+/obj/item/reagent_containers/food/snacks/grown/rogue/swampweeddry/Initialize()
 	. = ..()
 	var/static/list/slapcraft_recipe_list = list(
 		/datum/crafting_recipe/roguetown/survival/sigsweet,

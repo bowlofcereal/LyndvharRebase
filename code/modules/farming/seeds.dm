@@ -94,6 +94,22 @@
 	seed_identity = "plum seeds"
 	plant_def_type = /datum/plant_def/tree/plum
 
+/obj/item/seeds/strawberry
+	seed_identity = "strawberry seeds"
+	plant_def_type = /datum/plant_def/bush/strawberry
+
+/obj/item/seeds/blackberry
+	seed_identity = "blackberry seeds"
+	plant_def_type = /datum/plant_def/bush/blackberry
+
+/obj/item/seeds/raspberry
+	seed_identity = "raspberry seeds"
+	plant_def_type = /datum/plant_def/bush/raspberry
+
+/obj/item/seeds/tomato
+	seed_identity = "tomato seeds"
+	plant_def_type = /datum/plant_def/bush/tomato
+
 /obj/item/seeds/nut
 	seed_identity = "rocknut seeds"
 	plant_def_type = /datum/plant_def/nut
@@ -106,17 +122,25 @@
 	seed_identity = "westleach leaf seeds"
 	plant_def_type = /datum/plant_def/pipeweed
 
-/obj/item/seeds/sweetleaf
+/obj/item/seeds/swampweed
 	seed_identity = "swampweed seeds"
-	plant_def_type = /datum/plant_def/sweetleaf
+	plant_def_type = /datum/plant_def/swampweed
 
 /obj/item/seeds/berryrogue
 	seed_identity = "berry seeds"
-	plant_def_type = /datum/plant_def/berry
+	plant_def_type = /datum/plant_def/bush/berry
 
 /obj/item/seeds/berryrogue/poison
 	seed_identity = "berry seeds"
-	plant_def_type = /datum/plant_def/berry_poison
+	plant_def_type = /datum/plant_def/bush/berry_poison
+
+/obj/item/seeds/turnip
+	seed_identity = "turnip seeds"
+	plant_def_type = /datum/plant_def/turnip
+
+/obj/item/seeds/sunflower
+	seed_identity = "sunflower seeds"
+	plant_def_type = /datum/plant_def/sunflower
 
 /obj/item/seeds/onion
 	seed_identity = "onion seeds"
