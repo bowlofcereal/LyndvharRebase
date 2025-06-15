@@ -147,35 +147,35 @@
 /obj/item/reagent_containers/food/snacks/grown/fruit/pear
 	name = "pear"
 	seed = /obj/item/seeds/pear
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "A juicy, bell-shaped fruit with a delicate sweetness and soft, grainy flesh."
 	icon_state = "pear"
 	tastes = list("pear" = 1)
 
 /obj/item/reagent_containers/food/snacks/grown/fruit/lemon
 	name = "lemon"
 	seed = /obj/item/seeds/lemon
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "A bright yellow citrus fruit, prized for its tart, refreshing juice and fragrant zest."
 	icon_state = "lemon"
 	tastes = list("lemon" = 1)
 
 /obj/item/reagent_containers/food/snacks/grown/fruit/lime
 	name = "lime"
 	seed = /obj/item/seeds/lime
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "A small, green citrus fruit with a sharp, tangy flavor, often used to add zest to dishes and drinks."
 	icon_state = "lemon" // Need a real icon
 	tastes = list("lime" = 1)
 
 /obj/item/reagent_containers/food/snacks/grown/fruit/tangerine
 	name = "tangerine"
 	seed = /obj/item/seeds/tangerine
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "A small, easy-to-peel citrus fruit with a vibrant orange color and sweet, juicy segments."
 	icon_state = "tangerine"
 	tastes = list("tangerine" = 1)
 
 /obj/item/reagent_containers/food/snacks/grown/fruit/plum
 	name = "plum"
 	seed = /obj/item/seeds/plum
-	desc = "Too sweet for many, a favored treat for little ones. Dwarves do love them."
+	desc = "A smooth-skinned fruit with juicy, sweet-tart flesh and a deep purple or red hue."
 	icon_state = "plum"
 	tastes = list("plum" = 1)
 
@@ -203,7 +203,7 @@
 /obj/item/reagent_containers/food/snacks/grown/fruit/tomato
 	name = "tomato"
 	seed = /obj/item/seeds/tomato
-	desc = "A red fruit that is often mistaken for a vegetable. It is commonly used in salads and sauces."
+	desc = "A plump, red fruit with juicy flesh and a balanced sweet-tart flavor, essential in salads and sauces."
 	icon_state = "tomato"
 	tastes = list("tomato" = 1)
 
