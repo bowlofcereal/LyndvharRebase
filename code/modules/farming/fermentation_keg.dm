@@ -208,7 +208,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		if(selected_recipe.helpful_hints)
 			message += "[selected_recipe.helpful_hints].\n"
 
-		. += span_blue("Right-Click on the Barrel to clear it.")
+		. += span_blue("Right-Click on the Barrel to clear it. Left-Click to start brewing.")
 		/*
 		if(istype(selected_recipe, /datum/brewing_recipe/custom_recipe))
 			var/datum/brewing_recipe/custom_recipe/recipe = selected_recipe

@@ -141,6 +141,7 @@
 	name = "generic fruit"
 	desc = "Uh oh, this shouldn't be here."
 	bitesize = 2
+	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	foodtype = FRUIT
 	rotprocess = SHELFLIFE_DECENT
 

@@ -53,7 +53,7 @@
 	verbage_simple = "engineer"
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
-	craftdiff = 4
+	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/engineering/freedomchair
 	name = "LIBERTAS"
