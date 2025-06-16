@@ -10,5 +10,4 @@
 /datum/brewing_recipe/beer/oat
 	name = "Oat Ale"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/ale
-	brewed_amount = 2
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/oat = 4)
