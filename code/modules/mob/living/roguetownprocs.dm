@@ -196,11 +196,14 @@
 						var/spdmod = ((user.STASPD - src.STASPD) * 10)
 						var/permod = ((src.STAPER - user.STAPER) * 10)
 						var/intmod = ((src.STAINT - user.STAINT) * 3)
-						if(permod > 0)
-							spdmod -= permod
-						if(intmod > 0)
-							spdmod -= intmod
-						var/finalmod = clamp(spdmod, 0, 30)
+						if(mind)
+							if(permod > 0)
+								spdmod -= permod
+							if(intmod > 0)
+								spdmod -= intmod
+						var/finalmod = spdmod
+						if(mind)
+							finalmod = clamp(spdmod, 0, 30)
 						prob2defend -= finalmod
 				else
 					attacker_skill = U.mind.get_skill_level(/datum/skill/combat/unarmed)
