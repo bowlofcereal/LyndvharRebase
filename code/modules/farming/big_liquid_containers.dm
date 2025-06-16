@@ -14,7 +14,6 @@
 // Water
 /obj/structure/fermentation_keg/random/water
 	name = "water barrel"
-	icon_state = "pbarrel1"
 
 /obj/structure/fermentation_keg/random/water/Initialize()
 	. = ..()
@@ -26,7 +25,6 @@
 
 /obj/structure/fermentation_keg/water
 	name = "water barrel"
-	icon_state = "pbarrel1"
 
 /obj/structure/fermentation_keg/water/Initialize()
 	. = ..()
