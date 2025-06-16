@@ -58,7 +58,7 @@
 /datum/plant_def/onion
 	name = "onion patch"
 	icon_state = "onion"
-	produce_type = /obj/item/reagent_containers/food/snacks/grown/onion
+	produce_type = /obj/item/reagent_containers/food/snacks/grown/onion/rogue
 	produce_amount_min = 3
 	produce_amount_max = 4
 	maturation_time = FAST_GROWING
