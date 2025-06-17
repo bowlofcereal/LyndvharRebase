@@ -12,7 +12,7 @@
 	SSmapping.add_world_trait(/datum/world_trait/zizo_defilement, 15 MINUTES)
 
 /datum/round_event_control/zizo_pet_cementery
-	name = "Zizo's Pet Cementary"
+	name = "Zizo's Pet Cementery"
 	track = EVENT_TRACK_INTERVENTION
 	typepath = /datum/round_event/zizo_pet_cementery
 	weight = 8
