@@ -73,3 +73,7 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 	anchored = TRUE
 	max_integrity = 0
 	var/pointid = "REPLACETHIS"
+
+/datum/round_event_control/deadite_animal_migration/canSpawnEvent(players_amt, gamemode, fake_check)
+	if(!LAZYLEN(GLOB.migrationpoints) || !LAZYLEN(GLOB.deadite_animal_migration_points))
+		return FALSE
