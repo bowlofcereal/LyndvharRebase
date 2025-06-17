@@ -1281,3 +1281,36 @@
 	Its blade bears twin inscriptions on either side. One reads, \"THY KINGDOM COME\" while the obverse reads, \"THY WILL BE DONE\"."
 	icon_state = "declongsword"
 	sellprice = 140
+	
+// kazengite content
+
+/obj/item/rogueweapon/sword/sabre/mulyeog
+	force = 25
+	name = "foreign straight sword"
+	desc = "A foreign sword used by cut-throats & thugs. There's a red tassel on the hilt."
+	icon_state = "eastsword1"
+	smeltresult = /obj/item/ingot/steel
+	max_integrity = 20
+	wdefense = 5
+
+/obj/item/rogueweapon/sword/sabre/mulyeog/bladefiend
+	force = 30
+	name = "RESENTMENT"
+	desc = "A foreign sword once used by the bodyguards of a far-away land. There's an old red tassel on the hilt."
+	icon_state = "eastsword1"
+	max_integrity = 40
+	wdefense = 8
+
+/obj/item/rogueweapon/sword/sabre/mulyeog/rumahench
+	name = "lenticular straight sword"
+	desc = "A steel sword with cloud patterns on the groove. Obey the Captain."
+	icon_state = "eastsword2"
+	wdefense = 5
+
+/obj/item/rogueweapon/sword/sabre/mulyeog/rumacaptain
+	force = 30
+	name = "Heiyundao"
+	desc = "A gold-stained sword that demands respect and loyalty. Rumored to be from the Eastern Regions of Kazengun."
+	icon_state = "eastsword3"
+	max_integrity = 40
+	wdefense = 8
