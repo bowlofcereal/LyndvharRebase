@@ -8,17 +8,9 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 	GLOB.deadite_animal_migration_points += src
 	icon_state = ""
 
-/obj/effect/landmark/events/migration_end_point
-	name = "Migration End Point"
-
-/obj/effect/landmark/events/deadite_animal_migration_point/Initialize(mapload)
-	. = ..()
-	GLOB.migrationpoints += src
-	icon_state = ""
-
 /datum/round_event_control/deadite_animal_migration
 	name = "Deadite Animal Migration"
-	track = EVENT_TRACK_MUNDANE
+	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/deadite_migration/deadite
 	weight = 10
 	max_occurrences = 2
@@ -26,8 +18,8 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 	earliest_start = 20 MINUTES
 
 	tags = list(
-		TAG_NATURE,
-		TAG_BOON,
+		TAG_TRICKERY,
+		TAG_UNEXPECTED,
 	)
 
 /datum/round_event/deadite_migration
@@ -43,24 +35,28 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 			continue
 		points |= point
 
-	var/turf/start_turf = get_turf(pick(points))
-	var/turf/end_turf = get_turf(pick(GLOB.animal_migration_points))
+	var/turf/end_turf = get_turf(pick(points))
 	var/mob/living/simple_animal/hostile/retaliate/rogue/animal = pick(animals)
 	for(var/i = 1 to rand(3, 5))
+		var/turf/start_turf = get_turf(pick(GLOB.deadite_animal_migration_points))
 		var/mob/living/simple_animal/hostile/retaliate/rogue/created = new animal(start_turf)
 		if(created.ai_controller)
 			created.ai_controller.set_blackboard_key(BB_WANDER_POINT, end_turf)
 			var/list/ai_controller_paths = list()
+			ai_controller_paths |= /datum/ai_planning_subtree/travel_to_point/and_clear_target/wander
 			for(var/datum/ai_planning_subtree/tree as anything in created.ai_controller.planning_subtrees)
 				ai_controller_paths |= tree.type
-			ai_controller_paths |= /datum/ai_planning_subtree/travel_to_point/and_clear_target/wander
 			created.ai_controller.replace_planning_subtrees(ai_controller_paths)
+			created.ai_controller.CancelActions()
+			created.ai_controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
+
+			created.ai_controller.set_blackboard_key(BB_WANDER_POINT, end_turf)
 		else
 			created.GiveTarget(end_turf)
 
-/datum/round_event/animal_migration/deadite
+/datum/round_event/deadite_migration/deadite
 	animals = list(
-		/mob/living/simple_animal/hostile/retaliate/rogue/saiga/undead,
+		/mob/living/simple_animal/hostile/retaliate/rogue/wolf,
 	)
 
 //Snowflake marker for migrations. Dun_world got rid of travel tiles, so we snowflake it up in this bitch.
@@ -77,3 +73,7 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 /datum/round_event_control/deadite_animal_migration/canSpawnEvent(players_amt, gamemode, fake_check)
 	if(!LAZYLEN(GLOB.migrationpoints) || !LAZYLEN(GLOB.deadite_animal_migration_points))
 		return FALSE
+
+/obj/structure/fluff/migration_point/Initialize(mapload)
+	. = ..()
+	GLOB.migrationpoints += src

@@ -62,14 +62,3 @@ GLOBAL_LIST_INIT(animal_migration_points, list())
 		/mob/living/simple_animal/hostile/retaliate/rogue/goat,
 		/mob/living/simple_animal/hostile/retaliate/rogue/saiga,
 	)
-
-//Snowflake marker for migrations. Dun_world got rid of travel tiles, so we snowflake it up in this bitch.
-/obj/structure/fluff/migration_point
-	name = "migration point"
-	icon = 'icons/mob/landmarks.dmi'
-	icon_state = "x"
-	invisibility = INVISIBILITY_ABSTRACT
-	density = FALSE
-	anchored = TRUE
-	max_integrity = 0
-	var/pointid = "REPLACETHIS"
