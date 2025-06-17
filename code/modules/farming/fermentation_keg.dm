@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		if(!shopping_run(user))
 			return
 
-/obj/structure/fermentation_keg/AltClick(mob/user)
+/obj/structure/fermentation_keg/MiddleClick(mob/user)
 	. = ..()
 	if(!user.Adjacent(src))
 		return
@@ -180,7 +180,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		if(beer_left)
 			. += "[((beer_left / FLOOR((selected_recipe.brewed_amount * selected_recipe.per_brew_amount) , 1))) * 100]% Full"
 		if(!tapped)
-			. += span_blue("Alt-Click on the Barrel to Tap it.")
+			. += span_blue("Middle-Click on the Barrel to Tap it. It will lose its sale value.")
 
 	else if(selected_recipe)
 		var/message = "Currently making: [selected_recipe.name].\n"
