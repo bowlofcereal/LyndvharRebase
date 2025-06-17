@@ -34,7 +34,7 @@
 	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced)
 	output = /datum/reagent/consumable/soup/veggie/cabbage
 
-/datum/stew_recipe/cabbage
+/datum/stew_recipe/turnip
 	inputs = list(/obj/item/reagent_containers/food/snacks/veg/turnip_sliced)
 	output = /datum/reagent/consumable/soup/veggie/turnip
 
