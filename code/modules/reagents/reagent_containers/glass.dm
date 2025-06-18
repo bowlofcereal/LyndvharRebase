@@ -199,9 +199,9 @@
 	item_state = "woodbucket"
 	max_integrity = 300
 	w_class = WEIGHT_CLASS_BULKY
-	amount_per_transfer_from_this = 9
-	possible_transfer_amounts = list(9)
-	volume = 70
+	amount_per_transfer_from_this = 8
+	possible_transfer_amounts = list(8)
+	volume = 192
 	flags_inv = HIDEHAIR
 	reagent_flags = OPENCONTAINER
 	obj_flags = CAN_BE_HIT
@@ -227,7 +227,7 @@
 	force = 5
 	throwforce = 10
 	amount_per_transfer_from_this = 9
-	volume = 99
+	volume = 192
 	armor = list("blunt" = 25, "slash" = 20, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 50)
 	resistance_flags = FLAMMABLE
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
