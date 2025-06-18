@@ -1,10 +1,10 @@
 /obj/item/reagent_containers/glass/alchemical
 	name = "alchemical vial"
-	desc = "A cute bottle, conviniently holding 3 swigs of a fluid."
+	desc = "A small glass bottle for drinking potions in a hurry."
 	icon = 'icons/roguetown/misc/alchemy.dmi'
 	icon_state = "vial_bottle"
-	amount_per_transfer_from_this = 9
-	possible_transfer_amounts = list(9)
+	amount_per_transfer_from_this = 6
+	possible_transfer_amounts = list(6)
 	volume = 24
 	fill_icon_thresholds = list(0, 33, 66, 100)
 	dropshrink = 0.8
