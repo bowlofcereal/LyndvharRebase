@@ -142,11 +142,11 @@
 	force = 5
 	throwforce = 5
 	reagent_flags = OPENCONTAINER
-	amount_per_transfer_from_this = 7
-	possible_transfer_amounts = list(7)
+	amount_per_transfer_from_this = 3
+	possible_transfer_amounts = list(3)
 	dropshrink = 1
 	w_class = WEIGHT_CLASS_NORMAL
-	volume = 33
+	volume = 24		// from 33. Why. Back to 8oz or a cup. Why was it 11 oz? - Nikov
 	obj_flags = CAN_BE_HIT
 	sellprice = 1
 	drinksounds = list('sound/items/drink_cup (1).ogg','sound/items/drink_cup (2).ogg','sound/items/drink_cup (3).ogg','sound/items/drink_cup (4).ogg','sound/items/drink_cup (5).ogg')
@@ -160,26 +160,26 @@
 	cut_overlays()
 	if(reagents)
 		if(reagents.total_volume > 0)
-			if(reagents.total_volume <= 11)
+			if(reagents.total_volume <= 9)
 				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_low")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
 		if(reagents.total_volume > 11)
-			if(reagents.total_volume <= 22)
+			if(reagents.total_volume <= 18)
 				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_half")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
-		if(reagents.total_volume > 22)
+		if(reagents.total_volume > 18)
 			if(reagents.has_reagent(/datum/reagent/consumable/soup/oatmeal, 10))
 				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_oatmeal")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				add_overlay(filling)
-			if(reagents.has_reagent(/datum/reagent/consumable/soup/veggie/cabbage, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 17))
+			if(reagents.has_reagent(/datum/reagent/consumable/soup/veggie/cabbage, 13) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 13) || reagents.has_reagent(/datum/reagent/consumable/soup/veggie/onion, 13))
 				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_full")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				icon_state = "bowl_steam"
 				add_overlay(filling)
-			if(reagents.has_reagent(/datum/reagent/consumable/soup/stew/chicken, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/meat, 17) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/fish, 17))
+			if(reagents.has_reagent(/datum/reagent/consumable/soup/stew/chicken, 13) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/meat, 13) || reagents.has_reagent(/datum/reagent/consumable/soup/stew/fish, 13))
 				var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bowl_stew")
 				filling.color = mix_color_from_reagents(reagents.reagent_list)
 				icon_state = "bowl_steam"
@@ -202,7 +202,7 @@
 			if(do_after(user,1 SECONDS, target = src))
 				playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
 				visible_message(span_info("[user] eats from [src]."))
-				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
+				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,3), TRUE, TRUE, FALSE, user, FALSE, INGEST), 3) // 1 oz per spoon. Big spoon.
 		return TRUE
 
 /obj/item/reagent_containers/glass/bowl/proc/beingeaten()
@@ -235,7 +235,7 @@
 	icon_state = "peppermill"
 	layer = CLOSED_BLASTDOOR_LAYER // obj layer + a little, small obj layering above convenient
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	list_reagents = list(/datum/reagent/consumable/blackpepper = 5)
+	list_reagents = list(/datum/reagent/consumable/blackpepper = 12)	// Half cup in the peppermill.
 	reagent_flags = TRANSPARENT
 
 
@@ -272,7 +272,7 @@
 
 /obj/item/cooking/platter/pewter
 	name = "pewter platter"
-	desc = "Made from an alloy of tin and mercury. Rolls off the tongue quite nicely."
+	desc = "Made from an alloy of tin and just a pinch of lead for sweetness."
 	icon_state = "p_platter"
 	sellprice = 10
 
@@ -285,7 +285,7 @@
 
 
 /obj/item/book/rogue/yeoldecookingmanual // new book with some tips to learn
-	name = "Ye olde ways of cookinge"
+	name = "Ye Olde Ways of Cookinge"
 	desc = "Penned by Svend Fatbeard, butler in the fourth generation"
 	icon_state ="book8_0"
 	base_icon_state = "book8"
@@ -324,18 +324,18 @@
 
 /datum/reagent/consumable/soup/veggie/potato
 	color = "#869256"
-	taste_description = "potato broth"
+	taste_description = "thick and starchy broth"
 
 /datum/reagent/consumable/soup/veggie/onion
 	color = "#a6b457"
-	taste_description = "boiled onions"
+	taste_description = "sweet and sharp onions"
 
 /datum/reagent/consumable/soup/veggie/cabbage
 	color = "#859e56"
-	taste_description = "watery cabbage"
+	taste_description = "sweet and peppery cabbage"
 
 /datum/reagent/consumable/soup/stew
-	name = "thick stew"
+	name = "rich and hearty stew"
 	description = "All manners of edible bits went into this."
 	reagent_state = LIQUID
 	nutriment_factor = 20
@@ -343,15 +343,15 @@
 
 /datum/reagent/consumable/soup/stew/chicken
 	color = "#baa21c"
-	taste_description = "chicken"
+	taste_description = "tender chicken morsels"
 
 /datum/reagent/consumable/soup/stew/meat
 	color = "#80432a"
-	taste_description = "meat stew"
+	taste_description = "heartily stewed meat"
 
 /datum/reagent/consumable/soup/stew/fish
 	color = "#c7816e"
-	taste_description = "fish"
+	taste_description = "creamy fish soup"
 
 /datum/reagent/consumable/soup/stew/yucky
 	color = "#9e559c"
@@ -367,8 +367,8 @@
 
 // -------------- POWDER (flour) -----------------
 /obj/item/reagent_containers/powder/flour
-	name = "powder"
-	desc = "With this ambition, we build an empire."
+	name = "flour"
+	desc = "Milled grain ready to be the staff of life."
 	gender = PLURAL
 	icon_state = "flour"
 	list_reagents = list(/datum/reagent/floure = 1)
@@ -390,16 +390,16 @@
 	if(isturf(loc)&& (!found_table))
 		to_chat(user, span_notice("Need a table..."))
 		return ..()
-	if(!R.reagents.has_reagent(/datum/reagent/water, 10))
+	if(!R.reagents.has_reagent(/datum/reagent/water, 12))
 		to_chat(user, span_notice("Needs more water to work it."))
 		return TRUE
 	to_chat(user, span_notice("Adding water, now its time to knead it..."))
 	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
 	if(do_after(user, short_cooktime, target = src))
 		add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
-		name = "wet powder"
-		desc = "Destined for greatness, at your hands."
-		R.reagents.remove_reagent(/datum/reagent/water, 10)
+		name = "damp flour"
+		desc = "Dampened and ready to be worked by hand."
+		R.reagents.remove_reagent(/datum/reagent/water, 12)
 		water_added = TRUE
 		color = "#d9d0cb"
 	return TRUE
@@ -447,7 +447,7 @@
 	if(isturf(loc)&& (!found_table))
 		to_chat(user, "<span class='notice'>Need a table...</span>")
 		return ..()
-	if(!R.reagents.has_reagent(/datum/reagent/water, 10))
+	if(!R.reagents.has_reagent(/datum/reagent/water, 12))
 		to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
 		return TRUE
 	to_chat(user, "<span class='notice'>Adding water, now its time to hand wash it...</span>")
@@ -455,7 +455,7 @@
 	if(do_after(user,2 SECONDS, target = src))
 		user.mind.adjust_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 		name = "wet rice"
-		R.reagents.remove_reagent(/datum/reagent/water, 10)
+		R.reagents.remove_reagent(/datum/reagent/water, 12)
 		water_added = TRUE
 		color = "#d9d0cb"
 	return TRUE
@@ -515,7 +515,7 @@
 	if(isturf(loc)&& (!found_table))
 		to_chat(user, span_notice("Need a table..."))
 		return ..()
-	if(!R.reagents.has_reagent(/datum/reagent/water, 10))
+	if(!R.reagents.has_reagent(/datum/reagent/water, 12))
 		to_chat(user, span_notice("Needs more water to work it."))
 		return TRUE
 	to_chat(user, span_notice("Adding water, now its time to sift it..."))
@@ -523,7 +523,7 @@
 	if(do_after(user, short_cooktime, target = src))
 		name = "prepared minerals"
 		desc = "Still quite coarse, needs some sifting."
-		R.reagents.remove_reagent(/datum/reagent/water, 10)
+		R.reagents.remove_reagent(/datum/reagent/water, 12)
 		water_added = TRUE
 		color = "#666262"
 	return TRUE
