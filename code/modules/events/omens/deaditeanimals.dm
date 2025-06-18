@@ -28,9 +28,9 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 	name = "Deadite Animal Migration"
 	track = EVENT_TRACK_MODERATE
 	typepath = /datum/round_event/deadite_migration/deadite
-	weight = 10
+	weight = 3
 	max_occurrences = 2
-	min_players = 30
+	min_players = 20
 	earliest_start = 20 MINUTES
 
 	tags = list(
@@ -60,7 +60,7 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 	var/players_amt = get_active_player_count(alive_check = 1, afk_check = 1, human_check = 1)
 	//Scale amount with pop.
 	var/lower_limit = 3 + ROUND_UP(players_amt / 10)
-	var/upper_limit = 5 + ROUND_UP(players_amt / 5)
+	var/upper_limit = 5 + ROUND_UP(players_amt / 7)
 
 	var/mob/living/simple_animal/hostile/retaliate/rogue/animal = pick(animals)
 	for(var/i = 1 to rand(lower_limit, upper_limit))
