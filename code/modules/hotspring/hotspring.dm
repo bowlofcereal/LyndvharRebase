@@ -240,6 +240,8 @@
 	name = "lily petals"
 	icon = 'icons/obj/structures/hotspring.dmi'
 	icon_state = "lilypetals1"
+	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE_FOV_HIDDEN
 
 /obj/effect/lily_petal/two
 	icon_state = "lilypetals2"
@@ -270,7 +272,7 @@
 	icon = 'icons/obj/structures/sakura_tree.dmi'
 	icon_state = "sakura_tree"
 	obj_flags = CAN_BE_HIT | IGNORE_SINK
-	layer = 4.81
+	layer = BELOW_MOB_LAYER
 	plane = GAME_PLANE_UPPER
 
 	bound_height = 128
