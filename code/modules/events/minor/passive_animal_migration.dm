@@ -32,13 +32,8 @@ GLOBAL_LIST_INIT(animal_migration_points, list())
 
 /datum/round_event/animal_migration/start()
 	. = ..()
-	var/list/points = list()
-	for(var/obj/structure/fluff/migration_point/point in GLOB.migrationpoints)
-		if(point.pointid != "townouter")
-			continue
-		points |= point
 
-	var/turf/start_turf = get_turf(pick(points))
+	var/turf/start_turf = get_turf(pick(GLOB.animal_migration_points))
 	var/turf/end_turf = get_turf(pick(GLOB.animal_migration_points))
 	var/mob/living/simple_animal/hostile/retaliate/rogue/animal = pick(animals)
 	for(var/i = 1 to rand(3, 5))
