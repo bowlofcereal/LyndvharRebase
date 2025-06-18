@@ -13,7 +13,7 @@
 
 /obj/structure/fermenting_barrel/Initialize()
 	// Bluespace beakers, but without the portability or efficiency in circuits.
-	create_reagents(900, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
+	create_reagents(768, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
 	icon_state = "barrel[rand(1,3)]"
 	. = ..()
 
@@ -99,11 +99,11 @@
 
 /obj/structure/fermenting_barrel/random/water/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/water, rand(0,900))
+	reagents.add_reagent(/datum/reagent/water, rand(0,768))
 
 /obj/structure/fermenting_barrel/random/beer/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer, rand(0,900))
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer, rand(0,768))
 
 /obj/structure/fermenting_barrel/water
 	name = "water barrel"
@@ -111,14 +111,14 @@
 
 /obj/structure/fermenting_barrel/water/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/water,900)
+	reagents.add_reagent(/datum/reagent/water,768)
 
 /obj/structure/fermenting_barrel/beer
 	desc = "A barrel containing a generic housebrewed small-beer."
 
 /obj/structure/fermenting_barrel/beer/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer,768)
 
 /obj/item/roguebin/water/Initialize()
 	. = ..()
@@ -135,21 +135,21 @@
 
 /obj/structure/fermenting_barrel/zagul/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/zagul,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/zagul,768)
 
 /obj/structure/fermenting_barrel/blackgoat
 	desc = "A barrel marked with the Black Goat Kriek emblem. A fruit-sour beer brewed with jackberries for a tangy taste."
 
 /obj/structure/fermenting_barrel/blackgoat/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/blackgoat,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/blackgoat,768)
 
 /obj/structure/fermenting_barrel/hagwoodbitter
 	desc = "A barrel marked with the Hagwood Bitters emblem. The least bitter thing to be exported from the Grenzelhoft occupied state of Zorn."
 
 /obj/structure/fermenting_barrel/hagwoodbitter/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/hagwoodbitter,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/hagwoodbitter,768)
 
 
 
@@ -158,14 +158,14 @@
 
 /obj/structure/fermenting_barrel/jagt/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/jagdtrunk,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/jagdtrunk,768)
 
 /obj/structure/fermenting_barrel/sourwine
 	desc = "A barrel that contains a Grenzelhoftian classic. An extremely sour wine that is watered down with mineral water."
 
 /obj/structure/fermenting_barrel/sourwine/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/sourwine,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/sourwine,768)
 
 
 /obj/structure/fermenting_barrel/onion
@@ -173,21 +173,21 @@
 
 /obj/structure/fermenting_barrel/onion/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/onion,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/onion,768)
 
 /obj/structure/fermenting_barrel/saigamilk
 	desc = "A barrel with a Running Saiga mark. A form of alcohol brewed from the milk of a saiga and salt. Common drink of the nomads living in the steppe."
 
 /obj/structure/fermenting_barrel/saigamilk/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/saigamilk,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/saigamilk,768)
 
 /obj/structure/fermenting_barrel/kgsunsake
 	desc = "A barrel with a Golden Swan mark. A translucient, pale-blue liquid made from rice. A favourite drink of the warlords and nobles of Kazengun."
 
 /obj/structure/fermenting_barrel/kgsunsake/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/kgunsake,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/kgunsake,768)
 
 
 /obj/structure/fermenting_barrel/avarrice
@@ -195,7 +195,7 @@
 
 /obj/structure/fermenting_barrel/avarrice/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/avarrice,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/avarrice,768)
 
 
 /obj/structure/fermenting_barrel/gronmead
@@ -203,7 +203,7 @@
 
 /obj/structure/fermenting_barrel/gronmead/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/gronnmead,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/gronnmead,768)
 
 
 /obj/structure/fermenting_barrel/murkwine
@@ -211,11 +211,11 @@
 
 /obj/structure/fermenting_barrel/murkwine/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/murkwine,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/murkwine,768)
 
 /obj/structure/fermenting_barrel/nocshine
 	desc = "A barrel with a blue, Crescent moon mark. Not the wisest choice of drinks, but certainly the strongest."
 
 /obj/structure/fermenting_barrel/nocshine/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/nocshine,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beer/nocshine,768)
