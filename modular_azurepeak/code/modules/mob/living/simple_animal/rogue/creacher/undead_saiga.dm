@@ -8,8 +8,9 @@
 	var/icon_downed = "saiga_downed"
 
 	// Greatly increased health
-	health = 600
-	maxHealth = 600
+	health = SAIGA_HEALTH_UNDEAD
+	maxHealth = SAIGA_HEALTH_UNDEAD
+	dodgetime = 50
 
 	var/leg_health = 150
 	var/max_leg_health = 150
@@ -95,7 +96,7 @@
 		   def_zone == "neck")
 
 			head_health -= damage_amount
-			if(head_health <= 0)
+			if(head_health <= 0 && stat != DEAD)
 				head_health = 0
 				death()
 

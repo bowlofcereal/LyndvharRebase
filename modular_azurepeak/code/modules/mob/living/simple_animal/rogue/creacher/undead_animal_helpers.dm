@@ -34,6 +34,7 @@
 GLOBAL_LIST_INIT(animal_to_undead, list(
 	/mob/living/simple_animal/hostile/retaliate/rogue/saiga = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/undead,
 	/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/undead,
+	/mob/living/simple_animal/hostile/retaliate/rogue/wolf = /mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead,
 ))
 #define ZOMBIE_REANIMATION_CHANCE 25
 #define ZOMBIE_REANIMATION_TIMER 15 MINUTES
@@ -48,7 +49,9 @@ GLOBAL_LIST_INIT(animal_to_undead, list(
 
 	var/mob/living/simple_animal/mob = parent
 	if(mob.stat != DEAD || !GLOB.animal_to_undead[mob.type])
-		return COMPONENT_INCOMPATIBLE
+		//unregister here not to throw runtimes in intended cases.
+		UnregisterFromParent()
+		return
 
 	//KEEP IN MIND. IF YOU EDIT THIS TIMER TO BE LONGER THAN THE ROT COMPONENT, YOU WILL BREAK THIS.
 	reanimation_timer = addtimer(CALLBACK(src, PROC_REF(reanimate)), get_reanimation_time(), TIMER_STOPPABLE)
@@ -61,7 +64,7 @@ GLOBAL_LIST_INIT(animal_to_undead, list(
 
 	var/undead_type = GLOB.animal_to_undead[mob.type]
 	new undead_type(mob.loc)
-	mob.visible_message(mob, span_danger("[src] walks again... As a terrifying deadite!"))
+	mob.visible_message(span_danger("[mob] walks again... As a terrifying deadite!"))
 
 	qdel(mob)
 

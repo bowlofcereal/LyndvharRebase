@@ -5,6 +5,8 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 
 /obj/effect/landmark/events/deadite_animal_migration_point
 	name = "Deadite Migration Point"
+	//If you don't manually set an order on these, they won't work
+	//Do not set these more than 10 tiles apart or the AI will struggle
 	var/order = 0
 
 /obj/effect/landmark/events/deadite_animal_migration_point/Initialize(mapload)
@@ -55,34 +57,38 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 	var/turf/start_turf = migration_turfs[2]
 	var/turf/spawn_turf = migration_turfs[1]
 	var/turf/end_turf = migration_turfs[migration_turfs.len]
+	var/players_amt = get_active_player_count(alive_check = 1, afk_check = 1, human_check = 1)
+	//Scale amount with pop.
+	var/lower_limit = 3 + ROUND_UP(players_amt / 10)
+	var/upper_limit = 5 + ROUND_UP(players_amt / 5)
 
 	var/mob/living/simple_animal/hostile/retaliate/rogue/animal = pick(animals)
-	for(var/i = 1 to rand(1, 1))
+	for(var/i = 1 to rand(lower_limit, upper_limit))
 		var/mob/living/simple_animal/hostile/retaliate/rogue/created = new animal(spawn_turf)
 		if(created.ai_controller)
 			var/list/migration_path = list()
 			var/list/ai_controller_paths = list()
 			for(var/turf/T in migration_turfs)
 				migration_path += WEAKREF(T)
-			ai_controller_paths |=/datum/ai_planning_subtree/deadite_migration
 			for(var/datum/ai_planning_subtree/tree as anything in created.ai_controller.planning_subtrees)
 				ai_controller_paths |= tree.type
+			ai_controller_paths |=/datum/ai_planning_subtree/deadite_migration
 			created.ai_controller.replace_planning_subtrees(ai_controller_paths)
 
 			// Set migration data
 			created.ai_controller.set_blackboard_key(BB_DEADITE_MIGRATION_PATH, migration_path)
 			created.ai_controller.set_blackboard_key(BB_DEADITE_MIGRATION_TARGET, start_turf)
 			created.ai_controller.set_blackboard_key(BB_DEADITE_TRAVEL_TARGET, start_turf)
-
-			// Add migration behavior
-			var/datum/ai_planning_subtree/migration_subtree = SSai_controllers.ai_subtrees[/datum/ai_planning_subtree/deadite_migration]
-			created.ai_controller.planning_subtrees.Insert(1, migration_subtree)
 		else
+			//Fallback in cast a mob doesn't have an AI controller. This is bad, they should always have one if used here.
 			created.GiveTarget(end_turf)
+		//Stagger the mobs.
+		sleep(rand(1 SECONDS, 3 SECONDS))
 
+//JUST undead wolves for now. Saigas are far too strong.
 /datum/round_event/deadite_migration/deadite
 	animals = list(
-		/mob/living/simple_animal/hostile/retaliate/rogue/wolf,
+		/mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead,
 	)
 
 /datum/round_event_control/deadite_animal_migration/canSpawnEvent(players_amt, gamemode, fake_check)
@@ -90,7 +96,7 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 		return FALSE
 
 /datum/ai_behavior/find_next_deadite_migration_step
-	action_cooldown = 5 SECONDS
+	action_cooldown = 3 SECONDS
 
 /datum/ai_behavior/find_next_deadite_migration_step/setup(datum/ai_controller/controller, path_key, target_key)
 	. = ..()
@@ -98,13 +104,12 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 /datum/ai_behavior/find_next_deadite_migration_step/perform(seconds_per_tick, datum/ai_controller/controller, path_key, target_key)
 	if(controller.blackboard[BB_DEADITE_TRAVEL_TARGET])
 		//Safety check that will crash the behavior if we SOMEHOW end up here whilst we have a travel behavior going (bad)
-		return FALSE
+		//This will also make any mobs that have been sufficiently distracted far enough from the migration path to stop following it.
+		finish_action(controller, FALSE, path_key, target_key)
 
-	to_chat(world, span_bigbold("[controller.pawn.name]: find_next_deadite_migration_step/PERFORM CALLED"))
 	var/list/path = controller.blackboard[path_key]
 	if(!LAZYLEN(path))
-		to_chat(world, span_bigbold("[controller.pawn.name]: find_next_deadite_migration_step/setup: Path empty, returning FALSE"))
-		return FALSE
+		finish_action(controller, FALSE, path_key, target_key)
 
 	var/atom/current_blackboard_target = controller.blackboard[target_key]
 	var/current_index = 0
@@ -113,16 +118,13 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 		var/datum/weakref/ref = path[i]
 		if(ref.resolve() == current_blackboard_target)
 			current_index = i
-			to_chat(world, span_bigbold("[controller.pawn.name]: find_next_deadite_migration_step/setup: Found target at index [current_index]"))
 			break
 
 	var/target_path_index = 0
 	if(current_index == 0)
 		target_path_index = 1
-		to_chat(world, span_bigbold("[controller.pawn.name]: find_next_deadite_migration_step/setup: No current target, setting to 1st point"))
 	else
 		target_path_index = current_index + 1
-		to_chat(world, span_bigbold("[controller.pawn.name]: find_next_deadite_migration_step/setup: Advancing to index [target_path_index]"))
 
 	target_path_index = min(target_path_index, LAZYLEN(path))
 
@@ -130,12 +132,10 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 	var/turf/next_turf = next_ref.resolve()
 
 	if(QDELETED(next_turf))
-		to_chat(world, span_bigbold("[controller.pawn.name]: find_next_deadite_migration_step/setup: Next turf QDELETED, returning FALSE"))
-		return FALSE
+		finish_action(controller, FALSE, path_key, target_key)
 
 	controller.set_blackboard_key(target_key, next_turf)
 	controller.set_blackboard_key(BB_DEADITE_TRAVEL_TARGET, next_turf)
-	to_chat(world, span_bigbold("[controller.pawn.name]: find_next_deadite_migration_step/setup: Blackboard target set to [next_turf]"))
 	finish_action(controller, TRUE, path_key, target_key)
 
 /datum/ai_planning_subtree/deadite_migration
@@ -143,51 +143,40 @@ GLOBAL_LIST_INIT(deadite_animal_migration_points, list())
 
 /datum/ai_planning_subtree/deadite_migration/SelectBehaviors(datum/ai_controller/controller, seconds_per_tick)
 	. = ..()
-	to_chat(world, span_bigbold("[controller.pawn.name]: deadite_migration/SelectBehaviors CALLED"))
 
 	var/turf/migration_target_turf = controller.blackboard[BB_DEADITE_MIGRATION_TARGET]
 	var/list/migration_path = controller.blackboard[BB_DEADITE_MIGRATION_PATH]
 	var/turf/mob_turf = get_turf(controller.pawn)
 	var/current_distance = get_dist(mob_turf, migration_target_turf)
-	to_chat(world, span_bigbold("[controller.pawn.name]: Blackboard target: [migration_target_turf]"))
-	to_chat(world, span_bigbold("[controller.pawn.name]: Pawn turf: [mob_turf]"))
-
 	var/at_current_target = FALSE
-	to_chat(world, span_bigbold("Distance between pawn and turf: [current_distance]"))
+
 	if(migration_target_turf && current_distance == 0)
 		at_current_target = TRUE
-		to_chat(world, span_bigbold("[controller.pawn.name]: Is at current target"))
 
 	//If we have a target that's valid, we're not yet there, and the travel behavior hasn't finished the last point yet.
 	if(migration_target_turf && !QDELETED(migration_target_turf) && !at_current_target && controller.blackboard[BB_DEADITE_TRAVEL_TARGET])
-		to_chat(world, span_bigbold("[controller.pawn.name]: Target valid and not at target. QUEUEING travel_to_atom_behavior to [migration_target_turf]"))
 		controller.queue_behavior(travel_behavior, BB_DEADITE_TRAVEL_TARGET)
 		return SUBTREE_RETURN_FINISH_PLANNING
 
 	else
-		to_chat(world, span_bigbold("[controller.pawn.name]: At target or target invalid/deleted. Checking next step."))
 		var/current_index = 0
 		if(migration_target_turf)
 			for(var/i in 1 to LAZYLEN(migration_path))
 				var/datum/weakref/ref = migration_path[i]
 				if(ref.resolve() == migration_target_turf)
 					current_index = i
-					to_chat(world, span_bigbold("[controller.pawn.name]: Current target found in path at index [current_index]"))
 					break
 
 		if(current_index == LAZYLEN(migration_path) && LAZYLEN(migration_path) > 0)
-			to_chat(world, span_bigbold("[controller.pawn.name] has reached the end of its migration path!"))
 			controller.clear_blackboard_key(BB_DEADITE_MIGRATION_PATH)
 			controller.clear_blackboard_key(BB_DEADITE_MIGRATION_TARGET)
 			controller.replace_planning_subtrees(initial(controller.planning_subtrees))
 			return SUBTREE_RETURN_FINISH_PLANNING
 
 		else if(LAZYLEN(migration_path))
-			to_chat(world, span_bigbold("[controller.pawn.name]: Path exists and not at end. QUEUEING find_next_deadite_migration_step"))
 			controller.queue_behavior(/datum/ai_behavior/find_next_deadite_migration_step,
 				BB_DEADITE_MIGRATION_PATH,
 				BB_DEADITE_MIGRATION_TARGET)
 			return SUBTREE_RETURN_FINISH_PLANNING
 
-		to_chat(world, span_bigbold("[controller.pawn.name]: No migration path left or other condition met. Subtree finishing."))
-		return
+		return SUBTREE_RETURN_FINISH_PLANNING
