@@ -241,7 +241,7 @@
 	icon = 'icons/obj/structures/hotspring.dmi'
 	icon_state = "lilypetals1"
 	layer = BELOW_MOB_LAYER
-	plane = GAME_PLANE_FOV_HIDDEN
+	plane = GAME_PLANE_UPPER
 
 /obj/effect/lily_petal/two
 	icon_state = "lilypetals2"
