@@ -152,7 +152,7 @@
 					head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold
 				if (/datum/patron/divine/xylix)
 					cloak = /obj/item/clothing/cloak/templar/xylix
-					head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket
+					head = /obj/item/clothing/head/roguetown/helmet/heavy/xylixhelm
 				if (/datum/patron/divine/pestra)
 					cloak = /obj/item/clothing/cloak/templar/pestra
 					head = /obj/item/clothing/head/roguetown/helmet/heavy/pestran
@@ -214,7 +214,7 @@
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 			switch(H.patron?.type)
 				if(/datum/patron/old_god)
-					cloak = /obj/item/clothing/cloak/templar/psydon
+					cloak = /obj/item/clothing/cloak/psydontabard
 				if(/datum/patron/divine/astrata)
 					cloak = /obj/item/clothing/cloak/templar/astrata
 				if(/datum/patron/divine/noc)
