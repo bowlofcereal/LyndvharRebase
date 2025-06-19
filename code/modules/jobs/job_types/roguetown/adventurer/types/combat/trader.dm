@@ -86,6 +86,7 @@
 			H.change_stat("perception", 1)
 			H.change_stat("strength", 1)
 			H.change_stat("constitution", 1)
+			ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC) // To view what is in a bottle.
 
 		if ("Jeweler")
 			to_chat(H, span_warning("You make your coin peddling exotic jewelry, gems, and shiny things."))
