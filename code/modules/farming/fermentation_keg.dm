@@ -49,6 +49,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	var/heated_progress_time
 	///when our heat can decay
 	var/heat_decay = 0
+	sellprice = 15 // Default price for the keg.
 
 /obj/structure/fermentation_keg/Initialize()
 	. = ..()
@@ -268,7 +269,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 	//Second stage brewing gives no refunds! - This is intented design to help make it so folks dont quit halfway through and still get a rebate
 	ready_to_bottle = FALSE
-	sellprice = 25
+	sellprice = initial(sellprice)
 	if(open_icon_state)
 		icon_state = open_icon_state
 	update_overlays()
@@ -301,7 +302,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	age_start_time = 0
 	start_time = 0
 
-	sellprice = 25
+	sellprice = initial(sellprice)
 	tapped = FALSE
 	beer_left = 0
 
@@ -343,7 +344,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	soundloop.stop()
 	ready_to_bottle = TRUE
 	brewing = FALSE
-	sellprice = selected_recipe.sell_value
+	sellprice = selected_recipe.sell_value + initial(sellprice)
 	made_item = selected_recipe.name
 	start_time = 0
 	heated_progress_time = 0
@@ -431,7 +432,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	age_start_time = 0
 	beer_left = 0
 	brewing = FALSE
-	sellprice = 25
+	sellprice = initial(sellprice)
 	heated_progress_time = 0
 	start_time = 0
 	if(open_icon_state)
@@ -454,7 +455,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		age_start_time = 0
 		beer_left = 0
 		brewing = FALSE
-		sellprice = 25
+		sellprice = initial(sellprice)
 		heated_progress_time = 0
 		start_time = 0
 		if(open_icon_state)
