@@ -58,11 +58,11 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/undead/death()
 	if(is_downed)
-		visible_message(src, span_danger("[src] has their head smashed to pulp!"))
+		visible_message(span_danger("[src] has their head smashed to pulp!"))
 		. = ..()
 		update_icon()
 	else
-		visible_message(src, span_notice("[src] falls down, body brutally battered, yet its head continues that unending stare."))
+		visible_message(span_notice("[src] falls down, body brutally battered, yet its head continues that unending stare."))
 		is_downed = TRUE
 		move_to_delay = 100
 		icon_state = icon_downed
@@ -76,7 +76,7 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/undead/proc/reanimation()
 	if(!QDELETED(src) && stat != DEAD)
-		visible_message(src, span_danger("The deadite saiga stands back up."))
+		visible_message(span_danger("The deadite saiga stands back up."))
 		health = maxHealth
 		leg_health = max_leg_health
 		head_health = max_head_health
@@ -106,7 +106,7 @@
 			leg_health = 0
 			legs_broken = TRUE
 			move_to_delay += 10
-			visible_message(src, span_notice("[src] slows down, its broken legs dragging."))
+			visible_message(span_notice("[src] slows down, its broken legs dragging."))
 
 /mob/living/simple_animal/hostile/retaliate/rogue/saiga/undead/Initialize()
 	. = ..()
