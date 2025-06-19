@@ -1,15 +1,16 @@
 /particles/weather/leaves
-	icon_state	= list("leaf1"=5, "leaf2"=6, "leaf3"=5)
+	icon_state	= list("leaf1"=7, "leaf2"=1, "leaf3"=1)
 	spin		= 6
 	position 	= generator("box", list(-500,-256,0), list(400,500,0))
 	gravity 	= list(0, -1, 0.1)
-	friction 	= 0.5
+	friction    = 0.3
 	transform 	= null
 	lifespan = generator("num", 35, 55)
-	fade = generator("num", 2, 6)
+	fadein = generator("num", 2, 6)
 	//Weather effects, max values
-	maxSpawning            = 30
-	minSpawning            = 5
+	maxSpawning            = 25
+	minSpawning            = 3
+	wind                   = 2
 
 
 /particles/weather/leaves/sakura
@@ -19,11 +20,11 @@
 	friction 	= 0.5
 	transform 	= null
 	lifespan = generator("num", 35, 55)
-	fade = generator("num", 2, 6)
+	fadein = generator("num", 2, 6)
 	//Weather effects, max values
 	maxSpawning            = 30
 	minSpawning            = 5
-
+	wind                   = 1
 
 /datum/particle_weather/leaves_gentle
 	name = "Rain"
