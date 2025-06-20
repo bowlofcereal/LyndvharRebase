@@ -35,7 +35,45 @@
 	revert_cast()
 	return FALSE
 
-//T0 the fishing
+//T0. Stands the character up, if they can stand.
+/obj/effect/proc_holder/spell/self/abyssor_wind
+	name = "Second Wind"
+	desc = "Rise if fallen, and regain some of your stamina."
+	overlay_state = "abyssor_wind"
+	releasedrain = 10
+	chargedrain = 0
+	chargetime = 0
+	sound = 'sound/magic/abyssor_splash.ogg'
+	associated_skill = /datum/skill/magic/holy
+	antimagic_allowed = FALSE
+	invocation = "What is drowned shall rise anew!"
+	invocation_type = "shout"
+	recharge_time = 120 SECONDS
+	devotion_cost = 30
+	miracle = TRUE
+	var/stamregenmod = 5	//How many % of stamina we regain after cast, scales with holy skill.
+
+/obj/effect/proc_holder/spell/self/abyssor_wind/cast(list/targets, mob/user)
+	if(!ishuman(user))
+		revert_cast()
+		return FALSE
+	var/mob/living/carbon/human/H = user
+	if(H.IsStun() || H.IsImmobilized() || H.IsOffBalanced())
+		to_chat(user, span_warning("I am too incapacitated!"))
+		revert_cast()
+		return FALSE
+	var/msg = span_warning("[user] ")
+	if(H.resting)
+		H.set_resting(FALSE, FALSE)
+		msg += span_warning("rises and ")
+	var/regen = (stamregenmod / 100) * H.mind?.get_skill_level(associated_skill)
+	H.rogfat_add(-(regen * H.maxrogfat))
+	H.rogstam_add(regen * H.maxrogstam)
+	msg += span_warning("becomes invigorated!")
+	H.visible_message(msg)
+	return TRUE
+
+//T0 The Fishing
 /obj/effect/proc_holder/spell/invoked/aquatic_compulsion
 	name = "Aquatic Compulsion"
 	overlay_state = "aqua"

@@ -72,6 +72,7 @@
 	mob_traits = list(TRAIT_ABYSSOR_SWIM, TRAIT_SEA_DRINKER)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/aquatic_compulsion	= CLERIC_T0,
+					/obj/effect/proc_holder/spell/self/abyssor_wind				= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/abyssor_bends			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/abyssheal				= CLERIC_T2,

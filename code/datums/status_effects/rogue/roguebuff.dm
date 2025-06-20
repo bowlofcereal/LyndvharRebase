@@ -667,7 +667,7 @@
 	id = "Moonsight"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/moonlightdance
 	effectedstats = list("intelligence" = 2)
-	duration = 15 MINUTES
+	duration = 25 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/moonlightdance
 	name = "Moonlight Dance"
