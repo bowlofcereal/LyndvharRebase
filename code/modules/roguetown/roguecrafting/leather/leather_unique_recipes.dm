@@ -42,7 +42,7 @@
 	sellprice = 15
 	
 /datum/crafting_recipe/roguetown/leather/unique/otavanleatherpants
-	name = "otavan leather trousers (1 fibers, 2 leather, 1 fur)"
+	name = "otavan leather trousers (1 fibers, 2 leather, 1 fur, 1 tallow)"
 	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan)
 	reqs = list(/obj/item/reagent_containers/food/snacks/tallow = 1,
 	            /obj/item/natural/fibers = 1,
@@ -51,6 +51,16 @@
 	tools = list(/obj/item/needle)
 	craftdiff = 6
 	sellprice = 30
+
+/datum/crafting_recipe/roguetown/leather/unique/fencingbreeches
+	name = "frencing breeches (1 fibers, 2 leather, 4 cloth)"
+	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan/generic)
+	reqs = list(/obj/item/natural/fibers = 1,
+				/obj/item/natural/hide/cured = 2,
+				/obj/item/natural/cloth = 4)
+	tools = list(/obj/item/needle)
+	craftdiff = 6
+	sellprice = 20
 
 /datum/crafting_recipe/roguetown/leather/unique/otavanboots
 	name = "otavan leather boots (1 fibers, 1 leather, 1 fur, 1 tallow)"
@@ -81,16 +91,6 @@
 	tools = list(/obj/item/needle)
 	craftdiff = 5
 	sellprice = 23
-
-/datum/crafting_recipe/roguetown/leather/unique/greatcoat
-	name = "coat of the commander (1 cloth, 3 leather, 1 fur)"
-	result = list(/obj/item/clothing/suit/roguetown/armor/brigandine/sheriff/coat)
-	reqs = list(/obj/item/natural/hide/cured = 3,
-				/obj/item/natural/fur = 1,
-	            /obj/item/natural/cloth = 1)
-	tools = list(/obj/item/needle)
-	craftdiff = 5
-	sellprice = 24
 
 /datum/crafting_recipe/roguetown/leather/unique/furlinedjacket
 	name = "artificer jacket (1 cloth, 2 leather, 1 fur)"
