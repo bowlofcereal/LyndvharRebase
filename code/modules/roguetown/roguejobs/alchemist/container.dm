@@ -178,6 +178,14 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/kgunplum = 48)
 	desc = "A bottle with a Golden Swan cork-seal. A reddish-golden alcohol made from a fruit commonly found on the Kazengun-isles. A favourite of the commoners."
 
+/obj/item/reagent_containers/glass/bottle/rogue/beer/murkwine
+	list_reagents = list(/datum/reagent/consumable/ethanol/murkwine = 48)
+	desc = "A bottle with a Possumtail Brewery mark. A special brew made from murky water and swampweed. A Heartfelt special."
+
+/obj/item/reagent_containers/glass/bottle/rogue/beer/nocshine
+	list_reagents = list(/datum/reagent/consumable/ethanol/nocshine = 48)
+	desc = "A bottle with a blue, Crescent moon mark. A special brew that is extremely potent and toxic, but strengthen the body. If you dare."
+
 		//////////////////////////
 		/// CLAY BOTTLES ///
 		//////////////////////////

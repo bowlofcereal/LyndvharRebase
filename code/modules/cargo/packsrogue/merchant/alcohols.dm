@@ -134,7 +134,12 @@
 	cost = 250
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/kgunsake)
 
-/datum/supply_pack/rogue/alcohol/kgunplum
-	name = "Umeshu"
+/datum/supply_pack/rogue/alcohol/murkwine
+	name = "Murkwine"
 	cost = 30
-	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/kgunplum)
+	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/murkwine)
+
+/datum/supply_pack/rogue/alcohol/nocshine
+	name = "Nocshine"
+	cost = 40
+	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/nocshine)
