@@ -209,7 +209,7 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 		if(selected_recipe.helpful_hints)
 			message += "[selected_recipe.helpful_hints].\n"
 
-		. += span_blue("Right-Click on the Barrel to clear it. Left-Click to start brewing.")
+		. += span_blue("Right-Click on the Barrel to clear it. Left-Click to start brewing. Brewing will remove all existing reagents in the barrel!")
 		/*
 		if(istype(selected_recipe, /datum/brewing_recipe/custom_recipe))
 			var/datum/brewing_recipe/custom_recipe/recipe = selected_recipe
@@ -467,9 +467,11 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 				glass_colour = "brew_bottle"
 
 			var/bottlecaps
-			for(bottlecaps=0, bottlecaps < selected_recipe.brewed_amount, bottlecaps++)
+			for(bottlecaps = 0, bottlecaps < selected_recipe.brewed_amount, bottlecaps++)
 				var/obj/item/reagent_containers/glass/bottle/brewing_bottle/bottle_made = new /obj/item/reagent_containers/glass/bottle/brewing_bottle(get_turf(src))
 				bottle_made.icon_state = "[glass_colour]"
+				bottle_made.name = "brewer's bottle of [selected_recipe.name]"
+				bottle_made.sellprice = round(selected_recipe.sell_value / selected_recipe.brewed_amount)
 				/*
 				if(istype(selected_recipe, /datum/brewing_recipe/custom_recipe))
 					var/datum/brewing_recipe/custom_recipe/recipe = selected_recipe
@@ -541,13 +543,14 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 
 
 /obj/item/reagent_containers/glass/bottle/brewing_bottle
-	name = "bottle"
+	name = "brewer's bottle"
 	desc = "A bottle with a cork."
 	icon =  'icons/obj/bottle.dmi'
 	icon_state = "brew_bottle"
 
 	var/glass_name
 	var/glass_desc
+	var/sealed = TRUE
 	glass_on_impact = FALSE // Prevent duping glass
 
 /obj/item/reagent_containers/glass/bottle/brewing_bottle/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
@@ -560,6 +563,18 @@ GLOBAL_LIST_EMPTY(custom_fermentation_recipes)
 	if(reagents.total_volume <= 0)
 		glass_desc = null
 		glass_name = null
+
+/obj/item/reagent_containers/glass/bottle/brewing_bottle/examine()
+	. = ..()
+	if(sealed)
+		. += span_notice("The bottle is sealed. It can sell for something.")
+	else
+		. += span_notice("The bottle has been unsealed. It cannot be sold anymore.")
+
+/obj/item/reagent_containers/glass/bottle/brewing_bottle/rmb_self(mob/user)
+	. = ..()
+	sealed = FALSE
+	sellprice = 0
 
 /obj/structure/fermentation_keg/MouseDrop_T(atom/over, mob/living/user)
 	if(!istype(over, /obj/structure/fermentation_keg))
