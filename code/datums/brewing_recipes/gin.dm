@@ -3,7 +3,7 @@
 	reagent_to_brew = /datum/reagent/consumable/ethanol/gin
 	pre_reqs = /datum/reagent/consumable/ethanol/voddena
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/berries/rogue = 2)
-	brewed_amount = 3
-	brew_time = 9 MINUTES
-	sell_value = 40
+	brewed_amount = 4
+	brew_time = 5 MINUTES
+	sell_value = 90
 	heat_required = 370

@@ -2,9 +2,9 @@
 	name = "Apple Brandy"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/brandy
 	pre_reqs = /datum/reagent/consumable/ethanol/cider
-	brewed_amount = 3
-	brew_time = 8 MINUTES
-	sell_value = 60
+	brewed_amount = 6
+	brew_time = 4 MINUTES
+	sell_value = 90
 	heat_required = 360
 
 /datum/brewing_recipe/brandy/pear
