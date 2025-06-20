@@ -1,5 +1,6 @@
 /datum/brewing_recipe/vodden
 	name = "Vodden"
+	category = "Grain"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/voddena
 	needed_reagents = list(/datum/reagent/water = 198)
 	needed_items = list(/obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced = 12)

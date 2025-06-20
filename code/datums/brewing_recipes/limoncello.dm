@@ -1,5 +1,6 @@
 /datum/brewing_recipe/limoncello
 	name = "Limoncello"
+	category = "Liquor"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/limoncello
 	pre_reqs = /datum/reagent/consumable/ethanol/voddena
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/fruit/lemon = 2, /obj/item/reagent_containers/food/snacks/sugar = 1)

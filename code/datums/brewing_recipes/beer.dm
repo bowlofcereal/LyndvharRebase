@@ -1,5 +1,6 @@
 /datum/brewing_recipe/beer
 	name = "Wheat Beer"
+	category = "Grain"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/beer
 	needed_reagents = list(/datum/reagent/water = 198)
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/wheat = 6)

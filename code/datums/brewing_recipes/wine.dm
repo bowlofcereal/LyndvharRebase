@@ -1,5 +1,6 @@
 /datum/brewing_recipe/jack_wine
-	name = "Jacksberry Wine"
+	name = "Wine, Jacksberry"
+	category = "Fruit"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/jackberrywine
 	needed_reagents = list(/datum/reagent/water = 198)
 	needed_crops = list(/obj/item/reagent_containers/food/snacks/grown/berries/rogue = 6)
@@ -14,7 +15,8 @@
 	)
 
 /datum/brewing_recipe/plum_wine
-	name = "Umeshu"
+	name = "Wine, Umeshu (Plum)"
+	category = "Fruit"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/plum_wine
 	needed_reagents = list(/datum/reagent/water = 198)
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/fruit/plum = 4, /obj/item/reagent_containers/food/snacks/sugar = 2)
@@ -27,7 +29,8 @@
 	)
 
 /datum/brewing_recipe/tangerine_wine
-	name = "Tangerine Wine"
+	name = "Wine, Tangerine"
+	category = "Fruit"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/tangerine
 	needed_reagents = list(/datum/reagent/water = 198)
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/fruit/tangerine = 4, /obj/item/reagent_containers/food/snacks/sugar = 2)
@@ -40,7 +43,8 @@
 	)
 
 /datum/brewing_recipe/raspberry_wine
-	name = "Raspberry Wine"
+	name = "Wine, Raspberry"
+	category = "Fruit"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/raspberry
 	needed_reagents = list(/datum/reagent/water = 198)
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/fruit/raspberry = 4, /obj/item/reagent_containers/food/snacks/sugar = 2)
@@ -53,7 +57,8 @@
 	)
 
 /datum/brewing_recipe/blackberry_wine
-	name = "Blackberry Wine"
+	name = "Wine, Blackberry"
+	category = "Fruit"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/blackberry
 	needed_reagents = list(/datum/reagent/water = 198)
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/fruit/blackberry = 4, /obj/item/reagent_containers/food/snacks/sugar = 2)
