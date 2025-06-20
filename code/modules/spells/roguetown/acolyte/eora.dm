@@ -238,6 +238,7 @@
     var/mob/living/target = targets[1]
 
     var/datum/component/eora_bond/existing = user.GetComponent(/datum/component/eora_bond)
+
     if(existing)
         to_chat(user, span_warning("You are already bonded!"))
         revert_cast()
@@ -250,6 +251,11 @@
     if(!do_after(user, 8 SECONDS, target = target))
         to_chat(user, span_warning("The bond requires focused concentration!"))
         revert_cast()
+        return FALSE
+
+    if(HAS_TRAIT(target, TRAIT_PSYDONITE))
+        target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
+        playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
         return FALSE
 
     var/consent = alert(target, "[user] offers a lifebond. Accept?", "Heartweave", "Yes", "No")
