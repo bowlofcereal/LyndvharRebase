@@ -197,7 +197,20 @@
 	color = "#d2da63"
 	quality = DRINK_GOOD
 
-// WINE - Fancy.. And yes: all drinks are beer, technically. Cope. Seethe. I didnt code it like this.
+// Generic Rice
+/datum/reagent/consumable/ethanol/ricewine
+	name = "Rice Wine"
+	taste_description = "floral sweetness with a subtle umami taste."
+	color = "#F5E6C4" // rgb: 210, 218, 99
+	boozepwr = 30
+
+/datum/reagent/consumable/ethanol/ricespirit
+	name = "Rice Spirit"
+	taste_description = "clean heat and dry finish."
+	color = "#F8FDFC" // rgb: 210, 218, 99
+	boozepwr = 55
+
+// WINE - Fancy.
 
 // Humen Production - Grape Based
 
@@ -413,15 +426,20 @@
 	boozepwr = 50
 	taste_description = "dry sweetness"
 	color = "#ccd7e0"
-	quality = DRINK_GOOD
+	quality = DRINK_VERYGOOD
 
 /datum/reagent/consumable/ethanol/kgunplum
 	name = "Umeshu"
 	boozepwr = 30
 	taste_description = "a mix of sweet and sour"
 	color = "#ddb99b"
-	quality = DRINK_VERYGOOD
+	quality = DRINK_GOOD
 
+
+// Zhongese
+
+
+// Mead 
 /datum/reagent/consumable/ethanol/mead
 	name = "Mead"
 	description = "A warriors drink, though a cheap one."
@@ -437,6 +455,7 @@
 /datum/reagent/consumable/ethanol/mead/spider
 	color = "#660061"
 
+// Special Drugs
 /datum/reagent/consumable/ethanol/murkwine // not Toilet wine
 	name = "mürkwine"
 	boozepwr = 50  // bubba's best

@@ -12,3 +12,8 @@
 	name = "Oat Ale"
 	reagent_to_brew = /datum/reagent/consumable/ethanol/ale
 	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/oat = 6)
+
+/datum/brewing_recipe/beer/rice
+	name = "Rice Wine"
+	reagent_to_brew = /datum/reagent/consumable/ethanol/ricewine
+	needed_items = list(/obj/item/reagent_containers/food/snacks/grown/rice = 6)
