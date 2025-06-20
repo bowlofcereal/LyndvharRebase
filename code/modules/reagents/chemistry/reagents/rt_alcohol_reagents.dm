@@ -13,7 +13,7 @@
 	name = "Rum"
 	description = ""
 	color = "#5f3b23" // rgb: 102, 67, 0
-	boozepwr = 25
+	boozepwr = 40
 	taste_description = "rum"
 
 /datum/reagent/consumable/ethanol/cider
@@ -209,6 +209,7 @@
 	taste_description = "clean heat and dry finish."
 	color = "#F8FDFC" // rgb: 210, 218, 99
 	boozepwr = 55
+	quality = DRINK_NICE
 
 // WINE - Fancy.
 
