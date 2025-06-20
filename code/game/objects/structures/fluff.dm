@@ -1036,7 +1036,6 @@
 	name = "wooden psydonic crucifix"
 	desc = "A rarely seen symbol of absolute and devoted certainty, more common in Otava: HE yet lyves. HE yet breathes."
 	icon_state = "psycruci"
-	divine = FALSE
 	max_integrity = 80
 	chance2hear = 10
 

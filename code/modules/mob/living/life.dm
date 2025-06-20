@@ -40,12 +40,12 @@
 			wound.heal_wound(1)
 
 	/// ENDVRE AS HE DOES.
-	if(HAS_TRAIT(src, TRAIT_PSYDONITE))
+	if(HAS_TRAIT(src, TRAIT_PSYDONITE) && !HAS_TRAIT(src, TRAIT_PARALYSIS))
 		handle_wounds()
-		//passively heal even wounds with no passive healing
+		//passively heal wounds, but not if you're skullcracked.
 		if(blood_volume > BLOOD_VOLUME_SURVIVE)
 			for(var/datum/wound/wound as anything in get_wounds())
-				wound.heal_wound(0.7)		
+				wound.heal_wound(0.6)		
 
 	if (QDELETED(src)) // diseases can qdel the mob via transformations
 		return
