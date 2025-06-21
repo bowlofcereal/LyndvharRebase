@@ -477,16 +477,18 @@
 	color = "#641E16"
 	detail_color = "#b68e37ff"
 
+/obj/item/clothing/head/roguetown/chaperon/noble/guildmaster
+	name = "Guildmaster's chapereon"
+	desc = "A noble's chaperon made for the guildmaster."
+	color = "#1b1717ff"
+	detail_color = "#b68e37ff"
+
 /obj/item/clothing/head/roguetown/chaperon/councillor
 	name = "chaperon hat"
 	desc = "A fancy hat worn by nobles."
 	icon_state = "chap_alt"
 	item_state = "chap_alt"
 	color = "#7dcea0"
-
-/obj/item/clothing/head/roguetown/chaperon/greyscale/elder
-	name = "elder's chaperon hat"
-	color = "#007fff"
 
 /obj/item/clothing/head/roguetown/chef
 	name = "chef's hat"

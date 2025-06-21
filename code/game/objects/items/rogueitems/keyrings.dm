@@ -303,3 +303,6 @@
 
 /obj/item/storage/keyring/soilson
 	keys = list(/obj/item/roguekey/farm, /obj/item/roguekey/apartments/stable1, /obj/item/roguekey/apartments/stable2)
+
+/obj/item/storage/keyring/guildmaster
+	keys = list(/obj/item/roguekey/blacksmith, /obj/item/roguekey/tailor)

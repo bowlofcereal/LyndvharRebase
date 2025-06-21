@@ -205,7 +205,7 @@
 #define ORTHODOXIST	(1<<1)
 
 #define GUILDSMEN	(1<<11)
-#define GUILDSMASTER (1<<1)
+#define GUILDMASTER (1<<1)
 #define GUILDSMAN  	(1<<2)
 #define TAILOR		(1<<3)
 
@@ -266,7 +266,7 @@
 #define JDO_ARCHIVIST 18
 #define JDO_CHIEF 18.1
 
-#define JDO_GUILDSMASTER 19.1
+#define JDO_GUILDMASTER 19.1
 #define JDO_GUILDSMAN 19.2
 #define JDO_TAILOR 19.3
 
