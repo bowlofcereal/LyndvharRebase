@@ -112,9 +112,9 @@
 		/obj/item/reagent_containers/food/snacks/fish/clam = 40,
 		/obj/item/reagent_containers/food/snacks/fish/clownfish = 20,
 		/obj/item/reagent_containers/food/snacks/smallrat = 1, //still funny
-		/mob/living/carbon/human/species/goblin/npc/sea = 25,
-		/mob/living/simple_animal/hostile/rogue/deepone = 30,
-		/mob/living/simple_animal/hostile/rogue/deepone/spit = 30,			
+		/mob/living/carbon/human/species/goblin/npc/sea = 10,
+		/mob/living/simple_animal/hostile/rogue/deepone = 3,
+		/mob/living/simple_animal/hostile/rogue/deepone/spit = 3,			
 	)
 
 /obj/effect/proc_holder/spell/invoked/aquatic_compulsion/cast(list/targets, mob/user = usr)
