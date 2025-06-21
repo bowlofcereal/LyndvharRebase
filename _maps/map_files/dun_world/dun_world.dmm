@@ -3179,6 +3179,10 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/cave)
+"bcu" = (
+/obj/structure/fermentation_keg,
+/turf/open/floor/rogue/grassyel,
+/area/rogue/outdoors/town)
 "bcx" = (
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/AzureSand,
@@ -11317,6 +11321,13 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/shelter/mountains/decap)
+"dVo" = (
+/obj/effect/decal/mossy{
+	dir = 4
+	},
+/obj/structure/fermentation_keg/distiller,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/town)
 "dVw" = (
 /obj/structure/roguemachine/mail/r{
 	pixel_x = 0;
@@ -26373,6 +26384,12 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
+"iNG" = (
+/obj/structure/flora/roguegrass,
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/fermentation_keg,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/town)
 "iNS" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -32094,11 +32111,6 @@
 /obj/item/cooking/pan,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
-"kLe" = (
-/obj/structure/fluff/railing/wood,
-/obj/structure/well,
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/town)
 "kLo" = (
 /obj/structure/stairs{
 	dir = 8
@@ -32183,6 +32195,11 @@
 /obj/structure/stairs,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town)
+"kNk" = (
+/obj/structure/flora/roguegrass,
+/obj/structure/fermentation_keg,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/town)
 "kNx" = (
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak,
 /turf/open/floor/rogue/dirt/road,
@@ -40369,6 +40386,7 @@
 /obj/effect/decal/mossy{
 	dir = 4
 	},
+/obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/town)
 "nBR" = (
@@ -55513,6 +55531,12 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cavewet/bogcaves/sunkencity)
+"swh" = (
+/obj/structure/fluff/railing/wood,
+/obj/structure/flora/roguegrass,
+/obj/structure/well,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/town)
 "swi" = (
 /obj/item/natural/stone,
 /turf/open/floor/rogue/dirt/road,
@@ -64980,10 +65004,6 @@
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
-"vBc" = (
-/obj/item/reagent_containers/glass/bucket,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town)
 "vBd" = (
 /turf/closed/wall/mineral/rogue/roofwall/middle{
 	dir = 8
@@ -68763,6 +68783,10 @@
 /obj/item/cooking/platter/silver,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
+"wKI" = (
+/obj/structure/fermentation_keg,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/town)
 "wKP" = (
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/carpet/lord/center/no_teleport,
@@ -71690,6 +71714,7 @@
 /obj/effect/decal/mossy{
 	dir = 1
 	},
+/obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/grassyel,
 /area/rogue/outdoors/town)
 "xLY" = (
@@ -249318,8 +249343,8 @@ pWT
 njB
 njB
 aZo
-jiQ
-qyR
+iNG
+bcu
 pWp
 phl
 phl
@@ -249772,7 +249797,7 @@ mhj
 vnF
 mhj
 hNK
-qyR
+bcu
 lKo
 phl
 lKo
@@ -250224,7 +250249,7 @@ kfC
 rUQ
 dQP
 qfA
-pWT
+wKI
 lKo
 lKO
 lKo
@@ -250676,7 +250701,7 @@ cag
 rUQ
 qfA
 xLP
-njB
+kNk
 cDX
 gyu
 cDX
@@ -271387,7 +271412,7 @@ fpx
 fpx
 fpx
 vyn
-kLe
+hKL
 njB
 fpx
 fpx
@@ -272291,7 +272316,7 @@ fpx
 aFv
 iLx
 vyn
-dMX
+swh
 aZo
 fpx
 exD
@@ -272741,7 +272766,7 @@ qEe
 kQS
 fpx
 qEe
-qEe
+dVo
 nBM
 vWE
 pWT
@@ -274548,7 +274573,7 @@ qfA
 uBc
 qps
 ucT
-vBc
+dra
 uBc
 pQi
 sBN
