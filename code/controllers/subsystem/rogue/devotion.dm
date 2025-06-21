@@ -12,8 +12,8 @@
 #define CLERIC_REQ_3 500
 #define CLERIC_REQ_4 750
 
-#define CLERIC_REGEN_DEVOTEE 0.15
-#define CLERIC_REGEN_MINOR 0.25
+#define CLERIC_REGEN_DEVOTEE 0.3
+#define CLERIC_REGEN_MINOR 0.5
 #define CLERIC_REGEN_MAJOR 1
 
 // Cleric Holder Datums
