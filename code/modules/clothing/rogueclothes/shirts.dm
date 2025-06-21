@@ -565,7 +565,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/eastshirt2
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "black foreign shirt"
+	name = "foreign shirt"
 	desc = "A shirt typically used by foreign gangs."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
 	icon_state = "eastshirt2"

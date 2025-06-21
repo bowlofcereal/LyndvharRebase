@@ -1291,7 +1291,7 @@
 	icon_state = "eastsword1"
 	smeltresult = /obj/item/ingot/steel
 	max_integrity = 20
-	wdefense = 5
+	wdefense = 3
 
 /obj/item/rogueweapon/sword/sabre/mulyeog/rumahench
 	name = "lenticular straight sword"
@@ -1304,4 +1304,4 @@
 	desc = "A gold-stained with cloud patterns on the groove. One of a kind."
 	icon_state = "eastsword3"
 	max_integrity = 40
-	wdefense = 8
+	wdefense = 4

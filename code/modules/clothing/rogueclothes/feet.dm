@@ -413,7 +413,7 @@
 //kazen update
 /obj/item/clothing/shoes/roguetown/armor/rumaclan
 	name = "raised sandals"
-	desc = "A pair of weird sandals that push you off the ground."
+	desc = "A pair of strange sandals that push you off the ground."
 	icon_state = "eastsandals"
 	item_state = "eastsandals"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'

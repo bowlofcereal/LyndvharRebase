@@ -1266,13 +1266,13 @@
 
 /obj/item/clothing/suit/roguetown/armor/basiceast
 	name = "simple dobo robe"
-	desc = "A dirty dobo robe with white lapels."
+	desc = "A dirty dobo robe with white lapels. Can be upgraded through the use of a tailor."
 	icon_state = "eastsuit3"
 	item_state = "eastsuit3"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	body_parts_covered = CHEST|GROIN|VITALS
+	body_parts_covered = COVERAGE_FULL
 	armor = list("blunt" = 35, "slash" = 75, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP)
 	blocksound = SOFTHIT
@@ -1287,6 +1287,7 @@
 
 //less integrity than a leather cuirass, incredibly weak to blunt damage - great against slash - standard leather value against stab
 //the intent for these armors is to create specific weaknesses/strengths for people to play with
+//can be increased if it turns out that having full coverage with such a low integ. isnt worth it
 
 /obj/item/clothing/suit/roguetown/armor/eastsuit/crafteast
 	name = "decorated dobo robe"
