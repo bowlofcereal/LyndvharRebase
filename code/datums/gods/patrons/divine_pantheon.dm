@@ -41,6 +41,7 @@
 		"NOC SEES ALL!",
 		"I SEEK THE MYSTERIES OF THE MOON!",
 	)
+	traits_tier = list(TRAIT_DARKVISION = CLERIC_T1)
 	storyteller = /datum/storyteller/noc
 
 /datum/patron/divine/dendor
@@ -51,14 +52,9 @@
 	mob_traits = list(TRAIT_KNEESTINGER_IMMUNITY, TRAIT_LEECHIMMUNE)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/spiderspeak 			= CLERIC_T0,
-<<<<<<< HEAD
 					/obj/effect/proc_holder/spell/targeted/blesscrop			= CLERIC_T0,
 					/obj/effect/proc_holder/spell/invoked/lesser_heal 			= CLERIC_T1,
-					/obj/effect/proc_holder/spell/targeted/shapeshift/dendor	= CLERIC_T2,
-=======
-					/obj/effect/proc_holder/spell/targeted/blesscrop			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/targeted/wildshape			= CLERIC_T2,
->>>>>>> 9414226ca92f6115c9ed528ebd4317633f6480d9
 					/obj/effect/proc_holder/spell/targeted/conjure_glowshroom	= CLERIC_T3,
 					/obj/effect/proc_holder/spell/self/howl/call_of_the_moon	= CLERIC_T4,
 	)
