@@ -11898,6 +11898,8 @@
 /obj/item/roguekey/tailor,
 /obj/item/roguekey/tailor,
 /obj/machinery/light/rogue/wallfire/candle/r,
+/obj/item/roguekey/crafterguild,
+/obj/item/roguekey/crafterguild,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/dwarfin)
 "eeF" = (
@@ -48387,6 +48389,14 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/scarymaze)
+"qgc" = (
+/obj/structure/mineral_door/wood{
+	locked = 1;
+	lockid = "crafterguild"
+	},
+/obj/structure/roguemachine/stockpile,
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors/town/dwarfin)
 "qgd" = (
 /obj/machinery/light/rogue/lanternpost,
 /turf/open/floor/rogue/cobble,
@@ -50840,10 +50850,6 @@
 "qWa" = (
 /obj/structure/handcart{
 	dir = 8
-	},
-/obj/structure/roguemachine/stockpile{
-	pixel_x = 32;
-	pixel_y = 0
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors/town/dwarfin)
@@ -270404,7 +270410,7 @@ njB
 exD
 hiq
 smL
-aOG
+qgc
 smL
 smL
 oiY

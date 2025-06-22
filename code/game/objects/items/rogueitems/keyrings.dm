@@ -306,3 +306,6 @@
 
 /obj/item/storage/keyring/guildmaster
 	keys = list(/obj/item/roguekey/crafterguild, /obj/item/roguekey/tailor, /obj/item/roguekey/craftermaster)
+
+/obj/item/storage/keyring/tailor
+	keys = list(/obj/item/roguekey/crafterguild, /obj/item/roguekey/tailor)
