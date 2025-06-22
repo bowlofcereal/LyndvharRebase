@@ -120,6 +120,8 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/magic/holy, 4, TRUE)
+		if(H.age == AGE_OLD)
+			H.mind.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 		H.change_stat("intelligence", 3)
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", 1)
@@ -161,8 +163,6 @@
 		// -- End of section for god specific bonuses --
 		ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
-		if(H.age == AGE_OLD)
-			H.mind.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
