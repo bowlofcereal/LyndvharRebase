@@ -144,7 +144,7 @@
 			return
 		var/used_time = 70
 		if(user.mind)
-			used_time -= (user.mind.get_skill_level(/datum/skill/craft/engineering) * 10)
+			used_time -= (user.get_skill_level(/datum/skill/craft/engineering) * 10)
 		playsound(loc, 'sound/items/bsmith1.ogg', 100, FALSE)
 		if(!do_mob(user, M, used_time))
 			return
@@ -211,10 +211,10 @@
 		if(T.hammer_repair && T.max_integrity && !T.obj_broken)
 			var/repair_percent = 0.05
 			if(user.mind)
-				if(user.mind.get_skill_level(I.hammer_repair) <= 0)
+				if(user.get_skill_level(I.hammer_repair) <= 0)
 					to_chat(user, span_warning("I don't know how to repair this.."))
 					return
-				repair_percent = max(user.mind.get_skill_level(I.hammer_repair) * 0.05, 0.05)
+				repair_percent = max(user.get_skill_level(I.hammer_repair) * 0.05, 0.05)
 			repair_percent = repair_percent * I.max_integrity
 			I.obj_integrity = min(obj_integrity+repair_percent, I.max_integrity)
 			playsound(src,'sound/items/bsmithfail.ogg', 100, FALSE)

@@ -148,7 +148,7 @@
 					return
 			var/used_time = 0
 			if(L.mind)
-				var/myskill = L.mind.get_skill_level(/datum/skill/misc/climbing)
+				var/myskill = L.get_skill_level(/datum/skill/misc/climbing)
 				var/obj/structure/table/TA = locate() in L.loc
 				if(TA)
 					myskill += 1

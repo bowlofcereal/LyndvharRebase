@@ -21,7 +21,7 @@
 		chance2hit += 10
 
 	if(user.mind)
-		chance2hit += (user.mind.get_skill_level(associated_skill) * 8)
+		chance2hit += (user.get_skill_level(associated_skill) * 8)
 
 	if(used_intent)
 		if(used_intent.blade_class == BCLASS_STAB)
@@ -156,11 +156,11 @@
 
 			if(mainhand)
 				if(mainhand.can_parry)
-					mainhand_defense += (H.mind ? (H.mind.get_skill_level(mainhand.associated_skill) * 20) : 20)
+					mainhand_defense += (H.mind ? (H.get_skill_level(mainhand.associated_skill) * 20) : 20)
 					mainhand_defense += (mainhand.wdefense_dynamic * 10)
 			if(offhand)
 				if(offhand.can_parry)
-					offhand_defense += (H.mind ? (H.mind.get_skill_level(offhand.associated_skill) * 20) : 20)
+					offhand_defense += (H.mind ? (H.get_skill_level(offhand.associated_skill) * 20) : 20)
 					offhand_defense += (offhand.wdefense_dynamic * 10)
 
 			if(mainhand_defense >= offhand_defense)
@@ -172,7 +172,7 @@
 			var/defender_skill = 0
 			var/attacker_skill = 0
 
-			if(highest_defense <= (H.mind ? (H.mind.get_skill_level(/datum/skill/combat/unarmed) * 20) : 20))
+			if(highest_defense <= (H.mind ? (H.get_skill_level(/datum/skill/combat/unarmed) * 20) : 20))
 				defender_skill = H.mind?.get_skill_level(/datum/skill/combat/unarmed)
 				var/obj/B = H.get_item_by_slot(SLOT_WRISTS)
 				if(istype(B, /obj/item/clothing/wrists/roguetown/bracers))
@@ -190,12 +190,12 @@
 
 			if(U.mind)
 				if(intenty.masteritem)
-					attacker_skill = U.mind.get_skill_level(intenty.masteritem.associated_skill)
+					attacker_skill = U.get_skill_level(intenty.masteritem.associated_skill)
 					prob2defend -= (attacker_skill * 20)
 					if((intenty.masteritem.wbalance > 0) && (user.STASPD > src.STASPD)) //enemy weapon is quick, so get a bonus based on spddiff
 						prob2defend -= ( intenty.masteritem.wbalance * ((user.STASPD - src.STASPD) * 10) )
 				else
-					attacker_skill = U.mind.get_skill_level(/datum/skill/combat/unarmed)
+					attacker_skill = U.get_skill_level(/datum/skill/combat/unarmed)
 					prob2defend -= (attacker_skill * 20)
 
 			if(HAS_TRAIT(src, TRAIT_GUIDANCE))
@@ -540,7 +540,7 @@
 		if(I.wbalance < 0 && L.STASPD > U.STASPD) //nme weapon is slow, so its easier to dodge if we're faster
 			prob2defend = prob2defend + ( I.wbalance * ((U.STASPD - L.STASPD) * 10) )
 		if(UH?.mind)
-			prob2defend = prob2defend - (UH.mind.get_skill_level(I.associated_skill) * 10)
+			prob2defend = prob2defend - (UH.get_skill_level(I.associated_skill) * 10)
 	if(H)
 		if(!H?.check_armor_skill() || H?.legcuffed)
 			H.Knockdown(1)
@@ -558,7 +558,7 @@
 				prob2defend = prob2defend + 10
 			else
 				if(H.mind)
-					prob2defend = prob2defend + (H.mind.get_skill_level(I.associated_skill) * 10)
+					prob2defend = prob2defend + (H.get_skill_level(I.associated_skill) * 10)
 				/* Commented out due to encumbrance being seemingly broken and nonfunctional
 				var/thing = H.encumbrance
 				if(thing > 0)
@@ -568,9 +568,9 @@
 			if(UH)
 				if(UH.used_intent.unarmed)
 					if(UH.mind)
-						prob2defend = prob2defend - (UH.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
+						prob2defend = prob2defend - (UH.get_skill_level(/datum/skill/combat/unarmed) * 10)
 					if(H.mind)
-						prob2defend = prob2defend + (H.mind.get_skill_level(/datum/skill/combat/unarmed) * 10)
+						prob2defend = prob2defend + (H.get_skill_level(/datum/skill/combat/unarmed) * 10)
 
 		if(HAS_TRAIT(L, TRAIT_GUIDANCE))
 			prob2defend += 20

@@ -1088,7 +1088,7 @@
 	if(mind)
 		wrestling_diff += (mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
 	if(L.mind)
-		wrestling_diff -= (L.mind.get_skill_level(/datum/skill/combat/wrestling))
+		wrestling_diff -= (L.get_skill_level(/datum/skill/combat/wrestling))
 	if(L.grab_state > GRAB_PASSIVE)
 		agg_grab = TRUE
 

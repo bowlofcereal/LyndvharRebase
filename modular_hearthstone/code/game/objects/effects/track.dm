@@ -155,7 +155,7 @@
 
 		var/competence = user.STAPER
 		if(user.mind)
-			competence += 2 * user.mind.get_skill_level(/datum/skill/misc/tracking)
+			competence += 2 * user.get_skill_level(/datum/skill/misc/tracking)
 
 		if(competence >= diff)
 			success = TRUE
@@ -177,7 +177,7 @@
 		diff += round((world.time - creation_time) / (60 SECONDS), 1) 
 		var/competence = abs(user.STAPER - 5)
 		if(user.mind)
-			competence += 5 * user.mind.get_skill_level(/datum/skill/misc/tracking) //Skill is much more relevant for analysis.
+			competence += 5 * user.get_skill_level(/datum/skill/misc/tracking) //Skill is much more relevant for analysis.
 		switch(competence - diff)
 			if(30 to INFINITY)
 				analysis_result = ANALYSIS_PERFECT

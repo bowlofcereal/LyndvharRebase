@@ -82,7 +82,7 @@
 	. = ..()
 	var/debuff_power = 1
 	if (user && user.mind)
-		debuff_power = clamp((user.mind.get_skill_level(/datum/skill/magic/holy) / 2), 1, 3)
+		debuff_power = clamp((user.get_skill_level(/datum/skill/magic/holy) / 2), 1, 3)
 	
 	var/too_powerful = FALSE
 	var/list/things_to_churn = list()

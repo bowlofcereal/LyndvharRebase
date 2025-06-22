@@ -157,9 +157,9 @@
 	var/skill_diff = 0
 	var/combat_modifier = 1
 	if(user.mind)
-		skill_diff += (user.mind.get_skill_level(/datum/skill/combat/wrestling))
+		skill_diff += (user.get_skill_level(/datum/skill/combat/wrestling))
 	if(M.mind)
-		skill_diff -= (M.mind.get_skill_level(/datum/skill/combat/wrestling))
+		skill_diff -= (M.get_skill_level(/datum/skill/combat/wrestling))
 
 	if(M.surrendering)
 		combat_modifier = 2

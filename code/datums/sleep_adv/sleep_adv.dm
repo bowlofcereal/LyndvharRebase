@@ -301,7 +301,7 @@
 /proc/can_train_combat_skill(mob/living/user, skill_type, target_skill_level)
 	if(!user.mind)
 		return FALSE
-	var/user_skill_level = user.mind.get_skill_level(skill_type)
+	var/user_skill_level = user.get_skill_level(skill_type)
 	var/level_diff = target_skill_level - user_skill_level
 	if(level_diff <= 0)
 		return FALSE

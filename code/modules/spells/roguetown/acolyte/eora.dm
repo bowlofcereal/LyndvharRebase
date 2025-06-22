@@ -444,7 +444,7 @@
 /obj/structure/eoran_pomegranate_tree/proc/get_farming_skill(mob/user)
     if(!user?.mind)
         return FALSE
-    return user.mind.get_skill_level(/datum/skill/labor/farming)
+    return user.get_skill_level(/datum/skill/labor/farming)
 
 /obj/structure/eoran_pomegranate_tree/proc/update_happiness_tier()
     if(happiness >= 100)
