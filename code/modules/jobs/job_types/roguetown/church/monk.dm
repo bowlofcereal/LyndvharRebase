@@ -129,7 +129,7 @@
 		// -- Start of section for god specific bonuses --
 		if(H.patron?.type == /datum/patron/divine/astrata) // Light and Guidance - Like ravox, they probably can endure seeing some shit.
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
-			ADD_TRAIT(H, TRAIT_TRAIT_STEELHEARTED, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		if(H.patron?.type == /datum/patron/divine/noc) // Arcyne and Knowledge - Probably good at reading and the other arcyne adjacent stuff.
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE) // Really good at reading... does this really do anything? No. BUT it's soulful.
 			H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
@@ -155,7 +155,7 @@
 			H.mind.adjust_skillrank(/datum/skill/craft/smelting, 2, TRUE)
 		if(H.patron?.type == /datum/patron/divine/ravox) // Justice and Honor - athletics and probably a bit better at handling the horrors of war
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-			ADD_TRAIT(H, TRAIT_TRAIT_STEELHEARTED, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		if(H.patron?.type == /datum/patron/divine/xylix)  // Trickery and Inspiration - muxic and rogueish skills
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
