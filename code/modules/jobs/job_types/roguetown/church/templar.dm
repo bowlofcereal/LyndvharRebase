@@ -112,6 +112,9 @@
 		// -- Start of section for god specific bonuses --
 		if(H.patron?.type == /datum/patron/divine/astrata)
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
+		if(H.patron?.type == /datum/patron/divine/dendor)
+			H.mind.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		if(H.patron?.type == /datum/patron/divine/noc)
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE) // Really good at reading... does this really do anything? No. BUT it's soulful.
 			H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
@@ -256,6 +259,9 @@
 		// -- Start of section for god specific bonuses --
 		if(H.patron?.type == /datum/patron/divine/astrata)
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
+		if(H.patron?.type == /datum/patron/divine/dendor)
+			H.mind.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 		if(H.patron?.type == /datum/patron/divine/noc)
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE) // Really good at reading... does this really do anything? No. BUT it's soulful.
 			H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
