@@ -52,7 +52,7 @@
 			gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 			pants = /obj/item/clothing/under/roguetown/trou/eastpants1
 			shirt = /obj/item/clothing/suit/roguetown/shirt/eastshirt2
-			armor = /obj/item/clothing/suit/roguetown/armor/eastsuit/mentorsuit
+			armor = /obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			belt = /obj/item/storage/belt/rogue/leather/
 			beltl = /obj/item/flashlight/flare/torch/lantern

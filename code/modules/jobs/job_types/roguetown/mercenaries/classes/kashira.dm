@@ -44,7 +44,7 @@
 		H.change_stat("constitution", 1) //to compensate for the permanent lack of armor
 		H.dna.species.soundpack_m = new /datum/voicepack/male/evil()
 	else if(should_wear_femme_clothes(H))
-		armor = /obj/item/clothing/suit/roguetown/armor/eastsuit/captainrobe
+		armor = /obj/item/clothing/suit/roguetown/armor/basiceast/captainrobe
 		shirt = /obj/item/clothing/suit/roguetown/shirt/easttats
 		shoes = /obj/item/clothing/shoes/roguetown/armor/rumaclan
 
