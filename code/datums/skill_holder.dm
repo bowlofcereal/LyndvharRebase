@@ -17,6 +17,9 @@
 /mob/proc/get_skill_speed_modifier(skill)
 	return ensure_skills().get_skill_speed_modifier(skill)
 
+/mob/proc/adjust_skillrank(skill, amt, silent = FALSE)
+	return ensure_skills().adjust_skillrank(skill, amt, silent)
+
 /mob/proc/adjust_skillrank_up_to(skill, amt, silent = FALSE)
 	return ensure_skills().adjust_skillrank_up_to(skill, amt, silent)
 
@@ -27,6 +30,8 @@
 	return ensure_skills().print_levels(src)
 
 /datum/skill_holder
+	///our current host
+	var/mob/living/current
 	///Assoc list of skills - level
 	var/list/known_skills = list()
 	///Assoc list of skills - exp
@@ -174,8 +179,8 @@
 	var/msg = ""
 	msg += span_info("*---------*\n")
 	for(var/datum/skill/i in shown_skills)
-		var/can_advance_post = sleep_adv.enough_sleep_xp_to_advance(i.type, 1)
-		var/capped_post = sleep_adv.enough_sleep_xp_to_advance(i.type, 2)
+		var/can_advance_post = current?.mind?.sleep_adv.enough_sleep_xp_to_advance(i.type, 1)
+		var/capped_post = current?.mind?.sleep_adv.enough_sleep_xp_to_advance(i.type, 2)
 		var/rankup_postfix = capped_post ? span_nicegreen(" <b>(!!)</b>") : can_advance_post ? span_nicegreen(" <b>(!)</b>") : ""
 		msg += "[i] - [SSskills.level_names[known_skills[i]]][rankup_postfix]"
 		msg += span_info(" <a href='?src=[REF(i)];skill_detail=1'>{?}</a>\n")

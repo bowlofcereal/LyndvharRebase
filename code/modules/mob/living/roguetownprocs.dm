@@ -173,7 +173,7 @@
 			var/attacker_skill = 0
 
 			if(highest_defense <= (H.mind ? (H.get_skill_level(/datum/skill/combat/unarmed) * 20) : 20))
-				defender_skill = H.mind?.get_skill_level(/datum/skill/combat/unarmed)
+				defender_skill = H.get_skill_level(/datum/skill/combat/unarmed)
 				var/obj/B = H.get_item_by_slot(SLOT_WRISTS)
 				if(istype(B, /obj/item/clothing/wrists/roguetown/bracers))
 					prob2defend += (defender_skill * 30)
@@ -182,9 +182,9 @@
 				weapon_parry = FALSE
 			else
 				if(used_weapon)
-					defender_skill = H.mind?.get_skill_level(used_weapon.associated_skill)
+					defender_skill = H.get_skill_level(used_weapon.associated_skill)
 				else
-					defender_skill = H.mind?.get_skill_level(/datum/skill/combat/unarmed)
+					defender_skill = H.get_skill_level(/datum/skill/combat/unarmed)
 				prob2defend += highest_defense
 				weapon_parry = TRUE
 
@@ -549,7 +549,7 @@
 			if(H?.check_dodge_skill())
 				drained = drained - 5  commented out for being too much. It was giving effectively double stamina efficiency compared to everyone else.
 			if(H.mind)
-				drained = drained + max((H.checkwornweight() * 10)-(mind.get_skill_level(/datum/skill/misc/athletics) * 10),0)
+				drained = drained + max((H.checkwornweight() * 10)-(get_skill_level(/datum/skill/misc/athletics) * 10),0)
 			else
 				drained = drained + (H.checkwornweight() * 10)
 		*/
@@ -863,12 +863,12 @@
 	//Skill check, very simple. If you're more skilled with your weapon than the opponent is with theirs -> +10% to disarm or vice-versa.
 	var/skilldiff
 	if(IM.associated_skill)
-		skilldiff = mind.get_skill_level(IM.associated_skill)
+		skilldiff = get_skill_level(IM.associated_skill)
 	else
 		instantloss = TRUE	//We are Guarding with a book or something -- no chance for us.
 
 	if(IU.associated_skill)
-		skilldiff = skilldiff - HU.mind?.get_skill_level(IU.associated_skill)
+		skilldiff = skilldiff - HU.get_skill_level(IU.associated_skill)
 	else
 		instantwin = TRUE	//THEY are Guarding with a book or something -- no chance for them.
 	

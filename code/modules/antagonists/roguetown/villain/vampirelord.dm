@@ -128,7 +128,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		owner.i_know_person(MF)
 		owner.person_knows_me(MF)
 
-	owner.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
+	owner.current.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
 	owner.current.ambushable = FALSE
 
 /mob/living/carbon/human/proc/spawn_pick_class()
@@ -148,15 +148,15 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 /datum/outfit/job/roguetown/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.mind.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/swords, 6, TRUE) //he has been alive for 2 thousand years, bro why
-	H.mind.adjust_skillrank(/datum/skill/combat/maces, 6, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 6, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-	H.mind.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/blood, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 6, TRUE) //he has been alive for 2 thousand years, bro why
+	H.adjust_skillrank(/datum/skill/combat/maces, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/whipsflails, 6, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shirt = /obj/item/clothing/suit/roguetown/shirt/vampire
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
@@ -422,7 +422,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 			owner.current.verbs |= /mob/living/carbon/human/proc/vamp_regenerate
 			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodsteal)
 			owner.current.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/bloodlightning)
-			owner.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
+			owner.current.adjust_skillrank(/datum/skill/magic/blood, 3, TRUE)
 			gas = new
 			owner.current.AddSpell(gas)
 			for(var/S in MOBSTATS)

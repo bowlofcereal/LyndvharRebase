@@ -185,7 +185,7 @@
 /turf/closed/examine(mob/user)
 	. = ..()
 	if(wallclimb)
-		var/skill = user.mind?.get_skill_level(/datum/skill/misc/climbing)
+		var/skill = user.get_skill_level(/datum/skill/misc/climbing)
 		if(skill >= climbdiff)
 			. += span_info("I <b>can</b> climb this wall.")
 		else if(abs(skill - climbdiff) == 1)

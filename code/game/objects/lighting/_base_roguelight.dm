@@ -108,7 +108,7 @@
 	fire_act()
 
 /obj/machinery/light/rogue/attackby(obj/item/W, mob/living/user, params)
-	var/datum/skill/craft/cooking/cs = user?.mind?.get_skill_level(/datum/skill/craft/cooking)
+	var/datum/skill/craft/cooking/cs = user?.get_skill_level(/datum/skill/craft/cooking)
 	var/cooktime_divisor = get_cooktime_divisor(cs)
 	if(cookonme)
 		if(istype(W, /obj/item/reagent_containers/food/snacks))
