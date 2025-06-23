@@ -262,12 +262,13 @@
 	miracle = TRUE
 	devotion_cost = 30
 	range = 1
-	var/static/list/whitelisted_objects = list(/obj/structure/gravemarker, /obj/structure/fluff/psycross)
+	var/static/list/whitelisted_objects = list(/obj/structure/gravemarker, /obj/structure/fluff/psycross, /obj/structure/fluff/psycross/copper, /obj/structure/fluff/psycross/crafted)
 	var/list/marked_objects = list()
 	var/outline_color = "#4ea1e6"
 	var/last_index = 1
 
 /obj/effect/proc_holder/spell/invoked/necras_sight/cast(list/targets, mob/user)
+	var/success
 	if(isobj(targets[1]))
 		var/obj/O = targets[1]
 		if((O.type in whitelisted_objects))
@@ -280,11 +281,12 @@
 				add_to_scry(O, user)
 				return TRUE
 		if(length(marked_objects))
-			try_scry(user)
+			success = try_scry(user)
 	if(ismob(targets[1]))
 		if(length(marked_objects))
-			try_scry(user)
-			return TRUE
+			success = try_scry(user)
+	if(success)
+		return TRUE
 	revert_cast()
 	return FALSE
 
@@ -301,12 +303,15 @@
 		var/mob/dead/observer/screye/S = user.scry_ghost()
 		spygrave.visible_message(span_warning("[spygrave] shimmers with an eerie glow."))
 		if(!S)
-			return
+			return FALSE
 		S.ManualFollow(spygrave)
 		user.visible_message(span_danger("[user] blinks, [user.p_their()] eyes rolling back into [user.p_their()] head."))
 		user.playsound_local(get_turf(user), 'sound/magic/necra_sight.ogg', 80)
 		addtimer(CALLBACK(S, TYPE_PROC_REF(/mob/dead/observer, reenter_corpse)), (8 SECONDS))
 		addtimer(CALLBACK(spygrave, TYPE_PROC_REF(/atom/movable, remove_filter), GRAVE_SPY), (8 SECONDS))
+		return TRUE
+	else
+		return FALSE
 
 #undef GRAVE_SPY
 
