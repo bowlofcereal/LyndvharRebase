@@ -1326,7 +1326,7 @@
 //less integrity than a leather cuirass, incredibly weak to blunt damage - great against slash - standard leather value against stab
 //the intent for these armors is to create specific weaknesses/strengths for people to play with
 
-/obj/item/clothing/suit/roguetown/armor/eastsuit/crafteast
+/obj/item/clothing/suit/roguetown/armor/basiceast/crafteast
 	name = "decorated dobo robe"
 	desc = "A dobo robe with a red tassel. Leather inlays are sewn in."
 	icon_state = "eastsuit2"
@@ -1337,7 +1337,7 @@
 //craftable variation of eastsuit, essentially requiring the presence of a tailor with relevant materials
 //still weak against blunt
 
-/obj/item/clothing/suit/roguetown/armor/eastsuit/mentorsuit
+/obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit
 	name = "old dobo robe"
 	desc = "The scars on your body were once stories of strength and bravado."
 	icon_state = "eastsuit1"
@@ -1346,7 +1346,7 @@
 	armor = list("blunt" = 50, "slash" = 90, "stab" = 60, "piercing" = 30, "fire" = 0, "acid" = 0)
 	max_integrity = 200
 
-/obj/item/clothing/suit/roguetown/armor/eastsuit/captainrobe
+/obj/item/clothing/suit/roguetown/armor/basiceast/captainrobe
 	name = "foreign robes"
 	desc = "Flower-styled robes, said to have been infused with magical protection. The Merchant Guild says that this is from the southern Kazengite region."
 	icon_state = "eastsuit4"
