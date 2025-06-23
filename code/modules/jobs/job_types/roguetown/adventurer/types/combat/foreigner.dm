@@ -38,6 +38,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) 			//this shouldn't be enough to allow them to craft shit, rather just repair their prone-to-break armor
 			backpack_contents = list(/obj/item/recipe_book/survival = 1, /obj/item/flashlight/flare/torch/lantern)
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 1)
@@ -50,7 +51,7 @@
 			head = /obj/item/clothing/head/roguetown/mentorhat
 			gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 			pants = /obj/item/clothing/under/roguetown/trou/eastpants1
-			shirt = /obj/item/clothing/suit/roguetown/shirt/eastshirt1
+			shirt = /obj/item/clothing/suit/roguetown/shirt/eastshirt2
 			armor = /obj/item/clothing/suit/roguetown/armor/eastsuit/mentorsuit
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			belt = /obj/item/storage/belt/rogue/leather/
@@ -64,6 +65,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 			backpack_contents = list(/obj/item/recipe_book/survival = 1)
 			H.change_stat("strength", 3)
 			H.change_stat("endurance", 1)

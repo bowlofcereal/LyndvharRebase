@@ -1279,7 +1279,7 @@
 	blade_dulling = DULLING_BASHCHOP
 	sewrepair = TRUE
 	nodismemsleeves = TRUE
-	max_integrity = 175 
+	max_integrity = 175 //can be increased if it turns out that having full coverage with such a low integ. isnt worth it
 	sellprice = 20
 	armor_class = ARMOR_CLASS_LIGHT
 	allowed_race = NON_DWARVEN_RACE_TYPES
@@ -1287,7 +1287,6 @@
 
 //less integrity than a leather cuirass, incredibly weak to blunt damage - great against slash - standard leather value against stab
 //the intent for these armors is to create specific weaknesses/strengths for people to play with
-//can be increased if it turns out that having full coverage with such a low integ. isnt worth it
 
 /obj/item/clothing/suit/roguetown/armor/eastsuit/crafteast
 	name = "decorated dobo robe"

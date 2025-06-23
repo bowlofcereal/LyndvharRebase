@@ -13,8 +13,7 @@
 	..()
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/rogueweapon/sword/sabre/mulyeog/rumacaptain
-	beltl = /obj/item/scabbard/rumahench
-	shoes = /obj/item/clothing/shoes/roguetown/armor/rumaclan
+	beltl = /obj/item/scabbard/rumacaptain
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/flashlight/flare/torch, /obj/item/flashlight/flare/torch/lantern)
 	H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
@@ -41,17 +40,14 @@
 		pants = /obj/item/clothing/under/roguetown/trou/eastpants1
 		gloves = /obj/item/clothing/gloves/roguetown/eastgloves2
 		armor = /obj/item/clothing/suit/roguetown/shirt/easttats
+		shoes = /obj/item/clothing/shoes/roguetown/boots
 		H.change_stat("endurance", 1)
 		H.change_stat("constitution", 1) //to compensate for the permanent lack of armor
 		H.dna.species.soundpack_m = new /datum/voicepack/male/evil()
 	else if(should_wear_femme_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/armor/eastsuit/captainrobe
 		shirt = /obj/item/clothing/suit/roguetown/shirt/easttats
-
-	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC) //i swear this isn't as good as it sounds
-	H.grant_language(/datum/language/kazengunese)
-
+		shoes = /obj/item/clothing/shoes/roguetown/armor/rumaclan
 
 	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC) //i swear this isn't as good as it sounds
