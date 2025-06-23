@@ -109,7 +109,7 @@
 			H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-			H.mind.adjust_spellpoints(15)
+			H?.mind.adjust_spellpoints(15)
 			ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_ARCYNE_T2, TRAIT_GENERIC)
 			H.change_stat("perception", -1)

@@ -242,7 +242,7 @@
 	H.change_stat("constitution", -1)
 	H.change_stat("intelligence", 4)
 	if(H.mind)
-		H.mind.adjust_spellpoints(36)
+		H?.mind.adjust_spellpoints(36)
 	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 	if(H.age == AGE_OLD)
 		H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
@@ -250,7 +250,7 @@
 		H.change_stat("intelligence", 1)
 		H.change_stat("perception", 1)
 	if(H.mind)
-		H.mind.adjust_spellpoints(6)
+		H?.mind.adjust_spellpoints(6)
 	if(ishumannorthern(H))
 		belt = /obj/item/storage/belt/rogue/leather/plaquegold
 		cloak = null
