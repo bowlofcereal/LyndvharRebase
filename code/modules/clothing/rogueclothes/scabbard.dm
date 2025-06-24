@@ -23,6 +23,7 @@
 	sellprice = 3
 	COOLDOWN_DECLARE(shield_bang)
 	w_class = WEIGHT_CLASS_BULKY
+	associated_skill = /datum/skill/combat/shields		
 
 	var/obj/item/rogueweapon/sword/valid_sword = /obj/item/rogueweapon/sword
 	var/obj/item/rogueweapon/sword/sheathed

@@ -1295,7 +1295,6 @@
 	desc = "A foreign sword used by cut-throats & thugs. There's a red tassel on the hilt."
 	icon_state = "eastsword1"
 	smeltresult = /obj/item/ingot/steel
-	max_integrity = 20
 	wdefense = 3
 
 /obj/item/rogueweapon/sword/sabre/mulyeog/rumahench
@@ -1308,5 +1307,5 @@
 	name = "Heiyundao"
 	desc = "A gold-stained with cloud patterns on the groove. One of a kind."
 	icon_state = "eastsword3"
-	max_integrity = 40
+	max_integrity = 180
 	wdefense = 4
