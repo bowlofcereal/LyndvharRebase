@@ -20,6 +20,7 @@
 
 		if("Roughneck")
 			to_chat(H, span_warning("You are a foreign swordsman, carrying nothing but your sword and your skill."))
+			head = /obj/item/clothing/head/roguetown/mentorhat
 			gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 			pants = /obj/item/clothing/under/roguetown/trou/eastpants1
 			shirt = /obj/item/clothing/suit/roguetown/shirt/eastshirt1
