@@ -6,11 +6,11 @@
 	associated_faith = /datum/faith/old_god
 	mob_traits = list(TRAIT_PSYDONITE)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
-					/obj/effect/proc_holder/spell/invoked/psydonheal			= CLERIC_T0,
+					/obj/effect/proc_holder/spell/invoked/psydonendure			= CLERIC_T1,
 	)
 	confess_lines = list(
 		"THERE IS ONLY ONE TRUE GOD!",
-		"PSYDON YET LIVES! PSYDON YET ENDURES!",
+		"PSYDON YET LYVES! PSYDON YET ENDURES!",
 		"REBUKE THE HERETICAL- PSYDON ENDURES!",
 	)
 
@@ -45,7 +45,7 @@
 // 	    ENDVRE. AS DOES HE.    //
 ////////////////////////////////
 
-/obj/effect/proc_holder/spell/invoked/psydonheal
+/obj/effect/proc_holder/spell/invoked/psydonendure
 	name = "ENDURE"
 	overlay_state = "enduring"
 	releasedrain = 20
@@ -63,12 +63,13 @@
 	miracle = TRUE
 	devotion_cost = 40
 
-/obj/effect/proc_holder/spell/invoked/psydonheal/cast(list/targets, mob/living/user)
+/obj/effect/proc_holder/spell/invoked/psydonendure/cast(list/targets, mob/living/user)
 	. = ..()
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		var/brute = target.getBruteLoss()
 		var/burn = target.getFireLoss()
+		var/list/wAmount = target.get_wounds()
 		var/conditional_buff = FALSE
 		var/situational_bonus = 0
 		var/psicross_bonus = 0
@@ -86,8 +87,17 @@
 				pp += 1
 				if(pp >= 12 & target == user) // A harmless easter-egg. Only applies on self-cast. You'd have to be pretty deliberate to wear 12 of them.
 					target.visible_message(span_danger("[target]'s many psycrosses reverberate with a strange, ephemeral sound..."), span_userdanger("HE must be waking up! I can hear it! I'm ENDURING so much!"))
-					playsound(target, 'sound/magic/PSYDONE.ogg', 100, FALSE)
-					sleep(110)
+					playsound(user, 'sound/magic/PSYDONE.ogg', 100, FALSE)
+					sleep(60)
+					user.psydo_nyte()
+					user.playsound_local(user, 'sound/misc/psydong.ogg', 100, FALSE)
+					sleep(20)
+					user.psydo_nyte()
+					user.playsound_local(user, 'sound/misc/psydong.ogg', 100, FALSE)
+					sleep(15)
+					user.psydo_nyte()
+					user.playsound_local(user, 'sound/misc/psydong.ogg', 100, FALSE)
+					sleep(10)
 					user.gib()
 					return FALSE
 				
@@ -105,8 +115,11 @@
 					if(/obj/item/clothing/neck/roguetown/zcross/aalloy)
 						zcross_trigger = TRUE	
 
-		if(damtotal >= 300) // ARE THEY ENDURING MUCH?
-			situational_bonus += 0.5
+		if(damtotal >= 300) // ARE THEY ENDURING MUCH, IN ONE WAY OR ANOTHER?
+			situational_bonus += 0.3
+
+		if(wAmount.len > 5)	
+			situational_bonus += 0.3		
 	
 		if (situational_bonus > 0)
 			conditional_buff = TRUE
@@ -115,12 +128,12 @@
 		var/psyhealing = 3
 		psyhealing += psicross_bonus
 		if (conditional_buff & !zcross_trigger)
-			to_chat(user, "In <b>ENDURING</b> so much, it becomes <b>EMBOLDENED</b>!")
+			to_chat(user, "In <b>ENDURING</b> so much, become <b>EMBOLDENED</b>!")
 			psyhealing += situational_bonus
 	
 		if (zcross_trigger)
 			user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
-			playsound(user, 'sound/misc/zizo.ogg', 25, FALSE)
+			user.playsound_local('sound/misc/zizo.ogg', 25, FALSE)
 			user.adjustBruteLoss(25)		
 			return FALSE
 
