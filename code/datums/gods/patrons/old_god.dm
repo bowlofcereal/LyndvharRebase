@@ -49,7 +49,7 @@
 
 /obj/effect/proc_holder/spell/invoked/psydonendure
 	name = "ENDURE"
-	overlay_state = "enduring"
+	overlay_state = "ENDURE"
 	releasedrain = 20
 	chargedrain = 0
 	chargetime = 0

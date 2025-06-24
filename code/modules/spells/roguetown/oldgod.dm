@@ -82,7 +82,7 @@
 
 /obj/effect/proc_holder/spell/self/psydonrespite
 	name = "RESPITE"
-	overlay_state = "psydonrespite"
+	overlay_state = "RESPITE"
 	releasedrain = 20
 	chargedrain = 0
 	chargetime = 0
