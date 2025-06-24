@@ -238,7 +238,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_APRICITY = span_info("Astrata's light blesses and rejuvenates me, allowing me to regain my stamina quicker during the dae."),
 	TRAIT_SHARPER_BLADES = span_info("My blades go dull slower, ensuring they stay sharp longer."),
 	TRAIT_CABAL = span_info("In secret, I have studied the ways of Her ascension, and know of others of the Cabal."),
-	TRAIT_PSYDONITE = span_info("PSYDON LYVES. PSYDON ENDURES. I, too, ENDURE. Many miracles hold no sway over me and others of my faith."),
+	TRAIT_PSYDONITE = span_info("PSYDON LYVES. PSYDON ENDURES. I, too, ENDURE. Healing miracles hold no sway over me and others of my faith, save for a select few."),
 	TRAIT_HORDE = span_info("BY BLOOD AND BONE, I AM OF GRAGGAR'S ANOINTED! I FEEL THE STRENGTH IN OTHERS WHO ARE THE SAME."),
 	TRAIT_FORTITUDE = span_info("The typical drain I feel from day to day life is lessened, my athleticism greater."),
 	TRAIT_GUIDANCE = span_info("The arcyne aides me in battle."),
