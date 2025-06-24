@@ -297,11 +297,11 @@ GLOBAL_LIST_EMPTY(loadout_items)
 
 /datum/loadout_item/eastshirt1
 	name = "Black Foreign Shirt"
-	path = /obj/item/clothing/suit/roguetown/shirt/eastshirt1
+	path = /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt1
 
 /datum/loadout_item/eastshirt2
 	name = "White Foreign Shirt"
-	path = /obj/item/clothing/suit/roguetown/shirt/eastshirt2
+	path = /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt2
 //PANTS
 /datum/loadout_item/tights
 	name = "Cloth Tights"

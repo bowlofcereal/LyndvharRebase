@@ -550,7 +550,7 @@
 	slot_flags = ITEM_SLOT_SHIRT
 
 //kazengite content
-/obj/item/clothing/suit/roguetown/shirt/eastshirt1
+/obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt1
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	name = "black foreign shirt"
 	desc = "A shirt typically used by thugs."
@@ -565,9 +565,9 @@
 	flags_inv = HIDECROTCH|HIDEBOOB
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
-/obj/item/clothing/suit/roguetown/shirt/eastshirt2
+/obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt2
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "black foreign shirt"
+	name = "white foreign shirt"
 	desc = "A shirt typically used by foreign gangs."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
 	icon_state = "eastshirt2"
@@ -581,7 +581,7 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
 //tattoo code
-/obj/item/clothing/suit/roguetown/shirt/easttats/Initialize(mapload)
+/obj/item/clothing/suit/roguetown/shirt/undershirt/easttats/Initialize(mapload)
 	. = ..()
 	name = "lenticular tattoos"
 	desc = "It's styled into the shapes of clouds. You shudder as the ink moves and condenses into areas where the skin is struck."

@@ -23,7 +23,7 @@
 			head = /obj/item/clothing/head/roguetown/mentorhat
 			gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 			pants = /obj/item/clothing/under/roguetown/trou/eastpants1
-			shirt = /obj/item/clothing/suit/roguetown/shirt/eastshirt1
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt1
 			armor = /obj/item/clothing/suit/roguetown/armor/basiceast
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
@@ -52,7 +52,7 @@
 			head = /obj/item/clothing/head/roguetown/mentorhat
 			gloves = /obj/item/clothing/gloves/roguetown/eastgloves1
 			pants = /obj/item/clothing/under/roguetown/trou/eastpants1
-			shirt = /obj/item/clothing/suit/roguetown/shirt/eastshirt2
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/eastshirt2
 			armor = /obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			belt = /obj/item/storage/belt/rogue/leather/
