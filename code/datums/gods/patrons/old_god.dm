@@ -7,6 +7,7 @@
 	mob_traits = list(TRAIT_PSYDONITE)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison			= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/invoked/psydonendure			= CLERIC_T1,
+					/obj/effect/proc_holder/spell/self/psydonrespite			= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/psydonlux_tamper		= CLERIC_T3,
 	)
 	confess_lines = list(

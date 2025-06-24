@@ -79,3 +79,85 @@
 	to_chat(H, span_info("You feel a strange stirring sensation pour over your Lux, stealing your wounds."))
 	
 	return TRUE
+
+/obj/effect/proc_holder/spell/self/psydonrespite
+	name = "RESPITE"
+	overlay_state = "psydonrespite"
+	releasedrain = 20
+	chargedrain = 0
+	chargetime = 0
+	range = 2
+	warnie = "sydwarning"
+	movement_interrupt = FALSE
+	sound = null
+	invocation = ". . ."
+	invocation_type = "none"
+	associated_skill = /datum/skill/magic/holy
+	antimagic_allowed = FALSE
+	recharge_time = 10 SECONDS // 60 seconds cooldown
+	miracle = TRUE
+	devotion_cost = 5
+
+/obj/effect/proc_holder/spell/self/psydonrespite/cast(mob/living/user) // It's a very tame self-heal. Nothing too special.
+	. = ..()
+	if(!ishuman(user))
+		revert_cast()
+		return FALSE
+		
+	var/mob/living/carbon/human/H = user
+	var/brute = H.getBruteLoss()
+	var/burn = H.getFireLoss()
+	var/conditional_buff = FALSE
+	var/zcross_trigger = FALSE
+	var/sit_bonus1 = 0
+	var/sit_bonus2 = 0
+	var/psicross_bonus = 0
+
+	for(var/obj/item/clothing/neck/current_item in H.get_equipped_items(TRUE))
+		if(current_item.type in list(/obj/item/clothing/neck/roguetown/zcross/aalloy, /obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/wood, /obj/item/clothing/neck/roguetown/psicross/aalloy, /obj/item/clothing/neck/roguetown/psicross/silver, /obj/item/clothing/neck/roguetown/psicross/g))
+			switch(current_item.type) // Worn Psicross Piety bonus. For fun.
+				if(/obj/item/clothing/neck/roguetown/psicross/wood)
+					psicross_bonus = -2				
+				if(/obj/item/clothing/neck/roguetown/psicross/aalloy)
+					psicross_bonus = -4
+				if(/obj/item/clothing/neck/roguetown/psicross)
+					psicross_bonus = -5
+				if(/obj/item/clothing/neck/roguetown/psicross/silver)
+					psicross_bonus = -6	
+				if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
+					psicross_bonus = -8
+				if(/obj/item/clothing/neck/roguetown/zcross/aalloy)
+					zcross_trigger = TRUE		
+	if(brute > 50)
+		sit_bonus1 = -2
+	if(burn > 50)
+		sit_bonus2 = -2					
+
+	if(sit_bonus1 || sit_bonus2)				
+		conditional_buff = TRUE
+
+	var/bruthealval = -5 + psicross_bonus + sit_bonus1
+	var/burnhealval = -5 + psicross_bonus + sit_bonus2
+
+	to_chat(H, span_info("I take a moment to collect myself..."))
+	if(zcross_trigger)
+		user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
+		user.playsound_local('sound/misc/zizo.ogg', 25, FALSE)
+		user.adjustBruteLoss(25)		
+		return FALSE
+
+	if(do_after(H, 50))
+		playsound(H, 'sound/magic/psydonrespite.ogg', 100, TRUE)
+		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4") 
+		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4") 
+		H.adjustBruteLoss(bruthealval)
+		H.adjustFireLoss(burnhealval)
+		to_chat(H, span_info("In a moment of quiet contemplation, I feel bolstered by my faith."))
+		if (conditional_buff)
+			to_chat(user, span_info("My pain gives way to a sense of furthered clarity before returning again, dulled."))
+		revert_cast()
+		return TRUE
+	else
+		to_chat(H, span_warning("I lose my train of thought."))
+		
+	return FALSE			
