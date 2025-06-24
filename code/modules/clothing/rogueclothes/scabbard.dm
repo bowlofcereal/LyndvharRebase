@@ -14,7 +14,7 @@
 	wlength = WLENGTH_SHORT
 	resistance_flags = FLAMMABLE
 	can_parry = TRUE
-	wdefense = 5
+	wdefense = 10
 	parrysound = "parrywood"
 	attacked_sound = "parrywood"
 	max_integrity = 150
