@@ -193,7 +193,7 @@
 					if(/obj/item/clothing/neck/roguetown/psicross/silver)
 						psicross_bonus = 0.4	
 					if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
-						psicross_bonus = 0.5
+						psicross_bonus = 0.4
 					if(/obj/item/clothing/neck/roguetown/zcross/aalloy)
 						zcross_trigger = TRUE	
 
