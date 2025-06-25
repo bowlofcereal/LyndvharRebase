@@ -24,7 +24,7 @@
 	chargetime = 0
 	chargedloop = null
 	sound = null
-	overlay_state = "psy"
+	overlay_state = "BOOTCHECK"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	recharge_time = 10 MINUTES
@@ -215,7 +215,7 @@
 	
 		if (zcross_trigger)
 			user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
-			user.playsound_local('sound/misc/zizo.ogg', 25, FALSE)
+			user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
 			user.adjustBruteLoss(25)		
 			return FALSE
 

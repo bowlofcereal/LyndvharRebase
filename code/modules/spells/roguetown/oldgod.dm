@@ -123,15 +123,19 @@
 				if(/obj/item/clothing/neck/roguetown/psicross)
 					psicross_bonus = -5
 				if(/obj/item/clothing/neck/roguetown/psicross/silver)
-					psicross_bonus = -6	
+					psicross_bonus = -7
 				if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
-					psicross_bonus = -8
+					psicross_bonus = -7
 				if(/obj/item/clothing/neck/roguetown/zcross/aalloy)
 					zcross_trigger = TRUE		
-	if(brute > 50)
+	if(brute > 100)
 		sit_bonus1 = -2
-	if(burn > 50)
-		sit_bonus2 = -2					
+	if(brute > 200)
+		sit_bonus1 = -4	
+	if(burn > 100)
+		sit_bonus2 = -2			
+	if(burn > 200)
+		sit_bonus2 = -4					
 
 	if(sit_bonus1 || sit_bonus2)				
 		conditional_buff = TRUE
@@ -142,7 +146,7 @@
 	to_chat(H, span_info("I take a moment to collect myself..."))
 	if(zcross_trigger)
 		user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
-		user.playsound_local('sound/misc/zizo.ogg', 25, FALSE)
+		user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
 		user.adjustBruteLoss(25)		
 		return FALSE
 
