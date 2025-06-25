@@ -162,6 +162,6 @@
 		revert_cast()
 		return TRUE
 	else
-		to_chat(H, span_warning("I lose my train of thought."))
+		to_chat(H, span_warning("My thoughts and sense of quiet escape me."))
 		
 	return FALSE			
