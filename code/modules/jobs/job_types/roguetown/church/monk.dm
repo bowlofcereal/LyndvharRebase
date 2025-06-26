@@ -157,12 +157,12 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
 		// -- End of section for god specific bonuses --
+		ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
 		H.change_stat("intelligence", 3)
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", 1)
 		H.cmode_music = 'sound/music/combat_holy.ogg'
-		ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
