@@ -63,11 +63,11 @@
 				if("Shamshir and Shield")
 					H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 					r_hand = /obj/item/rogueweapon/sword/sabre/shamshir
-					l_hand = /obj/item/rogueweapon/shield/tower/raneshen //todo
+					l_hand = /obj/item/rogueweapon/shield/tower/raneshen
 				if("Spear and Shield")
 					H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 					r_hand = /obj/item/rogueweapon/spear
-					l_hand = /obj/item/rogueweapon/shield/tower/raneshen //todo
+					l_hand = /obj/item/rogueweapon/shield/tower/raneshen
 
 		if("Zeybek")
 			H.set_blindness(0)
@@ -102,14 +102,14 @@
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger/navaja, /obj/item/clothing/neck/roguetown/shalal, /obj/item/flashlight/flare/torch)
 			H.grant_language(/datum/language/celestial)
-			var/weapons = list("Shamshir","Whips and Knives", "Recurve Bow")
+			var/weapons = list("Shamshir and Javelin","Whips and Knives", "Recurve Bow")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			H.set_blindness(0)
 			switch(weapon_choice)
 				if("Shamshir and Javelin")
 					H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 					r_hand = /obj/item/rogueweapon/sword/sabre/shamshir
-					l_hand = /obj/item/quiver/javelin
+					backl = /obj/item/quiver/javelin/iron
 				if("Whips and Knives")	///They DO enslave people after all
 					H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
 					H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
@@ -154,7 +154,7 @@
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/raneshen
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/copper
 			gloves = /obj/item/clothing/gloves/roguetown/angle
-			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/raneshen //todo
+			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/raneshen
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger/navaja, /obj/item/clothing/neck/roguetown/shalal, /obj/item/spellbook_unfinished/pre_arcyne, /obj/item/flashlight/flare/torch)
 			H.grant_language(/datum/language/celestial)

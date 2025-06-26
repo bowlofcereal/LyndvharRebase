@@ -142,7 +142,7 @@
 	add_overlay(M)
 	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
 		cut_overlays()
-	
+
 	update_icon()
 
 /obj/item/rogueweapon/shield/wood/getonmobprop(tag)
@@ -244,9 +244,10 @@
 	desc = "A shield of Raneshen design. Clever usage of wood, iron, and leather make an impressive match for any weapon."
 	icon_state = "raneshen"
 	possible_item_intents = list(SHIELD_BASH_METAL, SHIELD_BLOCK)
-	force = 20
+	force = 25
 	throwforce = 25 //for cosplaying captain raneshen
 	wdefense = 11
+	max_integrity = 250 //not fully metal but not fully wood either
 
 /obj/item/rogueweapon/shield/tower/getonmobprop(tag)
 	. = ..()
