@@ -1,5 +1,11 @@
 #define LOCKPICK_MOUSEUP 0
 #define LOCKPICK_MOUSEDOWN 1
+#define LOCK_NOVICE 6
+#define LOCK_APPRENTICE 5
+#define LOCK_JOURNEYMAN 4
+#define LOCK_EXPERT 3
+#define LOCK_MASTER 2
+#define LOCK_LEGENDARY 1
 
 //base element, tells thing it can be lockpicked
 /obj
@@ -9,6 +15,14 @@
 	var/can_be_picked = TRUE
 	//check if obj has lock and can be picked
 	var/lock_tampered = FALSE //for doors this gets reset
+	//what difficulty the supposed obj has
+	var/lock_difficulty = null
+
+/proc/lockpick_define_to_lock_difficulty(lock_difficulty)
+	if(!lock_difficulty)
+		return
+	else 
+		return lock_difficulty
 
 /datum/element/lockpickable
 	///Difficulty of the lock. Smaller is harder.
@@ -26,18 +40,18 @@
 		return ELEMENT_INCOMPATIBLE
 
 	switch(difficulty)
-		if(1 to 3)
-			shown_difficulty = "LEGENDARY"
-		if(4 to 6)
-			shown_difficulty = "MASTER"
-		if(7 to 9)
-			shown_difficulty = "EXPERT"
-		if(10 to 15)
-			shown_difficulty = "SKILLED"
-		if(16 to 20)
+		if(6)
 			shown_difficulty = "NOVICE"
-		if(20 to 100)
-			shown_difficulty = "BASIC"
+		if(5)
+			shown_difficulty = "APPRENTICE"
+		if(4)
+			shown_difficulty = "JOURNEYMAN"
+		if(3)
+			shown_difficulty = "EXPERT"
+		if(2)
+			shown_difficulty = "MASTER"
+		if(1)
+			shown_difficulty = "LEGENDARY"
 
 	if(!src.lockpicks)
 		src.lockpicks = lockpicks.Copy()
@@ -103,16 +117,18 @@
 
 /client/proc/spawn_lockpicking_UI(obj/lock, mob/living/user, obj/lockpick, obj/wedge, difficulty, shown_d, skill_level) //potentially different sprites for locks and picks, put here
 	switch(shown_d) //for UI capitilsation
-		if("master")
+		if("LEGENDARY")
+			shown_d = "LEGENDARY"
+		if("MASTER")
 			shown_d = "MASTER"
-		if("expert")
+		if("EXPERT")
 			shown_d = "EXPERT"
-		if("standard")
-			shown_d = "STANDARD"
-		if("novice")
-			shown_d = "NOVICE"
-		if("beginner")
-			shown_d = "BEGINNER"
+		if("JOURNEYMAN")
+			shown_d = "JOURNEYMAN"
+		if("APPRENTICE")
+			shown_d = "APPRENTICE"
+		if("NOVICE")
+			shown_d = "NOVICE"//Still doesn't work primo
 
 	var/atom/movable/screen/movable/snap/lockpicking/imagery = new
 	imagery.picking_object = lock
