@@ -352,6 +352,15 @@
 	GLOB.lordcolor -= src
 	return ..()
 
+/obj/item/clothing/head/roguetown/jester/MiddleClick(mob/user)
+	if(!ishuman(user))
+		return
+	if(flags_inv & HIDE_HEADTOP)
+		flags_inv &= ~HIDE_HEADTOP
+	else
+		flags_inv |= HIDE_HEADTOP
+	user.update_inv_head()
+
 /obj/item/clothing/head/roguetown/strawhat
 	name = "straw hat"
 	desc = "It's scratchy and rustic, but at least it keeps the sun off your head while you toil in the fields."
@@ -475,6 +484,12 @@
 	name = "Marshal's chaperon"
 	desc = "A noble's chaperon made for the local Marshal. \"How terribly unfortunate you are!\""
 	color = "#641E16"
+	detail_color = "#b68e37ff"
+
+/obj/item/clothing/head/roguetown/chaperon/noble/guildmaster
+	name = "Guildmaster's chapereon"
+	desc = "A noble's chaperon made for the guildmaster."
+	color = "#1b1717ff"
 	detail_color = "#b68e37ff"
 
 /obj/item/clothing/head/roguetown/chaperon/councillor
