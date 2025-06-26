@@ -2741,6 +2741,12 @@
 /mob/living/simple_animal/hostile/rogue/haunt,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/cave/mazedungeon)
+"aVy" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/church/basement)
 "aVE" = (
 /obj/machinery/light/rogue/hearth,
 /obj/item/cooking/pan,
@@ -8274,6 +8280,12 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/beach)
+"cPB" = (
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/church/basement)
 "cPE" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/rope/chain,
@@ -17395,6 +17407,7 @@
 	dir = 9
 	},
 /obj/effect/landmark/start/gravedigger,
+/obj/structure/chair/bench,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church/basement)
 "fQi" = (
@@ -27031,7 +27044,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/open/floor/rogue/blocks,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/lavendergrass,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/basement)
 "iWC" = (
 /obj/structure/flora/roguegrass/thorn_bush,
@@ -40014,6 +40029,7 @@
 	pixel_y = 0
 	},
 /obj/effect/landmark/start/gravedigger,
+/obj/structure/chair/bench,
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church/basement)
 "nnx" = (
@@ -42750,6 +42766,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
+/obj/item/candle/skull/lit,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/basement)
 "olj" = (
@@ -47230,6 +47247,14 @@
 /obj/structure/bars/cemetery,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/skeletoncrypt)
+"pLf" = (
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town/church/basement)
 "pLh" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue/indoors/town)
@@ -51815,6 +51840,7 @@
 	dir = 5;
 	pixel_y = 0
 	},
+/obj/item/candle/skull/lit,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/basement)
 "rkS" = (
@@ -53302,6 +53328,14 @@
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cave/orcdungeon)
+"rJi" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors/town/church/basement)
 "rJz" = (
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/indoors/shelter)
@@ -63934,6 +63968,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 4
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church/basement)
 "vbZ" = (
@@ -66934,6 +66971,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
+/obj/structure/fluff/walldeco/church/line{
+	dir = 8
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church/basement)
 "wcb" = (
@@ -67661,7 +67701,9 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/turf/open/floor/rogue/blocks,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/basement)
 "wlb" = (
 /obj/structure/closet/dirthole/closed/loot,
@@ -136247,7 +136289,7 @@ llO
 llO
 qoj
 vbX
-kcq
+aVy
 kcq
 kcq
 tWQ
@@ -136699,7 +136741,7 @@ bpR
 llO
 tQs
 iWr
-qoj
+rJi
 nnu
 kcq
 bXe
@@ -138055,7 +138097,7 @@ bpR
 llO
 tQs
 wkZ
-bQJ
+pLf
 fQe
 kcq
 vhE
@@ -138507,7 +138549,7 @@ jMC
 llO
 bQJ
 wbv
-kcq
+cPB
 kcq
 kcq
 plb
