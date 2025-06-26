@@ -8,7 +8,7 @@
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER)
 	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
 	classes = list("Roughneck" = "You are a foreign swordsman, carrying nothing but your sword and its scabbard.",
-					"Custodian"= "You are an ex-guardian, whenever that be a petty noble, or a small shrine. You excel in defense with quarterstaffsm or have taken up the Naginata's offensive martial capabilities.",)
+					"Custodian"= "You are an ex-guardian, whenever that be a petty noble, or a small shrine. You excel in defense with quarterstaffs, or have taken up the Naginata's offensive martial capabilities.",)
 
 /datum/outfit/job/roguetown/adventurer/foreigner/pre_equip(mob/living/carbon/human/H)
 	..()
