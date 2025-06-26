@@ -1081,7 +1081,6 @@
 	gripped_intents = list(/datum/intent/rend/reach, /datum/intent/spear/cut/naginata, PARTIZAN_PEEL, SPEAR_BASH)
 	icon_state = "naginata"
 	icon = 'icons/roguetown/weapons/64.dmi'
-	wbalance = WBALANCE_SWIFT
 	minstr = 7
 	max_blade_int = 50 //Nippon suteeru (dogshit)
 	wdefense = 5
