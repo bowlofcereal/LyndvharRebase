@@ -77,7 +77,7 @@
 			H.change_stat("constitution", -1)
 			H.change_stat("endurance", 2)
 			H.change_stat("perception", 2)
-			H.change_stat("speed", 3)
+			H.change_stat("speed", 4)
 			H.change_stat("strength", -1)
 
 	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)

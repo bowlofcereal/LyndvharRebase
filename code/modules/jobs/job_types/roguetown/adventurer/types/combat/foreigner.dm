@@ -68,7 +68,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 			backpack_contents = list(/obj/item/recipe_book/survival = 1)
-			H.change_stat("strength", 3)
+			H.change_stat("strength", 3) //exception to the weight guideline - quarterstaffs suck ASS!!!!
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 2)
 			H.set_blindness(0)
