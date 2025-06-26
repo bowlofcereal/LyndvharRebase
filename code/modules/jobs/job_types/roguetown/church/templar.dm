@@ -249,13 +249,6 @@
 		H.mind.adjust_skillrank(/datum/skill/magic/holy, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)	//May tone down to 2; seems OK.
-		ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-		H.cmode_music = 'sound/music/combat_holy.ogg'
-		H.change_stat("strength", 2)
-		H.change_stat("constitution", 2)
-		H.change_stat("endurance", 3)
 		// -- Start of section for god specific bonuses --
 		if(H.patron?.type == /datum/patron/divine/astrata)
 			H.mind.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
@@ -291,6 +284,13 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/music, 1, TRUE)
 		// -- End of section for god specific bonuses --
+		ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+		ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+		H.change_stat("strength", 2)
+		H.change_stat("constitution", 2)
+		H.change_stat("endurance", 3)
+		H.cmode_music = 'sound/music/combat_holy.ogg'
 
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
