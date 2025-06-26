@@ -74,7 +74,6 @@
 				if ("Naginata")
 					beltr = /obj/item/rogueweapon/spear/naginata
 				if("Quarterstaff")
-					H.change_stat("strength", 1) //To adjust for the fact quarterstaffs suck ass
 					backr = /obj/item/rogueweapon/woodstaff/quarterstaff/steel
 			H.change_stat("strength", 2) // Took off the weight and moved it to qstaff
 			H.change_stat("endurance", 1)
