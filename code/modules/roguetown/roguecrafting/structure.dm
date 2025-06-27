@@ -48,15 +48,15 @@
 /datum/crafting_recipe/roguetown/structure/psycruci
 	name = "wooden psydonic cross"
 	result = /obj/structure/fluff/psycross/psycrucifix
-	reqs = list(/obj/item/natural/stone = 3)
+	reqs = list(/obj/item/grown/log/tree/small = 1,
+				/obj/item/grown/log/tree/stake = 3) 
 	verbage_simple = "construct"
 	verbage = "constructs"
 
-/datum/crafting_recipe/roguetown/structure/psycruci
+/datum/crafting_recipe/roguetown/structure/stonepsycruci
 	name = "stone psydonic cross"
 	result = /obj/structure/fluff/psycross/psycrucifix/stone
-	reqs = list(/obj/item/grown/log/tree/small = 1,
-				/obj/item/grown/log/tree/stake = 3)
+	reqs =	list(/obj/item/natural/stone = 3)
 	verbage_simple = "construct"
 	verbage = "constructs"
 
