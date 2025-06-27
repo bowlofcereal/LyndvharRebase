@@ -12,6 +12,9 @@
 			return zone
 	if(!(target.mobility_flags & MOBILITY_STAND))
 		return zone
+	// If you're floored, you will aim feet and legs easily. There's a check for whether the victim is laying down already.
+	if(!(user.mobility_flags & MOBILITY_STAND) && (zone in list(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_PRECISE_R_FOOT, BODY_ZONE_PRECISE_L_FOOT)))
+		return zone
 	if( (target.dir == turn(get_dir(target,user), 180)))
 		return zone
 
@@ -347,7 +350,34 @@
 							if(higher_intfactor > 1)	//Make sure to keep your weapon and intent intfactors consistent to avoid problems here!
 								used_intfactor = higher_intfactor
 							dam2take *= used_intfactor
-						used_weapon.take_damage(max(dam2take,1), BRUTE, used_weapon.d_type)
+					else	//This is normally handled in get_complex_damage, but it doesn't support simple mobs... at all, so we do a clunky mini-version of it.
+						if(istype(user, /mob/living/simple_animal))
+							var/mob/living/simple_animal/SM = user
+							dam2take = rand(SM.melee_damage_lower, SM.melee_damage_upper)
+							dam2take *= (SM.STASTR / 10)
+							dam2take *= 0.25
+							switch(used_weapon.blade_dulling)
+								if(DULLING_SHAFT_CONJURED)
+									dam2take *= 1.3
+								if(DULLING_SHAFT_METAL)
+									switch(SM.d_type)
+										if("slash")
+											dam2take *= 0.5
+										if("blunt")
+											dam2take *= 1.5
+								if(DULLING_SHAFT_WOOD)
+									switch(SM.d_type)
+										if("slash")
+											dam2take *= 1.5
+										if("blunt")
+											dam2take *= 0.5
+								if(DULLING_SHAFT_REINFORCED)
+									switch(SM.d_type)
+										if("slash")
+											dam2take *= 0.75
+										if("stab")
+											dam2take *= 1.5
+					used_weapon.take_damage(max(dam2take,1), BRUTE, used_weapon.d_type)
 					return TRUE
 				else
 					return FALSE
@@ -442,6 +472,30 @@
 							return FALSE
 			else
 				return FALSE
+
+// origin is used for multi-step dodges like jukes
+/mob/living/proc/get_dodge_destinations(mob/living/attacker, atom/origin = src)
+	var/dodge_dir = get_dir(attacker, origin)
+	if(!dodge_dir)
+		return null
+	var/list/dirry = list()
+	// pick a random dir
+	var/list/turf/dodge_candidates = list()
+	for(var/dir_to_check in dirry)
+		var/turf/dodge_candidate = get_step(origin, dir_to_check)
+		if(!dodge_candidate)
+			continue
+		if(dodge_candidate.density)
+			continue
+		var/has_impassable_atom = FALSE
+		for(var/atom/movable/AM in dodge_candidate)
+			if(!AM.CanPass(src, dodge_candidate))
+				has_impassable_atom = TRUE
+				break
+		if(has_impassable_atom)
+			continue
+		dodge_candidates += dodge_candidate
+	return dodge_candidates
 
 /mob/proc/do_parry(obj/item/W, parrydrain as num, mob/living/user)
 	if(ishuman(src))
@@ -660,6 +714,33 @@
 					if(higher_intfactor > 1)	//Make sure to keep your weapon and intent intfactors consistent to avoid problems here!
 						used_intfactor = higher_intfactor
 					dam2take *= used_intfactor
+				else
+					if(istype(user, /mob/living/simple_animal))
+						var/mob/living/simple_animal/SM = user
+						dam2take = rand(SM.melee_damage_lower, SM.melee_damage_upper)
+						dam2take *= (SM.STASTR / 10)
+						dam2take *= 0.25
+						switch(IS.blade_dulling)
+							if(DULLING_SHAFT_CONJURED)
+								dam2take *= 1.3
+							if(DULLING_SHAFT_METAL)
+								switch(SM.d_type)
+									if("slash")
+										dam2take *= 0.5
+									if("blunt")
+										dam2take *= 1.5
+							if(DULLING_SHAFT_WOOD)
+								switch(SM.d_type)
+									if("slash")
+										dam2take *= 1.5
+									if("blunt")
+										dam2take *= 0.5
+							if(DULLING_SHAFT_REINFORCED)
+								switch(SM.d_type)
+									if("slash")
+										dam2take *= 0.75
+									if("stab")
+										dam2take *= 1.5
 				IS.take_damage(max(dam2take,1), BRUTE, IU.d_type)
 
 			user.visible_message(span_warning("<b>[user]</b> clips [src]'s weapon!"))
