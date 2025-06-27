@@ -5393,10 +5393,17 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
 "bMv" = (
-/obj/item/rogueweapon/thresher,
-/obj/structure/rack/rogue,
-/obj/item/natural/bundle/cloth,
-/obj/item/needle,
+/obj/structure/closet/crate/chest/crate,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/egg,
+/obj/item/reagent_containers/food/snacks/grown/wheat,
+/obj/item/reagent_containers/food/snacks/grown/wheat,
+/obj/item/reagent_containers/food/snacks/butter,
+/obj/item/reagent_containers/food/snacks/rogue/meat/sausage,
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
+/obj/item/reagent_containers/food/snacks/grown/cabbage/rogue,
+/obj/item/reagent_containers/food/snacks/grown/potato/rogue,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/church/basement)
 "bMx" = (
@@ -6009,15 +6016,6 @@
 /obj/structure/glowshroom,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/mountains/decap)
-"bWH" = (
-/obj/structure/roguemachine/scomm{
-	pixel_y = -32
-	},
-/obj/machinery/light/rogue/torchholder{
-	dir = 1
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/indoors/town/church/basement)
 "bWN" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/cobble,
@@ -10621,20 +10619,6 @@
 	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
-"dBE" = (
-/obj/structure/closet/crate/chest/crate,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
-/obj/item/reagent_containers/food/snacks/butter,
-/obj/item/reagent_containers/food/snacks/rogue/meat/sausage,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
-/obj/item/reagent_containers/food/snacks/grown/cabbage/rogue,
-/obj/item/reagent_containers/food/snacks/grown/potato/rogue,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/church/basement)
 "dBO" = (
 /obj/structure/closet/crate/chest,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/weapons,
@@ -24339,6 +24323,8 @@
 	},
 /obj/item/paper,
 /obj/item/roguekey/church,
+/obj/item/roguekey/inquisition,
+/obj/item/roguekey/inquisition,
 /obj/item/roguekey/inquisition,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/church/basement)
@@ -65301,6 +65287,10 @@
 "vrZ" = (
 /obj/structure/closet/crate/drawer,
 /obj/item/clothing/neck/roguetown/psicross,
+/obj/item/needle,
+/obj/item/natural/bundle/cloth{
+	amount = 8
+	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/church/basement)
 "vsa" = (
@@ -131794,7 +131784,7 @@ tvo
 uZk
 tvo
 fQE
-bWH
+mGa
 llO
 llO
 llO
@@ -145366,7 +145356,7 @@ ioH
 kcq
 lQU
 kcq
-dBE
+vDJ
 llO
 ogs
 bhJ
@@ -254746,7 +254736,7 @@ yaF
 hdq
 aFv
 kCA
-sxr
+fpx
 fpx
 uHL
 fWy
@@ -255650,7 +255640,7 @@ yaF
 fPf
 aFv
 sSO
-sxr
+fpx
 jGk
 tXM
 jPk
