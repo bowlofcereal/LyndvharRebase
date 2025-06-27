@@ -19,14 +19,6 @@
 				return 0
 	return ..()
 
-/mob/living/carbon/human/experience_pressure_difference()
-	playsound(src, 'sound/blank.ogg', 50, TRUE)
-	if(shoes && istype(shoes, /obj/item/clothing))
-		var/obj/item/clothing/S = shoes
-		if (S.clothing_flags & NOSLIP)
-			return 0
-	return ..()
-
 /mob/living/carbon/human/mob_has_gravity()
 	. = ..()
 	if(!.)
@@ -110,15 +102,6 @@
 			if(src.mind?.has_antag_datum(/datum/antagonist/zombie) && (!src.handcuffed) && prob(50))
 				visible_message(span_warning("[src] spits out [mouth]."))
 				dropItemToGround(mouth, silent = FALSE)
-		if(held_items.len)
-			for(var/obj/item/I in held_items)
-				if(I.minstr)
-					var/effective = I.minstr
-					if(I.wielded)
-						effective = max(I.minstr / 2, 1)
-					if(effective > STASTR)
-						if(prob(effective))
-							dropItemToGround(I, silent = FALSE)
 
 /mob/living/carbon/human/Process_Spacemove(movement_dir = 0) //Temporary laziness thing. Will change to handles by species reee.
 	if(dna.species.space_move(src))

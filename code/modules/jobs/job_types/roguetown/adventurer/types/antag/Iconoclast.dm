@@ -10,10 +10,13 @@
 
 /datum/outfit/job/roguetown/bandit/iconoclast/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.set_patron(/datum/patron/inhumen/matthios) // we gotta be a matthian before the devotion stuff starts
+	if (!(istype(H.patron, /datum/patron/inhumen/matthios)))	//This is the only class that forces Matthios. Needed for miracles + limited slot.
+		to_chat(H, span_warning("Matthios embraces me.. I must uphold his creed. I am his light in the darkness."))
+		H.set_patron(/datum/patron/inhumen/matthios)
 	H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/magic/holy, 4, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE) // Whips/Flails so we can use the Gilded Flail if we want.
 	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE) // Poles or maces if we're a wimp and don't want to engage with unarmed. Not ideal.
 	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)  // Unarmed if we want to kick ass for the lord(you do, this is what you SHOULD DO!!)
@@ -35,6 +38,7 @@
 					/obj/item/needle/thorn = 1,
 					/obj/item/natural/cloth = 1,
 					/obj/item/flashlight/flare/torch = 1,
+					/obj/item/ritechalk = 1,
 					)
 	head = /obj/item/clothing/head/roguetown/roguehood
 	armor = /obj/item/clothing/suit/roguetown/armor/plate
@@ -45,7 +49,6 @@
 	H.change_stat("constitution", 1)
 	H.change_stat("fortune", 2) //We have a total of +12 in stats. 
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC) // We are going to be the lord's first heavy armor unarmed class
-
+	ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
-	C.grant_spells_monk(H)
-	H.verbs += list(/mob/living/carbon/human/proc/devotionreport, /mob/living/carbon/human/proc/clericpray)
+	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.

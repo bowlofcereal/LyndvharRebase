@@ -35,14 +35,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	if(delete_after_roundstart)
 		qdel(src)
 
-/obj/effect/landmark/start/New()
+/obj/effect/landmark/start/Initialize()
 	GLOB.start_landmarks_list += src
 	if(jobspawn_override.len)
 		for(var/X in jobspawn_override)
 			if(!GLOB.jobspawn_overrides[X])
 				GLOB.jobspawn_overrides[X] = list()
 			GLOB.jobspawn_overrides[X] += src
-	..()
+	. = ..()
 	if(name != "start")
 		tag = "start*[name]"
 
@@ -136,7 +136,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/knight
-	name = "Royal Guard"
+	name = "Knight"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/sheriff
@@ -144,7 +144,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/guard_captain
-	name = "Guard Captain"
+	name = "Knight Captain"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/barkeep
@@ -235,6 +235,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Templar"
 	icon_state = "arrow"
 
+/obj/effect/landmark/start/martyr
+	name = "Martyr"
+	icon_state = "arrow"
+
 /obj/effect/landmark/start/puritan
 	name = "Inquisitor"
 	icon_state = "arrow"
@@ -276,16 +280,12 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "Archivist"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/weaponsmith
-	name = "Weaponsmith"
+/obj/effect/landmark/start/guildsman
+	name = "Guildsman"
 	icon_state = "arrow"
 
-/obj/effect/landmark/start/armorsmith
-	name = "Armorer"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/blacksmith
-	name = "Blacksmith"
+/obj/effect/landmark/start/guildmaster
+	name = "Guildmaster"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/tailor
@@ -294,10 +294,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/alchemist
 	name = "Alchemist"
-	icon_state = "arrow"
-
-/obj/effect/landmark/start/artificer
-	name = "Artificer"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/scribe
@@ -330,6 +326,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/vagrant
 	name = "Beggar"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/suitor
+	name = "Suitor"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/lady
@@ -386,6 +386,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/courtagent
 	name = "Court Agent"
+	icon_state = "arrow"
+
+/obj/effect/landmark/start/lunatic
+	name = "Lunatic"
 	icon_state = "arrow"
 
 //yrf
@@ -460,6 +464,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	name = "bandit"
 	icon = 'icons/mob/landmarks.dmi'
 	icon_state = "arrow"
+	jobspawn_override = list("Bandit")
+	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/bandit/Initialize()
 	. = ..()
@@ -475,6 +481,16 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	. = ..()
 	GLOB.delf_starts += loc
 
+/obj/effect/landmark/start/wretch
+	name = "wretch"
+	icon_state = "arrow"
+	jobspawn_override = list("Wretch")
+
+/obj/effect/landmark/start/wretchlate
+	name = "wretch"
+	icon_state = "arrow"
+	delete_after_roundstart = FALSE
+	jobspawn_override = list("Wretch")
 
 /obj/effect/landmark/start/nukeop_leader
 	name = "nukeop leader"

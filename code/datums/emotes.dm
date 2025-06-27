@@ -30,6 +30,7 @@
 	var/show_runechat = TRUE
 	// Explicitly defined runechat message, if it's not defined and `show_runechat` is TRUE then it will use `message` instaed
 	var/runechat_msg = null
+	var/is_animal = FALSE
 
 /datum/emote/New()
 	if(!runechat_msg)
@@ -54,7 +55,7 @@
 /datum/emote/proc/adjacentaction(mob/user, mob/target)
 	return
 
-/datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE, targetted = FALSE)
+/datum/emote/proc/run_emote(mob/user, params, type_override, intentional = FALSE, targetted = FALSE, animal = FALSE)
 	. = TRUE
 	if(!can_run_emote(user, TRUE, intentional))
 		return FALSE
@@ -84,7 +85,12 @@
 
 	if(!nomsg)
 		user.log_message(msg, LOG_EMOTE)
-		msg = "<b>[user]</b> " + msg
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			if(H.voice_color)
+				msg = "<span style='color:#[H.voice_color];text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'><b>[user]</b></span> " + msg
+		else
+			msg = "<b>[user]</b> " + msg
 
 	var/pitch = 1 //bespoke vary system so deep voice/high voiced humans
 	if(isliving(user))
@@ -96,7 +102,7 @@
 		tmp_sound = sound(get_sfx(tmp_sound))
 	tmp_sound.frequency = pitch
 	if(tmp_sound && (!only_forced_audio || !intentional))
-		playsound(user, tmp_sound, snd_vol, FALSE, snd_range, soundping = soundping)
+		playsound(user, tmp_sound, snd_vol, FALSE, snd_range, soundping = soundping, animal_pref = animal)
 	if(!nomsg)
 		for(var/mob/M in GLOB.dead_mob_list)
 			if(!M.client || isnewplayer(M))
@@ -249,3 +255,17 @@
 
 	if(intentional && HAS_TRAIT(user, TRAIT_EMOTEMUTE))
 		return FALSE
+
+/datum/emote/proc/get_target(mob/user, list/params)
+	if(!params.len)
+		return null
+	
+	var/target_name = params[1]
+	var/mob/target = null
+	
+	for(var/mob/M in view(user))
+		if(M.name == target_name)
+			target = M
+			break
+	
+	return target

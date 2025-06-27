@@ -7,7 +7,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/grandmastermason
-	category_tags = list(CTAG_PILGRIM)
+	category_tags = list(CTAG_TOWNER)
 	maximum_possible_slots = 1
 	pickprob = 5
 
@@ -31,6 +31,7 @@
 	H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/smelting, 6, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/ceramics, 4, TRUE)
 	head = /obj/item/clothing/head/roguetown/hatblu
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 	cloak = /obj/item/clothing/cloak/apron/waist/bar
@@ -44,6 +45,7 @@
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(
 						/obj/item/flashlight/flare/torch = 1,
+						/obj/item/recipe_book/builder = 1,
 						)
 	H.change_stat("strength", 1)
 	H.change_stat("intelligence", 2)

@@ -29,6 +29,16 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 //This proc sends the asset to the client, but only if it needs it.
 //This proc blocks(sleeps)
 /proc/send_asset(client/client, asset_name)
+	if(!istype(client))
+		if(ismob(client))
+			var/mob/M = client
+			if(M.client)
+				client = M.client 
+			else
+				return FALSE //no client, no care
+		else
+			return FALSE     //only mobs have clients
+
 	if(!send_asset_internal(client, asset_name))
 		return FALSE
 	client.sending |= asset_name
@@ -40,21 +50,22 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 
 //This proc doesn't
 /proc/send_asset_async(client/client, asset_name)
+	if(!istype(client))    // Don't really want to do this here; needs to be refactored
+		if(ismob(client))  //duplicate check in above proc
+			var/mob/M = client
+			if(M.client)
+				client = M.client 
+			else
+				return FALSE //no client, no care
+		else
+			return FALSE     //only mobs have clients
+
 	if(!send_asset_internal(client, asset_name))
 		return FALSE
 	client.cache += asset_name
 	return TRUE
 
 /proc/send_asset_internal(client/client, asset_name)
-	if(!istype(client))
-		if(ismob(client))
-			var/mob/M = client
-			if(M.client)
-				client = M.client
-			else
-				return FALSE
-		else
-			return FALSE
 
 	if(client.cache.Find(asset_name) || client.sending.Find(asset_name))
 		return FALSE
@@ -531,45 +542,53 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /datum/asset/group/goonchat
 	children = list(
 		/datum/asset/simple/jquery,
+		/datum/asset/simple/purify,
 		/datum/asset/simple/goonchat,
 		/datum/asset/spritesheet/goonchat,
-		/datum/asset/simple/fontawesome
+		/datum/asset/simple/fontawesome,
+		/datum/asset/simple/roguefonts
+	)
+
+/datum/asset/simple/purify
+	verify = TRUE
+	assets = list(
+		"purify.min.js"            = 'goon/browserassets/js/purify.min.js',
 	)
 
 
 /datum/asset/simple/jquery
-	verify = FALSE
-/*	assets = list(
-		"jquery.min.js"            = 'code/modules/goonchat/browserassets/js/jquery.min.js',
-	)*/
+	verify = TRUE
+	assets = list(
+		"jquery.min.js"            = 'goon/browserassets/js/jquery.min.js',
+	)
 
 /datum/asset/simple/goonchat
-	verify = FALSE
-/*	assets = list(
-		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
-		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
-		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
-		"browserOutput_white.css"	      = 'code/modules/goonchat/browserassets/css/browserOutput.css',
-	)*/
+	verify = TRUE
+	assets = list(
+		"json2.min.js"             = 'goon/browserassets/js/json2.min.js',
+		"browserOutput.js"         = 'goon/browserassets/js/browserOutput.js',
+		"browserOutput.css"	       = 'goon/browserassets/css/browserOutput.css',
+		"browserOutput_white.css"  = 'goon/browserassets/css/browserOutput.css',
+	)
 
 /datum/asset/simple/fontawesome
 	verify = FALSE
-/*	assets = list(
+	assets = list(
 		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
 		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
 		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
 		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
 		"font-awesome.css"    = 'html/font-awesome/css/all.min.css',
-		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
-	)*/
+		//"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
+	)
 
 /datum/asset/simple/blackedstone_class_menu_slop_layout
 	verify = FALSE
 	assets = list(
-		"try4.png" = 'icons/roguetown/misc/try4.png',
-		"try4_border.png" = 'icons/roguetown/misc/try4_border.png',
+		"try6.png" = 'icons/roguetown/misc/try6.png',
+		"try6_border.png" = 'icons/roguetown/misc/try6_border.png',
 		"slop_menustyle2.css" = 'html/browser/slop_menustyle2.css',
-		"haha_skull.gif" = 'icons/roguetown/misc/haha_skull.gif'
+		"gragstar.gif" = 'icons/roguetown/misc/gragstar.gif'
 	)
 
 /datum/asset/simple/blackedstone_triumph_buy_menu_slop_layout
@@ -598,7 +617,12 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"sand.ttf" = 'interface/fonts/languages/sand.ttf',
 		"undead.ttf" = 'interface/fonts/languages/undead.ttf',
 		"draconic.ttf" = 'interface/fonts/languages/draconic.ttf',
-		"lupian.ttf" = 'interface/fonts/languages/lupian.ttf'
+		"grenzelhoftian.ttf" = 'interface/fonts/languages/grenzelhoftian.ttf',
+		"kazengunese.ttf" = 'interface/fonts/languages/kazengunese.ttf',
+		"otavan.ttf" = 'interface/fonts/languages/otavan.ttf',
+		"etruscan.ttf" = 'interface/fonts/languages/etruscan.ttf',
+		"gronnic.ttf" = 'interface/fonts/languages/gronnic.ttf',
+		"aavnic.ttf" = 'interface/fonts/languages/aavnic.ttf',
 	)
 
 /datum/asset/spritesheet/goonchat
@@ -615,8 +639,8 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		var/icon = initial(L.icon)
 		if (icon != 'icons/misc/language.dmi')
 			var/icon_state = initial(L.icon_state)
-			Insert("language-[icon_state]", icon, icon_state=icon_state)
-*/
+			Insert("language-[icon_state]", icon, icon_state=icon_state)*/
+
 	..()
 
 /datum/asset/simple/permissions

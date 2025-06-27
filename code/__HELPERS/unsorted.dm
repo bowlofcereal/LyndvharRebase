@@ -719,6 +719,9 @@ will handle it, but:
 
 			if(H.belt && wash_obj(H.belt,clean))
 				H.update_inv_belt()
+
+			if(H.cloak && wash_obj(H.cloak,clean))
+				H.update_inv_cloak()
 		else
 			SEND_SIGNAL(M, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRENGTH_BLOOD)
 	else
@@ -1434,8 +1437,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 /proc/get_random_food()
 	var/list/blocked = list(
 		/obj/item/reagent_containers/food/snacks/store,
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/meat/slab,
+		/obj/item/reagent_containers/food/snacks/rogue/meat,
 		/obj/item/reagent_containers/food/snacks/grown,
 		)
 

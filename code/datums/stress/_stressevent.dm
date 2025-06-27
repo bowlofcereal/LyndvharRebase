@@ -10,15 +10,18 @@
 /datum/stressevent/proc/can_apply(mob/living/user)
 	return TRUE
 
+/datum/stressevent/proc/on_apply(mob/living/user)
+	return TRUE
+
 /datum/stressevent/proc/get_stress(mob/living/user)
 	return stressadd + ((stacks - 1) * stressadd_per_extra_stack)
 
 /datum/stressevent/test
 	timer = 5 SECONDS
 	stressadd = 3
-	desc = span_red("This is a positive test event.")
+	desc = span_red("This is a negative test event.")
 
 /datum/stressevent/testr
 	timer = 5 SECONDS
 	stressadd = -3
-	desc = span_green("This is a negative test event.")
+	desc = span_green("This is a positive test event.")

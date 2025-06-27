@@ -1,5 +1,12 @@
+#define MIN_STEW_TEMPERATURE 374 // For cooking
+#define VOLUME_PER_STEW_COOK 32 // Volume to cook per ingredient
+#define VOLUME_PER_STEW_COOK_AFTER 1 // Volume to deduct after the sleep is over
+#define DEEP_FRY_TIME 5 SECONDS // Default deep fry time
+#define OIL_CONSUMED 5 // Amount of oil consumed per deep fry (1 fat = 4 fry)
+
 /obj/machinery/light/rogue/firebowl
 	name = "brazier"
+	desc = "A solid stone brazier. It's as sturdy as the mountains themselves."
 	icon = 'icons/roguetown/misc/lighting.dmi'
 	icon_state = "stonefire1"
 	bulb_colour = "#ffa35c"
@@ -13,6 +20,7 @@
 	dir = SOUTH
 	crossfire = TRUE
 	fueluse = 0
+	no_refuel = TRUE
 
 /obj/machinery/light/rogue/firebowl/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
@@ -49,17 +57,32 @@
 				icon_state = "[base_state]0"
 			return
 
+/obj/machinery/light/rogue/firebowl/off
+	icon_state = "stonefire0"
+	base_state = "stonefire"
+	status = LIGHT_BURNED
+	desc = "The fire is gone!"
+
 /obj/machinery/light/rogue/firebowl/stump
 	icon_state = "stumpfire1"
 	base_state = "stumpfire"
+	desc = "Somewhat crude, but it lights the long winding paths throughout the land."
 
 /obj/machinery/light/rogue/firebowl/church
+	desc = "A wide metal bowl mounted on a stand for a healthy roaring flame."
 	icon_state = "churchfire1"
 	base_state = "churchfire"
 
+/obj/machinery/light/rogue/firebowl/church/off
+	icon_state = "churchfire0"
+	base_state = "churchfire"
+	soundloop = null
+	status = LIGHT_BURNED
+	desc = "The fire is gone!"
 
 /obj/machinery/light/rogue/firebowl/standing
 	name = "standing fire"
+	desc = "Wrought metal spun into a surprisingly stable stand for a large candle to sit upon."
 	icon_state = "standing1"
 	base_state = "standing"
 	bulb_colour = "#ff9648"
@@ -71,6 +94,7 @@
 	icon_state = "standingb1"
 	base_state = "standingb"
 	bulb_colour = "#7b60f3"
+	desc = "Soft and blue like the moon's light."
 
 /obj/machinery/light/rogue/firebowl/standing/proc/knock_over() //use this later for jump impacts and shit
 	icon_state = "[base_state]over"
@@ -100,23 +124,45 @@
 
 /obj/machinery/light/rogue/wallfire
 	name = "fireplace"
+	desc = "A warm fire dances between a pile of half-burnt logs upon a bed of glowing embers."
 	icon_state = "wallfire1"
 	base_state = "wallfire"
-	brightness = 10
+	light_outer_range = 4 //slightly weaker than a torch
 	bulb_colour = "#ffa35c"
 	density = FALSE
 	fueluse = 0
+	no_refuel = TRUE
 	crossfire = FALSE
 	cookonme = TRUE
 
 /obj/machinery/light/rogue/wallfire/candle
 	name = "candles"
+	desc = "Tiny flames flicker to the slightest breeze and offer enough light to see."
 	icon_state = "wallcandle1"
 	base_state = "wallcandle"
 	crossfire = FALSE
 	cookonme = FALSE
 	pixel_y = 32
 	soundloop = null
+
+/obj/machinery/light/rogue/wallfire/candle/off
+	name = "candles"
+	desc = "Cold wax sticks in sad half-melted repose. All they need is a spark."
+	icon_state = "wallcandle0"
+	base_state = "wallcandle"
+	crossfire = FALSE
+	cookonme = FALSE
+	light_outer_range = 0
+	pixel_y = 32
+	soundloop = null
+	status = LIGHT_BURNED
+
+/obj/machinery/light/rogue/wallfire/candle/off/r
+	pixel_y = 0
+	pixel_x = 32
+/obj/machinery/light/rogue/wallfire/candle/off/l
+	pixel_y = 0
+	pixel_x = -32
 
 /obj/machinery/light/rogue/wallfire/candle/OnCrafted(dirin)
 	pixel_x = 0
@@ -134,7 +180,7 @@
 
 /obj/machinery/light/rogue/wallfire/candle/attack_hand(mob/user)
 	if(isliving(user) && on)
-		user.visible_message("<span class='warning'>[user] snuffs [src].</span>")
+		user.visible_message(span_warning("[user] snuffs [src]."))
 		burn_out()
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 	. = ..()
@@ -150,6 +196,7 @@
 	bulb_colour = "#7b60f3"
 	icon_state = "wallcandleb1"
 	base_state = "wallcandleb"
+	desc = "Tiny bluish flames flicker gently like the stars themselves."
 
 /obj/machinery/light/rogue/wallfire/candle/blue/r
 	pixel_y = 0
@@ -160,7 +207,7 @@
 
 /obj/machinery/light/rogue/wallfire/candle/weak
 	light_power = 0.9
-	light_outer_range =  6
+	light_outer_range =  4
 /obj/machinery/light/rogue/wallfire/candle/weak/l
 	pixel_x = -32
 	pixel_y = 0
@@ -168,13 +215,38 @@
 	pixel_x = 32
 	pixel_y = 0
 
+/obj/machinery/light/rogue/wallfire/candle/floorcandle
+	name = "candles"
+	icon = 'icons/roguetown/items/lighting.dmi'
+	icon_state = "floorcandle1"
+	base_state = "floorcandle"
+	pixel_y = 0
+	layer = TABLE_LAYER
+	cookonme = FALSE
+
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt
+	icon_state = "floorcandlee1"
+	base_state = "floorcandlee"
+
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/pink
+	color = "#f858b5ff"
+	bulb_colour = "#ff13d8ff"
+
+/obj/machinery/light/rogue/wallfire/candle/floorcandle/alt/pink
+	color = "#f858b5ff"
+	bulb_colour = "#ff13d8ff"
+
 /obj/machinery/light/rogue/torchholder
 	name = "sconce"
+	desc = "A wall-mounted fixture that allows a torch to illuminate the area while freeing the hands for other tasks."
 	icon_state = "torchwall1"
+	var/torch_off_state = "torchwall0"
 	base_state = "torchwall"
 	density = FALSE
+	light_outer_range = 5 //same as the held torch, if you put a torch into a sconce, it shouldn't magically become twice as bright, it's inconsistent.
 	var/obj/item/flashlight/flare/torch/torchy
 	fueluse = FALSE //we use the torch's fuel
+	no_refuel = TRUE
 	soundloop = null
 	crossfire = FALSE
 	plane = GAME_PLANE_UPPER
@@ -206,17 +278,17 @@
 /obj/machinery/light/rogue/torchholder/Initialize()
 	torchy = new /obj/item/flashlight/flare/torch(src)
 	torchy.spark_act()
+	torchy.weather_resistant = TRUE
 	. = ..()
 
 /obj/machinery/light/rogue/torchholder/OnCrafted(dirin, user)
-	if(dirin == NORTH)
-		pixel_y = 32
 	dirin = turn(dirin, 180)
 	QDEL_NULL(torchy)
 	on = FALSE
 	set_light(0)
 	update_icon()
-	. = ..(dirin)
+
+	..(dirin, user)
 
 /obj/machinery/light/rogue/torchholder/process()
 	if(on)
@@ -234,6 +306,7 @@
 		return
 	if(torchy)
 		if(!istype(user) || !Adjacent(user) || !user.put_in_active_hand(torchy))
+			torchy.weather_resistant = FALSE
 			torchy.forceMove(loc)
 		torchy = null
 		on = FALSE
@@ -246,9 +319,9 @@
 		if(on)
 			icon_state = "[base_state]1"
 		else
-			icon_state = "[base_state]0"
+			icon_state = "[torch_off_state]"
 	else
-		icon_state = "torchwall"
+		icon_state = "[base_state]"
 
 /obj/machinery/light/rogue/torchholder/burn_out()
 	if(torchy && torchy.on)
@@ -282,6 +355,7 @@
 				if(!user.transferItemToLoc(LR, src))
 					return
 				torchy = LR
+				torchy.weather_resistant = TRUE
 				on = TRUE
 				update()
 				update_icon()
@@ -290,6 +364,7 @@
 				if(!user.transferItemToLoc(LR, src))
 					return
 				torchy = LR
+				torchy.weather_resistant = TRUE
 				update_icon()
 			playsound(src.loc, 'sound/foley/torchfixtureput.ogg', 70)
 		return
@@ -297,6 +372,7 @@
 
 /obj/machinery/light/rogue/chand
 	name = "chandelier"
+	desc = "A dazzling and resplendant array of candles held aloft by a dozen slender metal arms joined together and suspended from the ceiling."
 	icon_state = "chand1"
 	base_state = "chand"
 	icon = 'icons/roguetown/misc/tallwide.dmi'
@@ -306,6 +382,7 @@
 	pixel_y = -10
 	layer = 2.0
 	fueluse = 0
+	no_refuel = TRUE
 	soundloop = null
 	crossfire = FALSE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP
@@ -320,6 +397,7 @@
 
 /obj/machinery/light/rogue/hearth
 	name = "hearth"
+	desc = "A hearth of stones carefully arranged to support a pan or a pot above a steady bed of embers."
 	icon_state = "hearth1"
 	base_state = "hearth"
 	density = TRUE
@@ -330,8 +408,10 @@
 	climb_offset = 14
 	on = FALSE
 	cookonme = TRUE
+	soundloop = /datum/looping_sound/fireloop
 	var/obj/item/attachment = null
 	var/obj/item/reagent_containers/food/snacks/food = null
+	var/mob/living/carbon/human/lastuser
 	var/datum/looping_sound/boilloop/boilloop
 
 /obj/machinery/light/rogue/hearth/Initialize()
@@ -348,11 +428,40 @@
 	else
 		return !density
 
+/obj/machinery/light/rogue/hearth/examine(mob/user)
+	. = ..()
+	if(attachment)
+		if(istype(attachment, /obj/item/cooking/pan))
+			if(food)
+				. += "There's \a [attachment.name] on it with \a [food.name] in it."
+			else
+				. += "There's \a [attachment.name] on it."
+		else if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
+			var/isboiling = attachment.reagents.chem_temp > MIN_STEW_TEMPERATURE
+			if(isboiling)
+				. += "There's \a [attachment.name] on it, it is boiling." // This is common shorthand for the contents don't nitpick
+			else
+				. += "There's \a [attachment.name] on it. It is not boiling"
+		. += span_notice("Right click to start fanning the flame and make it cook faster.")
+
+/obj/machinery/light/rogue/hearth/attack_right(mob/user)
+	var/datum/skill/craft/cooking/cs = user?.mind?.get_skill_level(/datum/skill/craft/cooking)
+	var/cooktime_divisor = get_cooktime_divisor(cs)
+	if(do_after(user, 2 SECONDS / cooktime_divisor, target = src))
+		to_chat(user, span_info("I fan the flame on [src].")) // Until line combine is on by default gotta do this to avoid spam
+		try_cook(cooktime_divisor)
+		attack_right(user)
+
 /obj/machinery/light/rogue/hearth/attackby(obj/item/W, mob/living/user, params)
+	lastuser = user // For processing food
+	var/datum/skill/craft/cooking/cs = lastuser?.mind?.get_skill_level(/datum/skill/craft/cooking)
+	var/cooktime_divisor = get_cooktime_divisor(cs)
+
 	if(!attachment)
 		if(istype(W, /obj/item/cooking/pan) || istype(W, /obj/item/reagent_containers/glass/bucket/pot))
 			playsound(get_turf(user), 'sound/foley/dropsound/shovel_drop.ogg', 40, TRUE, -1)
 			attachment = W
+			user.doUnEquip(W)
 			W.forceMove(src)
 			update_icon()
 			return
@@ -374,94 +483,54 @@
 					update_icon()
 					playsound(src.loc, 'sound/misc/frying.ogg', 80, FALSE, extrarange = 5)
 					return
-// New concept = boil at least 33 water, add item, it turns into food reagent volume 33 of the appropriate type
+// Stew + Deep Frying code - refactored!!
 		else if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
 			var/obj/item/reagent_containers/glass/bucket/pot = attachment
-			if(istype(W, /obj/item/reagent_containers/food/snacks/grown/oat))
-				if(!pot.reagents.has_reagent(/datum/reagent/water, 33))
-					to_chat(user, "<span class='notice'>Not enough water.</span>")
-					return TRUE
-				if(pot.reagents.chem_temp < 374)
-					to_chat(user, "<span class='warning'>[pot] isn't boiling!</span>")
-					return
-				if(do_after(user,2 SECONDS, target = src))
-					user.visible_message("<span class='info'>[user] places [W] into the pot.</span>")
-					qdel(W)
-					playsound(src.loc, 'sound/items/Fish_out.ogg', 20, TRUE)
-					pot.reagents.remove_reagent(/datum/reagent/water, 32)
-					sleep(300)
-					playsound(src, "bubbles", 30, TRUE)
-					pot.reagents.add_reagent(/datum/reagent/consumable/soup/oatmeal, 32)
-					pot.reagents.remove_reagent(/datum/reagent/water, 1)
-				return
-
-			if(W.type in subtypesof(/obj/item/reagent_containers/food/snacks/rogue/veg))
-				if(!pot.reagents.has_reagent(/datum/reagent/water, 33))
-					to_chat(user, "<span class='notice'>Not enough water.</span>")
-					return TRUE
-				if(pot.reagents.chem_temp < 374)
-					to_chat(user, "<span class='warning'>[pot] isn't boiling!</span>")
-					return
-				if(do_after(user,2 SECONDS, target = src))
-					user.visible_message("<span class='info'>[user] places [W] into the pot.</span>")
-					playsound(src.loc, 'sound/items/Fish_out.ogg', 20, TRUE)
-					pot.reagents.remove_reagent(/datum/reagent/water, 32)
-					if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/veg/potato_sliced))
-						qdel(W)
-						sleep(800)
-						playsound(src, "bubbles", 30, TRUE)
-						pot.reagents.add_reagent(/datum/reagent/consumable/soup/veggie/potato, 32)
-						pot.reagents.remove_reagent(/datum/reagent/water, 1)
-					if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced))
-						qdel(W)
-						sleep(600)
-						playsound(src, "bubbles", 30, TRUE)
-						pot.reagents.add_reagent(/datum/reagent/consumable/soup/veggie/onion, 32)
-						pot.reagents.remove_reagent(/datum/reagent/water, 1)
-					if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/veg/cabbage_sliced))
-						qdel(W)
-						sleep(700)
-						playsound(src, "bubbles", 30, TRUE)
-						pot.reagents.add_reagent(/datum/reagent/consumable/soup/veggie/cabbage, 32)
-						pot.reagents.remove_reagent(/datum/reagent/water, 1)
-				return
-
-			if(W.type in subtypesof(/obj/item/reagent_containers/food/snacks/rogue/meat))
-				if(!pot.reagents.has_reagent(/datum/reagent/water, 33))
-					to_chat(user, "<span class='notice'>Not enough water.</span>")
-					return TRUE
-				if(pot.reagents.chem_temp < 374)
-					to_chat(user, "<span class='warning'>[pot] isn't boiling!</span>")
-					return
-				if(do_after(user,2 SECONDS, target = src))
-					user.visible_message("<span class='info'>[user] places [W] into the pot.</span>")
-					playsound(src.loc, 'sound/items/Fish_out.ogg', 20, TRUE)
-					pot.reagents.remove_reagent(/datum/reagent/water, 32)
-					if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish))
-						qdel(W)
-						sleep(800)
-						playsound(src, "bubbles", 30, TRUE)
-						pot.reagents.add_reagent(/datum/reagent/consumable/soup/stew/fish, 32)
-						pot.reagents.remove_reagent(/datum/reagent/water, 1)
-					if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/meat/spider))
-						qdel(W)
-						sleep(1000)
-						playsound(src, "bubbles", 30, TRUE)
-						pot.reagents.add_reagent(/datum/reagent/consumable/soup/stew/yucky, 32)
-						pot.reagents.remove_reagent(/datum/reagent/water, 1)
-					if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet) || istype(W, /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry))
-						qdel(W)
-						sleep(900)
-						playsound(src, "bubbles", 30, TRUE)
-						pot.reagents.add_reagent(/datum/reagent/consumable/soup/stew/chicken, 32)
-						pot.reagents.remove_reagent(/datum/reagent/water, 1)
-					else
-						qdel(W)
-						sleep(900)
-						playsound(src, "bubbles", 30, TRUE)
-						pot.reagents.add_reagent(/datum/reagent/consumable/soup/stew/meat, 32)
-						pot.reagents.remove_reagent(/datum/reagent/water, 1)
-				return
+			if(istype(W, /obj/item/reagent_containers/food/snacks))
+				var/obj/item/reagent_containers/food/snacks/S = W
+				if(S.fat_yield)
+					if(pot.reagents.has_reagent(/datum/reagent/water))
+						to_chat(user, span_warning("You can't render fat in a pot with water!"))
+						return
+					if(do_after(user, 2 SECONDS / cooktime_divisor, target = src))
+						user.visible_message(span_info("[user] melts [S] in the pot.</span>"))
+						qdel(S)
+						pot.reagents.add_reagent(/datum/reagent/consumable/oil/tallow, S.fat_yield)
+						return
+				if(pot.reagents.has_reagent(/datum/reagent/consumable/oil/tallow) && S.deep_fried_type)
+					if(!pot.reagents.has_reagent(/datum/reagent/consumable/oil/tallow, OIL_CONSUMED))
+						to_chat(user, span_notice("Not enough tallow."))
+						return
+					if(pot.reagents.has_reagent(/datum/reagent/water))
+						to_chat(user, span_warning("You can't deep fry in a pot with water!"))
+						return
+					if(do_after(user, DEEP_FRY_TIME / cooktime_divisor, target = src))
+						user.visible_message(span_info("[user] deep fries [S] in the pot.</span>"))
+						add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
+						new S.deep_fried_type(src.loc)
+						qdel(S)
+						pot.reagents.remove_reagent(/datum/reagent/consumable/oil/tallow, OIL_CONSUMED)
+						return
+			for(var/datum/stew_recipe/R in GLOB.stew_recipes)
+				for(var/I in R.inputs)
+					if(istype(W, I))
+						if(!pot.reagents.has_reagent(/datum/reagent/water, VOLUME_PER_STEW_COOK + VOLUME_PER_STEW_COOK_AFTER))
+							to_chat(user, span_notice("Not enough water."))
+							return
+						if(pot.reagents.chem_temp < MIN_STEW_TEMPERATURE)
+							to_chat(user, span_notice("[pot] isn't boiling!</span>"))
+							return
+						if(do_after(user, 2 SECONDS / cooktime_divisor, target = src))
+							user.visible_message(span_info("[user] places [W] into the pot.</span>"))
+							add_sleep_experience(user, /datum/skill/craft/cooking, user.STAINT)
+							qdel(W)
+							playsound(src.loc, 'sound/items/Fish_out.ogg', 20, TRUE)
+							pot.reagents.remove_reagent(/datum/reagent/water, VOLUME_PER_STEW_COOK)
+							sleep(R.cooktime / cooktime_divisor)
+							playsound(src, "bubbles", 30, TRUE)
+							pot.reagents.remove_reagent(/datum/reagent/water, VOLUME_PER_STEW_COOK_AFTER) // Remove water first prevent overfill
+							pot.reagents.add_reagent(R.output, VOLUME_PER_STEW_COOK + VOLUME_PER_STEW_COOK_AFTER)
+							return
 	. = ..()
 
 //////////////////////////////////
@@ -517,32 +586,38 @@
 			return TRUE
 
 /obj/machinery/light/rogue/hearth/process()
+	// Edge case is that this depends on the last person to put the pan on the hearth and not the last person to put the food on the pan
+	var/datum/skill/craft/cooking/cs = lastuser?.mind?.get_skill_level(/datum/skill/craft/cooking)
+	var/cooktime_divisor = get_cooktime_divisor(cs)
+
 	if(isopenturf(loc))
 		var/turf/open/O = loc
 		if(IS_WET_OPEN_TURF(O))
 			extinguish()
 	if(on)
-		if(initial(fueluse) > 0)
-			if(fueluse > 0)
-				fueluse = max(fueluse - 10, 0)
-			if(fueluse == 0)
-				burn_out()
-		if(attachment)
-			if(istype(attachment, /obj/item/cooking/pan))
-				if(food)
-					var/obj/item/C = food.cooking(20, src)
-					if(C)
-						qdel(food)
-						food = C
-			if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
-				if(attachment.reagents)
-					attachment.reagents.expose_temperature(400, 0.033)
-					if(attachment.reagents.chem_temp > 374)
-						boilloop.start()
-					else
-						boilloop.stop()
-		update_icon()
+		try_cook(cooktime_divisor)
 
+/obj/machinery/light/rogue/hearth/proc/try_cook(var/cooktime_divisor)
+	if(initial(fueluse) > 0)
+		if(fueluse > 0)
+			fueluse = max(fueluse - 10, 0)
+		if(fueluse == 0)
+			burn_out()
+	if(attachment)
+		if(istype(attachment, /obj/item/cooking/pan))
+			if(food)
+				var/obj/item/C = food.cooking(20 * cooktime_divisor, 20, src)
+				if(C)
+					qdel(food)
+					food = C
+		if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
+			if(attachment.reagents)
+				attachment.reagents.expose_temperature(400, 0.033)
+				if(attachment.reagents.chem_temp > MIN_STEW_TEMPERATURE)
+					boilloop.start()
+				else
+					boilloop.stop()
+	update_icon()
 
 /obj/machinery/light/rogue/hearth/onkick(mob/user)
 	if(isliving(user) && on)
@@ -553,8 +628,106 @@
 	QDEL_NULL(boilloop)
 	. = ..()
 
+/obj/machinery/light/rogue/hearth/mobilestove // thanks to Reen and Ppooch for their help on this. If any of this is slopcode, its my slopcode, not theirs. They only made improvements.
+	name = "mobile stove"
+	desc = "A portable bronze stovetop. The underside is covered in an esoteric pattern of small tubes. Whatever heats the hob is hidden inside the body of the device"
+	icon_state = "hobostove1"
+	base_state = "hobostove"
+	brightness = 4
+	bulb_colour ="#4ac77e"
+	density = FALSE
+	anchored = TRUE
+	climbable = FALSE
+	climb_offset = FALSE
+	layer = TABLE_LAYER
+	on = FALSE
+	no_refuel = TRUE
+	status = LIGHT_BURNED
+	crossfire = FALSE
+	soundloop = /datum/looping_sound/blank  //datum path is a blank.ogg
+
+/obj/machinery/light/rogue/hearth/mobilestove/MiddleClick(mob/user, params)
+	. = ..()
+	if(.)
+		return
+
+	if(attachment)
+		if(istype(attachment, /obj/item/cooking/pan))
+			if(!food)
+				if(!user.put_in_active_hand(attachment))
+					attachment.forceMove(user.loc)
+				attachment = null
+				update_icon()
+				return
+			if(!user.put_in_active_hand(food))
+				food.forceMove(user.loc)
+			food = null
+			update_icon()
+			return
+		if(istype(attachment, /obj/item/reagent_containers/glass/bucket/pot))
+			if(!user.put_in_active_hand(attachment))
+				attachment.forceMove(user.loc)
+			attachment = null
+			update_icon()
+			boilloop.stop()
+	else
+		if(!on)
+			user.visible_message(span_notice("[user] begins packing up \the [src]."))
+			if(!do_after(user, 2 SECONDS, TRUE, src))
+				return
+			var/obj/item/mobilestove/new_mobilestove = new /obj/item/mobilestove(get_turf(src))
+			new_mobilestove.color = src.color
+			qdel(src)
+			return
+
+		var/mob/living/carbon/human/H = user
+		if(!istype(user))
+			return
+		H.visible_message(span_notice("[user] begins packing up \the [src]. It's still hot!"))
+		if(!do_after(H, 40, target = src))
+			return
+		var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
+		to_chat(H, span_warning("HOT! I burned myself!"))
+		if(affecting && affecting.receive_damage( 0, 5 ))        // 5 burn damage
+			H.update_damage_overlays()
+		var/obj/item/mobilestove/new_mobilestove = new /obj/item/mobilestove(get_turf(src))
+		new_mobilestove.color = src.color
+		burn_out()
+		qdel(src)
+		return
+
+/obj/item/mobilestove
+	name = "packed stove"
+	desc = "A portable bronze stovetop. The underside is covered in an esoteric pattern of small tubes. Whatever heats the hob is hidden inside the body of the device"
+	icon = 'icons/roguetown/misc/lighting.dmi'
+	icon_state = "hobostovep"
+	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
+	grid_width = 32
+	grid_height = 64
+
+/obj/item/mobilestove/attack_self(mob/user, params)
+	..()
+	var/turf/T = get_turf(loc)
+	if(!isfloorturf(T))
+		to_chat(user, span_warning("I need ground to plant this on!"))
+		return
+	for(var/obj/A in T)
+		if(istype(A, /obj/structure))
+			to_chat(user, span_warning("I need some free space to deploy a [src] here!"))
+			return
+		if(A.density && !(A.flags_1 & ON_BORDER_1))
+			to_chat(user, span_warning("There is already something here!</span>"))
+			return
+	user.visible_message(span_notice("[user] begins placing \the [src] down on the ground."))
+	if(do_after(user, 2 SECONDS, TRUE, src))
+		var/obj/machinery/light/rogue/hearth/mobilestove/new_mobilestove = new /obj/machinery/light/rogue/hearth/mobilestove(get_turf(src))
+		new_mobilestove.color = src.color
+		qdel(src)
+
 /obj/machinery/light/rogue/campfire
 	name = "campfire"
+	desc = "Oily smoke curls from a weak sputtering flame."
 	icon_state = "badfire1"
 	base_state = "badfire"
 	density = FALSE
@@ -565,6 +738,7 @@
 	bulb_colour = "#da5e21"
 	cookonme = TRUE
 	max_integrity = 30
+	soundloop = /datum/looping_sound/fireloop
 
 /obj/machinery/light/rogue/campfire/process()
 	..()
@@ -591,15 +765,15 @@
 			H.visible_message("<span class='info'>[H] warms \his hand near the fire.</span>")
 
 			if(do_after(H, 100, target = src))
-				var/obj/item/bodypart/affecting = H.get_bodypart("[(user.active_hand_index % 2 == 0) ? "r" : "l" ]_arm")
-				to_chat(H, "<span class='warning'>HOT!</span>")
-				if(affecting && affecting.receive_damage( 0, 5 ))		// 5 burn damage
-					H.update_damage_overlays()
+				H.apply_status_effect(/datum/status_effect/buff/healing, 1)
+				H.add_stress(/datum/stressevent/campfire)
+				to_chat(H, "<span class='info'>The warmth of the fire comforts me, affording me a short rest.</span>")
 		return TRUE //fires that are on always have this interaction with lmb unless its a torch
 
 /obj/machinery/light/rogue/campfire/densefire
 	icon_state = "densefire1"
 	base_state = "densefire"
+	desc = "A ring of stones offers the fire enough protection from the wind to keep the dark at bay and the body warm."
 	density = TRUE
 	layer = 2.8
 	brightness = 5
@@ -649,3 +823,7 @@
 
 /obj/machinery/light/rogue/campfire/longlived
 	fueluse = 180 MINUTES
+
+#undef MIN_STEW_TEMPERATURE
+#undef VOLUME_PER_STEW_COOK
+#undef VOLUME_PER_STEW_COOK_AFTER

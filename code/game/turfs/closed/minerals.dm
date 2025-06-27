@@ -2,6 +2,7 @@
 
 /turf/closed/mineral //wall piece
 	name = "rock"
+	desc = "Lichens and moss cling to the jagged contours of the rock face. It is slick with moisture and exudes the heavy odors of dirt, minerals, and petrichor."
 	icon = 'icons/turf/mining.dmi'
 	icon_state = "rock"
 	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
@@ -67,13 +68,28 @@
 		return
 	lastminer = user
 	..()
-	var/olddam = turf_integrity
-	if(turf_integrity && turf_integrity > 10)
-		if(turf_integrity < olddam)
-			if(prob(50))
-				if(user.Adjacent(src))
-					var/obj/item/natural/stone/S = new(src)
-					S.forceMove(get_turf(user))
+	if(istype(I, /obj/item/rogueweapon/pick))
+		if(!isliving(user))
+			return
+
+		var/mob/living/L = user
+		user.doing = FALSE
+		// Makes more sense for the check since they always
+		// become an open tile afterwards
+		while(density && user.Adjacent(src))
+			if((L.rogstam > 0) && (do_after(user, CLICK_CD_MELEE, TRUE, src)))
+				..()
+				var/olddam = turf_integrity
+				if(turf_integrity && turf_integrity > 10)
+					if(turf_integrity < olddam)
+						if(prob(50))
+							if(user.Adjacent(src))
+								var/obj/item/natural/stone/S = new(src)
+								S.forceMove(get_turf(user))
+					if(!density)
+						break
+			else
+				break
 
 /turf/closed/mineral/attack_right(mob/user)
 	var/obj/item = user.get_active_held_item()
@@ -93,6 +109,7 @@
 		var/explo_mineral_amount = mineralAmt
 		var/obj/item/natural/rock/explo_rock = rockType
 		ScrapeAway()
+		GLOB.mined_resource_loc |= get_turf(src)
 		queue_smooth_neighbors(src)
 		new /obj/item/natural/stone(src)
 		if(prob(30))
@@ -190,13 +207,12 @@
 /turf/closed/mineral/random/rogue
 //	layer = ABOVE_MOB_LAYER
 	name = "rock"
-	desc = ""
+	desc = "Lichens and moss cling to the jagged contours of the rock face. It is slick with moisture and exudes the heavy odors of dirt, minerals, and petrichor."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "minrandbad"
 	smooth = SMOOTH_TRUE | SMOOTH_MORE
 	smooth_icon = 'icons/turf/walls/cwall.dmi'
 	wallclimb = TRUE
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	canSmoothWith = list(/turf/closed/mineral/random/rogue, /turf/closed/mineral/rogue)
 	turf_type = /turf/open/floor/rogue/naturalstone
 	above_floor = /turf/open/floor/rogue/naturalstone
@@ -220,13 +236,12 @@
 /turf/closed/mineral/rogue
 //	layer = ABOVE_MOB_LAYER
 	name = "rock"
-	desc = ""
+	desc = "Lichens and moss cling to the jagged contours of the rock face. It is slick with moisture and exudes the heavy odors of dirt, minerals, and petrichor."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "rockyash"
 	smooth = SMOOTH_TRUE | SMOOTH_MORE
 	smooth_icon = 'icons/turf/walls/cwall.dmi'
 	wallclimb = TRUE
-	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	canSmoothWith = list(/turf/closed/mineral/random/rogue, /turf/closed/mineral/rogue)
 	turf_type = /turf/open/floor/rogue/naturalstone
 	baseturfs = /turf/open/floor/rogue/naturalstone
@@ -295,7 +310,7 @@
 
 /turf/closed/mineral/rogue/bedrock
 	name = "rock"
-	desc = "seems barren, and nigh indestructable"
+	desc = "Seems barren and nigh-indestructable"
 	icon_state = "rockyashbed"
 //	smooth_icon = 'icons/turf/walls/hardrock.dmi'
 	max_integrity = 10000000

@@ -1,6 +1,6 @@
 
-/mob/living/proc/run_armor_check(def_zone = null, attack_flag = "blunt", absorb_text = null, soften_text = null, armor_penetration, penetrated_text, damage, blade_dulling)
-	var/armor = getarmor(def_zone, attack_flag, damage, armor_penetration, blade_dulling)
+/mob/living/proc/run_armor_check(def_zone = null, attack_flag = "blunt", absorb_text = null, soften_text = null, armor_penetration, penetrated_text, damage, blade_dulling, peeldivisor, intdamfactor)
+	var/armor = getarmor(def_zone, attack_flag, damage, armor_penetration, blade_dulling, peeldivisor, intdamfactor)
 
 	//the if "armor" check is because this is used for everything on /living, including humans
 	if(armor > 0 && armor_penetration)
@@ -19,10 +19,13 @@
 			to_chat(src, span_warning("[soften_text]"))
 //		else
 //			to_chat(src, span_warning("My armor softens the blow!"))
+	if(mob_timers[MT_INVISIBILITY] > world.time)			
+		mob_timers[MT_INVISIBILITY] = world.time
+		update_sneak_invis(reset = TRUE)
 	return armor
 
 
-/mob/living/proc/getarmor(def_zone, type, damage, armor_penetration, blade_dulling)
+/mob/living/proc/getarmor(def_zone, type, damage, armor_penetration, blade_dulling, peeldivisor, intdamfactor)
 	return 0
 
 //this returns the mob's protection against eye damage (number between -1 and 2) from bright lights
@@ -44,7 +47,10 @@
 	return BULLET_ACT_HIT
 
 /mob/living/bullet_act(obj/projectile/P, def_zone = BODY_ZONE_CHEST)
-	var/armor = run_armor_check(def_zone, P.flag, "", "",P.armor_penetration, damage = P.damage)
+	if(!prob(P.accuracy + P.bonus_accuracy))
+		def_zone = BODY_ZONE_CHEST
+	var/ap = (P.flag == "blunt") ? BLUNT_DEFAULT_PENFACTOR : P.armor_penetration
+	var/armor = run_armor_check(def_zone, P.flag, "", "",armor_penetration = ap, damage = P.damage)
 
 	next_attack_msg.Cut()
 
@@ -97,10 +103,8 @@
 	return simple_woundcritroll(P.woundclass, P.damage, null, def_zone, crit_message = TRUE)
 
 /mob/living/proc/check_projectile_embed(obj/projectile/P, def_zone)
-	if(!prob(P.embedchance) || !P.dropped)
-		return FALSE
-	simple_add_embedded_object(P.dropped, crit_message = TRUE)
-	return TRUE
+	// Disable embeds on simples, allowing it to override on complex.
+	return FALSE
 
 /obj/item/proc/get_volume_by_throwforce_and_or_w_class()
 	if(throwforce && w_class)
@@ -110,16 +114,18 @@
 	else
 		return 0
 
-/mob/living/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum, damage_type = "blunt")
+/mob/living/hitby(atom/movable/AM, skipcatch, hitpush = TRUE, blocked = FALSE, datum/thrownthing/throwingdatum, damage_flag = "blunt")
 	if(istype(AM, /obj/item))
 		var/obj/item/I = AM
-		var/zone = ran_zone(BODY_ZONE_CHEST, 65)//Hits a random part of the body, geared towards the chest
+		// Hit the selected zone, or else a random zone centered on the chest
+		var/zone = throwingdatum?.target_zone || ran_zone(BODY_ZONE_CHEST, 65)
 		SEND_SIGNAL(I, COMSIG_MOVABLE_IMPACT_ZONE, src, zone)
 		if(!blocked)
-			var/armor = run_armor_check(zone, damage_type, "", "",I.armor_penetration, damage = I.throwforce)
+			var/ap = (damage_flag == "blunt") ? BLUNT_DEFAULT_PENFACTOR : I.armor_penetration 
+			var/armor = run_armor_check(zone, damage_flag, "", "", armor_penetration = ap, damage = I.throwforce)
 			next_attack_msg.Cut()
 			var/nodmg = FALSE
-			if(!apply_damage(I.throwforce, damage_type, zone, armor))
+			if(!apply_damage(I.throwforce, I.damtype, zone, armor))
 				nodmg = TRUE
 				next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 			if(!nodmg)
@@ -151,7 +157,7 @@
 	if(!maxstacks)
 		maxstacks = 1
 	if(maxstacks)
-		if(fire_stacks >= maxstacks)
+		if(fire_stacks + divine_fire_stacks >= maxstacks)
 			return
 	if(added)
 		adjust_fire_stacks(added)
@@ -239,7 +245,8 @@
 		add_log = " (pacifist)"
 	send_grabbed_message(user)
 	if(user != src)
-		stop_pulling()
+		if(pulling != user) // If the person we're pulling aggro grabs us don't break the grab
+			stop_pulling()
 		user.set_pull_offsets(src, user.grab_state)
 	log_combat(user, src, "grabbed", addition="aggressive grab[add_log]")
 	return 1
@@ -448,7 +455,7 @@
 	return
 
 
-/mob/living/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect)
+/mob/living/do_attack_animation(atom/A, visual_effect_icon, obj/item/used_item, no_effect, item_animation_override = null, datum/intent/used_intent, simplified = TRUE)
 	if(!used_item)
 		used_item = get_active_held_item()
 	..()

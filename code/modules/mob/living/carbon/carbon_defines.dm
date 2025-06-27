@@ -1,7 +1,6 @@
 /mob/living/carbon
 	blood_volume = BLOOD_VOLUME_NORMAL
 	gender = MALE
-	pressure_resistance = 15
 	base_intents = list(INTENT_HELP, INTENT_HARM)
 	hud_possible = list(ANTAG_HUD)
 	has_limbs = 1
@@ -54,7 +53,7 @@
 
 	var/co2overloadtime = null
 	var/temperature_resistance = T0C+75
-	var/obj/item/reagent_containers/food/snacks/meat/slab/type_of_meat = /obj/item/reagent_containers/food/snacks/meat/slab
+	var/obj/item/reagent_containers/food/snacks/rogue/meat/type_of_meat = /obj/item/reagent_containers/food/snacks/rogue/meat
 
 	var/gib_type = /obj/effect/decal/cleanable/blood/gibs
 
@@ -90,3 +89,4 @@
 /// Amount of remaining vitae that can be drained from this mob
 	var/vitae_pool = 8000
 
+	var/next_smell = 0

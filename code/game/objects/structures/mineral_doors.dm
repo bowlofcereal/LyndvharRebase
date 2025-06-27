@@ -8,11 +8,10 @@
 	opacity = TRUE
 	layer = CLOSED_DOOR_LAYER
 
-	icon = 'icons/obj/doors/mineral_doors.dmi'
+	icon = 'icons/roguetown/misc/doors.dmi'
 	icon_state = "metal"
 	max_integrity = 1000
 	integrity_failure = 0.5
-	armor = list("blunt" = 10, "slash" = 5, "stab" = 7, "piercing" = 0, "fire" = 50, "acid" = 50)
 	CanAtmosPass = ATMOS_PASS_DENSITY
 
 	var/ridethrough = FALSE
@@ -51,6 +50,16 @@
 	damage_deflection = 10
 	var/mob/last_bumper = null
 	var/smashable = FALSE
+	/// Whether to grant a resident_key
+	var/grant_resident_key = FALSE
+	var/resident_key_amount = 1
+	/// The type of a key the resident will get
+	var/resident_key_type
+	/// The required role of the resident
+	var/resident_role
+	/// The requied advclass of the resident
+	var/list/resident_advclass
+
 
 /obj/structure/mineral_door/onkick(mob/user)
 	if(isSwitchingStates)
@@ -113,6 +122,8 @@
 	if(!base_state)
 		base_state = icon_state
 	air_update_turf(TRUE)
+	if(grant_resident_key && !lockid)
+		lockid = "random_lock_id_[rand(1,9999999)]" // I know, not foolproof
 	if(lockhash)
 		GLOB.lockhashes += lockhash
 	else if(keylock)
@@ -130,6 +141,58 @@
 			while(lockhash in GLOB.lockhashes)
 				lockhash = rand(1000,9999)
 			GLOB.lockhashes += lockhash
+
+/obj/structure/mineral_door/proc/try_award_resident_key(mob/user)
+	if(!grant_resident_key)
+		return FALSE
+	if(!lockid)
+		return FALSE
+	if(!ishuman(user))
+		return FALSE
+	var/mob/living/carbon/human/human = user
+	if(human.received_resident_key)
+		return FALSE
+	if(resident_role)
+		var/datum/job/job = SSjob.name_occupations[human.job]
+		if(job.type != resident_role)
+			if(!HAS_TRAIT(human, TRAIT_RESIDENT))
+				return FALSE
+	if(resident_advclass)
+		if(!human.advjob)
+			return FALSE
+		var/datum/advclass/advclass = SSrole_class_handler.get_advclass_by_name(human.advjob)
+		if(!advclass)
+			return FALSE
+		if(!(advclass.type in resident_advclass))
+			return FALSE
+	var/alert = alert(user, "Is this my home?", "Home", "Yes", "No")
+	if(alert != "Yes")
+		return
+	if(!grant_resident_key)
+		return
+	var/spare_key = alert(user, "Have I got an extra spare key?", "Home", "Yes", "No")
+	if(!grant_resident_key)
+		return
+	if(spare_key == "Yes")
+		resident_key_amount = 2
+	else
+		resident_key_amount = 1
+	for(var/i in 1 to resident_key_amount)
+		var/obj/item/roguekey/key
+		if(resident_key_type)
+			key = new resident_key_type(get_turf(human))
+		else
+			key = new /obj/item/roguekey(get_turf(human))
+		key.lockid = lockid
+		key.lockhash = lockhash
+		human.put_in_hands(key)
+	human.received_resident_key = TRUE
+	grant_resident_key = FALSE
+	if(resident_key_amount > 1)
+		to_chat(human, span_notice("They're just where I left them..."))
+	else
+		to_chat(human, span_notice("It's just where I left it..."))
+	return TRUE
 
 /obj/structure/mineral_door/Move()
 	var/turf/T = loc
@@ -160,14 +223,12 @@
 				return
 			door_rattle()
 			return
-		if(TryToSwitchState(AM))
+		if(TryToSwitchState(user))
 			if(swing_closed)
-				if(isliving(AM))
-					var/mob/living/M = AM
-					if(M.m_intent == MOVE_INTENT_SNEAK)
-						addtimer(CALLBACK(src, PROC_REF(Close), TRUE), 25)
-					else
-						addtimer(CALLBACK(src, PROC_REF(Close), FALSE), 25)
+				if(user.m_intent == MOVE_INTENT_SNEAK)
+					addtimer(CALLBACK(src, PROC_REF(Close), TRUE), 25)
+				else
+					addtimer(CALLBACK(src, PROC_REF(Close), FALSE), 25)
 
 
 /obj/structure/mineral_door/attack_paw(mob/user)
@@ -180,6 +241,8 @@
 	if(brokenstate)
 		return
 	if(isSwitchingStates)
+		return
+	if(try_award_resident_key(user))
 		return
 	if(locked)
 		if(isliving(user))
@@ -200,23 +263,30 @@
 		return !opacity
 	return !density
 
-/obj/structure/mineral_door/proc/TryToSwitchState(atom/user)
-	if(isSwitchingStates || !anchored)
-		return
-	if(isliving(user))
-		var/mob/living/M = user
-		if(world.time - M.last_bumped <= 60)
-			return //NOTE do we really need that?
-		if(M.client)
-			if(iscarbon(M))
-				var/mob/living/carbon/C = M
-				if(!C.handcuffed)
-					if(C.m_intent == MOVE_INTENT_SNEAK)
-						SwitchState(TRUE)
-					else
-						SwitchState()
-			else
-				SwitchState()
+/obj/structure/mineral_door/CanAStarPass(ID, to_dir, datum/caller)
+	. = ..()
+	if(.) // we can already go through it
+		return TRUE
+	if(!anchored)
+		return FALSE
+	if(HAS_TRAIT(caller, TRAIT_BASHDOORS))
+		return TRUE // bash into it!
+	// it's openable
+	return ishuman(caller) && !locked // only humantype mobs can open doors, as funny as it'd be for a volf to walk in on you ERPing
+
+/obj/structure/mineral_door/proc/TryToSwitchState(mob/living/user)
+	if(!isliving(user) || isSwitchingStates || !anchored)
+		return FALSE
+	if(ishuman(user))
+		var/mob/living/carbon/human/human_user = user
+		// must have a client or be trying to pass through the door
+		if(!human_user.client && !length(human_user.myPath))
+			return FALSE
+		if(human_user.handcuffed)
+			return FALSE
+	else if(!user.client) // simplemobs aren't allowed to pathfind through doors, currently
+		return FALSE
+	SwitchState(user.m_intent == MOVE_INTENT_SNEAK) // silent when sneaking
 	return TRUE
 
 /obj/structure/mineral_door/proc/SwitchState(silent = FALSE)
@@ -232,7 +302,7 @@
 	if(!windowed)
 		set_opacity(FALSE)
 	flick("[base_state]opening",src)
-	sleep(10)
+	sleep(2)
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
@@ -253,7 +323,7 @@
 	if(!silent)
 		playsound(src, closeSound, 100)
 	flick("[base_state]closing",src)
-	sleep(10)
+	sleep(2)
 	density = TRUE
 	if(!windowed)
 		set_opacity(TRUE)
@@ -306,6 +376,8 @@
 			return
 	if(istype(I, /obj/item/lockpick))
 		trypicklock(I, user)
+	if(istype(I, /obj/item/melee/touch_attack/lesserknock))
+		trypicklock(I, user)
 	if(istype(I,/obj/item/lockpickring))
 		var/obj/item/lockpickring/pickring = I
 		if(pickring.picks.len)
@@ -317,6 +389,12 @@
 			repairdoor(I,user)
 		else
 			return ..()
+
+/obj/structure/mineral_door/attacked_by(obj/item/I, mob/living/user)
+	..()
+	if(obj_broken || obj_destroyed)
+		var/obj/effect/track/structure/new_track = new(get_turf(src))
+		new_track.handle_creation(user)
 
 /obj/structure/mineral_door/proc/repairdoor(obj/item/I, mob/user)
 	if(brokenstate)				
@@ -453,7 +531,10 @@
 		pickchance *= P.picklvl
 		pickchance = clamp(pickchance, 1, 95)
 
-
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			message_admins("[H.real_name]([key_name(user)]) is attempting to lockpick [src.name]. [ADMIN_JMP(src)]")
+			log_admin("[H.real_name]([key_name(user)]) is attempting to lockpick [src.name].")
 
 		while(!QDELETED(I) &&(lockprogress < locktreshold))
 			if(!do_after(user, picktime, target = src))
@@ -466,6 +547,14 @@
 					add_sleep_experience(L, /datum/skill/misc/lockpicking, L.STAINT/2)
 				if(lockprogress >= locktreshold)
 					to_chat(user, "<span class='deadsay'>The locking mechanism gives.</span>")
+					if(ishuman(user))
+						var/mob/living/carbon/human/H = user
+						message_admins("[H.real_name]([key_name(user)]) successfully lockpicked [src.name] & [locked ? "unlocked" : "locked"] it. [ADMIN_JMP(src)]")
+						log_admin("[H.real_name]([key_name(user)]) successfully lockpicked [src.name].")
+						record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+						GLOB.azure_round_stats[STATS_LOCKS_PICKED]++
+						var/obj/effect/track/structure/new_track = new(get_turf(src))
+						new_track.handle_creation(user)
 					lock_toggle(user)
 					break
 				else
@@ -604,6 +693,10 @@
 	icon_state = "wcv"
 
 
+/obj/structure/mineral_door/obj_break(damage_flag)
+	loud_message("A loud crash of door splinters echoes", hearing_distance = 14)
+	. = ..()
+
 /obj/structure/mineral_door/wood/pickaxe_door(mob/living/user, obj/item/I)
 	return
 
@@ -701,7 +794,7 @@
 		to_chat(user, span_warning("The door doesn't lock from this side."))
 
 /obj/structure/mineral_door/wood/donjon
-	desc = "dungeon door"
+	desc = "A solid metal door with a slot to peek through."
 	icon_state = "donjondir"
 	base_state = "donjon"
 	keylock = TRUE
@@ -728,6 +821,16 @@
 	repair_cost_first = /obj/item/natural/stone
 	repair_cost_second = /obj/item/natural/stone
 	repair_skill = /datum/skill/craft/masonry
+
+/obj/structure/mineral_door/wood/donjon/stone/broken // no repair
+	icon_state = "stonebr"
+	base_state = "stone"
+	density = 0
+	opacity = 0
+	obj_integrity = 0
+	gc_destroyed = 1
+	brokenstate = 1
+	obj_broken = 1
 
 /obj/structure/mineral_door/wood/donjon/stone/attack_right(mob/user)
 	if(user.get_active_held_item())
@@ -822,3 +925,63 @@
 	closeSound = 'modular/Neu_Food/sound/blindsclose.ogg'
 	dir = NORTH
 	locked = TRUE
+
+/obj/structure/mineral_door/wood/towner
+	locked = TRUE
+	keylock = TRUE
+	grant_resident_key = TRUE
+	resident_key_type = /obj/item/roguekey/townie
+	resident_role = /datum/job/roguetown/villager
+	lockid = null //Will be randomized
+
+/obj/structure/mineral_door/wood/towner/generic
+
+/obj/structure/mineral_door/wood/towner/generic/two_keys
+	resident_key_amount = 2
+
+/obj/structure/mineral_door/wood/towner/blacksmith
+	resident_advclass = list(/datum/advclass/blacksmith)
+	lockid = "towner_blacksmith"
+
+/obj/structure/mineral_door/wood/towner/cheesemaker
+	resident_advclass = list(/datum/advclass/cheesemaker)
+	lockid = "towner_cheesemaker"
+
+/obj/structure/mineral_door/wood/towner/miner
+	resident_advclass = list(/datum/advclass/miner)
+	lockid = "towner_miner"
+
+/obj/structure/mineral_door/wood/towner/seamstress
+	resident_advclass = list(/datum/advclass/seamstress)
+	lockid = "towner_seamstress"
+
+/obj/structure/mineral_door/wood/towner/woodcutter
+	resident_advclass = list(/datum/advclass/woodcutter)
+	lockid = "towner_woodcutter"
+
+/obj/structure/mineral_door/wood/towner/fisher
+	resident_advclass = list(/datum/advclass/fisher)
+	lockid = "towner_fisher"
+
+/obj/structure/mineral_door/wood/towner/hunter
+	resident_advclass = list(/datum/advclass/hunter)
+	lockid = "towner_hunter"
+
+/obj/structure/mineral_door/wood/towner/witch
+	resident_advclass = list(/datum/advclass/witch)
+	lockid = "towner_witch"
+
+/obj/structure/mineral_door/wood/bath
+	locked = TRUE
+	keylock = TRUE
+	grant_resident_key = TRUE
+	resident_key_type = /obj/item/roguekey/bath
+	resident_role = /datum/job/roguetown/nightmaiden
+	lockid = null //Will be randomized
+
+/obj/structure/mineral_door/wood/bath/bathmaid
+	icon_state = "woodwindow"
+	resident_advclass = list(/datum/advclass/nightmaiden)
+
+/obj/structure/mineral_door/wood/bath/courtesan
+	resident_advclass = list(/datum/advclass/nightmaiden/concubine, /datum/advclass/nightmaiden/courtesan)

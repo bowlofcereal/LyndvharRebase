@@ -8,131 +8,35 @@
 		damageoverlaytemp = 0
 		update_damage_hud()
 
-	if(!IS_IN_STASIS(src))
+	//Reagent processing needs to come before breathing, to prevent edge cases.
+	handle_organs()
 
-		//Reagent processing needs to come before breathing, to prevent edge cases.
-		handle_organs()
+	. = ..()
 
-		. = ..()
+	if (QDELETED(src))
+		return
 
-		if (QDELETED(src))
-			return
+	handle_wounds()
+	handle_embedded_objects()
+	handle_blood()
+	handle_roguebreath()
+	var/bprv = handle_bodyparts()
+	if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
+		update_stamina() //needs to go before updatehealth to remove stamcrit
+		updatehealth()
+	update_stress()
+	handle_nausea()
+	if((blood_volume > BLOOD_VOLUME_SURVIVE) || HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
+		if(!heart_attacking)
+			if(oxyloss)
+				adjustOxyLoss(-1.6)
+		else
+			if(getOxyLoss() < 20)
+				heart_attacking = FALSE
 
-		handle_wounds()
-		handle_embedded_objects()
-		handle_blood()
-		handle_roguebreath()
-		var/bprv = handle_bodyparts()
-		if(bprv & BODYPART_LIFE_UPDATE_HEALTH)
-			update_stamina() //needs to go before updatehealth to remove stamcrit
-			updatehealth()
-		update_stress()
-		handle_nausea()
-		if((blood_volume > BLOOD_VOLUME_SURVIVE) || HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
-			if(!heart_attacking)
-				adjustOxyLoss(-1.5)
-			else
-				if(getOxyLoss() < 20)
-					heart_attacking = FALSE
+	handle_sleep()
 
-		//Healing while sleeping in a bed
-		if(IsSleeping())
-			var/sleepy_mod = 0.5
-			var/yess = HAS_TRAIT(src, TRAIT_NOHUNGER)
-			if(buckled?.sleepy)
-				sleepy_mod = buckled.sleepy
-			else if(isturf(loc)) //No illegal tech.
-				var/obj/structure/bed/rogue/bed = locate() in loc
-				if(bed)
-					sleepy_mod = bed.sleepy
-			if(nutrition > 0 || yess)
-				rogstam_add(sleepy_mod * 15)
-			if(hydration > 0 || yess)
-				if(!bleed_rate)
-					blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
-				for(var/obj/item/bodypart/affecting as anything in bodyparts)
-					//for context, it takes 5 small cuts (0.2 x 5) or 3 normal cuts (0.4 x 3) for a bodypart to not be able to heal itself
-					if(affecting.get_bleed_rate() >= 1)
-						continue
-					if(affecting.heal_damage(sleepy_mod, sleepy_mod, required_status = BODYPART_ORGANIC))
-						src.update_damage_overlays()
-					for(var/datum/wound/wound as anything in affecting.wounds)
-						if(!wound.sleep_healing)
-							continue
-						wound.heal_wound(wound.sleep_healing * sleepy_mod)
-				adjustToxLoss(-sleepy_mod)
-				if(eyesclosed && !HAS_TRAIT(src, TRAIT_NOSLEEP))
-					Sleeping(300)
-		else if(!IsSleeping() && !HAS_TRAIT(src, TRAIT_NOSLEEP))
-			// Resting on a bed or something
-			var/sleepy_mod = 0
-			if(buckled?.sleepy)
-				sleepy_mod = buckled.sleepy
-			else if(isturf(loc) && !(mobility_flags & MOBILITY_STAND))
-				var/obj/structure/bed/rogue/bed = locate() in loc
-				if(bed)
-					sleepy_mod = bed.sleepy
-				else
-					if(HAS_TRAIT(src, TRAIT_OUTDOORSMAN))
-						var/obj/structure/flora/newbranch/branch = locate() in loc
-						if(branch)
-							sleepy_mod = 1.5 //Worse than a bedroll, better than nothing.
-			if(sleepy_mod > 0)
-				if(eyesclosed)
-					var/armor_blocked
-					if(ishuman(src))
-						if(stat == CONSCIOUS)
-							var/mob/living/carbon/human/H = src
-							var/list/gear_to_check = list(H.wear_shirt, H.wear_armor, H.head)
-							for(var/obj/item/clothing/gear in gear_to_check)
-								if(gear.armor.blunt > 70)
-									armor_blocked = TRUE
-									if(!fallingas)
-										to_chat(src, span_warning("I can't sleep like this. My armor is burdening me."))
-									fallingas = TRUE
-									break
-					if(!armor_blocked)
-						if(!fallingas)
-							to_chat(src, span_warning("I'll fall asleep soon..."))
-						fallingas++
-						if(HAS_TRAIT(src, TRAIT_FASTSLEEP))
-							fallingas++
-						if(fallingas > 15)
-							Sleeping(300)
-				else
-					rogstam_add(sleepy_mod * 10)
-			// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
-			else if(!(mobility_flags & MOBILITY_STAND))
-				if(eyesclosed)
-					var/armor_blocked
-					if(ishuman(src))
-						if(stat == CONSCIOUS)
-							var/mob/living/carbon/human/H = src
-							var/list/gear_to_check = list(H.wear_shirt, H.wear_armor, H.head)
-							for(var/obj/item/clothing/gear in gear_to_check)
-								if(gear.armor.blunt > 70)
-									armor_blocked = TRUE
-									if(!fallingas)
-										to_chat(src, span_warning("I can't sleep like this. My armor is burdening me."))
-									fallingas = TRUE
-									break
-					if(!armor_blocked)
-						if(!fallingas)
-							to_chat(src, span_warning("I'll fall asleep soon, although a bed would be more comfortable..."))
-						fallingas++
-						if(HAS_TRAIT(src, TRAIT_FASTSLEEP))
-							fallingas++
-						if(fallingas > 25)
-							Sleeping(300)
-				else
-					rogstam_add(10)
-			else if(fallingas)
-				fallingas = 0
-
-		handle_brain_damage()
-
-	else
-		. = ..()
+	handle_brain_damage()
 
 
 	check_cremation()
@@ -146,13 +50,12 @@
 	if(notransform)
 		return
 
-	if(!IS_IN_STASIS(src))
-		. = ..()
-		if (QDELETED(src))
-			return
-		handle_wounds()
-		//handle_embedded_objects()
-		handle_blood()
+	. = ..()
+	if (QDELETED(src))
+		return
+	handle_wounds()
+	handle_embedded_objects()
+	handle_blood()
 
 	check_cremation()
 
@@ -160,7 +63,7 @@
 	if(HAS_TRAIT(src, TRAIT_NOPAIN))
 		return
 	if(!stat)
-		var/pain_threshold = STAEND * 10
+		var/pain_threshold = STACON * 10
 		if(has_flaw(/datum/charflaw/masochist)) // Masochists handle pain better by about 1 endurance point
 			pain_threshold += 10
 		var/painpercent = get_complex_pain() / pain_threshold
@@ -168,7 +71,7 @@
 
 		if(world.time > mob_timers["painstun"])
 			mob_timers["painstun"] = world.time + 100
-			var/probby = 40 - (STAEND * 2)
+			var/probby = 40 - (STACON * 2)
 			probby = max(probby, 10)
 			if(lying || IsKnockdown())
 				if(prob(3) && (painpercent >= 80) )
@@ -210,11 +113,11 @@
 			adjustOxyLoss(5)
 	if(isopenturf(loc))
 		var/turf/open/T = loc
-		if(reagents&& T.pollutants)
-			var/obj/effect/pollutant_effect/P = T.pollutants
-			for(var/datum/pollutant/X in P.pollute_list)
-				for(var/A in X.reagents_on_breathe)
-					reagents.add_reagent(A, X.reagents_on_breathe[A])
+		if(reagents && T.pollution)
+			T.pollution.breathe_act(src)
+			if(next_smell <= world.time)
+				next_smell = world.time + 30 SECONDS
+				T.pollution.smell_act(src)
 
 /mob/living/proc/handle_inwater()
 	ExtinguishMob()
@@ -224,27 +127,39 @@
 	if(!(mobility_flags & MOBILITY_STAND))
 		if(HAS_TRAIT(src, TRAIT_NOBREATH) || HAS_TRAIT(src, TRAIT_WATERBREATHING))
 			return TRUE
-		adjustOxyLoss(5)
+		if(stat == DEAD && client)
+			GLOB.azure_round_stats[STATS_PEOPLE_DROWNED]++
+		var/drown_damage = has_world_trait(/datum/world_trait/abyssor_rage) ? 10 : 5
+		adjustOxyLoss(drown_damage)
 		emote("drown")
 
 /mob/living/carbon/human/handle_inwater()
 	. = ..()
-	if(!(mobility_flags & MOBILITY_STAND))
-		if(istype(loc, /turf/open/water/bath))
-			if(!wear_armor && !wear_shirt && !wear_pants)
-				add_stress(/datum/stressevent/bathwater)
+	if(istype(loc, /turf/open/water/bath))
+		if(!wear_armor && !wear_shirt && !wear_pants)
+			add_stress(/datum/stressevent/bathwater)
+
+/mob/living/carbon/human/handle_inwater()
+	. = ..()
+	if(istype(loc, /turf/open/water/sewer))
+		add_stress(/datum/stressevent/sewertouched)
 
 /mob/living/carbon/proc/get_complex_pain()
-	var/amt = 0
+	. = 0
 	for(var/obj/item/bodypart/limb as anything in bodyparts)
 		if(limb.status == BODYPART_ROBOTIC || limb.skeletonized)
 			continue
-		var/bodypart_pain = ((limb.brute_dam + limb.burn_dam) / limb.max_damage) * 100
+		var/bodypart_pain = ((limb.brute_dam + limb.burn_dam) / limb.max_damage) * limb.max_pain_damage
 		for(var/datum/wound/wound as anything in limb.wounds)
 			bodypart_pain += wound.woundpain
-		bodypart_pain = min(bodypart_pain, 100) //tops out at 100 per limb
-		amt += bodypart_pain
-	return amt
+		bodypart_pain = min(bodypart_pain, limb.max_pain_damage)
+		. += bodypart_pain
+	.
+
+/mob/living/carbon/human/get_complex_pain()
+	. = ..()
+	if(physiology)
+		. *= physiology.pain_mod
 
 ///////////////
 // BREATHING //
@@ -542,7 +457,7 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 			head.cremation_progress += 999
 			if(head.cremation_progress >= 20)
 				if(head.status == BODYPART_ORGANIC) //Non-organic limbs don't burn
-					limb.skeletonize()
+					head.skeletonize()
 					should_update_body = TRUE
 //					head.drop_limb()
 //					head.visible_message(span_warning("[src]'s head crumbles into ash!"))
@@ -624,3 +539,115 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 		return
 
 	heart.beating = !status
+
+/// Handles sleep. Mobs with no_sleep trait cannot sleep.
+/*
+*	The mob tries to go to sleep or IS sleeping
+*
+*	Accounts for...
+*	TRAIT_NOSLEEP
+*	CANT_SLEEP_IN
+*	Hunger and Hydration.
+*/
+
+/mob/living/carbon/proc/handle_sleep()
+	if(HAS_TRAIT(src, TRAIT_NOSLEEP) && !(mobility_flags & MOBILITY_STAND))
+		rogstam_add(5)
+		if(mind?.has_antag_datum(/datum/antagonist/vampirelord/lesser))
+			rogstam_add(10)
+		return
+	//Healing while sleeping in a bed
+	if(IsSleeping())
+		var/sleepy_mod = 0.5
+		var/yess = HAS_TRAIT(src, TRAIT_NOHUNGER)
+		if(HAS_TRAIT(src, TRAIT_BETTER_SLEEP))
+			rogstam_add(sleepy_mod * 4)
+		if(buckled?.sleepy)
+			sleepy_mod = buckled.sleepy
+		else if(isturf(loc)) //No illegal tech.
+			var/obj/structure/bed/rogue/bed = locate() in loc
+			if(bed)
+				sleepy_mod = bed.sleepy
+		if(nutrition > 0 || yess)
+			rogstam_add(sleepy_mod * 15)
+		if(hydration > 0 || yess)
+			if(!bleed_rate)
+				blood_volume = min(blood_volume + (4 * sleepy_mod), BLOOD_VOLUME_NORMAL)
+			for(var/obj/item/bodypart/affecting as anything in bodyparts)
+				//for context, it takes 5 small cuts (0.2 x 5) or 3 normal cuts (0.4 x 3) for a bodypart to not be able to heal itself
+				if(affecting.get_bleed_rate() >= 1)
+					continue
+				if(affecting.heal_damage(sleepy_mod, sleepy_mod, required_status = BODYPART_ORGANIC))
+					src.update_damage_overlays()
+				for(var/datum/wound/wound as anything in affecting.wounds)
+					if(!wound.sleep_healing)
+						continue
+					wound.heal_wound(wound.sleep_healing * sleepy_mod)
+			adjustToxLoss(-sleepy_mod)
+			if(eyesclosed && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+				Sleeping(300)
+	else if(!IsSleeping() && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+		// Resting on a bed or something
+		var/sleepy_mod = 0
+		if(buckled?.sleepy)
+			sleepy_mod = buckled.sleepy
+		else if(isturf(loc) && !(mobility_flags & MOBILITY_STAND))
+			var/obj/structure/bed/rogue/bed = locate() in loc
+			if(bed)
+				sleepy_mod = bed.sleepy
+			else
+				if(HAS_TRAIT(src, TRAIT_OUTDOORSMAN))
+					var/obj/structure/flora/newbranch/branch = locate() in loc
+					if(branch)
+						sleepy_mod = 1.5 //Worse than a bedroll, better than nothing.
+		if(sleepy_mod > 0)
+			if(eyesclosed)
+				var/armor_blocked = FALSE
+				if(ishuman(src) && stat == CONSCIOUS)
+					var/mob/living/carbon/human/H = src
+					if(H.head && H.head.armor?.blunt > 70)
+						armor_blocked = TRUE
+					if(H.wear_armor && (H.wear_armor.armor_class in list(ARMOR_CLASS_HEAVY, ARMOR_CLASS_MEDIUM)))
+						armor_blocked = TRUE
+					if(armor_blocked && !fallingas)
+						to_chat(src, span_warning("I can't sleep like this. My armor is burdening me."))
+						fallingas = TRUE
+				if(!armor_blocked)
+					if(!fallingas)
+						to_chat(src, span_warning("I'll fall asleep soon..."))
+					fallingas++
+					if(HAS_TRAIT(src, TRAIT_FASTSLEEP))
+						fallingas++
+					if(fallingas > 15)
+						Sleeping(300)
+			else
+				rogstam_add(sleepy_mod * 10)
+		// Resting on the ground (not sleeping or with eyes closed and about to fall asleep)
+		else if(!(mobility_flags & MOBILITY_STAND))
+			if(eyesclosed)
+				var/armor_blocked = FALSE
+				if(ishuman(src) && stat == CONSCIOUS)
+					var/mob/living/carbon/human/H = src
+					if(H.head && H.head.armor?.blunt > 70)
+						armor_blocked = TRUE
+					if(H.wear_armor && (H.wear_armor.armor_class in list(ARMOR_CLASS_HEAVY, ARMOR_CLASS_MEDIUM)))
+						armor_blocked = TRUE
+					if(armor_blocked && !fallingas)
+						to_chat(src, span_warning("I can't sleep like this. My armor is burdening me."))
+						fallingas = TRUE
+				if(!armor_blocked)
+					if(!fallingas)
+						to_chat(src, span_warning("I'll fall asleep soon, although a bed would be more comfortable..."))
+					fallingas++
+					if(HAS_TRAIT(src, TRAIT_FASTSLEEP))
+						fallingas++
+					if(fallingas > 25)
+						Sleeping(300)
+			else
+				rogstam_add(10)
+		else if(fallingas)
+			fallingas = 0
+
+	// Leaning against a wall: slowly regain stamina
+	if(mobility_flags & MOBILITY_STAND && wallpressed && !IsSleeping() && !buckled && !lying)
+		rogstam_add(5)

@@ -167,6 +167,11 @@
 			to_chat(src, span_warning("I feed on succulent flesh. I feel reinvigorated."))
 			user.reagents.add_reagent(/datum/reagent/medicine/healthpot, 30)
 			gib()
+		if(user.mind && istype(user, /mob/living/carbon/human/species/wildshape/volf))
+			visible_message(span_danger("The volf ravenously consumes the [src]!"))
+			to_chat(src, span_warning("I feed on succulent flesh. I feel satiated."))
+			user.reagents.add_reagent(/datum/reagent/consumable/nutriment, 15)
+			gib()
 		return
 	if(src.apply_damage(damage, BRUTE))
 		if(istype(user, /mob/living/carbon/human/species/werewolf))
@@ -226,19 +231,14 @@
 		apply_damage(damage, damagetype, null, getarmor(null, armorcheck))
 		return TRUE
 
-/mob/living/simple_animal/bullet_act(obj/projectile/Proj)
-	apply_damage(Proj.damage, Proj.damage_type)
-	Proj.on_hit(src)
-	return BULLET_ACT_HIT
-
 /mob/living/simple_animal/ex_act(severity, target, epicenter, devastation_range, heavy_impact_range, light_impact_range, flame_range)
 	..()
-	if (!severity)
+	if(!severity || !epicenter)
 		return
-	var/ddist = devastation_range
-	var/hdist = heavy_impact_range
-	var/ldist = light_impact_range
-	var/fdist = flame_range
+	var/ddist = devastation_range || 0
+	var/hdist = heavy_impact_range || 0
+	var/ldist = light_impact_range || 0
+	var/fdist = flame_range || 0
 	var/fodist = get_dist(src, epicenter)
 	var/brute_loss = 0
 	var/burn_loss = 0
@@ -266,7 +266,7 @@
 
 	take_overall_damage(brute_loss,burn_loss)
 
-/mob/living/simple_animal/do_attack_animation(atom/A, visual_effect_icon, used_item, no_effect)
+/mob/living/simple_animal/do_attack_animation(atom/A, visual_effect_icon, used_item, no_effect, used_intent = null, simplified = TRUE)
 	if(!no_effect && !visual_effect_icon && melee_damage_upper)
 		if(melee_damage_upper < 10)
 			visual_effect_icon = ATTACK_EFFECT_PUNCH

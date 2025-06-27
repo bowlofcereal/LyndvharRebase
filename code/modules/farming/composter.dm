@@ -26,6 +26,7 @@
 		. += span_info("There is some ready compost.")
 	if(show_dry && unflipped_compost >= COMPOST_PER_PRODUCED_ITEM)
 		. += span_warning("The compost requires flipping!")
+		. += span_notice("Flip it by right clicking it with an empty hand.")
 
 /obj/structure/composter/update_icon()
 	. = ..()
@@ -184,6 +185,8 @@
 	icon_state = "ash"
 	color = "#ffac38"
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/fertilizer
 	name = "fertilizer"
@@ -191,3 +194,5 @@
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "fertilizer"
 	w_class = WEIGHT_CLASS_SMALL
+	grid_width = 32
+	grid_height = 32

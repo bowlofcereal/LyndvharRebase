@@ -4,7 +4,7 @@
 	range = 5
 	overlay_state = "blesscrop"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	max_targets = 0
 	cast_without_targets = TRUE
@@ -36,7 +36,7 @@
 	range = 5
 	overlay_state = "tamebeast"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	max_targets = 0
 	cast_without_targets = TRUE
@@ -46,15 +46,23 @@
 	invocation_type = "whisper" //can be none, whisper, emote and shout
 	miracle = TRUE
 	devotion_cost = 20
+	var/beast_tameable_factions = list("saiga", "chickens", "cows", "goats", "wolfs", "spiders")
 
 /obj/effect/proc_holder/spell/targeted/beasttame/cast(list/targets,mob/user = usr)
 	. = ..()
 	visible_message(span_green("[usr] soothes the beastblood with Dendor's whisper."))
 	var/tamed = FALSE
-	for(var/mob/living/simple_animal/hostile/retaliate/B in oview(2))
-		if(B.aggressive)
-			tamed = TRUE
-		B.aggressive = 0
+	for(var/mob/living/simple_animal/hostile/retaliate/animal in get_hearers_in_view(2, usr))
+		if((animal.mob_biotypes & MOB_UNDEAD))
+			continue
+		if(faction_check(animal.faction, beast_tameable_factions))
+			animal.tamed(TRUE)
+			animal.aggressive = FALSE
+			if(animal.ai_controller)
+				animal.ai_controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
+				animal.ai_controller.clear_blackboard_key(BB_BASIC_MOB_RETALIATE_LIST)
+				animal.ai_controller.set_blackboard_key(BB_BASIC_MOB_TAMED, TRUE)
+			to_chat(usr, "With Dendor's aide, you soothe [animal] of their anger.")
 	return tamed
 
 /obj/effect/proc_holder/spell/targeted/conjure_glowshroom
@@ -62,7 +70,7 @@
 	range = 1
 	overlay_state = "blesscrop"
 	releasedrain = 30
-	charge_max = 30 SECONDS
+	recharge_time = 30 SECONDS
 	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
 	max_targets = 0
 	cast_without_targets = TRUE
@@ -86,7 +94,7 @@
 	desc = "Draw upon the the secrets of the hidden firmament to converse with the mooncursed."
 	overlay_state = "howl"
 	antimagic_allowed = FALSE
-	charge_max = 600
+	recharge_time = 600
 	ignore_cockblock = TRUE
 	use_language = TRUE
 	var/first_cast = FALSE
@@ -107,4 +115,31 @@
 		to_chat(user, span_boldwarning("Ware thee well, child of Dendor."))
 		first_cast = TRUE
 	. = ..()
-	
+
+/obj/effect/proc_holder/spell/invoked/spiderspeak
+	name = "Spider Speak"
+	overlay_state = "tamebeast"
+	releasedrain = 15
+	chargedrain = 0
+	chargetime = 1 SECONDS
+	range = 2
+	warnie = "sydwarning"
+	movement_interrupt = FALSE
+	sound = 'sound/magic/churn.ogg'
+	invocation = "Spiders of psydonia, allow me to pass safely!"
+	invocation_type = "shout"
+	associated_skill = /datum/skill/magic/holy
+	recharge_time = 4 SECONDS
+	miracle = TRUE
+	devotion_cost = 25
+
+/obj/effect/proc_holder/spell/invoked/spiderspeak/cast(list/targets, mob/living/user)
+	. = ..()
+	if(isliving(targets[1]))
+		var/mob/living/target = targets[1]
+		user.visible_message("<font color='yellow'>[user] infuses [target] with swirling strands of spectral webs!</font>")
+		target.visible_message("<font color='yellow'>You feel your tongue shift strangely, producing odd clicking noises.</font>")
+		target.apply_status_effect(/datum/status_effect/buff/spider_speak)
+		return TRUE
+	revert_cast()
+	return FALSE

@@ -13,14 +13,18 @@
 
 	var/icon_regular_floor = "floor" //used to remember what icon the tile should have by default
 	var/icon_plating = "plating"
-	thermal_conductivity = 0.040
-	heat_capacity = 10000
+
 	intact = 1
 	var/broken = 0
 	var/burnt = 0
 	var/floor_tile = null //tile that this floor drops
 	var/list/broken_states
 	var/list/burnt_states
+
+	///the chance this turf has to spread, basically 3% by default
+	spread_chance = 3
+	///means fires last at base 15 seconds
+	burn_power = 15
 
 	tiled_dirt = TRUE
 
@@ -95,7 +99,6 @@
 
 /turf/open/floor/update_icon()
 	. = ..()
-	update_visuals()
 
 /turf/open/floor/attack_paw(mob/user)
 	return attack_hand(user)

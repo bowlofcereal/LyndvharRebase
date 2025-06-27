@@ -31,7 +31,6 @@
 	canparry = TRUE
 	d_intent = INTENT_PARRY
 	defprob = 50
-	defdrain = 20
 	speak_emote = list("grunts")
 	speak = list("WAAAGH!", "KRUSH AND KILL!", "Never should have come here!", "Slaughter them all!", "Kill everything!", "Hahaha! Die!")
 	loot = list(/obj/effect/mob_spawn/human/orc/corpse/savageorc,
@@ -241,3 +240,20 @@
 	..()
 	update_icon()
 
+/mob/living/simple_animal/hostile/retaliate/rogue/orc/event
+	ai_controller = /datum/ai_controller/orc/event
+/mob/living/simple_animal/hostile/retaliate/rogue/orc/orc2/event
+	ai_controller = /datum/ai_controller/orc/event
+/mob/living/simple_animal/hostile/retaliate/rogue/orc/orc_marauder/event
+	ai_controller = /datum/ai_controller/orc/event
+/mob/living/simple_animal/hostile/retaliate/rogue/orc/orc_marauder/spear/event
+	ai_controller = /datum/ai_controller/elite_orc/event
+/mob/living/simple_animal/hostile/retaliate/rogue/orc/orc_marauder/ravager/event
+	ai_controller = /datum/ai_controller/elite_orc/event
+/mob/living/simple_animal/hostile/retaliate/rogue/orc/spear/event
+	ai_controller = /datum/ai_controller/orc/event
+/mob/living/simple_animal/hostile/retaliate/rogue/orc/spear2/event
+	ai_controller = /datum/ai_controller/orc/event
+	
+/mob/living/simple_animal/hostile/retaliate/rogue/orc/ranged/event
+	ai_controller = /datum/ai_controller/orc_ranged/event

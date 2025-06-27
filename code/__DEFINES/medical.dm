@@ -92,6 +92,7 @@
 #define BODYPART_FEATURE_ACCESSORY "accessory"
 #define BODYPART_FEATURE_FACE_DETAIL "facedetail"
 #define BODYPART_FEATURE_UNDERWEAR "underwear"
+#define BODYPART_FEATURE_CREST "crest"
 
 //flags for requirements for a surgery step
 #define SURGERY_BLOODY (1<<0)
@@ -101,6 +102,7 @@
 #define SURGERY_DISLOCATED (1<<4)
 #define SURGERY_BROKEN (1<<5)
 #define SURGERY_DRILLED (1<<6)
+#define SURGERY_CUTVEIN (1<<7)
 
 //flags for the organ_flags var on /obj/item/organ
 /// Synthetic organs, or cybernetic organs. Reacts to EMPs and don't deteriorate or heal

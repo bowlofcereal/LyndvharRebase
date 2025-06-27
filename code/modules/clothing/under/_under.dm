@@ -22,6 +22,9 @@
 	var/freshly_laundered = FALSE
 	bloody_icon_state = "bodyblood"
 
+	grid_width = 64
+	grid_height = 64
+
 /obj/item/clothing/under/worn_overlays(isinhands = FALSE)
 	. = list()
 	if(!isinhands)
@@ -36,7 +39,7 @@
 	if(!attach_accessory(I, user))
 		return ..()
 
-/obj/item/clothing/under/update_clothes_damaged_state(damaging = TRUE)
+/obj/item/clothing/under/update_damaged_state()
 	..()
 	if(ismob(loc))
 		var/mob/M = loc

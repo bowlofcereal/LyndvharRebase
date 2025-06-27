@@ -1,8 +1,3 @@
-#define ARMOR_CLASS_NONE 0
-#define ARMOR_CLASS_LIGHT 1
-#define ARMOR_CLASS_MEDIUM 2
-#define ARMOR_CLASS_HEAVY 3
-
 /obj/item/clothing
 	name = "clothing"
 	resistance_flags = FLAMMABLE
@@ -12,7 +7,6 @@
 	max_integrity = 200
 	integrity_failure = 0.1
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	var/damaged_clothes = 0 //similar to machine's BROKEN stat and structure's broken var
 	///What level of bright light protection item has.
 	var/flash_protect = FLASH_PROTECTION_NONE
 	var/tint = 0				//Sets the item's level of visual impairment tint, normally set to the same as flash_protect
@@ -36,6 +30,9 @@
 
 	var/clothing_flags = NONE
 
+	salvage_result = /obj/item/natural/cloth
+	salvage_amount = 2
+	fiber_salvage = TRUE
 
 	var/toggle_icon_state = TRUE //appends _t to our icon state when toggled
 
@@ -65,7 +62,9 @@
 	var/wetness = 0
 	var/block2add
 	var/detail_tag
+	var/altdetail_tag
 	var/detail_color
+	var/altdetail_color
 	var/boobed_detail = TRUE
 	var/sleeved_detail = TRUE
 	var/list/original_armor //For restoring broken armor
@@ -87,81 +86,39 @@
 		if(armor_class == ARMOR_CLASS_LIGHT)
 			to_chat(usr, "AC: <b>LIGHT</b>")
 
+/obj/item/clothing/examine(mob/user)
+	. = ..()
+	if(torn_sleeve_number)
+		if(torn_sleeve_number == 1)
+			. += span_notice("It has one torn sleeve.")
+		else
+			. += span_notice("Both its sleeves have been torn!")
+
 /obj/item/proc/get_detail_tag() //this is for extra layers on clothes
 	return detail_tag
+
+/obj/item/proc/get_altdetail_tag() //this is for extra layers on clothes
+	return altdetail_tag
 
 /obj/item/proc/get_detail_color() //this is for extra layers on clothes
 	return detail_color
 
+/obj/item/proc/get_altdetail_color() //this is for extra layers on clothes
+	return altdetail_color
+
 /obj/item/clothing/MiddleClick(mob/user, params)
 	..()
-	var/shiftheld
+	var/mob/living/L = user
+	var/altheld //Is the user pressing alt?
 	var/list/modifiers = params2list(params)
 	if(modifiers["alt"])
-		shiftheld = TRUE
+		altheld = TRUE
 	if(!isliving(user))
 		return
 	if(nodismemsleeves)
 		return
-	var/mob/living/L = user
-	if(user.zone_selected == r_sleeve_zone)
-		if(r_sleeve_status == SLEEVE_NOMOD)
-			return
-		if(r_sleeve_status == SLEEVE_TORN)
-			to_chat(user, span_info("It's torn away."))
-			return
-		if(!shiftheld)
-			if(!do_after(user, 20, target = user))
-				return
-			if(prob(L.STASTR * 8))
-				r_sleeve_status = SLEEVE_TORN
-				user.visible_message(span_notice("[user] tears [src]."))
-				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
-				if(r_sleeve_zone == BODY_ZONE_R_ARM)
-					body_parts_covered &= ~ARM_RIGHT
-				if(r_sleeve_zone == BODY_ZONE_R_LEG)
-					body_parts_covered &= ~LEG_RIGHT
-				var/obj/item/natural/cloth/C = new get_turf(src)
-				C.color = color
-				user.put_in_hands(C)
-			else
-				user.visible_message(span_warning("[user] tries to tear [src]."))
-		else
-			if(r_sleeve_status == SLEEVE_ROLLED)
-				if(r_sleeve_zone == BODY_ZONE_R_ARM)
-					body_parts_covered |= ARM_RIGHT
-				if(r_sleeve_zone == BODY_ZONE_R_LEG)
-					body_parts_covered |= LEG_RIGHT
-				r_sleeve_status = SLEEVE_NORMAL
-			else
-				if(r_sleeve_zone == BODY_ZONE_R_ARM)
-					body_parts_covered &= ~ARM_RIGHT
-				if(r_sleeve_zone == BODY_ZONE_R_LEG)
-					body_parts_covered &= ~LEG_RIGHT
-				r_sleeve_status = SLEEVE_ROLLED
-	if(user.zone_selected == l_sleeve_zone)
-		if(l_sleeve_status == SLEEVE_NOMOD)
-			return
-		if(l_sleeve_status == SLEEVE_TORN)
-			to_chat(user, span_info("It's torn away."))
-			return
-		if(!shiftheld) //tear
-			if(!do_after(user, 20, target = user))
-				return
-			if(prob(L.STASTR * 8))
-				l_sleeve_status = SLEEVE_TORN
-				user.visible_message(span_notice("[user] tears [src]."))
-				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
-				if(l_sleeve_zone == BODY_ZONE_L_ARM)
-					body_parts_covered &= ~ARM_LEFT
-				if(l_sleeve_zone == BODY_ZONE_L_LEG)
-					body_parts_covered &= ~LEG_LEFT
-				var/obj/item/natural/cloth/C = new get_turf(src)
-				C.color = color
-				user.put_in_hands(C)
-			else
-				user.visible_message(span_warning("[user] tries to tear [src]."))
-		else
+	if(altheld)
+		if(user.zone_selected == l_sleeve_zone)
 			if(l_sleeve_status == SLEEVE_ROLLED)
 				l_sleeve_status = SLEEVE_NORMAL
 				if(l_sleeve_zone == BODY_ZONE_L_ARM)
@@ -174,7 +131,70 @@
 				if(l_sleeve_zone == BODY_ZONE_L_LEG)
 					body_parts_covered &= ~LEG_LEFT
 				l_sleeve_status = SLEEVE_ROLLED
-
+			return
+		else if(user.zone_selected == r_sleeve_zone)
+			if(r_sleeve_status == SLEEVE_ROLLED)
+				if(r_sleeve_zone == BODY_ZONE_R_ARM)
+					body_parts_covered |= ARM_RIGHT
+				if(r_sleeve_zone == BODY_ZONE_R_LEG)
+					body_parts_covered |= LEG_RIGHT
+				r_sleeve_status = SLEEVE_NORMAL
+			else
+				if(r_sleeve_zone == BODY_ZONE_R_ARM)
+					body_parts_covered &= ~ARM_RIGHT
+				if(r_sleeve_zone == BODY_ZONE_R_LEG)
+					body_parts_covered &= ~LEG_RIGHT
+				r_sleeve_status = SLEEVE_ROLLED
+			return
+	else
+		if(user.zone_selected == r_sleeve_zone)
+			if(r_sleeve_status == SLEEVE_NOMOD)
+				return
+			if(r_sleeve_status == SLEEVE_TORN)
+				to_chat(user, span_info("It's torn away."))
+				return
+			if(!do_after(user, 20, target = user))
+				return
+			if(prob(L.STASTR * 8))
+				torn_sleeve_number += 1
+				r_sleeve_status = SLEEVE_TORN
+				user.visible_message(span_notice("[user] tears [src]."))
+				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
+				if(r_sleeve_zone == BODY_ZONE_R_ARM)
+					body_parts_covered &= ~ARM_RIGHT
+				if(r_sleeve_zone == BODY_ZONE_R_LEG)
+					body_parts_covered &= ~LEG_RIGHT
+				var/obj/item/Sr = new salvage_result(get_turf(src))
+				Sr.color = color
+				user.put_in_hands(Sr)
+				return
+			else
+				user.visible_message(span_warning("[user] tries to tear [src]."))
+				return
+		if(user.zone_selected == l_sleeve_zone)
+			if(l_sleeve_status == SLEEVE_NOMOD)
+				return
+			if(l_sleeve_status == SLEEVE_TORN)
+				to_chat(user, span_info("It's torn away."))
+				return
+			if(!do_after(user, 20, target = user))
+				return
+			if(prob(L.STASTR * 8))
+				torn_sleeve_number += 1
+				l_sleeve_status = SLEEVE_TORN
+				user.visible_message(span_notice("[user] tears [src]."))
+				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
+				if(l_sleeve_zone == BODY_ZONE_L_ARM)
+					body_parts_covered &= ~ARM_LEFT
+				if(l_sleeve_zone == BODY_ZONE_L_LEG)
+					body_parts_covered &= ~LEG_LEFT
+				var/obj/item/Sr = new salvage_result(get_turf(src))
+				Sr.color = color
+				user.put_in_hands(Sr)
+				return
+			else
+				user.visible_message(span_warning("[user] tries to tear [src]."))
+				return
 	if(loc == L)
 		L.regenerate_clothes()
 
@@ -243,7 +263,10 @@
 			return
 		user.changeNext_move(CLICK_CD_MELEE)
 		M.visible_message(span_warning("[user] pats out the flames on [M] with [src]!"))
-		M.adjust_fire_stacks(-2)
+		if(M.divine_fire_stacks > 0)
+			M.adjust_divine_fire_stacks(-2)
+		if(M.fire_stacks > 0)
+			M.adjust_fire_stacks(-2)
 		take_damage(10, BURN, "fire")
 	else
 		return ..()
@@ -315,42 +338,16 @@
 */
 
 /obj/item/clothing/obj_break(damage_flag)
-	if(!damaged_clothes)
-		update_clothes_damaged_state(TRUE)
 	original_armor = armor
-	var/brokemessage = FALSE
 	var/list/armorlist = armor.getList()
 	for(var/x in armorlist)
 		if(armorlist[x] > 0)
-			brokemessage = TRUE
 			armorlist[x] = 0
-	if(ismob(loc) && brokemessage)
-		var/mob/M = loc
-		to_chat(M, "ARMOR BROKEN...!")
 	..()
 
-/obj/item/clothing/proc/obj_fix(damage_flag)
-	obj_broken = FALSE
-	if(damaged_clothes)
-		update_clothes_damaged_state(FALSE)
+/obj/item/clothing/obj_fix()
+	..()
 	armor = original_armor
-/obj/item/clothing/proc/update_clothes_damaged_state(damaging = TRUE)
-	var/index = "[REF(initial(icon))]-[initial(icon_state)]"
-	var/static/list/damaged_clothes_icons = list()
-	if(damaging)
-		damaged_clothes = 1
-		var/icon/damaged_clothes_icon = damaged_clothes_icons[index]
-		if(!damaged_clothes_icon)
-			damaged_clothes_icon = icon(initial(icon), initial(icon_state), , 1)	//we only want to apply damaged effect to the initial icon_state for each object
-			damaged_clothes_icon.Blend("#fff", ICON_ADD) 	//fills the icon_state with white (except where it's transparent)
-			damaged_clothes_icon.Blend(icon('icons/effects/item_damage.dmi', "itemdamaged"), ICON_MULTIPLY) //adds damage effect and the remaining white areas become transparant
-			damaged_clothes_icon = fcopy_rsc(damaged_clothes_icon)
-			damaged_clothes_icons[index] = damaged_clothes_icon
-		add_overlay(damaged_clothes_icon, 1)
-	else
-		damaged_clothes = 0
-		cut_overlay(damaged_clothes_icons[index], TRUE)
-
 
 /*
 SEE_SELF  // can see self, no matter what
@@ -516,27 +513,6 @@ BLIND     // can't see anything
 		if(!user.incapacitated())
 			return 1
 	return 0
-
-
-
-/obj/item/clothing/obj_destruction(damage_flag)
-	if(damage_flag == "acid")
-		obj_destroyed = TRUE
-		acid_melt()
-	else if(damage_flag == "fire")
-		obj_destroyed = TRUE
-		burn()
-	else
-		if(!ismob(loc))
-			obj_destroyed = TRUE
-			if(destroy_sound)
-				playsound(src, destroy_sound, 100, TRUE)
-			if(destroy_message)
-				visible_message(destroy_message)
-			deconstruct(FALSE)
-		else
-			return FALSE
-	return TRUE
 
 /obj/item/clothing/proc/step_action() //this was made to rewrite clown shoes squeaking
 	SEND_SIGNAL(src, COMSIG_CLOTHING_STEP_ACTION)

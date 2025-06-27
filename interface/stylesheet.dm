@@ -105,12 +105,12 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .beautifulfem			{color: #d70a74;}
 .beautifulnb			{color: #9656c9;}
 
-.revennotice			{color: #1d2953;}
+.revennotice			{color: #1d2953;	font-size: 85%;}
 .revenboldnotice		{color: #1d2953;	font-weight: bold;}
-.revenbignotice			{color: #1d2953;	font-weight: bold;	font-size: 3;}
-.revenminor				{color: #823abb}
-.revenwarning			{color: #760fbb;	font-style: italic;}
-.revendanger			{color: #760fbb;	font-weight: bold;	font-size: 3;}
+.revenbignotice			{color: #1d2953;	font-weight: bold;	font-size: 185%;}
+.revenminor				{color: #823abb;	font-size: 85%;}
+.revenwarning			{color: #760fbb;	font-style: italic;	font-size: 85%}
+.revendanger			{color: #760fbb;	font-weight: bold;	font-size: 185%;}
 
 .deconversion_message	{color: #5000A0;	font-size: 3;	font-style: italic;}
 
@@ -139,7 +139,12 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Pterra, TrueType;}
 .orc					{font-family: "Thief by The Riddler", Pterra;}
 .beast					{font-family: "Thief by The Riddler", Pterra;}
 .reptile				{font-family: "Kingthings Petrock", Pterra; font-size: 120%;}
-.lupian					{font-family: "Emperialisme", Pterra; font-size: 120%;}
+.grenzelhoftian			{font-family: "Emperialisme", Pterra; font-size: 120%;}
+.kazengunese 			{font-family: "Yuji Boku", Pterra;}
+.otavan					{font-family: "Notredame", "Pterra"; font-size: 200%;}
+.etruscan				{font-family: "Feronia", "Pterra"; font-size: 100%;}
+.gronnic				{font-family: "Jorvik Informal", "Pterra"; font-size: 100%;}
+.aavnic					{font-family: "Romeodn", "Pterra"; font-size: 100%;}
 
 .torture				{color: #42ff20}
 

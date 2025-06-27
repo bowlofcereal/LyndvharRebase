@@ -5,13 +5,13 @@
 	name = "Kobold"
 	id = "kobold"
 	desc = "<b>Kobold</b><br>\
-	Short in stature and typically scrawny, this little lizards make up for it in their natural agility. People typically stereotype them as thieves, though...<br>\
-	(+1 Speed, -1 Constitution)"
+	Short in stature and typically scrawny, these little lizards make up for it in their natural agility. People typically stereotype them as thieves, though...<br>\
+	(+1 Fortune)"
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS)
 	possible_ages = ALL_AGES_LIST
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
-	limbs_icon_m = 'icons/mob/species/anthro_small_male.dmi'
-	limbs_icon_f = 'icons/mob/species/anthro_small_female.dmi'
+	limbs_icon_m = 'icons/mob/species/anthro_small_malea.dmi'
+	limbs_icon_f = 'icons/mob/species/anthro_small_femalea.dmi'
 	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
 	dam_icon_f = 'icons/roguetown/mob/bodies/dam/dam_female.dmi'
 	soundpack_m = /datum/voicepack/male/elf
@@ -31,7 +31,7 @@
 		OFFSET_NECK_F = list(0,-5), OFFSET_MOUTH_F = list(0,-5), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,-4), OFFSET_UNDIES_F = list(0,-4), \
 		)
-	race_bonus = list(STAT_SPEED = 1, STAT_CONSTITUTION = -1)
+	race_bonus = list(STAT_FORTUNE = 1)
 	enflamed_icon = "widefire"
 	attack_verb = "slash"
 	attack_sound = 'sound/blank.ogg'
@@ -75,6 +75,21 @@
 		/datum/body_marking_set/kobold_scale,
 	)
 	body_markings = list(
+		/datum/body_marking/small/plain,
+		/datum/body_marking/small/sock,
+		/datum/body_marking/small/socklonger,
+		/datum/body_marking/small/tips,
+		/datum/body_marking/small/belly,
+		/datum/body_marking/small/bellyslim,
+		/datum/body_marking/small/butt,
+		/datum/body_marking/small/tie,
+		/datum/body_marking/small/tiesmall,
+		/datum/body_marking/small/backspots,
+		/datum/body_marking/small/front,
+		/datum/body_marking/small/spotted,
+		/datum/body_marking/small/nose,
+		/datum/body_marking/small/bangs,
+		/datum/body_marking/small/bun,
 	)
 	languages = list(
 		/datum/language/common,

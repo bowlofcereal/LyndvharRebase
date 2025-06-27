@@ -32,7 +32,7 @@
 	if (QDELETED(src))
 		return 0
 
-	if(. && (mode != AI_OFF))
+	if(. && (mode != NPC_AI_OFF))
 		handle_ai()
 
 	if(advsetup)
@@ -43,7 +43,7 @@
 		for(var/datum/antagonist/A in mind.antag_datums)
 			A.on_life(src)
 
-	if(mode == AI_OFF)
+	if(mode == NPC_AI_OFF)
 		handle_vamp_dreams()
 		if(IsSleeping())
 			if(health > 0)
@@ -72,11 +72,11 @@
 		handle_liver()
 		update_rogfat()
 		update_rogstam()
-		if(charflaw && !charflaw.ephemeral)
+		if(charflaw && !charflaw.ephemeral && mind)
 			charflaw.flaw_on_life(src)
 		if(health <= 0)
 			adjustOxyLoss(0.5)
-		if(mode == AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
+		if(mode == NPC_AI_OFF && !client && !HAS_TRAIT(src, TRAIT_NOSLEEP))
 			if(mob_timers["slo"])
 				if(world.time > mob_timers["slo"] + 90 SECONDS)
 					Sleeping(100)
@@ -89,8 +89,6 @@
 		if(dna?.species)
 			dna.species.spec_life(src) // for mutantraces
 
-	if(!typing)
-		set_typing_indicator(FALSE)
 	//Update our name based on whether our face is obscured/disfigured
 	name = get_visible_name()
 
@@ -120,15 +118,6 @@
 				has_stubble = TRUE
 				update_hair()
 
-/mob/living/carbon/human/calculate_affecting_pressure(pressure)
-	if (wear_armor && head && istype(wear_armor, /obj/item/clothing) && istype(head, /obj/item/clothing))
-		var/obj/item/clothing/CS = wear_armor
-		var/obj/item/clothing/CH = head
-		if (CS.clothing_flags & CH.clothing_flags & STOPSPRESSUREDAMAGE)
-			return ONE_ATMOSPHERE
-	return pressure
-
-
 /mob/living/carbon/human/handle_traits()
 	if (getOrganLoss(ORGAN_SLOT_BRAIN) >= 60)
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "brain_damage", /datum/mood_event/brain_damage)
@@ -136,8 +125,9 @@
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "brain_damage")
 	return ..()
 
-/mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
-	dna.species.handle_environment(environment, src)
+/mob/living/carbon/human/handle_environment()
+
+	dna.species.handle_environment(src)
 
 ///FIRE CODE
 /mob/living/carbon/human/handle_fire()
@@ -150,8 +140,8 @@
 
 	if(!last_fire_update)
 		last_fire_update = fire_stacks
-	if((fire_stacks > 10 && last_fire_update <= 10) || (fire_stacks <= 10 && last_fire_update > 10))
-		last_fire_update = fire_stacks
+	if((fire_stacks + divine_fire_stacks > 10 && last_fire_update <= 10) || (fire_stacks + divine_fire_stacks <= 10 && last_fire_update > 10))
+		last_fire_update = fire_stacks + divine_fire_stacks
 		update_fire()
 
 
@@ -171,7 +161,7 @@
 	//If firestacks are high enough
 	if(!dna || dna.species.CanIgniteMob(src))
 		if(!on_fire)
-			if(fire_stacks > 10)
+			if(fire_stacks + divine_fire_stacks > 10)
 				Immobilize(30)
 				emote("firescream", TRUE)
 			else

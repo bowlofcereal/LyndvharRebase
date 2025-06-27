@@ -17,7 +17,7 @@
 	relationships, which are capable of producing half-elven children. Elves are known for \
 	their intelligence and sharp eyes, but their graceful nature typically leaves their bodies \
 	more frail and fagile than most. In these lands, only a handful of the many Elvish tribes are seen.<br>\
-	(+1 Speed, -1 Constitution)"
+	(+1 Speed)"
 
 	skin_tone_wording = "Tribal Identity"
 
@@ -25,7 +25,6 @@
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = 1
-	skinned_type = /obj/item/stack/sheet/animalhide/human
 	disliked_food = NONE
 	liked_food = NONE
 	possible_ages = ALL_AGES_LIST
@@ -49,7 +48,7 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_SPEED = 1, STAT_CONSTITUTION = -1)
+	race_bonus = list(STAT_SPEED = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
@@ -73,10 +72,11 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/organ/ears/elf,
 		/datum/customizer/organ/testicles/anthro,
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/human,
-		/datum/customizer/organ/vagina/human,
+		/datum/customizer/organ/vagina/human_anthro,
 		)
 
 	body_marking_sets = list(
@@ -90,7 +90,10 @@
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
 		/datum/body_marking/eyeliner,
-		/datum/body_marking/tonage
+		/datum/body_marking/tonage,
+		/datum/body_marking/nose,
+		/datum/body_marking/bangs,
+		/datum/body_marking/bun,
 	)
 /datum/species/elf/wood/get_span_language(datum/language/message_language)
 	if(!message_language)
@@ -103,6 +106,7 @@
 
 /datum/species/elf/wood/get_skin_list()
 	return list(
+		"Grenzel Woods" = SKIN_COLOR_GRENZEL_WOODS,
 		"Dandelion Creek" = SKIN_COLOR_DANDELION_CREEK,
 		"Roseveil" = SKIN_COLOR_ROSEVEIL,
 		"Azuregrove" = SKIN_COLOR_AZUREGROVE,
@@ -110,7 +114,12 @@
 		"Almondvalle" = SKIN_COLOR_ALMONDVALLE,
 		"Walnut Woods" = SKIN_COLOR_WALNUT_WOODS,
 		"Timberborn" = SKIN_COLOR_TIMBERBORN,
-		"Lotus Coast" = SKIN_COLOR_LOTUS_COAST
+		"Lotus Coast" = SKIN_COLOR_LOTUS_COAST,
+		"Grenzel Woods" = SKIN_COLOR_GRENZEL_WOODS,
+		"Etruscan Swamps" = SKIN_COLOR_ETRUSCAN_SWAMPS,
+		"Shalvine Forests" = SKIN_COLOR_SHALVINE_FORESTS,
+		"Lalvestine Thickets" = SKIN_COLOR_LALVE_STEPPES,
+		"Naledi Coverts"	= SKIN_COLOR_NALEDI_COAST
 	)
 
 /datum/species/elf/wood/get_hairc_list()

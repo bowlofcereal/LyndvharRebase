@@ -3,7 +3,7 @@
 
 /obj/item/book/manual/random/Initialize()
 	..()
-	var/static/banned_books = list(/obj/item/book/manual/random, /obj/item/book/manual/nuclear, /obj/item/book/manual/wiki)
+	var/static/banned_books = list(/obj/item/book/manual/random)
 	var/newtype = pick(subtypesof(/obj/item/book/manual) - banned_books)
 	new newtype(loc)
 	return INITIALIZE_HINT_QDEL
@@ -26,7 +26,7 @@
 
 /obj/structure/bookcase/random
 	var/category = null
-	var/book_count = 5
+	var/book_count = 10
 	icon_state = "bookcase"
 	anchored = TRUE
 	state = 2
@@ -124,3 +124,19 @@
 	name = "bookcase (Reference)"
 	category = "Reference"
 	var/ref_book_prob = 20
+
+/obj/structure/bookcase/random_recipes
+	name = "bookcase (Recipes)"
+
+/obj/structure/bookcase/random_recipes/Initialize(mapload)
+	. = ..()
+	var/list/books = subtypesof(/obj/item/recipe_book)
+	for(var/obj/item/recipe_book/listed_book as anything in books)
+		if(initial(listed_book.can_spawn))
+			continue
+		books -= listed_book
+
+	for(var/i = 1 to books.len) // Spawn one copy of every book
+		var/obj/item/recipe_book/book = pick_n_take(books)
+		new book(src)
+	update_icon()

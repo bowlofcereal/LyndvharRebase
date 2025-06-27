@@ -1,5 +1,6 @@
 /obj/machinery/light/rogue/lanternpost
 	name = "lantern post"
+	desc = "A small lamptern dangles from a wooden post. The metal frame around the inner flame casts shadows on its surroundings."
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "streetlantern1"
 	base_state = "streetlantern"
@@ -7,6 +8,7 @@
 	density = FALSE
 	var/obj/item/flashlight/flare/torch/torchy
 	fueluse = 0 //we use the torch's fuel
+	no_refuel = TRUE
 	soundloop = null
 	crossfire = FALSE
 	plane = GAME_PLANE_UPPER

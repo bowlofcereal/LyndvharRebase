@@ -8,6 +8,11 @@ GLOBAL_LIST_INIT(time_change_tips, world.file2list("strings/rt/timechangetips.tx
 	var/time_string = time2text(world.timeofday, format)
 	return show_ds ? "[time_string]:[world.timeofday % 10]" : time_string
 
+/proc/time_stamp_metric()
+	var/date_portion = time2text(world.timeofday, "YYYY-MM-DD")
+	var/time_portion = time2text(world.timeofday, "hh:mm:ss")
+	return "[date_portion][time_portion]"
+
 /proc/gameTimestamp(format = "hh:mm:ss", wtime=null)
 	if(!wtime)
 		wtime = world.time
@@ -56,6 +61,7 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 				if("night")
 					if(prob(40))
 						GLOB.forecast = "rain"
+
 			if(GLOB.forecast == "rain")
 				var/foundnd
 				if(SSParticleWeather?.runningWeather?.target_trait == PARTICLEWEATHER_RAIN)

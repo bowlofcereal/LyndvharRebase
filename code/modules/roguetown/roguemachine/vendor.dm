@@ -133,6 +133,8 @@
 				preprice = held_items[O]["PRICE"]
 			var/newprice = input(usr, "SET A NEW PRICE FOR THIS PRODUCT", src, preprice) as null|num
 			if(newprice)
+				if(newprice < 0)
+					return attack_hand(usr)
 				if(findtext(num2text(newprice), "."))
 					return attack_hand(usr)
 				held_items[O]["PRICE"] = newprice
@@ -266,13 +268,23 @@
 	keycontrol = "nightman"
 
 /obj/structure/roguemachine/vendor/inn/Initialize()
-	. = ..()
-	for(var/X in list(/obj/item/roguekey/roomi,/obj/item/roguekey/roomii,/obj/item/roguekey/roomiii,/obj/item/roguekey/roomiv,/obj/item/roguekey/roomv,/obj/item/roguekey/roomvi))
-		var/obj/P = new X(src)
-		held_items[P] = list()
-		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 10
-	update_icon()
+    . = ..()
+    
+    // Add room keys with a price of 20
+    for (var/X in list(/obj/item/roguekey/roomi, /obj/item/roguekey/roomii, /obj/item/roguekey/roomiii, /obj/item/roguekey/roomiv, /obj/item/roguekey/roomv, /obj/item/roguekey/roomvi, /obj/item/roguekey/roomvii, /obj/item/roguekey/roomviii))
+        var/obj/P = new X(src)
+        held_items[P] = list()
+        held_items[P]["NAME"] = P.name
+        held_items[P]["PRICE"] = 20
+
+    // Add fancy keys with a price of 100
+    for (var/Y in list(/obj/item/roguekey/fancyroomi, /obj/item/roguekey/fancyroomii, /obj/item/roguekey/fancyroomiii, /obj/item/roguekey/fancyroomiv, /obj/item/roguekey/fancyroomv))
+        var/obj/Q = new Y(src)
+        held_items[Q] = list()
+        held_items[Q]["NAME"] = Q.name
+        held_items[Q]["PRICE"] = 100
+
+    update_icon()
 
 /obj/structure/roguemachine/vendor/merchant
 	keycontrol = "merchant"

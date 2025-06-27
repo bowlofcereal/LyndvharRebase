@@ -11,7 +11,7 @@
 
 	maximum_possible_slots = 1
 	pickprob = 5
-	category_tags = list(CTAG_PILGRIM)
+	category_tags = list(CTAG_TOWNER)
 
 /datum/outfit/job/roguetown/adventurer/masterchef/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -50,7 +50,7 @@
 				/obj/item/natural/cloth = 1,
 				/obj/item/reagent_containers/peppermill = 1,
 				/obj/item/reagent_containers/powder/flour = 2,
-				/obj/item/reagent_containers/food/snacks/rogue/honey = 2,
+				/obj/item/reagent_containers/food/snacks/rogue/honey/spider = 2,
 				/obj/item/reagent_containers/powder/salt = 1,
 				/obj/item/reagent_containers/food/snacks/butter = 1,
 				/obj/item/reagent_containers/food/snacks/rogue/meat/salami = 1,

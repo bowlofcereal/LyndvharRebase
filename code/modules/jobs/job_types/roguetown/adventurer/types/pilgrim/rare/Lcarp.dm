@@ -9,7 +9,7 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/adventurer/mastercarpenter
-	category_tags = list(CTAG_PILGRIM)
+	category_tags = list(CTAG_TOWNER)
 	maximum_possible_slots = 1
 	pickprob = 5
 	
@@ -39,7 +39,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltl = /obj/item/rogueweapon/hammer/claw
+	beltl = /obj/item/rogueweapon/hammer/steel
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(
 						/obj/item/flint = 1,

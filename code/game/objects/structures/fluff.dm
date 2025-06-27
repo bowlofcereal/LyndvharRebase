@@ -3,7 +3,6 @@
 /obj/structure/fluff
 	name = "fluff structure"
 	desc = ""
-	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "minibar"
 	anchored = TRUE
 	density = FALSE
@@ -12,43 +11,37 @@
 	max_integrity = 150
 	var/deconstructible = TRUE
 
-/obj/structure/fluff/empty_terrarium //Empty terrariums are created when a preserved terrarium in a lavaland seed vault is activated.
-	name = "empty terrarium"
-	desc = ""
-	icon = 'icons/obj/lavaland/spawners.dmi'
-	icon_state = "terrarium_open"
-	density = TRUE
+/obj/structure/fluff/pillow
+	name = "pillows"
+	desc = "Soft plush pillows. Resting your head on one is so relaxing."
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "pillow"
+	density = FALSE
 
-/obj/structure/fluff/empty_sleeper //Empty sleepers are created by a good few ghost roles in lavaland.
-	name = "empty sleeper"
-	desc = ""
-	icon = 'icons/obj/machines/sleeper.dmi'
-	icon_state = "sleeper-open"
+/obj/structure/fluff/pillow/red
+	color = CLOTHING_RED
 
-/obj/structure/fluff/empty_sleeper/nanotrasen
-	name = "broken hypersleep chamber"
-	desc = "A Nanotrasen hypersleep chamber - this one appears broken. \
-		There are exposed bolts for easy disassembly using a wrench."
-	icon_state = "sleeper-o"
+/obj/structure/fluff/pillow/blue
+	color = CLOTHING_BLUE
 
-/obj/structure/fluff/empty_sleeper/syndicate
-	icon_state = "sleeper_s-open"
+/obj/structure/fluff/pillow/green
+	color = CLOTHING_DARK_GREEN
 
-/obj/structure/fluff/empty_cryostasis_sleeper //Empty cryostasis sleepers are created when a malfunctioning cryostasis sleeper in a lavaland shelter is activated
-	name = "empty cryostasis sleeper"
-	desc = ""
-	icon = 'icons/obj/lavaland/spawners.dmi'
-	icon_state = "cryostasis_sleeper_open"
+/obj/structure/fluff/pillow/brown
+	color = CLOTHING_BROWN
 
-/obj/structure/fluff/broken_flooring
-	name = "broken tiling"
-	desc = ""
-	icon = 'icons/obj/brokentiling.dmi'
-	icon_state = "corner"
+/obj/structure/fluff/pillow/magenta
+	color = CLOTHING_MAGENTA
+
+/obj/structure/fluff/pillow/purple
+	color = CLOTHING_PURPLE
+
+/obj/structure/fluff/pillow/black
+	color = CLOTHING_BLACK
 
 /obj/structure/fluff/drake_statue //Ash drake status spawn on either side of the necropolis gate in lavaland.
 	name = "drake statue"
-	desc = ""
+	desc = "Possibly the only time you'll ever see its likeness up close and live to tell the tale."
 	icon = 'icons/effects/64x64.dmi'
 	icon_state = "drake_statue"
 	pixel_x = -16
@@ -60,58 +53,13 @@
 	desc = ""
 	icon_state = "drake_statue_falling"
 
-
-/obj/structure/fluff/bus
-	name = "bus"
-	desc = ""
-	icon = 'icons/obj/bus.dmi'
-	density = TRUE
-	anchored = TRUE
-	deconstructible = FALSE
-
-/obj/structure/fluff/bus/dense
-	name = "bus"
-	icon_state = "backwall"
-
-/obj/structure/fluff/bus/passable
-	name = "bus"
-	icon_state = "frontwalltop"
-	density = FALSE
-	layer = ABOVE_ALL_MOB_LAYER //except for the stairs tile, which should be set to OBJ_LAYER aka 3.
-
-
-/obj/structure/fluff/bus/passable/seat
-	name = "seat"
-	desc = ""
-	icon_state = "backseat"
-	pixel_y = 17
-	layer = OBJ_LAYER
-
-
-/obj/structure/fluff/bus/passable/seat/driver
-	name = "driver's seat"
-	desc = ""
-	icon_state = "driverseat"
-
-/obj/structure/fluff/bus/passable/seat/driver/attack_hand(mob/user)
-	playsound(src, 'sound/blank.ogg', 50, TRUE)
-	. = ..()
-
-/obj/structure/fluff/paper
-	name = "dense lining of papers"
-	desc = ""
-	icon = 'icons/obj/fluff.dmi'
-	icon_state = "paper"
-	deconstructible = FALSE
-
 /obj/structure/fluff/paper/corner
 	icon_state = "papercorner"
 
 /obj/structure/fluff/paper/stack
 	name = "dense stack of papers"
-	desc = ""
+	desc = "You can already feel your eyes glazing over and the boredom creeping in."
 	icon_state = "paperstack"
-
 
 /obj/structure/fluff/divine
 	name = "Miracle"
@@ -151,12 +99,6 @@
 	name = "shrine"
 	desc = ""
 	icon_state = "shrine"
-
-/obj/structure/fluff/fokoff_sign
-	name = "crude sign"
-	desc = ""
-	icon = 'icons/obj/fluff.dmi'
-	icon_state = "fokof"
 
 /obj/structure/fluff/big_chain
 	name = "giant chain"
@@ -289,7 +231,7 @@
 
 /obj/structure/fluff/railing/fence
 	name = "palisade"
-	desc = ""
+	desc = "A rudimentary barrier that might keep the monsters at bay."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	attacked_sound = 'sound/misc/woodhit.ogg'
 	destroy_sound = 'sound/misc/treefall.ogg'
@@ -366,6 +308,10 @@
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 
+/obj/structure/bars/obj_break(damage_flag)
+	loud_message("A sickening, metallic scrape of bars getting broken rings out", hearing_distance = 14)
+	. = ..()
+
 /obj/structure/bars/CanPass(atom/movable/mover, turf/target)
 	if(isobserver(mover))
 		return 1
@@ -378,6 +324,9 @@
 /obj/structure/bars/shop
 	icon_state = "barsbent"
 	layer = BELOW_OBJ_LAYER
+
+/obj/structure/bars/shop/bronze
+	color = "#ff9c1a"
 
 /obj/structure/bars/chainlink
 	icon_state = "chainlink"
@@ -528,7 +477,6 @@
 	break_sound = "glassbreak"
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
-	var/broke = FALSE
 	var/datum/looping_sound/clockloop/soundloop
 	drag_slowdown = 3
 
@@ -543,12 +491,10 @@
 	..()
 
 /obj/structure/fluff/clock/obj_break(damage_flag)
-	if(!broke)
-		broke = TRUE
-		icon_state = "b[initial(icon_state)]"
-		if(soundloop)
-			soundloop.stop()
-		attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
+	icon_state = "b[initial(icon_state)]"
+	if(soundloop)
+		soundloop.stop()
+	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	..()
 
 /obj/structure/fluff/clock/attack_right(mob/user)
@@ -566,27 +512,33 @@
 
 /obj/structure/fluff/clock/examine(mob/user)
 	. = ..()
-	if(!broke)
-		var/day = "... actually, WHAT dae is it?"
-		switch(GLOB.dayspassed)
-			if(1)
-				day = "Moon's dae."
-			if(2)
-				day = "Tiw's dae."
-			if(3)
-				day = "Wedding's dae."
-			if(4)
-				day = "Thule's dae."
-			if(5)
-				day = "Freyja's dae."
-			if(6)
-				day = "Saturn's dae."
-			if(7)
-				day = "Sun's dae."
-		. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]"
+	if(obj_broken)
+		return
+	var/day = "... actually, WHAT dae is it?"
+	switch(GLOB.dayspassed)
+		if(1)
+			day = "Moon's dae."
+		if(2)
+			day = "Tiw's dae."
+		if(3)
+			day = "Wedding's dae."
+		if(4)
+			day = "Thule's dae."
+		if(5)
+			day = "Freyja's dae."
+		if(6)
+			day = "Saturn's dae."
+		if(7)
+			day = "Sun's dae."
+	. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]"
 //		if(SSshuttle.emergency.mode == SHUTTLE_DOCKED)
 //			if(SSshuttle.emergency.timeLeft() < 30 MINUTES)
 //				. += span_warning("The last boat will leave in [round(SSshuttle.emergency.timeLeft()/600)] minutes.")
+
+/obj/structure/fluff/clock/CanAStarPass(ID, to_dir, caller)
+	if(to_dir == dir)
+		return FALSE // don't even bother climbing over it
+	return ..()
 
 /obj/structure/fluff/clock/CanPass(atom/movable/mover, turf/target)
 	if(get_dir(loc, mover) == dir)
@@ -613,7 +565,6 @@
 	break_sound = "glassbreak"
 	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
-	var/broke = FALSE
 	pixel_y = 32
 
 /obj/structure/fluff/wallclock/Destroy()
@@ -623,24 +574,25 @@
 
 /obj/structure/fluff/wallclock/examine(mob/user)
 	. = ..()
-	if(!broke)
-		var/day = "... actually, WHAT dae is it?"
-		switch(GLOB.dayspassed)
-			if(1)
-				day = "Moon's dae."
-			if(2)
-				day = "Tiw's dae."
-			if(3)
-				day = "Wedding's dae."
-			if(4)
-				day = "Thule's dae."
-			if(5)
-				day = "Freyja's dae."
-			if(6)
-				day = "Saturn's dae."
-			if(7)
-				day = "Sun's dae."
-		. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]"
+	if(obj_broken)
+		return
+	var/day = "... actually, WHAT dae is it?"
+	switch(GLOB.dayspassed)
+		if(1)
+			day = "Moon's dae."
+		if(2)
+			day = "Tiw's dae."
+		if(3)
+			day = "Wedding's dae."
+		if(4)
+			day = "Thule's dae."
+		if(5)
+			day = "Freyja's dae."
+		if(6)
+			day = "Saturn's dae."
+		if(7)
+			day = "Sun's dae."
+	. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]"
 //		testing("mode is [SSshuttle.emergency.mode] should be [SHUTTLE_DOCKED]")
 //		if(SSshuttle.emergency.mode == SHUTTLE_DOCKED)
 //			if(SSshuttle.emergency.timeLeft() < 30 MINUTES)
@@ -652,12 +604,10 @@
 	. = ..()
 
 /obj/structure/fluff/wallclock/obj_break(damage_flag)
-	if(!broke)
-		broke = TRUE
-		icon_state = "b[initial(icon_state)]"
-		if(soundloop)
-			soundloop.stop()
-		attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
+	icon_state = "b[initial(icon_state)]"
+	if(soundloop)
+		soundloop.stop()
+	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
 	..()
 
 /obj/structure/fluff/wallclock/l
@@ -766,19 +716,6 @@
 					icon_state = "signwrote"
 	..()
 
-/obj/structure/fluff/dryingrack
-	name = "drying rack"
-	desc = ""
-	icon = 'icons/roguetown/misc/structure.dmi'
-	icon_state = "dryrack"
-	density = TRUE
-	anchored = TRUE
-	layer = BELOW_OBJ_LAYER
-	blade_dulling = DULLING_BASHCHOP
-	max_integrity = 150
-	destroy_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
-	attacked_sound = list('sound/combat/hits/onwood/woodimpact (1).ogg','sound/combat/hits/onwood/woodimpact (2).ogg')
-
 /obj/structure/fluff/alch
 	name = "alchemical lab"
 	desc = ""
@@ -829,6 +766,11 @@
 		return 0
 	return !density
 
+/obj/structure/fluff/statue/CanAStarPass(ID, to_dir, caller)
+	if(to_dir == dir)
+		return FALSE // don't even bother climbing over it
+	return ..()
+
 /obj/structure/fluff/statue/CheckExit(atom/movable/O, turf/target)
 	if(get_dir(O.loc, target) == dir)
 		return 0
@@ -869,6 +811,9 @@
 /obj/structure/fluff/statue/knight/interior/r
 	icon_state = "oknightstatue_r"
 
+/obj/structure/fluff/statue/knight/interior/r/bronze
+	color = "#ff9c1a"
+
 /obj/structure/fluff/statue/knightalt
 	icon_state = "knightstatue2_l"
 
@@ -905,23 +850,23 @@
 	pixel_x = -32
 	pixel_y = -16
 
-/obj/structure/fluff/statue/femalestatue/Initialize()
-	. = ..()
-	var/matrix/M = new
-	M.Scale(0.7,0.7)
-	src.transform = M
+/obj/structure/fluff/statue/femalestatue1
+	icon = 'icons/roguetown/misc/ay.dmi'
+	icon_state = "2"
+	pixel_x = -32
+	pixel_y = -16
+
+/obj/structure/fluff/statue/femalestatue2
+	icon = 'icons/roguetown/misc/ay.dmi'
+	icon_state = "5"
+	pixel_x = -32
+	pixel_y = -16
 
 /obj/structure/fluff/statue/femalestatue/zizo
 	icon = 'icons/roguetown/misc/ay.dmi'
 	icon_state = "4"
 	pixel_x = -32
 	pixel_y = -16
-
-/obj/structure/fluff/statue/femalestatue/zizo/Initialize()
-	. = ..()
-	var/matrix/M = new
-	M.Scale(0.7,0.7)
-	src.transform = M
 
 /obj/structure/fluff/statue/scare
 	name = "scarecrow"
@@ -971,17 +916,15 @@
 	icon_state = "spidercore"
 
 /obj/structure/fluff/statue/spider/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/honey))
+	if(istype(W, /obj/item/reagent_containers/food/snacks/rogue/honey/spider))
 		if(user.mind)
 			if(user.mind.special_role == "Dark Elf")
 				playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
-				if(SSticker.mode)
-					var/datum/game_mode/chaosmode/C = SSticker.mode
-					C.delfcontrib += 1
-					if(C.delfcontrib >= C.delfgoal)
-						say("Well done, the brood will grow...",language = /datum/language/elvish)
-					else
-						say("Please bring me [C.delfgoal-C.delfcontrib] more honeys, children!",language = /datum/language/elvish)
+				SSmapping.retainer.delf_contribute += 1
+				if(SSmapping.retainer.delf_contribute >= SSmapping.retainer.delf_goal)
+					say("YOU HAVE DONE WELL, MY CHILD.",language = /datum/language/elvish)
+				else
+					say("BRING ME [SSmapping.retainer.delf_goal - SSmapping.retainer.delf_contribute] MORE. I HUNGER.",language = /datum/language/elvish)
 				qdel(W)
 				return TRUE
 	..()
@@ -996,7 +939,9 @@
 		/obj/item/roguecoin,
 		/obj/item/roguegem,
 		/obj/item/clothing/ring,
-		/obj/item/ingot,
+		/obj/item/ingot/gold,
+		/obj/item/ingot/silver,
+		/obj/item/ingot/blacksteel,
 		/obj/item/clothing/neck/roguetown/psicross,
 		/obj/item/reagent_containers/glass/cup,
 		/obj/item/roguestatue,
@@ -1032,6 +977,7 @@
 					if(player.mind)
 						if(player.mind.has_antag_datum(/datum/antagonist/bandit))
 							var/datum/antagonist/bandit/bandit_players = player.mind.has_antag_datum(/datum/antagonist/bandit)
+							GLOB.azure_round_stats[STATS_SHRINE_VALUE] += W.get_real_price()
 							bandit_players.favor += donatedamnt
 							bandit_players.totaldonated += donatedamnt
 							to_chat(player, ("<font color='yellow'>[user.name] donates [donatedamnt] to the shrine! You now have [bandit_players.favor] favor.</font>"))
@@ -1062,6 +1008,8 @@
 	dir = NORTH
 	buckle_requires_restraints = 1
 	buckle_prevents_pull = 1
+	var/divine = TRUE
+	obj_flags = UNIQUE_RENAME
 
 /obj/structure/fluff/psycross/post_buckle_mob(mob/living/M)
 	..()
@@ -1076,6 +1024,11 @@
 	if(get_dir(loc, mover) == dir)
 		return 0
 	return !density
+
+/obj/structure/fluff/psycross/CanAStarPass(ID, to_dir, caller)
+	if(to_dir == dir)
+		return FALSE // don't even bother climbing over it
+	return ..()
 
 /obj/structure/fluff/psycross/CheckExit(atom/movable/O, turf/target)
 	if(get_dir(O.loc, target) == dir)
@@ -1094,6 +1047,12 @@
 	icon_state = "psycrosscrafted"
 	max_integrity = 80
 	chance2hear = 10
+
+/obj/structure/fluff/psycross/zizocross
+	name = "inverted cross"
+	desc = "An unholy symbol. Blasphemy for most, reverence for few."
+	icon_state = "invertedcross"
+	divine = FALSE
 
 /obj/structure/fluff/psycross/attackby(obj/item/W, mob/user, params)
 	if(user.mind)
@@ -1225,24 +1184,6 @@
 		var/diff = power - M.confused
 		M.confused += min(power, diff)
 
-/obj/structure/fluff/beach_towel
-	name = "beach towel"
-	desc = ""
-	icon = 'icons/obj/fluff.dmi'
-	icon_state = "railing"
-	density = FALSE
-	anchored = TRUE
-	deconstructible = FALSE
-
-/obj/structure/fluff/beach_umbrella
-	name = "beach umbrella"
-	desc = ""
-	icon = 'icons/obj/fluff.dmi'
-	icon_state = "brella"
-	density = FALSE
-	anchored = TRUE
-	deconstructible = FALSE
-
 /obj/structure/fluff/beach_umbrella/security
 	icon_state = "hos_brella"
 
@@ -1306,6 +1247,12 @@
 	plane = GAME_PLANE_UPPER
 	blade_dulling = DULLING_BASH
 	max_integrity = 300
+
+/obj/structure/fluff/statue/shisha/hookah
+	name = "shisha pipe"
+	desc = "A traditional shisha pipe, this one is broken."
+	icon = 'icons/roguetown/misc/structure.dmi'
+	icon_state = "hookah"
 
 /obj/structure/fluff/headstake
 	name = "head on a stake"

@@ -5,8 +5,6 @@
 	gender = PLURAL
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "rope"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
@@ -19,6 +17,33 @@
 	firefuel = 5 MINUTES
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
+	grid_width = 32
+	grid_height = 64
+
+/obj/item/rope/Initialize()
+	. = ..()
+	var/static/list/slapcraft_recipe_list = list(
+		/datum/crafting_recipe/roguetown/survival/ropebelt,
+		/datum/crafting_recipe/roguetown/survival/net,
+		/datum/crafting_recipe/roguetown/survival/billhook,
+		/datum/crafting_recipe/roguetown/survival/goedendag,
+		/datum/crafting_recipe/roguetown/survival/rucksack,
+		/datum/crafting_recipe/roguetown/survival/peasantry/thresher/whetstone,
+		/datum/crafting_recipe/roguetown/survival/peasantry/shovel/whetstone,
+		/datum/crafting_recipe/roguetown/survival/peasantry/hoe/whetstone,
+		/datum/crafting_recipe/roguetown/survival/peasantry/pitchfork/whetstone,
+		/datum/crafting_recipe/roguetown/survival/peasantry/peasantwarflail,
+		/datum/crafting_recipe/roguetown/survival/peasantry/goedendag,
+		/datum/crafting_recipe/roguetown/survival/peasantry/waraxe,
+		/datum/crafting_recipe/roguetown/survival/peasantry/warspear_hoe,
+		/datum/crafting_recipe/roguetown/survival/peasantry/warspear_pitchfork,
+		/datum/crafting_recipe/roguetown/survival/peasantry/scythe,
+		)
+
+	AddElement(
+		/datum/element/slapcrafting,\
+		slapcraft_recipes = slapcraft_recipe_list,\
+		)
 
 /datum/intent/tie
 	name = "tie"
@@ -81,7 +106,7 @@
 						span_userdanger("[user] is trying to tie my arms with [src.name]!"))
 	playsound(loc, cuffsound, 100, TRUE, -2)
 
-	if(!(do_mob(user, C, 60 * surrender_mod) && C.get_num_arms(FALSE)))
+	if(!(do_mob(user, C, 60 * surrender_mod, double_progress = TRUE) && C.get_num_arms(FALSE)))
 		to_chat(user, span_warning("I fail to tie up [C]!"))
 		return
 
@@ -198,6 +223,22 @@
 	gender = NEUTER
 	var/knockdown = 0
 
+/obj/item/net/Initialize()
+	. = ..()
+	RegisterSignal(src, COMSIG_ITEM_DROPPED, PROC_REF(on_drop))
+
+/obj/item/net/proc/on_drop()
+	remove_effect()
+
+/obj/item/net/proc/remove_effect()
+	if(iscarbon(loc))
+		var/mob/living/carbon/M = loc
+		if(M.legcuffed == src)
+			M.legcuffed = null
+			M.update_inv_legcuffed()
+			if(M.has_status_effect(/datum/status_effect/debuff/netted))
+				M.remove_status_effect(/datum/status_effect/debuff/netted)
+
 /obj/item/net/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback)
 	if(!..())
 		return
@@ -222,11 +263,5 @@
 
 // Failsafe in case the item somehow ends up being destroyed
 /obj/item/net/Destroy()
-	if(iscarbon(loc))
-		var/mob/living/carbon/M = loc
-		if(M.legcuffed == src)
-			M.legcuffed = null
-			M.update_inv_legcuffed()
-			if(M.has_status_effect(/datum/status_effect/debuff/netted))
-				M.remove_status_effect(/datum/status_effect/debuff/netted)
+	remove_effect()
 	return ..()	

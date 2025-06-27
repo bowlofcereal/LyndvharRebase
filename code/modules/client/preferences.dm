@@ -58,6 +58,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/preferred_map = null
 	var/pda_style = MONO
 	var/pda_color = "#808000"
+	var/prefer_old_chat = FALSE
 
 	var/uses_glasses_colour = 0
 
@@ -69,6 +70,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/voice_type = VOICE_TYPE_MASC	// LETHALSTONE EDIT: the type of soundpack the mob should use
 	var/datum/statpack/statpack	= new /datum/statpack/wildcard/fated // LETHALSTONE EDIT: the statpack we're giving our char instead of racial bonuses
 	var/datum/virtue/virtue = new /datum/virtue/none // LETHALSTONE EDIT: the virtue we get for not picking a statpack
+	var/datum/virtue/virtuetwo = new /datum/virtue/none
 	var/age = AGE_ADULT						//age of character
 	var/origin = "Default"
 	var/accessory = "Nothing"
@@ -81,6 +83,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/facial_hair_color = "000"		//Facial hair color
 	var/skin_tone = "caucasian1"		//Skin color
 	var/eye_color = "000"				//Eye color
+	var/extra_language = "None" // Extra language
 	var/voice_color = "a0a0a0"
 	var/voice_pitch = 1
 	var/detail_color = "000"
@@ -128,6 +131,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	var/anonymize = TRUE
 	var/masked_examine = FALSE
+	var/mute_animal_emotes = FALSE
 
 	var/lastclass
 
@@ -156,16 +160,24 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/update_mutant_colors = TRUE
 
 	var/headshot_link
+	var/ooc_extra_link
+	var/ooc_extra
 	var/list/descriptor_entries = list()
 	var/list/custom_descriptors = list()
 
 	var/char_accent = "No accent"
 
 	var/datum/loadout_item/loadout
+	var/datum/loadout_item/loadout2
+	var/datum/loadout_item/loadout3
 
 	var/flavortext
+	var/flavortext_display
+	
+	var/is_legacy = FALSE
 
 	var/ooc_notes
+	var/ooc_notes_display
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -359,6 +371,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 //			dat += "<b><a href='?_src_=prefs;preference=name;task=random'>Random Name</A></b><BR>"
 			dat += "<b>Virtue:</b> <a href='?_src_=prefs;preference=virtue;task=input'>[virtue]</a><BR>"
+			if(statpack.name == "Virtuous")
+				dat += "<b>Second Virtue:</b> <a href='?_src_=prefs;preference=virtuetwo;task=input'>[virtuetwo]</a><BR>"
 			dat += "<b>Vice:</b> <a href='?_src_=prefs;preference=charflaw;task=input'>[charflaw]</a><BR>"
 			var/datum/faith/selected_faith = GLOB.faithlist[selected_patron?.associated_faith]
 			dat += "<b>Faith:</b> <a href='?_src_=prefs;preference=faith;task=input'>[selected_faith?.name || "FUCK!"]</a><BR>"
@@ -411,26 +425,40 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<b>Mutant Color #2:</b><span style='border: 1px solid #161616; background-color: #[features["mcolor2"]];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color2;task=input'>Change</a><BR>"
 				dat += "<b>Mutant Color #3:</b><span style='border: 1px solid #161616; background-color: #[features["mcolor3"]];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color3;task=input'>Change</a><BR>"
 
-
-			dat += "<b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
+			var/datum/language/selected_lang
+			var/lang_output = "None"
+			if(ispath(extra_language, /datum/language))
+				selected_lang = extra_language
+				lang_output = initial(selected_lang.name)
+			dat += "<b>Extra Language: </b><a href='?_src_=prefs;preference=extra_language;task=input'>[lang_output]</a>"
+			dat += "<br><b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
 			dat += "<br><b>Nickname Color: </b> </b><a href='?_src_=prefs;preference=highlight_color;task=input'>Change</a>"
 			dat += "<br><b>Voice Pitch: </b><a href='?_src_=prefs;preference=voice_pitch;task=input'>[voice_pitch]</a>"
-			dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=char_accent;task=input'>[char_accent]</a>"
+			//dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=char_accent;task=input'>[char_accent]</a>"
 			dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
+			dat += "<br><b>Sprite Scale:</b><a href='?_src_=prefs;preference=body_size;task=input'>[(features["body_size"] * 100)]%</a>"
 			dat += "<br><b>Markings:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
 			dat += "<br><b>Descriptors:</b> <a href='?_src_=prefs;preference=descriptors;task=menu'>Change</a>"
 
 			dat += "<br><b>Headshot:</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
 			if(headshot_link != null)
 				dat += "<br><img src='[headshot_link]' width='100px' height='100px'>"
+			if(is_legacy)
+				dat += "<br><i><font size = 1>(Legacy)<a href='?_src_=prefs;preference=legacyhelp;task=input'>(?)</a></font></i>"
 
-			dat += "<br><b>Flavortext:</b> <a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
+			dat += "<br><b>[(length(flavortext) < MINIMUM_FLAVOR_TEXT) ? "<font color = '#802929'>" : ""]Flavortext:[(length(flavortext) < MINIMUM_FLAVOR_TEXT) ? "</font>" : ""]</b><a href='?_src_=prefs;preference=formathelp;task=input'>(?)</a><a href='?_src_=prefs;preference=flavortext;task=input'>Change</a>"
 
-			dat += "<br><b>OOC Notes:</b> <a href='?_src_=prefs;preference=ooc_notes;task=input'>Change</a>"
+			dat += "<br><b>[(length(ooc_notes) < MINIMUM_OOC_NOTES) ? "<font color = '#802929'>" : ""]OOC Notes:[(length(ooc_notes) < MINIMUM_OOC_NOTES) ? "</font>" : ""]</b><a href='?_src_=prefs;preference=formathelp;task=input'>(?)</a><a href='?_src_=prefs;preference=ooc_notes;task=input'>Change</a>"
 
-			dat += "<br><b>Loadout Item:</b> <a href='?_src_=prefs;preference=loadout_item;task=input'>[loadout ? loadout.name : "None"]</a>"
+			dat += "<br><b>OOC Extra:</b> <a href='?_src_=prefs;preference=ooc_extra;task=input'>Change</a>"
+			dat += "<br><a href='?_src_=prefs;preference=ooc_preview;task=input'><b>Preview Examine</b></a>"
+
+			dat += "<br><b>Loadout Item I:</b> <a href='?_src_=prefs;preference=loadout_item;task=input'>[loadout ? loadout.name : "None"]</a>"
+
+			dat += "<br><b>Loadout Item II:</b> <a href='?_src_=prefs;preference=loadout_item2;task=input'>[loadout2 ? loadout2.name : "None"]</a>"
+
+			dat += "<br><b>Loadout Item III:</b> <a href='?_src_=prefs;preference=loadout_item3;task=input'>[loadout3 ? loadout3.name : "None"]</a>"
 			dat += "</td>"
-
 
 			dat += "</tr></table>"
 //			-----------END OF BODY TABLE-----------
@@ -547,10 +575,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 					dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;bancheck=[i]'>BANNED</a><br>"
 				else
 					var/days_remaining = null
-					if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-						var/mode_path = GLOB.special_roles[i]
-						var/datum/game_mode/temp_mode = new mode_path
-						days_remaining = temp_mode.get_remaining_days(user.client)
+					if(ispath(GLOB.special_roles_rogue[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
+						days_remaining = get_remaining_days(user.client)
 
 					if(days_remaining)
 						dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
@@ -751,7 +777,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	popup.open(FALSE)
 	onclose(user, "capturekeypress", src)
 
-/datum/preferences/proc/SetChoices(mob/user, limit = 14, list/splitJobs = list("Court Magician", "Guard Captain", "Priest", "Merchant", "Archivist", "Towner", "Grenzelhoft Mercenary", "Beggar", "Prisoner", "Goblin King"), widthPerColumn = 295, height = 620) //295 620
+/datum/preferences/proc/SetChoices(mob/user, limit = 14, list/splitJobs = list("Court Magician", "Knight Captain", "Priest", "Merchant", "Archivist", "Towner", "Grenzelhoft Mercenary", "Beggar", "Prisoner", "Goblin King"), widthPerColumn = 295, height = 620) //295 620
 	if(!SSjob)
 		return
 
@@ -823,6 +849,41 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			if(!job.required && !isnull(job.max_pq) && (get_playerquality(user.ckey) > job.max_pq))
 				HTML += "<font color=#a59461>[used_name] (Max PQ: [job.max_pq])</font></td> <td> </td></tr>"
 				continue
+			if(length(job.virtue_restrictions) && length(job.vice_restrictions))
+				var/name
+				if(virtue.type in job.virtue_restrictions)
+					name = virtue.name
+				if(virtuetwo?.type in job.virtue_restrictions)
+					if(name)
+						name += ", "
+						name += virtuetwo.name
+					else
+						name = virtuetwo.name
+				if(charflaw.type in job.vice_restrictions)
+					if(name)
+						name += ", "
+						name += charflaw.name
+					else
+						name += charflaw.name
+				if(!isnull(name))
+					HTML += "<font color='#a561a5'>[used_name] (Disallowed by Virtues / Vice: [name])</font></td> <td> </td></tr>"
+			if(length(job.virtue_restrictions))
+				var/name
+				if(virtue.type in job.virtue_restrictions)
+					name = virtue.name
+				if(virtuetwo?.type in job.virtue_restrictions)
+					if(name)
+						name += ", "
+						name += virtuetwo.name
+					else
+						name = virtuetwo.name
+				if(!isnull(name))
+					HTML += "<font color='#a59461'>[used_name] (Disallowed by Virtue: [name])</font></td> <td> </td></tr>"
+					continue
+			if(length(job.vice_restrictions))
+				if(charflaw.type in job.vice_restrictions)
+					HTML += "<font color='#a56161'>[used_name] (Disallowed by Vice: [charflaw.name])</font></td> <td> </td></tr>"
+					continue
 			var/job_unavailable = JOB_AVAILABLE
 			if(isnewplayer(parent?.mob))
 				var/mob/dead/new_player/new_player = parent.mob
@@ -1089,10 +1150,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;bancheck=[i]'>BANNED</a><br>"
 		else
 			var/days_remaining = null
-			if(ispath(GLOB.special_roles[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
-				var/mode_path = GLOB.special_roles[i]
-				var/datum/game_mode/temp_mode = new mode_path
-				days_remaining = temp_mode.get_remaining_days(user.client)
+			if(ispath(GLOB.special_roles_rogue[i]) && CONFIG_GET(flag/use_age_restriction_for_jobs)) //If it's a game mode antag, check if the player meets the minimum age
+				days_remaining = get_remaining_days(user.client)
 
 			if(days_remaining)
 				dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
@@ -1421,10 +1480,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						statpack = statpack_chosen
 						to_chat(user, "<font color='purple'>[statpack.name]</font>")
 						to_chat(user, "<font color='purple'>[statpack.description_string()]</font>")
-						// also, unset our virtue if we're not a virtuous statpack.
+						/* also, unset our virtue if we're not a virtuous statpack.
 						if (!istype(statpack, /datum/statpack/wildcard/virtuous) && virtue.type != /datum/virtue/none)
 							virtue = new /datum/virtue/none
-							to_chat(user, span_info("Your virtue has been removed due to taking a stat-altering statpack."))
+							to_chat(user, span_info("Your virtue has been removed due to taking a stat-altering statpack.")) */
 				// LETHALSTONE EDIT: add pronouns
 				if ("pronouns")
 					var pronouns_input = input(user, "Choose your character's pronouns", "Pronouns") as null|anything in GLOB.pronouns_list
@@ -1484,6 +1543,35 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, "<font color='red'>This voice color is too dark for mortals.</font>")
 							return
 						voice_color = sanitize_hexcolor(new_voice)
+				
+				if("extra_language")
+					var/static/list/selectable_languages = list(
+						/datum/language/elvish,
+						/datum/language/dwarvish,
+						/datum/language/orcish, 
+						/datum/language/hellspeak,
+						/datum/language/draconic,
+						/datum/language/celestial,
+						/datum/language/grenzelhoftian,
+						/datum/language/kazengunese,
+						/datum/language/etruscan,
+						/datum/language/gronnic,
+						/datum/language/otavan,
+						/datum/language/aavnic
+					)
+					var/list/choices = list("None")
+					for(var/language in selectable_languages)
+						if(language in pref_species.languages)
+							continue
+						var/datum/language/a_language = new language()
+						choices[a_language.name] = language
+					
+					var/chosen_language = input(user, "Choose your character's extra language:", "Character Preference") as null|anything in choices
+					if(chosen_language)
+						if(chosen_language == "None")
+							extra_language = "None"
+						else
+							extra_language = choices[chosen_language]
 
 				if("voice_pitch")
 					var/new_voice_pitch = input(user, "Choose your character's voice pitch ([MIN_VOICE_PITCH] to [MAX_VOICE_PITCH], lower is deeper):", "Voice Pitch") as null|num
@@ -1516,6 +1604,35 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					headshot_link = new_headshot_link
 					to_chat(user, "<span class='notice'>Successfully updated headshot picture</span>")
 					log_game("[user] has set their Headshot image to '[headshot_link]'.")
+				if("legacyhelp")
+					var/list/dat = list()
+					dat += "This slot was around since before major Flavortext / OOC changes.<br>"
+					dat += "Due to this, it's been grandfathered in to keep its old profile layout and formatting, including html.<br>"
+					dat += "If you wish to keep it as it is, <b>you cannot edit it anymore.</b><br><br>"
+					dat += "ANY edit (Even pressing OK on an unchanged Flavortext / OOC notes) will <font color ='red'><b>irreversibly</b></font> override all html, and remove the legacy status of the slot.<br>"
+					dat += "There are no exceptions. Have fun!"
+					dat += "(You can still add an OOC Extra)"
+					var/datum/browser/popup = new(user, "Legacy Help", nwidth = 450, nheight = 250)
+					popup.set_content(dat.Join())
+					popup.open(FALSE)
+				if("formathelp")
+					var/list/dat = list()
+					dat +="You can use backslash (\\) to escape special characters.<br>"
+					dat += "<br>"
+					dat += "# text : Defines a header.<br>"
+					dat += "|text| : Centers the text.<br>"
+					dat += "**text** : Makes the text <b>bold</b>.<br>"
+					dat += "*text* : Makes the text <i>italic</i>.<br>"
+					dat += "^text^ : Increases the <font size = \"4\">size</font> of the text.<br>"
+					dat += "((text)) : Decreases the <font size = \"1\">size</font> of the text.<br>"
+					dat += "* item : An unordered list item.<br>"
+					dat += "--- : Adds a horizontal rule.<br>"
+					dat += "-=FFFFFFtext=- : Adds a specific <font color = '#FFFFFF'>colour</font> to text.<br><br>"
+					dat += "Minimum Flavortext: <b>[MINIMUM_FLAVOR_TEXT]</b> characters.<br>"
+					dat += "Minimum OOC Notes: <b>[MINIMUM_OOC_NOTES]</b> characters."
+					var/datum/browser/popup = new(user, "Formatting Help", nwidth = 400, nheight = 350)
+					popup.set_content(dat.Join())
+					popup.open(FALSE)
 				if("flavortext")
 					to_chat(user, "<span class='notice'>["<span class='bold'>Flavortext should not include nonphysical nonsensory attributes such as backstory or the character's internal thoughts.</span>"]</span>")
 					var/new_flavortext = input(user, "Input your character description:", "Flavortext", flavortext) as message|null
@@ -1523,9 +1640,16 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						return
 					if(new_flavortext == "")
 						flavortext = null
+						flavortext_display = null
+						is_legacy = FALSE
 						ShowChoices(user)
 						return
 					flavortext = new_flavortext
+					var/ft = flavortext
+					ft = html_encode(ft)
+					ft = replacetext(parsemarkdown_basic(ft), "\n", "<BR>")
+					flavortext_display = ft
+					is_legacy = FALSE
 					to_chat(user, "<span class='notice'>Successfully updated flavortext</span>")
 					log_game("[user] has set their flavortext'.")
 				if("ooc_notes")
@@ -1535,15 +1659,110 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						return
 					if(new_ooc_notes == "")
 						ooc_notes = null
+						ooc_notes_display = null
+						is_legacy = FALSE
 						ShowChoices(user)
 						return
 					ooc_notes = new_ooc_notes
+					var/ooc = ooc_notes
+					ooc = html_encode(ooc)
+					ooc = replacetext(parsemarkdown_basic(ooc), "\n", "<BR>")
+					ooc_notes_display = ooc
+					is_legacy = FALSE
 					to_chat(user, "<span class='notice'>Successfully updated OOC notes.</span>")
 					log_game("[user] has set their OOC notes'.")
+				if("ooc_preview")	//Unashamedly copy pasted from human_topic.dm L:7. Sorry!
+					var/list/dat = list()
+					dat += "<div align='center'><font size = 5; font color = '#dddddd'><b>[real_name]</b></font></div>"
+					var/legacy_check = FALSE
+					if(isnull(flavortext_display) && !isnull(flavortext))	//If there's an FT already in the slot, but no _display, that means it's a legacy slot.
+						is_legacy = TRUE
+						legacy_check = TRUE
+						flavortext_display = replacetext(flavortext, "\n", "<BR>")
+					if(isnull(ooc_notes_display) && !isnull(ooc_notes))
+						is_legacy = TRUE
+						legacy_check = TRUE
+						ooc_notes_display = replacetext(ooc_notes, "\n", "<BR>")
+					if(legacy_check)
+						save_character()
+						ShowChoices(user)
+						return
+					if(is_legacy)
+						dat += "<center><i><font color = '#b9b9b9'; font size = 1>This is a LEGACY Profile from naive days of Psydon.</font></i></center>"
+					if(valid_headshot_link(null, headshot_link, TRUE))
+						dat += ("<div align='center'><img src='[headshot_link]' width='325px' height='325px'></div>")
+					if(flavortext && flavortext_display)
+						dat += "<div align='left'>[flavortext_display]</div>"
+					if(ooc_notes && ooc_notes_display)
+						dat += "<br>"
+						dat += "<div align='center'><b>OOC notes</b></div>"
+						dat += "<div align='left'>[ooc_notes_display]</div>"
+					if(ooc_extra)
+						dat += "[ooc_extra]"
+					var/datum/browser/popup = new(user, "[real_name]", nwidth = 600, nheight = 800)
+					popup.set_content(dat.Join())
+					popup.open(FALSE)
+				if("ooc_extra")
+					to_chat(user, "<span class='notice'>Add a link from a suitable host (catbox, etc) to an mp3, mp4, or jpg / png file to have it embed at the bottom of your OOC notes.</span>")
+					to_chat(user, "<span class='notice'>If the link doesn't show up properly in-game, ensure that it's a direct link that opens properly in a browser.</span>")
+					to_chat(user, "<span class='notice'>Videos will be shrunk to a ~300x300 square. Keep this in mind.</span>")
+					to_chat(user, "<font color = '#d6d6d6'>Leave a single space to delete it from your OOC notes.</font>")
+					to_chat(user, "<font color ='red'>Abuse of this will get you banned.</font>")
+					var/new_extra_link = input(user, "Input the accessory link (https, hosts: gyazo, discord, lensdump, imgbox, catbox):", "OOC Extra", ooc_extra_link) as text|null
+					if(new_extra_link == null)
+						return
+					if(new_extra_link == "")
+						new_extra_link = null
+						ShowChoices(user)
+						return
+					if(new_extra_link == " ")	//Single space to delete
+						ooc_extra_link = null
+						ooc_extra = null
+						to_chat(user, "<span class='notice'>Successfully deleted OOC Extra.</span>")
+					var/static/list/valid_extensions = list("jpg", "png", "jpeg", "gif", "mp4", "mp3")
+					if(!valid_headshot_link(user, new_extra_link, FALSE, valid_extensions))
+						new_extra_link = null
+						ShowChoices(user)
+						return
+
+					var/list/value_split = splittext(new_extra_link, ".")
+
+					// extension will always be the last entry
+					var/extension = value_split[length(value_split)]
+					var/info
+					if((extension in valid_extensions))
+						ooc_extra_link = new_extra_link
+						ooc_extra = null
+						ooc_extra = "<div align ='center'><center>"
+						if(extension == "jpg" || extension == "png" || extension == "jpeg" || extension == "gif")
+							ooc_extra += "<br>"
+							ooc_extra += "<img src='[ooc_extra_link]'/>"
+							info = "an embedded image."
+						else 
+							switch(extension)
+								if("mp4")
+									ooc_extra = "<br>"
+									ooc_extra += "<video width=["288"] height=["288"] controls=["true"]>"
+									ooc_extra += "<source src='[ooc_extra_link]' type=["video/mp4"]>"
+									ooc_extra += "</video>"
+									info = "a video."
+								if("mp3")
+									ooc_extra = "<br>"
+									ooc_extra += "<audio controls>"
+									ooc_extra += "<source src='[ooc_extra_link]' type=["audio/mp3"]>"
+									ooc_extra += "Your browser does not support the audio element."
+									ooc_extra += "</audio>"
+									info = "embedded audio."
+						ooc_extra += "</center></div>"
+						to_chat(user, "<span class='notice'>Successfully updated OOC Extra with [info]</span>")
+						log_game("[user] has set their OOC Extra to '[ooc_extra_link]'.")
 				if("loadout_item")
 					var/list/loadouts_available = list("None")
 					for (var/path as anything in GLOB.loadout_items)
 						var/datum/loadout_item/loadout = GLOB.loadout_items[path]
+						var/donoritem = loadout.donoritem
+						if(donoritem && !loadout.donator_ckey_check(user.ckey))
+							continue
 						if (!loadout.name)
 							continue
 						loadouts_available[loadout.name] = loadout
@@ -1558,8 +1777,49 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, "<font color='yellow'><b>[loadout.name]</b></font>")
 							if(loadout.desc)
 								to_chat(user, "[loadout.desc]")
-				if("species")
+				if("loadout_item2")
+					var/list/loadouts_available = list("None")
+					for (var/path as anything in GLOB.loadout_items)
+						var/datum/loadout_item/loadout2 = GLOB.loadout_items[path]
+						var/donoritem = loadout2.donoritem
+						if(donoritem && !loadout2.donator_ckey_check(user.ckey))
+							continue
+						if (!loadout2.name)
+							continue
+						loadouts_available[loadout2.name] = loadout2
 
+					var/loadout_input2 = input(user, "Choose your character's loadout item. RMB a tree, statue or clock to collect. I cannot stress this enough. YOU DON'T SPAWN WITH THESE. YOU HAVE TO MANUALLY PICK THEM UP!!", "LOADOUT THAT YOU GET FROM A TREE OR STATUE OR CLOCK") as null|anything in loadouts_available
+					if(loadout_input2)
+						if(loadout_input2 == "None")
+							loadout2 = null
+							to_chat(user, "Who needs stuff anyway?")
+						else
+							loadout2 = loadouts_available[loadout_input2]
+							to_chat(user, "<font color='yellow'><b>[loadout2.name]</b></font>")
+							if(loadout2.desc)
+								to_chat(user, "[loadout2.desc]")
+				if("loadout_item3")
+					var/list/loadouts_available = list("None")
+					for (var/path as anything in GLOB.loadout_items)
+						var/datum/loadout_item/loadout3 = GLOB.loadout_items[path]
+						var/donoritem = loadout3.donoritem
+						if(donoritem && !loadout3.donator_ckey_check(user.ckey))
+							continue
+						if (!loadout3.name)
+							continue
+						loadouts_available[loadout3.name] = loadout3
+
+					var/loadout_input3 = input(user, "Choose your character's loadout item. RMB a tree, statue or clock to collect. I cannot stress this enough. YOU DON'T SPAWN WITH THESE. YOU HAVE TO MANUALLY PICK THEM UP!!", "LOADOUT THAT YOU GET FROM A TREE OR STATUE OR CLOCK") as null|anything in loadouts_available
+					if(loadout_input3)
+						if(loadout_input3 == "None")
+							loadout3 = null
+							to_chat(user, "Who needs stuff anyway?")
+						else
+							loadout3 = loadouts_available[loadout_input3]
+							to_chat(user, "<font color='yellow'><b>[loadout3.name]</b></font>")
+							if(loadout3.desc)
+								to_chat(user, "[loadout3.desc]")
+				if("species")
 					var/list/crap = list()
 					for(var/A in GLOB.roundstart_races)
 						var/datum/species/bla = GLOB.species_list[A]
@@ -1582,20 +1842,45 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("virtue")
 					var/list/virtue_choices = list()
 					for (var/path as anything in GLOB.virtues)
-						var/datum/virtue/virtue = GLOB.virtues[path]
-						if (!virtue.name)
+						var/datum/virtue/V = GLOB.virtues[path]
+						if (!V.name)
 							continue
-						virtue_choices[virtue.name] = virtue
+						if (V.name == virtue.name || V.name == virtuetwo.name)
+							continue
+						if (istype(V, /datum/virtue/heretic) && !istype(selected_patron, /datum/patron/inhumen))
+							continue
+						if (istype(V, /datum/virtue/utility/noble) && (pref_species == /datum/species/construct/metal))		//Stops bypass of nobility for constructs.
+							continue
+						virtue_choices[V.name] = V
 					var/result = input(user, "Select a virtue", "Roguetown") as null|anything in virtue_choices
 
 					if (result)
 						var/datum/virtue/virtue_chosen = virtue_choices[result]
 						virtue = virtue_chosen
-						if (virtue.desc)
-							to_chat(user, span_purple(virtue.desc))
-						if (statpack.type != /datum/statpack/wildcard/virtuous)
+						to_chat(user, process_virtue_text(virtue_chosen))
+
+				if("virtuetwo")
+					var/list/virtue_choices = list()
+					for (var/path as anything in GLOB.virtues)
+						var/datum/virtue/V = GLOB.virtues[path]
+						if (!V.name)
+							continue
+						if (V.name == virtue.name || V.name == virtuetwo.name)
+							continue
+						if (istype(V, /datum/virtue/heretic) && !istype(selected_patron, /datum/patron/inhumen))
+							continue
+						if (istype(V, /datum/virtue/utility/noble) && (pref_species == /datum/species/construct/metal))		//Stops bypass of nobility for constructs.
+							continue
+						virtue_choices[V.name] = V
+					var/result = input(user, "Select a virtue", "Roguetown") as null|anything in virtue_choices
+
+					if (result)
+						var/datum/virtue/virtue_chosen = virtue_choices[result]
+						virtuetwo = virtue_chosen
+						to_chat(user, process_virtue_text(virtue_chosen))
+					/*	if (statpack.type != /datum/statpack/wildcard/virtuous)
 							statpack = new /datum/statpack/wildcard/virtuous
-							to_chat(user, span_purple("Your statpack has been set to virtuous (no stats) due to selecting a virtue."))
+							to_chat(user, span_purple("Your statpack has been set to virtuous (no stats) due to selecting a virtue.")) */
 
 				if("charflaw")
 					var/list/coom = GLOB.character_flaws.Copy()
@@ -1607,21 +1892,27 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						if(charflaw.desc)
 							to_chat(user, "<span class='info'>[charflaw.desc]</span>")
 
+				if("body_size")
+					var/new_body_size = input(user, "Choose your desired sprite size:\n([BODY_SIZE_MIN*100]%-[BODY_SIZE_MAX*100]%), Warning: May make your character look distorted", "Character Preference", features["body_size"]*100) as num|null
+					if(new_body_size)
+						new_body_size = clamp(new_body_size * 0.01, BODY_SIZE_MIN, BODY_SIZE_MAX)
+						features["body_size"] = new_body_size
+
 				if("mutant_color")
-					var/new_mutantcolor = color_pick_sanitized_lumi(user, "Choose your character's mutant #1 color:", "Character Preference","#"+features["mcolor"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #1 color:", "Character Preference","#"+features["mcolor"])
 					if(new_mutantcolor)
 
 						features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
 
 				if("mutant_color2")
-					var/new_mutantcolor = color_pick_sanitized_lumi(user, "Choose your character's mutant #2 color:", "Character Preference","#"+features["mcolor2"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #2 color:", "Character Preference","#"+features["mcolor2"])
 					if(new_mutantcolor)
 						features["mcolor2"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
 
 				if("mutant_color3")
-					var/new_mutantcolor = color_pick_sanitized_lumi(user, "Choose your character's mutant #3 color:", "Character Preference","#"+features["mcolor3"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #3 color:", "Character Preference","#"+features["mcolor3"])
 					if(new_mutantcolor)
 						features["mcolor3"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
@@ -1761,24 +2052,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						domhand = 2
 					else
 						domhand = 1
-				if("bespecial")
-					if(next_special_trait)
-						print_special_text(user, next_special_trait)
-						return
-					to_chat(user, span_boldwarning("You will become special for one round, this could be something negative, positive or neutral and could have a high impact on your character and your experience. You cannot back out from or reroll this, and it will not carry over to other rounds."))
-					var/result = alert(user, "You'll receive a unique trait for one round\n You cannot back out from or reroll this\nDo you really want to be special?", "Be Special", "Yes", "No")
-					if(result != "Yes")
-						return
-					if(next_special_trait)
-						return
-					next_special_trait = roll_random_special(user.client)
-					if(next_special_trait)
-						log_game("SPECIALS: Rolled [next_special_trait] for ckey: [user.ckey]")
-						print_special_text(user, next_special_trait)
-						user.playsound_local(user, 'sound/misc/alert.ogg', 100)
-						to_chat(user, span_warning("This will be applied on your next game join."))
-						to_chat(user, span_warning("You may switch your character and choose any role, if you don't meet the requirements (if any are specified) it won't be applied"))
-
 				if("family")
 					var/list/loly = list("Not yet.","Work in progress.","Don't click me.","Stop clicking this.","Nope.","Be patient.","Sooner or later.")
 					to_chat(user, "<font color='red'>[pick(loly)]</font>")
@@ -1847,11 +2120,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					save_preferences()
 
 				if("keybindings_reset")
-					var/choice = tgalert(user, "Do you really want to reset your keybindings?", "Setup keybindings", "Do It", "Cancel")
+					var/choice = tgalert(user, "Would you prefer 'hotkey' or 'classic' defaults?", "Setup keybindings", "Hotkey", "Classic", "Cancel")
 					if(choice == "Cancel")
-						ShowChoices(user,3)
+						ShowChoices(user)
 						return
-					hotkeys = (choice == "Do It")
+					hotkeys = (choice == "Hotkey")
 					key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
 					user.client.update_movement_keys()
 				if("chat_on_map")
@@ -2011,6 +2284,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("save")
 					save_preferences()
 					save_character()
+					to_chat(user, span_notice("CHARACTER SAVED."))
 
 				if("load")
 					load_preferences()
@@ -2061,6 +2335,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 		O = character.get_bodypart(BODY_ZONE_L_ARM)
 		if(O)
 			O.drop_limb()
+			qdel(O)
 		character.regenerate_limb(BODY_ZONE_R_ARM)
 		character.regenerate_limb(BODY_ZONE_L_ARM)
 
@@ -2079,6 +2354,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.dna.features = features.Copy()
 	character.gender = gender
 	character.set_species(chosen_species, icon_update = FALSE, pref_load = src)
+	character.dna.update_body_size()
 
 	if((randomise[RANDOM_NAME] || randomise[RANDOM_NAME_ANTAG] && antagonist) && !character_setup)
 		slot_randomized = TRUE
@@ -2104,6 +2380,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	character.nickname = nickname
 
 	character.eye_color = eye_color
+	if(extra_language && extra_language != "None")
+		character.grant_language(extra_language)
 	character.voice_color = voice_color
 	character.voice_pitch = voice_pitch
 	var/obj/item/organ/eyes/organ_eyes = character.getorgan(/obj/item/organ/eyes)
@@ -2133,7 +2411,17 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 	character.flavortext = flavortext
 
+	character.flavortext_display = flavortext_display
+	
 	character.ooc_notes = ooc_notes
+
+	character.ooc_notes_display = ooc_notes_display
+
+	character.is_legacy = is_legacy
+
+	character.ooc_extra_link = ooc_extra_link
+
+	character.ooc_extra = ooc_extra
 	// LETHALSTONE ADDITION BEGIN: additional customizations
 
 	character.pronouns = pronouns
@@ -2191,14 +2479,29 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 		else
 			custom_names[name_id] = sanitized_name
 
+/// Resets the client's keybindings. Asks them for which
+/datum/preferences/proc/force_reset_keybindings()
+	var/choice = tgalert(parent.mob, "Your basic keybindings need to be reset, the custom keybinds you've set will remain. Would you prefer 'hotkey' or 'classic TG' mode? DO NOT CLICK CLASSIC UNLESS YOU KNOW WHAT YOU'RE DOING.", "Reset keybindings", "Hotkey", "Classic")
+	hotkeys = (choice != "Classic")
+	force_reset_keybindings_direct(hotkeys)
+
+/// Does the actual reset
+/datum/preferences/proc/force_reset_keybindings_direct(hotkeys = TRUE)
+	var/list/oldkeys = key_bindings
+	key_bindings = (hotkeys) ? deepCopyList(GLOB.hotkey_keybinding_list_by_key) : deepCopyList(GLOB.classic_keybinding_list_by_key)
+
+	for(var/key in oldkeys)
+		if(!key_bindings[key])
+			key_bindings[key] = oldkeys[key]
+	parent?.ensure_keys_set(src)
+
 /datum/preferences/proc/try_update_mutant_colors()
 	if(update_mutant_colors)
 		reset_body_marking_colors()
 		reset_all_customizer_accessory_colors()
 
-/proc/valid_headshot_link(mob/user, value, silent = FALSE)
+/proc/valid_headshot_link(mob/user, value, silent = FALSE, list/valid_extensions = list("jpg", "png", "jpeg"))
 	var/static/link_regex = regex("i.gyazo.com|a.l3n.co|b.l3n.co|c.l3n.co|images2.imgbox.com|thumbs2.imgbox.com|files.catbox.moe") //gyazo, discord, lensdump, imgbox, catbox
-	var/static/list/valid_extensions = list("jpg", "png", "jpeg") // Regex works fine, if you know how it works
 
 	if(!length(value))
 		return FALSE
@@ -2209,7 +2512,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			to_chat(user, "<span class='warning'>Your link must be https!</span>")
 		return FALSE
 
-	if(!findtext(value, "."))
+	if(!findtext(value, ".") || findtext(value, "<") || findtext(value, ">") || findtext(value, "]") || findtext(value, "\["))	//there is no link in the world that would ever need < or >
 		if(!silent)
 			to_chat(user, "<span class='warning'>Invalid link!</span>")
 		return FALSE
@@ -2219,13 +2522,13 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	var/extension = value_split[length(value_split)]
 	if(!(extension in valid_extensions))
 		if(!silent)
-			to_chat(usr, "<span class='warning'>The image must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
+			to_chat(usr, "<span class='warning'>The link must be one of the following extensions: '[english_list(valid_extensions)]'</span>")
 		return FALSE
 
 	find_index = findtext(value, link_regex)
 	if(find_index != 9)
 		if(!silent)
-			to_chat(usr, "<span class='warning'>The image must be hosted on one of the following sites: 'Gyazo, Lensdump, Imgbox, Catbox'</span>")
+			to_chat(usr, "<span class='warning'>The link must be hosted on one of the following sites: 'Gyazo, Lensdump, Imgbox, Catbox'</span>")
 		return FALSE
 	return TRUE
 
@@ -2235,3 +2538,32 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	if(!migrant.active)
 		return FALSE
 	return TRUE
+
+/datum/preferences/proc/process_virtue_text(datum/virtue/V)
+	var/dat
+	if(V.desc)
+		dat += "<font size = 3>[span_purple(V.desc)]</font><br>"
+	if(length(V.added_skills))
+		dat += "<font color = '#a3e2ff'><font size = 3>This Virtue adds the following skills: <br>"
+		for(var/list/L in V.added_skills)
+			var/name
+			if(ispath(L[1],/datum/skill))
+				var/datum/skill/S = L[1]
+				name = initial(S.name)
+			dat += "["\Roman[L[2]]"] level[L[2] > 1 ? "s" : ""] of <b>[name]</b>[L[3] ? ", up to <b>[SSskills.level_names_plain[L[3]]]</b>" : ""] <br>"
+		dat += "</font>"
+	if(length(V.added_traits))
+		dat += "<font color = '#a3ffe0'><font size = 3>This Virtue grants the following traits: <br>"
+		for(var/TR in V.added_traits)
+			dat += "[TR] — <font size = 2>[GLOB.roguetraits[TR]]</font><br>"
+		dat += "</font>"
+	if(length(V.added_stashed_items))
+		dat += "<font color = '#eeffa3'><font size = 3>This Virtue adds the following items to your stash: <br>"
+		for(var/I in V.added_stashed_items)
+			dat += "<i>[I]</i> <br>"
+		dat += "</font>"
+	if(V.custom_text)
+		dat += "<font color = '#ffffff'><font size = 3>This Virtue has this special behaviour: <br>"
+		dat += "[V.custom_text]"
+		dat += "</font>"
+	return dat

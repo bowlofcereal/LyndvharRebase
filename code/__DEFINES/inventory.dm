@@ -159,12 +159,14 @@
 #define HIDEEYES		(1<<6)	// Whether eyes and glasses are hidden
 #define HIDEFACE		(1<<7)	// Whether we appear as unknown.
 #define HIDEHAIR		(1<<8)
+#define HIDE_HEADTOP	(HIDEEARS | HIDEHAIR)
 #define HIDEFACIALHAIR	(1<<9)
 #define HIDENECK		(1<<10)
 #define HIDEBOOB		(1<<11)
 #define HIDEBELT		(1<<12)
 #define HIDECROTCH		(1<<13)
 #define HIDETAIL		(1<<14)
+#define HIDESNOUT		(1<<15)
 
 //blocking_behavior var on clothing items
 #define BLOCKBOOTS		(1<<0)

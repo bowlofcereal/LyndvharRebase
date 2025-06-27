@@ -123,6 +123,10 @@
 	..()
 	. = 1
 
+/datum/reagent/consumable/sugar/molasses
+	name = "Molasses"
+	color = "#835c5c"
+
 /datum/reagent/consumable/virus_food
 	name = "Virus Food"
 	description = "A mixture of water and milk. Virus cells can use this mixture to reproduce."
@@ -191,13 +195,6 @@
 				M.emote("shiver")
 	M.adjust_bodytemperature(cooling, 50)
 	..()
-
-/datum/reagent/consumable/frostoil/reaction_turf(turf/T, reac_volume)
-	if(reac_volume >= 1) // Make Freezy Foam and anti-fire grenades!
-		if(isopenturf(T))
-			var/turf/open/OT = T
-			OT.MakeSlippery(wet_setting=TURF_WET_ICE, min_wet_time=100, wet_time_to_add=reac_volume SECONDS) // Is less effective in high pressure/high heat capacity environments. More effective in low pressure.
-			OT.air.temperature -= MOLES_CELLSTANDARD*100*reac_volume/OT.air.heat_capacity() // reduces environment temperature by 5K per unit.
 
 /datum/reagent/consumable/condensedcapsaicin
 	name = "Condensed Capsaicin"
@@ -338,18 +335,6 @@
 	nutriment_factor = 20 * REAGENTS_METABOLISM
 	color = "#302000" // rgb: 48, 32, 0
 	taste_description = "slime"
-
-/datum/reagent/consumable/cornoil/reaction_turf(turf/open/T, reac_volume)
-	if (!istype(T))
-		return
-	T.MakeSlippery(TURF_WET_LUBE, min_wet_time = 10 SECONDS, wet_time_to_add = reac_volume*2 SECONDS)
-	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in T)
-	if(hotspot)
-		var/datum/gas_mixture/lowertemp = T.remove_air(T.air.total_moles())
-		lowertemp.temperature = max( min(lowertemp.temperature-2000,lowertemp.temperature / 2) ,0)
-		lowertemp.react(src)
-		T.assume_air(lowertemp)
-		qdel(hotspot)
 
 /datum/reagent/consumable/enzyme
 	name = "Universal Enzyme"
@@ -667,3 +652,10 @@
 	color = "#78280A" // rgb: 120 40, 10
 	taste_mult = 2.5 //sugar's 1.5, capsacin's 1.5, so a good middle ground.
 	taste_description = "smokey sweetness"
+
+/datum/reagent/consumable/oil/tallow
+	name = "Tallow"
+	description = "Oil made from rendering animal fat. Used for deep frying."
+	nutriment_factor = 20
+	color = "#A6987B" // rgb: 48, 32, 0
+	taste_description = "rendered fat"

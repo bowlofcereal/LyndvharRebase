@@ -13,21 +13,50 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
-/datum/admins/proc/show_player_panel(mob/M in GLOB.mob_list)
-	set category = "GameMaster"
-	set name = "Show Player Panel"
-	set desc="Edit player (respawn, ban, heal, etc)"
-
-	if(!check_rights())
-		return
-
+/datum/admins/proc/show_player_panel_next(mob/M, clicked_flag = null)
 	log_admin("[key_name(usr)] checked the individual player panel for [key_name(M)][isobserver(usr)?"":" while in game"].")
 
 	if(!M)
-		to_chat(usr, span_warning("I seem to be selecting a mob that doesn't exist anymore."))
+		to_chat(usr, "<span class='warning'>I seem to be selecting a mob that doesn't exist anymore.</span>")
 		return
 
-	var/body = "<html><head><title>Options for [M.key]</title></head>"
+	var/body = "<html><head><title>Options for [M.key]</title><style>"
+	body += "<style>"
+	body += "html, body { height: 100%; margin: 0; padding: 0; overflow-x: hidden; }"
+	body += "#container { display: flex; flex-direction: row; align-items: flex-start; width: 100%; overflow-x: hidden; flex-wrap: nowrap; }"
+	body += "#left { flex: 2; padding-right: 10px; min-width: 0; }"
+	body += "#skills-section, #languages-section, #stats-section { display: none; background: white; border: 1px solid black; padding: 10px; width: 100%; box-sizing: border-box; max-width: 100%; overflow-x: hidden; word-wrap: break-word; }"
+	body += "#right { flex: 1; border-left: 2px solid black; padding-left: 10px; max-height: 500px; overflow-y: auto; width: 250px; min-width: 250px; box-sizing: border-box; position: relative; }"
+	body += "#right-header { display: flex; justify-content: space-around; padding: 5px; background: white; border-bottom: 2px solid black; position: sticky; top: 0; z-index: 10; }"
+	body += "#right-header button { flex: 1; margin: 2px; padding: 5px; cursor: pointer; font-weight: bold; border: none; background-color: #ddd; border-radius: 5px; }"
+	body += "#right-header button:hover { background-color: #ccc; }"
+
+	body += "</style>"
+
+	body += "<script>"
+	body += "function toggleSection(section) {"
+	body += "    localStorage.setItem('activeSection', section);"
+	body += "    document.getElementById('skills-section').style.display = (section === 'skills') ? 'block' : 'none';"
+	body += "    document.getElementById('languages-section').style.display = (section === 'languages') ? 'block' : 'none';"
+	body += "	 document.getElementById('stats-section').style.display = (section === 'stats') ? 'block' : 'none';"
+	body += "}"
+
+	body += "function refreshAndKeepSection(section) {"
+	body += "    localStorage.setItem('activeSection', section);"
+	body += "    location.reload();"
+	body += "}"
+
+	body += "window.onload = function() {"
+	body += "    var activeSection = \"[clicked_flag]\";"
+	body += "    if (activeSection !== \"0\" && activeSection !== \"\") {"
+	body += "        toggleSection(activeSection);"
+	body += "    }"
+	body += "}"
+	body += "</script>"
+
+	body +="</head>"
+	body += "<body><div id='container'>"
+	body += "<div id='left'>"
 	body += "<body>Options panel for <b>[M]</b>"
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
@@ -41,17 +70,34 @@
 		body += " \[<A href='?_src_=holder;[HrefToken()];revive=[REF(M)]'>Heal</A>\] "
 
 	if(M.client)
-		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\]"
+		body += "<br>\[<b>First Seen:</b> [M.client.player_join_date]\]\[<b>Byond account registered on:</b> [M.client.account_join_date]\] IP: [M.client.address]"
 		body += "<br><br><b>Show related accounts by:</b> "
 		body += "\[ <a href='?_src_=holder;[HrefToken()];showrelatedacc=cid;client=[REF(M.client)]'>CID</a> | "
 		body += "<a href='?_src_=holder;[HrefToken()];showrelatedacc=ip;client=[REF(M.client)]'>IP</a> \]"
-		var/rep = 0
-		rep += SSpersistence.antag_rep[M.ckey]
-		body += "<br><br>Antagonist reputation: [rep]"
-		body += "<br><a href='?_src_=holder;[HrefToken()];modantagrep=add;mob=[REF(M)]'>\[increase\]</a> "
-		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=subtract;mob=[REF(M)]'>\[decrease\]</a> "
-		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=set;mob=[REF(M)]'>\[set\]</a> "
-		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=zero;mob=[REF(M)]'>\[zero\]</a>"
+
+		var/pq = get_playerquality(M.ckey, TRUE)
+		var/pq_num = get_playerquality(M.ckey, FALSE)
+		body += "<br><br>Player Quality: [pq] ([pq_num])"
+		body += "<br><a href='?_src_=holder;[HrefToken()];editpq=add;mob=[REF(M)]'>\[Modify PQ\]</a> "
+		body += "<a href='?_src_=holder;[HrefToken()];showpq=add;mob=[REF(M)]'>\[Check PQ\]</a> "
+		body += "<br><a href='?_src_=holder;[HrefToken()];edittriumphs=add;mob=[REF(M)]'>\[Modify Triumphs\]</a> "
+		body += "<br>"
+		body += "<a href='?_src_=holder;[HrefToken()];roleban=add;mob=[REF(M)]'>\[Role Ban Panel\]</a> "
+
+		var/patron = "NA"
+		if(isliving(M))
+			var/mob/living/living = M
+			patron = initial(living.patron.name)
+		body += "<br><br>Current Patron: [patron]"
+
+		//Azure port. Incompatibility.
+		/*var/curse_string = ""
+		if(ishuman(M))
+			var/mob/living/carbon/human/living = M
+			for(var/datum/curse/curse in living.curses)
+				curse_string += "<br> - [curse.name]"
+		body += "<br>Curses: [curse_string]"*/
+
 		var/full_version = "Unknown"
 		if(M.client.byond_version)
 			full_version = "[M.client.byond_version].[M.client.byond_build ? M.client.byond_build : "xxx"]"
@@ -66,8 +112,6 @@
 		body += "<a href='?_src_=holder;[HrefToken()];initmind=[REF(M)]'>Init Mind</a> - "
 	body += "<a href='?priv_msg=[M.ckey]'>PM</a> - "
 	body += "<a href='?_src_=holder;[HrefToken()];subtlemessage=[REF(M)]'>SM</a> - "
-	if (ishuman(M) && M.mind)
-		body += "<a href='?_src_=holder;[HrefToken()];HeadsetMessage=[REF(M)]'>HM</a> - "
 	body += "<a href='?_src_=holder;[HrefToken()];adminplayerobservefollow=[REF(M)]'>FLW</a> - "
 	//Default to client logs if available
 	var/source = LOGSRC_MOB
@@ -85,7 +129,6 @@
 
 	body += "<A href='?_src_=holder;[HrefToken()];showmessageckey=[M.ckey]'>Notes | Messages | Watchlist</A> | "
 	if(M.client)
-		body += "| <A href='?_src_=holder;[HrefToken()];sendtoprison=[REF(M)]'>Prison</A> | "
 		body += "\ <A href='?_src_=holder;[HrefToken()];sendbacktolobby=[REF(M)]'>Send back to Lobby</A> | "
 		var/muted = M.client.prefs.muted
 		body += "<br><b>Mute: </b> "
@@ -93,7 +136,8 @@
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_OOC]'><font color='[(muted & MUTE_OOC)?"red":"blue"]'>OOC</font></a> | "
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_PRAY]'><font color='[(muted & MUTE_PRAY)?"red":"blue"]'>PRAY</font></a> | "
 		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_ADMINHELP]'><font color='[(muted & MUTE_ADMINHELP)?"red":"blue"]'>ADMINHELP</font></a> | "
-		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_DEADCHAT]'><font color='[(muted & MUTE_DEADCHAT)?"red":"blue"]'>DEADCHAT</font></a>\]"
+		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_DEADCHAT]'><font color='[(muted & MUTE_DEADCHAT)?"red":"blue"]'>DEADCHAT</font></a> | "
+		body += "<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_LOOC]'><font color='[(muted & MUTE_LOOC)?"red":"blue"]'>LOOC</font></a>\]"
 		body += "(<A href='?_src_=holder;[HrefToken()];mute=[M.ckey];mute_type=[MUTE_ALL]'><font color='[(muted & MUTE_ALL)?"red":"blue"]'>toggle all</font></a>)"
 
 	body += "<br><br>"
@@ -105,92 +149,90 @@
 	body += "<A href='?_src_=holder;[HrefToken()];traitor=[REF(M)]'>Traitor panel</A> | "
 	body += "<A href='?_src_=holder;[HrefToken()];narrateto=[REF(M)]'>Narrate to</A> | "
 	body += "<A href='?_src_=holder;[HrefToken()];subtlemessage=[REF(M)]'>Subtle message</A> | "
-	body += "<A href='?_src_=holder;[HrefToken()];languagemenu=[REF(M)]'>Language Menu</A>"
+	//body += "<A href='?_src_=holder;[HrefToken()];languagemenu=[REF(M)]'>Language Menu</A>"
 
-	if (M.client)
-		if(!isnewplayer(M))
-			body += "<br><br>"
-			body += "<b>Transformation:</b>"
-			body += "<br>"
+	body += "</div>"
 
-			//Human
-			if(ishuman(M))
-				body += "<B>Human</B> | "
+	body += "<div id='right'>"
+	body += "<div id='right-header'>"
+	body += "<button onclick=\"toggleSection('skills')\">Skills</button>"
+	body += "<button onclick=\"toggleSection('languages')\">Languages</button>"
+	body += "<button onclick=\"toggleSection('stats')\">Stats</button>"
+	body += "</div>"
+
+
+	body += "<div id='skills-section'>"
+	body += "<h3>Skills</h3><ul>"
+	if(M.mind)
+		for(var/skill_type in SSskills.all_skills)
+			var/datum/skill/skill = GetSkillRef(skill_type)
+			if(skill in M.mind.known_skills)
+				body += "<li>[initial(skill.name)]: [M.mind.known_skills[skill]] "
 			else
-				body += "<A href='?_src_=holder;[HrefToken()];humanone=[REF(M)]'>Humanize</A> | "
+				body += "<li>[initial(skill.name)]: 0"
+			body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];increase_skill=[REF(M)];skill=[skill.type]'>+</a> "
+			body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];decrease_skill=[REF(M)];skill=[skill.type]'>-</a></li>"
+	body += "</ul></div>"
 
-			//Monkey
-			if(ismonkey(M))
-				body += "<B>Monkeyized</B> | "
-			else
-				body += "<A href='?_src_=holder;[HrefToken()];monkeyone=[REF(M)]'>Monkeyize</A> | "
+	body += "<div id='languages-section'>"
+	body += "<h3>Languages</h3><ul>"
+	for(var/datum/language/ld as anything in GLOB.all_languages)
+		body += "<li>[initial(ld.name)] - "
+		if (M.mind?.language_holder?.has_language(ld))
+			body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];remove_language=[REF(M)];language=[ld]'>Remove</a></li>"
+		else
+			body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_language=[REF(M)];language=[ld]'>Grant</a></li>"
+	body += "</ul></div>"
 
-			//Corgi
-			if(iscorgi(M))
-				body += "<B>Corgized</B> | "
-			else
-				body += "<A href='?_src_=holder;[HrefToken()];corgione=[REF(M)]'>Corgize</A> | "
+	body += "<div id='stats-section'>"
+	// Stats Section
+	body += "<h3>Stats</h3><ul>"
+	if(isliving(M)) // Ensure M is a living mob
+		var/mob/living/living = M // Explicitly cast M to /mob/living
+		body += "<li>Strength: [living.STASTR] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=strength'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=strength'>-</a></li>"
 
-			if(ishuman(M))
-				body += "<A href='?_src_=holder;[HrefToken()];makeai=[REF(M)]'>Make AI</A> | "
-				body += "<A href='?_src_=holder;[HrefToken()];makerobot=[REF(M)]'>Make Robot</A> | "
-				body += "<A href='?_src_=holder;[HrefToken()];makealien=[REF(M)]'>Make Alien</A> | "
-				body += "<A href='?_src_=holder;[HrefToken()];makeslime=[REF(M)]'>Make Slime</A> | "
-				body += "<A href='?_src_=holder;[HrefToken()];makeblob=[REF(M)]'>Make Blob</A> | "
+		body += "<li>Perception: [living.STAPER] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=perception'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=perception'>-</a></li>"
 
-			//Simple Animals
-			if(isanimal(M))
-				body += "<A href='?_src_=holder;[HrefToken()];makeanimal=[REF(M)]'>Re-Animalize</A> | "
-			else
-				body += "<A href='?_src_=holder;[HrefToken()];makeanimal=[REF(M)]'>Animalize</A> | "
+		body += "<li>Endurance: [living.STAEND] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=endurance'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=endurance'>-</a></li>"
 
-			body += "<br><br>"
-			body += "<b>Rudimentary transformation:</b><font size=2><br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.</font><br>"
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=observer;mob=[REF(M)]'>Observer</A> | "
-			body += "\[ Alien: <A href='?_src_=holder;[HrefToken()];simplemake=drone;mob=[REF(M)]'>Drone</A>, "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=hunter;mob=[REF(M)]'>Hunter</A>, "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=sentinel;mob=[REF(M)]'>Sentinel</A>, "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=praetorian;mob=[REF(M)]'>Praetorian</A>, "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=queen;mob=[REF(M)]'>Queen</A>, "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=larva;mob=[REF(M)]'>Larva</A> \] "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=human;mob=[REF(M)]'>Human</A> "
-			body += "\[ slime: <A href='?_src_=holder;[HrefToken()];simplemake=slime;mob=[REF(M)]'>Baby</A>, "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=adultslime;mob=[REF(M)]'>Adult</A> \] "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=monkey;mob=[REF(M)]'>Monkey</A> | "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=robot;mob=[REF(M)]'>Cyborg</A> | "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=cat;mob=[REF(M)]'>Cat</A> | "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=runtime;mob=[REF(M)]'>Runtime</A> | "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=corgi;mob=[REF(M)]'>Corgi</A> | "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=ian;mob=[REF(M)]'>Ian</A> | "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=crab;mob=[REF(M)]'>Crab</A> | "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=coffee;mob=[REF(M)]'>Coffee</A> | "
-			body += "\[ Construct: <A href='?_src_=holder;[HrefToken()];simplemake=constructarmored;mob=[REF(M)]'>Juggernaut</A> , "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=constructbuilder;mob=[REF(M)]'>Artificer</A> , "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=constructwraith;mob=[REF(M)]'>Wraith</A> \] "
-			body += "<A href='?_src_=holder;[HrefToken()];simplemake=shade;mob=[REF(M)]'>Shade</A>"
-			body += "<br>"
+		body += "<li>Constitution: [living.STACON] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=constitution'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=constitution'>-</a></li>"
 
-	if (M.client)
-		body += "<br><br>"
-		body += "<b>Other actions:</b>"
+		body += "<li>Intelligence: [living.STAINT] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=intelligence'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=intelligence'>-</a></li>"
+
+		body += "<li>Speed: [living.STASPD] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=speed'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=speed'>-</a></li>"
+
+		body += "<li>Luck: [living.STALUC] "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];add_stat=[REF(M)];stat=fortune'>+</a> "
+		body += "<a class='skill-btn' href='?_src_=holder;[HrefToken()];lower_stat=[REF(M)];stat=fortune'>-</a></li>"
+		body += "</ul>"
+
+
+		body += "</div>"
+		body += "</div>"
+
+
 		body += "<br>"
-		body += "<A href='?_src_=holder;[HrefToken()];forcespeech=[REF(M)]'>Forcesay</A> | "
-		body += "<A href='?_src_=holder;[HrefToken()];tdome1=[REF(M)]'>Thunderdome 1</A> | "
-		body += "<A href='?_src_=holder;[HrefToken()];tdome2=[REF(M)]'>Thunderdome 2</A> | "
-		body += "<A href='?_src_=holder;[HrefToken()];tdomeadmin=[REF(M)]'>Thunderdome Admin</A> | "
-		body += "<A href='?_src_=holder;[HrefToken()];tdomeobserve=[REF(M)]'>Thunderdome Observer</A> | "
+		body += "</body></html>"
 
-	body += "<br>"
-	body += "</body></html>"
-
-	usr << browse(body, "window=adminplayeropts-[REF(M)];size=550x515")
+	usr << browse(body, "window=adminplayeropts-[REF(M)];size=800x600")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Player Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-
 /datum/admins/proc/admin_heal(mob/living/M in GLOB.mob_list)
-	set name = "Heal Mob"
+	set name = "Mob - Heal"
 	set desc = "Heal a mob to full health"
-	set category = "GameMaster"
+	set category = "-GameMaster-"
 
 	if(!check_rights())
 		return
@@ -199,10 +241,23 @@
 	message_admins(span_danger("Admin [key_name_admin(usr)] healed [key_name_admin(M)]!"))
 	log_admin("[key_name(usr)] healed [key_name(M)].")
 
+/datum/admins/proc/show_player_panel(mob/M in GLOB.mob_list)
+	set category = "-GameMaster-"
+	set name = "Show Player Panel"
+	set desc="Edit player (respawn, ban, heal, etc)"
+
+	if(!check_rights())
+		return
+
+	show_player_panel_next(M)
+
+/client/proc/show_player_panel_next(mob/M)
+	holder?.show_player_panel_next(M)
+
 /datum/admins/proc/admin_revive(mob/living/M in GLOB.mob_list)
-	set name = "Revive Mob"
+	set name = "Mob - Revive"
 	set desc = "Resuscitate a mob"
-	set category = "GameMaster"
+	set category = "-GameMaster-"
 
 	if(!check_rights())
 		return
@@ -228,7 +283,7 @@
 /datum/admins/proc/admin_sleep(mob/living/M in GLOB.mob_list)
 	set name = "Toggle Sleeping"
 	set desc = "Toggle a mob's sleeping state"
-	set category = "GameMaster"
+	set category = "-GameMaster-"
 
 	if(!check_rights())
 		return
@@ -245,24 +300,31 @@
 /datum/admins/proc/start_vote()
 	set name = "Start Vote"
 	set desc = "Start a vote"
-	set category = "Server"
+	set category = "-Server-"
 
 	if(!check_rights(R_POLL))
 		to_chat(usr, span_warning("You do not have the rights to start a vote."))
 		return
 
-	var/type = input("What kind of vote?") as null|anything in list("End Round", "Custom")
+	var/list/allowed_modes = list("End Round", "Storyteller", "Custom")
+
+	var/type = input("What kind of vote?") as null|anything in allowed_modes
 	switch(type)
+		//if("Gamemode")
+			//type = "gamemode"
 		if("End Round")
 			type = "endround"
 		if("Custom")
 			type = "custom"
+		if("Storyteller")
+			type = "storyteller"
 	SSvote.initiate_vote(type, usr.key)
 
 /datum/admins/proc/adjustpq(mob/living/M in GLOB.mob_list)
-	set name = "Adjust PQ"
+	set name = "Adjust PQ of Anything"
 	set desc = "Adjust a player's PQ"
-	set category = null
+	set category = "-GameMaster-"
+	set hidden = 1
 
 	if(!check_rights())
 		return
@@ -294,28 +356,12 @@
 	if(!check_rights(0))
 		return
 
-	var/dat = {"
+	var/dat = "<html><meta charset='UTF-8'><head><title>Game Panel</title></head><body>"
+	dat += {"
 		<center><B>Game Panel</B></center><hr>\n
-		<A href='?src=[REF(src)];[HrefToken()];c_mode=1'>Change Game Mode</A><br>
 		"}
 	if(GLOB.master_mode == "secret")
 		dat += "<A href='?src=[REF(src)];[HrefToken()];f_secret=1'>(Force Secret Mode)</A><br>"
-	if(GLOB.master_mode == "dynamic")
-		if(SSticker.current_state <= GAME_STATE_PREGAME)
-			dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart=1'>(Force Roundstart Rulesets)</A><br>"
-			if (GLOB.dynamic_forced_roundstart_ruleset.len > 0)
-				for(var/datum/dynamic_ruleset/roundstart/rule in GLOB.dynamic_forced_roundstart_ruleset)
-					dat += {"<A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_remove=\ref[rule]'>-> [rule.name] <-</A><br>"}
-				dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_clear=1'>(Clear Rulesets)</A><br>"
-			dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_options=1'>(Dynamic mode options)</A><br>"
-		else if (SSticker.IsRoundInProgress())
-			dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_latejoin=1'>(Force Next Latejoin Ruleset)</A><br>"
-			if (SSticker && SSticker.mode && istype(SSticker.mode,/datum/game_mode/dynamic))
-				var/datum/game_mode/dynamic/mode = SSticker.mode
-				if (mode.forced_latejoin_rule)
-					dat += {"<A href='?src=[REF(src)];[HrefToken()];f_dynamic_latejoin_clear=1'>-> [mode.forced_latejoin_rule.name] <-</A><br>"}
-			dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_midround=1'>(Execute Midround Ruleset!)</A><br>"
-		dat += "<hr/>"
 	if(SSticker.IsRoundInProgress())
 		dat += "<a href='?src=[REF(src)];[HrefToken()];gamemode_panel=1'>(Game Mode Panel)</a><BR>"
 	dat += {"
@@ -329,6 +375,7 @@
 	if(marked_datum && istype(marked_datum, /atom))
 		dat += "<A href='?src=[REF(src)];[HrefToken()];dupe_marked_datum=1'>Duplicate Marked Datum</A><br>"
 
+	dat += "</body></html>"
 	usr << browse(dat, "window=admin2;size=240x280")
 	return
 
@@ -337,7 +384,7 @@
 
 
 /datum/admins/proc/restart()
-	set category = "Server"
+	set category = "-Server-"
 	set name = "Reboot World"
 	set desc="Restarts the world immediately"
 	if (!usr.client.holder)
@@ -372,7 +419,7 @@
 					world.TgsEndProcess()
 
 /datum/admins/proc/end_round()
-	set category = "Server"
+	set category = "-Server-"
 	set name = "End Round"
 	set desc = ""
 
@@ -387,7 +434,7 @@
 
 
 /datum/admins/proc/announce()
-	set category = "Special Verbs"
+	set category = "-Special Verbs-"
 	set name = "Announce"
 	set desc="Announce your desires to the world"
 	if(!check_rights(0))
@@ -402,7 +449,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Announce") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/set_admin_notice()
-	set category = "Special Verbs"
+	set category = "-Server-"
 	set name = "Set Admin Notice"
 	set desc ="Set an announcement that appears to everyone who joins the server. Only lasts this round"
 	if(!check_rights(0))
@@ -425,7 +472,7 @@
 	return
 
 /datum/admins/proc/toggleooc()
-	set category = "Server"
+	set category = "-Server-"
 	set desc="Toggle dis bitch"
 	set name="Toggle OOC"
 	toggle_ooc()
@@ -434,7 +481,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle OOC", "[GLOB.ooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleoocdead()
-	set category = "Server"
+	set category = "-Server-"
 	set desc="Toggle dis bitch"
 	set name="Toggle Dead OOC"
 	toggle_dooc()
@@ -444,7 +491,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Dead OOC", "[GLOB.dooc_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/startnow()
-	set category = "Server"
+	set category = "-Server-"
 	set desc="Start the round RIGHT NOW"
 	set name="Start Now"
 	if(SSticker.current_state == GAME_STATE_PREGAME || SSticker.current_state == GAME_STATE_STARTUP)
@@ -463,26 +510,8 @@
 
 	return 0
 
-/datum/admins/proc/forcemode()
-	set category = "Server"
-	set name = "Force Gamemode"
-
-	if(SSticker.current_state == GAME_STATE_PREGAME || SSticker.current_state == GAME_STATE_STARTUP)
-		if(alert("Enter Manual Gamemode Selection? Will disable random generation",,"Yes","No") == "Yes")
-			for(var/I in 1 to 10)
-				var/choice = input(usr, "Select Gamemodes", "Select Gamemodes") as anything in roguegamemodes|null
-				if(!choice || choice == "CANCEL")
-					message_admins("<font color='blue'>\
-						[usr.key] has forced the gamemode.</font>")
-					return
-				SSticker.manualmodes |= choice
-				roguegamemodes -= choice
-	else
-		to_chat(usr, "<font color='red'>Error: Force Modes: Game has already started.</font>")
-
-	return 0
 /datum/admins/proc/toggleenter()
-	set category = "Server"
+	set category = "-Server-"
 	set desc="People can't enter"
 	set name="Toggle Entering"
 	GLOB.enter_allowed = !( GLOB.enter_allowed )
@@ -496,9 +525,10 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Entering", "[GLOB.enter_allowed ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleAI()
-	set category = "Server"
+	set category = "-Server-"
 	set desc="People can't be AI"
 	set name="Toggle AI"
+	set hidden = 1
 	var/alai = CONFIG_GET(flag/allow_ai)
 	CONFIG_SET(flag/allow_ai, !alai)
 	if (alai)
@@ -510,9 +540,10 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle AI", "[!alai ? "Disabled" : "Enabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleaban()
-	set category = "Server"
+	set category = "-Server-"
 	set desc="Respawn basically"
 	set name="Toggle Respawn"
+	set hidden = 1
 	var/new_nores = !CONFIG_GET(flag/norespawn)
 	CONFIG_SET(flag/norespawn, new_nores)
 	if (!new_nores)
@@ -525,7 +556,7 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Respawn", "[!new_nores ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/delay()
-	set category = "Server"
+	set category = "-Server-"
 	set desc="Delay the game start"
 	set name="Delay pre-game"
 
@@ -545,7 +576,7 @@
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Delay Game Start") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/unprison(mob/M in GLOB.mob_list)
-	set category = "Admin"
+	set category = "-Admin-"
 	set name = "Unprison"
 	if (is_centcom_level(M.z))
 		SSjob.SendToLateJoin(M)
@@ -558,9 +589,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////ADMIN HELPER PROCS
 
 /datum/admins/proc/spawn_atom(object as text)
-	set category = "Debug"
+	set category = "-GameMaster-"
 	set desc = ""
-	set name = "Spawn"
+	set name = "Spawn..."
 
 	if(!check_rights(R_SPAWN) || !object)
 		return
@@ -630,7 +661,7 @@
 
 
 /datum/admins/proc/show_traitor_panel(mob/M in GLOB.mob_list)
-	set category = "Admin"
+	set category = "-Admin-"
 	set desc = ""
 	set name = "Show Traitor Panel"
 
@@ -659,9 +690,10 @@
 	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Tinted Welding Helmets", "[GLOB.tinted_weldhelh ? "Enabled" : "Disabled"]")) //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/toggleguests()
-	set category = "Server"
+	set category = "-Server-"
 	set desc="Guests can't enter"
 	set name="Toggle guests"
+	set hidden = 1
 	var/new_guest_ban = !CONFIG_GET(flag/guest_ban)
 	CONFIG_SET(flag/guest_ban, new_guest_ban)
 	if (new_guest_ban)
@@ -710,47 +742,9 @@
 	browser.set_content(dat.Join())
 	browser.open()
 
-/datum/admins/proc/dynamic_mode_options(mob/user)
-	var/dat = {"
-		<center><B><h2>Dynamic Mode Options</h2></B></center><hr>
-		<br/>
-		<h3>Common options</h3>
-		<i>All these options can be changed midround.</i> <br/>
-		<br/>
-		<b>Force extended:</b> - Option is <a href='?src=[REF(src)];[HrefToken()];f_dynamic_force_extended=1'> <b>[GLOB.dynamic_forced_extended ? "ON" : "OFF"]</a></b>.
-		<br/>This will force the round to be extended. No rulesets will be drafted. <br/>
-		<br/>
-		<b>No stacking:</b> - Option is <a href='?src=[REF(src)];[HrefToken()];f_dynamic_no_stacking=1'> <b>[GLOB.dynamic_no_stacking ? "ON" : "OFF"]</b></a>.
-		<br/>Unless the threat goes above [GLOB.dynamic_stacking_limit], only one "round-ender" ruleset will be drafted. <br/>
-		<br/>
-		<b>Classic secret mode:</b> - Option is <a href='?src=[REF(src)];[HrefToken()];f_dynamic_classic_secret=1'> <b>[GLOB.dynamic_classic_secret ? "ON" : "OFF"]</b></a>.
-		<br/>Only one roundstart ruleset will be drafted. Only traitors and minor roles will latespawn. <br/>
-		<br/>
-		<br/>
-		<b>Forced threat level:</b> Current value : <a href='?src=[REF(src)];[HrefToken()];f_dynamic_forced_threat=1'><b>[GLOB.dynamic_forced_threat_level]</b></a>.
-		<br/>The value threat is set to if it is higher than -1.<br/>
-		<br/>
-		<b>High population limit:</b> Current value : <a href='?src=[REF(src)];[HrefToken()];f_dynamic_high_pop_limit=1'><b>[GLOB.dynamic_high_pop_limit]</b></a>.
-		<br/>The threshold at which "high population override" will be in effect. <br/>
-		<br/>
-		<b>Stacking threeshold:</b> Current value : <a href='?src=[REF(src)];[HrefToken()];f_dynamic_stacking_limit=1'><b>[GLOB.dynamic_stacking_limit]</b></a>.
-		<br/>The threshold at which "round-ender" rulesets will stack. A value higher than 100 ensure this never happens. <br/>
-		<h3>Advanced parameters</h3>
-		Curve centre: <A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_centre=1'>-> [GLOB.dynamic_curve_centre] <-</A><br>
-		Curve width: <A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_width=1'>-> [GLOB.dynamic_curve_width] <-</A><br>
-		Latejoin injection delay:<br>
-		Minimum: <A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_latejoin_min=1'>-> [GLOB.dynamic_latejoin_delay_min / 60 / 10] <-</A> Minutes<br>
-		Maximum: <A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_latejoin_max=1'>-> [GLOB.dynamic_latejoin_delay_max / 60 / 10] <-</A> Minutes<br>
-		Midround injection delay:<br>
-		Minimum: <A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_min=1'>-> [GLOB.dynamic_midround_delay_min / 60 / 10] <-</A> Minutes<br>
-		Maximum: <A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_max=1'>-> [GLOB.dynamic_midround_delay_max / 60 / 10] <-</A> Minutes<br>
-		"}
-
-	user << browse(dat, "window=dyn_mode_options;size=900x650")
-
 /datum/admins/proc/create_or_modify_area()
 	set category = "Debug"
-	set name = "Create or modify area"
+	set name = "Create/Modify area"
 	create_area(usr)
 
 //
@@ -826,8 +820,62 @@
 
 
 /client/proc/returntolobby()
-	set category = "Debug"
-	set name = "Return to Lobby"
+	set category = "-Special Verbs-"
+	set name = "Back to Lobby"
 
 	var/mob/living/carbon/human/H = mob
+	var/datum/job/mob_job
+	var/target_job = SSrole_class_handler.get_advclass_by_name(H.advjob)
+
+	if(H.mind)
+		mob_job = SSjob.GetJob(H.mind.assigned_role)
+		if(mob_job)
+			mob_job.current_positions = max(0, mob_job.current_positions - 1)
+		if(target_job)
+			SSrole_class_handler.adjust_class_amount(target_job, -1)
+		H.mind.unknow_all_people()
+		for(var/datum/mind/MF in get_minds())
+			H.mind.become_unknown_to(MF)
+		for(var/datum/bounty/removing_bounty in GLOB.head_bounties)
+			if(removing_bounty.target == H.real_name)
+				GLOB.head_bounties -= removing_bounty
+	else
+		alert(usr, "Target has no mind!") // Optional Error check that may or may not be neccessary
+	GLOB.chosen_names -= H.real_name
+	LAZYREMOVE(GLOB.actors_list, H.mobid)
+	LAZYREMOVE(GLOB.roleplay_ads, H.mobid)
 	H.returntolobby()
+
+
+/datum/admins/proc/sleep_view()
+	set name = "inview Sleep"
+	set category = "-GameMaster-"
+	set hidden = FALSE
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(alert("This will sleep ALL mobs within your view range. Are you sure?",,"Yes","Cancel") == "Cancel")
+		return
+	for(var/mob/living/M in view(usr.client))
+		M.SetSleeping(999999)
+
+	message_admins("[key_name(usr)] used Toggle Sleep In View.")
+
+/datum/admins/proc/wake_view()
+	set name = "inview Wake"
+	set category = "-GameMaster-"
+	set hidden = FALSE
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(alert("This wake ALL mobs within your view range. Are you sure?",,"Yes","Cancel") == "Cancel")
+		return
+	for(var/mob/living/M in view(usr.client))
+		var/S = M.IsSleeping()
+		if(S)
+			M.remove_status_effect(S)
+			M.set_resting(FALSE, TRUE)
+
+	message_admins("[key_name(usr)] used Toggle Wake In View.")

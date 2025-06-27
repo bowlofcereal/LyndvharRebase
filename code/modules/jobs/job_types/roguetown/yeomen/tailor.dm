@@ -3,6 +3,7 @@
 	flag = TAILOR
 	department_flag = YEOMEN
 	faction = "Station"
+	tutorial = "You have worked sleepless nights on honing your craft. From sacks, to tapestry and luxurious clothing, there is little you cannot sew into existence. Use your storefront to turn even the ugliest peasant into a proper gentleman; who knows, even the nobility may pay you a visit."
 	total_positions = 1
 	spawn_positions = 1
 	display_order = 6
@@ -14,31 +15,36 @@
 	give_bank_account = 16
 	min_pq = 0
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 3
 
 /datum/outfit/job/roguetown/tailor/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/tanning, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/tanning, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 	pants = /obj/item/clothing/under/roguetown/tights
 	belt = /obj/item/storage/belt/rogue/leather/cloth
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltl = /obj/item/rogueweapon/huntingknife/idagger
+	beltl = /obj/item/rogueweapon/huntingknife/scissors/steel
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/needle, /obj/item/roguekey/tailor)
-	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
+	backpack_contents = list(
+		/obj/item/needle, 
+		/obj/item/storage/keyring/tailor,
+		/obj/item/dye_brush, 
+		/obj/item/recipe_book/sewing, 
+		/obj/item/recipe_book/leatherworking
+		)
+	if(should_wear_femme_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress
-	else
+	else if(should_wear_masc_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/shirt/tunic/random
 	H.change_stat("intelligence", 2)
 	H.change_stat("perception", 1)

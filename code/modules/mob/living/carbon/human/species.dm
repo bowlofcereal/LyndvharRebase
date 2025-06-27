@@ -47,7 +47,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/use_skintones = 0	// does it use skintones or not? (spoiler alert this is only used by humans)
 	var/exotic_blood = ""	// If my race wants to bleed something other than bog standard blood, change this to reagent id.
 	var/exotic_bloodtype = "" //If my race uses a non standard bloodtype (A+, O-, AB-, etc)
-	var/meat = /obj/item/reagent_containers/food/snacks/meat/slab/human //What the species drops on gibbing
+	var/meat = /obj/item/reagent_containers/food/snacks/rogue/meat/steak //What the species drops on gibbing
 	var/skinned_type
 	var/liked_food = NONE
 	var/disliked_food = GROSS
@@ -426,6 +426,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	if(TRAIT_NOMETABOLISM in inherent_traits)
 		C.reagents.end_metabolization(C, keep_liverless = TRUE)
+
+	if(construct)
+		C.construct = 1 //for constructs? Duh.
 
 	if(inherent_factions)
 		for(var/i in inherent_factions)
@@ -1012,7 +1015,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	switch(H.hydration)
 //		if(HYDRATION_LEVEL_WATERLOGGED to INFINITY)
 //			H.apply_status_effect(/datum/status_effect/debuff/waterlogged)
-		if(HYDRATION_LEVEL_SMALLTHIRST to HYDRATION_LEVEL_FULL)
+		if(HYDRATION_LEVEL_HYDRATED to INFINITY)
+			H.add_stress(/datum/stressevent/hydrated)
+		if(HYDRATION_LEVEL_SMALLTHIRST to HYDRATION_LEVEL_HYDRATED)
 			H.remove_stress_list(list(/datum/stressevent/drym,/datum/stressevent/thirst,/datum/stressevent/parched))
 		if(HYDRATION_LEVEL_THIRSTY to HYDRATION_LEVEL_SMALLTHIRST)
 			H.add_stress(/datum/stressevent/drym)
@@ -1136,7 +1141,22 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			return
 
 		var/damage = user.get_punch_dmg()
+		if(target.has_status_effect(/datum/status_effect/buff/clash) && target.get_active_held_item() && ishuman(user))
+			var/obj/item/IM = target.get_active_held_item()
+			target.process_clash(user, IM)
+			return
 
+		if(user.mob_biotypes & MOB_UNDEAD)
+			if(target.has_status_effect(/datum/status_effect/buff/necras_vow))
+				if(isnull(user.mind))
+					user.adjust_fire_stacks(5)
+					user.IgniteMob()
+				else
+					if(prob(30))
+						to_chat(user, span_warning("The foul blessing of the Undermaiden hurts us!"))
+				user.adjust_blurriness(2)
+				user.adjustBruteLoss(rand(5, 10))
+				user.apply_status_effect(/datum/status_effect/churned, target)
 /*		var/miss_chance = 100//calculate the odds that a punch misses entirely. considers stamina and brute damage of the puncher. punches miss by default to prevent weird cases
 		if(user.dna.species.punchdamagelow)
 			if(atk_verb == ATTACK_EFFECT_KICK) //kicks never miss (provided my species deals more than 0 damage)
@@ -1163,7 +1183,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(!target.lying_attack_check(user))
 			return 0
 
-		var/armor_block = target.run_armor_check(selzone, "blunt", blade_dulling = user.used_intent.blade_class, damage = damage)
+		var/armor_block = target.run_armor_check(selzone, "blunt", armor_penetration = BLUNT_DEFAULT_PENFACTOR, blade_dulling = user.used_intent.blade_class, damage = damage)
 
 		target.lastattacker = user.real_name
 		if(target.mind)
@@ -1180,6 +1200,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			target.next_attack_msg += " <span class='warning'>Armor stops the damage.</span>"
 		else
 			affecting.bodypart_attacked_by(user.used_intent.blade_class, damage, user, selzone, crit_message = TRUE)
+			if(affecting.body_zone == BODY_ZONE_HEAD)
+				SEND_SIGNAL(user, COMSIG_HEAD_PUNCHED, target)
 		log_combat(user, target, "punched")
 
 		if(!nodmg)
@@ -1358,13 +1380,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		return
 	if(user.rogfat >= user.maxrogfat)
 		return FALSE
-	if(!(user.mobility_flags & MOBILITY_STAND))
-		return FALSE
 	var/stander = TRUE
 	if(!(target.mobility_flags & MOBILITY_STAND))
 		stander = FALSE
 	if(!get_dist(user, target))
-		if(!stander && (user.mobility_flags & MOBILITY_STAND))
+		if(!stander)
 			target.lastattacker = user.real_name
 			target.lastattackerckey = user.ckey
 			if(target.mind)
@@ -1389,6 +1409,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 			if(!nodmg)
 				playsound(target, 'sound/combat/hits/kick/stomp.ogg', 100, TRUE, -1)
+
 			return TRUE
 		else
 			to_chat(user, span_warning("I'm too close to get a good kick in."))
@@ -1396,9 +1417,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	else
 		if(!target.kick_attack_check(user))
 			return 0
-
 		user.do_attack_animation(target, ATTACK_EFFECT_DISARM)
 		playsound(target, 'sound/combat/hits/kick/kick.ogg', 100, TRUE, -1)
+
+		if (target.pulling && target.grab_state < GRAB_AGGRESSIVE)
+			target.stop_pulling()
+			user.Immobilize(10)
 
 		var/turf/target_oldturf = target.loc
 		var/shove_dir = get_dir(user.loc, target_oldturf)
@@ -1418,8 +1442,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					target_table = locate(/obj/structure/table) in target_shove_turf.contents
 					shove_blocked = TRUE
 			else
-				if(stander && target.rogfat >= target.maxrogfat) //if you are kicked while fatigued, you are knocked down no matter what
-					target.Knockdown(100)
+				if((stander && target.rogfat >= target.maxrogfat) || target.IsOffBalanced()) //if you are kicked while fatigued, you are knocked down no matter what
+					target.Knockdown(target.IsOffBalanced() ? SHOVE_KNOCKDOWN_SOLID : 100)
+					target.visible_message(span_danger("[user.name] kicks [target.name], knocking them down!"),
+					span_danger("I'm knocked down from a kick by [user.name]!"), span_hear("I hear aggressive shuffling followed by a loud thud!"), COMBAT_MESSAGE_RANGE, user)
+					to_chat(user, span_danger("I kick [target.name], knocking them down!"))
+					log_combat(user, target, "kicked", "knocking them down")
 
 		if(shove_blocked && !target.is_shove_knockdown_blocked() && !target.buckled)
 			var/directional_blocked = FALSE
@@ -1477,6 +1505,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			target.mind.attackedme[user.real_name] = world.time
 		user.rogfat_add(15)
 		target.forcesay(GLOB.hit_appends)
+		if(user.has_status_effect(/datum/status_effect/buff/clash))
+			user.bad_guard(span_warning("The kick throws my stance off!"))
+		if(target.has_status_effect(/datum/status_effect/buff/clash))
+			target.bad_guard(span_warning("The kick throws my stance off!"))
 
 /datum/species/proc/spec_hitby(atom/movable/AM, mob/living/carbon/human/H)
 	return
@@ -1533,18 +1565,44 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 	if(!affecting)
 		return
-
+	if(istype(user.used_intent, /datum/intent/effect) && selzone)
+		var/datum/intent/effect/int = user.used_intent
+		var/do_effect = FALSE
+		if(length(int.target_parts))
+			if(selzone in int.target_parts)
+				do_effect = TRUE
+		else
+			do_effect = TRUE
+		if(do_effect)
+			H.apply_status_effect(int.intent_effect)
 	hit_area = affecting.name
 	var/def_zone = affecting.body_zone
 
 	var/pen = I.armor_penetration
 	if(user.used_intent?.penfactor)
 		pen = I.armor_penetration + user.used_intent.penfactor
+	if(I.d_type == "blunt")
+		pen = BLUNT_DEFAULT_PENFACTOR
 
 //	var/armor_block = H.run_armor_check(affecting, "I.d_type", span_notice("My armor has protected my [hit_area]!"), span_warning("My armor has softened a hit to my [hit_area]!"),pen)
 
 	var/Iforce = get_complex_damage(I, user) //to avoid runtimes on the forcesay checks at the bottom. Some items might delete themselves if you drop them. (stunning yourself, ninja swords)
-	var/armor_block = H.run_armor_check(selzone, I.d_type, "", "",pen, damage = Iforce, blade_dulling=user.used_intent.blade_class)
+	if(!user.used_intent?.allow_offhand)
+		if(user.get_num_arms(FALSE) < 2 || user.get_inactive_held_item())
+			Iforce = 0
+	var/bladec = user.used_intent.blade_class
+	if(H == user && bladec == BCLASS_PEEL)
+		bladec = BCLASS_BLUNT
+	
+	var/higher_intfactor = max(user.used_intent.masteritem?.intdamage_factor, user.used_intent.intent_intdamage_factor)
+	var/lowest_intfactor = min(user.used_intent.masteritem?.intdamage_factor, user.used_intent.intent_intdamage_factor)
+	var/used_intfactor = 1
+	if(lowest_intfactor < 1)	//Our intfactor multiplier can be either 0 to 1, or 1 to whatever.
+		used_intfactor = lowest_intfactor
+	if(higher_intfactor > 1)	//Make sure to keep your weapon and intent intfactors consistent to avoid problems here!
+		used_intfactor = higher_intfactor
+	
+	var/armor_block = H.run_armor_check(selzone, I.d_type, "", "",pen, damage = Iforce, blade_dulling=user.used_intent.blade_class, peeldivisor = user.used_intent.peel_divisor, intdamfactor = used_intfactor)
 
 	var/nodmg = FALSE
 
@@ -1567,9 +1625,17 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				else if(I.wlength > WLENGTH_SHORT && (affecting.body_zone != BODY_ZONE_CHEST))
 					can_impale = FALSE
 				if(can_impale && user.Adjacent(H))
-					affecting.add_embedded_object(I, silent = FALSE, crit_message = TRUE)
+					//affecting.add_embedded_object(I, silent = FALSE, crit_message = TRUE)
 					H.emote("embed")
-					H.grabbedby(user, 1, item_override = I)
+					H.Stun(10)
+					playsound(H.loc, "genblunt", 100, FALSE, -1)
+					user.visible_message(span_notice("[user] embeds [I] within [H]'s [affecting.name]!"), span_notice("I embed my [I] in [H]'s [affecting.name]."))
+					var/list/targets = list(H)
+					if(do_after_mob(user,targets, 10, progress = 0, uninterruptible = 1, required_mobility_flags = null))
+						affecting.receive_damage(I.embedding.embedded_unsafe_removal_pain_multiplier*I.w_class) //It hurts to rip it out, get surgery you dingus.
+						H.emote("paincrit", TRUE)
+						playsound(H, 'sound/foley/flesh_rem.ogg', 100, TRUE, -2)
+						user.visible_message(span_notice("[user] rips [I] out of [H]'s [affecting.name]!"), span_notice("I rip [I] from [H]'s [affecting.name]."))
 //		if(H.used_intent.blade_class == BCLASS_BLUNT && I.force >= 15 && affecting.body_zone == "chest")
 //			var/turf/target_shove_turf = get_step(H.loc, get_dir(user.loc,H.loc))
 //			H.throw_at(target_shove_turf, 1, 1, H, spin = FALSE)
@@ -1760,11 +1826,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		return TRUE
 
 
-/datum/species/proc/handle_environment(datum/gas_mixture/environment, mob/living/carbon/human/H)
-	if(!environment)
-		return
+/datum/species/proc/handle_environment(mob/living/carbon/human/H)
 
-	var/loc_temp = H.get_temperature(environment)
+	//ATMO/TURF/TEMPERATURE
+	var/turf/cur_turf = get_turf(H)
+	var/loc_temp = cur_turf.temperature
 
 	//Body temperature is adjusted in two parts: first there my body tries to naturally preserve homeostasis (shivering/sweating), then it reacts to the surrounding environment
 	//Thermal protection (insulation) has mixed benefits in two situations (hot in hot places, cold in hot places)
@@ -1798,13 +1864,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		SEND_SIGNAL(H, COMSIG_ADD_MOOD_EVENT, "hot", /datum/mood_event/hot)
 
 		H.remove_movespeed_modifier(MOVESPEED_ID_COLD)
-
+		//FIRE_STACKS Human damage taken from fire is determined here.
 		var/burn_damage
 		var/firemodifier = H.fire_stacks / 50
 		if (H.on_fire)
-			burn_damage = 20
-			if(H.fire_stacks >= HUMAN_FIRE_STACK_ICON_NUM)
-				burn_damage = 200
+			burn_damage = min(5, H.fire_stacks * 2) // Minimum of 5 damage if you are on fire. Otherwise applies 2 per stack, up to 40.
 		else
 			firemodifier = min(firemodifier, 0)
 			burn_damage = max(log(2-firemodifier,(H.bodytemperature-BODYTEMP_NORMAL))-5,0) // this can go below 5 at log 2.5
@@ -1843,27 +1907,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		SEND_SIGNAL(H, COMSIG_CLEAR_MOOD_EVENT, "cold")
 		SEND_SIGNAL(H, COMSIG_CLEAR_MOOD_EVENT, "hot")
 
-	var/pressure = environment.return_pressure()
-	var/adjusted_pressure = H.calculate_affecting_pressure(pressure) //Returns how much pressure actually affects the mob.
-	switch(adjusted_pressure)
-		if(HAZARD_HIGH_PRESSURE to INFINITY)
-			if(!HAS_TRAIT(H, TRAIT_RESISTHIGHPRESSURE))
-				H.adjustBruteLoss(min(((adjusted_pressure / HAZARD_HIGH_PRESSURE) -1 ) * PRESSURE_DAMAGE_COEFFICIENT, MAX_HIGH_PRESSURE_DAMAGE) * H.physiology.pressure_mod)
-				H.throw_alert("pressure", /atom/movable/screen/alert/highpressure, 2)
-			else
-				H.clear_alert("pressure")
-		if(WARNING_HIGH_PRESSURE to HAZARD_HIGH_PRESSURE)
-			H.throw_alert("pressure", /atom/movable/screen/alert/highpressure, 1)
-		if(WARNING_LOW_PRESSURE to WARNING_HIGH_PRESSURE)
-			H.clear_alert("pressure")
-		if(HAZARD_LOW_PRESSURE to WARNING_LOW_PRESSURE)
-			H.throw_alert("pressure", /atom/movable/screen/alert/lowpressure, 1)
-		else
-			if(HAS_TRAIT(H, TRAIT_RESISTLOWPRESSURE))
-				H.clear_alert("pressure")
-			else
-				H.adjustBruteLoss(LOW_PRESSURE_DAMAGE * H.physiology.pressure_mod)
-				H.throw_alert("pressure", /atom/movable/screen/alert/lowpressure, 2)
+// A general-purpose proc used to centralise checks to skip turf, movement, step, etc. 
+// For if a mob is floating, flying, intangible, etc.
+/datum/species/proc/is_floor_hazard_immune(mob/living/carbon/human/owner)
+	return FALSE
 
 //////////
 // FIRE //
@@ -1919,7 +1966,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 		for(var/X in burning_items)
 			var/obj/item/I = X
-			I.fire_act((H.fire_stacks * 50)) //damage taken is reduced to 2% of this value by fire_act()
+			I.fire_act(((H.fire_stacks + H.divine_fire_stacks) * 50)) //damage taken is reduced to 2% of this value by fire_act()
 
 		var/thermal_protection = H.get_thermal_protection()
 
@@ -2038,12 +2085,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(!T)
 		return FALSE
 
-	var/datum/gas_mixture/environment = T.return_air()
-	if(environment && !(environment.return_pressure() > 30))
-		to_chat(H, span_warning("The atmosphere is too thin for you to fly!"))
-		return FALSE
-	else
-		return TRUE
+	return TRUE
 
 /datum/species/proc/flyslip(mob/living/carbon/human/H)
 	var/obj/buckled_obj
@@ -2088,8 +2130,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 /datum/action/innate/flight
 	name = "Toggle Flight"
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_STUN
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "flight"
+	button_icon_state = ""
 
 /datum/action/innate/flight/Activate()
 	var/mob/living/carbon/human/H = owner

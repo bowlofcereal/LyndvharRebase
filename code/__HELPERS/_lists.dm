@@ -21,6 +21,8 @@
 #define LAZYREMOVE(L, I) if(L) { L -= I; if(!length(L)) { L = list(); } }
 #define LAZYADD(L, I) if(!L) { L = list(); } L += I;
 ///This is used to add onto lazy assoc list when the value you're adding is a /list/. This one has extra safety over lazyaddassoc because the value could be null (and thus cant be used to += objects)
+///Accesses an associative list, returns null if nothing is found
+#define LAZYACCESSASSOC(L, I, K) L ? L[I] ? L[I][K] ? L[I][K] : null : null : null
 #define LAZYADDASSOCLIST(L, K, V) if(!L) { L = list(); } L[K] += list(V);
 #define LAZYOR(L, I) if(!L) { L = list(); } L |= I;
 #define LAZYFIND(L, V) L ? L.Find(V) : 0
@@ -230,6 +232,25 @@
 		result = first ^ second
 	return result
 
+/**
+ * Given a list, return a copy where values without defined weights are given weight 1.
+ * For example, fill_with_ones(list(A, B=2, C)) = list(A=1, B=2, C=1)
+ * Useful for weighted random choices (loot tables, syllables in languages, etc.)
+ */
+/proc/fill_with_ones(list/list_to_pad)
+	if (!islist(list_to_pad))
+		return list_to_pad
+
+	var/list/final_list = list()
+
+	for (var/key in list_to_pad)
+		if (list_to_pad[key])
+			final_list[key] = list_to_pad[key]
+		else
+			final_list[key] = 1
+
+	return final_list
+
 //Picks a random element from a list based on a weighting system:
 //1. Adds up the total of weights for each element
 //2. Gets a number between 1 and that total
@@ -274,6 +295,9 @@
 		var/picked = rand(1,L.len)
 		. = L[picked]
 		L.Cut(picked,picked+1)			//Cut is far more efficient that Remove()
+
+/// Fetch a random value from an associated list.
+#define pick_assoc(L) L[pick(L)]
 
 //Returns the top(last) element from the list and removes it from the list (typical stack function)
 /proc/pop(list/L)

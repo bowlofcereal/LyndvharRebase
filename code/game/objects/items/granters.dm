@@ -39,40 +39,39 @@
 
 
 /obj/item/book/granter/attack_self(mob/living/user)
-	if(user.mind?.has_studied == TRUE)
-		to_chat(user, span_notice("These symbols assault my mind -- I cannot control the book's power!"))
-		recoil(user)
-		return FALSE
 	if(reading)
-		to_chat(user, span_warning("You're already reading this!"))
+		to_chat(user, span_warning("I'm already reading this!"))
 		return FALSE
 	if(!user.can_read(src))
 		return FALSE
 	if(already_known(user))
 		return FALSE
-	if(!user.can_read(src))
-		return FALSE
 /*	AZURE PEAK REMOVAL -- UNUSED ANYWAY
 	if(user.STAINT < 12)
 			to_chat(user, span_warning("You can't make sense of the sprawling runes!"))
 			return FALSE */
-	if(used)
-		if(oneuse)
-			recoil(user)
+	if(used && oneuse)
+		to_chat(user, span_warning("This fount of knowledge was not meant to be sipped from twice!"))
+		recoil(user)
 		return FALSE
 	on_reading_start(user)
 	reading = TRUE
 	for(var/i=1, i<=pages_to_mastery, i++)
 		if(!turn_page(user))
-			on_reading_stopped()
 			reading = FALSE
-			return
-	if(do_after(user,50, user))
-		on_reading_finished(user)
+			on_reading_stopped()
+			return FALSE
+	if(do_after(user, 50, user))
 		reading = FALSE
-	return TRUE
+		on_reading_finished(user)
+		return TRUE
+	reading = FALSE //failsafe
+	return FALSE
 
 /obj/item/book/granter/spell
+	grid_width = 64
+	grid_height = 32
+
 	var/spell
 	var/spellname = "conjure bugs"
 
@@ -223,7 +222,107 @@
 	icon_state ="scrolldarkred"
 	remarks = list("Mediolanum ventis..", "Sana damnatorum..", "Frigidus ossa mortuorum..")
 
-//scroll for giving the reader a spell point, this should be dungeon loot
+/obj/item/book/granter/spell/blackstone/acidsplash
+	name = "Scroll of Acid Splash"
+	spell = /obj/effect/proc_holder/spell/invoked/projectile/acidsplash
+	spellname = "Acid Splash"
+	icon_state ="scrolldarkred"
+	remarks = list("Lapides corrodunt..", "Spuma venenosa..", "Guttae flavescentes..")
+
+/obj/item/book/granter/spell/blackstone/spitfire
+	name = "Scroll of Spitfire"
+	spell = /obj/effect/proc_holder/spell/invoked/projectile/spitfire
+	spellname = "Spitfire"
+	icon_state ="scrollred"
+	remarks = list("Ignis et oleum..", "Flammam continere ad momentum..", "Flammam iactare..", "Sit flamma constructum..")
+
+/obj/item/book/granter/spell/blackstone/lesserknock
+	name = "Scroll of Lesser Knock"
+	spell = /obj/effect/proc_holder/spell/targeted/touch/lesserknock
+	spellname = "Lesser Knock"
+	icon_state ="scrollred"
+	remarks = list("Clavis vetusta portam..", "Perdita numquam..", "Manus tremens..")
+
+/obj/item/book/granter/spell/blackstone/repel
+	name = "Scroll of Repel"
+	spell = /obj/effect/proc_holder/spell/invoked/projectile/repel
+	spellname = "Repel"
+	icon_state ="scrolldarkred"
+	remarks = list("Ventos adversos..", "Terra sibilat..", "Lapides vetusti..")
+
+
+/obj/item/book/granter/spell/blackstone/aerosolize
+	name = "Scroll of Aerosolize"
+	spell = /obj/effect/proc_holder/spell/invoked/aerosolize
+	spellname = "Aerosolize"
+	icon_state ="scrolldarkred"
+	remarks = list("Lapides corrodunt..", "Spuma venenosa..", "Guttae flavescentes..")
+	
+
+/obj/item/book/granter/spell/blackstone/guidance
+	name = "Scroll of Guidance"
+	spell = /obj/effect/proc_holder/spell/invoked/guidance
+	spellname = "Guidance"
+	icon_state ="scrolldarkred"
+	remarks = list("Lux in tenebris..", "Passus certus umbras non timet..", "Anima viam scit..")
+
+/obj/item/book/granter/spell/blackstone/frostbolt
+	name = "Scroll of Frostbolt"
+	spell = /obj/effect/proc_holder/spell/invoked/projectile/frostbolt
+	spellname = "Frostbolt"
+	icon_state ="scrolldarkred"
+	remarks = list("Gelum serpentibus..", "Crystallum in silentio..", "Nullum ardor glaciem..")
+
+/obj/item/book/granter/spell/blackstone/fortitude
+	name = "Scroll of Fortitude"
+	spell = /obj/effect/proc_holder/spell/invoked/fortitude
+	spellname = "Fortitude"
+	icon_state ="scrolldarkred"
+	remarks = list("Animus in adversis..", "Gravitas oneris..", "Vita renascitur..")
+
+/obj/item/book/granter/spell/blackstone/message
+	name = "Scroll of Message"
+	spell = /obj/effect/proc_holder/spell/self/message
+	spellname = "Message"
+	icon_state ="scrolldarkred"
+	remarks = list("Verba volant..", "Vincula inter mentes..", "Inter verba et silentium..")
+
+/obj/item/book/granter/spell/blackstone/ensnare
+	name = "Scroll of Ensnare"
+	spell = /obj/effect/proc_holder/spell/invoked/ensnare
+	spellname = "Ensnare"
+	icon_state ="scrolldarkred"
+	remarks = list("Qui intrat..", "Radices in tenebris..", "Nexus occultus..")
+
+/obj/item/book/granter/spell/blackstone/forcewall_weak
+	name = "Scroll of Forcewall"
+	spell = /obj/effect/proc_holder/spell/invoked/forcewall
+	spellname = "Forcewall"
+	icon_state ="scrolldarkred"
+	remarks = list("Murus non solum hostem..", "Manus invisibiles saxa invicem..", "Infracta moenia..")
+
+/obj/item/book/granter/spell/blackstone/featherfall
+	name = "Scroll of Featherfall"
+	spell = /obj/effect/proc_holder/spell/invoked/featherfall
+	spellname = "Featherfall"
+	icon_state ="scrolldarkred"
+	remarks = list("In silentio cadit..", "Alis levitas..", "Plumis taciti dolores..")
+
+/obj/item/book/granter/spell/blackstone/enlarge
+	name = "Scroll of Enlarge"
+	spell = /obj/effect/proc_holder/spell/invoked/enlarge
+	spellname = "Enlarge"
+	icon_state ="scrolldarkred"
+	remarks = list("Immensum agitur..", "Montes tremunt..", "Quantitas expanditur..")
+
+/obj/item/book/granter/spell/blackstone/leap
+	name = "Scroll of Leap"
+	spell = /obj/effect/proc_holder/spell/invoked/leap
+	spellname = "Leap"
+	icon_state ="scrolldarkred"
+	remarks = list("Altitudinem revelat..", "Cuius pedes in aere volant..", "In levitate audacia..")
+
+//scroll for giving the reader 3 spell points, this should be dungeon loot
 /obj/item/book/granter/spell_points
 	name = "Arcyne Insight"
 	icon_state = "scrollpurple"
@@ -236,7 +335,7 @@
 	var/arcaneskill = user.mind.get_skill_level(/datum/skill/magic/arcane)
 	if(arcaneskill >= SKILL_LEVEL_NOVICE) //Required arcane skill of NOVICE or higher to use the granter
 		to_chat(user, span_notice("I absorb the insights on the scroll, and feel more adept at spellcraft!"))
-		user.mind.adjust_spellpoints(1)
+		user.mind.adjust_spellpoints(3)
 		onlearned(user)
 	else
 		to_chat(user, span_notice("I don't know what to make of this."))

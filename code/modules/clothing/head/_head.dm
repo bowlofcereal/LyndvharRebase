@@ -10,6 +10,9 @@
 	dynamic_hair_suffix = "+generic"
 	bloody_icon_state = "helmetblood"
 
+	grid_height = 32
+	grid_width = 64
+
 /obj/item/clothing/head/Initialize()
 	. = ..()
 	if(ishuman(loc) && dynamic_hair_suffix)
@@ -71,7 +74,7 @@
 //		if(HAS_BLOOD_DNA(src))
 //			. += mutable_appearance('icons/effects/blood.dmi', "helmetblood")
 
-/obj/item/clothing/head/update_clothes_damaged_state(damaging = TRUE)
+/obj/item/clothing/head/update_damaged_state()
 	..()
 	if(ismob(loc))
 		var/mob/M = loc

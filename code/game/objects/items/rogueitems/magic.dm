@@ -2,7 +2,7 @@
 
 /obj/item/scrying
 	name = "scrying orb"
-	desc = "On it's glass depths, you can scry on many beings.."
+	desc = "Within its glass depths, you can scry on many beings..."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state ="scrying"
 	throw_speed = 3
@@ -14,6 +14,9 @@
 	sellprice = 30
 	dropshrink = 0.6
 	resistance_flags = FIRE_PROOF
+
+	grid_height = 32
+	grid_width = 32
 
 	var/mob/current_owner
 	var/last_scry

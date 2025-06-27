@@ -52,7 +52,6 @@
 	w_class = WEIGHT_CLASS_TINY
 	throw_range = 1
 	throw_speed = 1
-	pressure_resistance = 0
 	slot_flags = ITEM_SLOT_HEAD
 	body_parts_covered = HEAD
 	resistance_flags = FLAMMABLE
@@ -118,6 +117,16 @@
 	pixel_x = rand(-9, 9)
 	update_icon_state()
 	updateinfolinks()
+	var/static/list/slapcraft_recipe_list = list(
+		/datum/crafting_recipe/roguetown/survival/sigsweet,
+		/datum/crafting_recipe/roguetown/survival/sigdry,
+		/datum/crafting_recipe/roguetown/survival/rocknutdry,
+		)
+
+	AddElement(
+		/datum/element/slapcrafting,\
+		slapcraft_recipes = slapcraft_recipe_list,\
+		)
 
 /obj/item/paper/update_icon_state()
 	if(mailer)
@@ -327,7 +336,8 @@
 		((text)) : Decreases the <font size = \"1\">size</font> of the text.<br>
 		* item : An unordered list item.<br>
 		&nbsp;&nbsp;* item: An unordered list child item.<br>
-		--- : Adds a horizontal rule.
+		--- : Adds a horizontal rule.<br>
+		-=FFFFFFtext=- : Adds a specific <font color = '#FFFFFF'>colour</font> to text.
 	</BODY></HTML>"}, "window=paper_help")
 
 

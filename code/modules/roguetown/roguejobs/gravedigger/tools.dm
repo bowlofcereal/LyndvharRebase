@@ -11,12 +11,15 @@
 	wdefense = 3
 	wlength = WLENGTH_LONG
 	w_class = WEIGHT_CLASS_BULKY
+	tool_behaviour = TOOL_SHOVEL
 	slot_flags = ITEM_SLOT_BACK
 	swingsound = list('sound/combat/wooshes/blunt/shovel_swing.ogg','sound/combat/wooshes/blunt/shovel_swing2.ogg')
 	drop_sound = 'sound/foley/dropsound/shovel_drop.ogg'
 	var/obj/item/natural/dirtclod/heldclod
 	smeltresult = /obj/item/ingot/iron
 	max_blade_int = 50
+	grid_width = 32
+	grid_height = 96
 
 /obj/item/rogueweapon/shovel/Destroy()
 	if(heldclod)
@@ -166,10 +169,18 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	max_blade_int = 0
 	smeltresult = null
+	grid_height = 64
+
+/obj/item/rogueweapon/shovel/aalloy
+	force = 8
+	name = "decrepit shovel"
+	desc = "A decrepit old shovel. Aeon's grasp is upon it."
+	icon_state = "ashovel"
+	smeltresult = /obj/item/ingot/aalloy
 
 /obj/item/burial_shroud
 	name = "winding sheet"
-	desc = "A burial veil for the deceased."
+	desc = "A burial veil for the deceased. It makes transporting bodies slightly more tolerable."
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "shroud_folded"
 	w_class = WEIGHT_CLASS_SMALL

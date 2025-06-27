@@ -13,7 +13,6 @@
 	animate_movement = SLIDE_STEPS
 	flags_1 = HEAR_1
 	hud_possible = list(ANTAG_HUD)
-	pressure_resistance = 8
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	throwforce = 10
 	vis_flags = VIS_INHERIT_PLANE
@@ -111,7 +110,7 @@
 	/// The current intent of the mob
 	var/datum/intent/a_intent = INTENT_HELP//Living
 	var/datum/intent/o_intent = INTENT_HELP
-	var/datum/rmb_intent/rmb_intent//Living
+	var/datum/rmb_intent/rmb_intent //Living
 	var/datum/intent/used_intent
 	var/datum/intent/mmb_intent
 	var/datum/intent/used_rmb_intent
@@ -271,6 +270,7 @@
 
 	var/setparrytime = 12
 	var/dodgetime = 12
+	var/magearmor = 0
 
 	var/last_dodge = 0
 	var/last_parry = 0
@@ -290,3 +290,17 @@
 	var/music_playing = FALSE
 	/// Tracker for amount of turfs we sprinted over, for things like bumping and charging
 	var/sprinted_tiles = 0
+	var/sprint_dir = 1
+
+	/// Whether the mob is pixel shifted or not
+	var/is_shifted = FALSE
+
+	///////TYPING INDICATORS///////
+	/// Set to true if we want to show typing indicators.
+	var/typing_indicator_enabled = FALSE
+	/// Default icon_state of our typing indicator. Currently only supports paths (because anything else is, as of time of typing this, unnecesary.
+	var/typing_indicator_state = /obj/effect/overlay/typing_indicator
+	/// The timer that will remove our indicator for early aborts (like when an user finishes their message)
+	var/typing_indicator_timerid
+	/// Current state of our typing indicator. Used for cut overlay, DO NOT RUNTIME ASSIGN OTHER THAN FROM SHOW/CLEAR. Used to absolutely ensure we do not get stuck overlays.
+	var/mutable_appearance/typing_indicator_current

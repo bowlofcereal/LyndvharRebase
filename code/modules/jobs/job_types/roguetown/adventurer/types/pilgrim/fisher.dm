@@ -22,7 +22,7 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/labor/butchering, 3, TRUE)
@@ -40,7 +40,7 @@
 			H.mind.adjust_skillrank(/datum/skill/labor/fishing, 5, TRUE)
 		else
 			H.mind.adjust_skillrank(/datum/skill/labor/fishing, 4, TRUE)
-	if(H.pronouns == HE_HIM || H.pronouns == THEY_THEM)
+	if(H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS)
 		pants = /obj/item/clothing/under/roguetown/tights/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
 		shoes = /obj/item/clothing/shoes/roguetown/boots/leather
@@ -57,6 +57,7 @@
 							/obj/item/natural/worms = 2,
 							/obj/item/rogueweapon/shovel/small = 1,
 							/obj/item/flashlight/flare/torch = 1,
+							/obj/item/recipe_book/survival = 1,
 							)
 	else
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random

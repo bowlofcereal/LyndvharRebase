@@ -5,6 +5,8 @@
 	icon_state = "signalhorn"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_height = 32
+	grid_width = 64
 
 /obj/item/signal_horn/attack_self(mob/living/user)
 	. = ..()
@@ -19,7 +21,7 @@
 			playsound(src, 'modular_hearthstone/sound/items/bogguardhorn.ogg', 100, TRUE)
 		if("Town Sheriff", "Watchman", "Sergeant", "Man at Arms")
 			playsound(src, 'modular_hearthstone/sound/items/watchhorn.ogg', 100, TRUE)
-		if("Guard Captain", "Royal Guard")
+		if("Knight Captain", "Royal Guard")
 			playsound(src, 'modular_hearthstone/sound/items/rghorn.ogg', 100, TRUE)
 		else
 			playsound(src, 'modular_hearthstone/sound/items/signalhorn.ogg', 100, TRUE)
@@ -106,7 +108,7 @@
 			if("Marshall", "Watchman", "Sergeant", "Man at Arms")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/watchhorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the horn of the Garrison somewhere[disttext],[dirtext],[placetext]"))
-			if("Guard Captain", "Royal Guard")
+			if("Knight Captain", "Knight")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/rghorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the horn of the Royal Guard somewhere[disttext],[dirtext],[placetext]"))
 			else

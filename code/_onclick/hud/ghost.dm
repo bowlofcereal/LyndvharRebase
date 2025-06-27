@@ -47,7 +47,7 @@
 							// Store the current time for the player
 							GLOB.job_respawn_delays[G.ckey] = world.time + target_job.same_job_respawn_delay
 
-				G.returntolobby()
+				G.returntolobby(0)
 
 /atom/movable/screen/ghost/reenter_corpse
 	name = "Reenter corpse"
@@ -67,7 +67,7 @@
 
 /atom/movable/screen/ghost/moveup
 	name = "move up"
-	icon_state = "pai"
+	icon_state = "up"
 
 /atom/movable/screen/ghost/moveup/Click()
 	var/mob/dead/observer/G = usr
@@ -75,7 +75,7 @@
 
 /atom/movable/screen/ghost/movedown
 	name = "move down"
-	icon_state = "pai"
+	icon_state = "down"
 
 /atom/movable/screen/ghost/bigassuselessbutton
 	name = "AFTER LIFE"

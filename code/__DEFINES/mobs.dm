@@ -1,5 +1,13 @@
 /*ALL MOB-RELATED DEFINES THAT DON'T BELONG IN ANOTHER FILE GO HERE*/
 
+#define STATKEY_STR "strength"
+#define STATKEY_PER "perception"
+#define STATKEY_INT "intelligence"
+#define STATKEY_CON "constitution"
+#define STATKEY_END "endurance"
+#define STATKEY_SPD "speed"
+#define STATKEY_LCK "fortune"
+
 //This was previously in vampirelord.dm and mob/living/stats.dm, the person defined it twice because vampirelord came in below that stats file, so now both of them can get it here.
 #define MOBSTATS list("strength", "perception", "intelligence", "constitution", "endurance", "speed", "fortune")
 
@@ -178,6 +186,7 @@
 #define NUTRITION_LEVEL_STARVING 100
 
 #define HYDRATION_LEVEL_FULL 1000
+#define HYDRATION_LEVEL_HYDRATED 999
 #define HYDRATION_LEVEL_SMALLTHIRST 600
 #define HYDRATION_LEVEL_THIRSTY 350
 #define HYDRATION_LEVEL_DEHYDRATED 100
@@ -236,10 +245,13 @@
 #define AI_OFF		3
 #define AI_Z_OFF	4
 
-#define AI_COMBAT	5
-#define AI_RETREAT	6
-#define AI_HUNT		7
-#define AI_FLEE		8
+// these are exclusively for hostile humantype mobs
+#define NPC_AI_OFF		0
+#define NPC_AI_IDLE		1
+#define NPC_AI_COMBAT	2
+#define NPC_AI_RETREAT	3
+#define NPC_AI_HUNT		4
+#define NPC_AI_FLEE		5
 
 //determines if a mob can smash through it
 #define ENVIRONMENT_SMASH_NONE			0
@@ -410,12 +422,17 @@
 #define SKIN_COLOR_YUETHINDRYNN "2f2f38"
 
 //WOOD ELF SKIN TONES
+#define SKIN_COLOR_GRENZEL_WOODS "fff0e9"
 #define SKIN_COLOR_DANDELION_CREEK "ffe0d1"
 #define SKIN_COLOR_ROSEVEIL "fcccb3"
 #define SKIN_COLOR_AZUREGROVE "edc6b3"
 #define SKIN_COLOR_ARBORSHOME "e2b9a3"
+#define SKIN_COLOR_ETRUSCAN_SWAMPS "d9a284"
 #define SKIN_COLOR_ALMONDVALLE "c9a893"
 #define SKIN_COLOR_WALNUT_WOODS "ba9882"
+#define SKIN_COLOR_SHALVINE_FORESTS "ac8369"
+#define SKIN_COLOR_LALVE_STEPPES "9c6f52"
+#define SKIN_COLOR_NALEDI_COAST "4e3729"
 #define SKIN_COLOR_TIMBERBORN "5d4c41"
 #define SKIN_COLOR_LOTUS_COAST "eae1C8"
 
@@ -432,6 +449,7 @@
 #define SKIN_COLOR_LALVESTINE "9c6f52"
 #define SKIN_COLOR_NALEDI "4e3729"
 #define SKIN_COLOR_KAZENGUN "dbcca9"
+#define SKIN_COLOR_NALEDI_LIGHT "5d4c41"
 
 //AASIMAR SKIN TONES
 #define SKIN_COLOR_CULTOR "b5a4a4"
@@ -447,12 +465,20 @@
 #define SKIN_COLOR_ABYSSAL "22577a"
 
 //HALF ELF SKIN TONES
+#define SKIN_COLOR_GRENZEL_AVAR "fff0e9"
 #define SKIN_COLOR_TIMBER_GRONN "ffe0d1"
 #define SKIN_COLOR_GIZA_AZURE "fcccb3"
 #define SKIN_COLOR_WALNUT_STINE "edc6b3"
 #define SKIN_COLOR_ETRUSTCAN_DANDELION "e2b9a3"
 #define SKIN_COLOR_NALEDI_BORN "5a4a41"
 #define SKIN_COLOR_KAZE_LOTUS "E0D5B8"
+#define SKIN_COLOR_ETRUSCA_LIRVAS "d9a284"
+#define SKIN_COLOR_FREE_FOLK "c9a893"
+#define SKIN_COLOR_AVAR_BORNE "ba9882"
+#define SKIN_COLOR_SHALVINE_AZURE "ac8369"
+#define SKIN_COLOR_LALVE_NALEDI "9c6f52"
+#define SKIN_COLOR_NALEDI_OTAVA "4e3729"
+#define SKIN_COLOR_HAMMER_GRONN "5d4c41"
 
 //HALF ORK SKIN TONES
 #define SKIN_COLOR_BLOOD_AXE "A84C4F"
@@ -466,15 +492,31 @@
 #define SKIN_COLOR_SPIRITCRUSHER "9D4D62"
 
 //TIEFLING SKIN TONES
+#define SKIN_COLOR_NESSYSS "C62D4C"
+#define SKIN_COLOR_VHESLYN "991F1D"
+#define SKIN_COLOR_SARVYRA "80284a"
 #define SKIN_COLOR_JEHOEL "DBA960"
 #define SKIN_COLOR_URVIX "5B5F96"
-#define SKIN_COLOR_SARVYRA "8F3F50"
-#define SKIN_COLOR_VHESLYN "991F1D"
 #define SKIN_COLOR_ARLENNETH "9197C5"
-#define SKIN_COLOR_NESSYSS "C62D4C"
 #define SKIN_COLOR_HELIXIA "B289C6"
 #define SKIN_COLOR_NYMSEA "A8619E"
 #define SKIN_COLOR_CALVUS "E0CED8"
+#define SKIN_COLOR_VOIBION "53392f"
+#define SKIN_COLOR_CHYERNO "252e41"
+
+//GOBLIN SKIN TONES
+#define SKIN_COLOR_OCHRE "968127"
+#define SKIN_COLOR_MEADOW "909630"
+#define SKIN_COLOR_OLIVE "6b8a08"
+#define SKIN_COLOR_GREEN "4c6835"
+#define SKIN_COLOR_MOSS "43533e"
+#define SKIN_COLOR_TAIGA "373f29"
+#define SKIN_COLOR_BRONZE "725237"
+#define SKIN_COLOR_RED "87312a"
+#define SKIN_COLOR_TEAL "008080"
+#define SKIN_COLOR_FROST "6486b0"
+#define SKIN_COLOR_ABYSS "2a6986"
+#define SKIN_COLOR_HADAL "24353d"
 
 //ARGONIAN SKIN TONES
 #define SKIN_COLOR_AQUARELA "ffff88"
@@ -507,3 +549,16 @@
 #define WHITEBROWN_FUR "c69b83"
 #define DARKBROWN_FUR "3b2e27"
 #define BLACK_FUR	 "271f1a"
+
+// Pixel shifting
+#define PIXEL_SHIFT_MAXIMUM 16
+#define PIXEL_SHIFT_PASSABLE_THRESHOLD 8
+
+#define TYPING_INDICATOR_TIMEOUT 20 MINUTES
+
+// NPC Debugging
+#ifdef NPC_THINK_DEBUG
+#define NPC_THINK(message) visible_message(message, runechat_message = message)
+#else
+#define NPC_THINK(message)
+#endif

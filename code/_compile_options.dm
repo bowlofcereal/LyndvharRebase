@@ -46,7 +46,7 @@
 									//	2 for preloading absolutely everything;
 
 #ifdef LOWMEMORYMODE
-#define FORCE_MAP "_maps/runtimestation.json"
+#define FORCE_MAP "_maps/roguetest.json"
 #endif
 
 //Update this whenever you need to take advantage of more recent byond features
@@ -73,6 +73,9 @@
 #ifdef TRAVISTESTING
 #define TESTING
 #endif
+
+// Uncomment this for NPCs to display their 'thoughts' (AI planning steps) above their heads. Useful for debugging NPC logic.
+// #define NPC_THINK_DEBUG
 
 // A reasonable number of maximum overlays an object needs
 // If you think you need more, rethink it

@@ -10,7 +10,10 @@
 	var/transfer_prints = FALSE
 	strip_delay = 20
 	equip_delay_other = 40
-	bloody_icon_state = "bloodyhands"
+	bloody_icon_state = "bloodyhands"	
+
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/clothing/gloves/ComponentInitialize()
 	. = ..()
@@ -33,7 +36,7 @@
 //		if(HAS_BLOOD_DNA(src))
 //			. += mutable_appearance('icons/effects/blood.dmi', "bloodyhands")
 
-/obj/item/clothing/gloves/update_clothes_damaged_state(damaging = TRUE)
+/obj/item/clothing/gloves/update_damaged_state()
 	..()
 	if(ismob(loc))
 		var/mob/M = loc

@@ -29,31 +29,28 @@
 	if(!loc)
 		return
 
-	if(!IS_IN_STASIS(src))
-		//Breathing, if applicable
-		handle_breathing(times_fired)
-		if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
-			handle_wounds()
-			handle_embedded_objects()
-			handle_blood()
-			//passively heal even wounds with no passive healing
-			for(var/datum/wound/wound as anything in get_wounds())
-				wound.heal_wound(1)
+	//Breathing, if applicable
+	handle_breathing(times_fired)
+	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
+		handle_wounds()
+		handle_embedded_objects()
+		handle_blood()
+		//passively heal even wounds with no passive healing
+		for(var/datum/wound/wound as anything in get_wounds())
+			wound.heal_wound(1)
 
-		if (QDELETED(src)) // diseases can qdel the mob via transformations
-			return
+	if (QDELETED(src)) // diseases can qdel the mob via transformations
+		return
 
-		//Random events (vomiting etc)
-		handle_random_events()
-		//Handle temperature/pressure differences between body and environment
-		var/datum/gas_mixture/environment = loc?.return_air()
-		if(environment)
-			handle_environment(environment)
+	handle_environment()
+	
+	//Random events (vomiting etc)
+	handle_random_events()
 
-		handle_gravity()
+	handle_gravity()
 
-		handle_traits() // eye, ear, brain damages
-		handle_status_effects() //all special effects, stun, knockdown, jitteryness, hallucination, sleeping, etc
+	handle_traits() // eye, ear, brain damages
+	handle_status_effects() //all special effects, stun, knockdown, jitteryness, hallucination, sleeping, etc
 
 	update_sneak_invis()
 	handle_fire()
@@ -61,31 +58,26 @@
 	if(machine)
 		machine.check_eye(src)
 
-	handle_typing_indicator()
-
 	if(istype(loc, /turf/open/water))
-		handle_inwater()
+		handle_inwater(loc)
 
 	if(stat != DEAD)
 		return 1
 
 /mob/living/proc/DeadLife()
 	set invisibility = 0
-	set waitfor = FALSE
 	if (notransform)
 		return
 	if(!loc)
 		return
-	if(!IS_IN_STASIS(src))
-		if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
-			handle_wounds()
-			handle_embedded_objects()
-			handle_blood()
+	if(HAS_TRAIT(src, TRAIT_SIMPLE_WOUNDS))
+		handle_wounds()
+		handle_embedded_objects()
+		handle_blood()
 	update_sneak_invis()
 	handle_fire()
-	handle_typing_indicator()
 	if(istype(loc, /turf/open/water))
-		handle_inwater()
+		handle_inwater(loc)
 
 /mob/living/proc/handle_breathing(times_fired)
 	return
@@ -94,8 +86,8 @@
 	//random painstun
 	if(!stat && !HAS_TRAIT(src, TRAIT_NOPAINSTUN))
 		if(world.time > mob_timers["painstun"] + 600)
-			if(getBruteLoss() + getFireLoss() >= (STAEND * 10))
-				var/probby = 53 - (STAEND * 2)
+			if(getBruteLoss() + getFireLoss() >= (STACON * 10))
+				var/probby = 53 - (STACON * 2)
 				if(!(mobility_flags & MOBILITY_STAND))
 					probby = probby - 20
 				if(prob(probby))
@@ -108,7 +100,7 @@
 					Stun(110)
 					Knockdown(110)
 
-/mob/living/proc/handle_environment(datum/gas_mixture/environment)
+/mob/living/proc/handle_environment()
 	return
 
 /mob/living/proc/handle_fire()
@@ -118,26 +110,26 @@
 //		testing("handlefyre0 [src]")
 		return TRUE //the mob is no longer on fire, no need to do the rest.
 //	testing("handlefyre1 [src]")
-	if(fire_stacks > 0)
-		adjust_fire_stacks(-0.05) //the fire is slowly consumed
+	if(fire_stacks + divine_fire_stacks > 0)
+		adjust_divine_fire_stacks(-0.05)
+		if(fire_stacks > 0)
+			adjust_fire_stacks(-0.05) //the fire is slowly consumed
 	else
 		ExtinguishMob()
 		return TRUE //mob was put out, on_fire = FALSE via ExtinguishMob(), no need to update everything down the chain.
-//	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
-//	if(!G.gases[/datum/gas/oxygen] || G.gases[/datum/gas/oxygen][MOLES] < 1)
-//		ExtinguishMob() //If there's no oxygen in the tile we're on, put out the fire
-//		return TRUE
 	update_fire()
 	var/turf/location = get_turf(src)
-	location.hotspot_expose(700, 50, 1)
+	location?.hotspot_expose(700, 50, 1)
 
 /mob/living/proc/handle_wounds()
 	if(stat >= DEAD)
 		for(var/datum/wound/wound as anything in get_wounds())
-			wound.on_death()
+			if(istype(wound, /datum/wound))
+				wound.on_death()
 		return
 	for(var/datum/wound/wound as anything in get_wounds())
-		wound.on_life()
+		if(istype(wound, /datum/wound))
+			wound.on_life()
 
 /obj/item/proc/on_embed_life(mob/living/user, obj/item/bodypart/bodypart)
 	return

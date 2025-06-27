@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/food/snacks/smallrat
 	name = "rat"
-	desc = ""
+	desc = "A scurrying rodent often found in sewers and pantries."
 	icon_state = "srat"
 	icon = 'icons/roguetown/mob/monster/rat.dmi'
 	list_reagents = list(/datum/reagent/consumable/nutriment = 5)
@@ -14,6 +14,8 @@
 	max_integrity = 10
 	sellprice = 0
 	rotprocess = null
+	grid_width = 32
+	grid_height = 32
 
 
 /obj/item/reagent_containers/food/snacks/smallrat/onbite(mob/living/carbon/human/user)
@@ -48,7 +50,6 @@
 	eat_effect = null
 	rotprocess = 15 MINUTES
 	sellprice = 0
-	plateable = TRUE
 
 /obj/item/reagent_containers/food/snacks/smallrat/burning(input as num)
 	if(!dead)

@@ -44,6 +44,11 @@ SUBSYSTEM_DEF(mapping)
 	var/datum/space_level/empty_space
 	var/num_of_res_levels = 1
 
+	///this is a list of all the world_traits we have from things like god interventions
+	var/list/active_world_traits = list()
+	///antag retainer
+	var/datum/antag_retainer/retainer
+
 //dlete dis once #39770 is resolved
 /datum/controller/subsystem/mapping/proc/HACK_LoadMapConfig()
 	if(!config)
@@ -55,6 +60,7 @@ SUBSYSTEM_DEF(mapping)
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
 	HACK_LoadMapConfig()
+	retainer = new
 	if(initialized)
 		return
 	if(config.defaulted)
@@ -122,35 +128,6 @@ SUBSYSTEM_DEF(mapping)
 	max_gravity = max_gravity || level_trait(z_level_number, ZTRAIT_GRAVITY) || 0//just to make sure no nulls
 	gravity_by_z_level["[z_level_number]"] = max_gravity
 	return max_gravity
-
-/datum/controller/subsystem/mapping/proc/wipe_reservations(wipe_safety_delay = 100)
-	if(clearing_reserved_turfs || !initialized)			//in either case this is just not needed.
-		return
-	clearing_reserved_turfs = TRUE
-	SSshuttle.transit_requesters.Cut()
-	message_admins("Clearing dynamic reservation space.")
-	var/list/obj/docking_port/mobile/in_transit = list()
-	for(var/i in SSshuttle.transit)
-		var/obj/docking_port/stationary/transit/T = i
-		if(!istype(T))
-			continue
-		in_transit[T] = T.get_docked()
-	var/go_ahead = world.time + wipe_safety_delay
-	if(in_transit.len)
-		message_admins("Shuttles in transit detected. Attempting to fast travel. Timeout is [wipe_safety_delay/10] seconds.")
-	var/list/cleared = list()
-	for(var/i in in_transit)
-		INVOKE_ASYNC(src, PROC_REF(safety_clear_transit_dock), i, in_transit[i], cleared)
-	UNTIL((go_ahead < world.time) || (cleared.len == in_transit.len))
-	do_wipe_turf_reservations()
-	clearing_reserved_turfs = FALSE
-
-/datum/controller/subsystem/mapping/proc/safety_clear_transit_dock(obj/docking_port/stationary/transit/T, obj/docking_port/mobile/M, list/returning)
-	M.setTimer(0)
-	var/error = M.initiate_docking(M.destination, M.preferred_direction)
-	if(!error)
-		returning += M
-		qdel(T, TRUE)
 
 /datum/controller/subsystem/mapping/Recover()
 	flags |= SS_NO_INIT
@@ -388,8 +365,8 @@ SUBSYSTEM_DEF(mapping)
 	if(!level_trait(z,ZTRAIT_RESERVED))
 		clearing_reserved_turfs = FALSE
 		CRASH("Invalid z level prepared for reservations.")
-	var/turf/A = get_turf(locate(SHUTTLE_TRANSIT_BORDER,SHUTTLE_TRANSIT_BORDER,z))
-	var/turf/B = get_turf(locate(world.maxx - SHUTTLE_TRANSIT_BORDER,world.maxy - SHUTTLE_TRANSIT_BORDER,z))
+	var/turf/A = get_turf(locate(16, 16,z))
+	var/turf/B = get_turf(locate(world.maxx - 16,world.maxy - 16,z))
 	var/block = block(A, B)
 	for(var/t in block)
 		// No need to empty() these, because it's world init and they're
@@ -463,3 +440,48 @@ SUBSYSTEM_DEF(mapping)
 			else
 				//Loading the template failed somehow (template.load returned a FALSE), did you spell the paths right?
 				log_world("SSMapping: Failed to load template: [template.name] ([template.mappath])")
+
+/datum/controller/subsystem/mapping/proc/add_world_trait(datum/world_trait/trait_type, duration = 30 MINUTES)
+	var/datum/world_trait/new_trait = new trait_type
+	active_world_traits |= new_trait
+
+	if(duration > 0)
+		addtimer(CALLBACK(src, PROC_REF(remove_world_trait), new_trait), duration)
+
+/datum/controller/subsystem/mapping/proc/remove_world_trait(datum/world_trait/trait_to_remove)
+	active_world_traits -= trait_to_remove
+	qdel(trait_to_remove)
+
+/datum/controller/subsystem/mapping/proc/find_and_remove_world_trait(datum/world_trait/trait_to_remove)
+	for(var/datum/world_trait/trait in active_world_traits)
+		if(!istype(trait, trait_to_remove))
+			continue
+		active_world_traits -= trait
+		qdel(trait)
+		return TRUE
+	return FALSE
+
+/proc/has_world_trait(datum/world_trait/trait_type)
+	if(!length(SSmapping.active_world_traits))
+		return FALSE
+	for(var/datum/world_trait/trait in SSmapping.active_world_traits)
+		if(!istype(trait, trait_type))
+			continue
+		return TRUE
+	return FALSE
+
+/proc/add_tracked_world_trait_atom(atom/incoming, datum/world_trait/trait_type)
+	if(!length(SSmapping.active_world_traits))
+		return FALSE
+	for(var/datum/world_trait/trait in SSmapping.active_world_traits)
+		if(!istype(trait, trait_type))
+			continue
+		trait.add_tracked(incoming)
+
+/proc/remove_tracked_world_trait_atom(atom/removing, datum/world_trait/trait_type)
+	if(!length(SSmapping.active_world_traits))
+		return FALSE
+	for(var/datum/world_trait/trait in SSmapping.active_world_traits)
+		if(!istype(trait, trait_type))
+			continue
+		trait.remove_tracked(removing)

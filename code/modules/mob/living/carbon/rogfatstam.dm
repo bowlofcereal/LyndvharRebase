@@ -1,11 +1,14 @@
 /mob/living/proc/update_rogfat() //update hud and regen after last_fatigued delay on taking
 	maxrogfat = maxrogstam / 10
 
-	if(world.time > last_fatigued + 20) //regen fatigue
+	var/delay = (HAS_TRAIT(src, TRAIT_APRICITY) && GLOB.tod == "day") ? 13 : 20		//Astrata 
+	if(world.time > last_fatigued + delay) //regen fatigue
 		var/added = rogstam / maxrogstam
 		added = round(-10+ (added*-40))
 		if(HAS_TRAIT(src, TRAIT_MISSING_NOSE))
 			added = round(added * 0.5, 1)
+		if(HAS_TRAIT(src, TRAIT_MONK_ROBE))
+			added = round(added * 1.25, 1)
 		if(rogfat >= 1)
 			rogfat_add(added)
 		else
@@ -28,10 +31,12 @@
 /mob/living/rogstam_add(added as num)
 	if(HAS_TRAIT(src, TRAIT_NOROGSTAM))
 		return TRUE
-	if(HAS_TRAIT(src, TRAIT_NOSLEEP))
+	//if(HAS_TRAIT(src, TRAIT_NOSLEEP))
+	//	return TRUE
+	if(HAS_TRAIT(src, TRAIT_NOFATIGUE))
 		return TRUE
 	if(m_intent == MOVE_INTENT_RUN && isnull(buckled))
-		mind.add_sleep_experience(/datum/skill/misc/athletics, (STAINT*0.02))
+		mind && mind.add_sleep_experience(/datum/skill/misc/athletics, (STAINT*0.02))
 	rogstam += added
 	if(rogstam > maxrogstam)
 		rogstam = maxrogstam
@@ -82,7 +87,7 @@
 	if (nutrition >= NUTRITION_LEVEL_WELL_FED) // we've only just eaten recently so just flat out reduce the total loss by half
 		nutrition_amount *= 0.5
 
-	if (reagents.has_reagent(/datum/reagent/consumable/nutriment)) // we're still digesting so knock off a tiny bit
+	if (reagents?.has_reagent(/datum/reagent/consumable/nutriment)) // we're still digesting so knock off a tiny bit
 		nutrition_amount *= 0.9
 
 	return nutrition_amount
@@ -115,13 +120,13 @@
 		else
 			emote(emote_override, forced = force_emote)
 		blur_eyes(2)
-		last_fatigued = world.time + 30 //extra time before fatigue regen sets in
+		last_fatigued = world.time + 3 SECONDS //extra time before fatigue regen sets in
 		stop_attack()
 		changeNext_move(CLICK_CD_EXHAUSTED)
 		flash_fullscreen("blackflash")
 		if(rogstam <= 0)
-			addtimer(CALLBACK(src, PROC_REF(Knockdown), 30), 10)
-		addtimer(CALLBACK(src, PROC_REF(Immobilize), 30), 10)
+			addtimer(CALLBACK(src, PROC_REF(Knockdown), 30), 1 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(Immobilize), 30), 1 SECONDS)
 		if(iscarbon(src))
 			var/mob/living/carbon/C = src
 			if(C.get_stress_amount() >= 30)

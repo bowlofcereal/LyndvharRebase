@@ -2,6 +2,7 @@
 /obj/item/reagent_containers/glass
 	name = "glass"
 	amount_per_transfer_from_this = 10
+	var/amount_per_gulp = 5 // We need a separate amount for drinking
 	possible_transfer_amounts = list(5, 10, 15, 20, 25, 30, 50)
 	volume = 50
 	reagent_flags = OPENCONTAINER|REFILLABLE
@@ -58,7 +59,7 @@
 		if(M != user)
 			M.visible_message(span_danger("[user] attempts to feed [M] something."), \
 						span_danger("[user] attempts to feed you something."))
-			if(!do_mob(user, M))
+			if(!do_mob(user, M, double_progress = TRUE))
 				return
 			if(!reagents || !reagents.total_volume)
 				return // The drink might be empty after the delay, such as by spam-feeding
@@ -74,7 +75,7 @@
 					if (prob(25))
 						to_chat(human_user, span_red("I've got better manners than this..."))
 			to_chat(user, span_notice("I swallow a gulp of [src]."))
-		addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
+		addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, amount_per_gulp, TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 		playsound(M.loc,pick(drinksounds), 100, TRUE)
 		return
 
@@ -142,12 +143,13 @@
 
 		return
 
-	if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
-		user.visible_message(span_danger("[user] splashes the contents of [src] onto [target]!"), \
-							span_notice("I splash the contents of [src] onto [target]."))
-		reagents.reaction(target, TOUCH)
-		reagents.clear_reagents()
-		return
+	if(!isnull(reagents))
+		if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
+			user.visible_message(span_danger("[user] splashes the contents of [src] onto [target]!"), \
+								span_notice("I splash the contents of [src] onto [target]."))
+			reagents.reaction(target, TOUCH)
+			reagents.clear_reagents()
+			return
 
 /obj/item/reagent_containers/glass/afterattack(obj/target, mob/user, proximity)
 	if(user.used_intent.type == INTENT_GENERIC)
@@ -197,15 +199,21 @@
 	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
 	icon_state = "woodbucket"
 	item_state = "woodbucket"
+	resistance_flags = FLAMMABLE
+	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
 	max_integrity = 300
 	w_class = WEIGHT_CLASS_BULKY
-	amount_per_transfer_from_this = 9
-	possible_transfer_amounts = list(9)
-	volume = 70
+	force = 5
+	throwforce = 10
+	amount_per_transfer_from_this = 33
+	possible_transfer_amounts = list(33)
+	volume = 99
 	flags_inv = HIDEHAIR
 	reagent_flags = OPENCONTAINER
 	obj_flags = CAN_BE_HIT
 	gripped_intents = list(INTENT_POUR)
+	dropshrink = 0.8
+	slot_flags = null
 	resistance_flags = NONE
 	armor = list("blunt" = 25, "slash" = 20, "stab" = 15, "piercing" = 0, "fire" = 75, "acid" = 50) //Weak melee protection, because you can wear it on your head
 	slot_equipment_priority = list( \
@@ -219,51 +227,14 @@
 		SLOT_GENERC_DEXTROUS_STORAGE
 	)
 
-/obj/item/reagent_containers/glass/bucket/wooden
-	name = "bucket"
-	icon_state = "woodbucket"
-	item_state = "woodbucket"
-	icon = 'icons/roguetown/items/misc.dmi'
-	force = 5
-	throwforce = 10
-	amount_per_transfer_from_this = 9
-	volume = 99
-	armor = list("blunt" = 25, "slash" = 20, "stab" = 15, "piercing" = 0, "fire" = 0, "acid" = 50)
-	resistance_flags = FLAMMABLE
-	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
-	dropshrink = 0.8
-	slot_flags = null
-
-/obj/item/reagent_containers/glass/bucket/wooden/alter
-	icon = 'modular/Neu_Food/icons/cooking.dmi'
-
-/* using the version in Neu_Food instead
-/obj/item/reagent_containers/glass/bucket/wooden/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/natural/cloth))
-		var/obj/item/natural/cloth/T = I
-		if(T.wet && !T.return_blood_DNA())
-			return
-		var/removereg = /datum/reagent/water
-		if(!reagents.has_reagent(/datum/reagent/water, 5))
-			removereg = /datum/reagent/water/gross
-			if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-				to_chat(user, span_warning("No water to soak in."))
-				return
-		wash_atom(T)
-		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-		reagents.remove_reagent(removereg, 5)
-		user.visible_message(span_info("[user] soaks [T] in [src]."))
-		return
-	..()
-*/
-/obj/item/reagent_containers/glass/bucket/wooden/getonmobprop(tag)
+/obj/item/reagent_containers/glass/bucket/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)
 			if("gen")
 				return list("shrink" = 0.5,"sx" = -5,"sy" = -8,"nx" = 7,"ny" = -9,"wx" = -1,"wy" = -8,"ex" = -1,"ey" = -8,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0)
 
-/obj/item/reagent_containers/glass/bucket/wooden/update_icon(dont_fill=FALSE)
+/obj/item/reagent_containers/glass/bucket/update_icon(dont_fill=FALSE)
 	if(dont_fill)
 		testing("dontfull")
 		return ..()
@@ -272,13 +243,13 @@
 
 	if(reagents.total_volume > 0)
 		if(reagents.total_volume <= 50)
-			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bucket_half")
+			var/mutable_appearance/filling = mutable_appearance(icon, "bucket_half")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
 
 		if(reagents.total_volume > 50)
-			var/mutable_appearance/filling = mutable_appearance('modular/Neu_Food/icons/cooking.dmi', "bucket_full")
+			var/mutable_appearance/filling = mutable_appearance(icon, "bucket_full")
 			filling.color = mix_color_from_reagents(reagents.reagent_list)
 			filling.alpha = mix_alpha_from_reagents(reagents.reagent_list)
 			add_overlay(filling)
@@ -305,114 +276,3 @@
 		slot_equipment_priority.Insert(index, SLOT_HEAD)
 		return
 	return ..()
-
-/obj/item/pestle
-	name = "pestle"
-	desc = "A small, round-end stone tool oft used by physicians to crush and mix medicine."
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "pestle"
-	dropshrink = 0.65
-	force = 7
-
-/obj/item/reagent_containers/glass/mortar
-	name = "mortar"
-	desc = "A small, thick-walled stone bowl made for grinding things up inside."
-	icon_state = "mortar"
-	dropshrink = 0.75
-	amount_per_transfer_from_this = 9
-	volume = 100
-	reagent_flags = OPENCONTAINER|REFILLABLE|DRAINABLE
-	spillable = TRUE
-	var/obj/item/grinded
-
-/obj/item/reagent_containers/glass/mortar/attack_self(mob/user)
-	if(grinded)
-		grinded.forceMove(drop_location())
-		grinded = null
-		to_chat(user, span_notice("I eject the item inside."))
-
-/obj/item/reagent_containers/glass/mortar/attackby(obj/item/I, mob/living/carbon/human/user)
-	..()
-	if(istype(I,/obj/item/pestle))
-		if(grinded)
-			to_chat(user, span_notice("I start grinding..."))
-			if((do_after(user, 25, target = src)) && grinded)
-				if(grinded.juice_results) //prioritize juicing
-					grinded.on_juice()
-					reagents.add_reagent_list(grinded.juice_results)
-					to_chat(user, span_notice("I juice [grinded] into a fine liquid."))
-					if(grinded.reagents) //food and pills
-						grinded.reagents.trans_to(src, grinded.reagents.total_volume, transfered_by = user)
-						onfill(grinded, user, silent = FALSE)
-					QDEL_NULL(grinded)
-					return
-				grinded.on_grind()
-				reagents.add_reagent_list(grinded.grind_results)
-				to_chat(user, span_notice("I break [grinded] into powder."))
-				QDEL_NULL(grinded)
-				return
-			return
-		else
-			to_chat(user, span_warning("There is nothing to grind!"))
-			return
-	if(grinded)
-		to_chat(user, span_warning("There is something inside already!"))
-		return
-	if(istype(I ,/obj/item/reagent_containers/glass))
-		if(user.used_intent.type == INTENT_POUR) //Something like a glass. Player probably wants to transfer TO it.
-			testing("attackobj2")
-			if(!I.reagents.total_volume)
-				to_chat(user, span_warning("[I] is empty!"))
-				return
-
-			if(reagents.holder_full())
-				to_chat(user, span_warning("[src] is full."))
-				return
-			user.visible_message(span_notice("[user] pours [I] into [src]."), \
-							span_notice("I pour [I] into [src]."))
-			if(user.m_intent != MOVE_INTENT_SNEAK)
-				if(poursounds)
-					playsound(user.loc,pick(poursounds), 100, TRUE)
-			for(var/i in 1 to 10)
-				if(do_after(user, 8, target = src))
-					if(!I.reagents.total_volume)
-						break
-					if(reagents.holder_full())
-						break
-					if(!I.reagents.trans_to(src, amount_per_transfer_from_this, transfered_by = user))
-						reagents.reaction(src, TOUCH, amount_per_transfer_from_this)
-					onfill(I, user, silent = TRUE)
-				else
-					break
-			return
-
-		if(is_drainable() && (user.used_intent.type == /datum/intent/fill)) //A dispenser. Transfer FROM it TO us.
-			testing("attackobj3")
-			if(!reagents.total_volume)
-				to_chat(user, span_warning("[src] is empty!"))
-				return
-
-			if(I.reagents.holder_full())
-				to_chat(user, span_warning("[I] is full."))
-				return
-			if(user.m_intent != MOVE_INTENT_SNEAK)
-				if(fillsounds)
-					playsound(user.loc,pick(fillsounds), 100, TRUE)
-			user.visible_message(span_notice("[user] fills [I] with [src]."), \
-								span_notice("I fill [I] with [src]."))
-			for(var/i in 1 to 10)
-				if(do_after(user, 8, target = src))
-					if(I.reagents.holder_full())
-						break
-					if(!reagents.total_volume)
-						break
-					reagents.trans_to(I, amount_per_transfer_from_this, transfered_by = user)
-				else
-					break
-
-			return
-	if(I.juice_results || I.grind_results)
-		I.forceMove(src)
-		grinded = I
-		return
-	to_chat(user, span_warning("I can't grind this!"))

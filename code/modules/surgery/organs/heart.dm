@@ -26,6 +26,20 @@
 	/// Associated maniac key
 	var/inscryption_key
 
+	food_type = /obj/item/reagent_containers/food/snacks/organ/heart
+
+/obj/item/organ/heart/Destroy()
+	for(var/datum/culling_duel/D in GLOB.graggar_cullings)
+		var/obj/item/organ/heart/d_challenger_heart = D.challenger_heart?.resolve()
+		var/obj/item/organ/heart/d_target_heart = D.target_heart?.resolve()
+		if(src == d_challenger_heart)
+			D.handle_heart_destroyed("challenger")
+			continue
+		else if(src == d_target_heart)
+			D.handle_heart_destroyed("target")
+			continue
+	return ..()
+
 /obj/item/organ/heart/examine(mob/user)
 	. = ..()
 	var/datum/antagonist/maniac/dreamer = user.mind?.has_antag_datum(/datum/antagonist/maniac)
@@ -120,6 +134,11 @@
 				span_danger("I feel a terrible pain in my chest, as if my heart has stopped!"))
 		owner.set_heartattack(TRUE)
 		failed = TRUE
+/obj/item/organ/heart/construct
+	name = "construct core"
+	desc = "Swirling with a blessing of Astrata and pulsing with lux inside. This allows a construct to move."
+	icon_state = "heartcon-on"
+	icon_base = "heartcon"
 
 /obj/item/organ/heart/cursed
 	name = "cursed heart"

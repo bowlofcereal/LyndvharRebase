@@ -18,9 +18,13 @@
 		/datum/language/beast,
 		/datum/language/orcish,
 		/datum/language/draconic,
-		/datum/language/canilunzt,
 		/datum/language/thievescant,
-		/datum/language/grenzelhoftian
+		/datum/language/grenzelhoftian,
+		/datum/language/kazengunese,
+		/datum/language/otavan,
+		/datum/language/etruscan,
+		/datum/language/gronnic,
+		/datum/language/aavnic
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)
@@ -49,6 +53,13 @@
 /obj/item/organ/tongue/could_speak_in_language(datum/language/dt)
 	return is_type_in_typecache(dt, languages_possible)
 
+/obj/item/organ/tongue/construct
+	name = "construct tongue"
+	desc = "A beast's tongue, preserved through artifice and with crystals embedded in the base. It seems rather dead..."
+	icon_state = "tongue-con"
+	say_mod = "crackles"
+	taste_sensitivity = 30 //It's dead, jim.
+	
 /obj/item/organ/tongue/lizard
 	name = "forked tongue"
 	desc = ""
@@ -242,3 +253,7 @@
 
 /obj/item/organ/tongue/wild_tongue
 	name = "wild tongue"
+
+/obj/item/organ/tongue/moth
+	name = "moth tongue"
+	say_mod = "flutters"

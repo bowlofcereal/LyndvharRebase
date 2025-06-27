@@ -1,9 +1,9 @@
-
+//Base hammer type. (Wood / Iron / Steel)
 /obj/item/rogueweapon/hammer
 	force = 21
 	possible_item_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash)
-	name = "hammer"
-	desc = "Each strikes reverberate loudly chanting war!"
+	name = "template hammer"
+	desc = "If you see this - scream, cry, piss, run, shit yourself, then report it to a dev. Shouldn't be here."
 	icon_state = "hammer"
 	icon = 'icons/roguetown/weapons/tools.dmi'
 	sharpness = IS_BLUNT
@@ -12,7 +12,9 @@
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_NORMAL
 	associated_skill = /datum/skill/combat/maces
-	smeltresult = /obj/item/ingot/iron
+	smeltresult = /obj/item/ash
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/rogueweapon/hammer/attack_obj(obj/attacked_object, mob/living/user)
 	if(!isliving(user) || !user.mind)
@@ -64,9 +66,17 @@
 		if(!attacked_item.anvilrepair || (attacked_item.obj_integrity >= attacked_item.max_integrity) || !isturf(attacked_item.loc))
 			return
 
+		if(!attacked_item.ontable())
+			to_chat(user, span_warning("I should put this on a table or an anvil first."))
+			return
+
 		if(blacksmith_mind.get_skill_level(attacked_item.anvilrepair) <= 0)
-			if(HAS_TRAIT(user, TRAIT_SQUIRE_REPAIR) && locate(/obj/machinery/anvil) in attacked_object.loc)
-				repair_percent = 0.035
+			if(HAS_TRAIT(user, TRAIT_SQUIRE_REPAIR))
+				if(locate(/obj/machinery/anvil) in attacked_object.loc)
+					repair_percent = 0.035
+				//Squires can repair on tables, but less efficiently
+				else if(attacked_item.ontable())
+					repair_percent = 0.015
 			else if(prob(30))
 				repair_percent = 0.01
 			else
@@ -83,15 +93,18 @@
 				to_chat(user, span_warning("You fumble your way into slightly repairing [attacked_item]."))
 			else
 				user.visible_message(span_info("[user] repairs [attacked_item]!"))
-			if(attacked_item.obj_broken && istype(attacked_item, /obj/item/clothing))
-				var/obj/item/clothing/clothing = attacked_item
-				clothing.obj_fix()
+				if(attacked_item.body_parts_covered != attacked_item.body_parts_covered_dynamic)
+					user.visible_message(span_info("[user] repairs [attacked_item]'s coverage!"))
+					attacked_item.repair_coverage()
+			if(attacked_item.obj_broken && attacked_item.obj_integrity == attacked_item.max_integrity)
+				attacked_item.obj_fix()
 			blacksmith_mind.add_sleep_experience(attacked_item.anvilrepair, exp_gained/2) //We gain as much exp as we fix divided by 2
 			if(do_after(user, CLICK_CD_MELEE, target = attacked_object))
 				attack_obj(attacked_object, user)
 			return
 		else
 			user.visible_message(span_warning("[user] fumbles trying to repair [attacked_item]!"))
+			attacked_item.obj_integrity = max(0, attacked_item.obj_integrity - (10 - repair_percent))
 			return
 
 	if(isstructure(attacked_object) && !user.cmode)
@@ -111,18 +124,89 @@
 
 	. = ..()
 
-/obj/item/rogueweapon/hammer/stone
-	name = "stone hammer"
-	icon_state = "stonehammer"
+
+/obj/item/rogueweapon/hammer/attack(mob/living/M, mob/user)
+	testing("attack")
+	if(!user.cmode)
+		hammerheal(M, user)
+	else
+		. = ..() //normal hit
+
+/obj/item/rogueweapon/hammer/proc/hammerheal(mob/living/M, mob/user)
+	if(!M.can_inject(user, TRUE))
+		return
+	if(!ishuman(M))
+		return
+	if(M.construct)
+		var/mob/living/carbon/human/H = M
+		var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
+		if(!affecting)
+			return
+		var/used_time = 70
+		if(user.mind)
+			used_time -= (user.mind.get_skill_level(/datum/skill/craft/engineering) * 10)
+		playsound(loc, 'sound/items/bsmith1.ogg', 100, FALSE)
+		if(!do_mob(user, M, used_time))
+			return
+		playsound(loc, 'sound/items/bsmith4.ogg', 100, FALSE)
+
+		var/list/wCount = H.get_wounds()
+		H.adjustBruteLoss(-10)
+		H.adjustFireLoss(-10)
+		H.update_damage_overlays()
+		if(wCount.len > 0)
+			H.heal_wounds(2)
+			H.update_damage_overlays()
+		if(M == user)
+			user.visible_message(span_notice("[user] hammers [user.p_their()] [affecting]."), span_notice("I hammer my [affecting]."))
+		else
+			user.visible_message(span_notice("[user] hammers [M]'s [affecting]."), span_notice("I hammer [M]'s [affecting]."))
+	else //Non-construct.
+		to_chat(user, span_warning("I can't tinker on living flesh!"))
+
+/obj/item/rogueweapon/hammer/wood	// wood hammer (mallet)
+	name = "wooden mallet"
+	desc = "A wooden mallet is an artificers second best friend! But it may also come in handy to a smith..."
+	icon_state = "hammer_w"
 	force = 16
-	smeltresult = null
+
+/obj/item/rogueweapon/hammer/stone	// stone hammer
+	name = "stone hammer"
+	desc = "A makeshift hammer, made with a crudly chisled-down rock."
+	icon_state = "hammer_r"
+	force = 18
 	max_integrity = 15
 
-/obj/item/rogueweapon/hammer/claw
-	icon_state = "clawh"
+/obj/item/rogueweapon/hammer/aalloy
+	name = "decrepit hammer"
+	desc = "A decrepit old hammer."
+	icon_state = "ahammer"
+	force = 12
+	max_integrity = 10
+	smeltresult = /obj/item/ingot/aalloy
+
+
+/obj/item/rogueweapon/hammer/copper
+	name = "copper hammer"
+	desc = "A copper hammer, slightly better than a stone hammer."
+	icon_state = "hammer_c"
+	force = 20
+	max_integrity = 100
+
+/obj/item/rogueweapon/hammer/iron	// iron hammer
+	name = "hammer"
+	desc = "Each strikes reverberate loudly chanting war!"
+	icon_state = "hammer_i"
+	smeltresult = /obj/item/ingot/iron
+
+/obj/item/rogueweapon/hammer/steel	// steel hammer
+	name = "claw hammer"
+	desc = "Steel to drive the iron nail without mercy."
+	icon_state = "hammer_s"
+	smeltresult = /obj/item/ingot/steel
 
 /*
-/obj/item/rogueweapon/hammer/claw/attack_turf(turf/T, mob/living/user)
+/obj/item/rogueweapon/hammer/steel/attack_turf(turf/T, mob/living/user)
 	if(!user.cmode)
 		if(T.hammer_repair && T.max_integrity && !T.obj_broken)
 			var/repair_percent = 0.05
@@ -168,8 +252,6 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-
-
 /obj/item/rogueweapon/tongs
 	force = 10
 	possible_item_intents = list(/datum/intent/mace/strike)
@@ -186,6 +268,8 @@
 	var/obj/item/ingot/hingot = null
 	var/hott = FALSE
 	smeltresult = /obj/item/ingot/iron
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/rogueweapon/tongs/examine(mob/user)
 	. = ..()
@@ -278,3 +362,20 @@
 			icon_state = "stonetongsi1"
 		else
 			icon_state = "stonetongsi0"
+
+/obj/item/rogueweapon/tongs/aalloy
+	name = "decrepit tongs"
+	icon_state = "atongs"
+	force = 5
+	smeltresult = null
+	max_integrity = 10
+
+/obj/item/rogueweapon/tongs/aalloy/update_icon()
+	. = ..()
+	if(!hingot)
+		icon_state = "atongs"
+	else
+		if(hott)
+			icon_state = "atongsi1"
+		else
+			icon_state = "atongsi0"

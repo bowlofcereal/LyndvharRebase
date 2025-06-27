@@ -14,7 +14,7 @@
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 5 SECONDS 
+	recharge_time = 5 SECONDS 
 	miracle = TRUE
 	devotion_cost = 0 
 
@@ -49,7 +49,7 @@
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
-	charge_max = 20 SECONDS
+	recharge_time = 20 SECONDS
 	miracle = TRUE
 	devotion_cost = 20
 
@@ -101,7 +101,7 @@
 	no_early_release = TRUE
 	antimagic_allowed = TRUE
 	movement_interrupt = FALSE
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	range = 4
 	var/totalstatshift = 0
 	var/totalstatchange = 0
@@ -183,13 +183,18 @@
 	no_early_release = TRUE
 	antimagic_allowed = TRUE
 	movement_interrupt = FALSE
-	charge_max = 2 MINUTES
+	recharge_time = 2 MINUTES
 	range = 4
 
 
 /obj/effect/proc_holder/spell/invoked/churnwealthy/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
 		var/mob/living/carbon/human/target = targets[1]
+
+		if(user.z != target.z) //Stopping no-interaction snipes
+			to_chat(user, "<font color='yellow'>The Free-God compels me to face [target] on level ground before I transact.</font>")
+			revert_cast()
+			return
 		var/mammonsonperson = get_mammons_in_atom(target)
 		var/mammonsinbank = SStreasury.bank_accounts[target]
 		var/totalvalue = mammonsinbank + mammonsonperson
@@ -197,6 +202,7 @@
 			totalvalue += 101 // We're ALWAYS going to do a medium level smite minimum to nobles.
 		if(totalvalue <=10)
 			to_chat(user, "<font color='yellow'>[target] one has no wealth to hold against them.</font>")
+			revert_cast()
 			return
 		if(totalvalue <=30)
 			user.say("Wealth becomes woe!")
@@ -221,7 +227,7 @@
 			user.say("The Free-God rebukes!")
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I feel the weight of my wealth tearing at my soul!"))
 			target.adjustFireLoss(100)
-			target.adjust_fire_stacks(7)
+			target.adjust_divine_fire_stacks(7)
 			target.Stun(20)
 			target.IgniteMob()
 			playsound(user, 'sound/magic/churn.ogg', 100, TRUE)
@@ -230,7 +236,7 @@
 			user.say("The Free-God rebukes!")
 			target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I feel the weight of my wealth tearing at my soul!"))
 			target.adjustFireLoss(120)
-			target.adjust_fire_stacks(9)
+			target.adjust_divine_fire_stacks(9)
 			target.IgniteMob()
 			target.Stun(40)
 			playsound(user, 'sound/magic/churn.ogg', 100, TRUE)

@@ -18,8 +18,11 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Cyclops (L)"=/datum/charflaw/noeyel,
 	"Wood Arm (R)"=/datum/charflaw/limbloss/arm_r,
 	"Wood Arm (L)"=/datum/charflaw/limbloss/arm_l,
+	"Sleepless"=/datum/charflaw/sleepless,
+	"Mute"=/datum/charflaw/mute,
+	"Critical Weakness"=/datum/charflaw/critweakness,
 	"Random or No Flaw"=/datum/charflaw/randflaw,
-	"No Flaw (3 TRIUMPHS)"=/datum/charflaw/noflaw
+	"No Flaw (3 TRIUMPHS)"=/datum/charflaw/noflaw,
 	))
 
 /datum/charflaw
@@ -274,7 +277,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/colorblind
 	name = "Colorblind"
-	desc = "I was cursed with flawed eyesight from birth, and can't discern things others can."
+	desc = "I was cursed with flawed eyesight from birth, and can't discern things others can. Incompatible with Night-eyed virtue."
 
 /datum/charflaw/colorblind/on_mob_creation(mob/user)
 	..()
@@ -479,3 +482,24 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	for(var/atom/movable/content in movable.contents)
 		mammons += get_mammons_in_atom(content)
 	return mammons
+
+/datum/charflaw/sleepless
+	name = "Insomnia"
+	desc = "I do not sleep. I cannot sleep. I've tried everything."
+
+/datum/charflaw/sleepless/on_mob_creation(mob/user)
+	ADD_TRAIT(user, TRAIT_NOSLEEP, TRAIT_GENERIC)
+
+/datum/charflaw/mute
+	name = "Mute"
+	desc = "I was born without the ability to speak."
+
+/datum/charflaw/mute/on_mob_creation(mob/user)
+	ADD_TRAIT(user, TRAIT_PERMAMUTE, TRAIT_GENERIC)
+
+/datum/charflaw/critweakness
+	name = "Critical Weakness"
+	desc = "My body is as fragile as an eggshell. A critical strike is like to end me then and there."
+
+/datum/charflaw/critweakness/on_mob_creation(mob/user)
+	ADD_TRAIT(user, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)

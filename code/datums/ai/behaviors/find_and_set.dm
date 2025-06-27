@@ -79,7 +79,7 @@
 /datum/ai_behavior/find_and_set/dead_bodies/search_tactic(datum/ai_controller/controller, locate_paths, search_range)
 	var/list/found = list()
 	for(var/mob/living/mob in oview(search_range, controller.pawn))
-		if(mob.stat == CONSCIOUS) 
+		if(mob.stat != DEAD) 
 			continue
 		 if(istype(mob, /mob/living/carbon)) //hopefully not too taxing
 		 	var/mob/living/carbon/carbon_mob = mob
@@ -93,4 +93,6 @@
 /datum/ai_behavior/find_and_set/dead_bodies/mimic/finish_action(datum/ai_controller/controller, succeeded, ...)
 	. = ..()
 	if(succeeded)
-		controller.pawn.icon_state = "mimicopen"
+		var/mob/living/simple_animal/hostile/basic_mob = controller.pawn
+		if(!basic_mob.stat) // if the mimic's not dead
+			basic_mob.Aggro() // wake up the mimic and update their icon

@@ -15,7 +15,6 @@
 /obj/structure/table
 	name = "table"
 	desc = ""
-	icon = 'icons/obj/smooth_structures/table.dmi'
 	icon_state = "table"
 	density = TRUE
 	anchored = TRUE
@@ -103,10 +102,10 @@
 		return !density
 
 /obj/structure/table/CanAStarPass(ID, dir, caller)
-	. = !density
+	. = ..()
 	if(ismovableatom(caller))
 		var/atom/movable/mover = caller
-		. = . || (mover.pass_flags & PASSTABLE)
+		. ||= (mover.pass_flags & PASSTABLE)
 
 /obj/structure/table/proc/tableplace(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
@@ -294,11 +293,18 @@
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablefine2"
 
-/obj/structure/table/wood/poker //No specialties, Just a mapping object.
-	name = "gambling table"
-	desc = ""
-	icon = 'icons/obj/smooth_structures/poker_table.dmi'
-	icon_state = "poker_table"
+/obj/structure/table/cooling //cooling table made by artificers
+	name = "Cooling Table"
+	desc = "Used to keep your food cool and rot free"
+	icon = 'icons/roguetown/misc/tables.dmi'
+	icon_state = "tablewood_alt"
+	resistance_flags = FLAMMABLE
+	max_integrity = 40 //making this weak, its fragile
+	smooth = 0
+	debris = list(/obj/item/grown/log/tree/small, /obj/item/roguegear)
+	climb_offset = 10
+
+
 
 /obj/structure/table/wood/poker/narsie_act()
 	..(FALSE)
@@ -364,6 +370,28 @@
 	icon_state = "fancy_table_royalblue"
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_royalblue.dmi'
 
+/obj/structure/table/wood/folding
+	name = "folding table"
+	desc = "A folding table, useful for setting up a temporary workspace."
+	icon = 'icons/roguetown/misc/gadgets.dmi'
+	icon_state = "foldingtableDeployed"
+	resistance_flags = FLAMMABLE
+	max_integrity = 50
+	smooth = 0
+	debris = list(/obj/item/grown/log/tree/small = 1)
+	climbable = TRUE
+	climb_offset = 10
+
+/obj/structure/table/wood/folding/examine()
+	. = ..()
+	. += span_blue("Right-Click to fold the table.")
+
+/obj/structure/table/wood/folding/attack_right(mob/user)
+	user.visible_message(span_notice("[user] folds [src]."), span_notice("You fold [src]."))
+	new /obj/item/folding_table_stored(drop_location())
+	qdel(src)
+	return ..()
+
 /*
  * Racks
  */
@@ -394,10 +422,10 @@
 		return 0
 
 /obj/structure/rack/CanAStarPass(ID, dir, caller)
-	. = !density
+	. = ..()
 	if(ismovableatom(caller))
 		var/atom/movable/mover = caller
-		. = . || (mover.pass_flags & PASSTABLE)
+		. ||= (mover.pass_flags & PASSTABLE)
 
 /obj/structure/rack/MouseDrop_T(obj/O, mob/user)
 	. = ..()

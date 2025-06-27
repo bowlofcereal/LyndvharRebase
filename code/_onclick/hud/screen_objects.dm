@@ -73,7 +73,6 @@
 
 /atom/movable/screen/skills
 	name = "skills"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "skills"
 	screen_loc = ui_skill_menu
 
@@ -114,7 +113,6 @@
 
 /atom/movable/screen/craft
 	name = "crafting menu"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "craft"
 	screen_loc = rogueui_craft
 	var/last_craft
@@ -144,7 +142,6 @@
 
 /atom/movable/screen/area_creator
 	name = "create new area"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "area_edit"
 	screen_loc = ui_building
 
@@ -159,7 +156,6 @@
 
 /atom/movable/screen/language_menu
 	name = "language menu"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "talk_wheel"
 	screen_loc = ui_language_menu
 
@@ -261,6 +257,7 @@
 	nomouseover =  TRUE
 	var/mutable_appearance/handcuff_overlay
 	var/static/mutable_appearance/blocked_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "blocked")
+	var/static/mutable_appearance/grabbed_overlay = mutable_appearance('icons/mob/screen_gen.dmi', "grabbed")
 	var/held_index = 0
 
 /atom/movable/screen/inventory/hand/update_overlays()
@@ -279,6 +276,8 @@
 			. += handcuff_overlay
 
 		if(held_index)
+			if(C.check_arm_grabbed(held_index))
+				. += grabbed_overlay
 			if(!C.has_hand_for_held_index(held_index))
 				. += blocked_overlay
 
@@ -322,7 +321,6 @@
 
 /atom/movable/screen/drop
 	name = "drop"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "act_drop"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -629,7 +627,6 @@
 
 /atom/movable/screen/mov_intent
 	name = "run/walk toggle"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "running"
 
 /atom/movable/screen/mov_intent/Click(location, control, params)
@@ -814,7 +811,6 @@
 
 /atom/movable/screen/pull
 	name = "stop pulling"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "pull"
 
 /atom/movable/screen/pull/Click()
@@ -830,7 +826,6 @@
 
 /atom/movable/screen/rest
 	name = "rest"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "act_rest"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -852,7 +847,6 @@
 
 /atom/movable/screen/restup
 	name = "stand up"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "act_rest_up"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -869,7 +863,6 @@
 
 /atom/movable/screen/restdown
 	name = "lay down"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "act_rest_down"
 	layer = HUD_LAYER
 	plane = HUD_PLANE
@@ -901,6 +894,19 @@
 	master = new_master
 
 /atom/movable/screen/storage/Click(location, control, params)
+	var/list/modifiers = params2list(params)
+	if(modifiers["right"])
+		if(master)
+			var/obj/item/flipper = usr.get_active_held_item()
+			if((!usr.Adjacent(flipper) && !usr.DirectAccess(flipper)) || !isliving(usr) || usr.incapacitated())
+				return
+			var/old_width = flipper.grid_width
+			var/old_height = flipper.grid_height
+			flipper.grid_height = old_width
+			flipper.grid_width = old_height
+			update_hovering(location, control, params)
+			return
+
 	if(world.time <= usr.next_move)
 		return TRUE
 	if(usr.incapacitated())
@@ -908,12 +914,11 @@
 	if(master)
 		var/obj/item/I = usr.get_active_held_item()
 		if(I)
-			master.attackby(null, I, usr, params)
+			master.attackby(src, I, usr, params, TRUE)
 	return TRUE
 
 /atom/movable/screen/throw_catch
 	name = "throw/catch"
-	icon = 'icons/mob/screen_midnight.dmi'
 	icon_state = "catch0"
 	var/throwy = 0
 

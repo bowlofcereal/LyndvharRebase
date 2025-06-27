@@ -127,6 +127,13 @@
 	/// This job is immune to species-based swapped gender locks
 	var/immune_to_genderswap = FALSE
 
+	/// Jobs that are obsfuscated on actor screen
+	var/obsfuscated_job = FALSE
+
+	///Jobs that are hidden from actor screen
+	var/hidden_job = FALSE
+
+
 /*
 	How this works, its CTAG_DEFINE = amount_to_attempt_to_role
 	EX: advclass_cat_rolls = list(CTAG_PILGRIM = 5, CTAG_ADVENTURER = 5)
@@ -138,6 +145,9 @@
 	How this works, they get one extra roll on every category per PQ amount
 */
 	var/PQ_boost_divider = 0
+
+	var/list/virtue_restrictions
+	var/list/vice_restrictions
 
 
 /datum/job/proc/special_job_check(mob/dead/new_player/player)
@@ -160,6 +170,8 @@
 //Only override this proc
 //H is usually a human unless an /equip override transformed it
 /datum/job/proc/after_spawn(mob/living/H, mob/M, latejoin = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_JOB_AFTER_SPAWN, src)
 	//do actions on H but send messages to M as the key may not have been transferred_yet
 	if(mind_traits)
 		for(var/t in mind_traits)
@@ -172,7 +184,7 @@
 		for(var/S in spells)
 			H.mind.AddSpell(new S)
 
-	if(H.gender == FEMALE)
+	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		if(jobstats_f)
 			for(var/S in jobstats_f)
 				H.change_stat(S, jobstats_f[S])
@@ -211,14 +223,16 @@
 	if(cmode_music)
 		H.cmode_music = cmode_music
 
-	if(!H.mind.special_role)
-		GLOB.actors_list[H.mobid] = "[H.real_name] as [H.mind.assigned_role]<BR>"
-	if(H.mind.special_role == "Court Agent")		//For obfuscating Court Agents in Actors list
-		GLOB.actors_list[H.mobid] = "[H.real_name] as Adventurer<BR>"
+	if (!hidden_job)
+		if (obsfuscated_job)
+			GLOB.actors_list[H.mobid] = "[H.real_name] as Adventurer<BR>"
+		else
+			GLOB.actors_list[H.mobid] = "[H.real_name] as [H.mind.assigned_role]<BR>"
 
 /client/verb/set_mugshot()
 	set category = "OOC"
 	set name = "Set Credits Mugshot"
+	set hidden = FALSE
 	if(mob && ishuman(mob) && mob.mind)
 		var/mob/living/carbon/human/H = mob
 		if(!H.mind.mugshot_set)
@@ -287,7 +301,7 @@
 	H.dna.species.before_equip_job(src, H, visualsOnly)
 	if(!outfit_override && visualsOnly && visuals_only_outfit)
 		outfit_override = visuals_only_outfit
-	if(H.gender == FEMALE)
+	if(should_wear_femme_clothes(H))
 		if(outfit_override || outfit_female)
 			H.equipOutfit(outfit_override ? outfit_override : outfit_female, visualsOnly)
 		else
@@ -388,4 +402,12 @@
 	if(CONFIG_GET(flag/security_has_maint_access))
 		return list(ACCESS_MAINT_TUNNELS)
 	return list()
+
+// LETHALSTONE EDIT: Helper functions for pronoun-based clothing selection
+/proc/should_wear_masc_clothes(mob/living/carbon/human/H)
+	return (H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS || H.pronouns == SHE_HER_M)
+
+/proc/should_wear_femme_clothes(mob/living/carbon/human/H)
+	return (H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F || H.pronouns == HE_HIM_F)
+// LETHALSTONE EDIT END
 

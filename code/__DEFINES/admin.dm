@@ -6,6 +6,7 @@
 #define MUTE_PRAY		(1<<2)
 #define MUTE_ADMINHELP	(1<<3)
 #define MUTE_DEADCHAT	(1<<4)
+#define MUTE_LOOC		(1<<5)
 #define MUTE_ALL		(~0)
 
 //Some constants for DB_Ban
@@ -70,12 +71,8 @@
 #define ADMIN_PUNISHMENT_BRAINDAMAGE "Brain damage"
 #define ADMIN_PUNISHMENT_GIB "Gib"
 #define ADMIN_PUNISHMENT_BSA "Bluespace Artillery Device"
-#define ADMIN_PUNISHMENT_FIREBALL "Fireball"
-#define ADMIN_PUNISHMENT_ROD "Immovable Rod"
-#define ADMIN_PUNISHMENT_SUPPLYPOD_QUICK "Supply Pod (Quick)"
-#define ADMIN_PUNISHMENT_SUPPLYPOD "Supply Pod"
-#define ADMIN_PUNISHMENT_MAZING "Puzzle"
-#define ADMIN_PUNISHMENT_BRAZIL "Send to Brazil"
+#define ADMIN_PUNISHMENT_CRIPPLE "Fracture arms and legs"
+#define ADMIN_PUNISHMENT_THROWMOB "Throw Mob"
 #define ADMIN_PUNISHMENT_CBT "CBT"
 #define ADMIN_PUNISHMENT_NECKSNAP "Snap Neck"
 #define ADMIN_PUNISHMENT_LIAM "Trey Liam'd"
@@ -91,17 +88,6 @@
 #define SPAM_TRIGGER_WARNING	5
 /// Number of identical messages required before the spam-prevention will automute you
 #define SPAM_TRIGGER_AUTOMUTE	10
-
-///Max length of a keypress command before it's considered to be a forged packet/bogus command
-#define MAX_KEYPRESS_COMMANDLENGTH 16
-///Maximum keys that can be bound to one button
-#define MAX_COMMANDS_PER_KEY 5
-///Maximum keys per keybind
-#define MAX_KEYS_PER_KEYBIND 3
-///Max amount of keypress messages per second over two seconds before client is autokicked
-#define MAX_KEYPRESS_AUTOKICK 50
-///Length of held key rolling buffer
-#define HELD_KEY_BUFFER_LENGTH 15
 
 #define STICKYBAN_DB_CACHE_TIME 10 SECONDS
 #define STICKYBAN_ROGUE_CHECK_TIME 5

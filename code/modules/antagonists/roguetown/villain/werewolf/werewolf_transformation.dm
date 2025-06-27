@@ -58,7 +58,7 @@
 				to_chat(H, span_warning("Daylight shines around me... the curse begins to fade."))
 
 
-/mob/living/carbon/human/species/werewolf/death(gibbed)
+/mob/living/carbon/human/species/werewolf/death(gibbed, nocutscene = FALSE)
 	werewolf_untransform(TRUE, gibbed)
 
 /mob/living/carbon/human/proc/werewolf_transform()
@@ -96,7 +96,6 @@
 	W.skin_armor = new /obj/item/clothing/suit/roguetown/armor/skin_armor/werewolf_skin(W)
 	playsound(W.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
 	W.spawn_gibs(FALSE)
-	apply_status_effect(STATUS_EFFECT_STASIS, null, TRUE)
 	src.forceMove(W)
 
 	W.after_creation()
@@ -146,6 +145,8 @@
 	ADD_TRAIT(W, TRAIT_HARDDISMEMBER, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_PIERCEIMMUNE, TRAIT_GENERIC)
 	ADD_TRAIT(W, TRAIT_SPELLCOCKBLOCK, TRAIT_GENERIC)
+	ADD_TRAIT(W, TRAIT_LONGSTRIDER, TRAIT_GENERIC)
+	ADD_TRAIT(W, TRAIT_STRENGTH_UNCAPPED, TRAIT_GENERIC)
 
 	invisibility = oldinv
 
@@ -168,7 +169,6 @@
 		W.death(gibbed)
 
 	W.forceMove(get_turf(src))
-	W.remove_status_effect(STATUS_EFFECT_STASIS)
 
 	REMOVE_TRAIT(W, TRAIT_NOMOOD, TRAIT_GENERIC)
 

@@ -57,28 +57,6 @@
 	color = "#8228A0"
 	toxpwr = 3
 
-/datum/reagent/toxin/plasma/on_temp_change()
-	if(holder.chem_temp < LIQUID_PLASMA_BP)
-		return
-	if(holder.my_atom)
-		var/atom/A = holder.my_atom
-		A.atmos_spawn_air("plasma=[volume];TEMP=[holder.chem_temp]")
-		holder.del_reagent(type)
-
-/datum/reagent/toxin/plasma/reaction_obj(obj/O, reac_volume)
-	if((!O) || (!reac_volume))
-		return 0
-	var/temp = holder ? holder.chem_temp : T20C
-	if(temp >= LIQUID_PLASMA_BP)
-		O.atmos_spawn_air("plasma=[reac_volume];TEMP=[temp]")
-
-/datum/reagent/toxin/plasma/reaction_turf(turf/open/T, reac_volume)
-	if(!istype(T))
-		return
-	var/temp = holder ? holder.chem_temp : T20C
-	if(temp >= LIQUID_PLASMA_BP)
-		T.atmos_spawn_air("plasma=[reac_volume];TEMP=[temp]")
-
 /datum/reagent/toxin/plasma/reaction_mob(mob/living/M, method=TOUCH, reac_volume)//Splashing people with plasma is stronger than fuel!
 	if(method == TOUCH || method == VAPOR)
 		M.adjust_fire_stacks(reac_volume / 5)
@@ -224,8 +202,8 @@
 /datum/reagent/toxin/plantbgone/reaction_obj(obj/O, reac_volume)
 	if(istype(O, /obj/structure/glowshroom)) //even a small amount is enough to kill it
 		qdel(O)
-	else if(istype(O, /obj/structure/spacevine))
-		var/obj/structure/spacevine/SV = O
+	else if(istype(O, /obj/structure/vine))
+		var/obj/structure/vine/SV = O
 		SV.on_chem_effect(src)
 
 /datum/reagent/toxin/plantbgone/reaction_mob(mob/living/M, method=TOUCH, reac_volume)
@@ -446,18 +424,6 @@
 	testing("toxin OML")
 	M.add_nausea(20)
 	M.adjustToxLoss(3, 0)
-	return ..()
-
-/datum/reagent/toxin/killersice
-	name = "killersice"
-	description = "killersice"
-	reagent_state = LIQUID
-	color = "#FFFFFF"
-	metabolization_rate = 0.01
-	toxpwr = 0
-
-/datum/reagent/toxin/killersice/on_mob_life(mob/living/carbon/M)
-	M.adjustToxLoss(10, 0)
 	return ..()
 
 /datum/reagent/toxin/bad_food

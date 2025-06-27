@@ -34,6 +34,7 @@
 /mob/living/proc/get_wounds()
 	var/list/all_wounds = list()
 	if(length(simple_wounds))
+		listclearnulls(simple_wounds)
 		all_wounds += simple_wounds
 	return all_wounds
 
@@ -56,13 +57,23 @@
 		return wound
 
 /// Loops through our list of wounds healing them until we run out of healing or all wounds are healed
-/mob/living/proc/heal_wounds(heal_amount)
+/mob/living/proc/heal_wounds(heal_amount, list/specific_types)
 	var/healed_any = FALSE
 	if(has_status_effect(/datum/status_effect/buff/fortify))
 		heal_amount *= 1.5
 	for(var/datum/wound/wound as anything in get_wounds())
+		if(isnull(wound))
+			continue
 		if(heal_amount <= 0)
 			continue
+		if(length(specific_types))
+			var/found = FALSE
+			for(var/woundtype in specific_types)
+				if(istype(wound, woundtype))
+					found = TRUE
+					break
+			if(!found)
+				continue
 		var/amount_healed = wound.heal_wound(heal_amount)
 		if(amount_healed)
 			heal_amount -= amount_healed
@@ -184,6 +195,8 @@
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = simple_add_wound(wound_type, silent, crit_message)
 		if(applied)
+			if(user?.client)
+				GLOB.azure_round_stats[STATS_CRITS_MADE]++
 			return applied
 	return FALSE
 

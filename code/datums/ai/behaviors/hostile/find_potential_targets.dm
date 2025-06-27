@@ -2,6 +2,7 @@
 	action_cooldown = 2 SECONDS
 	/// How far can we see stuff?
 	var/vision_range = 9
+	var/tamed_key = BB_BASIC_MOB_TAMED
 
 /datum/ai_behavior/find_potential_targets/perform(seconds_per_tick, datum/ai_controller/controller, target_key, targetting_datum_key, hiding_location_key)
 
@@ -17,6 +18,9 @@
 		return
 
 	controller.clear_blackboard_key(target_key)
+	if(controller.blackboard[tamed_key]) //they are tamed, thusly pacified and will only retaliate.
+		finish_action(controller, succeeded = FALSE)
+		return
 	var/list/potential_targets = hearers(vision_range, controller.pawn) - living_mob //Remove self, so we don't suicide
 
 	if(!potential_targets.len) // Couldn't find valid targets
@@ -74,7 +78,9 @@
 	. = ..()
 	if (succeeded)
 		controller.CancelActions()
-		controller.pawn.icon_state = "mimicopen"
+		var/mob/living/simple_animal/hostile/basic_mob = controller.pawn
+		if(!basic_mob.stat) // if the mimic's not dead
+			basic_mob.Aggro() // wake up the mimic and update their icon
 
 
 /datum/ai_behavior/find_potential_targets/mole

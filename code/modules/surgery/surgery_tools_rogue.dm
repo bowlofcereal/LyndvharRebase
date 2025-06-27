@@ -11,13 +11,16 @@
 	force = 12
 	throwforce = 12
 	wdefense = 3
-	wbalance = 1
+	wbalance = WBALANCE_SWIFT
 	max_blade_int = 100
 	max_integrity = 175
 	thrown_bclass = BCLASS_CUT
 	associated_skill = /datum/skill/combat/knives
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = null
+
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/rogueweapon/surgery/Initialize()
 	. = ..()
@@ -50,7 +53,7 @@
 	force = 16
 	throwforce = 16
 	wdefense = 3
-	wbalance = 1
+	wbalance = WBALANCE_SWIFT
 	w_class = WEIGHT_CLASS_NORMAL
 	thrown_bclass = BCLASS_CHOP
 	tool_behaviour = TOOL_SAW
@@ -65,6 +68,7 @@
 	parrysound = list('sound/combat/parry/bladed/bladedsmall (1).ogg','sound/combat/parry/bladed/bladedsmall (2).ogg','sound/combat/parry/bladed/bladedsmall (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
+	sharpness = IS_BLUNT
 	tool_behaviour = TOOL_HEMOSTAT
 	smeltresult = null
 
@@ -90,7 +94,8 @@
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
 	wdefense = 3
-	wbalance = 1
+	wbalance = WBALANCE_SWIFT
+	sharpness = IS_BLUNT
 	w_class = WEIGHT_CLASS_NORMAL
 	thrown_bclass = BCLASS_BLUNT
 	tool_behaviour = TOOL_RETRACTOR
@@ -105,6 +110,7 @@
 	parrysound = list('sound/combat/parry/bladed/bladedsmall (1).ogg','sound/combat/parry/bladed/bladedsmall (2).ogg','sound/combat/parry/bladed/bladedsmall (3).ogg')
 	swingsound = list('sound/combat/wooshes/bladed/wooshsmall (1).ogg','sound/combat/wooshes/bladed/wooshsmall (2).ogg','sound/combat/wooshes/bladed/wooshsmall (3).ogg')
 	pickup_sound = 'sound/foley/equip/swordsmall2.ogg'
+	sharpness = IS_BLUNT
 	tool_behaviour = TOOL_BONESETTER
 	smeltresult = null
 
@@ -119,7 +125,7 @@
 	force = 18
 	throwforce = 18
 	wdefense = 3
-	wbalance = -1
+	wbalance = WBALANCE_HEAVY	//huh?
 	associated_skill = /datum/skill/combat/maces
 	sharpness = IS_BLUNT
 	w_class = WEIGHT_CLASS_NORMAL

@@ -44,7 +44,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		add_overlay(M)
 
 /turf/open/transparent/openspace/airless
-	initial_gas_mix = AIRLESS_ATMOS
 
 /turf/open/transparent/openspace/debug/update_multiz()
 	..()
@@ -98,6 +97,16 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	return FALSE
 
 /turf/open/transparent/openspace/can_traverse_safely(atom/movable/traveler)
+	var/turf/destination = GET_TURF_BELOW(src)
+	if(!destination)
+		return TRUE // this shouldn't happen, but if it does we can't fall
+	if(!traveler.can_zTravel(destination, DOWN, src)) // something is blocking their fall!
+		return TRUE
+	if(!traveler.can_zFall(src, DOWN, destination)) // they can't fall!
+		return TRUE
+	return FALSE
+
+/turf/open/transparent/openspace/can_traverse_safely(atom/movable/traveler)
 	return FALSE
 
 /turf/open/transparent/openspace/proc/CanCoverUp()
@@ -124,7 +133,7 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
 		user.visible_message(span_warning("[user] starts to climb down."), span_warning("I start to climb down."))
-		if(do_after(L, 30, target = src))
+		if(do_after(L, (HAS_TRAIT(L, TRAIT_WOODWALKER) ? 15 : 30), target = src))
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
 			var/pulling = user.pulling

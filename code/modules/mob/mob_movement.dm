@@ -106,6 +106,12 @@
 	if(mob.force_moving)
 		return FALSE
 
+	if(mob.shifting)
+		mob.pixel_shift(direct)
+		return FALSE
+	else if(mob.is_shifted)
+		mob.unpixel_shift()
+
 	var/mob/living/L = mob  //Already checked for isliving earlier
 	if(L.incorporeal_move)	//Move though walls
 		Process_Incorpmove(direct)
@@ -158,9 +164,11 @@
 				L.toggle_rogmove_intent(MOVE_INTENT_WALK)
 	else
 		if(L.dir != target_dir)
-			// Remove sprint intent if we change direction, but only if we sprinted atleast 1 tile
-			if(L.m_intent == MOVE_INTENT_RUN && L.sprinted_tiles > 0)
-				L.toggle_rogmove_intent(MOVE_INTENT_WALK)
+			if(abs(dir2angle(L.dir) - dir2angle(target_dir)) == 180)	//If we do a 180 turn, we cancel our run
+				if(L.m_intent == MOVE_INTENT_RUN)
+					L.toggle_rogmove_intent(MOVE_INTENT_WALK)
+			// Reset our sprint counter if we change direction
+			L.sprinted_tiles = 0
 
 	. = ..()
 
@@ -212,18 +220,55 @@
 			move_delay = world.time + 10
 			to_chat(src, span_warning("I can't move!"))
 			return TRUE
-		else if(mob.incapacitated(ignore_restraints = 1))
+		if(mob.incapacitated(ignore_restraints = 1))
 			move_delay = world.time + 10
 			to_chat(src, span_warning("I can't move!"))
 			return TRUE
-		else if(mob.restrained(ignore_grab = 1))
+		if(mob.restrained(ignore_grab = 1))
 			move_delay = world.time + 10
 			to_chat(src, span_warning("I'm restrained! I can't move!"))
 			return TRUE
-		else
-//			return mob.resist_grab(1)
+		move_delay = world.time + 10
+		to_chat(src, span_warning("I can't move!"))
+		return TRUE
+
+	if(mob.pulling && isliving(mob.pulling))
+		if (issimple(mob.pulling))
+			return FALSE
+		var/mob/living/L = mob.pulling
+		var/mob/living/M = mob
+		if(!L.cmode)
+			return FALSE
+		if (L.resting)
+			return FALSE
+		if (L.incapacitated())
+			return FALSE
+		if (M.grab_state > GRAB_PASSIVE)
+			return FALSE
+		move_delay = world.time + 10
+		to_chat(src, span_warning("[L] still has footing! I need a stronger grip!"))
+		return TRUE    
+
+	if(isanimal(mob.pulling))
+		var/mob/living/simple_animal/bound = mob.pulling
+		if(bound.binded)
 			move_delay = world.time + 10
-			to_chat(src, span_warning("I can't move!"))
+			to_chat(src, span_warning("[bound] is bound in a summoning circle. I can't move them!"))
+			return TRUE
+
+// similar to the above, but for NPCs mostly
+/mob/proc/is_move_blocked_by_grab()
+	if(pulledby && pulledby != src)
+		return TRUE
+	if(isliving(pulling))
+		var/mob/living/L = pulling
+		if(L.cmode && !L.resting && !L.incapacitated() && grab_state < GRAB_AGGRESSIVE)
+			return TRUE
+		if(buckled)
+			return TRUE
+	if(isanimal(pulling))
+		var/mob/living/simple_animal/bound = pulling
+		if(bound.binded)
 			return TRUE
 
 /**
@@ -591,13 +636,13 @@
 	if(!T) //if the turf they're headed to is invalid
 		return
 
-	var/light_amount = T.get_lumcount()
+	var/light_amount = T?.get_lumcount()
 	var/used_time = 50
 	if(mind)
 		used_time = max(used_time - (mind.get_skill_level(/datum/skill/misc/sneaking) * 8), 0)
 
-	if(rogue_sneaking) //If sneaking, check if they should be revealed
-		if((stat > SOFT_CRIT) || IsSleeping() || (world.time < mob_timers[MT_FOUNDSNEAK] + 30 SECONDS) || !T || reset || (m_intent != MOVE_INTENT_SNEAK) || light_amount >= rogue_sneaking_light_threshhold)
+	if(rogue_sneaking || reset) //If sneaking, check if they should be revealed
+		if((stat > SOFT_CRIT) || IsSleeping() || (world.time < mob_timers[MT_FOUNDSNEAK] + 30 SECONDS) || !T || reset || (m_intent != MOVE_INTENT_SNEAK) || light_amount >= rogue_sneaking_light_threshhold + (mind?.get_skill_level(/datum/skill/misc/sneaking)/200) )
 			used_time = round(clamp((50 - (used_time*1.75)), 5, 50),1)
 			animate(src, alpha = initial(alpha), time =	used_time) //sneak skill makes you reveal slower but not as drastic as disappearing speed
 			spawn(used_time) regenerate_icons()
@@ -605,7 +650,7 @@
 			return
 
 	else //not currently sneaking, check if we can sneak
-		if(light_amount < rogue_sneaking_light_threshhold && m_intent == MOVE_INTENT_SNEAK)
+		if(light_amount < rogue_sneaking_light_threshhold + (mind?.get_skill_level(/datum/skill/misc/sneaking)/200) && m_intent == MOVE_INTENT_SNEAK)
 			animate(src, alpha = 0, time = used_time)
 			spawn(used_time + 5) regenerate_icons()
 			rogue_sneaking = TRUE
@@ -725,6 +770,37 @@
 			return FALSE
 	return TRUE
 
+/mob/living/proc/check_mage_armor()
+	return TRUE
+
+/mob/living/carbon/human/check_mage_armor()
+	if(!HAS_TRAIT(src, TRAIT_MAGEARMOR))
+		return FALSE
+	if(istype(src.wear_armor, /obj/item/clothing))
+		var/obj/item/clothing/CL = src.wear_armor
+		if(CL.armor_class == ARMOR_CLASS_HEAVY)
+			return FALSE
+		if(CL.armor_class == ARMOR_CLASS_MEDIUM)
+			return FALSE
+	if(istype(src.wear_shirt, /obj/item/clothing))
+		var/obj/item/clothing/CL = src.wear_shirt
+		if(CL.armor_class == ARMOR_CLASS_HEAVY)
+			return FALSE
+		if(CL.armor_class == ARMOR_CLASS_MEDIUM)
+			return FALSE
+	if(istype(src.wear_pants, /obj/item/clothing))
+		var/obj/item/clothing/CL = src.wear_pants
+		if(CL.armor_class == ARMOR_CLASS_HEAVY)
+			return FALSE
+		if(CL.armor_class == ARMOR_CLASS_MEDIUM)
+			return FALSE
+	if(src.magearmor == 0)
+		src.magearmor = 1
+		src.apply_status_effect(/datum/status_effect/buff/magearmor)
+		return TRUE
+
+	
+
 /mob/proc/toggle_eye_intent(mob/user) //clicking the fixeye button either makes you fixeye or clears your target
 	if(fixedeye)
 		fixedeye = 0
@@ -738,7 +814,7 @@
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 
 /client/proc/hearallasghost()
-	set category = "GameMaster"
+	set category = "Prefs - Admin"
 	set name = "HearAllAsAdmin"
 	if(!holder)
 		return
@@ -782,3 +858,8 @@
 /// Can this mob move between z levels
 /mob/proc/canZMove(direction, turf/target)
 	return FALSE
+
+// Ageneral-purpose proc used to centralize checks to skip turf, movement, step, etc. effects 
+// for mobs that are floating, flying, intangible, etc.
+/mob/proc/is_floor_hazard_immune()
+	return throwing || (movement_type & (FLYING|FLOATING))

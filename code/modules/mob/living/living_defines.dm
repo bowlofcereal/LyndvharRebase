@@ -5,8 +5,9 @@
 	sight = 0
 	see_in_dark = 8
 	hud_possible = list(ANTAG_HUD)
-	pressure_resistance = 10
-
+	
+	typing_indicator_enabled = TRUE
+	
 	var/resize = 1 //Badminnery resize
 	var/lastattacker = null
 	var/lastattackerckey = null
@@ -29,9 +30,6 @@
 	var/resting = FALSE
 	var/wallpressed = FALSE
 
-	var/pixelshifted = FALSE
-	var/pixelshift_x = 0
-	var/pixelshift_y = 0
 	var/pixelshift_layer = 0
 
 	var/lying = 0			//number of degrees. DO NOT USE THIS IN CHECKS. CHECK FOR MOBILITY FLAGS INSTEAD!!
@@ -60,6 +58,7 @@
 
 	var/on_fire = 0 //The "Are we on fire?" var
 	var/fire_stacks = 0 //Tracks how many stacks of fire we have on, max is usually 20
+	var/divine_fire_stacks = 0	//Same as regular firestacks but has less properties to avoid firespreading and other mechanics. Meant to ONLY harm the target.
 
 	var/bloodcrawl = 0 //0 No blood crawling, BLOODCRAWL for bloodcrawling, BLOODCRAWL_EAT for crawling+mob devour
 	var/holder = null //The holder for blood crawling
@@ -84,6 +83,8 @@
 	var/list/butcher_results = null //these will be yielded from butchering with a probability chance equal to the butcher item's effectiveness
 	var/list/guaranteed_butcher_results = null //these will always be yielded from butchering
 	var/butcher_difficulty = 0 //effectiveness prob. is modified negatively by this amount; positive numbers make it more difficult, negative ones make it easier
+
+	var/is_jumping = 0 //to differentiate between jumping and thrown mobs
 
 	var/hellbound = 0 //People who've signed infernal contracts are unrevivable.
 
@@ -137,7 +138,6 @@
 	var/surrendering = 0
 
 	var/defprob = 50 //base chance to defend against this mob's attacks, for simple mob combat
-	var/defdrain = 5
 	var/encumbrance = 0
 
 	var/eyesclosed = 0
@@ -147,6 +147,10 @@
 	var/bleedsuppress = 0 //for stopping bloodloss, eventually this will be limb-based like bleeding
 
 	var/list/next_attack_msg = list()
+
+	///The NAME (not the reference) of the mob's summoner and probable master.
+	var/summoner = null
+
 
 	var/datum/component/personal_crafting/craftingthing
 

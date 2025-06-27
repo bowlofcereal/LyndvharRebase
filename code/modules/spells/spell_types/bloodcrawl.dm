@@ -1,7 +1,7 @@
 /obj/effect/proc_holder/spell/bloodcrawl
 	name = "Blood Crawl"
 	desc = ""
-	charge_max = 0
+	recharge_time = 0
 	clothes_req = FALSE
 	//If you couldn't cast this while phased, you'd have a problem
 	phase_allowed = TRUE
@@ -9,7 +9,6 @@
 	range = 1
 	cooldown_min = 0
 	overlay = null
-	action_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	action_icon_state = "bloodcrawl"
 	action_background_icon_state = "bg_demon"
 	var/phased = FALSE

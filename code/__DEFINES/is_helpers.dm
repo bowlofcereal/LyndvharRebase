@@ -29,6 +29,9 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 	/area/rogue/indoors/shelter/rtfield
 	)))
 
+
+#define isclient(A) istype(A, /client)
+
 #define isforestsex(A) (is_type_in_typecache(A, GLOB.our_forest_sex))
 
 #define isgroundlessturf(A) (is_type_in_typecache(A, GLOB.turfs_without_ground))
@@ -72,7 +75,6 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 //Human sub-species
 #define ishumanbasic(A) (is_species(A, /datum/species/human))
 #define isvampire(A) (is_species(A,/datum/species/vampire))
-#define ismoth(A) (is_species(A, /datum/species/moth))
 
 //RT species
 #define ishumannorthern(A) (is_species(A, /datum/species/human/northern))
@@ -84,8 +86,21 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 #define ishalfelf(A) (is_species(A, /datum/species/human/halfelf))
 #define istiefling(A) (is_species(A, /datum/species/tieberian))
 #define ishalforc(A) (is_species(A, /datum/species/halforc))
-#define isargonian(A) (is_species(A, /datum/species/lizard/brazil))
+#define islizard(A) (is_species(A, /datum/species/lizardfolk))
 #define isgoblinp(A) (is_species(A, /datum/species/goblinp))
+#define iskobold(A) (is_species(A, /datum/species/kobold))
+#define isaasimar(A) (is_species(A, /datum/species/aasimar))
+#define ishalfkin(A) (is_species(A, /datum/species/demihuman))
+#define iswildkin(A) (is_species(A, /datum/species/anthromorph))
+#define isconstruct(A) (is_species(A, /datum/species/construct/metal))	//Specified 'M' due to redefine lower
+#define isvermin(A) (is_species(A, /datum/species/anthromorphsmall))
+#define isaxian(A) (is_species(A, /datum/species/akula))
+#define isdracon(A) (is_species(A, /datum/species/dracon))
+#define islupian(A) (is_species(A, /datum/species/lupian))
+#define ismoth(A) (is_species(A, /datum/species/moth))
+#define istabaxi(A) (is_species(A, /datum/species/tabaxi))
+#define isvulp(A) (is_species(A, /datum/species/vulpkanin))
+
 
 //more carbon mobs
 #define ismonkey(A) (istype(A, /mob/living/carbon/monkey))
@@ -119,7 +134,7 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 
 #define isguardian(A) (istype(A, /mob/living/simple_animal/hostile/guardian))
 
-#define isconstruct(A) (istype(A, /mob/living/simple_animal/hostile/construct))
+#define isconstructm(A) (istype(A, /mob/living/simple_animal/hostile/construct))
 
 #define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna))
 

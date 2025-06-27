@@ -13,6 +13,7 @@
 	px_y = -8
 	stam_damage_coeff = 1
 	max_stamina_damage = 100
+	max_pain_damage = 125
 	dismember_wound = /datum/wound/dismemberment/head
 
 	var/mob/living/brain/brainmob = null //The current occupant.
@@ -43,6 +44,9 @@
 	//grabtargets for grabs
 	grabtargets = list(BODY_ZONE_HEAD, BODY_ZONE_PRECISE_R_EYE, BODY_ZONE_PRECISE_L_EYE, BODY_ZONE_PRECISE_NOSE, BODY_ZONE_PRECISE_MOUTH, BODY_ZONE_PRECISE_SKULL, BODY_ZONE_PRECISE_EARS, BODY_ZONE_PRECISE_NECK)
 	resistance_flags = FLAMMABLE
+	
+	grid_width = 64
+	grid_height = 64
 
 	/// Brainkill means that this head is considered dead and revival is impossible
 	var/brainkill = FALSE
@@ -65,7 +69,7 @@
 		if(BODY_ZONE_PRECISE_MOUTH)
 			return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
 		if(BODY_ZONE_PRECISE_NECK)
-			return list(/datum/intent/grab/move, /datum/intent/grab/choke)
+			return list(/datum/intent/grab/move, /datum/intent/grab/choke, /datum/intent/grab/hostage)
 
 /obj/item/bodypart/head/Destroy()
 	QDEL_NULL(brainmob) //order is sensitive, see warning in handle_atom_del() below

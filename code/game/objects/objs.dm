@@ -9,8 +9,13 @@
 
 	var/damtype = BRUTE
 	var/force = 0
+	//a modifier to an item's damage against structures
+	var/demolition_mod = 1
 
 	var/datum/armor/armor
+	var/last_peeled_limb
+	var/peel_count = 0
+	var/peel_threshold = 3
 	var/obj_integrity	//defaults to max_integrity
 	var/max_integrity = 500
 	var/integrity_failure = 0 //0 if we have no special broken behavior, otherwise is a percentage of at what point the obj breaks. 0.5 being 50%
@@ -18,6 +23,8 @@
 	var/damage_deflection = 0
 	var/obj_broken = FALSE
 	var/obj_destroyed = FALSE
+
+	var/extinguishable = TRUE // flag for torches, lanterns, clothing, and the like.
 
 	var/resistance_flags = NONE // INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ON_FIRE | UNACIDABLE | ACID_PROOF
 
@@ -102,38 +109,6 @@
 		visible_message("<span class='danger'>[src] shatters into a million pieces!</span>")
 		qdel(src)
 
-
-/obj/assume_air(datum/gas_mixture/giver)
-	if(loc)
-		return loc.assume_air(giver)
-	else
-		return null
-
-/obj/remove_air(amount)
-	if(loc)
-		return loc.remove_air(amount)
-	else
-		return null
-
-/obj/return_air()
-	if(loc)
-		return loc.return_air()
-	else
-		return null
-
-/obj/proc/handle_internal_lifeform(mob/lifeform_inside_me, breath_request)
-	//Return: (NONSTANDARD)
-	//		null if object handles breathing logic for lifeform
-	//		datum/air_group to tell lifeform to process using that breath return
-	//DEFAULT: Take air from turf to give to have mob process
-
-	if(breath_request>0)
-		var/datum/gas_mixture/environment = return_air()
-		var/breath_percentage = BREATH_VOLUME / environment.return_volume()
-		return remove_air(environment.total_moles() * breath_percentage)
-	else
-		return null
-
 /obj/proc/updateUsrDialog()
 	if((obj_flags & IN_USE) && !(obj_flags & USES_TGUI))
 		var/is_in_use = FALSE
@@ -203,7 +178,7 @@
 /obj/get_dumping_location(datum/component/storage/source,mob/user)
 	return get_turf(src)
 
-/obj/proc/CanAStarPass()
+/obj/proc/CanAStarPass(ID, to_dir, caller)
 	. = !density
 
 /obj/proc/check_uplink_validity()
@@ -291,3 +266,9 @@
 // Should move all contained objects to it's location.
 /obj/proc/dump_contents()
 	CRASH("Unimplemented.")
+
+/obj/merge_conflict_marker
+	name = "---Merge Conflict Marker---"
+	desc = "Mapping helper."
+	icon = 'icons/obj/merge_conflict_marker.dmi'
+	icon_state = "merge_conflict_marker"

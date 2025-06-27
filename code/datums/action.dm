@@ -19,13 +19,13 @@
 	var/icon_icon = 'icons/mob/actions.dmi' //This is the file for the ACTION icon
 	var/button_icon_state = "default" //And this is the state for the action icon
 	var/overlay_state = null
+	var/overlay_alpha = 255
 
 	/// Toggles whether this action is usable or not
 	var/action_disabled = FALSE
 
 	/// If False, the owner of this action does not get a hud and cannot activate it on their own
 	var/owner_has_control = TRUE
-
 	/// This can be the same as "target" but is not ALWAYS the same - this is set and unset with Grant() and Remove()
 	var/mob/owner
 
@@ -155,7 +155,9 @@
 		current_button.cut_overlays(TRUE)
 		current_button.add_overlay(mutable_appearance(icon_icon, button_icon_state))
 		if(overlay_state)
-			current_button.add_overlay(mutable_appearance(icon_icon, overlay_state))
+			var/mutable_appearance/overlaid_icon = mutable_appearance(icon_icon, overlay_state)
+			overlaid_icon.alpha = overlay_alpha
+			current_button.add_overlay(overlaid_icon)
 		current_button.button_icon_state = button_icon_state
 
 
@@ -212,34 +214,8 @@
 /datum/action/item_action/toggle_firemode
 	name = "Toggle Firemode"
 
-/datum/action/item_action/rcl_col
-	name = "Change Cable Color"
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "rcl_rainbow"
-
-/datum/action/item_action/rcl_gui
-	name = "Toggle Fast Wiring Gui"
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "rcl_gui"
-
-/datum/action/item_action/startchainsaw
-	name = "Pull The Starting Cord"
-
-/datum/action/item_action/toggle_gunlight
-	name = "Toggle Gunlight"
-
 /datum/action/item_action/toggle_mode
 	name = "Toggle Mode"
-
-/datum/action/item_action/toggle_barrier_spread
-	name = "Toggle Barrier Spread"
-
-/datum/action/item_action/equip_unequip_TED_Gun
-	name = "Equip/Unequip TED Gun"
-
-/datum/action/item_action/toggle_paddles
-	name = "Toggle Paddles"
-
 
 /datum/action/item_action/pick_color
 	name = "Choose A Color"
@@ -310,28 +286,6 @@
 	check_flags = NONE
 	name = "Activate Explosive Implant"
 
-/datum/action/item_action/toggle_research_scanner
-	name = "Toggle Research Scanner"
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "scan_mode"
-	var/active = FALSE
-
-/datum/action/item_action/toggle_research_scanner/Trigger()
-	if(IsAvailable())
-		active = !active
-		if(active)
-			owner.research_scanner++
-		else
-			owner.research_scanner--
-		to_chat(owner, "<span class='notice'>[target] research scanner has been [active ? "activated" : "deactivated"].</span>")
-		return 1
-
-/datum/action/item_action/toggle_research_scanner/Remove(mob/M)
-	if(owner && active)
-		owner.research_scanner--
-		active = FALSE
-	..()
-
 /datum/action/item_action/organ_action
 	check_flags = AB_CHECK_CONSCIOUS
 
@@ -366,6 +320,7 @@
 	button_icon_state = S.action_icon_state
 	background_icon_state = S.action_background_icon_state
 	button.name = name
+	overlay_alpha = S.alpha
 
 /datum/action/spell_action/Destroy()
 	var/obj/effect/proc_holder/S = target
@@ -395,6 +350,11 @@
 		return S.can_cast(owner)
 	return FALSE
 
+/datum/action/spell_action/proc/examine(mob/user)
+	var/list/inspec = list("<br><span class='notice'><b>[name]</b> intent</span>")
+	if(desc)
+		inspec += "\n[desc]"
+	to_chat(user, "[inspec.Join()]")
 
 
 //Preset for general and toggled actions
@@ -417,23 +377,6 @@
 /datum/action/innate/proc/Deactivate()
 	return
 
-
-
-
-//Stickmemes
-/datum/action/item_action/stickmen
-	name = "Summon Stick Minions"
-	desc = ""
-	icon_icon = 'icons/mob/actions/actions_minor_antag.dmi'
-	button_icon_state = "art_summon"
-
-//surf_ss13
-/datum/action/item_action/bhop
-	name = "Activate Jump Boots"
-	desc = ""
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "jetboot"
-
 /datum/action/language_menu
 	name = "Language Menu"
 	desc = ""
@@ -447,33 +390,3 @@
 		var/mob/M = owner
 		var/datum/language_holder/H = M.get_language_holder()
 		H.open_language_menu(usr)
-
-/datum/action/item_action/wheelys
-	name = "Toggle Wheely-Heel's Wheels"
-	desc = ""
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "wheelys"
-
-/datum/action/item_action/kindleKicks
-	name = "Activate Kindle Kicks"
-	desc = ""
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "kindleKicks"
-
-/datum/action/item_action/storage_gather_mode
-	name = "Switch gathering mode"
-	desc = ""
-	icon_icon = 'icons/mob/actions/actions_items.dmi'
-	button_icon_state = "storage_gather_switch"
-
-/datum/action/item_action/storage_gather_mode/ApplyIcon(atom/movable/screen/movable/action_button/current_button)
-	. = ..()
-	var/old_layer = target.layer
-	var/old_plane = target.plane
-	target.layer = FLOAT_LAYER //AAAH
-	target.plane = FLOAT_PLANE //^ what that guy said
-	current_button.cut_overlays()
-	current_button.add_overlay(target)
-	target.layer = old_layer
-	target.plane = old_plane
-	current_button.appearance_cache = target.appearance

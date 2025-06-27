@@ -17,8 +17,12 @@
 	STASTR = 16
 	STASPD = 5
 	base_intents = list(/datum/intent/simple/minotaur_unarmed)
-	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 10,
-						/obj/item/natural/hide = 10, /obj/item/natural/bundle/bone/full = 2)
+	botched_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 2,
+						/obj/item/natural/hide = 2, /obj/item/natural/bundle/bone/full = 2) // Made in-line w/ troll..
+	butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 3,
+						/obj/item/natural/hide = 3, /obj/item/natural/bundle/bone/full = 2)
+	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 5,
+						/obj/item/natural/hide = 5, /obj/item/natural/bundle/bone/full = 2) // No heads (yet). TBA.
 	faction = list("caves")
 
 	health = MINOTAUR_HEALTH
@@ -42,7 +46,6 @@
 
 	deaggroprob = 0
 	defprob = 40
-	defdrain = 10
 	retreat_health = 0
 	food = 0
 	attack_sound = list('sound/combat/wooshes/blunt/wooshhuge (1).ogg','sound/combat/wooshes/blunt/wooshhuge (2).ogg','sound/combat/wooshes/blunt/wooshhuge (3).ogg')
@@ -55,7 +58,7 @@
 	ai_controller = /datum/ai_controller/minotaur
 
 //	stat_attack = UNCONSCIOUS
-	remains_type = /obj/item/rogueweapon/stoneaxe/battle
+	remains_type = /obj/item/rogueweapon/greataxe/steel/doublehead
 
 /mob/living/simple_animal/hostile/retaliate/rogue/minotaur/Initialize()
 	. = ..()
@@ -71,6 +74,7 @@
 	icon_dead = "MinotaurFem_dead"
 
 /mob/living/simple_animal/hostile/retaliate/rogue/minotaur/axe
+	loot = list(/obj/item/rogueweapon/greataxe/steel/doublehead = 1) //Acquiring an axe from their cold, dead hands.
 	icon_state = "MinotaurMale_Axe"
 	icon_living = "MinotaurMale_Axe"
 	icon_dead = "MinotaurMale_dead"

@@ -213,26 +213,6 @@
 	if(!I)
 		return FALSE
 
-	// If the item is a stack and we're already holding a stack then merge
-	if (istype(I, /obj/item/stack))
-		var/obj/item/stack/I_stack = I
-		var/obj/item/stack/active_stack = get_active_held_item()
-
-		if (I_stack.zero_amount())
-			return FALSE
-
-		if (merge_stacks)
-			if (istype(active_stack) && istype(I_stack, active_stack.merge_type))
-				if (I_stack.merge(active_stack))
-					to_chat(usr, span_notice("My [active_stack.name] stack now contains [active_stack.get_amount()] [active_stack.singular_name]\s."))
-					return TRUE
-			else
-				var/obj/item/stack/inactive_stack = get_inactive_held_item()
-				if (istype(inactive_stack) && istype(I_stack, inactive_stack.merge_type))
-					if (I_stack.merge(inactive_stack))
-						to_chat(usr, span_notice("My [inactive_stack.name] stack now contains [inactive_stack.get_amount()] [inactive_stack.singular_name]\s."))
-						return TRUE
-
 	if(put_in_active_hand(I, forced))
 		return TRUE
 
@@ -340,10 +320,10 @@
 
 //Outdated but still in use apparently. This should at least be a human proc.
 //Daily reminder to murder this - Remie.
-/mob/living/proc/get_equipped_items(include_pockets = FALSE)
+/mob/living/proc/get_equipped_items(include_pockets = FALSE, include_beltslots = TRUE)
 	return
 
-/mob/living/carbon/get_equipped_items(include_pockets = FALSE)
+/mob/living/carbon/get_equipped_items(include_pockets = FALSE, include_beltslots = TRUE)
 	var/list/items = list()
 	if(back)
 		items += back
@@ -355,14 +335,15 @@
 		items += wear_neck
 	return items
 
-/mob/living/carbon/human/get_equipped_items(include_pockets = FALSE)
+/mob/living/carbon/human/get_equipped_items(include_pockets = FALSE, include_beltslots = TRUE)
 	var/list/items = ..()
 	if(belt)
 		items += belt
-	if(beltr)
-		items += beltr
-	if(beltl)
-		items += beltl
+	if(include_beltslots) //prototype arg defined as true for legacy
+		if(beltr)
+			items += beltr
+		if(beltl)
+			items += beltl
 	if(backr)
 		items += backr
 	if(backl)

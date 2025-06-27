@@ -1,4 +1,5 @@
 /datum/job/roguetown/butcher
+// IF YOU'RE READING THIS, THIS VERSION OF BUTCHER IS UNUSED!! YOU'RE LOOKIKG FOR "tbutcher.dm"!!!!!
 	title = "Butcher"
 	flag = BUTCHER
 	department_flag = PEASANTS
@@ -41,10 +42,10 @@
 		/obj/item/reagent_containers/powder/salt = 3,
 		/obj/item/reagent_containers/food/snacks/rogue/meat/coppiette = 2,
 		)
-	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
+	if(should_wear_femme_clothes(H))
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-	else
+	else if(should_wear_masc_clothes(H))
 		pants = /obj/item/clothing/under/roguetown/trou
 		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 

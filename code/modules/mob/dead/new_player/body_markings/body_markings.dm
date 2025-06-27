@@ -42,6 +42,13 @@
 
 	return colors
 
+/datum/body_marking/nose
+	icon = 'icons/mob/body_markings/other_markings.dmi'
+	name = "Nose"
+	icon_state = "nose"
+	default_color = "FF0000"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/flushed_cheeks
 	icon = 'icons/mob/body_markings/other_markings.dmi'
 	name = "Flushed Cheeks"
@@ -222,6 +229,13 @@
 	affected_bodyparts = HEAD
 	default_color = "FF0000"
 
+/datum/body_marking/small/nose
+	icon = 'icons/mob/body_markings/other_markings.dmi'
+	name = "Nose (Volk)"
+	icon_state = "nose_s"
+	default_color = "FF0000"
+	affected_bodyparts = HEAD
+
 /datum/body_marking/small/plain
 	icon = 'icons/mob/body_markings/small_plain_markings.dmi'
 	name = "Plain (Volk)"
@@ -315,3 +329,49 @@
 	affected_bodyparts = CHEST
 	default_color = DEFAULT_SECONDARY
 	covers_chest = TRUE
+
+/datum/body_marking/harlequin
+	icon = 'icons/mob/body_markings/plain_markings.dmi'
+	name = "Harlequin"
+	icon_state = "harlequin"
+	affected_bodyparts = HEAD | CHEST
+	default_color = DEFAULT_SECONDARY
+	covers_chest = TRUE
+
+/datum/body_marking/harlequinreversed
+	icon = 'icons/mob/body_markings/plain_markings.dmi'
+	name = "Harlequin (Reversed)"
+	icon_state = "harlequin_reversed"
+	affected_bodyparts = HEAD | CHEST
+	default_color = DEFAULT_SECONDARY
+	covers_chest = TRUE
+
+//Bangs and buns addition - hair addons!
+
+/datum/body_marking/bangs
+	icon = 'icons/mob/body_markings/other_markings.dmi'
+	name = "Bangs"
+	icon_state = "bangs"
+	default_color = "FFFFFF"
+	affected_bodyparts = HEAD
+	
+/datum/body_marking/small/bangs
+	icon = 'icons/mob/body_markings/other_markings.dmi'
+	name = "Bangs (Volk)"
+	icon_state = "bangs_s"
+	default_color = "FFFFFF"
+	affected_bodyparts = HEAD
+	
+/datum/body_marking/bun
+	icon = 'icons/mob/body_markings/other_markings.dmi'
+	name = "Bun"
+	icon_state = "bun"
+	default_color = "FFFFFF"
+	affected_bodyparts = HEAD
+
+/datum/body_marking/small/bun
+	icon = 'icons/mob/body_markings/other_markings.dmi'
+	name = "Bun (Volk)"
+	icon_state = "bun_s"
+	default_color = "FFFFFF"
+	affected_bodyparts = HEAD

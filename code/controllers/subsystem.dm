@@ -38,6 +38,8 @@
 
 	var/processing_flag = PROCESSING_DEFAULT
 
+	var/lazy_load = TRUE
+
 //Do not override
 ///datum/controller/subsystem/New()
 
@@ -89,7 +91,7 @@
 		queue_node_priority = queue_node.queued_priority
 		queue_node_flags = queue_node.flags
 
-		if (queue_node_flags & (SS_TICKER|SS_BACKGROUND) == SS_TICKER)
+		if (queue_node_flags & SS_TICKER)
 			if (!(SS_flags & SS_TICKER))
 				continue
 			if (queue_node_priority < SS_priority)
@@ -118,6 +120,7 @@
 		Master.queue_priority_count += SS_priority
 
 	queue_next = queue_node
+	
 	if (!queue_node)//we stopped at the end, add to tail
 		queue_prev = Master.queue_tail
 		if (Master.queue_tail)
