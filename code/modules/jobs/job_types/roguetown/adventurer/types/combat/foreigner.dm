@@ -72,7 +72,7 @@
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
 				if ("Naginata")
-					beltr = /obj/item/rogueweapon/spear/naginata
+					r_hand = /obj/item/rogueweapon/spear/naginata
 				if("Quarterstaff")
 					backr = /obj/item/rogueweapon/woodstaff/quarterstaff/steel
 			H.change_stat("strength", 2) // Took off the weight and moved it to qstaff
