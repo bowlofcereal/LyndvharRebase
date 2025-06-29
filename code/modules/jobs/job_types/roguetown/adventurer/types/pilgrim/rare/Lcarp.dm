@@ -11,7 +11,6 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/mastercarpenter
 	category_tags = list(CTAG_TOWNER)
 	maximum_possible_slots = 1
-	cmode_music = "sound/music/combat_retired.ogg"
 	pickprob = 5
 	
 
