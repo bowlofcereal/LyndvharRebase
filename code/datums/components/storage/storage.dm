@@ -191,6 +191,7 @@
 	if(!isitem(O) || !click_gather || SEND_SIGNAL(O, COMSIG_CONTAINS_STORAGE))
 		return FALSE
 	. = COMPONENT_NO_ATTACK
+	M.changeNext_move(CLICK_CD_RAPID, null, TRUE)
 	if(locked)
 //		to_chat(M, span_warning("[parent] seems to be locked!"))
 		return FALSE
@@ -856,6 +857,7 @@
 	var/atom/A = parent
 	if(!attack_hand_interact)
 		return
+	user.changeNext_move(CLICK_CD_RAPID, null, TRUE)
 	if(user.active_storage == src && A.loc == user) //if you're already looking inside the storage item
 		user.active_storage.close(user)
 		close(user)
@@ -920,7 +922,7 @@
 	if(locked)
 		to_chat(user, span_warning("[parent] seems to be locked!"))
 		return
-
+	user.changeNext_move(CLICK_CD_RAPID, null, TRUE)
 	var/atom/A = parent
 	if(!quickdraw)
 		A.add_fingerprint(user)
