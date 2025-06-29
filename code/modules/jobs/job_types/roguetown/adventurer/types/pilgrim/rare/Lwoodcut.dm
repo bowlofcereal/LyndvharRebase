@@ -11,7 +11,7 @@
 	maximum_possible_slots = 1
 	pickprob = 5
 	category_tags = list(CTAG_TOWNER)
-	
+	cmode_music = "sound/music/combat_retired.ogg"
 	
 /datum/outfit/job/roguetown/adventurer/masterwoodcutter/pre_equip(mob/living/carbon/human/H)
 	..()

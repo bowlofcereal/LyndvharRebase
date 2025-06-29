@@ -6,7 +6,7 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/witch
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	traits_applied = list(TRAIT_RITUALIST, TRAIT_DEATHSIGHT, TRAIT_WITCH, TRAIT_ARCYNE_T1)
-	cmode_music = 'sound/music/combat_cult.ogg'
+	cmode_music = 'sound/music/combat_towner2.ogg'
 
 /datum/outfit/job/roguetown/adventurer/witch/pre_equip(mob/living/carbon/human/H)
 	..()
