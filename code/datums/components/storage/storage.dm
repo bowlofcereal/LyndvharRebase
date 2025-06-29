@@ -750,6 +750,7 @@
 			viewing.show_message(span_notice("[M] tucks [I] [insert_preposition]to [parent]."), MSG_VISUAL)
 		else
 			viewing.show_message(span_notice("[M] tucks something [insert_preposition]to [parent]."), MSG_VISUAL)
+	M.changeNext_move(CLICK_CD_RAPID, null, override = TRUE)
 
 /datum/component/storage/proc/update_icon()
 	if(isobj(parent))
