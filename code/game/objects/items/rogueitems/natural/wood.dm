@@ -298,7 +298,7 @@
 
 
 /obj/item/grown/log/tree/stick/attackby(obj/item/I, mob/living/user, params)
-	user.changeNext_move(CLICK_CD_INTENTCAPE)
+	user.changeNext_move(CLICK_CD_INTENTCAP)
 	if(user.used_intent?.blade_class == BCLASS_CUT)
 		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
 		user.visible_message(span_notice("[user] starts sharpening [src]."))
