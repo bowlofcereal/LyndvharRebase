@@ -58,7 +58,6 @@
 			H.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE) // Worse than the real tailor, so can't steal their job right away 
 			H.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
-
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/artijacket
 		pants = /obj/item/clothing/under/roguetown/trou/artipants
 		shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
