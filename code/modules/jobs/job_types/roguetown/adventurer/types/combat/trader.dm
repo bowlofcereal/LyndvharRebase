@@ -34,6 +34,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 			head = /obj/item/clothing/head/roguetown/roguehood
 			mask = /obj/item/clothing/mask/rogue/facemask/steel
 			shoes = /obj/item/clothing/shoes/roguetown/boots
@@ -81,7 +82,8 @@
 				/obj/item/rogueweapon/huntingknife = 1,
 				/obj/item/ingot/copper = 2,
 				/obj/item/roguegear = 1, 
-				/obj/item/recipe_book/survival = 1)
+				/obj/item/recipe_book/survival = 1
+				/obj/item/bottle_kit)
 			H.change_stat("intelligence", 3)
 			H.change_stat("perception", 1)
 			H.change_stat("strength", 1)
@@ -185,7 +187,8 @@
 			beltl = /obj/item/flashlight/flare/torch/lantern
 			backl = /obj/item/storage/backpack/rogue/satchel
 			head = /obj/item/clothing/head/roguetown/jester
-			neck = /obj/item/storage/belt/rogue/pouch/coins/mid
+			r_hand = /obj/item/storage/belt/rogue/pouch/coins/mid
+			neck = /obj/item/clothing/neck/roguetown/coif
 			H.cmode_music = 'sound/music/combat_jester.ogg'
 			backpack_contents = list(/obj/item/smokebomb = 3, /obj/item/storage/pill_bottle/dice = 1, /obj/item/toy/cards/deck = 1, /obj/item/recipe_book/survival = 1)
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
