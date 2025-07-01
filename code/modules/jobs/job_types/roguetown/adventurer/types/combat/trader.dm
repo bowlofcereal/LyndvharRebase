@@ -50,6 +50,7 @@
 			H.change_stat("intelligence", 3)
 			H.change_stat("perception", 2)
 			H.change_stat("speed", 1)
+			H.cmode_music = 'sound/music/combat_physician.ogg'
 
 		if("Brewer")
 			to_chat(H, span_warning("You make your coin peddling imported alcohols from all over the world, though you're no stranger to the craft, and have experience brewing your own ale in a pinch. You have the equipments and know how on how to make your own distiller, too."))
