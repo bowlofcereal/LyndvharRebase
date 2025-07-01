@@ -208,7 +208,7 @@
 							finalmod = clamp(spdmod, 0, 30)
 						prob2defend -= finalmod
 				else
-					attacker_skill = U.mind.get_skill_level(/datum/skill/combat/unarmed)
+					attacker_skill = U.get_skill_level(/datum/skill/combat/unarmed)
 					prob2defend -= (attacker_skill * 20)
 
 			if(HAS_TRAIT(src, TRAIT_GUIDANCE))
