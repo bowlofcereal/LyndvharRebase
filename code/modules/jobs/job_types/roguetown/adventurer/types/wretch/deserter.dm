@@ -40,11 +40,12 @@
 			H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 			H.verbs |= list(/mob/living/carbon/human/mind/proc/setorderswretch)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/retreat)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/bolster)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/brotherhood)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/charge)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/brotherhood)
+			if(H.mind)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/retreat)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/bolster)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/brotherhood)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/order/charge)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/convertrole/brotherhood)
 
 			var/weapons = list(
 				"Estoc",

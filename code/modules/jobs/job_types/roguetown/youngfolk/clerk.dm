@@ -36,7 +36,8 @@
 	H.change_stat("speed", 1)
 	H.change_stat("intelligence", 2)
 	H.change_stat("fortune", 2)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/appraise/secular)
+	if(H.mind)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/appraise/secular)
 
 	if(should_wear_femme_clothes(H))
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/green

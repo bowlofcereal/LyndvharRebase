@@ -137,8 +137,9 @@
 						/obj/item/recipe_book/survival = 1,
 						)
 	// Not a real mage, no free spell point. Take Arcyne Potential if you want it.
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/enchant_weapon)
+	if(H.mind)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/enchant_weapon)
 	ADD_TRAIT(H, TRAIT_ARCYNE_T1, TRAIT_GENERIC)
 	H.change_stat("strength", 1)
 	H.change_stat("intelligence", 3)

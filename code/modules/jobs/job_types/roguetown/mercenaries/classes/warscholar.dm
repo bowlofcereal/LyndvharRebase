@@ -78,13 +78,14 @@
 			H?.mind.adjust_spellpoints(15)
 			ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_ARCYNE_T3, TRAIT_GENERIC)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/giants_strength)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/longstrider)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/haste)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/fortitude)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/forcewall/greater)
+			if(H.mind)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/giants_strength)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/longstrider)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/haste)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/fortitude)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/forcewall/greater)
 			r_hand = /obj/item/rogueweapon/woodstaff/naledi
 
 
@@ -116,12 +117,13 @@
 			H.change_stat("speed", 2)
 			H.grant_language(/datum/language/celestial)
 			H.grant_language(/datum/language/thievescant)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch) // In an attempt to make them less Possibly Wildly OP, they can't freely pick their spells. Casts at apprentice level, but doesn't get the spellbuy points it'd provide.
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/ensnare)
-			H.mind.AddSpell(new/obj/effect/proc_holder/spell/invoked/projectile/repel)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/bladeofpsydon)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/shadowstep)
+			if(H.mind)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch) // In an attempt to make them less Possibly Wildly OP, they can't freely pick their spells. Casts at apprentice level, but doesn't get the spellbuy points it'd provide.
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/ensnare)
+				H.mind.AddSpell(new/obj/effect/proc_holder/spell/invoked/projectile/repel)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/summonrogueweapon/bladeofpsydon)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/shadowstep)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_ARCYNE_T1, TRAIT_GENERIC)
@@ -172,12 +174,13 @@
 			
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.
-			H.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/lesser_heal)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/regression)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/convergence)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/stasis)
+			if(H.mind)
+				H.mind.RemoveSpell(/obj/effect/proc_holder/spell/invoked/lesser_heal)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/regression)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/convergence)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/stasis)
 
 
 

@@ -45,9 +45,10 @@
 	H.change_stat("constitution", 2)
 	H.change_stat("endurance", 1)
 	if (istype (H.patron, /datum/patron/inhumen/zizo))
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
-		H.mind.current.faction += "[H.name]_faction"
+		if(H.mind)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
+			H.mind.current.faction += "[H.name]_faction"
 		ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
 	head = /obj/item/clothing/head/roguetown/helmet/bascinet
 	mask = /obj/item/clothing/mask/rogue/facemask/steel

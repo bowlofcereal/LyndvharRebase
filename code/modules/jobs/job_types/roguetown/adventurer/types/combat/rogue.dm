@@ -134,7 +134,8 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			cloak = /obj/item/clothing/cloak/half/red
 			backpack_contents = list(/obj/item/lockpick = 1, /obj/item/recipe_book/survival = 1)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
+			if(H.mind)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)

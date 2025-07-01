@@ -214,7 +214,7 @@
 			H.change_stat("strength", 1)
 			H.change_stat("endurance", 1)
 			H.change_stat("speed", 2)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
+			H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/mockery)
 			switch(H.patron?.type)
 				if(/datum/patron/old_god)
 					cloak = /obj/item/clothing/cloak/templar/psydon
@@ -313,8 +313,8 @@
 				if(/datum/patron/inhumen/zizo)
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe 
 					head = /obj/item/clothing/head/roguetown/roguehood
-					H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
-					H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
+					H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
+					H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
 				else
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe //placeholder, anyone who doesn't have cool patron drip sprites just gets generic robes
 					head = /obj/item/clothing/head/roguetown/roguehood

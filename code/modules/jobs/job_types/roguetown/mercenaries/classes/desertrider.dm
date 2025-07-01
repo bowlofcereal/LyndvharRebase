@@ -142,10 +142,11 @@
 			H.change_stat("endurance", 2)
 			H.change_stat("intelligence", 2)
 			H.change_stat("speed", 3)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/repulse)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/enchant_weapon)
-			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/airblade)
+			if(H.mind)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/repulse)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/enchant_weapon)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/airblade)
 			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/raneshen
 			neck = /obj/item/clothing/neck/roguetown/gorget/copper
 			mask = /obj/item/clothing/mask/rogue/facemask/copper

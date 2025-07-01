@@ -70,4 +70,4 @@
 	H.change_stat("fortune", 2)
 	H.change_stat("speed", 1)
 	H?.mind.adjust_spellpoints(21) // On par with Mage Associate
-	H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+	H?.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
