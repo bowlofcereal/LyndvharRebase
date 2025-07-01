@@ -82,7 +82,7 @@
 				/obj/item/rogueweapon/huntingknife = 1,
 				/obj/item/ingot/copper = 2,
 				/obj/item/roguegear = 1, 
-				/obj/item/recipe_book/survival = 1
+				/obj/item/recipe_book/survival = 1,
 				/obj/item/bottle_kit)
 			H.change_stat("intelligence", 3)
 			H.change_stat("perception", 1)
