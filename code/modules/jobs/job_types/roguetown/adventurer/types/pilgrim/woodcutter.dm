@@ -40,7 +40,7 @@
 						/obj/item/flint = 1,
 						/obj/item/flashlight/flare/torch = 1,
 						)
-	if(H.gender == FEMALE)
+	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen
 	else
 		armor = /obj/item/clothing/suit/roguetown/armor/workervest

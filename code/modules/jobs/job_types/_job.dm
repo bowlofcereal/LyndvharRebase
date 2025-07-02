@@ -176,7 +176,7 @@
 		for(var/S in spells)
 			H.mind.AddSpell(new S)
 
-	if(H.gender == FEMALE)
+	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		if(jobstats_f)
 			for(var/S in jobstats_f)
 				H.change_stat(S, jobstats_f[S])
@@ -196,7 +196,7 @@
 
 	if(H.islatejoin && announce_latejoin)
 		var/used_title = title
-		if((H.gender == FEMALE) && f_title)
+		if((H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F) && f_title)
 			used_title = f_title
 		scom_announce("[H.real_name] the [used_title] arrives to Sundmark.")
 
@@ -396,9 +396,9 @@
 
 // LETHALSTONE EDIT: Helper functions for pronoun-based clothing selection
 /proc/should_wear_masc_clothes(mob/living/carbon/human/H)
-	return (H.gender == MALE)
+	return (H.pronouns == HE_HIM || H.pronouns == THEY_THEM || H.pronouns == IT_ITS || H.pronouns == SHE_HER_M)
 
 /proc/should_wear_femme_clothes(mob/living/carbon/human/H)
-	return (H.gender == FEMALE)
+	return (H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F || H.pronouns == HE_HIM_F)
 // LETHALSTONE EDIT END
 

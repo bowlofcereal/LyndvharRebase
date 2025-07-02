@@ -142,10 +142,10 @@
 			used_title = "unknown"
 		known_people[H.real_name]["FJOB"] = used_title
 		var/referred_gender
-		switch(H.gender)
-			if(MALE)
+		switch(H.pronouns)
+			if(HE_HIM)
 				referred_gender = "Male"
-			if(FEMALE)
+			if(SHE_HER)
 				referred_gender = "Female"
 			else
 				referred_gender = "Androgynous"
@@ -178,10 +178,10 @@
 					used_title = "unknown"
 				M.known_people[H.real_name]["FJOB"] = used_title
 				var/referred_gender
-				switch(H.gender)
-					if(MALE)
+				switch(H.pronouns)
+					if(HE_HIM)
 						referred_gender = "Male"
-					if(FEMALE)
+					if(SHE_HER)
 						referred_gender = "Female"
 					else
 						referred_gender = "Androgynous"

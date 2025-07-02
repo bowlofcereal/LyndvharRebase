@@ -28,7 +28,7 @@
 						/obj/item/reagent_containers/food/snacks/rogue/truffles,
 						/obj/item/flashlight/flare/torch = 1,
 						)
-	if(H.gender == FEMALE)
+	if(H.pronouns == SHE_HER || H.pronouns == THEY_THEM_F)
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 	else
 		pants = /obj/item/clothing/under/roguetown/trou
