@@ -156,6 +156,14 @@
 	switch(vagina.accessory_type)
 		if(/datum/sprite_accessory/vagina/human)
 			vagina_type = "plain vagina"
+		if(/datum/sprite_accessory/vagina/hairy)
+			vagina_type = "hairy vagina"
+		if(/datum/sprite_accessory/vagina/spade)
+			vagina_type = "spade vagina"
+		if(/datum/sprite_accessory/vagina/furred)
+			vagina_type = "furred vagina"
+		if(/datum/sprite_accessory/vagina/gaping)
+			vagina_type = "gaping vagina"
 		if(/datum/sprite_accessory/vagina/cloaca)
 			vagina_type = "cloaca"
 	switch(H.sexcon.arousal)

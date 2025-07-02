@@ -135,7 +135,7 @@
 	icon_state = "pair"
 	name = "Pair"
 	color_key_defaults = list(KEY_CHEST_COLOR)
-/*
+
 /datum/sprite_accessory/breasts/quad
 	icon_state = "quad"
 	name = "Quad"
@@ -145,7 +145,7 @@
 	icon_state = "sextuple"
 	name = "Sextuple"
 	color_key_defaults = list(KEY_CHEST_COLOR)
-*/
+
 /datum/sprite_accessory/vagina
 	icon = 'icons/mob/sprite_accessory/genitals/nethers.dmi'
 	color_key_name = "Nethers"
@@ -169,7 +169,7 @@
 	name = "Hairy"
 	color_key_defaults = list(KEY_HAIR_COLOR)
 
-/*
+
 /datum/sprite_accessory/vagina/spade
 	icon_state = "spade"
 	name = "Spade"
@@ -179,7 +179,7 @@
 	icon_state = "furred"
 	name = "Furred"
 	color_key_defaults = list(KEY_MUT_COLOR_ONE)
-*/
+
 /datum/sprite_accessory/vagina/gaping
 	icon_state = "gaping"
 	name = "Gaping"
