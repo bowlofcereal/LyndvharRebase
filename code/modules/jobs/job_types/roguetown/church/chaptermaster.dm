@@ -8,7 +8,7 @@
 	 As the templars, you serve the will of the church through the guidance of the Priest. Your duty is to protect the church and to answer\
 	 the call of the church. You are the sword of the church, and you are to be feared by all who oppose its will."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = TOLERATED_CLEARANCE
+	allowed_races = TRUSTED_CLEARANCE
 	allowed_patrons = list(/datum/patron/old_god)
 	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/knight_templar, /obj/effect/proc_holder/spell/self/convertrole/templar)

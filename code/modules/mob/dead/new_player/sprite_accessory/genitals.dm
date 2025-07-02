@@ -37,7 +37,7 @@
 	color_key_defaults = list(KEY_CHEST_COLOR, KEY_CHEST_COLOR)
 
 
-/*
+
 /datum/sprite_accessory/penis/knotted
 	icon_state = "knotted"
 	name = "Knotted"
@@ -82,7 +82,7 @@
 	icon_state = "hemiknot"
 	name = "Knotted Hemi"
 	default_colors = list("C52828", "C52828")
-*/
+
 
 /datum/sprite_accessory/penis/tapered
 	icon_state = "tapered"

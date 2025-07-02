@@ -38,7 +38,7 @@
 	penis_type = PENIS_TYPE_TAPERED
 	sheath_type = SHEATH_TYPE_SLIT
 
-/*
+
 /obj/item/organ/penis/knotted
 	name = "knotted penis"
 	penis_type = PENIS_TYPE_KNOTTED
@@ -83,7 +83,7 @@
 	name = "tentacle penis"
 	penis_type = PENIS_TYPE_TENTACLE
 	sheath_type = SHEATH_TYPE_NONE
-*/
+
 	
 /obj/item/organ/vagina
 	name = "vagina"

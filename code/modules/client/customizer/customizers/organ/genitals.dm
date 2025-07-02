@@ -68,7 +68,7 @@
 		/datum/customizer_choice/organ/penis/barbed_knotted,
 		/datum/customizer_choice/organ/penis/tentacle,
 		)
-
+*/
 /datum/customizer/organ/penis/canine
 	customizer_choices = list(
 		/datum/customizer_choice/organ/penis/human_anthro,
@@ -95,7 +95,7 @@
 		/datum/customizer_choice/organ/penis/human_anthro,
 		/datum/customizer_choice/organ/penis/equine,
 		)
-*/
+
 
 
 /datum/customizer/organ/penis/kobold
@@ -110,7 +110,7 @@
 	sprite_accessories = list(/datum/sprite_accessory/penis/human)
 	allows_accessory_color_customization = FALSE
 
-/*
+
 /datum/customizer_choice/organ/penis/human_anthro
 	name = "Plain Penis"
 	organ_type = /obj/item/organ/penis
@@ -173,7 +173,7 @@
 	sprite_accessories = list(
 		/datum/sprite_accessory/penis/tentacle,
 		)
-*/
+
 
 /datum/customizer_choice/organ/penis/tapered
 	name = "Tapered Penis"
