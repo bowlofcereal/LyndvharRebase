@@ -4,7 +4,7 @@
 	icon_state = "waterskin"
 	amount_per_transfer_from_this = 6
 	possible_transfer_amounts = list(3,6,9)
-	volume = 64
+	volume = 48		// 16 oz, One pint.
 	dropshrink = 1
 	sellprice = 5
 	closed = FALSE
