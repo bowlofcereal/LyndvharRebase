@@ -12,7 +12,6 @@
 	icon_state = "metal"
 	max_integrity = 1000
 	integrity_failure = 0.5
-	armor = list("blunt" = 10, "slash" = 5, "stab" = 7, "piercing" = 0, "fire" = 50, "acid" = 50)
 	CanAtmosPass = ATMOS_PASS_DENSITY
 
 	var/ridethrough = FALSE
@@ -59,7 +58,7 @@
 	/// The required role of the resident
 	var/resident_role
 	/// The requied advclass of the resident
-	var/resident_advclass
+	var/list/resident_advclass
 
 
 /obj/structure/mineral_door/onkick(mob/user)
@@ -164,7 +163,7 @@
 		var/datum/advclass/advclass = SSrole_class_handler.get_advclass_by_name(human.advjob)
 		if(!advclass)
 			return FALSE
-		if(advclass.type != resident_advclass)
+		if(!(advclass.type in resident_advclass))
 			return FALSE
 	var/alert = alert(user, "Is this my home?", "Home", "Yes", "No")
 	if(alert != "Yes")
@@ -298,7 +297,7 @@
 	if(!windowed)
 		set_opacity(FALSE)
 	flick("[base_state]opening",src)
-	sleep(10)
+	sleep(2)
 	density = FALSE
 	door_opened = TRUE
 	layer = OPEN_DOOR_LAYER
@@ -319,7 +318,7 @@
 	if(!silent)
 		playsound(src, closeSound, 100)
 	flick("[base_state]closing",src)
-	sleep(10)
+	sleep(2)
 	density = TRUE
 	if(!windowed)
 		set_opacity(TRUE)
@@ -441,14 +440,58 @@
 /obj/structure/mineral_door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
-	if(istype(item, /obj/item/roguekey) || istype(item, /obj/item/storage/keyring))
-		if(locked)
-			to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
-			door_rattle()
+	var/obj/item/roguekey/found_key = null
+	var/obj/item/storage/keyring/found_keyring = null
+
+	// Check held item first
+	if(istype(item, /obj/item/roguekey))
+		found_key = item
+	else if(istype(item, /obj/item/storage/keyring))
+		found_keyring = item
+
+	// If no key in hand, check all storage items
+	if(!found_key && !found_keyring)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			var/list/checked_items = list()
+			var/list/to_check = H.get_all_slots()
+			
+			while(to_check.len)
+				var/obj/item/I = to_check[1]
+				to_check -= I
+				if(I in checked_items)
+					continue
+				checked_items += I
+				
+				if(istype(I, /obj/item/roguekey))
+					var/obj/item/roguekey/K = I
+					if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
+						found_key = K
+						break
+				if(istype(I, /obj/item/storage/keyring))
+					var/obj/item/storage/keyring/R = I
+					for(var/obj/item/roguekey/K in R.contents)
+						if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
+							found_keyring = R
+							break
+					if(found_keyring)
+						break
+				if(istype(I, /obj/item/storage))
+					var/obj/item/storage/S = I
+					to_check += S.contents
+
+	if(found_key || found_keyring)
+		if(!keylock)
+			return ..()
+		if(door_opened || isSwitchingStates)
+			return ..()
+		if(lockbroken)
+			to_chat(user, span_warning("The lock to this door is broken."))
 			return
-		trykeylock(item, user)
+		trykeylock(found_key || found_keyring, user)
 	else
-		return ..()
+		to_chat(user, span_warning("I don't have the right key for this door."))
+		return
 
 /obj/structure/mineral_door/proc/trykeylock(obj/item/I, mob/user, autobump = FALSE)
 	if(door_opened || isSwitchingStates)
@@ -545,8 +588,10 @@
 					to_chat(user, "<span class='deadsay'>The locking mechanism gives.</span>")
 					if(ishuman(user))
 						var/mob/living/carbon/human/H = user
-						message_admins("[H.real_name]([key_name(user)]) successfully lockpicked [src.name]. [ADMIN_JMP(src)]")
+						message_admins("[H.real_name]([key_name(user)]) successfully lockpicked [src.name] & [locked ? "unlocked" : "locked"] it. [ADMIN_JMP(src)]")
 						log_admin("[H.real_name]([key_name(user)]) successfully lockpicked [src.name].")
+						record_featured_stat(FEATURED_STATS_CRIMINALS, user)
+						GLOB.blackmoor_round_stats[STATS_LOCKS_PICKED]++
 						var/obj/effect/track/structure/new_track = new(get_turf(src))
 						new_track.handle_creation(user)
 					lock_toggle(user)
@@ -687,6 +732,10 @@
 	icon_state = "wcv"
 
 
+/obj/structure/mineral_door/obj_break(damage_flag)
+	loud_message("A loud crash of door splinters echoes", hearing_distance = 14)
+	. = ..()
+
 /obj/structure/mineral_door/wood/pickaxe_door(mob/living/user, obj/item/I)
 	return
 
@@ -769,22 +818,63 @@
 	icon_state = base_state
 
 /obj/structure/mineral_door/wood/deadbolt/attack_right(mob/user)
-	..()
-	if(door_opened || isSwitchingStates)
-		return
-	if(lockbroken)
-		to_chat(user, span_warning("The lock to this door is broken."))
-		return
-	if(brokenstate)
-		to_chat(user, span_warning("There isn't much left of this door."))
-		return
-	if(get_dir(src,user) == lockdir)
-		lock_toggle(user)
+	user.changeNext_move(CLICK_CD_FAST)
+	var/obj/item = user.get_active_held_item()
+	var/obj/item/roguekey/found_key = null
+	var/obj/item/storage/keyring/found_keyring = null
+
+	// Check held item first
+	if(istype(item, /obj/item/roguekey))
+		found_key = item
+	else if(istype(item, /obj/item/storage/keyring))
+		found_keyring = item
+
+	// If no key in hand, check all storage items
+	if(!found_key && !found_keyring)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			var/list/checked_items = list()
+			var/list/to_check = H.get_all_slots()
+			
+			while(to_check.len)
+				var/obj/item/I = to_check[1]
+				to_check -= I
+				if(I in checked_items)
+					continue
+				checked_items += I
+				
+				if(istype(I, /obj/item/roguekey))
+					var/obj/item/roguekey/K = I
+					if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
+						found_key = K
+						break
+				if(istype(I, /obj/item/storage/keyring))
+					var/obj/item/storage/keyring/R = I
+					for(var/obj/item/roguekey/K in R.contents)
+						if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
+							found_keyring = R
+							break
+					if(found_keyring)
+						break
+				if(istype(I, /obj/item/storage))
+					var/obj/item/storage/S = I
+					to_check += S.contents
+
+	if(found_key || found_keyring)
+		if(!keylock)
+			return ..()
+		if(door_opened || isSwitchingStates)
+			return ..()
+		if(lockbroken)
+			to_chat(user, span_warning("The lock to this door is broken."))
+			return
+		trykeylock(found_key || found_keyring, user)
 	else
-		to_chat(user, span_warning("The door doesn't lock from this side."))
+		to_chat(user, span_warning("I don't have the right key for this door."))
+		return
 
 /obj/structure/mineral_door/wood/donjon
-	desc = "dungeon door"
+	desc = "A solid metal door with a slot to peek through."
 	icon_state = "donjondir"
 	base_state = "donjon"
 	keylock = TRUE
@@ -812,9 +902,71 @@
 	repair_cost_second = /obj/item/natural/stone
 	repair_skill = /datum/skill/craft/masonry
 
+/obj/structure/mineral_door/wood/donjon/stone/broken // no repair
+	icon_state = "stonebr"
+	base_state = "stone"
+	density = 0
+	opacity = 0
+	obj_integrity = 0
+	gc_destroyed = 1
+	brokenstate = 1
+	obj_broken = 1
+
 /obj/structure/mineral_door/wood/donjon/stone/attack_right(mob/user)
-	if(user.get_active_held_item())
-		..()
+	user.changeNext_move(CLICK_CD_FAST)
+	var/obj/item = user.get_active_held_item()
+	var/obj/item/roguekey/found_key = null
+	var/obj/item/storage/keyring/found_keyring = null
+
+	// Check held item first
+	if(istype(item, /obj/item/roguekey))
+		found_key = item
+	else if(istype(item, /obj/item/storage/keyring))
+		found_keyring = item
+
+	// If no key in hand, check all storage items
+	if(!found_key && !found_keyring)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			var/list/checked_items = list()
+			var/list/to_check = H.get_all_slots()
+			
+			while(to_check.len)
+				var/obj/item/I = to_check[1]
+				to_check -= I
+				if(I in checked_items)
+					continue
+				checked_items += I
+				
+				if(istype(I, /obj/item/roguekey))
+					var/obj/item/roguekey/K = I
+					if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
+						found_key = K
+						break
+				if(istype(I, /obj/item/storage/keyring))
+					var/obj/item/storage/keyring/R = I
+					for(var/obj/item/roguekey/K in R.contents)
+						if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
+							found_keyring = R
+							break
+					if(found_keyring)
+						break
+				if(istype(I, /obj/item/storage))
+					var/obj/item/storage/S = I
+					to_check += S.contents
+
+	if(found_key || found_keyring)
+		if(!keylock)
+			return ..()
+		if(door_opened || isSwitchingStates)
+			return ..()
+		if(lockbroken)
+			to_chat(user, span_warning("The lock to this door is broken."))
+			return
+		trykeylock(found_key || found_keyring, user)
+	else
+		to_chat(user, span_warning("I don't have the right key for this door."))
+		return
 
 /obj/structure/mineral_door/wood/donjon/stone/view_toggle(mob/user)
 	return
@@ -825,9 +977,59 @@
 	..()
 
 /obj/structure/mineral_door/wood/donjon/attack_right(mob/user)
-	if(user.get_active_held_item())
-		..()
+	user.changeNext_move(CLICK_CD_FAST)
+	var/obj/item = user.get_active_held_item()
+	var/obj/item/roguekey/found_key = null
+	var/obj/item/storage/keyring/found_keyring = null
+
+	// Check held item first
+	if(istype(item, /obj/item/roguekey))
+		found_key = item
+	else if(istype(item, /obj/item/storage/keyring))
+		found_keyring = item
+
+	// If no key in hand, check all storage items
+	if(!found_key && !found_keyring)
+		if(ishuman(user))
+			var/mob/living/carbon/human/H = user
+			var/list/checked_items = list()
+			var/list/to_check = H.get_all_slots()
+			
+			while(to_check.len)
+				var/obj/item/I = to_check[1]
+				to_check -= I
+				if(I in checked_items)
+					continue
+				checked_items += I
+				
+				if(istype(I, /obj/item/roguekey))
+					var/obj/item/roguekey/K = I
+					if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
+						found_key = K
+						break
+				if(istype(I, /obj/item/storage/keyring))
+					var/obj/item/storage/keyring/R = I
+					for(var/obj/item/roguekey/K in R.contents)
+						if(K.lockhash == lockhash || istype(K, /obj/item/roguekey/lord))
+							found_keyring = R
+							break
+					if(found_keyring)
+						break
+				if(istype(I, /obj/item/storage))
+					var/obj/item/storage/S = I
+					to_check += S.contents
+
+	if(found_key || found_keyring)
+		if(!keylock)
+			return ..()
+		if(door_opened || isSwitchingStates)
+			return ..()
+		if(lockbroken)
+			to_chat(user, span_warning("The lock to this door is broken."))
+			return
+		trykeylock(found_key || found_keyring, user)
 		return
+
 	if(door_opened || isSwitchingStates)
 		return
 	if(brokenstate)
@@ -920,11 +1122,11 @@
 	resident_key_amount = 2
 
 /obj/structure/mineral_door/wood/towner/blacksmith
-	resident_advclass = /datum/advclass/blacksmith
+	resident_advclass = list(/datum/advclass/blacksmith)
 	lockid = "towner_blacksmith"
 
 /obj/structure/mineral_door/wood/towner/cheesemaker
-	resident_advclass = /datum/advclass/cheesemaker
+	resident_advclass = list(/datum/advclass/cheesemaker)
 	lockid = "towner_cheesemaker"
 
 /obj/structure/mineral_door/wood/towner/miner
@@ -932,21 +1134,36 @@
 	lockid = "towner_miner"
 
 /obj/structure/mineral_door/wood/towner/seamstress
-	resident_advclass = /datum/advclass/seamstress
+	resident_advclass = list(/datum/advclass/seamstress)
 	lockid = "towner_seamstress"
 
 /obj/structure/mineral_door/wood/towner/woodcutter
-	resident_advclass = /datum/advclass/woodcutter
+	resident_advclass = list(/datum/advclass/woodcutter)
 	lockid = "towner_woodcutter"
 
 /obj/structure/mineral_door/wood/towner/fisher
-	resident_advclass = /datum/advclass/fisher
+	resident_advclass = list(/datum/advclass/fisher)
 	lockid = "towner_fisher"
 
 /obj/structure/mineral_door/wood/towner/hunter
-	resident_advclass = /datum/advclass/hunter
+	resident_advclass = list(/datum/advclass/hunter)
 	lockid = "towner_hunter"
 
 /obj/structure/mineral_door/wood/towner/apothecary
 	resident_advclass = /datum/advclass/apothecary
 	lockid = "towner_witch"
+
+/obj/structure/mineral_door/wood/bath
+	locked = TRUE
+	keylock = TRUE
+	grant_resident_key = TRUE
+	resident_key_type = /obj/item/roguekey/bath
+	resident_role = /datum/job/roguetown/nightmaiden
+	lockid = null //Will be randomized
+
+/obj/structure/mineral_door/wood/bath/bathmaid
+	icon_state = "woodwindow"
+	resident_advclass = list(/datum/advclass/nightmaiden)
+
+/obj/structure/mineral_door/wood/bath/courtesan
+	resident_advclass = list(/datum/advclass/nightmaiden/concubine, /datum/advclass/nightmaiden/courtesan)
