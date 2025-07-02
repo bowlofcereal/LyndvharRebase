@@ -1130,7 +1130,7 @@
 	lockid = "towner_cheesemaker"
 
 /obj/structure/mineral_door/wood/towner/miner
-	resident_advclass = /datum/advclass/miner
+	resident_advclass = list(/datum/advclass/miner)
 	lockid = "towner_miner"
 
 /obj/structure/mineral_door/wood/towner/seamstress
