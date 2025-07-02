@@ -6,7 +6,7 @@
 	gender_enabled = MALE
 
 /datum/customizer/organ/penis/is_allowed(datum/preferences/prefs)
-	return (prefs.gender == MALE)
+	return TRUE
 
 /datum/customizer_choice/organ/penis
 	abstract_type = /datum/customizer_choice/organ/penis
@@ -32,7 +32,7 @@
 	..()
 	var/datum/customizer_entry/organ/penis/penis_entry = entry
 	dat += "<br>Penis size: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=penis_size''>[find_key_by_value(GLOB.named_penis_sizes, penis_entry.penis_size)]</a>"
-//	dat += "<br>Functional: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=functional''>[penis_entry.functional ? "YES" : "NO"]</a>"
+	dat += "<br>Functional: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=functional''>[penis_entry.functional ? "YES" : "NO"]</a>"
 
 /datum/customizer_choice/organ/penis/handle_topic(mob/user, list/href_list, datum/preferences/prefs, datum/customizer_entry/entry, customizer_type)
 	..()
@@ -190,7 +190,7 @@
 	gender_enabled = MALE
 
 /datum/customizer/organ/testicles/is_allowed(datum/preferences/prefs)
-	return (prefs.gender == MALE)
+	return TRUE
 
 /datum/customizer_choice/organ/testicles
 	abstract_type = /datum/customizer_choice/organ/testicles
@@ -219,7 +219,7 @@
 	var/datum/customizer_entry/organ/testicles/testicles_entry = entry
 	if(can_customize_size)
 		dat += "<br>Ball size: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=ball_size''>[find_key_by_value(GLOB.named_ball_sizes, testicles_entry.ball_size)]</a>"
-//	dat += "<br>Virile: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=virile''>[testicles_entry.virility ? "Virile" : "Sterile"]</a>"
+	dat += "<br>Virile: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=virile''>[testicles_entry.virility ? "Virile" : "Sterile"]</a>"
 
 /datum/customizer_choice/organ/testicles/handle_topic(mob/user, list/href_list, datum/preferences/prefs, datum/customizer_entry/entry, customizer_type)
 	..()
@@ -276,7 +276,7 @@
 	gender_enabled = FEMALE
 
 /datum/customizer/organ/breasts/is_allowed(datum/preferences/prefs)
-	return (prefs.gender == FEMALE)
+	return TRUE
 
 /datum/customizer_choice/organ/breasts
 	abstract_type = /datum/customizer_choice/organ/breasts
@@ -302,7 +302,7 @@
 	..()
 	var/datum/customizer_entry/organ/breasts/breasts_entry = entry
 	dat += "<br>Breast size: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=breast_size''>[find_key_by_value(GLOB.named_breast_sizes, breasts_entry.breast_size)]</a>"
-	//dat += "<br>Lactation: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=lactating''>[breasts_entry.lactating ? "Enabled" : "Disabled"]</a>"
+	dat += "<br>Lactation: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=lactating''>[breasts_entry.lactating ? "Enabled" : "Disabled"]</a>"
 
 /datum/customizer_choice/organ/breasts/handle_topic(mob/user, list/href_list, datum/preferences/prefs, datum/customizer_entry/entry, customizer_type)
 	..()
@@ -334,8 +334,8 @@
 /datum/customizer_choice/organ/breasts/animal
 	sprite_accessories = list(
 		/datum/sprite_accessory/breasts/pair,
-	//	/datum/sprite_accessory/breasts/quad,
-	//	/datum/sprite_accessory/breasts/sextuple,
+		/datum/sprite_accessory/breasts/quad,
+		/datum/sprite_accessory/breasts/sextuple,
 		)
 
 /datum/customizer/organ/vagina
@@ -346,7 +346,7 @@
 	gender_enabled = FEMALE
 
 /datum/customizer/organ/vagina/is_allowed(datum/preferences/prefs)
-	return (prefs.gender == FEMALE)
+	return TRUE
 
 /datum/customizer_choice/organ/vagina
 	abstract_type = /datum/customizer_choice/organ/vagina
@@ -367,8 +367,8 @@
 
 /datum/customizer_choice/organ/vagina/generate_pref_choices(list/dat, datum/preferences/prefs, datum/customizer_entry/entry, customizer_type)
 	..()
-//	var/datum/customizer_entry/organ/vagina/vagina_entry = entry
-//	dat += "<br>Fertile: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=fertile''>[vagina_entry.fertility ? "Fertile" : "Sterile"]</a>"
+	var/datum/customizer_entry/organ/vagina/vagina_entry = entry
+	dat += "<br>Fertile: <a href='?_src_=prefs;task=change_customizer;customizer=[customizer_type];customizer_task=fertile''>[vagina_entry.fertility ? "Fertile" : "Sterile"]</a>"
 
 /datum/customizer_choice/organ/vagina/handle_topic(mob/user, list/href_list, datum/preferences/prefs, datum/customizer_entry/entry, customizer_type)
 	..()
@@ -406,10 +406,10 @@
 /datum/customizer_choice/organ/vagina/animal
 	sprite_accessories = list(
 		/datum/sprite_accessory/vagina/human,
-	//	/datum/sprite_accessory/vagina/gaping,
+		/datum/sprite_accessory/vagina/gaping,
 		/datum/sprite_accessory/vagina/hairy,
-	//	/datum/sprite_accessory/vagina/spade,
-	//	/datum/sprite_accessory/vagina/furred,
+		/datum/sprite_accessory/vagina/spade,
+		/datum/sprite_accessory/vagina/furred,
 		)
 
 
@@ -428,9 +428,9 @@
 /datum/customizer_choice/organ/vagina/anthro
 	sprite_accessories = list(
 		/datum/sprite_accessory/vagina/human,
-	//	/datum/sprite_accessory/vagina/gaping,
+		/datum/sprite_accessory/vagina/gaping,
 		/datum/sprite_accessory/vagina/hairy,
-	//	/datum/sprite_accessory/vagina/spade,
-	//	/datum/sprite_accessory/vagina/furred,
-	//	/datum/sprite_accessory/vagina/cloaca,
+		/datum/sprite_accessory/vagina/spade,
+		/datum/sprite_accessory/vagina/furred,
+		/datum/sprite_accessory/vagina/cloaca,
 		)
