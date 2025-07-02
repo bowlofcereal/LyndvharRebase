@@ -7,14 +7,7 @@
 	total_positions = 6
 	spawn_positions = 6
 
-	allowed_races = list(\
-	/datum/species/human/northern,\
-	/datum/species/human/halfelf,\
-	/datum/species/elf/wood,\
-	/datum/species/dwarf/mountain,\
-	/datum/species/demihuman,\
-	/datum/species/halforc,\
-)
+	allowed_races = RACES_ALL_KINDS
 	allowed_ages = ALL_AGES_LIST
 
 	tutorial = "Granted a life of comfortable servitude in the Duke's manor, you follow the Seneschal's commands and spend your day performing necessary but menial tasks. This role offers an aesthetic choice between labor-servant, maid, and butler."

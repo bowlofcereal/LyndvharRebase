@@ -4,7 +4,7 @@
 /datum/species/vulpkanin
 	name = "Vulpkian"
 	id = "vulpkanin"
-	desc = "Foxy creatures known for their cleverness and mischief. In ancient history they were Dendor's original champions, but as His madness grew the connect became frey and forgotten, leaving them to their own devices. Or, at least, that's what they say.<br>\
+	desc = "Foxy creatures known for their cleverness and mischief.<br>\
 	(+1 Intelligence, +1 Perception)"
 	default_color = "444"
 	species_traits = list(
@@ -69,7 +69,7 @@
 		/datum/customizer/organ/ears/vulpkanin,
 		/datum/customizer/organ/neck_feature/anthro,
 		/datum/customizer/organ/testicles/anthro,
-		/datum/customizer/organ/penis/anthro,
+		/datum/customizer/organ/penis/human,
 		/datum/customizer/organ/breasts/animal,
 		/datum/customizer/organ/vagina/animal,
 		)

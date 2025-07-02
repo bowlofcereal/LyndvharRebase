@@ -10,6 +10,11 @@
 	/datum/species/halforc,\
 	/datum/species/kobold,\
 	/datum/species/goblinp,\
+	/datum/species/lizardfolk,\
+	/datum/species/lupian,\
+	/datum/species/tabaxi,\
+	/datum/species/vulpkanin,\
+	/datum/species/construct/metal,\
 )
 
 #define RACES_RESPECTED \
@@ -22,6 +27,12 @@
 #define RACES_TOLERATED \
 	/datum/species/demihuman,\
 	/datum/species/halforc,\
+	/datum/species/kobold,\
+	/datum/species/lizardfolk,\
+	/datum/species/lupian,\
+	/datum/species/tabaxi,\
+	/datum/species/vulpkanin,\
+	/datum/species/construct/metal,\
 
 #define RACES_SHUNNED \
 	/datum/species/tieberian,\
@@ -65,6 +76,12 @@
 	/datum/species/elf/wood,\
 	/datum/species/dwarf/mountain,\
 	/datum/species/demihuman,\
+	/datum/species/halforc,\
+	/datum/species/lizardfolk,\
+	/datum/species/lupian,\
+	/datum/species/tabaxi,\
+	/datum/species/vulpkanin,\
+	/datum/species/construct/metal,\
 )
 
 
@@ -79,6 +96,11 @@
 	/datum/species/halforc,\
 	/datum/species/kobold,\
 	/datum/species/goblinp,\
+	/datum/species/lizardfolk,\
+	/datum/species/lupian,\
+	/datum/species/tabaxi,\
+	/datum/species/vulpkanin,\
+	/datum/species/construct/metal,\
 	)  
 // Non-dwarf non-kobold non-goblin mostly
 #define NON_DWARVEN_RACE_TYPES list(\
@@ -89,6 +111,11 @@
 	/datum/species/tieberian,\
 	/datum/species/demihuman,\
 	/datum/species/halforc,\
+	/datum/species/lizardfolk,\
+	/datum/species/lupian,\
+	/datum/species/tabaxi,\
+	/datum/species/vulpkanin,\
+	/datum/species/construct/metal,\
 	)
 
 // Non-elf non-dwarf non-kobold non-goblin mostly
