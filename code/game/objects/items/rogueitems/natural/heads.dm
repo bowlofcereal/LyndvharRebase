@@ -74,7 +74,7 @@
 	icon_state = "cavetrollhead"
 	sellprice = 130
 
-/obj/item/natrual/head/minotaur
+/obj/item/natural/head/minotaur
 	name = "minotaur head"
 	desc = "The head of a dangerous beast of Dendor's madness."
 	icon_state = "minotaurhead"
