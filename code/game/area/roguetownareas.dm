@@ -671,7 +671,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/under/cave/inhumen
 	name = "inhumen"
 	icon_state = "cave"
-	first_time_text = "PROFANE CATHEDRAL"
+	first_time_text = "FORSAKEN CATHEDRAL"
 	droning_sound = 'sound/music/unholy.ogg'
 	droning_sound_dusk = 'sound/music/unholy.ogg'
 	droning_sound_night = 'sound/music/unholy.ogg'
