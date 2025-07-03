@@ -1659,10 +1659,8 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/banditcamp)
 "iH" = (
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/hexstone,
+/obj/effect/landmark/start/wretch,
+/turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
 "jg" = (
 /turf/open/floor/rogue/dirt/road,
@@ -2967,6 +2965,10 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
+"HA" = (
+/obj/effect/landmark/start/wretch,
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/cave/inhumen)
 "HD" = (
 /obj/machinery/anvil,
 /obj/item/rogueweapon/hammer/iron,
@@ -3278,6 +3280,12 @@
 	icon_state = "mush3"
 	},
 /turf/open/floor/rogue/dirt,
+/area/rogue/under/cave/inhumen)
+"Op" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_y = -32
+	},
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "Ov" = (
 /obj/structure/chair/freedomchair{
@@ -3683,6 +3691,10 @@
 /obj/structure/table/church,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /turf/open/floor/rogue/blocks,
+/area/rogue/under/cave/inhumen)
+"WE" = (
+/obj/effect/landmark/start/wretch,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "WO" = (
 /obj/structure/fluff/walldeco/stone{
@@ -13908,7 +13920,7 @@ Jc
 Jc
 oj
 ws
-ws
+WE
 ws
 lq
 ws
@@ -14943,7 +14955,7 @@ gN
 ws
 ws
 Qn
-Qn
+HA
 ws
 ws
 BC
@@ -15725,13 +15737,13 @@ Qn
 fd
 Qn
 Qn
-iH
+Op
 tX
 km
 Qn
 sK
 Qn
-Bi
+iH
 Hg
 mv
 ws
@@ -16503,7 +16515,7 @@ gN
 ws
 lQ
 Qn
-Qn
+HA
 ws
 ws
 If
@@ -17548,7 +17560,7 @@ Jc
 Jc
 ey
 ws
-ws
+WE
 ws
 Qj
 qO
