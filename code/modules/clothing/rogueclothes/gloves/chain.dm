@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/roguetown/chain
 	name = "chain gauntlets"
-	desc = ""
+	desc = "Gauntlets made of interlinked steel rings. They offer decent protection against common weaponries, except for arrows."
 	icon_state = "cgloves"
 	armor = ARMOR_GLOVES_CHAIN
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT)
@@ -34,6 +34,7 @@
 
 /obj/item/clothing/gloves/roguetown/chain/iron
 	icon_state = "icgloves"
+	desc = "Gauntlets made of interlinked iron rings. They offer decent protection against common weaponries, except for arrows."
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/iron
 	max_integrity = ARMOR_INT_SIDE_IRON
