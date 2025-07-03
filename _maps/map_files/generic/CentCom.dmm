@@ -2430,7 +2430,12 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
 "xA" = (
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/table/wood{
+	dir = 10;
+	icon_state = "tablewood2"
+	},
+/obj/item/rogueweapon/hammer/iron,
+/obj/item/needle/thorn,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/inhumen)
 "xC" = (
@@ -2490,10 +2495,6 @@
 	icon_state = "chess"
 	},
 /area/rogue/indoors/banditcamp)
-"yk" = (
-/obj/structure/bookcase/random/archive,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/inhumen)
 "yu" = (
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/hexstone,
@@ -2963,6 +2964,7 @@
 /obj/effect/decal/cobbleedge{
 	dir = 4
 	},
+/obj/structure/fluff/walldeco/chains,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
 "HA" = (
@@ -3814,7 +3816,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/banditcamp)
 "XM" = (
-/obj/structure/fluff/walldeco/chains,
+/obj/machinery/anvil,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/inhumen)
 "XV" = (
@@ -17173,7 +17175,7 @@ NB
 NB
 NB
 TS
-yk
+gR
 qO
 Qq
 sM
@@ -17303,7 +17305,7 @@ WO
 Bi
 Bi
 If
-XM
+qO
 kv
 eh
 Iz
@@ -17693,7 +17695,7 @@ KZ
 ws
 ws
 lq
-xA
+qO
 eh
 kX
 kX
@@ -17823,7 +17825,7 @@ mc
 Bi
 Sj
 TS
-gR
+XM
 eh
 kX
 kX
@@ -17953,7 +17955,7 @@ tX
 Io
 tX
 TS
-qO
+xA
 eh
 ow
 kX
