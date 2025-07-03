@@ -2742,10 +2742,6 @@
 	icon_state = "greenstone"
 	},
 /area/rogue/indoors/shelter)
-"aUJ" = (
-/obj/effect/landmark/start/wretchlate,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/beach/forest)
 "aUO" = (
 /turf/open/floor/rogue/wood,
 /area/rogue/outdoors/town/roofs)
@@ -12310,10 +12306,6 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
-"ehx" = (
-/obj/effect/landmark/start/wretchlate,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/woods)
 "ehB" = (
 /obj/effect/decal/cobbleedge{
 	dir = 1
@@ -32503,10 +32495,6 @@
 "kKS" = (
 /turf/closed/mineral/random/rogue/med,
 /area/rogue/under/cave/fishmandungeon)
-"kKT" = (
-/obj/effect/landmark/start/wretchlate,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cave)
 "kLa" = (
 /obj/machinery/light/rogue/oven/south,
 /obj/machinery/light/rogue/hearth,
@@ -37368,10 +37356,6 @@
 /obj/structure/bars/pipe,
 /turf/open/water/sewer,
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
-"mtr" = (
-/obj/effect/landmark/start/wretchlate,
-/turf/open/floor/rogue/dirt,
-/area/rogue/indoors/cave)
 "mtv" = (
 /obj/structure/fluff/walldeco/painting,
 /turf/closed/wall/mineral/rogue/decostone,
@@ -38560,9 +38544,11 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/town)
 "mOp" = (
-/obj/effect/landmark/start/wretchlate,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/beach/forest)
+/obj/effect/landmark/start/wretchlate{
+	pixel_x = 2
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/cave)
 "mOt" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/blocks/stonered/tiny,
@@ -167577,7 +167563,7 @@ stq
 jDM
 ujm
 qPv
-mtr
+acF
 acF
 acF
 acF
@@ -202117,7 +202103,7 @@ ogs
 miF
 bhJ
 bhJ
-kKT
+toJ
 rpv
 rpv
 rpv
@@ -217156,7 +217142,7 @@ bmi
 bmi
 eXH
 ixl
-ehx
+ixl
 cAO
 cAO
 cAO
@@ -234040,10 +234026,10 @@ ujm
 ujm
 ujm
 ujm
-onF
-tsB
-tsB
-tsB
+ujm
+ujm
+ujm
+ujm
 fnC
 fnC
 fnC
@@ -234492,14 +234478,14 @@ ujm
 ujm
 ujm
 ujm
-onF
-tsB
-tsB
+ujm
+ujm
+ujm
 fnC
 fnC
 fnC
 fnC
-que
+fnC
 que
 tsB
 tsB
@@ -234944,7 +234930,7 @@ ujm
 ujm
 ujm
 ujm
-onF
+ujm
 ujm
 bhn
 fnC
@@ -235396,7 +235382,7 @@ ujm
 ujm
 ujm
 ujm
-onF
+ujm
 ujm
 fnC
 fnC
@@ -353375,7 +353361,7 @@ fnC
 fnC
 vQO
 fnC
-fnC
+mOp
 ujm
 onF
 qwK
@@ -444429,7 +444415,7 @@ aBB
 aBB
 kSK
 kSK
-axG
+kSK
 tVb
 dof
 hRZ
@@ -444880,7 +444866,7 @@ aBB
 aBB
 aBB
 kSK
-kSK
+axG
 kSK
 tVb
 oIS
@@ -478025,7 +478011,7 @@ gTH
 gTH
 gTH
 gTH
-aUJ
+dCq
 dCq
 dCq
 iVz
@@ -503870,7 +503856,7 @@ vMR
 vMR
 spw
 spw
-iNm
+spw
 spw
 spw
 spw
@@ -504324,7 +504310,7 @@ spw
 spw
 spw
 spw
-spw
+iNm
 spw
 spw
 spw
@@ -506082,7 +506068,7 @@ ujm
 ujm
 ujm
 ujm
-fnC
+mOp
 fnC
 vuw
 vuw
@@ -508783,7 +508769,7 @@ vMR
 vMR
 vMR
 aqZ
-lRH
+qZc
 qZc
 bor
 vMR
@@ -510172,7 +510158,7 @@ vMR
 vMR
 vMR
 vMR
-mOp
+vMR
 vMR
 vMR
 vMR
@@ -516017,7 +516003,7 @@ vMR
 vMR
 iOT
 qZc
-qZc
+lRH
 qJW
 vMR
 vMR

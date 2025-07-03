@@ -1740,11 +1740,9 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/banditcamp)
 "kN" = (
-/obj/structure/fluff/walldeco/stone{
-	pixel_y = 32
-	},
+/obj/effect/decal/cleanable/dirt/cobweb,
 /obj/effect/decal/remains/human,
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "kR" = (
 /obj/structure/pillory{
@@ -1765,10 +1763,6 @@
 "lw" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue)
-"lQ" = (
-/obj/effect/decal/remains/human,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/under/cave/inhumen)
 "mc" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /obj/structure/fluff/walldeco/stone{
@@ -2117,11 +2111,6 @@
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods)
-"su" = (
-/obj/machinery/light/rogue/wallfire/candle/r,
-/obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/blocks,
-/area/rogue/under/cave/inhumen)
 "sw" = (
 /obj/structure/noose,
 /turf/open/floor/rogue/dirt,
@@ -3040,9 +3029,8 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
 "IB" = (
-/obj/machinery/light/rogue/wallfire/candle/l,
-/obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/blocks,
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "ID" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -3231,11 +3219,8 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors)
 "MX" = (
-/obj/structure/fluff/walldeco/stone{
-	pixel_y = 32
-	},
-/obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/blocks,
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/inhumen)
 "Nf" = (
 /obj/effect/landmark/start/bandit,
@@ -3243,10 +3228,6 @@
 	icon_state = "chess"
 	},
 /area/rogue/indoors/banditcamp)
-"Ni" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/blocks,
-/area/rogue/under/cave/inhumen)
 "NB" = (
 /obj/structure/stairs/stone/d{
 	dir = 8
@@ -3349,14 +3330,6 @@
 /obj/structure/composter,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
-"Qj" = (
-/obj/structure/bars/passage{
-	density = 0;
-	icon_state = "passage1"
-	},
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/concrete,
-/area/rogue/under/cave/inhumen)
 "Ql" = (
 /obj/item/grown/log/tree/small,
 /turf/open/floor/rogue/dirt,
@@ -3365,7 +3338,6 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
 "Qq" = (
-/obj/effect/decal/cleanable/blood,
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/inhumen)
@@ -3440,10 +3412,6 @@
 /obj/structure/roguetent,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/banditcamp)
-"RN" = (
-/obj/effect/decal/remains/human,
-/turf/open/floor/rogue/blocks,
-/area/rogue/under/cave/inhumen)
 "RX" = (
 /turf/closed/indestructible/riveted,
 /area/start)
@@ -3484,8 +3452,8 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
 "SZ" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/rogue/blocks,
+/obj/structure/closet/crate/chest/old_crate,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "Te" = (
 /turf/open/floor/rogue/dirt,
@@ -13417,9 +13385,9 @@ Kv
 Kv
 xL
 wN
-wN
-wN
-wN
+XV
+XV
+XV
 XV
 XV
 XV
@@ -13547,9 +13515,9 @@ oX
 TD
 TS
 wN
-wN
-wN
-wN
+XV
+XV
+XV
 XV
 XV
 XV
@@ -13660,14 +13628,14 @@ Jc
 wN
 wN
 wN
-Jc
+Iz
 Jc
 Jc
 Ld
 TS
 oc
 Bi
-IB
+Es
 If
 Zf
 ws
@@ -13677,9 +13645,9 @@ ws
 ws
 TS
 wN
-wN
-wN
-wN
+XV
+XV
+XV
 XV
 XV
 XV
@@ -13798,8 +13766,8 @@ tX
 KZ
 ws
 ws
-lq
-ws
+tX
+IB
 ws
 Jc
 Jc
@@ -13807,9 +13775,9 @@ Jc
 ws
 TS
 wN
-wN
-wN
-wN
+XV
+XV
+XV
 XV
 XV
 XV
@@ -13922,24 +13890,24 @@ Jc
 Jc
 Jc
 Jc
-Jc
-Jc
+tr
+tr
 oj
 ws
 WE
 ws
-lq
+oj
 ws
 Jc
-fk
+ws
 Iz
 DQ
 Jc
 TS
 wN
-wN
-wN
-wN
+XV
+XV
+XV
 XV
 XV
 XV
@@ -14058,8 +14026,8 @@ tX
 KZ
 ws
 ws
-lq
-ws
+tX
+IB
 ws
 zh
 XV
@@ -14067,9 +14035,9 @@ XV
 Gq
 TS
 wN
-wN
-wN
-wN
+XV
+XV
+XV
 XV
 XV
 XV
@@ -14197,9 +14165,9 @@ XV
 DQ
 TS
 wN
-wN
-wN
-wN
+XV
+XV
+XV
 XV
 XV
 XV
@@ -14329,7 +14297,7 @@ TS
 wN
 wN
 wN
-wN
+XV
 XV
 XV
 XV
@@ -14459,7 +14427,7 @@ Kv
 Kv
 TY
 wN
-wN
+XV
 XV
 XV
 XV
@@ -14576,20 +14544,20 @@ XG
 Kw
 If
 WO
-Ni
+Bi
 Bi
 Bi
 Bi
 QT
-uf
 ws
 ws
-lQ
+ws
+ws
 ws
 Lp
 tX
 wN
-wN
+XV
 XV
 XV
 XV
@@ -14713,13 +14681,13 @@ ws
 ol
 ws
 ws
-ws
+WE
 ws
 ws
 ws
 DM
 wN
-wN
+XV
 XV
 XV
 XV
@@ -14831,7 +14799,7 @@ Xr
 ws
 ws
 ws
-uf
+ws
 ws
 ws
 lq
@@ -14849,7 +14817,7 @@ ws
 Lp
 tX
 wN
-wN
+XV
 XV
 XV
 XV
@@ -14955,8 +14923,8 @@ rQ
 wN
 TS
 ws
-Qn
-lQ
+Tg
+ws
 gN
 ws
 ws
@@ -14965,7 +14933,7 @@ HA
 ws
 ws
 BC
-kN
+WO
 Bi
 Bi
 Kw
@@ -14979,7 +14947,7 @@ Kv
 TY
 DM
 wN
-wN
+XV
 XV
 XV
 uJ
@@ -15092,24 +15060,24 @@ ws
 Qn
 Qn
 Qn
-Tg
+Qn
 ws
 TS
 Sj
 Bi
-su
+Sj
 xL
 xL
-MX
+WO
 QT
 ws
-uf
+ws
 ws
 Lp
 xL
 xL
 wN
-wN
+XV
 XV
 uJ
 uJ
@@ -15366,7 +15334,7 @@ ws
 DT
 DT
 tj
-Dz
+ws
 ws
 If
 wN
@@ -15486,17 +15454,17 @@ qo
 ws
 tI
 Bi
-SZ
-RN
+Bi
+Bi
 Bi
 Bi
 Bi
 QT
-lQ
+ws
 ZN
 ZN
 ZN
-uf
+ws
 ws
 tI
 Ld
@@ -15622,7 +15590,7 @@ Qn
 Bi
 WC
 QT
-Dz
+ws
 KG
 KG
 KG
@@ -15740,7 +15708,7 @@ Qn
 gN
 ws
 Qn
-fd
+Qn
 Qn
 Qn
 Op
@@ -15761,9 +15729,9 @@ ws
 oj
 tr
 tr
+Jc
+Jc
 DG
-Jc
-Jc
 Jc
 Jc
 Jc
@@ -15871,7 +15839,7 @@ Xr
 ws
 ON
 Qn
-Qn
+ON
 BB
 ws
 BC
@@ -15886,7 +15854,7 @@ ws
 DT
 DT
 tj
-lQ
+ws
 ws
 xL
 Jc
@@ -16009,15 +15977,15 @@ tB
 Bi
 Bi
 Bi
-SZ
+Bi
 Bi
 QT
-uf
+ws
 ZN
 ZN
 ZN
 ws
-uf
+ws
 tI
 Ld
 Jc
@@ -16254,9 +16222,9 @@ rQ
 rQ
 wN
 TS
+kN
 ws
-ws
-ws
+SZ
 BC
 ws
 hS
@@ -16269,13 +16237,13 @@ tX
 Io
 tX
 xL
-MX
-RN
+WO
+Bi
 ol
 ws
 ws
 ws
-Dz
+ws
 ws
 xL
 If
@@ -16392,7 +16360,7 @@ ws
 Qn
 Qn
 Qn
-fd
+Qn
 ws
 TS
 YM
@@ -16403,7 +16371,7 @@ xL
 ZQ
 QT
 ws
-uf
+ws
 ws
 Lp
 xL
@@ -16519,14 +16487,14 @@ Qn
 ws
 gN
 ws
-lQ
+ws
 Qn
 HA
 ws
 ws
 If
 WO
-SZ
+Bi
 Bi
 Kw
 DM
@@ -16539,7 +16507,7 @@ Kv
 Kv
 TY
 wN
-wN
+XV
 XV
 XV
 XV
@@ -16649,7 +16617,7 @@ Qn
 ws
 Xr
 ws
-Dz
+ws
 ws
 ws
 ws
@@ -16669,7 +16637,7 @@ ws
 Lp
 tX
 wN
-wN
+XV
 XV
 XV
 XV
@@ -16793,13 +16761,13 @@ ws
 ol
 ws
 ws
+WE
 ws
 ws
-uf
 ws
 DM
 wN
-wN
+XV
 XV
 XV
 XV
@@ -16923,13 +16891,13 @@ pV
 QT
 ws
 ws
-lQ
+ws
 ws
 ws
 Lp
 tX
 wN
-wN
+XV
 XV
 XV
 XV
@@ -17059,7 +17027,7 @@ Kv
 Kv
 TY
 wN
-wN
+XV
 XV
 XV
 XV
@@ -17189,7 +17157,7 @@ TS
 wN
 wN
 wN
-wN
+XV
 XV
 XV
 XV
@@ -17317,9 +17285,9 @@ kX
 kX
 TS
 wN
-wN
-wN
-wN
+XV
+XV
+XV
 XV
 XV
 XV
@@ -17437,19 +17405,19 @@ Jc
 tX
 KZ
 ws
-lQ
-lq
+ws
+tX
+MX
 qO
-qO
-tE
+eh
 kX
 kX
 kX
-TS
-wN
-wN
-wN
-wN
+kX
+XV
+XV
+XV
+XV
 XV
 XV
 XV
@@ -17568,18 +17536,18 @@ ey
 ws
 WE
 ws
-Qj
+oj
 qO
-eh
+qO
+tE
 kX
 kX
 kX
 kX
-TS
-wN
-wN
-wN
-wN
+kX
+XV
+XV
+XV
 XV
 XV
 XV
@@ -17698,18 +17666,18 @@ tX
 KZ
 ws
 ws
-lq
-qO
+tX
+MX
 eh
 kX
 kX
 kX
 kX
-TS
-wN
-wN
-wN
-wN
+kX
+kX
+kX
+XV
+XV
 XV
 XV
 XV
@@ -17835,11 +17803,11 @@ kX
 kX
 kX
 kX
-TS
-wN
-wN
-wN
-wN
+kX
+XV
+XV
+XV
+XV
 XV
 XV
 XV
@@ -17966,10 +17934,10 @@ kX
 kX
 kX
 TS
-wN
-wN
-wN
-wN
+XV
+XV
+XV
+XV
 XV
 XV
 XV
@@ -18096,10 +18064,10 @@ Kv
 Kv
 Kv
 xL
-wN
-wN
-wN
-wN
+XV
+XV
+XV
+XV
 XV
 XV
 XV
