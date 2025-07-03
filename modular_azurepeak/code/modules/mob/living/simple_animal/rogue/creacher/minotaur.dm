@@ -24,7 +24,7 @@
 						/obj/item/natural/head/minotaur = 1)
 	perfect_butcher_results = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 5,
 						/obj/item/natural/hide = 5, /obj/item/natural/bundle/bone/full = 2,
-						/obj/item/natrual/head/minotaur = 1)
+						/obj/item/natural/head/minotaur = 1)
 	faction = list("caves")
 
 	health = MINOTAUR_HEALTH
