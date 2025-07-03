@@ -259,10 +259,10 @@
 	i_type = "Armor"
 
 /datum/anvil_recipe/armor/iron/chainglove
-	name = "Chain Gauntlets"
+	name = "Chain Gauntlets, 2x"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/gloves/roguetown/chain/iron
-	createditem_num = 1
+	createditem_num = 2
 	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/chainleg
@@ -309,6 +309,20 @@
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/natural/cloth)
 	created_item = /obj/item/clothing/wrists/roguetown/splintarms
+	
+/datum/anvil_recipe/armor/iron/bracers
+	name = "Plate Bracers"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/wrists/roguetown/bracers/iron
+	createditem_num = 1
+	craftdiff = 0
+	
+/datum/anvil_recipe/armor/iron/jackchain
+	name = "Jack Chain, 2x"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/wrists/roguetown/bracers/jackchain
+	createditem_num = 2
+	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/boot
 	name = "Light plated Boots"
@@ -474,10 +488,10 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/chainglove
-	name = "Chain Gauntlets"
+	name = "Chain Gauntlets, 2x"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/gloves/roguetown/chain
-	createditem_num = 1
+	createditem_num = 2
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/plateglove

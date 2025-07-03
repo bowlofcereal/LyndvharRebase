@@ -1,3 +1,17 @@
+/*------------------------\
+| ARMOR INTEGRITY DEFINES | // Use these when possible on armor to keep value consistent.	
+\------------------------*/
+// Side = Non-chest armor integrity 
+// For now. Steel vs Iron will be a difference of 75% integrity without rating differences.
+// So Iron will actually be pretty decent and there shouldn't be a compulsive need to upgrade.
+
+#define ARMOR_INT_SIDE_STEEL 300 // Integrity for steel pieces
+#define ARMOR_INT_SIDE_IRON 225 // Integrity for iron pieces
+#define ARMOR_INT_SIDE_HARDLEATHER 250 // Integrity for hardened leather pieces
+#define ARMOR_INT_SIDE_LEATHER 200 // Integrity for leather / copper pieces
+#define ARMOR_INT_SIDE_DECREPIT 150 // Integrity for decrepit pieces
+
+
 /*--------------------\
 | ARMOR VALUE DEFINES |	
 \--------------------*/

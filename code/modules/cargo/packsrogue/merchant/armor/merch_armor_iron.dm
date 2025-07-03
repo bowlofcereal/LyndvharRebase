@@ -32,13 +32,23 @@
 	contains = list(/obj/item/clothing/suit/roguetown/armor/brigandine/light)
 
 /datum/supply_pack/rogue/armor_iron/rearbraces
-	name = "Rererbraces, Brigandine"
-	cost = 30
+	name = "Bracers, Brigandine"
+	cost = 25
 	contains = list(/obj/item/clothing/wrists/roguetown/splintarms)
+
+/datum/supply_pack/rogue/armor_iron/bracers
+	name = "Bracers, Iron"
+	cost = 25
+	contains = list(/obj/item/clothing/wrists/roguetown/bracers/iron)
+
+/datum/supply_pack/rogue/armor_iron/jackchains
+	name = "Bracers, Jack Chain"
+	cost = 20
+	contains = list(/obj/item/clothing/wrists/roguetown/bracers/jackchain)
 
 /datum/supply_pack/rogue/armor_iron/chaingloves_iron
 	name = "Gauntlets, Chain"
-	cost = 25
+	cost = 20
 	contains = list(/obj/item/clothing/gloves/roguetown/chain/iron)
 
 /datum/supply_pack/rogue/armor_iron/chainleg_iron
