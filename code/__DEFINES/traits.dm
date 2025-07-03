@@ -295,6 +295,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_EORAN_CALM = span_notice("Eora has touched me, granting me some calm. She protects me from the peaks of my stress."),
 	TRAIT_EORAN_SERENE = span_greentext("Eora has blessed me with all-encompassing serenity. I feel no more stress."),
 	TRAIT_NECRAS_VOW = span_warning("I've pledged myself to Necra. If I fall, I am Hers."),
+	TRAIT_HERESIARCH = span_warning("I know of sacred sites of worship where followers of the Ascendants convene, and the path to the nearest conclave is etched into my memory.")
 ))
 
 // trait accessor defines
