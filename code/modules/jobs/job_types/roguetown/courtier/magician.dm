@@ -85,4 +85,4 @@
 	switch(H.patron?.type)
 		if(/datum/patron/inhumen/zizo)
 			H.cmode_music = 'sound/music/combat_cult.ogg'
-			backpack_contents += list(/obj/item/roguekey/inhumen = 1)
+			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)

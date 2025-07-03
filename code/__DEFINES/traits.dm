@@ -63,6 +63,7 @@
 #define TRAIT_WITCH "They fear me, but I am useful to them."
 #define TRAIT_INFINITE_ENERGY "Boundless Energy" //infinite fatigue (blue bar) but not infinite stamina
 #define TRAIT_PERMAMUTE "Permanent Mute"
+#define TRAIT_HERESIARCH "Heretic" //allows entry to ascendant church
 
 
 //Hearthstone port (Tracking)

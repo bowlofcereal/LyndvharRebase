@@ -1468,8 +1468,6 @@
 /area/rogue/indoors)
 "ey" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
-	lockid = "inhumen";
 	name = "Forgotten Chapel"
 	},
 /turf/open/floor/rogue/concrete,
@@ -1540,6 +1538,22 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/banditcamp)
+"fN" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/obj/item/roguekey/inhumen,
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors)
 "fY" = (
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/hexstone,
@@ -1879,8 +1893,6 @@
 /area/rogue/indoors)
 "oj" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	locked = 1;
-	lockid = "inhumen";
 	name = "Forgotten Chapel"
 	},
 /turf/open/floor/rogue/hexstone,
@@ -2518,6 +2530,13 @@
 "yK" = (
 /turf/closed,
 /area/rogue/indoors)
+"yL" = (
+/obj/structure/fluff/traveltile/wretch{
+	aportalgoesto = "wretchout1";
+	aportalid = "wretchin1"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/underdark)
 "yO" = (
 /obj/effect/landmark/start/bandit{
 	icon_state = "arrow";
@@ -3443,6 +3462,13 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
+"SX" = (
+/obj/structure/fluff/traveltile/wretch{
+	aportalgoesto = "wretchout2";
+	aportalid = "wretchin2"
+	},
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/underdark)
 "SZ" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/blocks,
@@ -13469,15 +13495,15 @@ rQ
 rQ
 wN
 wN
+Ld
+DQ
 wN
-xm
-xm
-xm
-xm
+wN
+wN
+wN
+wN
 Bi
-wN
-wN
-wN
+Bi
 wN
 TS
 tX
@@ -13598,17 +13624,17 @@ rQ
 rQ
 rQ
 wN
-wN
-xm
-xm
-hO
-xm
-Bi
-Bi
+SX
 Bi
 Bi
 Bi
 wN
+wN
+wN
+Bi
+Bi
+Bi
+Ld
 TS
 oc
 cZ
@@ -13728,10 +13754,10 @@ rQ
 rQ
 rQ
 wN
-uJ
-uJ
-xm
-xm
+SX
+Bi
+Bi
+Bi
 Bi
 Bi
 Bi
@@ -13858,10 +13884,10 @@ rQ
 rQ
 rQ
 wN
-uJ
-uJ
-uJ
-xm
+SX
+Bi
+Bi
+Bi
 Bi
 Bi
 Bi
@@ -13988,17 +14014,17 @@ rQ
 rQ
 rQ
 wN
-uJ
-uJ
-xm
-xm
-Bi
-wN
 wN
 Bi
+xm
+xm
+xm
 Bi
 Bi
-Ld
+Bi
+Bi
+Bi
+Bi
 tX
 KZ
 jZ
@@ -14119,15 +14145,15 @@ rQ
 rQ
 wN
 wN
-uJ
 xm
+xm
+nA
+xm
+xm
+wN
+wN
 Bi
 wN
-wN
-wN
-wN
-Bi
-Bi
 wN
 TS
 WO
@@ -14250,9 +14276,9 @@ rQ
 wN
 wN
 wN
-wN
-wN
-wN
+xm
+xm
+xm
 wN
 wN
 wN
@@ -14514,7 +14540,7 @@ LP
 mT
 xL
 Kw
-dh
+fN
 NQ
 wt
 XG
@@ -15325,7 +15351,7 @@ Bi
 Bi
 Bi
 Bi
-Ld
+XV
 wN
 wN
 "}
@@ -15455,8 +15481,8 @@ Bi
 Bi
 Bi
 Bi
-Bi
-Bi
+Ld
+wN
 wN
 "}
 (90,1,1) = {"
@@ -15586,7 +15612,7 @@ Bi
 Bi
 Bi
 Bi
-Bi
+yL
 wN
 "}
 (91,1,1) = {"
@@ -15716,7 +15742,7 @@ Bi
 Bi
 Bi
 Bi
-Bi
+yL
 wN
 "}
 (92,1,1) = {"
@@ -15846,7 +15872,7 @@ Bi
 Bi
 Bi
 Bi
-Bi
+yL
 wN
 "}
 (93,1,1) = {"
@@ -17239,15 +17265,15 @@ rQ
 rQ
 wN
 wN
+wN
+xm
+xm
+xm
+xm
 Bi
-DQ
 wN
 wN
 wN
-wN
-wN
-Bi
-Bi
 wN
 TS
 WO
@@ -17368,17 +17394,17 @@ rQ
 rQ
 rQ
 wN
-Bi
-Bi
-Bi
-Bi
 wN
-wN
-wN
+xm
+xm
+hO
+xm
 Bi
 Bi
 Bi
-Ld
+Bi
+Bi
+Bi
 tX
 KZ
 jZ
@@ -17498,10 +17524,10 @@ rQ
 rQ
 rQ
 wN
-Bi
-Bi
-Bi
-Bi
+uJ
+uJ
+xm
+xm
 Bi
 Bi
 Bi
@@ -17628,10 +17654,10 @@ rQ
 rQ
 rQ
 wN
-Bi
-Bi
-Bi
-Bi
+uJ
+uJ
+uJ
+xm
 Bi
 Bi
 Bi
@@ -17758,17 +17784,17 @@ rQ
 rQ
 rQ
 wN
-wN
-Bi
+uJ
+uJ
 xm
 xm
-xm
-Bi
-Bi
-Bi
-Bi
 Bi
 wN
+wN
+Bi
+Bi
+Bi
+Ld
 TS
 mc
 cZ
@@ -17889,15 +17915,15 @@ rQ
 rQ
 wN
 wN
+uJ
 xm
-xm
-nA
-xm
-xm
+Bi
+wN
+wN
 wN
 wN
 Bi
-wN
+Bi
 wN
 TS
 tX
@@ -18020,9 +18046,9 @@ rQ
 wN
 wN
 wN
-xm
-xm
-xm
+wN
+wN
+wN
 wN
 wN
 wN

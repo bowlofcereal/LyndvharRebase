@@ -54,7 +54,6 @@
 		H.change_stat("intelligence", 1)
 		H.change_stat("fortune", 1)
 		
-	switch(H.patron?.type)
-		if(/datum/patron/inhumen/zizo)
-			H.cmode_music = 'sound/music/combat_cult.ogg'
-			neck = /obj/item/roguekey/inhumen
+	if(H.patron?.type in subtypesof(/datum/patron/inhumen))
+		H.cmode_music = 'sound/music/combat_cult.ogg'
+		ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
