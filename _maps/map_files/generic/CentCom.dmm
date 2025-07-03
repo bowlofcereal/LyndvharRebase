@@ -1710,7 +1710,12 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/banditcamp)
 "kv" = (
-/obj/structure/closet/crate/drawer,
+/obj/machinery/light/rogue/wallfire/candle/blue{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/item/bedsheet/rogue/cloth,
+/obj/structure/bed/rogue/inn/wool,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "kx" = (
@@ -1948,15 +1953,9 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods)
 "oX" = (
-/obj/structure/table/wood{
-	dir = 8;
-	icon_state = "largetable"
-	},
-/obj/item/paper/scroll,
-/obj/item/natural/feather{
-	pixel_x = 5
-	},
-/turf/open/floor/rogue/concrete,
+/obj/item/bedsheet/rogue/cloth,
+/obj/structure/bed/rogue/inn/wool,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "pc" = (
 /obj/machinery/light/rogue/firebowl/standing,
@@ -2480,7 +2479,10 @@
 	dir = 8;
 	icon_state = "largetable"
 	},
-/obj/item/candle/skull,
+/obj/item/paper/scroll,
+/obj/item/natural/feather{
+	pixel_x = 5
+	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
 "yu" = (
@@ -2767,15 +2769,6 @@
 /area/rogue/outdoors/banditcamp)
 "Dz" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/under/cave/inhumen)
-"DB" = (
-/obj/machinery/light/rogue/wallfire/candle/blue{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/obj/item/bedsheet/rogue/cloth,
-/obj/structure/bed/rogue/inn/wool,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "DD" = (
@@ -3141,6 +3134,14 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
+"KF" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable"
+	},
+/obj/item/paper/scroll,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/under/cave/inhumen)
 "KG" = (
 /obj/structure/chair/bench/church/r,
 /turf/open/floor/rogue/concrete,
@@ -3175,6 +3176,10 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
+"LA" = (
+/obj/structure/closet/crate/drawer,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/under/cave/inhumen)
 "LE" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
@@ -3194,15 +3199,7 @@
 /obj/structure/table/optable,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
-"LS" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/machinery/light/rogue/wallfire/candle/r,
-/obj/item/needle,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/banditcamp)
-"LT" = (
+"LQ" = (
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
@@ -3211,6 +3208,14 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
+"LS" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/machinery/light/rogue/wallfire/candle/r,
+/obj/item/needle,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/banditcamp)
 "Mi" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/banditcamp)
@@ -3266,10 +3271,6 @@
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors)
-"NJ" = (
-/obj/item/roguebin/water/gross,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/inhumen)
 "NQ" = (
 /obj/structure/fluff/alch,
 /turf/open/floor/rogue/blocks,
@@ -3498,12 +3499,8 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/banditcamp)
 "TD" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "longtable"
-	},
-/obj/item/paper/scroll,
-/turf/open/floor/rogue/hexstone,
+/obj/item/roguebin/water/gross,
+/turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/inhumen)
 "TK" = (
 /obj/structure/table/wood{
@@ -3804,9 +3801,12 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/banditcamp)
 "XM" = (
-/obj/item/bedsheet/rogue/cloth,
-/obj/structure/bed/rogue/inn/wool,
-/turf/open/floor/rogue/hexstone,
+/obj/structure/table/wood{
+	dir = 8;
+	icon_state = "largetable"
+	},
+/obj/item/candle/skull,
+/turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
 "XV" = (
 /turf/closed/mineral/random/rogue/high,
@@ -14174,7 +14174,7 @@ WO
 Bi
 Bi
 BC
-LT
+LQ
 ws
 ws
 ws
@@ -14304,14 +14304,14 @@ SJ
 SJ
 SJ
 TS
-TD
+KF
 sY
 ws
-DB
 kv
-XM
-kv
-XM
+LA
+oX
+LA
+oX
 TS
 wN
 XV
@@ -14442,7 +14442,7 @@ Kv
 Kv
 Kv
 Kv
-TY
+xL
 wN
 XV
 XV
@@ -14962,7 +14962,7 @@ lq
 lq
 Kv
 TY
-DM
+xL
 wN
 XV
 XV
@@ -15985,8 +15985,8 @@ HV
 If
 Bd
 IZ
+XM
 yk
-oX
 Ch
 ws
 tI
@@ -16522,7 +16522,7 @@ lq
 lq
 Kv
 Kv
-TY
+xL
 wN
 XV
 XV
@@ -17042,7 +17042,7 @@ Kv
 Kv
 Kv
 Kv
-TY
+xL
 wN
 XV
 XV
@@ -17945,7 +17945,7 @@ Io
 tX
 TS
 xA
-NJ
+TD
 ow
 kX
 kX
