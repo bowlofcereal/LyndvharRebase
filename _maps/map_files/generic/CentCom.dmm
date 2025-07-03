@@ -1740,9 +1740,8 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/banditcamp)
 "kN" = (
-/obj/effect/decal/cleanable/dirt/cobweb,
-/obj/effect/decal/remains/human,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/inhumen)
 "kR" = (
 /obj/structure/pillory{
@@ -1763,6 +1762,10 @@
 "lw" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue)
+"lQ" = (
+/obj/machinery/light/rogue/wallfire/candle/blue,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/under/cave/inhumen)
 "mc" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /obj/structure/fluff/walldeco/stone{
@@ -2021,8 +2024,9 @@
 	},
 /area/rogue/indoors)
 "pV" = (
-/obj/structure/spider/stickyweb,
-/turf/open/floor/rogue/blocks,
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/effect/decal/remains/human,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "qh" = (
 /obj/structure/stairs,
@@ -3028,10 +3032,6 @@
 /obj/structure/roguerock,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/inhumen)
-"IB" = (
-/obj/machinery/light/rogue/wallfire/candle/blue,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/under/cave/inhumen)
 "ID" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/bookcase/random/archive,
@@ -3219,8 +3219,8 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors)
 "MX" = (
-/obj/machinery/light/rogue/wallfire/candle/blue,
-/turf/open/floor/rogue/cobble,
+/obj/structure/closet/crate/chest/old_crate,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "Nf" = (
 /obj/effect/landmark/start/bandit,
@@ -3450,10 +3450,6 @@
 	aportalid = "wretchin2"
 	},
 /turf/open/floor/rogue/naturalstone,
-/area/rogue/under/cave/inhumen)
-"SZ" = (
-/obj/structure/closet/crate/chest/old_crate,
-/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "Te" = (
 /turf/open/floor/rogue/dirt,
@@ -13767,7 +13763,7 @@ KZ
 ws
 ws
 tX
-IB
+lQ
 ws
 Jc
 Jc
@@ -14027,7 +14023,7 @@ KZ
 ws
 ws
 tX
-IB
+lQ
 ws
 zh
 XV
@@ -16222,9 +16218,9 @@ rQ
 rQ
 wN
 TS
-kN
+pV
 ws
-SZ
+MX
 BC
 ws
 hS
@@ -16887,7 +16883,7 @@ WO
 Bi
 Bi
 Bi
-pV
+Bi
 QT
 ws
 ws
@@ -17407,7 +17403,7 @@ KZ
 ws
 ws
 tX
-MX
+kN
 qO
 eh
 kX
@@ -17667,7 +17663,7 @@ KZ
 ws
 ws
 tX
-MX
+kN
 eh
 kX
 kX
