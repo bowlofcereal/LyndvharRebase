@@ -5,6 +5,19 @@
 // For now. Steel vs Iron will be a difference of 75% integrity without rating differences.
 // So Iron will actually be pretty decent and there shouldn't be a compulsive need to upgrade.
 
+// Helmet
+#define ARMOR_INT_HELMET_ANTAG 600
+#define ARMOR_INT_HELMET_BLACKSTEEL 500
+#define ARMOR_INT_HELMET_HEAVY_STEEL 400
+#define ARMOR_INT_HELMET_HEAVY_IRON 300
+#define ARMOR_INT_HELMET_HEAVY_DECREPIT 200
+#define ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY 50 // Integrity reduction, if a helmet is adjustable
+#define ARMOR_INT_HELMET_STEEL 300 
+#define ARMOR_INT_HELMET_IRON 225
+#define ARMOR_INT_HELMET_HARDLEATHER 250
+#define ARMOR_INT_HELMET_LEATHER 200
+#define ARMOR_INT_HELMET_CLOTH 100
+
 // Chest / Armor Pieces 
 
 // HEAVY
