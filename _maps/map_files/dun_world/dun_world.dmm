@@ -13645,7 +13645,7 @@
 "eyl" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/machinery/light/rogue/wallfire/candle,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town)
 "eyn" = (
 /obj/structure/fluff/walldeco/church/line,
@@ -16979,6 +16979,9 @@
 /obj/structure/lever/wall{
 	pixel_x = 12;
 	redstone_id = "stewardshutter"
+	},
+/obj/structure/fluff/railing/border{
+	dir = 8
 	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town)
@@ -28561,7 +28564,7 @@
 /area/rogue/outdoors/mountains)
 "jkr" = (
 /obj/structure/roguemachine/steward,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town)
 "jkC" = (
 /turf/open/floor/rogue/rooftop{
@@ -41457,6 +41460,12 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/transparent/openspace,
 /area/rogue/indoors)
+"nCm" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/turf/open/floor/rogue/churchbrick,
+/area/rogue/indoors/town)
 "nCn" = (
 /obj/structure/fluff/walldeco/chains,
 /obj/effect/decal/cleanable/blood,
@@ -46488,6 +46497,12 @@
 /obj/structure/chair/wood/rogue/chair3,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/underdark)
+"pkZ" = (
+/obj/structure/stairs{
+	dir = 1
+	},
+/turf/open/floor/rogue/churchbrick,
+/area/rogue/indoors/town)
 "plc" = (
 /obj/effect/decal/cobbleedge{
 	dir = 4;
@@ -56612,6 +56627,11 @@
 /obj/structure/roguemachine/atm{
 	location_tag = "Stewardry"
 	},
+/obj/structure/fluff/railing/border{
+	dir = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town)
 "syc" = (
@@ -57666,8 +57686,9 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "sRD" = (
-/obj/structure/chair/wood/rogue/chair5{
-	dir = 8
+/obj/structure/fluff/railing/border{
+	dir = 5;
+	pixel_y = 0
 	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town)
@@ -62149,7 +62170,7 @@
 	},
 /obj/item/storage/roguebag,
 /obj/machinery/light/rogue/wallfire/candle,
-/turf/open/floor/rogue/hexstone,
+/turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town)
 "umA" = (
 /obj/structure/flora/roguegrass/bush/wall,
@@ -67723,6 +67744,13 @@
 /obj/structure/bars/tough,
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/mountains/decap/stepbelow)
+"wcc" = (
+/obj/effect/decal/cobbleedge{
+	dir = 1;
+	icon_state = "borderfall"
+	},
+/turf/open/floor/rogue/churchbrick,
+/area/rogue/indoors/town)
 "wcd" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -269535,7 +269563,7 @@ eKH
 eKH
 syb
 sRD
-sRD
+sRJ
 sRJ
 eGS
 eKH
@@ -269985,8 +270013,8 @@ sns
 sns
 eKH
 umv
-puO
-sRJ
+bZZ
+wcc
 sRJ
 wQL
 eKH
@@ -270437,8 +270465,8 @@ sns
 sns
 eKH
 jkr
-puO
-sRJ
+bZZ
+pkZ
 sRJ
 sRJ
 fHg
@@ -270889,8 +270917,8 @@ sns
 sns
 eKH
 eyl
-puO
-sRJ
+bZZ
+wcc
 sRJ
 sRJ
 eKH
@@ -271342,7 +271370,7 @@ sns
 eKH
 eKH
 fCk
-sRJ
+nCm
 sRJ
 sRJ
 aRC
