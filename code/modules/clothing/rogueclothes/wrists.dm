@@ -160,6 +160,7 @@
 	icon_state = "ibracers"
 	item_state = "ibracers"
 	max_integrity = ARMOR_INT_SIDE_IRON
+	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/wrists/roguetown/bracers/jackchain
 	name = "jack chains"

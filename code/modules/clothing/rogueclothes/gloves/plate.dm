@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/roguetown/plate
 	name = "plate gauntlets"
-	desc = "Plated gauntlets made out of steel. Good all-around protection for the hands."
+	desc = "Plate gauntlets made out of steel. Good all-around protection for the hands."
 	icon_state = "gauntlets"
 	armor = ARMOR_GLOVES_PLATE
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
@@ -15,6 +15,13 @@
 
 	grid_width = 64
 	grid_height = 32
+
+/obj/item/clothing/gloves/roguetown/plate/iron
+	name = "iron plate gauntlets"
+	desc = "Plate gauntlets made out of iron. Good all-around protection for the hands. Slightly less durable than its steel counterpart."
+	icon_state = "igauntlets"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_SIDE_IRON
 
 /obj/item/clothing/gloves/roguetown/plate/aalloy
 	name = "decrepit plate gauntlets"

@@ -265,6 +265,13 @@
 	createditem_num = 2
 	craftdiff = 0
 
+/datum/anvil_recipe/armor/iron/plategauntlets
+	name = "Plate Gauntlet"
+	req_bar = /obj/item/ingot/iron
+	created_item = /obj/item/clothing/gloves/roguetown/plate/iron
+	createditem_num = 1
+	craftdiff = 0
+
 /datum/anvil_recipe/armor/iron/chainleg
 	name = "Chain Chausses"
 	req_bar = /obj/item/ingot/iron
