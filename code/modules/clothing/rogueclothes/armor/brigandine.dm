@@ -10,7 +10,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	allowed_sex = list(MALE, FEMALE)
 	nodismemsleeves = TRUE
-	max_integrity = 350
+	max_integrity = ARMOR_INT_CHEST_PLATE_BRIGANDINE
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 4 SECONDS
@@ -110,7 +110,7 @@
 	blocksound = SOFTHIT
 	body_parts_covered = COVERAGE_SHIRT
 	armor = ARMOR_CUIRASS
-	max_integrity = 250
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_BRIGANDINE
 	smeltresult = /obj/item/ingot/iron
 	equip_delay_self = 40
 	armor_class = ARMOR_CLASS_MEDIUM

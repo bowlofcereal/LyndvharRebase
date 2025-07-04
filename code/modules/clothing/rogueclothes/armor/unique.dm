@@ -23,13 +23,12 @@
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	body_parts_covered = COVERAGE_FULL
-	armor = list("blunt" = 35, "slash" = 75, "stab" = 40, "piercing" = 20, "fire" = 0, "acid" = 0)
-	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP)
+	armor = ARMOR_SPELLSINGER
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP, BCLASS_SMASH)
 	blocksound = SOFTHIT
 	blade_dulling = DULLING_BASHCHOP
 	sewrepair = TRUE
 	nodismemsleeves = TRUE
-	max_integrity = 175 //can be increased if it turns out that having full coverage with such a low integ. isnt worth it
 	sellprice = 20
 	armor_class = ARMOR_CLASS_LIGHT
 	allowed_race = NON_DWARVEN_RACE_TYPES
@@ -43,8 +42,6 @@
 	desc = "A dobo robe with a red tassel. Leather inlays are sewn in."
 	icon_state = "eastsuit2"
 	item_state = "eastsuit2"
-	armor = list("blunt" = 50, "slash" = 90, "stab" = 60, "piercing" = 30, "fire" = 0, "acid" = 0)
-	max_integrity = 200
 
 //craftable variation of eastsuit, essentially requiring the presence of a tailor with relevant materials
 //still weak against blunt
@@ -55,20 +52,17 @@
 	icon_state = "eastsuit1"
 	item_state = "eastsuit1"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
-	armor = list("blunt" = 50, "slash" = 90, "stab" = 60, "piercing" = 30, "fire" = 0, "acid" = 0)
-	max_integrity = 200
+
 
 /obj/item/clothing/suit/roguetown/armor/basiceast/captainrobe
 	name = "foreign robes"
 	desc = "Flower-styled robes, said to have been infused with magical protection. The Merchant Guild says that this is from the southern Kazengite region."
 	icon_state = "eastsuit4"
 	item_state = "eastsuit4"
-	armor = list("blunt" = 50, "slash" = 90, "stab" = 60, "piercing" = 30, "fire" = 0, "acid" = 0)
-	max_integrity = 300
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	sellprice = 25
 
 // this robe spawns on a role that offers no leg protection nor further upgrades to the loadout, in exchange for better roundstart gear
-
 
 /obj/item/clothing/suit/roguetown/armor/plate/elven_plate
 	name = "woad elven plate"

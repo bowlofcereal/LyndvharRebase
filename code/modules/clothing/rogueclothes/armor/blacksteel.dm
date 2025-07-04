@@ -12,7 +12,7 @@
 	armor = ARMOR_PLATE_BSTEEL
 	allowed_race = CLOTHED_RACES_TYPES
 	blocking_behavior = null
-	max_integrity = 400
+	max_integrity = ARMOR_INT_CHEST_PLATE_BLACKSTEEL
 	smeltresult = /obj/item/ingot/blacksteel
 	equip_delay_self = 12 SECONDS
 	unequip_delay_self = 12 SECONDS
@@ -32,7 +32,7 @@
 	armor = ARMOR_PLATE_BSTEEL
 	allowed_race = CLOTHED_RACES_TYPES
 	blocking_behavior = null
-	max_integrity = 400
+	max_integrity = ARMOR_INT_CHEST_PLATE_BLACKSTEEL
 	smeltresult = /obj/item/ingot/blacksteel
 	equip_delay_self = 12 SECONDS
 	unequip_delay_self = 12 SECONDS
@@ -49,7 +49,7 @@
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
 	allowed_race = CLOTHED_RACES_TYPES
 	blocking_behavior = null
-	max_integrity = 400
+	max_integrity = ARMOR_INT_CHEST_PLATE_BLACKSTEEL
 	smeltresult = /obj/item/ingot/blacksteel
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2

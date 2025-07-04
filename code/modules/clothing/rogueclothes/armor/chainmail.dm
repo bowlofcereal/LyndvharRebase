@@ -7,6 +7,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	icon_state = "haubergeon"
 	armor = ARMOR_MAILLE
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
 	blocksound = CHAINHIT
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
@@ -23,7 +24,7 @@
 	desc = "Decrepit old chainmail. Aeon's grasp is upon it."
 	icon_state = "ancientchain"
 	smeltresult = /obj/item/ingot/aalloy
-	max_integrity = 50
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_DECREPIT
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/paalloy
 	name = "ancient chainmail"
@@ -54,7 +55,7 @@
 	name = "decrepit hauberk"
 	desc = "A hauberk worn out by time. Aeon's grasp is upon it."
 	icon_state = "ancienthauberk"
-	max_integrity = 50
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_DECREPIT
 	smeltresult = /obj/item/ingot/aalloy
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/paalloy
@@ -72,7 +73,7 @@
 			these interlinked layers are superb at warding off the blows of inhumen claws and axes."
 	icon_state = "ornatehauberk"
 	item_state = "ornatehauberk"
-	max_integrity = 350
+	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/bikini
 	name = "chainmail corslet"	// corslet, from the old French 'cors' or bodice, with the diminutive 'let', used to describe lightweight military armor since 1500. Chosen here to replace 'bikini', an extreme anachronism.

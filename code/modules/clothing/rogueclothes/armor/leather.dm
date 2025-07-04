@@ -11,7 +11,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
 	nodismemsleeves = TRUE
-	max_integrity = 150
+	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE
 	sellprice = 20
 	armor_class = ARMOR_CLASS_LIGHT
 	salvage_result = /obj/item/natural/hide/cured
@@ -57,13 +57,13 @@
 	name = "leather cuirass"
 	desc = "A cuirass made of leather."
 	icon_state = "leather"
-	max_integrity = 200
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 
 /obj/item/clothing/suit/roguetown/armor/leather/hide
 	name = "hide armor"
 	desc = "A light armor of wildbeast hide. Far more durable than leather."
 	icon_state = "hidearmor"
-	max_integrity = 250
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MEDIUM
 
 /obj/item/clothing/suit/roguetown/armor/leather/hide/warden
 	name = "forestry armor"
@@ -82,7 +82,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP, BCLASS_SMASH)
 	nodismemsleeves = TRUE
 	body_parts_covered = COVERAGE_TORSO
-	max_integrity = 300
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	smeltresult = /obj/item/ingot/iron
 	sellprice = 25
 	armor_class = ARMOR_CLASS_LIGHT
@@ -95,7 +95,7 @@
 	item_state = "roguearmor_belt"
 	armor = ARMOR_LEATHER_GOOD
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP, BCLASS_SMASH)
-	max_integrity = 300
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	sellprice = 20
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
@@ -106,7 +106,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	armor = ARMOR_LEATHER_GOOD
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP, BCLASS_SMASH)
-	max_integrity = 300
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	sellprice = 25
 
 /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/raneshen
@@ -129,7 +129,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	armor = ARMOR_LEATHER_GOOD
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP, BCLASS_SMASH)
-	max_integrity = 300
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	sellprice = 25
 
 /obj/item/clothing/suit/roguetown/armor/leather/trophyfur
@@ -139,7 +139,7 @@
 	item_state = "hatanga"
 	armor = list("blunt" = 90, "slash" = 30, "stab" = 40, "piercing" = 60, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_STAB, BCLASS_BLUNT, BCLASS_SMASH, BCLASS_PICK, BCLASS_TWIST)
-	max_integrity = 300
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	sellprice = 100
 
 /obj/item/clothing/suit/roguetown/armor/leather/bikini

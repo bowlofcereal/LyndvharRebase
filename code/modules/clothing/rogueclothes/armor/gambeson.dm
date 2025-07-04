@@ -134,7 +134,7 @@
 	boobed = TRUE
 	detail_tag = "_detail"
 	detail_color = CLOTHING_WHITE
-	max_integrity = 250 // Slightly stronger than base, a reward for unique drip
+	max_integrity = ARMOR_INT_CHEST_LIGHT_MEDIUM
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	color = "#1d1d22"
