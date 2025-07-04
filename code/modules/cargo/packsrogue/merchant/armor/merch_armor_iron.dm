@@ -21,6 +21,11 @@
 	cost = 25
 	contains = list(/obj/item/clothing/neck/roguetown/gorget)
 
+/datum/supply_pack/rogue/armor_iron/bevor_iron
+	name = "Bevor"
+	cost = 25
+	contains = list(/obj/item/clothing/neck/roguetown/bevor/iron)
+
 /datum/supply_pack/rogue/armor_iron/breastplate_iron
 	name = "Breastplate"
 	cost = 35
@@ -30,6 +35,16 @@
 	name = "Brigandine, Light"
 	cost = 35
 	contains = list(/obj/item/clothing/suit/roguetown/armor/brigandine/light)
+
+/datum/supply_pack/rogue/armor_iron/halfplate
+	name = "Half-Plate Armor"
+	cost = 75 // Uhhh I don't think I should be selling them for 65 LOL
+	contains = list(/obj/item/clothing/suit/roguetown/armor/plate/half/iron)
+
+/datum/supply_pack/rogue/armor_iron/fullplate
+	name = "Full Plate"
+	cost = 115 // Uhhh I don't think I should be selling them for 80
+	contains = list(/obj/item/clothing/suit/roguetown/armor/plate/full/iron)
 
 /datum/supply_pack/rogue/armor_iron/rearbraces
 	name = "Bracers, Brigandine"
@@ -90,3 +105,23 @@
 	name = "Helmet, Horned"
 	cost = 25
 	contains = list(/obj/item/clothing/head/roguetown/helmet/horned)
+
+/datum/supply_pack/rogue/armor_iron/kettle
+	name = "Helmet, Kettle"
+	cost = 25
+	contains = list(/obj/item/clothing/head/roguetown/helmet/kettle/iron)
+
+/datum/supply_pack/rogue/armor_iron/sallet
+	name = "Helmet, Sallet"
+	cost = 25
+	contains = list(/obj/item/clothing/head/roguetown/helmet/sallet/iron)
+
+/datum/supply_pack/rogue/armor_iron/visored
+	name = "Helmet, Sallet Visored"
+	cost = 40
+	contains = list(/obj/item/clothing/head/roguetown/helmet/sallet/visored/iron)
+
+/datum/supply_pack/rogue/armor_iron/knight
+	name = "Helmet, Knight"
+	cost = 40
+	contains = list(/obj/item/clothing/head/roguetown/helmet/heavy/knight/iron)
