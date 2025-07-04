@@ -8,8 +8,8 @@
 	sound = list('sound/magic/fireball.ogg')
 	releasedrain = 30
 	chargedrain = 1
-	chargetime = 25
-	recharge_time = 15 SECONDS
+	chargetime = 15
+	recharge_time = 10 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	movement_interrupt = FALSE
@@ -27,17 +27,17 @@
 /obj/projectile/magic/aoe/fireball/rogue
 	name = "fireball"
 	exp_heavy = 0
-	exp_light = 0
+	exp_light = 3
 	exp_flash = 0
-	exp_fire = 1
-	damage = 60
+	exp_fire = 3
+	damage = 10
 	damage_type = BURN
-	npc_damage_mult = 2 // HAHAHA
 	accuracy = 40 // Base accuracy is lower for burn projectiles because they bypass armor
 	nodamage = FALSE
 	flag = "magic"
 	hitsound = 'sound/blank.ogg'
 	aoe_range = 0
+	speed = 3
 
 
 /obj/projectile/magic/aoe/fireball/rogue/on_hit(target)
