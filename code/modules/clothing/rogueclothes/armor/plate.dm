@@ -81,24 +81,14 @@
 
 	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON
 
-	/// Whether the user has the Heavy Armour Trait prior to donning.
-	var/traited = FALSE
-
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate/equipped(mob/living/user, slot)
-	..()
-	if(slot != SLOT_ARMOR)
-		return
-	if (!HAS_TRAIT(user, TRAIT_MEDIUMARMOR))
-		return
-	ADD_TRAIT(user, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	to_chat(user, span_notice("Endure til' inevitability."))
+	. = ..()
+	user.apply_status_effect(/datum/status_effect/buff/psydonic_endurance)
 
-/obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate/dropped(mob/living/user)
-	..()
-	if (traited)
-		return
-	REMOVE_TRAIT(user, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	to_chat(user, span_notice("Trust in thyself."))
+/obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(istype(user) && user.wear_armor == src)
+		user.remove_status_effect(/datum/status_effect/buff/psydonic_endurance)
 
 // Full plate armor
 
@@ -199,7 +189,7 @@
 
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/bikini
-	name = "full-plate corslet"
+	name = "full-plate corset"
 	desc = "Breastplate, pauldrons, couters, cuisses... did you forget something?"
 	icon_state = "platekini"
 	allowed_sex = list(FEMALE)
@@ -255,6 +245,18 @@
 	item_state = "corsethalfplate"
 	adjustable = CAN_CADJUST
 	allowed_race = NON_DWARVEN_RACE_TYPES
+	detail_tag = "_detail"
+	color = "#FFFFFF"
+	detail_color = "#282e83"
+
+/obj/item/clothing/suit/roguetown/armor/plate/otavan/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
 
 /obj/item/clothing/suit/roguetown/armor/plate/otavan/AdjustClothes(mob/user)
 	if(loc == user)

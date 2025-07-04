@@ -81,17 +81,27 @@
 
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan
-	name = "fencer gambeson"
+	name = "fencing gambeson"
 	desc = "A large shirt with heavy padding meant to be used below armor. Will probably stop an arrow, unlikely to stop a bolt."
 	icon_state = "fancygamb"
 	allowed_race = NON_DWARVEN_RACE_TYPES
-	color = "#FFFFFF"
+	color = "#282e83"
+	detail_color = "#c7732f"
 	shiftable = FALSE
 	sellprice = 30
 
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan/update_icon()
+	cut_overlays()
+	if(get_detail_tag())
+		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
+		pic.appearance_flags = RESET_COLOR
+		if(get_detail_color())
+			pic.color = get_detail_color()
+		add_overlay(pic)
+
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/freifechter
 	name = "padded fencing shirt"
-	desc = "A strong quilted shirt that places little weight on the arms, it's worn underneath a strong leather vest. It lasts a bit less than a regular padded gambeson and won't cover your legs."
+	desc = "A strong quilted shirt that places little weight on the arms, it's worn underneath a strong leather vest. It won't cover your legs."
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	detail_tag = "_detail"
 	altdetail_tag = "_detailalt"

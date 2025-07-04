@@ -15,6 +15,7 @@
 
 	grid_width = 64
 	grid_height = 32
+	unarmed_bonus = 1.2
 
 /obj/item/clothing/gloves/roguetown/plate/iron
 	name = "iron plate gauntlets"

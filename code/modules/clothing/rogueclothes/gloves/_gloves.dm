@@ -9,3 +9,5 @@
 	sleevetype = "shirt"
 	max_heat_protection_temperature = 361
 	experimental_inhand = FALSE
+	/// Unarmed damage multiplier (for pure fists / wrestling only)
+	var/unarmed_bonus = 1

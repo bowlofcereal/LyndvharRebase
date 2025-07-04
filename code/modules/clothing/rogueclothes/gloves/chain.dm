@@ -12,6 +12,7 @@
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
+	unarmed_bonus = 1.15
 
 /obj/item/clothing/gloves/roguetown/chain/aalloy
 	name = "decrepit chain gauntlets"

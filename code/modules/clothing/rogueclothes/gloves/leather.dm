@@ -14,6 +14,7 @@
 	anvilrepair = null
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/hide/cured
+	unarmed_bonus = 1.1
 
 /obj/item/clothing/gloves/roguetown/leather/black
 	color = CLOTHING_BLACK
