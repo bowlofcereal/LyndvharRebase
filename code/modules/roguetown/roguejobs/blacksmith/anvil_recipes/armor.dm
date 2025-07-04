@@ -269,7 +269,6 @@
 	name = "Plate Gauntlet"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/gloves/roguetown/plate/iron
-	createditem_num = 1
 	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/chainleg
@@ -289,6 +288,12 @@
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/natural/cloth)
 	created_item = /obj/item/clothing/under/roguetown/splintlegs
+
+/datum/anvil_recipe/armor/iron/platelegs
+	name = "Plate Chausses (+1 Bar)"
+	req_bar = /obj/item/ingot/iron
+	additional_items = list(/obj/item/ingot/iron)
+	created_item = /obj/item/clothing/under/roguetown/iplatelegs
 
 /datum/anvil_recipe/armor/iron/mask
 	name = "Iron Mask"

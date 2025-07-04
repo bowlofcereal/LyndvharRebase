@@ -5,7 +5,24 @@
 // For now. Steel vs Iron will be a difference of 75% integrity without rating differences.
 // So Iron will actually be pretty decent and there shouldn't be a compulsive need to upgrade.
 
+
+// LEG PIECES - Leg Armor
+#define ARMOR_INT_LEG_ANTAG 600
+#define ARMOR_INT_LEG_BLACKSTEEL 500 
+#define ARMOR_INT_LEG_STEEL_PLATE 400
+#define ARMOR_INT_LEG_IRON_PLATE 300
+#define ARMOR_INT_LEG_DECREPIT_PLATE 200
+#define ARMOR_INT_LEG_STEEL_CHAIN 300
+#define ARMOR_INT_LEG_BRIGANDINE 250 // Iron grade but whatever.
+#define ARMOR_INT_LEG_IRON_CHAIN 225
+#define ARMOR_INT_LEG_DECREPIT_CHAIN 150
+#define ARMOR_INT_LEG_HARDLEATHER 250
+#define ARMOR_INT_LEG_LEATHER 200
+#define ARMOR_INT_LEG_CLOTH 10
+
+// SIDE PIECES - NON-Chest armor
 #define ARMOR_INT_SIDE_ANTAG 500 // Integrity for antag pieces
+#define ARMOR_INT_SIDE_BLACKSTEEL 400 // Integrity for blacksteel pieces
 #define ARMOR_INT_SIDE_STEEL 300 // Integrity for steel pieces
 #define ARMOR_INT_SIDE_IRON 225 // Integrity for iron pieces
 #define ARMOR_INT_SIDE_HARDLEATHER 250 // Integrity for hardened leather pieces

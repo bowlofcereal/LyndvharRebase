@@ -10,8 +10,7 @@
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	resistance_flags = FIRE_PROOF
 	blocksound = PLATEHIT
-	max_integrity = 400
-	blade_dulling = DULLING_BASH
+	max_integrity = ARMOR_INT_SIDE_BLACKSTEEL
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
@@ -28,8 +27,7 @@
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	resistance_flags = FIRE_PROOF
 	blocksound = PLATEHIT
-	max_integrity = 400
-	blade_dulling = DULLING_BASH
+	max_integrity = ARMOR_INT_SIDE_BLACKSTEEL
 	break_sound = 'sound/foley/breaksound.ogg'
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
