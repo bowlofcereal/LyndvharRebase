@@ -293,8 +293,7 @@
 	slot_flags = ITEM_SLOT_BACK		//Needs to go on back.
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
-	pixel_y = -16
-	pixel_x = -16
+	bigboy = TRUE
 	
 /obj/item/rogueweapon/stoneaxe/woodcut/getonmobprop(tag)
 	. = ..()
