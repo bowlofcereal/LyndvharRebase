@@ -15,29 +15,30 @@
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_MEDIUM
 
+/obj/item/clothing/suit/roguetown/armor/chainmail/iron
+	icon_state = "ihaubergeon"
+	name = "iron haubergeon"
+	desc = "A chain vest made of heavy iron rings. Better than nothing."
+	body_parts_covered = COVERAGE_TORSO
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_IRON
+	smeltresult = /obj/item/ingot/iron
+
 /obj/item/clothing/suit/roguetown/armor/chainmail/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle)
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/aalloy
-	name = "decrepit chainmail"
-	desc = "Decrepit old chainmail. Aeon's grasp is upon it."
+	name = "decrepit haubergeon"
+	desc = "Decrepit old haubergeon. Aeon's grasp is upon it."
 	icon_state = "ancientchain"
 	smeltresult = /obj/item/ingot/aalloy
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_DECREPIT
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/paalloy
-	name = "ancient chainmail"
-	desc = "Chainmail formed of ancient alloys. Aeon's grasp has been lifted from it."
+	name = "ancient haubergeon"
+	desc = "Chainmail vest formed of ancient alloys. Aeon's grasp has been lifted from it."
 	icon_state = "ancientchain"
 	smeltresult = /obj/item/ingot/aaslag
-
-/obj/item/clothing/suit/roguetown/armor/chainmail/iron
-	icon_state = "ichainmail"
-	name = "chainmaille"
-	desc = "A chain vest made of heavy iron rings. Better than nothing."
-	body_parts_covered = COVERAGE_TORSO
-	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
@@ -50,6 +51,14 @@
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
+	name = "iron hauberk"
+	desc = "A longer iron maille that protects the legs, still doesn't protect against arrows though."
+	icon_state = "ihauberk"
+	item_state = "ihauberk"
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_IRON
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/aalloy
 	name = "decrepit hauberk"
