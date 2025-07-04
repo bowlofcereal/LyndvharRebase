@@ -5,6 +5,8 @@
 // For now. Steel vs Iron will be a difference of 75% integrity without rating differences.
 // So Iron will actually be pretty decent and there shouldn't be a compulsive need to upgrade.
 
+// Chest / Armor Pieces 
+
 
 // LEG PIECES - Leg Armor
 #define ARMOR_INT_LEG_ANTAG 600
@@ -20,7 +22,7 @@
 #define ARMOR_INT_LEG_LEATHER 200
 #define ARMOR_INT_LEG_CLOTH 10
 
-// SIDE PIECES - NON-Chest armor
+// SIDE PIECES - Non-Chest armor
 #define ARMOR_INT_SIDE_ANTAG 500 // Integrity for antag pieces
 #define ARMOR_INT_SIDE_BLACKSTEEL 400 // Integrity for blacksteel pieces
 #define ARMOR_INT_SIDE_STEEL 300 // Integrity for steel pieces
