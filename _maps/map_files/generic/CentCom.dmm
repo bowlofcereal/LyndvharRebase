@@ -1601,7 +1601,8 @@
 /area/rogue/indoors/banditcamp)
 "hy" = (
 /obj/structure/fluff/railing/border{
-	dir = 6
+	icon_state = "border";
+	dir = 8
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
@@ -2086,7 +2087,16 @@
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/banditcamp)
 "rB" = (
-/obj/structure/fluff/railing/border,
+/obj/structure/closet/crate/chest/old_crate,
+/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/item/reagent_containers/food/snacks/rogue/friedrat,
+/obj/item/reagent_containers/food/snacks/rogue/friedrat,
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
+/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
 "rN" = (
@@ -2346,7 +2356,8 @@
 	},
 /area/rogue/indoors/banditcamp)
 "wr" = (
-/obj/structure/fermentation_keg/random/water,
+/obj/structure/fermentation_keg/random/beer,
+/obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
 "ws" = (
@@ -2772,11 +2783,11 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "DD" = (
-/obj/structure/fermentation_keg/random/beer,
 /obj/structure/fluff/railing/border{
-	dir = 1
+	icon_state = "border";
+	dir = 10
 	},
-/turf/open/floor/rogue/blocks,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "DG" = (
 /obj/effect/landmark/start/wretch,
@@ -3442,13 +3453,10 @@
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods)
 "Sd" = (
-/obj/structure/closet/crate/chest/old_crate,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/friedrat,
-/obj/item/reagent_containers/food/snacks/rogue/friedrat,
-/obj/item/reagent_containers/food/snacks/rogue/friedrat,
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/rogue/hearth,
+/obj/item/cooking/pan,
+/obj/machinery/light/rogue/oven/east,
+/turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
 "Sj" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
@@ -3577,7 +3585,7 @@
 /area/rogue/indoors/banditcamp)
 "UL" = (
 /obj/structure/fluff/railing/border{
-	dir = 5
+	dir = 9
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
@@ -3856,7 +3864,8 @@
 /area/rogue/under/cave/inhumen)
 "YQ" = (
 /obj/machinery/light/rogue/hearth,
-/obj/item/cooking/pan,
+/obj/machinery/light/rogue/oven/east,
+/obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
 "YR" = (
@@ -3908,9 +3917,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/banditcamp)
 "ZC" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
+/obj/structure/fermentation_keg/random/water,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "ZM" = (
@@ -14554,10 +14561,10 @@ LP
 mT
 xL
 Kw
-fN
-NQ
-wt
-XG
+wr
+Sd
+YQ
+rB
 Kw
 If
 WO
@@ -14683,11 +14690,11 @@ ws
 Qn
 Dz
 BC
-Ez
-ws
-ws
-ws
-ws
+ZC
+DD
+hy
+hy
+UL
 ws
 lq
 ws
@@ -16763,10 +16770,10 @@ ph
 Qn
 FG
 If
-Sd
-hy
-ZC
-UL
+Ez
+ws
+ws
+ws
 ws
 ws
 lq
@@ -16894,10 +16901,10 @@ Vp
 fk
 xL
 fH
-rB
-YQ
-DD
-wr
+fN
+NQ
+wt
+XG
 Kw
 BC
 WO
