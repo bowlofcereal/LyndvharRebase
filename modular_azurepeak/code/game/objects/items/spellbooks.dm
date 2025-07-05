@@ -335,7 +335,3 @@ decreases charge time if held opened in hand, for pure mage build + aesthetics.
 	icon_state = "walltest"
 	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = SIGIL_LAYER
-
-// helper proc
-/proc/isarcyne(mob/living/carbon/human/A)
-	return istype(A) && A.mind && (A.get_skill_level(/datum/skill/magic/arcane) > SKILL_LEVEL_NONE)
