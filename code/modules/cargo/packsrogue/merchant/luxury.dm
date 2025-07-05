@@ -99,9 +99,9 @@
 	name = "Manabloom Flowers"
 	cost = 55
 	contains = list(	
-			/obj/item/reagent_containers/food/snacks/grown/rogue/manabloom,
-			/obj/item/reagent_containers/food/snacks/grown/rogue/manabloom,
-			/obj/item/reagent_containers/food/snacks/grown/rogue/manabloom,
+			/obj/item/reagent_containers/food/snacks/grown/manabloom,
+			/obj/item/reagent_containers/food/snacks/grown/manabloom,
+			/obj/item/reagent_containers/food/snacks/grown/manabloom,
 			)
 
 /datum/supply_pack/rogue/luxury/manacrystal

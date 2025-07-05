@@ -71,13 +71,13 @@
 	user.changeNext_move(adf)
 	for(var/obj/item/clothing/worn_thing in get_equipped_items(include_pockets = TRUE))//checks clothing worn by src.
 	// Things that are supposed to be worn, being held = cannot block
-	if(isclothing(worn_thing))
-		if(worn_thing in held_items)
+		if(isclothing(worn_thing))
+			if(worn_thing in held_items)
+				continue
+		// Things that are supposed to be held, being worn = cannot block
+		else if(!(worn_thing in held_items))
 			continue
-	// Things that are supposed to be held, being worn = cannot block
-	else if(!(worn_thing in held_items))
-		continue
-	worn_thing.hit_response(src, user) //checks if clothing has hit response. Refer to Items.dm
+		worn_thing.hit_response(src, user) //checks if clothing has hit response. Refer to Items.dm
 	return I.attack(src, user)
 
 /mob/living

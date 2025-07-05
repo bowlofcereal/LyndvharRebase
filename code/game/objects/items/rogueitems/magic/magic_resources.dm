@@ -32,7 +32,7 @@
 /obj/item/magic/melded/t3
 	name = "sorcerous weave"
 	icon_state = "wessence"
-	desc = "A melding of molten core, heartwood core and elemental fragment."
+	desc = "A melding of infernal core, heartwood core and elemental fragment."
 	sellprice = 40
 
 /obj/item/magic/melded/t4
@@ -73,6 +73,13 @@
 	body_parts_covered = NONE
 	alternate_worn_layer  = 8.9
 	seed = /obj/item/seeds/manabloom
+
+/obj/item/magic/manacrystal
+	name = "crystalized mana"
+	icon_state = "manacrystal"
+	desc = "A crystal made of mana, woven into an artifical structure."
+	resistance_flags = FIRE_PROOF
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/magic/artifact
 	name = "runed artifact"

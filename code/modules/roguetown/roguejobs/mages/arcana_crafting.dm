@@ -129,7 +129,7 @@
 /datum/crafting_recipe/roguetown/arcana/meldt3
 	name = "sorcerous weave - (1 Molten Core, 1 Heartwood Core, 1 Elemental Fragment)"
 	result = /obj/item/magic/melded/t3
-	reqs = list(/obj/item/magic/moltencore = 1,
+	reqs = list(/obj/item/magic/infernalcore = 1,
 				/obj/item/magic/heartwoodcore = 1,
 				/obj/item/magic/elementalfragment = 1)
 	craftdiff = 2

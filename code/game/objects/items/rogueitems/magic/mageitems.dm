@@ -68,7 +68,7 @@
 	if(!isarcyne(user))//We'll set up other items for other types of rune rituals
 		to_chat(user, span_cult("Nothing comes in mind to draw with the chalk."))
 		return
-	var/datum/ritual/pickrune
+	var/obj/effect/decal/cleanable/roguerune/pickrune
 	var/runenameinput = input(user, "Runes", "Tier 1 & 2 Runes") as null|anything in GLOB.t2rune_types
 	testing("runenameinput [runenameinput]")
 	pickrune = GLOB.rune_types[runenameinput]
@@ -86,7 +86,7 @@
 	var/crafttime = (100 - ((user.get_skill_level(/datum/skill/magic/arcane))*5))
 
 	user.visible_message(span_notice("\The [user] begins to drag [user.p_their()] [name] over \the [Turf], inscribing intricate symbols and sigils inside a circle."), span_notice("I start to drag my [name] over \the [Turf], inscribing intricate symbols and sigils on a circle."))
-	playsound(loc, 'sound/misc/chalkdraw.ogg', 100, TRUE)
+	playsound(loc, 'sound/magic/chalkdraw.ogg', 100, TRUE)
 	if(do_after(user, crafttime, target = src))
 		user.visible_message(span_warning("[user] draws an arcyne rune with [user.p_their()] [name]!"), \
 		span_notice("I finish tracing ornate symbols and circles with my [name], leaving behind a ritual rune."))
@@ -148,7 +148,7 @@
 			user.apply_damage(initial(rune.scribe_damage), BRUTE, pick(BODY_ZONE_L_ARM, BODY_ZONE_R_ARM))
 		is_bled = TRUE
 		return
-	var/datum/ritual/pickrune
+	var/obj/effect/decal/cleanable/roguerune/pickrune
 	var/runenameinput = input(user, "Runes", "RATWOOD") as null|anything in GLOB.t4rune_types
 	testing("runenameinput [runenameinput]")
 	pickrune = GLOB.rune_types[runenameinput]
@@ -255,7 +255,7 @@
 		to_chat(user,span_notice("I stop the [src].")) //Sand magically flows back because that's more convinient to use.
 		stop()
 
-obj/item/hourglass/temporal/stop()
+/obj/item/hourglass/temporal/stop()
 	..()
 	do_teleport(victim, target, channel = TELEPORT_CHANNEL_QUANTUM)
 
@@ -270,7 +270,7 @@ obj/item/hourglass/temporal/stop()
 	icon_state = "voidlamp"
 	item_state = "voidlamp"
 	desc = "An old lamptern that seems darker and darker the longer you look at it."
-	light_range = 8
+	light_outer_range = 8
 	light_color = "#000000"
 	light_power = -3
 	on = FALSE
@@ -300,7 +300,7 @@ obj/item/hourglass/temporal/stop()
 			to_chat(user,span_notice("[src] heats up to an almost burning temperature, flooding you with overwhelming arcane knowledge!"))
 			ready = FALSE
 			addtimer(CALLBACK(src, PROC_REF(revert), user), cdtime,TIMER_STOPPABLE) // Minus two so we play the sound and decap faster
-			user.mind.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
+			user.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 	else
 		to_chat(user,span_notice("[src] remains inert. It must be gathering arcana!"))
 
@@ -331,6 +331,7 @@ obj/item/hourglass/temporal/stop()
 	active = FALSE
 
 /obj/item/sendingstonesummoner/Initialize()
+	. = ..()
 	var/mob/living/user = usr
 	var/obj/item/natural/stone/sending/item1 = new /obj/item/natural/stone/sending
 	var/obj/item/natural/stone/sending/item2 = new /obj/item/natural/stone/sending
@@ -370,7 +371,6 @@ obj/item/hourglass/temporal/stop()
 	AddComponent(/datum/component/magic_item, effect)
 
 /obj/item/clothing/gloves/roguetown/nomagic
-	icon = 'icons/roguetown/clothing/mage.dmi'
 	icon_state = "manabindinggloves"
 	bloody_icon_state = "bloodyhands"
 	name = "gem encrusted mana binding gloves"

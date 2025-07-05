@@ -160,7 +160,7 @@
 
 /obj/item/melee/touch_attack/prestidigitation/proc/gather_thing(atom/target, mob/living/carbon/human/user)
 
-	var/skill_level = user.mind?.get_skill_level(attached_spell.associated_skill)
+	var/skill_level = user.get_skill_level(attached_spell.associated_skill)
 	gatherspeed = initial(gatherspeed) - (skill_level * 3) // 3 cleanspeed per skill level, from 35 down to a maximum of 17 (pretty quick)
 	var/turf/Turf = get_turf(target)
 	if (istype(target, /obj/structure/well/fountain/mana))

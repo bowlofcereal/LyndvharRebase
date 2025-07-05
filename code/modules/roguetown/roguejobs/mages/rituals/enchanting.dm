@@ -124,14 +124,6 @@
 	required_atoms = list(/datum/reagent/mercury = 15,/obj/item/paper/scroll = 1,/obj/item/magic/elementalfragment = 1, /obj/item/magic/elementalshard = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/frostveil)
 
-/datum/runerituals/enchanting/woundclosing
-	name = "Wound closing"
-	desc = "Closes wounds."
-	blacklisted = FALSE
-	tier = 3
-	required_atoms = list(/datum/reagent/mercury = 15,/obj/item/paper/scroll = 1,/obj/item/magic/heartwoodcore = 1, /obj/item/magic/iridescentscale = 2, /obj/item/magic/melded/t2 = 1)
-	result_atoms = list(/obj/item/enchantmentscroll/woundclosing)
-
 /datum/runerituals/enchanting/returningweapon
 	name = "Returning Weapon"
 	desc = "Summons weapons."
@@ -153,16 +145,8 @@
 	desc = "Further leaping."
 	blacklisted = FALSE
 	tier = 3
-	required_atoms = list(/datum/reagent/mercury = 15,/obj/item/paper/scroll = 1,/obj/item/magic/moltencore = 2, /obj/item/magic/leyline = 2, /obj/item/magic/melded/t2 = 1)
+	required_atoms = list(/datum/reagent/mercury = 15,/obj/item/paper/scroll = 1,/obj/item/magic/infernalcore = 2, /obj/item/magic/leyline = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/leaping)
-
-/datum/runerituals/enchanting/infernalflame
-	name = "Infernal Flame"
-	desc = "Burns your foes."
-	blacklisted = FALSE
-	tier = 4
-	required_atoms = list(/datum/reagent/mercury = 15,/obj/item/paper/scroll = 1,/obj/item/magic/abyssalflame = 1, /obj/item/magic/obsidian = 4, /obj/item/magic/melded/t3 = 1)
-	result_atoms = list(/obj/item/enchantmentscroll/infernalflame)
 
 /datum/runerituals/enchanting/briars
 	name = "Briar's Curse"

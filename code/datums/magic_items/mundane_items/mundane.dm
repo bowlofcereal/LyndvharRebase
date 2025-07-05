@@ -55,7 +55,7 @@
 		i.light_color = "#3FBAFD"
 		to_chat(user, span_notice("I grip [i] lightly, and it abruptly lights up with shining light"))
 		i.set_light(TRUE)
-		i.light_range = 6
+		i.light_outer_range = 6
 	. = ..()
 
 /datum/magic_item/mundane/holding
@@ -79,4 +79,4 @@
 /datum/magic_item/mundane/revealing/on_apply(var/obj/item/i)
 	.=..()
 	var/obj/item/flashlight/flare/light = i
-	light.light_range = light.light_range * 2
+	light.light_outer_range = light.light_outer_range * 2

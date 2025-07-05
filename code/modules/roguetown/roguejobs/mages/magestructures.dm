@@ -254,7 +254,7 @@
 	layer = BELOW_MOB_LAYER
 	max_integrity = 60
 	density = FALSE
-	debris = list(/obj/item/natural/fibers = 1, /obj/item/reagent_containers/food/snacks/grown/rogue/manabloom = 1)
+	debris = list(/obj/item/natural/fibers = 1, /obj/item/reagent_containers/food/snacks/grown/manabloom = 1)
 
 /obj/structure/manaflower/attack_hand(mob/living/carbon/human/user)
 	playsound(src.loc, "plantcross", 80, FALSE, -1)
