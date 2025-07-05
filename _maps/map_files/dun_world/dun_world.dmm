@@ -3963,11 +3963,6 @@
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
-"boP" = (
-/obj/machinery/light/rogue/wallfire/candle,
-/obj/structure/handcart,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/town)
 "boV" = (
 /obj/effect/landmark/events/haunts,
 /turf/open/floor/rogue/blocks,
@@ -4035,6 +4030,10 @@
 	icon_state = "roofg"
 	},
 /area/rogue/outdoors/beach/forest)
+"bqe" = (
+/obj/effect/decal/carpet/kover_darkred,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town)
 "bqi" = (
 /obj/structure/chair/bench/ultimacouch,
 /turf/open/floor/rogue/ruinedwood/herringbone,
@@ -12577,12 +12576,12 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood3"
 	},
+/obj/item/reagent_containers/glass/bottle/rogue/elfred{
+	pixel_x = 6
+	},
 /obj/item/reagent_containers/glass/cup/golden{
 	pixel_x = -8;
 	pixel_y = 6
-	},
-/obj/item/reagent_containers/glass/bottle/rogue/elfred{
-	pixel_x = 6
 	},
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town)
@@ -24703,6 +24702,9 @@
 	desc = "A hide of a slain bear. It looks rich and expensive.";
 	pixel_y = 20
 	},
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town)
 "iaL" = (
@@ -28914,6 +28916,10 @@
 /obj/structure/table/wood{
 	dir = 9;
 	icon_state = "largetable"
+	},
+/obj/item/candle/candlestick/silver{
+	pixel_y = -10;
+	pixel_x = 17
 	},
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
@@ -34460,7 +34466,6 @@
 	pixel_y = 28
 	},
 /obj/item/hair_dye_cream,
-/obj/item/dye_brush,
 /turf/open/floor/rogue/tile/bath,
 /area/rogue/indoors/town)
 "lmV" = (
@@ -41455,11 +41460,10 @@
 /turf/open/transparent/openspace,
 /area/rogue/indoors)
 "nCm" = (
-/obj/structure/closet/crate/chest{
-	base_icon_state = "woodchestalt";
-	icon_state = "woodchestalt"
-	},
-/turf/open/floor/rogue/hexstone,
+/obj/machinery/light/rogue/hearth,
+/obj/item/cooking/pan,
+/obj/machinery/light/rogue/oven/west,
+/turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
 "nCn" = (
 /obj/structure/fluff/walldeco/chains,
@@ -43845,10 +43849,9 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/cavewet/bogcaves)
 "orR" = (
-/obj/machinery/light/rogue/hearth,
-/obj/item/cooking/pan,
-/obj/machinery/light/rogue/oven/west,
-/turf/open/floor/rogue/cobble,
+/obj/machinery/light/rogue/wallfire/candle/r,
+/obj/structure/bookcase/random/reference,
+/turf/open/floor/rogue/wood,
 /area/rogue/indoors/town)
 "orS" = (
 /obj/structure/table/wood{
@@ -57980,9 +57983,11 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
 "sXr" = (
-/obj/machinery/light/rogue/wallfire/candle/r,
-/obj/structure/bookcase/random/reference,
-/turf/open/floor/rogue/wood,
+/obj/structure/closet/crate/chest{
+	base_icon_state = "woodchestalt";
+	icon_state = "woodchestalt"
+	},
+/turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town)
 "sXv" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
@@ -65368,9 +65373,7 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood3"
 	},
-/obj/item/candle/candlestick/gold/lit{
-	pixel_y = 12
-	},
+/obj/item/candle/gold/lit,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/indoors/town)
 "vow" = (
@@ -70256,8 +70259,9 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/shelter/mountains/decap)
 "wQL" = (
-/obj/effect/decal/carpet/kover_darkred,
-/turf/open/floor/rogue/ruinedwood/spiral,
+/obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/handcart,
+/turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town)
 "wQO" = (
 /obj/machinery/light/roguestreet/midlamp{
@@ -270468,7 +270472,7 @@ eKH
 jkr
 bZZ
 pkZ
-wQL
+bqe
 dra
 fHg
 sns
@@ -274081,7 +274085,7 @@ sns
 sns
 sns
 eKH
-boP
+wQL
 puO
 puO
 puO
@@ -274537,7 +274541,7 @@ eKH
 eKH
 mON
 puO
-nCm
+sXr
 eKH
 eKH
 sns
@@ -389798,7 +389802,7 @@ jdB
 ocm
 umt
 eKH
-orR
+nCm
 eKH
 eKH
 kSK
@@ -500085,7 +500089,7 @@ kSK
 eKH
 jKf
 jew
-sXr
+orR
 eKH
 eKH
 kSK
@@ -500989,7 +500993,7 @@ kSK
 eKH
 wij
 dra
-dra
+qFQ
 voe
 eja
 eKH
@@ -501893,7 +501897,7 @@ kSK
 eKH
 mjw
 dra
-dra
+qfJ
 sRJ
 sRJ
 sRJ
@@ -502345,7 +502349,7 @@ kSK
 eKH
 hUf
 dra
-dra
+qFQ
 frA
 qbr
 frA
