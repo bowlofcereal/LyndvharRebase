@@ -13,7 +13,7 @@
 
 /datum/crafting_recipe/leather/container/magepouch
 	name = "summoner's pouch"
-	req = list(
+	reqs = list(
 		/obj/item/natural/hide/cured = 2,
 		/obj/item/natural/fibers = 1,
 	)
@@ -22,7 +22,7 @@
 
 /datum/crafting_recipe/leather/container/meatbag
 	name = "game satchel"
-	req = list(
+	reqs = list(
 		/obj/item/natural/hide/cured = 2,
 		/obj/item/natural/cloth = 1,
 	)

@@ -389,7 +389,7 @@
 	if(!isarcyne(user))
 		return
 	var/obj/effect/decal/cleanable/roguerune/pickrune
-	var/runenameinput = browser_input_list(user, "Runes", "All Runes", GLOB.t4rune_types)
+	var/runenameinput = input(user, "Runes", "All Runes") as null|anything in GLOB.t4rune_types
 	pickrune = GLOB.rune_types[runenameinput]
 	if(!pickrune)
 		return

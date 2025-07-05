@@ -125,6 +125,33 @@
 		/obj/item/alch/bone
 		))
 
+/datum/component/storage/concrete/grid/magebag
+	max_w_class = WEIGHT_CLASS_NORMAL
+	screen_max_rows = 8
+	screen_max_columns = 5
+
+/datum/component/storage/concrete/grid/magebag/New(datum/P, ...)
+	. = ..()
+	set_holdable(list(
+		/obj/item/magic/infernalash,
+		/obj/item/magic/hellhoundfang,
+		/obj/item/magic/infernalash,
+		/obj/item/magic/abyssalflame,
+		/obj/item/magic/fairydust,
+		/obj/item/magic/iridescentscale,
+		/obj/item/magic/heartwoodcore,
+		/obj/item/magic/sylvanessence,
+		/obj/item/magic/elementalmote,
+		/obj/item/magic/elementalshard,
+		/obj/item/magic/elementalfragment,
+		/obj/item/magic/elementalrelic,
+		/obj/item/magic/obsidian,
+		/obj/item/magic/leyline,
+		/obj/item/reagent_containers/food/snacks/grown/manabloom,
+		/obj/item/magic/manacrystal,
+		/obj/item/ash,
+		))
+
 /datum/component/storage/concrete/roguetown/saddle
 	screen_max_rows = 4
 	screen_max_columns = 4

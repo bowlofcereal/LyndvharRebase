@@ -42,12 +42,10 @@
 	minimum_distance = 0
 	deaggroprob = 0
 	defprob = 35
-	defdrain = 5
 	retreat_health = 0.4
 	food = 0
 	dodgetime = 30
 	aggressive = 1
-	body_eater = FALSE
 	var/teleport_cooldown
 	var/obj/structure/leyline/source
 
@@ -98,7 +96,7 @@
 	..()
 	source.guardian = null
 	var/turf/deathspot = get_turf(src)
-	new /obj/item/natural/leyline(deathspot)
+	new /obj/item/magic/leyline(deathspot)
 	spill_embedded_objects()
 	update_icon()
 	qdel(src)

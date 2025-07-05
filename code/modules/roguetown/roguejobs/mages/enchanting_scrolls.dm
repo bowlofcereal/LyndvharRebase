@@ -25,7 +25,6 @@ T1 Enchantments below here*/
 		O.AddComponent(/datum/component/magic_item, magiceffect)
 		O.name += " of woodcutting"
 		qdel(src)
-		O.enchanted = TRUE
 		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 	else
 		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
@@ -43,7 +42,6 @@ obj/item/enchantmentscroll/mining/attack_obj(obj/item/O, mob/living/user)
 		O.AddComponent(/datum/component/magic_item, magiceffect)
 		O.name += " of mining"
 		qdel(src)
-		O.enchanted = TRUE
 		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 	else
 		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
@@ -61,7 +59,6 @@ obj/item/enchantmentscroll/mining/attack_obj(obj/item/O, mob/living/user)
 		O.AddComponent(/datum/component/magic_item, magiceffect)
 		O.name += " of xylixs grace"
 		qdel(src)
-		O.enchanted = TRUE
 		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 	else
 		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
@@ -79,7 +76,6 @@ obj/item/enchantmentscroll/mining/attack_obj(obj/item/O, mob/living/user)
 		O.AddComponent(/datum/component/magic_item, magiceffect)
 		O.name += " of unyielding light"
 		qdel(src)
-		O.enchanted = TRUE
 		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 	else
 		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
@@ -275,43 +271,9 @@ obj/item/enchantmentscroll/mining/attack_obj(obj/item/O, mob/living/user)
 	else
 		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
 
-/obj/item/enchantmentscroll/phoenixguard
-	name = "enchanting scroll of phoenix guard"
-	desc = "A scroll imbued with an enchantment of phoenixguard. Sets those that strike you on fire."
-	component = /datum/magic_item/greater/phoenixguard
-
-/obj/item/enchantmentscroll/phoenixguard/attack_obj(obj/item/O, mob/living/user)
-	.=..()
-	if(istype(O,/obj/item/clothing))
-		to_chat(user, span_notice("You open [src] and place [O] within. Moments later, it flashes blue with arcana, and [src] crumbles to dust."))
-		var/magiceffect= new component
-		O.AddComponent(/datum/component/magic_item, magiceffect)
-		O.name += " of phoenix guard"
-		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
-		qdel(src)
-	else
-		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
-
 /obj/item/enchantmentscroll/shadowmeld
 	name = "enchanting scroll of shadow melding"
 	desc = "A scroll imbued with an enchantment of shadow melding. Slowly turns you invisible when you stay still."
-
-/obj/item/enchantmentscroll/woundclosing
-	name = "enchanting scroll of wound closure"
-	desc = "A scroll imbued with an enchantment of wound closure. Allows you to periodically seal wounds."
-	component = /datum/magic_item/greater/woundclosing
-
-/obj/item/enchantmentscroll/woundclosing/attack_obj(obj/item/O, mob/living/user)
-	.=..()
-	if(istype(O,/obj/item/clothing/ring))
-		to_chat(user, span_notice("You open [src] and place [O] within. Moments later, it flashes blue with arcana, and [src] crumbles to dust."))
-		var/magiceffect= new component
-		O.AddComponent(/datum/component/magic_item, magiceffect)
-		O.name += " of wound closure"
-		qdel(src)
-		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
-	else
-		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
 
 /obj/item/enchantmentscroll/returningweapon
 	name = "enchanting scroll of returning weapon"
@@ -382,24 +344,6 @@ obj/item/enchantmentscroll/mining/attack_obj(obj/item/O, mob/living/user)
 	else
 		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
 
-/obj/item/enchantmentscroll/freeze
-	name = "enchanting scroll of freezing"
-	desc = "A scroll imbued with an enchantment of freezing. Freezes your foe in a block of ice when struck."
-	component = /datum/magic_item/mythic/freezing
-
-/obj/item/enchantmentscroll/freeze/attack_obj(obj/item/O, mob/living/user)
-	.=..()
-	if(istype(O,/obj/item/gun/ballistic/revolver/grenadelauncher)||istype(O,/obj/item/clothing)|| istype(O,/obj/item/rogueweapon))//bow and crossbows included
-		to_chat(user, span_notice("You open [src] and place [O] within. Moments later, it flashes blue with arcana, and [src] crumbles to dust."))
-		var/magiceffect= new component
-		O.AddComponent(/datum/component/magic_item, magiceffect)
-		O.name += " of freezing"
-		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
-		qdel(src)
-	else
-		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
-
-
 /obj/item/enchantmentscroll/briars
 	name = "enchanting scroll of briar's curse"
 	desc = "A scroll imbued with an enchantment of briar's curse. A weapon with this enchantment does more damage, but damages its wielder in return."
@@ -412,23 +356,6 @@ obj/item/enchantmentscroll/mining/attack_obj(obj/item/O, mob/living/user)
 		var/magiceffect= new component
 		O.AddComponent(/datum/component/magic_item, magiceffect)
 		O.name += " of briar's curse"
-		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
-		qdel(src)
-	else
-		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
-
-/obj/item/enchantmentscroll/rewind
-	name = "enchanting scroll of temporal rewind"
-	desc = "A scroll imbued with an enchantment of temporal. Teleports you back to where you were hit, a few seconds after being hit."
-	component = /datum/magic_item/mythic/rewind
-
-/obj/item/enchantmentscroll/rewind/attack_obj(obj/item/O, mob/living/user)
-	.=..()
-	if(istype(O,/obj/item/clothing)|| istype(O,/obj/item/rogueweapon))
-		to_chat(user, span_notice("You open [src] and place [O] within. Moments later, it flashes blue with arcana, and [src] crumbles to dust."))
-		var/magiceffect= new component
-		O.AddComponent(/datum/component/magic_item, magiceffect)
-		O.name += " of temporal rewind"
 		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 		qdel(src)
 	else
