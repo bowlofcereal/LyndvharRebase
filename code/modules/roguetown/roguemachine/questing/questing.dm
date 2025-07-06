@@ -216,8 +216,8 @@
 
 	if(reward > 0)
 		say(reward != original_reward ? \
-			"Your handler assistance-increased reward of [reward] marks has been dispensed! The difference is [reward - original_reward] marks." : \
-			"Your reward of [reward] marks has been dispensed.")
+			"Your handler assistance-increased reward of [reward] mammons has been dispensed! The difference is [reward - original_reward] mammons." : \
+			"Your reward of [reward] mammons has been dispensed.")
 
 /obj/structure/roguemachine/questgiver/proc/abandon_quest(mob/user)
 	var/obj/item/paper/scroll/quest/abandoned_scroll = locate() in input_point
@@ -301,7 +301,7 @@
 		report_text += "<b>Type:</b> [quest.quest_type].<br>"
 		report_text += "<b>Difficulty:</b> [quest.quest_difficulty].<br>"
 		report_text += "<b>Last Known Location:</b> [quest_area ? quest_area.name : "Unknown Location"].<br>"
-		report_text += "<b>Reward:</b> [quest.reward_amount] marks.<br><br>"
+		report_text += "<b>Reward:</b> [quest.reward_amount] mammons.<br><br>"
 
 	report.info = report_text
 	say("Quest report printed.")
