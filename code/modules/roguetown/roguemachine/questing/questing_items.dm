@@ -109,7 +109,7 @@
 
 	var/scroll_text = "<center>HELP NEEDED</center><br>"
 	scroll_text += "<center><b>[assigned_quest.title]</b></center><br><br>"
-	scroll_text += "<b>Issued by:</b> [assigned_quest.quest_giver_name ? "Guild Handler [assigned_quest.quest_giver_name]" : "The Adventurer's Guild"].<br>"
+	scroll_text += "<b>Issued by:</b> [assigned_quest.quest_giver_name ? "[assigned_quest.quest_giver_name]" : "The Adventurer's Guild"].<br>"
 	scroll_text += "<b>Issued to:</b> [assigned_quest.quest_receiver_name ? assigned_quest.quest_receiver_name : "whoever it may concern"].<br>"
 	scroll_text += "<b>Type:</b> [assigned_quest.quest_type] quest.<br>"
 	scroll_text += "<b>Difficulty:</b> [assigned_quest.quest_difficulty].<br><br>"
@@ -320,15 +320,16 @@
 
 /obj/item/parcel/proc/get_area_jobs(area_type)
 	var/static/list/area_jobs = list(
-		/area/rogue/indoors/town/tavern = list("Guild Handler", "Innkeeper", "Tapster"),
-		/area/rogue/indoors/town/church = list("Guild Handler", "Priest", "Acolyte", "Templar", "Churchling"),
-		/area/rogue/indoors/town/dwarfin = list("Guild Handler", "Blacksmith"),
-		/area/rogue/indoors/town/shop = list("Guild Handler", "Merchant", "Shophand"),
-		/area/rogue/indoors/town/manor = list("Guild Handler", "Nobleman", "Hand", "Knight Captain", "Marshal", "Steward", "Clerk", "Head Mage", "Duke"),
-		/area/rogue/indoors/town/magician = list("Guild Handler", "Head Mage", "Archivist", "Artificer", "Apothicant Apprentice", "Apprentice Magician"),
+		/area/rogue/indoors/town/tavern = list("Innkeeper", "Tapster", "Cook"),
+		/area/rogue/indoors/town/bath = list("Bathhouse Attendant", "Bathmaster"),
+		/area/rogue/indoors/town/church = list("Priest", "Acolyte", "Templar", "Churchling"),
+		/area/rogue/indoors/town/dwarfin = list("Guildmaster", "Guildsman"),
+		/area/rogue/indoors/town/shop = list("Merchant", "Shophand"),
+		/area/rogue/indoors/town/manor = list("Councillor", "Nobleman", "Hand", "Knight Captain", "Marshal", "Steward", "Clerk", "Head Mage", "Duke"),
+		/area/rogue/indoors/town/magician = list("Court Magician", "Magicians Associate"),
 		/area/rogue/indoors/town = list("Guild Handler")
 	)
-	return area_jobs[area_type] || list("Guild Handler")
+	return area_jobs[area_type] || list("Town Elder", "Steward", "Merchant")
 
 /obj/item/parcel/proc/on_quest_component_deleted(datum/source)
 	SIGNAL_HANDLER

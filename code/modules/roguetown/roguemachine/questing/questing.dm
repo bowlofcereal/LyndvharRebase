@@ -29,7 +29,7 @@
 /obj/structure/roguemachine/questgiver/examine(mob/user)
 	. = ..()
 	if(guild)
-		. += span_notice("This quest book will give <b>bigger rewards</b> if processed with the help of a <b>local guild handler</b>!")
+		. += span_notice("This quest book will give <b>bigger rewards</b> if processed with the help of a <b>steward or merchant</b>!")
 
 /obj/structure/roguemachine/questgiver/attack_hand(mob/user, list/modifiers)
 	. = ..()
@@ -37,7 +37,7 @@
 		return
 
 	var/list/choices = list("Consult Quests", "Turn In Quest", "Abandon Quest")
-	if(guild && user.job == "Guild Handler")
+	if(guild && (user.job == "Steward" || user.job == "Merchant"))
 		choices += "Print Issued Quests"
 
 	var/selection = input(user, "The Excidium listens", src) as null|anything in choices
@@ -109,7 +109,7 @@
 	spawned_scroll.assigned_quest = attached_quest
 	attached_quest.quest_scroll_ref = WEAKREF(spawned_scroll)
 
-	if(user.job != "Guild Handler")
+	if(user.job != "Merchant" && user.job != "Steward")
 		attached_quest.quest_receiver_reference = WEAKREF(user)
 		attached_quest.quest_receiver_name = user.real_name
 	else
@@ -123,7 +123,7 @@
 		qdel(spawned_scroll)
 		return
 
-	chosen_landmark.generate_quest(attached_quest, user.job == "Guild Handler" ? null : user)
+	chosen_landmark.generate_quest(attached_quest, (user.job == "Steward" || user.job == "Merchant") ? null : user)
 	spawned_scroll.update_quest_text()
 	SStreasury.bank_accounts[user] -= deposit
 	SStreasury.treasury_value += deposit
@@ -176,8 +176,8 @@
 									turned_in_scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_MEDIUM ? QUEST_DEPOSIT_MEDIUM : QUEST_DEPOSIT_HARD
 				total_deposit_return += deposit_return
 				
-				// Apply guild handler bonus if applicable (only to the base reward)
-				if(guild && user.job == "Guild Handler")
+				// Apply Steward/Mechant bonus if applicable (only to the base reward)
+				if(guild && (user.job == "Steward" || user.job == "Merchant"))
 					reward += base_reward * QUEST_HANDLER_REWARD_MULTIPLIER
 				else
 					reward += base_reward
@@ -216,7 +216,7 @@
 
 	if(reward > 0)
 		say(reward != original_reward ? \
-			"Your guild handler assistance-increased reward of [reward] marks has been dispensed! The difference is [reward - original_reward] marks." : \
+			"Your handler assistance-increased reward of [reward] marks has been dispensed! The difference is [reward - original_reward] marks." : \
 			"Your reward of [reward] marks has been dispensed.")
 
 /obj/structure/roguemachine/questgiver/proc/abandon_quest(mob/user)

@@ -137,6 +137,11 @@
 			/obj/item/reagent_containers/glass/bottle/rogue/beer/aurorian,
 			/obj/item/reagent_containers/food/snacks/rogue/cheddar,
 		),
+		/area/rogue/indoors/town/bath = list(
+			/obj/item/reagent_containers/glass/bottle/rogue/beer/aurorian,
+			/obj/item/reagent_containers/food/snacks/rogue/pie/cooked/crab,
+			/obj/item/perfume/random,
+		),
 		/area/rogue/indoors/town/church = list(
 			/obj/item/natural/cloth,
 			/obj/item/reagent_containers/powder/ozium,
@@ -156,6 +161,7 @@
 			/obj/item/clothing/cloak/raincloak/furcloak,
 			/obj/item/reagent_containers/glass/bottle/rogue/whitewine,
 			/obj/item/reagent_containers/food/snacks/rogue/cheddar/aged,
+			/obj/item/perfume/random,
 		),
 		/area/rogue/indoors/town/magician = list(
 			/obj/item/book/spellbook,
