@@ -103,13 +103,6 @@
 				/obj/item/magic/voidstone = 1)
 	craftdiff = 4
 
-/datum/crafting_recipe/roguetown/arcana/arcanesigil
-	name = "arcane sigil - (1 Leyline, 1 Magical Confluence)"
-	result = /obj/item/clothing/ring/arcanesigil
-	reqs = list(/obj/item/magic/leyline = 1,
-				/obj/item/magic/melded/t4 = 1)
-	craftdiff = 3
-
 /datum/crafting_recipe/roguetown/arcana/meldt1
 	name = "arcanic meld - (1 Infernal Ash, 1 Fairy Dust, 1 Elemental Mote)"
 	result = /obj/item/magic/melded/t1

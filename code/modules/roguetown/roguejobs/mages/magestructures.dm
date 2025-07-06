@@ -1,7 +1,10 @@
-
 /obj/structure/fluff/walldeco/mageguild
 	name = "Mage's Guild"
 	icon_state = "mageguild"
+
+/obj/structure/fluff/walldeco/mageguild2
+	name = "Mage's Guild"
+	icon_state = "mageguild2"
 
 /obj/effect/turf_decal/magedecal
 	icon = 'icons/effects/96x96.dmi'
