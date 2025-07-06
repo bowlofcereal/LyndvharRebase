@@ -14,7 +14,9 @@
 		/mob/living/carbon/human/species/skeleton/npc/ambush,
 		/mob/living/carbon/human/species/human/northern/searaider/ambush
 	)
-	var/miniboss_mob = /mob/living/carbon/human/species/elf/dark/drowraider/ambush
+	var/miniboss_mobs = list(
+		/mob/living/carbon/human/species/human/northern/deranged_knight
+	)
 
 /obj/effect/landmark/quest_spawner/proc/generate_quest(datum/quest/new_quest, mob/user)
 	new_quest.quest_receiver_reference = user ? WEAKREF(user) : null
@@ -58,9 +60,9 @@
 			spawn_courier_item(new_quest, new_quest.target_delivery_location)
 		if(QUEST_MINIBOSS)
 			new_quest.title = "Defeat [pick("the terrible", "the dreadful", "the monstrous", "the infamous")] [pick("warlord", "beast", "sorcerer", "abomination")]"
-			new_quest.target_mob_type = miniboss_mob
+			new_quest.target_mob_type = pick(miniboss_mobs)
 			new_quest.target_amount = 1
-			spawn_miniboss(new_quest)
+			spawn_miniboss(new_quest, new_quest.target_mob_type)
 
 	// Initialize compass data for the quest
 	if(new_quest.quest_scroll_ref)
@@ -200,12 +202,12 @@
 		add_quest_faction_to_nearby_mobs(spawn_turf)
 		sleep(1)
 
-/obj/effect/landmark/quest_spawner/proc/spawn_miniboss(datum/quest/quest)
+/obj/effect/landmark/quest_spawner/proc/spawn_miniboss(datum/quest/quest, boss_type)
 	var/turf/spawn_turf = get_safe_spawn_turf()
 	if(!spawn_turf)
 		return
 	
-	var/mob/living/new_mob = new miniboss_mob(spawn_turf)
+	var/mob/living/new_mob = new boss_type(spawn_turf)
 	new_mob.faction |= "quest"
 	new_mob.AddComponent(/datum/component/quest_object, quest)
 	new_mob.maxHealth *= 2
