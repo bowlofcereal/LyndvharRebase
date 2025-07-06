@@ -40,7 +40,7 @@
 		if(QUEST_KILL)
 			new_quest.title = "Slay [pick("a dangerous", "a fearsome", "a troublesome", "an elusive")] [pick("beast", "monster", "brigand", "creature")]"
 			new_quest.target_mob_type = pick(kill_mobs)
-			new_quest.target_amount = 1
+			new_quest.target_amount = rand(1, 3)
 			spawn_kill_mob(new_quest.target_mob_type, new_quest)
 		if(QUEST_CLEAR_OUT)
 			new_quest.title = "Clear out [pick("a nest of", "a den of", "a group of", "a pack of")] [pick("monsters", "bandits", "creatures", "vermin")]"
@@ -82,14 +82,16 @@
 		new_item.AddComponent(/datum/component/quest_object, quest)
 
 /obj/effect/landmark/quest_spawner/proc/spawn_kill_mob(mob_type, datum/quest/quest)
-	var/turf/spawn_turf = get_safe_spawn_turf()
-	if(!spawn_turf)
-		return
-	
-	var/mob/living/new_mob = new mob_type(spawn_turf)
-	new_mob.faction |= "quest"
-	new_mob.AddComponent(/datum/component/quest_object, quest)
-	add_quest_faction_to_nearby_mobs(spawn_turf)
+	for(var/i in 1 to quest.target_amount)
+		var/turf/spawn_turf = get_safe_spawn_turf()
+		if(!spawn_turf)
+			return
+
+		var/mob/living/new_mob = new mob_type(spawn_turf)
+		new_mob.faction |= "quest"
+		new_mob.AddComponent(/datum/component/quest_object, quest)
+		add_quest_faction_to_nearby_mobs(spawn_turf)
+		sleep(1)
 
 /obj/effect/landmark/quest_spawner/proc/add_quest_faction_to_nearby_mobs(turf/center)
 	for(var/mob/living/M in view(7, center))
