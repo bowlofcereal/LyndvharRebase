@@ -60,9 +60,24 @@
 		return
 
 	var/list/difficulty_data = list(
-		QUEST_DIFFICULTY_EASY = list(deposit = 5, reward_min = 15, reward_max = 25, icon = "scroll_quest_low"),
-		QUEST_DIFFICULTY_MEDIUM = list(deposit = 10, reward_min = 30, reward_max = 50, icon = "scroll_quest_mid"),
-		QUEST_DIFFICULTY_HARD = list(deposit = 20, reward_min = 60, reward_max = 100, icon = "scroll_quest_high")
+		QUEST_DIFFICULTY_EASY = list(
+			deposit = QUEST_DEPOSIT_EASY, 
+			reward_min = QUEST_REWARD_EASY_LOW, 
+			reward_max = QUEST_REWARD_EASY_HIGH, 
+			icon = "scroll_quest_low"
+		),
+		QUEST_DIFFICULTY_MEDIUM = list(
+			deposit = QUEST_DEPOSIT_MEDIUM, 
+			reward_min = QUEST_REWARD_MEDIUM_LOW, 
+			reward_max = QUEST_REWARD_MEDIUM_HIGH, 
+			icon = "scroll_quest_mid"
+		),
+		QUEST_DIFFICULTY_HARD = list(
+			deposit = QUEST_DEPOSIT_HARD, 
+			reward_min = QUEST_REWARD_HARD_LOW, 
+			reward_max = QUEST_REWARD_HARD_HIGH, 
+			icon = "scroll_quest_high"
+		)
 	)
 
 	var/selection = input(user, "Select quest difficulty", src) as null|anything in difficulty_data
@@ -157,13 +172,13 @@
 				original_reward += base_reward
 				
 				// Calculate deposit return based on difficulty
-				var/deposit_return = turned_in_scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_EASY ? 5 : \
-									turned_in_scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_MEDIUM ? 10 : 20
+				var/deposit_return = turned_in_scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_EASY ? QUEST_DEPOSIT_EASY : \
+									turned_in_scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_MEDIUM ? QUEST_DEPOSIT_MEDIUM : QUEST_DEPOSIT_HARD
 				total_deposit_return += deposit_return
 				
 				// Apply guild handler bonus if applicable (only to the base reward)
 				if(guild && user.job == "Guild Handler")
-					reward += base_reward * 2
+					reward += base_reward * QUEST_HANDLER_REWARD_MULTIPLIER
 				else
 					reward += base_reward
 				
@@ -219,8 +234,8 @@
 		turn_in_quest(user)
 		return
 
-	var/refund = quest.quest_difficulty == QUEST_DIFFICULTY_EASY ? 5 : \
-				quest.quest_difficulty == QUEST_DIFFICULTY_MEDIUM ? 10 : 20
+	var/refund = quest.quest_difficulty == QUEST_DIFFICULTY_EASY ? QUEST_DEPOSIT_EASY : \
+				quest.quest_difficulty == QUEST_DIFFICULTY_MEDIUM ? QUEST_DEPOSIT_MEDIUM : QUEST_DEPOSIT_HARD
 
 	// First try to return to quest giver
 	var/mob/giver = quest.quest_giver_reference?.resolve()
