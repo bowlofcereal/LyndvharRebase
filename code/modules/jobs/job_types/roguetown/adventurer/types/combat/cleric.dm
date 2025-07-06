@@ -58,6 +58,7 @@
 			H.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
+			H.cmode_music = 'sound/music/combat_holy.ogg' // left in bc i feel like monk players want their darktide
 			switch(H.patron?.type)
 				if(/datum/patron/old_god)
 					cloak = /obj/item/clothing/cloak/psydontabard
@@ -86,7 +87,6 @@
 				else
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe //placeholder, anyone who doesn't have cool patron drip sprites just gets generic robes
 					head = /obj/item/clothing/head/roguetown/roguehood
-			H.cmode_music = 'sound/music/combat_holy.ogg'
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 2)
 			H.change_stat("constitution", 2)
@@ -119,7 +119,7 @@
 			H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
-			H.cmode_music = 'sound/music/cmode/church/combat_reckoning.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_reckoning.ogg' // no special music for these guys. play templar. u get the reckoning always
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			switch(H.patron?.type)
 				if(/datum/patron/old_god)
@@ -210,7 +210,7 @@
 			H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
-			H.cmode_music = 'sound/music/cmode/church/combat_reckoning.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_reckoning.ogg' // ditto paladin
 			H.change_stat("strength", 1)
 			H.change_stat("endurance", 1)
 			H.change_stat("speed", 2)
@@ -279,7 +279,7 @@
 			H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
-			H.cmode_music = 'sound/music/combat_holy.ogg'
+			H.cmode_music = 'sound/music/cmode/church/combat_reckoning.ogg' // these guys actually get the extra music bc they're Trve Devouts.
 			H.change_stat("intelligence", 2)
 			H.change_stat("endurance", 1)
 			H.change_stat("perception", 2)
@@ -291,6 +291,7 @@
 				if(/datum/patron/divine/astrata)
 					head = /obj/item/clothing/head/roguetown/roguehood/astrata
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/astrata
+					H.cmode_music = 'sound/music/cmode/church/combat_astrata.ogg'
 				if(/datum/patron/divine/noc)
 					head =  /obj/item/clothing/head/roguetown/nochood
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/noc
@@ -304,13 +305,15 @@
 				if(/datum/patron/divine/necra)
 					head = /obj/item/clothing/head/roguetown/necrahood
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/necra
+					H.cmode_music = 'sound/music/cmode/church/combat_necra.ogg'
 				if (/datum/patron/divine/malum)
 					head = /obj/item/clothing/head/roguetown/roguehood //placeholder
 					cloak = /obj/item/clothing/cloak/templar/malumite
 				if (/datum/patron/divine/eora)
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/eora
 					head = /obj/item/clothing/head/roguetown/eoramask
-				if(/datum/patron/inhumen/zizo)
+					H.cmode_music = 'sound/music/cmode/church/combat_eora.ogg'
+				if(/datum/patron/inhumen/zizo) // extra music for them handled below
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe 
 					head = /obj/item/clothing/head/roguetown/roguehood
 					H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/minion_order)
@@ -346,6 +349,10 @@
 			neck = /obj/item/roguekey/inhumen
 		if (/datum/patron/inhumen/matthios)
 			H.cmode_music = 'sound/music/combat_matthios.ogg'
+		if (/datum/patron/inhumen/graggar)
+			H.cmode_music = 'sound/music/combat_graggar.ogg'
+		if (/datum/patron/inhumen/baotha)
+			H.cmode_music = 'sound/music/combat_baotha.ogg'
 		if(/datum/patron/divine/xylix) // Random pricross for Xylix
 			var/list/psicross_options = list(
 			/obj/item/clothing/neck/roguetown/psicross,

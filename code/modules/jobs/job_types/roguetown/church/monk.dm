@@ -26,7 +26,6 @@
 	jobtype = /datum/job/roguetown/monk
 	job_bitflag = BITFLAG_CHURCH
 	allowed_patrons = list(/datum/patron/divine/pestra, /datum/patron/divine/astrata, /datum/patron/divine/eora, /datum/patron/divine/noc, /datum/patron/divine/necra, /datum/patron/divine/abyssor, /datum/patron/divine/malum, /datum/patron/divine/ravox, /datum/patron/divine/xylix) // The whole Ten. Probably could delete this now, actually.
-	cmode_music = 'sound/music/combat_holy.ogg'
 
 /datum/outfit/job/roguetown/monk/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -35,6 +34,7 @@
 	beltl = /obj/item/storage/keyring/churchie
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/ritechalk)
+	H.cmode_music = 'sound/music/cmode/church/combat_acolyte.ogg' // has to be defined here for the selection below to work. sm1 please rewrite cmusic to apply pre-equip. 
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
@@ -143,9 +143,9 @@
 		H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	if(H.patron?.type == /datum/patron/divine/eora) // Beauty and Love - beautiful and can read people pretty well.
-	H.cmode_music = 'sound/music/cmode/church/combat_eora.ogg'
 		ADD_TRAIT(H, TRAIT_BEAUTIFUL, TRAIT_GENERIC)
 		ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
+		H.cmode_music = 'sound/music/cmode/church/combat_eora.ogg'
 	if(H.patron?.type == /datum/patron/divine/malum) // Craft and Creativity - they can make stuff.
 		H.adjust_skillrank(/datum/skill/craft/blacksmithing, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/armorsmithing, 2, TRUE)
