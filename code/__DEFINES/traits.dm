@@ -67,6 +67,7 @@
 
 //Hearthstone port (Tracking)
 #define TRAIT_PERFECT_TRACKER "Perfect Tracker" //Will always find any tracks and analyzes them perfectly.
+#define TRAIT_NOCSIGHT "Blessing of Noc" // I can see just a bit more clearly in darkness.
 #define TRAIT_ZIZOSIGHT "Blessing of Zizo" // I can see just a bit more clearly in darkness.
 #define TRAIT_DEATHSIGHT "Veiled Whispers" // Is notified when a player character dies, but not told exactly where or how.
 //Hearthstone/Azure end.
@@ -225,6 +226,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_LIMPDICK = span_crit("My soldier refuses to rise to attention! Curses!"),
 	TRAIT_SEEDKNOW = span_info("I know which seeds grow which crops."),
 	TRAIT_PERFECT_TRACKER = span_info("I am the perfect tracker. No tracks will deceive my eyes, nor will they hide their secrets from me."),//Hearthstone port.
+	TRAIT_NOCSIGHT = span_info("Noc blesses my eyes to be unburdened by the night."), //Hearthstone change.
 	TRAIT_ZIZOSIGHT = span_info("Zizo blesses my eyes to be unburdened by the night."), //Hearthstone change.
 	TRAIT_CIVILIZEDBARBARIAN = span_info("My rigorous training in the martial arts has turned me into a living weapon. No limb is out of reach for my fists and feet, and my unarmed strikes now have a higher chance to inflict critical damage."),
 	TRAIT_COMICSANS = span_sans("I am cursed with a odd voice."),
