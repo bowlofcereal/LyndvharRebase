@@ -170,7 +170,7 @@
 	var/crafttime = (100 - ((user.get_skill_level(/datum/skill/magic/arcane))*5))
 
 	user.visible_message(span_notice("[user] starts to carve an arcyne rune with [user.p_their()] [name]."), \
-		span_notice("I start drag the blade in the shape of symbols and sigils."))
+		span_notice("I start to drag the blade in the shape of symbols and sigils."))
 	playsound(loc, 'sound/magic/bladescrape.ogg', 100, TRUE)
 	if(do_after(user, crafttime, target = src))
 		user.visible_message(

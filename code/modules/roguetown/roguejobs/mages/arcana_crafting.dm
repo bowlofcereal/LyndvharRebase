@@ -1,6 +1,8 @@
 /datum/crafting_recipe/roguetown/arcana
 	req_table = TRUE
 	tools = list()
+	category = "Arcana"
+	abstract_type = /datum/crafting_recipe/roguetown/arcana
 	skillcraft = /datum/skill/magic/arcane
 	subtype_reqs = TRUE
 
@@ -67,7 +69,7 @@
 
 
 /datum/crafting_recipe/roguetown/arcana/shimmeringlens
-	name = "shimmering lens - (iridescent scales, leyline, dense arcanic meld; PROFICIENT)"
+	name = "shimmering lens - (1 Iridescent Scale, 1 Leyline, 1 Dense Arcanic Meld)"
 	result = /obj/item/clothing/ring/active/shimmeringlens
 	reqs = list(/obj/item/magic/iridescentscale = 1,
 				/obj/item/magic/leyline = 1,

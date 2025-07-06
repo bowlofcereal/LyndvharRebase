@@ -58,7 +58,7 @@
 	var/ritual_result
 	//atoms in ranges
 	var/list/atom/movable/atoms_in_range	//list for atoms in range of rune
-	var/datum/runerituals/pickritual		//selected
+	var/datum/runeritual/pickritual		//selected
 	var/list/selected_atoms
 	var/associated_ritual = null	//Associated ritual for runes with only 1 ritual. Use in tandom with ritual_number
 
@@ -194,7 +194,7 @@ GLOBAL_LIST(teleport_runes)
 			else if(istype(src,/obj/effect/decal/cleanable/roguerune/arcyne))
 				rituals += GLOB.allowedrunerituallist
 			var/ritualnameinput = input(user, "Rituals", "") as null|anything in rituals
-			var/datum/runerituals/pickritual1
+			var/datum/runeritual/pickritual1
 			pickritual1 = rituals[ritualnameinput]
 			if(!pickritual1 || pickritual1 == null)
 				rune_in_use = FALSE
@@ -241,7 +241,7 @@ GLOBAL_LIST(teleport_runes)
 
 	return invokers
 
-/obj/effect/decal/cleanable/roguerune/proc/invoke(list/invokers, datum/runerituals/runeritual)		//Generic invoke proc. This will be defined on every rune, along with effects.If you want to make an object, or provide a buff, do so through this proc., have both here.
+/obj/effect/decal/cleanable/roguerune/proc/invoke(list/invokers, datum/runeritual/ritual)		//Generic invoke proc. This will be defined on every rune, along with effects.If you want to make an object, or provide a buff, do so through this proc., have both here.
 	rune_in_use = FALSE
 	atoms_in_range = list()
 	for(var/atom/close_atom as anything in range(runesize, src))
@@ -258,7 +258,7 @@ GLOBAL_LIST(teleport_runes)
 		if(close_atom == src)
 			continue
 		atoms_in_range += close_atom
-	pickritual = new runeritual
+	pickritual = new ritual
 	if(!islist(pickritual.required_atoms))
 		return
 
@@ -513,7 +513,7 @@ GLOBAL_LIST(teleport_runes)
 	var/datum/map_template/template
 	var/fortress = /datum/map_template/arcyne_fortress
 	var/list/barriers = list()
-	associated_ritual = /datum/runerituals/wall/t3
+	associated_ritual = /datum/runeritual/other/wall/t3
 
 
 /obj/effect/decal/cleanable/roguerune/arcyne/wallgreater/proc/get_template(/datum/map_template/arcyne_fortress/fortress)
@@ -526,8 +526,8 @@ GLOBAL_LIST(teleport_runes)
 		qdel(src)
 
 
-/obj/effect/decal/cleanable/roguerune/arcyne/wallgreater/invoke(list/invokers, datum/runerituals/runeritual)
-	runeritual = associated_ritual
+/obj/effect/decal/cleanable/roguerune/arcyne/wallgreater/invoke(list/invokers, datum/runeritual/ritual)
+	ritual = associated_ritual
 	if(!..())	//VERY important. Calls parent and checks if it fails. parent/invoke has all the checks for ingredients
 		return
 	if(QDELETED(src))
