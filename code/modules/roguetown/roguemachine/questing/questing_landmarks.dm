@@ -23,11 +23,11 @@
 
 	switch(new_quest.quest_difficulty)
 		if(QUEST_DIFFICULTY_EASY)
-			new_quest.reward_amount = rand(15, 25)
+			new_quest.reward_amount = rand(QUEST_REWARD_EASY_LOW, QUEST_REWARD_EASY_HIGH)
 		if(QUEST_DIFFICULTY_MEDIUM)
-			new_quest.reward_amount = rand(30, 50)
+			new_quest.reward_amount = rand(QUEST_REWARD_MEDIUM_LOW, QUEST_REWARD_MEDIUM_HIGH)
 		if(QUEST_DIFFICULTY_HARD)
-			new_quest.reward_amount = rand(60, 100)
+			new_quest.reward_amount = rand(QUEST_REWARD_HARD_LOW, QUEST_REWARD_HARD_HIGH)
 
 	switch(new_quest.quest_type)
 		if(QUEST_FETCH)
@@ -48,12 +48,12 @@
 		if(QUEST_COURIER)
 			new_quest.title = "Deliver [pick("an important", "a sealed", "a confidential", "a valuable")] [pick("package", "parcel", "letter", "delivery")]"
 			new_quest.target_delivery_location = pick(
-			/area/rogue/indoors/town/tavern,
-			/area/rogue/indoors/town/church,
-			/area/rogue/indoors/town/dwarfin,
-			/area/rogue/indoors/town/shop,
-			/area/rogue/indoors/town/manor,
-			/area/rogue/indoors/town/magician,
+				/area/rogue/indoors/town/tavern,
+				/area/rogue/indoors/town/church,
+				/area/rogue/indoors/town/dwarfin,
+				/area/rogue/indoors/town/shop,
+				/area/rogue/indoors/town/manor,
+				/area/rogue/indoors/town/magician,
 			)
 			spawn_courier_item(new_quest, new_quest.target_delivery_location)
 		if(QUEST_MINIBOSS)
