@@ -108,7 +108,7 @@
 	desc = "A light riveted coat with plates concealed inside an exterior fabric. Susceptible to daggers being shoved into your ribs."
 	icon_state = "light_brigandine"
 	blocksound = SOFTHIT
-	body_parts_covered = COVERAGE_SHIRT
+	body_parts_covered = COVERAGE_TORSO
 	armor = ARMOR_CUIRASS
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_BRIGANDINE
 	smeltresult = /obj/item/ingot/iron

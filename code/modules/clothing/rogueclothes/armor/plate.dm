@@ -115,10 +115,7 @@
 	desc = "A sturdily made fluted full-plate. Supposedly made to deflect blows from blades and arrows."
 	icon_state = "flutedplate"
 
-	equip_delay_self = 14 SECONDS
-	unequip_delay_self = 14 SECONDS
-
-	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL
+	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL + ARMOR_INT_CHEST_PLATE_FLUTED_BONUS
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
 	name = "psydonian plate"
@@ -126,7 +123,7 @@
 			Favored by both the Holy Otavan Inquisition and the Order of the Silver Psycross. It smells of the madness of an enduring God."
 	icon_state = "ornateplate"
 
-	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL
+	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON
 
 	/// Whether the user has the Heavy Armour Trait prior to donning.
 	var/traited = FALSE
@@ -340,7 +337,7 @@
 	icon_state = "flutedcuirass"
 	desc = "A sturdy steel cuirass with tassets. Supposedly protective, though maybe not against crossbow bolts."
 
-	body_parts_covered = COVERAGE_ALL_BUT_ARMS
+	body_parts_covered = COVERAGE_ALL_BUT_ARMS_AND_GROIN
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate

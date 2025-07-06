@@ -19,7 +19,6 @@
 	icon_state = "ihaubergeon"
 	name = "iron haubergeon"
 	desc = "A chain vest made of heavy iron rings. Better than nothing."
-	body_parts_covered = COVERAGE_TORSO
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_IRON
 	smeltresult = /obj/item/ingot/iron
 
