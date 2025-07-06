@@ -123,7 +123,7 @@
 		if(QUEST_FETCH)
 			scroll_text += "<b>Objective:</b> Retrieve [assigned_quest.target_amount] [initial(assigned_quest.target_item_type.name)].<br>"
 			scroll_text += "<b>Last Seen Location:</b> Reported sighting in [assigned_quest.target_spawn_area] region.<br>"
-		if(QUEST_KILL || QUEST_MINIBOSS)
+		if(QUEST_KILL, QUEST_MINIBOSS)
 			scroll_text += "<b>Objective:</b> Slay [assigned_quest.target_amount] [initial(assigned_quest.target_mob_type.name)].<br>"
 			scroll_text += "<b>Last Seen Location:</b> [assigned_quest.target_spawn_area ? "Reported sighting in [assigned_quest.target_spawn_area] region." : "Reported sighting in Azuria region."]<br>"
 		if(QUEST_CLEAR_OUT)
