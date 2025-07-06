@@ -4702,11 +4702,6 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/cave)
-"bAQ" = (
-/obj/effect/roguerunelarge,
-/obj/item/roguegem/random,
-/turf/open/floor/rogue/church,
-/area/rogue/under/cave/goblinfort)
 "bAU" = (
 /obj/structure/flora/roguegrass/bush,
 /turf/open/floor/rogue/grassred,
@@ -36483,6 +36478,10 @@
 	icon_state = "wooden_floort"
 	},
 /area/rogue/outdoors/beach)
+"lWD" = (
+/obj/structure/well/fountain/mana,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/outdoors/woods)
 "lWG" = (
 /obj/effect/spawner/lootdrop/roguetown/sewers,
 /turf/open/floor/rogue/dirt/road,
@@ -37701,6 +37700,10 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/church/chapel)
+"mrz" = (
+/obj/structure/leyline,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/outdoors/woods)
 "mrA" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/wood,
@@ -43852,9 +43855,6 @@
 /obj/structure/fluff/walldeco/church/line,
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
-	},
-/obj/effect/roguerunelarge{
-	color = "#400303"
 	},
 /mob/living/simple_animal/hostile/retaliate/rogue/orc/orc_marauder/spear,
 /turf/open/floor/rogue/churchbrick,
@@ -51073,6 +51073,7 @@
 /obj/structure/wonder{
 	name = "graggarite altar"
 	},
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/cave/orcdungeon)
 "qJR" = (
@@ -52602,6 +52603,7 @@
 /area/rogue/under/cave/dukecourt)
 "rmq" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/infernal/watcher,
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/max,
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/goblinfort)
 "rmu" = (
@@ -67906,6 +67908,9 @@
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/town/shop)
+"wgN" = (
+/turf/open/floor/rogue/greenstone,
+/area/rogue/outdoors/woods)
 "wgU" = (
 /obj/structure/bars{
 	color = "#755f48";
@@ -71219,6 +71224,9 @@
 	},
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/outdoors/mountains/decap)
+"xka" = (
+/turf/open/floor/rogue/greenstone/runed,
+/area/rogue/outdoors/woods)
 "xkf" = (
 /obj/structure/fluff/statue/astrata/gold,
 /turf/open/floor/rogue/churchrough,
@@ -199531,9 +199539,9 @@ jFA
 jFA
 xkH
 xkH
-xkH
-xkH
-jFA
+wgN
+xka
+wgN
 xkH
 jFA
 sZa
@@ -199983,9 +199991,9 @@ jFA
 jFA
 jFA
 jFA
-xkH
-jFA
-jFA
+xka
+lWD
+xka
 xkH
 jFA
 jFA
@@ -200435,9 +200443,9 @@ eTA
 sZa
 xkH
 xkH
-jFA
-jFA
-xkH
+wgN
+xka
+wgN
 jFA
 jFA
 jFA
@@ -261853,9 +261861,9 @@ sZa
 jFA
 xkH
 xkH
-jFA
-jFA
-jFA
+wgN
+xka
+wgN
 jFA
 jFA
 xkH
@@ -262305,9 +262313,9 @@ jFA
 jFA
 jFA
 jFA
-jFA
-jFA
-jFA
+xka
+mrz
+xka
 sZa
 jFA
 xkH
@@ -262757,9 +262765,9 @@ jFA
 jFA
 jFA
 xkH
-jFA
-jFA
-jFA
+wgN
+xka
+wgN
 jFA
 jFA
 xkH
@@ -466347,7 +466355,7 @@ tVR
 hrT
 hrT
 hrT
-bAQ
+tVR
 jrD
 uPk
 mQP
