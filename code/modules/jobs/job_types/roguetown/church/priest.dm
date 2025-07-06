@@ -364,12 +364,17 @@ GLOBAL_LIST_EMPTY(heretical_players)
         return
 
     var/list/curse_choices = list(
-        "Ravox's Curse" = /datum/curse/ravox,
-        "Pestra's Curse" = /datum/curse/pestra,
-        "Eora's Curse" = /datum/curse/eora,
+        "Astrata's Curse" = /datum/curse/astrata,
+        "Noc's Curse" = /datum/curse/noc,
+        "Dendor's Curse" = /datum/curse/dendor,
         "Abyssor's Curse" = /datum/curse/abyssor,
-        "Malum's Curse" = /datum/curse/malum
-    )
+        "Ravox's Curse" = /datum/curse/ravox,
+        "Necra's Curse" = /datum/curse/necra,
+        "Xylix's Curse" = /datum/curse/xylix,
+        "Pestra's Curse" = /datum/curse/pestra,
+        "Malum's Curse" = /datum/curse/malum,
+        "Eora's Curse" = /datum/curse/eora
+        )
 
     var/curse_pick = input("Choose a curse to apply or lift.", "Select Curse") as null|anything in curse_choices
     if (!curse_pick)

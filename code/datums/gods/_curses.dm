@@ -61,46 +61,81 @@
     qdel(src)
     return
 
+//////////////////////
+///   TEN CURSES   ///
+//////////////////////
 
-/datum/curse/ravox
-    name = "Ravox's Curse"
-    description = "Violence disgusts me. I cannot bring myself to wield any kind of weapon."
-    trait = TRAIT_RAVOX_CURSE
+/datum/curse/astrata
+	name = "Astrata's Curse"
+	description = "I am forsaken by the Sun. Healing miracles have no effect on me."
+	trait = TRAIT_ASTRATA_CURSE
 
-/datum/curse/pestra
-    name = "Pestra's Curse"
-    description = "I feel sick to my stomach, and my skin is slowly starting to rot."
-    trait = TRAIT_PESTRA_CURSE
+/datum/curse/noc
+	name = "Noc's Curse"
+	description = "I am forsaken by the Moon. Calling up on His gifts is impossible now."
+	trait = TRAIT_NOC_CURSE
 
-/datum/curse/eora
-    name = "Eora's Curse"
-    description = "I am unable to show any kind of affection or love, whether carnal or platonic."
-    trait = TRAIT_LIMPDICK
+/datum/curse/dendor
+	name = "Dendor's Curse"
+	description = "Reason abandons me, insanity is my new home."
+	trait = TRAIT_SCHIZO_AMBIENCE
 
 /datum/curse/abyssor
     name = "Abyssor's Curse"
     description = "I hear the ocean whisper in my mind. Fear of drowning has left me... but so has reason."
     trait = TRAIT_ABYSSOR_CURSE
 
+/datum/curse/ravox
+    name = "Ravox's Curse"
+    description = "Violence disgusts me. I cannot bring myself to wield any kind of weapon."
+    trait = TRAIT_RAVOX_CURSE
+
+/datum/curse/necra
+	name = "Necra's Curse"
+	description = "The Undermaiden gazed upon my soul, if I am not careful I will end up within her grasp."
+	trait = TRAIT_CRITICAL_WEAKNESS
+
+/datum/curse/xylix
+	name = "Xylix's Curse"
+	description = "Fortune is no longer on my side."
+	trait = TRAIT_XYLIX_CURSE
+
+/datum/curse/pestra
+    name = "Pestra's Curse"
+    description = "My body is withering away, simply walking is a straining task and running is a mere dream."
+    trait = TRAIT_PESTRA_CURSE
+
 /datum/curse/malum
     name = "Malum's Curse"
     description = "My thoughts race with endless designs I cannot build. The tools tremble in my hands."
     trait = TRAIT_MALUM_CURSE
 
+/datum/curse/eora
+    name = "Eora's Curse"
+    description = "I am unable to show any kind of affection or love, whether carnal or platonic."
+    trait = TRAIT_LIMPDICK
 
-//Pestra's Curse
+//////////////////////
+///    ON LIFE     ///
+//////////////////////
 
-/datum/curse/pestra/on_life(mob/living/carbon/human/owner)
+
+//////////////////////
+/// ON GAIN / LOSS ///
+//////////////////////
+
+/datum/curse/xylix/on_gain(mob/living/carbon/human/owner)
 	. = ..()
-	if(owner.mob_timers["pestra_curse"])
-		if(world.time < owner.mob_timers["pestra_curse"] + rand(30,60)SECONDS)
-			return
-	owner.mob_timers["pestra_curse"] = world.time
-	var/effect = rand(1, 3)
-	switch(effect)
-		if(1)
-			owner.vomit()
-		if(2)
-			owner.Unconscious(20)
-		if(3)
-			owner.blur_eyes(10)
+	owner.STALUC -= 10
+
+/datum/curse/xylix/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STALUC += 10
+
+/datum/curse/pestra/on_gain(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STAEND -= 10
+
+/datum/curse/pestra/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STAEND += 10

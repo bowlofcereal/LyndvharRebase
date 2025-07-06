@@ -100,9 +100,12 @@
 // PATRON GOD CURSES
 
 #define TRAIT_CURSE "Curse" //source
-#define TRAIT_RAVOX_CURSE "Ravox's Curse" // effect same as ~ -2 (-30% parry -30% dodge -30% accuracy) to all weapon skills
-#define TRAIT_PESTRA_CURSE "Pestra's Curse" //randomly causes vomiting, unconsciousness, blurred vision
+#define TRAIT_ASTRATA_CURSE "Astrata's Curse" //Cannot X and burn up in sunlight
+#define TRAIT_NOC_CURSE "Noc's Curse" //Cannot use magic and burn up in moonlight
 #define TRAIT_ABYSSOR_CURSE "Abyssors's Curse" //fears the water
+#define TRAIT_RAVOX_CURSE "Ravox's Curse" // effect same as ~ -2 (-30% parry -30% dodge -30% accuracy) to all weapon skills
+#define TRAIT_XYLIX_CURSE "Xylix's Curse" //no fortune
+#define TRAIT_PESTRA_CURSE "Pestra's Curse" //cannot run and nuke your endurance
 #define TRAIT_MALUM_CURSE "Malum's Curse" //cannot craft or use smith hammer
 
 // ASCENDANT CULTIST TRAITS (all of them recognize each other)
