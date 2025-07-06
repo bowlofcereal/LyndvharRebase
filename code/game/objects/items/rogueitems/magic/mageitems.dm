@@ -149,7 +149,11 @@
 		is_bled = TRUE
 		return
 	var/obj/effect/decal/cleanable/roguerune/pickrune
+<<<<<<< HEAD
 	var/runenameinput = input(user, "Runes", "T4 Runes") as null|anything in GLOB.t4rune_types
+=======
+	var/runenameinput = input(user, "Runes", "RATWOOD") as null|anything in GLOB.t4rune_types
+>>>>>>> 8b7dca1309fbaf5b41e941bec9e663fa074f3e21
 	testing("runenameinput [runenameinput]")
 	pickrune = GLOB.rune_types[runenameinput]
 	rune_to_scribe = pickrune
