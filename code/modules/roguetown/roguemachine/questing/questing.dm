@@ -60,9 +60,9 @@
 		return
 
 	var/list/difficulty_data = list(
-		"Easy" = list(deposit = 5, reward_min = 15, reward_max = 25, icon = "scroll_quest_low"),
-		"Medium" = list(deposit = 10, reward_min = 30, reward_max = 50, icon = "scroll_quest_mid"),
-		"Hard" = list(deposit = 20, reward_min = 60, reward_max = 100, icon = "scroll_quest_high")
+		QUEST_DIFFICULTY_EASY = list(deposit = 5, reward_min = 15, reward_max = 25, icon = "scroll_quest_low"),
+		QUEST_DIFFICULTY_MEDIUM = list(deposit = 10, reward_min = 30, reward_max = 50, icon = "scroll_quest_mid"),
+		QUEST_DIFFICULTY_HARD = list(deposit = 20, reward_min = 60, reward_max = 100, icon = "scroll_quest_high")
 	)
 
 	var/selection = input(user, "Select quest difficulty", src) as null|anything in difficulty_data
@@ -75,9 +75,9 @@
 		return
 
 	var/list/type_choices = list(
-		"Easy" = list("Fetch", "Courier", "Kill"),
-		"Medium" = list("Kill", "Clear Out"),
-		"Hard" = list("Clear Out", "Miniboss")
+		QUEST_DIFFICULTY_EASY = list(QUEST_FETCH, QUEST_COURIER, QUEST_KILL),
+		QUEST_DIFFICULTY_MEDIUM = list(QUEST_KILL, QUEST_CLEAR_OUT),
+		QUEST_DIFFICULTY_HARD = list(QUEST_CLEAR_OUT, QUEST_MINIBOSS)
 	)
 
 	var/type_selection = input(user, "Select quest type", src) as null|anything in type_choices[selection]
@@ -157,8 +157,8 @@
 				original_reward += base_reward
 				
 				// Calculate deposit return based on difficulty
-				var/deposit_return = turned_in_scroll.assigned_quest.quest_difficulty == "Easy" ? 5 : \
-									turned_in_scroll.assigned_quest.quest_difficulty == "Medium" ? 10 : 20
+				var/deposit_return = turned_in_scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_EASY ? 5 : \
+									turned_in_scroll.assigned_quest.quest_difficulty == QUEST_DIFFICULTY_MEDIUM ? 10 : 20
 				total_deposit_return += deposit_return
 				
 				// Apply guild handler bonus if applicable (only to the base reward)
@@ -219,8 +219,8 @@
 		turn_in_quest(user)
 		return
 
-	var/refund = quest.quest_difficulty == "Easy" ? 5 : \
-				quest.quest_difficulty == "Medium" ? 10 : 20
+	var/refund = quest.quest_difficulty == QUEST_DIFFICULTY_EASY ? 5 : \
+				quest.quest_difficulty == QUEST_DIFFICULTY_MEDIUM ? 10 : 20
 
 	// First try to return to quest giver
 	var/mob/giver = quest.quest_giver_reference?.resolve()
@@ -244,7 +244,7 @@
 			to_chat(user, span_notice("Your refund of [refund] mammon has been dispensed."))
 
 	// Clean up quest items
-	if(quest.quest_type == "Courier" && quest.target_delivery_item)
+	if(quest.quest_type == QUEST_COURIER && quest.target_delivery_item)
 		quest.target_delivery_item = null
 		for(var/obj/item/I in world)
 			if(istype(I, quest.target_delivery_item))

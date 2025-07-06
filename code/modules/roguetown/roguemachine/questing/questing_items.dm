@@ -120,16 +120,16 @@
 			scroll_text += " ([last_z_level_hint])"
 
 	switch(assigned_quest.quest_type)
-		if("Fetch")
+		if(QUEST_FETCH)
 			scroll_text += "<b>Objective:</b> Retrieve [assigned_quest.target_amount] [initial(assigned_quest.target_item_type.name)].<br>"
 			scroll_text += "<b>Last Seen Location:</b> Reported sighting in [assigned_quest.target_spawn_area] region.<br>"
-		if("Kill", "Miniboss")
+		if(QUEST_KILL || QUEST_MINIBOSS)
 			scroll_text += "<b>Objective:</b> Slay [assigned_quest.target_amount] [initial(assigned_quest.target_mob_type.name)].<br>"
 			scroll_text += "<b>Last Seen Location:</b> [assigned_quest.target_spawn_area ? "Reported sighting in [assigned_quest.target_spawn_area] region." : "Reported sighting in Sunmarch region."]<br>"
-		if("Clear Out")
+		if(QUEST_CLEAR_OUT)
 			scroll_text += "<b>Objective:</b> Eliminate [assigned_quest.target_amount] [initial(assigned_quest.target_mob_type.name)].<br>"
 			scroll_text += "<b>Infestation Location:</b> [assigned_quest.target_spawn_area ? "Reported sighting in [assigned_quest.target_spawn_area] region." : "Reported infestations in Sunmarch region."]<br>"
-		if("Courier")
+		if(QUEST_COURIER)
 			scroll_text += "<b>Objective:</b> Deliver [initial(assigned_quest.target_delivery_item.name)] to [initial(assigned_quest.target_delivery_location.name)].<br>"
 			scroll_text += "<b>Delivery Instructions:</b> Package must remain intact and be delivered directly to the recipient.<br>"
 			scroll_text += "<b>Destination Description:</b> [initial(assigned_quest.target_delivery_location.name)].<br>" // TODO: brief_descriptor
@@ -180,7 +180,7 @@
 
 	// Find the appropriate target based on quest type
 	switch(assigned_quest.quest_type)
-		if("Fetch")
+		if(QUEST_FETCH)
 			// Find the closest fetch item
 			for(var/obj/item/I in world)
 				if(istype(I, assigned_quest.target_item_type))
@@ -190,7 +190,7 @@
 						if(!target || dist < min_distance)
 							target = I
 							min_distance = dist
-		if("Courier")
+		if(QUEST_COURIER)
 			// Find the delivery location area
 			var/area/target_area = assigned_quest.target_delivery_location
 			if(target_area)
@@ -199,7 +199,7 @@
 					var/turf/center_turf = locate(world.maxx/2, world.maxy/2, user_turf.z)
 					min_distance = get_dist(user_turf, center_turf)
 					target = center_turf
-		if("Kill", "Clear Out", "Miniboss")
+		if(QUEST_KILL, QUEST_CLEAR_OUT, QUEST_MINIBOSS)
 			// Find the closest target mob
 			for(var/mob/living/M in world)
 				if(istype(M, assigned_quest.target_mob_type))
@@ -313,7 +313,7 @@
 	var/datum/component/quest_object/courier_quest = GetComponent(/datum/component/quest_object)
 	if(courier_quest)
 		var/datum/quest/quest = courier_quest.quest_ref?.resolve()
-		if(quest && quest.quest_type == "Courier" && quest.target_delivery_location)
+		if(quest && quest.quest_type == QUEST_COURIER && quest.target_delivery_location)
 			delivery_area_type = quest.target_delivery_location
 			allowed_jobs = get_area_jobs(delivery_area_type)
 			RegisterSignal(courier_quest, COMSIG_PARENT_QDELETING, PROC_REF(on_quest_component_deleted))

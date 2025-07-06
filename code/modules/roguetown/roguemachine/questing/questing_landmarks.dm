@@ -2,8 +2,8 @@
 	name = "quest landmark"
 	icon = 'code/modules/roguetown/roguemachine/questing/questing.dmi'
 	icon_state = "quest_marker"
-	var/quest_difficulty = list("Easy", "Medium", "Hard")
-	var/quest_type = list("Fetch", "Courier", "Clear Out", "Kill", "Beacon", "Miniboss")
+	var/quest_difficulty = list(QUEST_DIFFICULTY_EASY, QUEST_DIFFICULTY_MEDIUM, QUEST_DIFFICULTY_HARD)
+	var/quest_type = list(QUEST_FETCH, QUEST_COURIER, QUEST_CLEAR_OUT, QUEST_KILL, QUEST_BEACON, QUEST_MINIBOSS)
 	var/list/fetch_items = list(
 		/obj/item/rogueweapon/huntingknife/throwingknife/steel,
 		/obj/item/rogueweapon/huntingknife,
@@ -22,30 +22,30 @@
 	new_quest.target_spawn_area = get_area_name(get_turf(src))
 
 	switch(new_quest.quest_difficulty)
-		if("Easy")
+		if(QUEST_DIFFICULTY_EASY)
 			new_quest.reward_amount = rand(15, 25)
-		if("Medium")
+		if(QUEST_DIFFICULTY_MEDIUM)
 			new_quest.reward_amount = rand(30, 50)
-		if("Hard")
+		if(QUEST_DIFFICULTY_HARD)
 			new_quest.reward_amount = rand(60, 100)
 
 	switch(new_quest.quest_type)
-		if("Fetch")
+		if(QUEST_FETCH)
 			new_quest.title = "Retrieve [pick("an ancient", "a rare", "a stolen", "a magical")] [pick("artifact", "relic", "doohickey", "treasure")]"
 			new_quest.target_item_type = pick(fetch_items)
 			new_quest.target_amount = rand(1, 3)
 			spawn_fetch_items(new_quest.target_item_type, new_quest.target_amount, new_quest)
-		if("Kill")
+		if(QUEST_KILL)
 			new_quest.title = "Slay [pick("a dangerous", "a fearsome", "a troublesome", "an elusive")] [pick("beast", "monster", "brigand", "creature")]"
 			new_quest.target_mob_type = pick(kill_mobs)
 			new_quest.target_amount = 1
 			spawn_kill_mob(new_quest.target_mob_type, new_quest)
-		if("Clear Out")
+		if(QUEST_CLEAR_OUT)
 			new_quest.title = "Clear out [pick("a nest of", "a den of", "a group of", "a pack of")] [pick("monsters", "bandits", "creatures", "vermin")]"
 			new_quest.target_mob_type = pick(kill_mobs)
 			new_quest.target_amount = rand(3, 6)
 			spawn_clear_out_mobs(new_quest.target_mob_type, new_quest.target_amount, new_quest)
-		if("Courier")
+		if(QUEST_COURIER)
 			new_quest.title = "Deliver [pick("an important", "a sealed", "a confidential", "a valuable")] [pick("package", "parcel", "letter", "delivery")]"
 			new_quest.target_delivery_location = pick(
 			/area/rogue/indoors/town/tavern,
@@ -56,7 +56,7 @@
 			/area/rogue/indoors/town/magician,
 			)
 			spawn_courier_item(new_quest, new_quest.target_delivery_location)
-		if("Miniboss")
+		if(QUEST_MINIBOSS)
 			new_quest.title = "Defeat [pick("the terrible", "the dreadful", "the monstrous", "the infamous")] [pick("warlord", "beast", "sorcerer", "abomination")]"
 			new_quest.target_mob_type = miniboss_mob
 			new_quest.target_amount = 1
@@ -140,12 +140,6 @@
 			/obj/item/reagent_containers/powder/ozium,
 			/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
 		),
-		/*
-		/area/rogue/indoors/town/farm = list(
-			/obj/item/seeds/wheat,
-			/obj/item/reagent_containers/food/snacks/egg,
-			/obj/item/reagent_containers/food/snacks/egg/mothcat,
-		),*/
 		/area/rogue/indoors/town/dwarfin = list(
 			/obj/item/ingot/iron,
 			/obj/item/ingot/bronze,
@@ -165,17 +159,7 @@
 			/obj/item/book/spellbook,
 			/obj/item/roguegem/yellow,
 			/obj/item/reagent_containers/glass/bottle/rogue/manapot,
-		),/*
-		/area/rogue/indoors/town/mages_university/alchemy_lab = list(
-			/obj/item/alch/waterdust,
-			/obj/item/alch/viscera,
-			/obj/item/alch/seeddust,
 		),
-		/area/rogue/indoors/town/steward = list(
-			/obj/item/clothing/ring/silver,
-			/obj/item/reagent_containers/glass/cup/silver,
-			/obj/item/reagent_containers/glass/cup/golden,
-		),*/
 		/area/rogue/indoors/town = list(
 			/obj/item/ration,
 		)
@@ -232,16 +216,16 @@
 	name = "easy quest landmark"
 	icon_state = "quest_marker_low"
 	quest_difficulty = "Easy"
-	quest_type = list("Fetch", "Courier", "Kill", "Beacon")
+	quest_type = list(QUEST_FETCH, QUEST_COURIER, QUEST_KILL, QUEST_BEACON)
 
 /obj/effect/landmark/quest_spawner/medium
 	name = "medium quest landmark"
 	icon_state = "quest_marker_mid"
 	quest_difficulty = "Medium"
-	quest_type = list("Kill", "Clear Out", "Beacon")
+	quest_type = list(QUEST_KILL, QUEST_CLEAR_OUT, QUEST_BEACON)
 
 /obj/effect/landmark/quest_spawner/hard
 	name = "hard quest landmark"
 	icon_state = "quest_marker_high"
 	quest_difficulty = "Hard"
-	quest_type = list("Clear Out", "Beacon", "Miniboss")
+	quest_type = list(QUEST_CLEAR_OUT, QUEST_BEACON, QUEST_MINIBOSS)

@@ -32,7 +32,7 @@
 	if(Q && !Q.complete && isitem(parent))
 		var/obj/item/I = parent
 		I.remove_filter(outline_filter_id)
-		if(Q.quest_type == "Courier" && (Q.target_delivery_item && istype(I, Q.target_delivery_item)) && !QDELETED(I))
+		if(Q.quest_type == QUEST_COURIER && (Q.target_delivery_item && istype(I, Q.target_delivery_item)) && !QDELETED(I))
 			Q.target_delivery_item = null
 			qdel(I)
 	
@@ -48,8 +48,8 @@
 	var/list/user_scrolls = find_quest_scrolls(user)
 	for(var/obj/item/paper/scroll/quest/scroll in user_scrolls)
 		var/datum/quest/user_quest = scroll.assigned_quest
-		if(user_quest && ((user_quest.quest_type == "Fetch" && istype(parent, user_quest.target_item_type)) || \
-						(user_quest.quest_type == "Courier" && istype(parent, user_quest.target_delivery_item))))
+		if(user_quest && ((user_quest.quest_type == QUEST_FETCH && istype(parent, user_quest.target_item_type)) || \
+						(user_quest.quest_type == QUEST_COURIER && istype(parent, user_quest.target_delivery_item))))
 			examine_list += span_notice("This looks like an item you need for your quest: [user_quest.title]!")
 			break
 
@@ -63,7 +63,7 @@
 	var/list/user_scrolls = find_quest_scrolls(user)
 	for(var/obj/item/paper/scroll/quest/scroll in user_scrolls)
 		var/datum/quest/user_quest = scroll.assigned_quest
-		if(user_quest && (user_quest.quest_type in list("Kill", "Clear Out", "Miniboss")) && istype(parent, user_quest.target_mob_type))
+		if(user_quest && (user_quest.quest_type in list(QUEST_KILL, QUEST_CLEAR_OUT, QUEST_MINIBOSS)) && istype(parent, user_quest.target_mob_type))
 			examine_list += span_notice("This looks like the target of your quest: [user_quest.title]!")
 			if(Q.target_spawn_area != get_area(get_turf(src)))
 				examine_list += span_notice("It was last reported in the [Q.target_spawn_area] area, however.")
@@ -104,7 +104,7 @@
 	var/turf/drop_turf = get_turf(dropped_item)
 	
 	// Handle fetch quests (dropping item on quest machine input)
-	if(Q.quest_type == "Fetch")
+	if(Q.quest_type == QUEST_FETCH)
 		for(var/obj/structure/roguemachine/questgiver/quest_machine in SSroguemachine.questgivers)
 			if(get_turf(quest_machine.input_point) == drop_turf)
 				if(Q.target_item_type && istype(dropped_item, Q.target_item_type))
@@ -119,7 +119,7 @@
 					return
 	
 	// Handle courier quests (dropping in target area)
-	if(Q.quest_type == "Courier")
+	if(Q.quest_type == QUEST_COURIER)
 		var/area/drop_area = get_area(drop_turf)
 		if(!istype(drop_area, Q.target_delivery_location))
 			return
@@ -165,6 +165,6 @@
 		var/obj/item/I = parent
 		I.remove_filter(outline_filter_id)
 		// Only delete the item if it's part of an incomplete fetch or courier quest
-		if(Q && !Q.complete && ((Q.quest_type == "Fetch" && istype(I, Q.target_item_type)) || (Q.quest_type == "Courier" && istype(I, Q.target_delivery_item))))
+		if(Q && !Q.complete && ((Q.quest_type == QUEST_FETCH && istype(I, Q.target_item_type)) || (Q.quest_type == QUEST_COURIER && istype(I, Q.target_delivery_item))))
 			qdel(I)
 	qdel(src)

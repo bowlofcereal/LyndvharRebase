@@ -40,9 +40,9 @@
 			I.remove_filter("quest_item_outline")
 			qdel(Q)
 			// Only delete the item if it's part of a fetch or courier quest
-			if(quest_type == "Fetch" && istype(I, target_item_type))
+			if(quest_type == QUEST_FETCH && istype(I, target_item_type))
 				qdel(I)
-			else if(quest_type == "Courier" && istype(I, target_delivery_item))
+			else if(quest_type == QUEST_COURIER && istype(I, target_delivery_item))
 				qdel(I)
 
 	// Clean up references
