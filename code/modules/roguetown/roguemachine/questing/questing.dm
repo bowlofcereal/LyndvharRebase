@@ -1,6 +1,6 @@
 /obj/structure/roguemachine/questgiver
 	name = "grand quest book"
-	desc = "A large wooden notice board, carrying postings from all across Sunmarch. A crow's perch sits atop it."
+	desc = "A large wooden notice board, carrying postings from all across Azuria. A crow's perch sits atop it."
 	icon = 'code/modules/roguetown/roguemachine/questing/questing.dmi'
 	icon_state = "questgiver"
 	density = TRUE
