@@ -23,7 +23,8 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 		/datum/rmb_intent/strong,\
 		/datum/rmb_intent/riposte,\
 		/datum/rmb_intent/weak
-	)	
+	)
+	npc_max_jump_stamina = 0
 	var/is_silent = FALSE /// Determines whether or not we will scream our funny lines at people.
 	var/preset = "matthios"
 
@@ -77,6 +78,7 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_INFINITE_ENERGY, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(src, TRAIT_STUCKITEMS, TRAIT_GENERIC)
 	switch(rand(0, 100))
 		if(0 to 25)
 			preset = "graggar"
@@ -148,6 +150,8 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 			break
 
 		new /mob/living/carbon/human/species/human/northern/highwayman/dk_goon(spawn_turf)
+
+	def_intent_change(INTENT_PARRY)
 
 /mob/living/carbon/human/species/human/northern/deranged_knight/npc_idle()
 	if(m_intent == MOVE_INTENT_SNEAK)
