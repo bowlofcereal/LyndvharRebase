@@ -359,7 +359,7 @@ GLOBAL_LIST(teleport_runes)
 	ritual_number = TRUE
 
 
-/obj/effect/decal/cleanable/roguerune/arcyne/enchantment/invoke(list/invokers, datum/runerituals/enchantment/runeritual)
+/obj/effect/decal/cleanable/roguerune/arcyne/enchantment/invoke(list/invokers, datum/runeritual/runeritual)
 	if(!..())	//VERY important. Calls parent and checks if it fails. parent/invoke has all the checks for ingredients
 		return
 	if(ritual_result)
@@ -412,7 +412,7 @@ GLOBAL_LIST(teleport_runes)
 		active = FALSE
 		return
 	. = ..()
-/obj/effect/decal/cleanable/roguerune/arcyne/wall/invoke(list/invokers, datum/runerituals/runeritual)
+/obj/effect/decal/cleanable/roguerune/arcyne/wall/invoke(list/invokers, datum/runeritual/runeritual)
 	if(!..())	//VERY important. Calls parent and checks if it fails. parent/invoke has all the checks for ingredients
 		return
 	if(pickritual.tier == 1)
@@ -592,7 +592,7 @@ GLOBAL_LIST(teleport_runes)
 		return
 	. = ..()
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/invoke(list/invokers, datum/runerituals/runeritual)
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/invoke(list/invokers, datum/runeritual/runeritual)
 	if(!..())	//VERY important. Calls parent and checks if it fails. parent/invoke has all the checks for ingredients
 		return
 	// All the components have been invisibled, time to actually do the ritual. Call on_finished_recipe

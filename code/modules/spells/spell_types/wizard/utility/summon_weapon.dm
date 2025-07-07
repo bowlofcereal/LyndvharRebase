@@ -37,7 +37,7 @@
 				else
 					message = span_warning("I must hold the desired weapon in my hands to imbue it for summoning!")
 
-		else if(marked_item && marked_item in hand_items) //unlinking item to the spell
+		else if(marked_item && (marked_item in hand_items)) //unlinking item to the spell
 			message = span_notice("I remove the imbuement on [marked_item] to use elsewhere.")
 			name = "Instant Summons"
 			marked_item = 		null
