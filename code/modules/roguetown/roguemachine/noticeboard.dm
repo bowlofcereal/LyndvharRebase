@@ -321,8 +321,8 @@
 
 	var/list/type_choices = list(
 		QUEST_DIFFICULTY_EASY = list(QUEST_FETCH, QUEST_COURIER, QUEST_KILL),
-		QUEST_DIFFICULTY_MEDIUM = list(QUEST_KILL, QUEST_CLEAR_OUT),
-		QUEST_DIFFICULTY_HARD = list(QUEST_CLEAR_OUT, QUEST_MINIBOSS)
+		QUEST_DIFFICULTY_MEDIUM = list(QUEST_CLEAR_OUT),
+		QUEST_DIFFICULTY_HARD = list(QUEST_MINIBOSS)
 	)
 
 	var/type_selection = input(user, "Select quest type", src) as null|anything in type_choices[actual_difficulty] // Changed from selection to actual_difficulty
