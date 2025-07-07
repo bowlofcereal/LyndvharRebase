@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(quest_components)
+
 /datum/component/quest_object
 	var/datum/weakref/quest_ref
 	var/is_mob = FALSE
@@ -23,8 +25,10 @@
 		RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(on_item_dropped))
 	
 	RegisterSignal(target_quest, COMSIG_PARENT_QDELETING, PROC_REF(on_quest_deleted))
+	GLOB.quest_components += src
 
 /datum/component/quest_object/Destroy()
+	GLOB.quest_components -= src
 	if(QDELETED(parent))
 		return ..()
 		

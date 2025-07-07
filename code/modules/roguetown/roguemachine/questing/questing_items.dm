@@ -84,6 +84,10 @@
 /obj/item/paper/scroll/quest/extinguish()
 	return // No fire to extinguish
 
+/obj/item/paper/scroll/quest/read(mob/user)
+	refresh_compas(user)
+	return ..()
+
 /obj/item/paper/scroll/quest/attack_self(mob/user)
 	. = ..()
 	if(.)
@@ -182,15 +186,18 @@
 	// Find the appropriate target based on quest type
 	switch(assigned_quest.quest_type)
 		if(QUEST_FETCH)
-			// Find the closest fetch item
-			for(var/obj/item/I in world)
-				if(istype(I, assigned_quest.target_item_type))
-					var/datum/component/quest_object/Q = I.GetComponent(/datum/component/quest_object)
-					if(Q && Q.quest_ref?.resolve() == assigned_quest)
-						var/dist = get_dist(user_turf, I)
-						if(!target || dist < min_distance)
-							target = I
-							min_distance = dist
+			for(var/datum/component/quest_object/quest_component in GLOB.quest_components)
+				if(quest_component.quest_ref?.resolve() != assigned_quest)
+					continue
+
+				var/atom/target_item = quest_component.parent
+				if(QDELETED(target))
+					continue
+
+				var/dist = get_dist(user_turf, target_item)
+				if(!target || dist < min_distance)
+					target = target_item
+					min_distance = dist
 		if(QUEST_COURIER)
 			// Find the delivery location area
 			var/area/target_area = assigned_quest.target_delivery_location
@@ -201,15 +208,18 @@
 					min_distance = get_dist(user_turf, center_turf)
 					target = center_turf
 		if(QUEST_KILL, QUEST_CLEAR_OUT, QUEST_MINIBOSS)
-			// Find the closest target mob
-			for(var/mob/living/M in world)
-				if(istype(M, assigned_quest.target_mob_type))
-					var/datum/component/quest_object/Q = M.GetComponent(/datum/component/quest_object)
-					if(Q && Q.quest_ref?.resolve() == assigned_quest)
-						var/dist = get_dist(user_turf, M)
-						if(!target || dist < min_distance)
-							target = M
-							min_distance = dist
+			for(var/datum/component/quest_object/quest_component in GLOB.quest_components)
+				if(quest_component.quest_ref?.resolve() != assigned_quest)
+					continue
+
+				var/mob/target_mob = quest_component.parent
+				if(QDELETED(target_mob))
+					continue
+
+				var/dist = get_dist(user_turf, target_mob)
+				if(!target || dist < min_distance)
+					target = target_mob
+					min_distance = dist
 
 	if(!target || !(target_turf = get_turf(target)))
 		last_compass_direction = "Target location unknown"
