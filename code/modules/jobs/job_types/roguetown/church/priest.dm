@@ -168,71 +168,14 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		if(nomoredukes)
 			nomoredukes.total_positions = -1000 //We got what we got now.
 
-
-/mob/living/carbon/human/proc/churchexcommunicate()
-    set name = "Excommunicate"
-    set category = "Priest"
-
-    if (stat)
-        return
-
-    var/inputty = input("Excommunicate someone, away from the Ten... Or show to their heretical gods that they are worthy... (excommunicate them again to remove it)", "Sinner Name") as text|null
-
-    if (inputty)
-        if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-            to_chat(src, span_warning("I need to do this from the Church."))
-            return FALSE
-
-        if (inputty in GLOB.excommunicated_players)
-            GLOB.excommunicated_players -= inputty
-            priority_announce("[real_name] has forgiven [inputty]. Their patron hears their prayer once more!", title = "Hail the Ten!", sound = 'sound/misc/bell.ogg')
-
-            for (var/mob/living/carbon/human/H in GLOB.player_list)
-                if (H.real_name == inputty)
-                    REMOVE_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
-
-                    if (H.patron)
-                        if (istype(H.patron, /datum/patron/divine))
-                            H.remove_stress(/datum/stressevent/excommunicated)
-                            H.remove_status_effect(/datum/status_effect/debuff/excomm)
-                        else if (istype(H.patron, /datum/patron/inhumen))
-                            H.remove_stress(/datum/stressevent/gazeuponme)
-                            H.remove_status_effect(/datum/status_effect/buff/gazeuponme)
-                        else
-                            continue
-            return
-
-        var/found = FALSE
-
-        for (var/mob/living/carbon/human/H in GLOB.player_list)
-            if (H == src)
-                continue
-            if (H.real_name == inputty)
-                found = TRUE
-                ADD_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
-
-                if (H.patron)
-                    if (istype(H.patron, /datum/patron/divine))
-                        H.add_stress(/datum/stressevent/excommunicated)
-                        H.apply_status_effect(/datum/status_effect/debuff/excomm)
-                        to_chat(H, span_warning("Your divine patron recoils from your excommunication."))
-                    else if (istype(H.patron, /datum/patron/inhumen))
-                        H.add_stress(/datum/stressevent/gazeuponme)
-                        H.apply_status_effect(/datum/status_effect/buff/gazeuponme)
-                        to_chat(H, span_notice("Your inhuman patron embraces your rejection from the Ten."))
-                    else
-                        continue
-
-        if (!found)
-            return FALSE
-
-        GLOB.excommunicated_players += inputty
-        priority_announce("[real_name] has excommunicated [inputty]!", title = "SHAME", sound = 'sound/misc/excomm.ogg')
-
 /mob/living/carbon/human/proc/churchannouncement()
 	set name = "Announcement"
 	set category = "Priest"
+
 	if(stat)
+		return
+	if (world.time < last_announcement_priest_time + 300) // 300 seconds = 5 minutes
+		to_chat(src, span_warning("You must wait until you can speak again."))
 		return
 	var/inputty = input("Make an announcement", "ROGUETOWN") as text|null
 	if(inputty)
@@ -240,6 +183,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 			to_chat(src, span_warning("I need to do this from the chapel."))
 			return FALSE
 		priority_announce("[inputty]", title = "The Priest Speaks", sound = 'sound/misc/bell.ogg', sender = src)
+		last_announcement_priest_time = world.time // set cooldown
+		return
 
 /obj/effect/proc_holder/spell/self/convertrole/templar
 	name = "Recruit Templar"
@@ -259,11 +204,54 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	accept_message = "FOR THE TEN!"
 	refuse_message = "I refuse."
 
+/mob/living/carbon/human/proc/completesermon()
+	set name = "Sermon"
+	set category = "Priest"
+
+	if (!mind)
+		return
+
+	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+		to_chat(src, span_warning("I need to do this in the chapel."))
+		return FALSE
+
+	src.visible_message(span_notice("[src] begins preaching a sermon..."))
+
+	if (!do_after(src, 120, target = src)) // 120 seconds
+		src.visible_message(span_warning("[src] stops preaching."))
+		return
+
+	src.visible_message(span_notice("[src] finishes the sermon, inspiring those nearby!"))
+
+	for (var/mob/living/carbon/human/H in view(7, src))
+		if (!H.patron)
+			continue
+
+		if (istype(H.patron, /datum/patron/divine))
+			H.apply_status_effect(/datum/status_effect/buff/sermon)
+			H.add_stress(/datum/stressevent/sermon)
+			to_chat(H, span_notice("You feel a divine affirmation from your patron."))
+
+		else if (istype(H.patron, /datum/patron/inhumen))
+			H.apply_status_effect(/datum/status_effect/debuff/hereticsermon)
+			H.add_stress(/datum/stressevent/heretic_on_sermon)
+			to_chat(H, span_warning("Your patron seethes with disapproval."))
+
+		else
+			// Other patrons - fluff only
+			to_chat(H, span_notice("Nothing seems to happen to you."))
+
+	return TRUE
+
 /mob/living/carbon/human/proc/churcheapostasy()
 	set name = "Apostasy"
 	set category = "Priest"
 
 	if (stat)
+		return
+
+	if (world.time < last_apostasy_time + 600) // 600 seconds = 10 minutes
+		to_chat(src, span_warning("You must wait until you can mark another."))
 		return
 
 	var/inputty = input("Put an apostasy on someone, removing their ability to use miracles... (apostasy them again to remove it)", "Sinner Name") as text|null
@@ -309,99 +297,118 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	if (!found)
 		return FALSE
 
-/mob/living/carbon/human/proc/completesermon()
-	set name = "Sermon"
+	last_apostasy_time = world.time // set cooldown
+	return
+
+/mob/living/carbon/human/proc/churchexcommunicate()
+	set name = "Excommunicate"
 	set category = "Priest"
 
-	if (!mind)
+	if (stat)
 		return
 
-	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-		to_chat(src, span_warning("I need to do this in the chapel."))
-		return FALSE
-
-	src.visible_message(span_notice("[src] begins preaching a sermon..."))
-
-	if (!do_after(src, 120, target = src)) // 120 seconds
-		src.visible_message(span_warning("[src] stops preaching."))
+	if (world.time < last_excommunication_time + 600) // 600 seconds = 10 minutes
+		to_chat(src, span_warning("You must wait until you can excommunicate another."))
 		return
 
-	src.visible_message(span_notice("[src] finishes the sermon, inspiring those nearby!"))
+	var/inputty = input("Excommunicate someone, away from the Ten... Or show to their heretical gods that they are worthy... (excommunicate them again to remove it)", "Sinner Name") as text|null
 
-	for (var/mob/living/carbon/human/H in view(7, src))
-		if (!H.patron)
-			continue
+	if (inputty)
+		if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+			to_chat(src, span_warning("I need to do this from the Church."))
+			return FALSE
 
-		if (istype(H.patron, /datum/patron/divine))
-			H.apply_status_effect(/datum/status_effect/buff/sermon)
-			H.add_stress(/datum/stressevent/sermon)
-			to_chat(H, span_notice("You feel a divine affirmation from your patron."))
+		if (inputty in GLOB.excommunicated_players)
+			GLOB.excommunicated_players -= inputty
+			priority_announce("[real_name] has forgiven [inputty]. Their patron hears their prayer once more!", title = "Hail the Ten!", sound = 'sound/misc/bell.ogg')
 
-		else if (istype(H.patron, /datum/patron/inhumen))
-			H.apply_status_effect(/datum/status_effect/debuff/hereticsermon)
-			H.add_stress(/datum/stressevent/heretic_on_sermon)
-			to_chat(H, span_warning("Your patron seethes with disapproval."))
+			for (var/mob/living/carbon/human/H in GLOB.player_list)
+				if (H.real_name == inputty)
+					REMOVE_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
 
-		else
-			// Other patrons - fluff only
-			to_chat(H, span_notice("Nothing seems to happen to you."))
+					if (H.patron)
+						if (istype(H.patron, /datum/patron/divine))
+							H.remove_stress(/datum/stressevent/excommunicated)
+							H.remove_status_effect(/datum/status_effect/debuff/excomm)
+						else
+							continue
+			return
 
-	return TRUE
+		var/found = FALSE
+
+		for (var/mob/living/carbon/human/H in GLOB.player_list)
+			if (H == src)
+				continue
+			if (H.real_name == inputty)
+				found = TRUE
+				ADD_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
+
+				if (H.patron)
+					if (istype(H.patron, /datum/patron/divine))
+						H.add_stress(/datum/stressevent/excommunicated)
+						H.apply_status_effect(/datum/status_effect/debuff/excomm)
+						to_chat(H, span_warning("Your divine patron recoils from your excommunication."))
+					else
+						continue
+
+		if (!found)
+			return FALSE
+
+		GLOB.excommunicated_players += inputty
+		priority_announce("[real_name] has excommunicated [inputty]!", title = "SHAME", sound = 'sound/misc/excomm.ogg')
+
+		last_excommunication_time = world.time // set cooldown
+		return
 
 /mob/living/carbon/human/proc/churchpriestcurse()
-    set name = "Divine punishment"
-    set category = "Priest"
+	set name = "Divine punishment"
+	set category = "Priest"
 
-    if (stat)
-        return
+	if (stat)
+		return
 
-    if (world.time < last_curse_time + 1200) // 1200 seconds = 20 minutes
-        to_chat(src, span_warning("You must wait before invoking divine punishment again."))
-        return
+	if (world.time < last_curse_time + 1200) // 1200 seconds = 20 minutes
+		to_chat(src, span_warning("You must wait before invoking divine punishment again."))
+		return
 
-    var/target_name = input("Who shall receive divine punishment?", "Target Name") as text|null
-    if (!target_name)
-        return
+	var/target_name = input("Who shall receive divine punishment?", "Target Name") as text|null
+	if (!target_name)
+		return
 
-    var/list/curse_choices = list(
-        "Astrata's Curse" = /datum/curse/astrata,
-        "Noc's Curse" = /datum/curse/noc,
-        "Dendor's Curse" = /datum/curse/dendor,
-        "Abyssor's Curse" = /datum/curse/abyssor,
-        "Ravox's Curse" = /datum/curse/ravox,
-        "Necra's Curse" = /datum/curse/necra,
-        "Xylix's Curse" = /datum/curse/xylix,
-        "Pestra's Curse" = /datum/curse/pestra,
-        "Malum's Curse" = /datum/curse/malum,
-        "Eora's Curse" = /datum/curse/eora
-        )
+	var/list/curse_choices = list(
+		"Curse of Astrata" = /datum/curse/astrata,
+		"Curse of Noc" = /datum/curse/noc,
+		"Curse of Ravox" = /datum/curse/ravox,
+		"Curse of Necra" = /datum/curse/necra,
+		"Curse of Xylix" = /datum/curse/xylix,
+		)
 
-    var/curse_pick = input("Choose a curse to apply or lift.", "Select Curse") as null|anything in curse_choices
-    if (!curse_pick)
-        return
+	var/curse_pick = input("Choose a curse to apply or lift.", "Select Curse") as null|anything in curse_choices
+	if (!curse_pick)
+		return
 
-    var/curse_type = curse_choices[curse_pick]
+	var/curse_type = curse_choices[curse_pick]
 
-    for (var/mob/living/carbon/human/H in GLOB.player_list)
-        if (H.real_name == target_name)
-            if (H == src)
-                to_chat(src, span_warning("Cursing yourself is heresy!"))
-                return
+	for (var/mob/living/carbon/human/H in GLOB.player_list)
+		if (H.real_name == target_name)
+			if (H == src)
+				to_chat(src, span_warning("Cursing yourself is heresy!"))
+				return
 
-            var/datum/curse/temp = new curse_type()
+			var/datum/curse/temp = new curse_type()
 
-            if (H.is_cursed(temp))
-                H.remove_curse(temp)
-                priority_announce("[real_name] has lifted [curse_pick] from [H.real_name]!", title = "Mercy of the Faith", sound = 'sound/misc/bell.ogg')
-            else
-                if (length(H.curses) >= 1)
-                    to_chat(src, span_warning("[H.real_name] is already afflicted by another curse."))
-                    return
+			if (H.is_cursed(temp))
+				H.remove_curse(temp)
+				priority_announce("[real_name] has lifted [curse_pick] from [H.real_name]!", title = "Mercy of the Faith", sound = 'sound/misc/bell.ogg')
+			else
+				if (length(H.curses) >= 1)
+					to_chat(src, span_warning("[H.real_name] is already afflicted by another curse."))
+					return
 
-                H.add_curse(curse_type)
-                priority_announce("[real_name] has cursed [H.real_name] with [curse_pick]!", title = "Judgment of the Gods", sound = 'sound/misc/excomm.ogg')
+				H.add_curse(curse_type)
+				priority_announce("[real_name] has cursed [H.real_name] with [curse_pick]!", title = "Judgment of the Gods", sound = 'sound/misc/excomm.ogg')
 
-            last_curse_time = world.time // set cooldown
-            return
+			last_curse_time = world.time // set cooldown
+			return
 
-    to_chat(src, span_warning("No soul has such name."))
+	to_chat(src, span_warning("No soul has such name."))

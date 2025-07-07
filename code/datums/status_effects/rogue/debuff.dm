@@ -409,13 +409,13 @@
 		C.remove_movespeed_modifier(MOVESPEED_ID_DAMAGE_SLOWDOWN)
 
 /datum/status_effect/debuff/excomm
-	id = "Excommunicated follower of Ten!"
+	id = "Excommunicated!"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/excomm
 	effectedstats = list("fortune" = -2, "intelligence" = -2, "speed" = -1, "endurance" = -1, "constitution" = -1)
 	duration = 999 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/excomm
-	name = "Excommunicated follower of Ten!"
+	name = "Excommunicated!"
 	desc = "The Ten have forsaken me!"
 	icon_state = "muscles"
 	color ="#6d1313"
