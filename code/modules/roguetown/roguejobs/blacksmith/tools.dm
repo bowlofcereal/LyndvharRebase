@@ -17,7 +17,7 @@
 	grid_height = 64
 
 /obj/item/rogueweapon/hammer/attack_hand(mob/living/user)
-	if(HAS_TRAIT(user, TRAIT_MALUM_CURSE))
+	if(HAS_TRAIT(user, TRAIT_CURSE_MALUM))
 		to_chat(user, span_warning("Your cursed hands burn at the touch of the hammer!"))
 		user.freak_out()
 		return

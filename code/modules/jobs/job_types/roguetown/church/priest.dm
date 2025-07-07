@@ -303,7 +303,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 			else
 				to_chat(H, span_warning("A holy silence falls upon you..."))
 
-			priority_announce("[real_name] has cast apostasy upon [inputty]. Their prayers fall on deaf ears.", title = "SHAME", sound = 'sound/misc/excomm.ogg')
+			priority_announce("[real_name] has placed mark of shame upon [inputty]. Their prayers fall on deaf ears.", title = "SHAME", sound = 'sound/misc/excomm.ogg')
 			return TRUE
 
 	if (!found)

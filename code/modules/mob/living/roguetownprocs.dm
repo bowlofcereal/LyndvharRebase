@@ -49,7 +49,7 @@
 		chance2hit += 20
 	if(istype(user.rmb_intent, /datum/rmb_intent/swift))
 		chance2hit -= 20
-	if(HAS_TRAIT(user, TRAIT_RAVOX_CURSE))
+	if(HAS_TRAIT(user, TRAIT_CURSE_RAVOX))
 		chance2hit -= 30
 
 	chance2hit = CLAMP(chance2hit, 5, 93)
@@ -219,7 +219,7 @@
 			if(HAS_TRAIT(user, TRAIT_GUIDANCE))
 				prob2defend -= 20
 			
-			if(HAS_TRAIT(H, TRAIT_RAVOX_CURSE))
+			if(HAS_TRAIT(H, TRAIT_CURSE_RAVOX))
 				prob2defend -= 20
 
 			// parrying while knocked down sucks ass
@@ -604,7 +604,7 @@
 		if(HAS_TRAIT(U, TRAIT_GUIDANCE))
 			prob2defend -= 20
 		
-		if(HAS_TRAIT(H, TRAIT_RAVOX_CURSE))
+		if(HAS_TRAIT(H, TRAIT_CURSE_RAVOX))
 			prob2defend -= 20
 
 		// dodging while knocked down sucks ass

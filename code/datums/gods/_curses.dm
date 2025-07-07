@@ -66,71 +66,120 @@
 //////////////////////
 
 /datum/curse/astrata
-	name = "Astrata's Curse"
-	description = "I am forsaken by the Sun. Healing miracles have no effect on me."
-	trait = TRAIT_ASTRATA_CURSE
+	name = "Curse of Astrata"
+	description = "I am forsaken by the Sun. I will find no rest under Her unwavering gaze."
+	trait = TRAIT_CURSE_ASTRATA
 
 /datum/curse/noc
-	name = "Noc's Curse"
-	description = "I am forsaken by the Moon. Calling up on His gifts is impossible now."
-	trait = TRAIT_NOC_CURSE
+	name = "Curse of Noc"
+	description = "I am forsaken by the Moon. I will find no salvation in His grace."
+	trait = TRAIT_CURSE_NOC
 
-/datum/curse/dendor
-	name = "Dendor's Curse"
+/datum/curse/dendor //Come up with something better
+	name = "Dendor's Curse" //and rename this to fit the rest
 	description = "Reason abandons me, insanity is my new home."
 	trait = TRAIT_SCHIZO_AMBIENCE
 
 /datum/curse/abyssor
-    name = "Abyssor's Curse"
-    description = "I hear the ocean whisper in my mind. Fear of drowning has left me... but so has reason."
-    trait = TRAIT_ABYSSOR_CURSE
+    name = "Curse of Abyssor"
+    description = "I am forsaken by the Deep One. His domain will surely become my grave."
+    trait = TRAIT_CURSE_ABYSSOR
 
 /datum/curse/ravox
-    name = "Ravox's Curse"
-    description = "Violence disgusts me. I cannot bring myself to wield any kind of weapon."
-    trait = TRAIT_RAVOX_CURSE
+    name = "Curse of Ravox"
+    description = "I am forsaken by the Righteous One. My opponents will show me no clemency."
+    trait = TRAIT_CURSE_RAVOX
 
 /datum/curse/necra
-	name = "Necra's Curse"
-	description = "The Undermaiden gazed upon my soul, if I am not careful I will end up within her grasp."
-	trait = TRAIT_CRITICAL_WEAKNESS
+	name = "Curse of Necra"
+	description = "I am forsaken by the Undermaiden. Even the lightest strike could send me into Her embrace."
+	trait = TRAIT_CRITICAL_WEAKNESS //Make NECRA version of this probably so it can be tweaked independantly
 
 /datum/curse/xylix
-	name = "Xylix's Curse"
-	description = "Fortune is no longer on my side."
-	trait = TRAIT_XYLIX_CURSE
+	name = "Curse of Xylix"
+	description = "I am forsaken by the Trickster. Misfortune follows me on every step."
+	trait = TRAIT_CURSE_XYLIX
 
 /datum/curse/pestra
-    name = "Pestra's Curse"
-    description = "My body is withering away, simply walking is a straining task and running is a mere dream."
-    trait = TRAIT_PESTRA_CURSE
+    name = "Curse of Pestra"
+    description = "I am forsaken by the Rotting One. Sickness overwhelms my body rendering even simplest of tasks into a challenge."
+    trait = TRAIT_CURSE_PESTRA
 
 /datum/curse/malum
-    name = "Malum's Curse"
-    description = "My thoughts race with endless designs I cannot build. The tools tremble in my hands."
-    trait = TRAIT_MALUM_CURSE
+    name = "Curse of Malum"
+    description = "I am forsaken by the Maker. My hands tremble and fog overwhelms my mind."
+    trait = TRAIT_CURSE_MALUM
 
 /datum/curse/eora
-    name = "Eora's Curse"
-    description = "I am unable to show any kind of affection or love, whether carnal or platonic."
-    trait = TRAIT_LIMPDICK
+    name = "Curse of Eora"
+    description = "I am forsaken by the Lover. There is no beauty to be found for me in this world."
+    trait = TRAIT_CURSE_EORA
 
 //////////////////////
 ///    ON LIFE     ///
 //////////////////////
 
+/datum/curse/astrata/on_life(mob/user)
+	if(!user)
+		return
+	var/mob/living/carbon/human/H = user
+	if(H.stat == DEAD)
+		return
+	if(H.advsetup)
+		return
+
+	if(world.time % 5)
+		if(GLOB.tod != "night")
+			if(isturf(H.loc))
+				var/turf/T = H.loc
+				if(T.can_see_sky())
+					if(T.get_lumcount() > 0.15)
+						H.fire_act(1,5)
+
+/datum/curse/noc/on_life(mob/user)
+	if(!user)
+		return
+	var/mob/living/carbon/human/H = user
+	if(H.stat == DEAD)
+		return
+	if(H.advsetup)
+		return
+
+	if(world.time % 5)
+		if(GLOB.tod != "day")
+			if(isturf(H.loc))
+				var/turf/T = H.loc
+				if(T.can_see_sky())
+					if(T.get_lumcount() > 0.15)
+						H.fire_act(1,5)
+
 
 //////////////////////
 /// ON GAIN / LOSS ///
 //////////////////////
-
-/datum/curse/xylix/on_gain(mob/living/carbon/human/owner)
+/datum/curse/astrata/on_gain(mob/living/carbon/human/owner)
 	. = ..()
-	owner.STALUC -= 10
+	ADD_TRAIT(owner, TRAIT_NOSLEEP, TRAIT_GENERIC)
+
+/datum/curse/astrata/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_NOSLEEP, TRAIT_GENERIC)
+
+/datum/curse/necra/on_gain(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STACON += 10
 
 /datum/curse/xylix/on_loss(mob/living/carbon/human/owner)
 	. = ..()
-	owner.STALUC += 10
+	owner.STACON += 10
+
+/datum/curse/xylix/on_gain(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STALUC -= 20
+
+/datum/curse/xylix/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STALUC += 20
 
 /datum/curse/pestra/on_gain(mob/living/carbon/human/owner)
 	. = ..()
@@ -139,3 +188,15 @@
 /datum/curse/pestra/on_loss(mob/living/carbon/human/owner)
 	. = ..()
 	owner.STAEND += 10
+
+/datum/curse/eora/on_gain(mob/living/carbon/human/owner)
+	. = ..()
+	ADD_TRAIT(owner, TRAIT_LIMPDICK, TRAIT_GENERIC)
+	ADD_TRAIT(owner, TRAIT_UNSEEMLY, TRAIT_GENERIC)
+	ADD_TRAIT(owner, TRAIT_BAD_MOOD, TRAIT_GENERIC)
+
+/datum/curse/eora/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_LIMPDICK, TRAIT_GENERIC)
+	REMOVE_TRAIT(owner, TRAIT_UNSEEMLY, TRAIT_GENERIC)
+	REMOVE_TRAIT(owner, TRAIT_BAD_MOOD, TRAIT_GENERIC)
