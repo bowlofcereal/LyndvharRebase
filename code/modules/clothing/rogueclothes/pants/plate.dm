@@ -23,7 +23,7 @@
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP)
 
-/obj/item/clothing/under/roguetown/iplatelegs
+/obj/item/clothing/under/roguetown/platelegs/iron
 	name = "iron plate chausses"
 	desc = "Reinforced armor to protect the legs."
 	icon_state = "iplate_legs"

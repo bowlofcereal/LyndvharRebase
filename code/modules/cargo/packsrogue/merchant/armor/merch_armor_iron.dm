@@ -76,6 +76,11 @@
 	cost = 25
 	contains = list(/obj/item/clothing/under/roguetown/splintlegs)
 
+/datum/supply_pack/rogue/armor_iron/chausses_plate
+	name = "Chausses, Plate"
+	cost = 40
+	contains = list(/obj/item/clothing/under/roguetown/platelegs/iron)
+
 /datum/supply_pack/rogue/armor_iron/mask_iron
 	name = "Mask"
 	cost = 25

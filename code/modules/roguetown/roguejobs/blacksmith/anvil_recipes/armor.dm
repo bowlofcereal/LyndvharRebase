@@ -317,7 +317,7 @@
 	name = "Plate Chausses (+1 Bar)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/ingot/iron)
-	created_item = /obj/item/clothing/under/roguetown/iplatelegs
+	created_item = /obj/item/clothing/under/roguetown/platelegs/iron
 
 /datum/anvil_recipe/armor/iron/mask
 	name = "Iron Mask"
