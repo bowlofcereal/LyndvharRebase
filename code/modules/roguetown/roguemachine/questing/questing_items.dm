@@ -85,7 +85,7 @@
 	return // No fire to extinguish
 
 /obj/item/paper/scroll/quest/read(mob/user)
-	refresh_compas(user)
+	refresh_compass(user)
 	return ..()
 
 /obj/item/paper/scroll/quest/attack_self(mob/user)
@@ -136,7 +136,8 @@
 			scroll_text += "<b>Infestation Location:</b> [assigned_quest.target_spawn_area ? "Reported sighting in [assigned_quest.target_spawn_area] region." : "Reported infestations in Azuria region."]<br>"
 		if(QUEST_COURIER)
 			scroll_text += "<b>Objective:</b> Deliver [initial(assigned_quest.target_delivery_item.name)] to [initial(assigned_quest.target_delivery_location.name)].<br>"
-			scroll_text += "<b>Delivery Instructions:</b> Package must remain intact and be delivered directly to the recipient.<br>"
+			scroll_text += "<b>Delivery Instructions:</b> Package is hidden by a spell in the designated location. Spell will falter once this scroll is brought nearby. Package must remain intact and be delivered directly to the recipient.<br>"
+			scroll_text += "<b>Pickup location:</b> Reported sighting in [assigned_quest.target_spawn_area] region.<br>"
 			scroll_text += "<b>Destination Description:</b> [initial(assigned_quest.target_delivery_location.name)].<br>" // TODO: brief_descriptor
 
 	scroll_text += "<br><b>Reward:</b> [assigned_quest.reward_amount] mammon upon completion<br>"
@@ -185,28 +186,19 @@
 
 	// Find the appropriate target based on quest type
 	switch(assigned_quest.quest_type)
-		if(QUEST_FETCH)
+		if(QUEST_FETCH, QUEST_COURIER)
 			for(var/datum/component/quest_object/quest_component in GLOB.quest_components)
 				if(quest_component.quest_ref?.resolve() != assigned_quest)
 					continue
 
 				var/atom/target_item = quest_component.parent
-				if(QDELETED(target))
+				if(QDELETED(target_item))
 					continue
 
 				var/dist = get_dist(user_turf, target_item)
 				if(!target || dist < min_distance)
 					target = target_item
 					min_distance = dist
-		if(QUEST_COURIER)
-			// Find the delivery location area
-			var/area/target_area = assigned_quest.target_delivery_location
-			if(target_area)
-				var/list/area_turfs = get_area_turfs(target_area)
-				if(length(area_turfs))
-					var/turf/center_turf = locate(world.maxx/2, world.maxy/2, user_turf.z)
-					min_distance = get_dist(user_turf, center_turf)
-					target = center_turf
 		if(QUEST_KILL, QUEST_CLEAR_OUT, QUEST_MINIBOSS)
 			for(var/datum/component/quest_object/quest_component in GLOB.quest_components)
 				if(quest_component.quest_ref?.resolve() != assigned_quest)
@@ -339,6 +331,34 @@
 			delivery_area_type = quest.target_delivery_location
 			allowed_jobs = get_area_jobs(delivery_area_type)
 			RegisterSignal(courier_quest, COMSIG_PARENT_QDELETING, PROC_REF(on_quest_component_deleted))
+
+	invisibility = INVISIBILITY_OBSERVER
+	proximity_monitor = new(src, 7)
+
+/obj/item/parcel/HasProximity(mob/nearby)
+	if(!istype(nearby))
+		return
+
+	var/datum/component/quest_object/quest_component = GetComponent(/datum/component/quest_object)
+	if(!istype(quest_component))
+		return
+
+	var/datum/quest/quest = quest_component.quest_ref?.resolve()
+	if(!istype(quest))
+		return
+
+	if(get_dist(get_turf(src), get_turf(quest.quest_scroll_ref?.resolve())) > 7)
+		return
+
+	var/image/I = image(icon = 'icons/effects/effects.dmi', loc = get_turf(src), icon_state = "hidden", layer = 18)
+	I.layer = 18
+	I.plane = 18
+	if(!I)
+		return
+	I.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	flick_overlay_view(I, 5 SECONDS)
+	invisibility = initial(invisibility)
+	QDEL_NULL(proximity_monitor)
 
 /obj/item/parcel/proc/get_area_jobs(area_type)
 	var/static/list/area_jobs = list(

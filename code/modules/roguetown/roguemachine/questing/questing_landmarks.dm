@@ -123,16 +123,11 @@
 	if(!quest || !delivery_area)
 		return null
 
-	// Get the turf where the scroll is located
-	var/obj/item/paper/scroll/quest/scroll = quest.quest_scroll_ref?.resolve()
-	if(!scroll)
-		return null
+	var/turf/spawn_turf = get_safe_spawn_turf()
+	if(!spawn_turf)
+		return
 
-	var/turf/scroll_turf = get_turf(scroll)
-	if(!scroll_turf)
-		return null
-
-	var/obj/item/parcel/delivery_parcel = new(scroll_turf)
+	var/obj/item/parcel/delivery_parcel = new(spawn_turf)
 	var/static/list/area_delivery_items = list(
 		/area/rogue/indoors/town/tavern = list(
 			/obj/item/cooking/pan,
