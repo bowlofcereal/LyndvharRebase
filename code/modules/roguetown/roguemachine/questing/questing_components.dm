@@ -105,7 +105,7 @@
 	
 	// Handle fetch quests (dropping item on quest machine input)
 	if(Q.quest_type == QUEST_FETCH)
-		for(var/obj/structure/roguemachine/questgiver/quest_machine in SSroguemachine.questgivers)
+		for(var/obj/structure/roguemachine/noticeboard/quest_machine in SSroguemachine.noticeboards)
 			if(get_turf(quest_machine.input_point) == drop_turf)
 				if(Q.target_item_type && istype(dropped_item, Q.target_item_type))
 					Q.target_amount--
