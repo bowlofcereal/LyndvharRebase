@@ -170,7 +170,7 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 		face_atom(get_step(src,pick(GLOB.cardinals)))
 
 /mob/living/carbon/human/species/human/northern/deranged_knight/handle_combat()
-	if(prob(5))
+	if(prob(3))
 		if(preset == "matthios")
 			say(pick(GLOB.matthios_aggro))
 		else if(preset == "zizo")
