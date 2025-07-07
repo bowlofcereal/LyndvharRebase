@@ -115,7 +115,7 @@
 	desc = "A sturdily made fluted full-plate. Supposedly made to deflect blows from blades and arrows."
 	icon_state = "flutedplate"
 
-	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL + ARMOR_INT_CHEST_PLATE_FLUTED_BONUS
+	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
 	name = "psydonian plate"
