@@ -89,19 +89,19 @@
 	if(.)
 		return
 
-	// Always refresh compass when opened
-	refresh_compass(user)
-
 	// Only do claim logic if unclaimed
 	if(!assigned_quest || assigned_quest.quest_receiver_reference)
-		return TRUE
+		refresh_compass(user) // Refresh compass when opened by claimed user
+		update_quest_text()
+		return
 
+	// Claim the quest
 	assigned_quest.quest_receiver_reference = WEAKREF(user)
 	assigned_quest.quest_receiver_name = user.real_name
 
 	to_chat(user, span_notice("You claim this quest for yourself!"))
 	update_quest_text()
-	return TRUE
+	refresh_compass(user) // Update compass after claiming
 
 /obj/item/paper/scroll/quest/proc/update_quest_text()
 	if(!assigned_quest)
@@ -115,9 +115,10 @@
 	scroll_text += "<b>Difficulty:</b> [assigned_quest.quest_difficulty].<br><br>"
 
 	if(last_compass_direction)
-		scroll_text += "<b>Direction:</b> [last_compass_direction].<br>"
+		scroll_text += "<b>Direction:</b> [last_compass_direction]. "
 		if(last_z_level_hint)
 			scroll_text += " ([last_z_level_hint])"
+	scroll_text += "<br>"
 
 	switch(assigned_quest.quest_type)
 		if(QUEST_FETCH)
@@ -225,8 +226,8 @@
 		return
 
 	// Calculate direction from user to target
-	var/dx = target_turf.x - user_turf.x
-	var/dy = target_turf.y - user_turf.y
+	var/dx = target_turf.x - user_turf.x  // EAST direction
+	var/dy = target_turf.y - user_turf.y  // NORTH direction
 	var/distance = sqrt(dx*dx + dy*dy)
 
 	// If very close, don't show direction
@@ -235,8 +236,7 @@
 		last_z_level_hint = ""
 		return
 
-	// Calculate angle in degrees (0 = north, 90 = east)
-	// Note: Using ATAN2(dx, dy) gives correct cardinal directions
+	// Calculate angle in degrees (0 = east, 90 = north)
 	var/angle = ATAN2(dx, dy)
 	if(angle < 0)
 		angle += 360
@@ -260,39 +260,51 @@
 	last_z_level_hint = "on this level"
 
 /obj/item/paper/scroll/quest/proc/get_precise_direction_from_angle(angle)
-	// Secondary intercardinal directions with 22.5° resolution
-	switch(angle)
-		if(0 to 22.5)
+	// ATAN2 gives angle from positive x-axis (east) to the vector
+	// We need to:
+	// 1. Convert to compass degrees (0°=north, 90°=east)
+	// 2. Invert the direction (show direction TO target FROM player)
+
+	// Normalize angle first
+	angle = (angle + 360) % 360
+
+	// Convert to compass bearing (0°=north, 90°=east)
+	var/compass_angle = (450 - angle) % 360  // 450 = 360 + 90
+
+	// Return direction based on inverted compass angle
+	// Return direction based on inverted compass angle
+	switch(compass_angle)
+		if(348.75 to 360, 0 to 11.25)
 			return "north"
-		if(22.5 to 45)
+		if(11.25 to 33.75)
 			return "north-northeast"
-		if(45 to 67.5)
+		if(33.75 to 56.25)
 			return "northeast"
-		if(67.5 to 90)
+		if(56.25 to 78.75)
 			return "east-northeast"
-		if(90 to 112.5)
+		if(78.75 to 101.25)
 			return "east"
-		if(112.5 to 135)
+		if(101.25 to 123.75)
 			return "east-southeast"
-		if(135 to 157.5)
+		if(123.75 to 146.25)
 			return "southeast"
-		if(157.5 to 180)
+		if(146.25 to 168.75)
 			return "south-southeast"
-		if(180 to 202.5)
+		if(168.75 to 191.25)
 			return "south"
-		if(202.5 to 225)
+		if(191.25 to 213.75)
 			return "south-southwest"
-		if(225 to 247.5)
+		if(213.75 to 236.25)
 			return "southwest"
-		if(247.5 to 270)
+		if(236.25 to 258.75)
 			return "west-southwest"
-		if(270 to 292.5)
+		if(258.75 to 281.25)
 			return "west"
-		if(292.5 to 315)
+		if(281.25 to 303.75)
 			return "west-northwest"
-		if(315 to 337.5)
+		if(303.75 to 326.25)
 			return "northwest"
-		if(337.5 to 360)
+		if(326.25 to 348.75)
 			return "north-northwest"
 
 /obj/item/parcel
