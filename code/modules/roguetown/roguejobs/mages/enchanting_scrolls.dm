@@ -203,8 +203,8 @@ T1 Enchantments below here*/
 		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
 
 /obj/item/enchantmentscroll/trekk
-	name = "enchanting scroll of bog-running"
-	desc = "A scroll imbued with an enchantment of bog-running. Provides easy movement through swamps."
+	name = "enchanting scroll of longstriding"
+	desc = "A scroll imbued with an enchantment of longstriding. Provides easy movement through swamps."
 	component = /datum/magic_item/superior/trekk
 
 /obj/item/enchantmentscroll/trekk/attack_obj(obj/item/O, mob/living/user)
@@ -213,7 +213,7 @@ T1 Enchantments below here*/
 		to_chat(user, span_notice("You open [src] and place [O] within. Moments later, it flashes blue with arcana, and [src] crumbles to dust."))
 		var/magiceffect= new component
 		O.AddComponent(/datum/component/magic_item, magiceffect)
-		O.name += " of bog-running"
+		O.name += " of longstriding"
 		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 		qdel(src)
 	else
@@ -271,10 +271,6 @@ T1 Enchantments below here*/
 	else
 		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
 
-/obj/item/enchantmentscroll/shadowmeld
-	name = "enchanting scroll of shadow melding"
-	desc = "A scroll imbued with an enchantment of shadow melding. Slowly turns you invisible when you stay still."
-
 /obj/item/enchantmentscroll/returningweapon
 	name = "enchanting scroll of returning weapon"
 	desc = "A scroll imbued with an enchantment of returning weapon. Enables you to summon an existing weapon back to you."
@@ -304,41 +300,6 @@ T1 Enchantments below here*/
 		var/magiceffect= new component
 		O.AddComponent(/datum/component/magic_item, magiceffect)
 		O.name += " of archery"
-		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
-		qdel(src)
-	else
-		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
-
-/obj/item/enchantmentscroll/leaping
-	name = "enchanting scroll of leaping"
-	desc = "A scroll imbued with an enchantment of leaping. Allows the wearer to jump very high."
-	component = /datum/magic_item/greater/leaping
-
-/obj/item/enchantmentscroll/leaping/attack_obj(obj/item/O, mob/living/user)
-	.=..()
-	if(istype(O,/obj/item/clothing/ring)|| istype(O, /obj/item/clothing/wrists/roguetown/bracers))
-		to_chat(user, span_notice("You open [src] and place [O] within. Moments later, it flashes blue with arcana, and [src] crumbles to dust."))
-		var/magiceffect= new component
-		O.AddComponent(/datum/component/magic_item, magiceffect)
-		O.name += " of leaping"
-		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
-		qdel(src)
-	else
-		to_chat(user, span_notice("Nothing happens. Perhaps you can't enchant [O] with this?"))
-//T4 Enchantments below
-
-/obj/item/enchantmentscroll/infernalflame
-	name = "enchanting scroll of infernalflame"
-	desc = "A scroll imbued with an enchantment of infernalflame. Hitting an opponent sets them on fire."
-	component = /datum/magic_item/mythic/infernalflame
-
-/obj/item/enchantmentscroll/infernalflame/attack_obj(obj/item/O, mob/living/user)
-	.=..()
-	if(istype(O,/obj/item/gun/ballistic/revolver/grenadelauncher)|| istype(O,/obj/item/rogueweapon)|| istype(O,/obj/item/clothing))	//bow and crossbows included
-		to_chat(user, span_notice("You open [src] and place [O] within. Moments later, it flashes blue with arcana, and [src] crumbles to dust."))
-		var/magiceffect= new component
-		O.AddComponent(/datum/component/magic_item, magiceffect)
-		O.name += " of infernal flame"
 		O.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 		qdel(src)
 	else

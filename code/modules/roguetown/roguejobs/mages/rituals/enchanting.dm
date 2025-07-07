@@ -64,7 +64,7 @@
 
 /datum/runeritual/enchanting/featherstep
 	name = "Feather Step"
-	desc = "Provides dark sight!"
+	desc = "Makes your step lighter and speedier!"
 	blacklisted = FALSE
 	tier = 2
 	required_atoms = list(/datum/reagent/mercury = 15,/obj/item/paper/scroll = 1,/obj/item/magic/iridescentscale = 1, /obj/item/magic/fairydust = 1, /obj/item/magic/melded/t1 = 1)
@@ -141,14 +141,6 @@
 	tier = 3
 	required_atoms = list(/datum/reagent/mercury = 15,/obj/item/paper/scroll = 1,/obj/item/magic/hellhoundfang = 2, /obj/item/magic/leyline = 2, /obj/item/magic/melded/t2 = 1)
 	result_atoms = list(/obj/item/enchantmentscroll/archery)
-
-/datum/runeritual/enchanting/leaping
-	name = "Leaping"
-	desc = "Further leaping."
-	blacklisted = FALSE
-	tier = 3
-	required_atoms = list(/datum/reagent/mercury = 15,/obj/item/paper/scroll = 1,/obj/item/magic/infernalcore = 2, /obj/item/magic/leyline = 2, /obj/item/magic/melded/t2 = 1)
-	result_atoms = list(/obj/item/enchantmentscroll/leaping)
 
 /datum/runeritual/enchanting/briars
 	name = "Briar's Curse"

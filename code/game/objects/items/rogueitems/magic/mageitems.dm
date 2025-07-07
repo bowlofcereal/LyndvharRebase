@@ -48,9 +48,10 @@
 	throwforce = 5
 	damtype = BRUTE
 	force = 1
-	w_class = WEIGHT_CLASS_SMALL
+	w_class = WEIGHT_CLASS_TINY
 	var/rune_to_scribe = null
 	var/amount = 8
+
 /obj/item/chalk/examine(mob/user)
 	. = ..()
 	desc += "It has [amount] uses left."
@@ -69,7 +70,7 @@
 		to_chat(user, span_cult("Nothing comes in mind to draw with the chalk."))
 		return
 	var/obj/effect/decal/cleanable/roguerune/pickrune
-	var/runenameinput = input(user, "Runes", "Tier 1 & 2 Runes") as null|anything in GLOB.t2rune_types
+	var/runenameinput = input(user, "Runes", "Tier 1 and 2 Runes") as null|anything in GLOB.t2rune_types
 	testing("runenameinput [runenameinput]")
 	pickrune = GLOB.rune_types[runenameinput]
 	rune_to_scribe = pickrune

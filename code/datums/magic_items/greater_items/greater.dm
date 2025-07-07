@@ -101,27 +101,3 @@
 		user.adjust_skillrank_down_to(/datum/skill/combat/bows, 2, TRUE)
 		user.adjust_skillrank_down_to(/datum/skill/combat/crossbows, 2, TRUE)
 		to_chat(user, span_notice("I feel mundane once more"))
-
-/datum/magic_item/greater/leaping
-	name = "leaping"
-	description = "It vibrates faintly with bound movement."
-	var/active_item
-
-/datum/magic_item/greater/leaping/on_equip(var/obj/item/i, var/mob/living/user, slot)
-	.=..()
-	if(slot == ITEM_SLOT_HANDS)
-		return
-	if(active_item)
-		return
-	else
-		active_item = TRUE
-		ADD_TRAIT(user, TRAIT_ZJUMP, TRAIT_GENERIC)
-		ADD_TRAIT(user, TRAIT_LEAPER, TRAIT_GENERIC)
-		to_chat(user, span_notice("My legs feel much stronger."))
-
-/datum/magic_item/greater/leaping/on_drop(var/obj/item/i, var/mob/living/user)
-	if(active_item)
-		active_item = FALSE
-		REMOVE_TRAIT(user, TRAIT_ZJUMP, TRAIT_GENERIC)
-		REMOVE_TRAIT(user, TRAIT_LEAPER, TRAIT_GENERIC)
-		to_chat(user, span_notice("I feel mundane once more."))
