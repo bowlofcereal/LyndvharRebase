@@ -279,7 +279,7 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 		return
 
 	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-		to_chat(src, span_warning("I need to do this from the House of Ten."))
+		to_chat(src, span_warning("I need to do this from the House of the Ten."))
 		return FALSE
 
 	if(!src.key)
@@ -326,7 +326,7 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 	GLOB.last_apostasy_time = world.time // set cooldown
 	return
 
-/mob/living/carbon/human/proc/churchexcommunicate()
+/mob/living/carbon/human/proc/churchexcommunicate(var/mob/living/carbon/human/H in GLOB.player_list)
 	set name = "Excommunicate"
 	set category = "Priest"
 
@@ -337,57 +337,67 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 		to_chat(src, span_warning("You must wait until you can excommunicate another."))
 		return
 
-	var/inputty = input("Excommunicate someone, away from the Ten... Or show to their heretical gods that they are worthy... (excommunicate them again to remove it)", "Sinner Name") as text|null
+	var/found = FALSE
+	var/inputty = input("Excommunicate someone, away from the Ten...  (excommunicate them again to remove it)", "Sinner Name") as text|null
 
-	if (inputty)
-		if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-			to_chat(src, span_warning("I need to do this from the Church."))
-			return FALSE
+	if (!inputty)
+		return
 
-		if (inputty in GLOB.excommunicated_players)
-			GLOB.excommunicated_players -= inputty
-			priority_announce("[real_name] has forgiven [inputty]. Their patron hears their prayer once more!", title = "Hail the Ten!", sound = 'sound/misc/bell.ogg')
+	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+		to_chat(src, span_warning("I need to do this from the House of the Ten."))
+		return FALSE
 
-			for (var/mob/living/carbon/human/H in GLOB.player_list)
-				if (H.real_name == inputty)
-					REMOVE_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
+	if(!src.key)
+		return
 
-					if (H.patron)
-						if (istype(H.patron, /datum/patron/divine))
-							H.remove_stress(/datum/stressevent/excommunicated)
-							H.remove_status_effect(/datum/status_effect/debuff/excomm)
-						else
-							continue
-			return
+	if(!src.mind || !src.mind.do_i_know(name=inputty))
+		to_chat(src, span_warning("I don't know anyone by that name."))
+		return
 
-		var/found = FALSE
+	if (inputty in GLOB.excommunicated_players)
+		GLOB.excommunicated_players -= inputty
+		priority_announce("[real_name] has reconciled [inputty] with the Church. They are once again part of the flock!", title = "RECONCILIATION", sound = 'sound/misc/bell.ogg')
+		message_admins("EXCOMMUNICATION: [real_name] ([ckey]) has reconciled [H.real_name] ([H.ckey])")
+		log_game("EXCOMMUNICATION: [real_name] ([ckey]) has reconciled [H.real_name] ([H.ckey])")
 
-		for (var/mob/living/carbon/human/H in GLOB.player_list)
-			if (H == src)
-				continue
-			if (H.real_name == inputty)
-				found = TRUE
-				ADD_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
+		if (H.real_name == inputty)
+			REMOVE_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
 
-				if (H.patron)
-					if (istype(H.patron, /datum/patron/divine))
-						H.add_stress(/datum/stressevent/excommunicated)
-						H.apply_status_effect(/datum/status_effect/debuff/excomm)
-						to_chat(H, span_warning("Your divine patron recoils from your excommunication."))
-					else
-						continue
+			if (H.patron)
+				if (istype(H.patron, /datum/patron/divine))
+					H.remove_stress(/datum/stressevent/excommunicated)
+					H.remove_status_effect(/datum/status_effect/debuff/excomm)
+					to_chat(H, span_warning("No longer a rotten husk, you walk again in their light."))
+				else
+					return
+		return
+
+
+	if (H.real_name == inputty)
+		found = TRUE
+		ADD_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
+
+		if (H.patron)
+			if (istype(H.patron, /datum/patron/divine))
+				H.add_stress(/datum/stressevent/excommunicated)
+				H.apply_status_effect(/datum/status_effect/debuff/excomm)
+				to_chat(H, span_warning("Your divine light has been severed. Gods turn their backs to you."))
+			else
+				return
 
 		if (!found)
 			return FALSE
 
-		GLOB.excommunicated_players += inputty
-		priority_announce("[real_name] has excommunicated [inputty]!", title = "SHAME", sound = 'sound/misc/excomm.ogg')
+	GLOB.excommunicated_players += inputty
+	priority_announce("[real_name] has excommunicated [inputty]! SHAME!", title = "EXCOMMUNICATION", sound = 'sound/misc/excomm.ogg')
+	message_admins("EXCOMMUNICATION: [real_name] ([ckey]) has excommunicated [H.real_name] ([H.ckey])")
+	log_game("EXCOMMUNICATION: [real_name] ([ckey]) has excommunicated [H.real_name] ([H.ckey])")
 
-		GLOB.last_excommunication_time = world.time // set cooldown
-		return
+	GLOB.last_excommunication_time = world.time // set cooldown
+	return
 
 /mob/living/carbon/human/proc/churchpriestcurse()
-	set name = "Divine punishment"
+	set name = "Divine Curse"
 	set category = "Priest"
 
 	if (stat)
