@@ -45,11 +45,11 @@
 
 			if (H.is_cursed(temp))
 				H.remove_curse(temp)
-				priority_announce("Gods have lifted [curse_pick] from [H.real_name]!", title = "Mercy of the Faith", sound = 'sound/misc/bell.ogg')
+				priority_announce("Gods have lifted [curse_pick] from [H.real_name]!", title = "Mercy of the Gods", sound = 'sound/misc/bell.ogg')
 			else
 				if (length(H.curses) >= 1)
 					to_chat(src, span_warning("[H.real_name] is already afflicted by another curse."))
 					return
 
 				H.add_curse(curse_type)
-				priority_announce("Gods have marked [H.real_name] with [curse_pick]!", title = "Judgment of the Gods", sound = 'sound/misc/excomm.ogg')
+				priority_announce("Gods have marked [H.real_name] with [curse_pick]!", title = "Punishment of the Gods", sound = 'sound/misc/excomm.ogg')

@@ -2,11 +2,11 @@ GLOBAL_LIST_EMPTY(apostasy_players)
 GLOBAL_LIST_EMPTY(cursed_players)
 GLOBAL_LIST_EMPTY(excommunicated_players)
 GLOBAL_LIST_EMPTY(heretical_players)
-GLOBAL_VAR_INIT(last_announcement_priest_time, 0)
-GLOBAL_VAR_INIT(last_sermon_time, 0)
-GLOBAL_VAR_INIT(last_excommunication_time, 0)
-GLOBAL_VAR_INIT(last_apostasy_time, 0)
-GLOBAL_VAR_INIT(last_curse_time, 0)
+GLOBAL_VAR_INIT(last_announcement_priest_time, -1000)
+GLOBAL_VAR_INIT(last_sermon_time, -1000)
+GLOBAL_VAR_INIT(last_excommunication_time, -1000)
+GLOBAL_VAR_INIT(last_apostasy_time, -1000)
+GLOBAL_VAR_INIT(last_curse_time, -1000)
 
 /datum/job/roguetown/priest
 	title = "Priest"
@@ -261,7 +261,7 @@ GLOBAL_VAR_INIT(last_curse_time, 0)
 	GLOB.last_sermon_time = world.time // set cooldown
 	return TRUE
 
-/mob/living/carbon/human/proc/churcheapostasy()
+/mob/living/carbon/human/proc/churcheapostasy(var/mob/living/carbon/human/H in GLOB.player_list)
 	set name = "Apostasy"
 	set category = "Priest"
 
@@ -272,45 +272,53 @@ GLOBAL_VAR_INIT(last_curse_time, 0)
 		to_chat(src, span_warning("You must wait until you can mark another."))
 		return
 
+	var/found = FALSE
 	var/inputty = input("Put an apostasy on someone, removing their ability to use miracles... (apostasy them again to remove it)", "Sinner Name") as text|null
 
 	if (!inputty)
 		return
 
 	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-		to_chat(src, span_warning("I need to do this from the Church's chapel."))
+		to_chat(src, span_warning("I need to do this from the House of Ten."))
 		return FALSE
+
+	if(!src.key)
+		return
+
+	if(!src.mind || !src.mind.do_i_know(name=inputty))
+		to_chat(src, span_warning("I don't know anyone by that name."))
+		return
 
 	if (inputty in GLOB.apostasy_players)
 		GLOB.apostasy_players -= inputty
-		priority_announce("[real_name] has forgiven [inputty]. Their patron hears their prayer once more!", title = "Hail the Ten!", sound = 'sound/misc/bell.ogg')
+		priority_announce("[real_name] has forgiven [inputty]. Their patron hears their prayer once more!", title = "APOSTASY LIFTED", sound = 'sound/misc/bell.ogg')
+		message_admins("APOSTASY: [real_name] ([ckey]) has used forgiven apostasy at [H.real_name] ([H.ckey])")
+		log_game("APOSTASY: [real_name] ([ckey]) has used forgiven apostasy at [H.real_name] ([H.ckey])")
 
-		for (var/mob/living/carbon/human/H in GLOB.player_list)
-			if (H.real_name == inputty)
-				if (istype(H.patron, /datum/patron/divine) && H.devotion)
-					H.devotion.recommunicate()
-					H.remove_status_effect(/datum/status_effect/debuff/apostasy)
-					H.remove_stress(/datum/stressevent/apostasy)
+		if (H.real_name == inputty)
+			if (istype(H.patron, /datum/patron/divine) && H.devotion)
+				H.devotion.recommunicate()
+				H.remove_status_effect(/datum/status_effect/debuff/apostasy)
+				H.remove_stress(/datum/stressevent/apostasy)
 
 		return TRUE
 
-	var/found = FALSE
+	if (H.real_name == inputty)
+		found = TRUE
+		GLOB.apostasy_players += inputty
 
-	for (var/mob/living/carbon/human/H in GLOB.player_list)
-		if (H.real_name == inputty)
-			found = TRUE
-			GLOB.apostasy_players += inputty
+		if (istype(H.patron, /datum/patron/divine) && H.devotion)
+			H.devotion.excommunicate()
+			H.apply_status_effect(/datum/status_effect/debuff/apostasy)
+			H.add_stress(/datum/stressevent/apostasy)
+			to_chat(H, span_warning("A holy silence falls upon you. Your Patron cannot hear you anymore..."))
+		else
+			to_chat(H, span_warning("A holy silence falls upon you..."))
 
-			if (istype(H.patron, /datum/patron/divine) && H.devotion)
-				H.devotion.excommunicate()
-				H.apply_status_effect(/datum/status_effect/debuff/apostasy)
-				H.add_stress(/datum/stressevent/apostasy)
-				to_chat(H, span_warning("A holy silence falls upon you. Your Patron cannot hear you anymore..."))
-			else
-				to_chat(H, span_warning("A holy silence falls upon you..."))
-
-			priority_announce("[real_name] has placed mark of shame upon [inputty]. Their prayers fall on deaf ears.", title = "SHAME", sound = 'sound/misc/excomm.ogg')
-			return TRUE
+		priority_announce("[real_name] has placed mark of shame upon [inputty]. Their prayers fall on deaf ears.", title = "APOSTASY", sound = 'sound/misc/excomm.ogg')
+		message_admins("APOSTASY: [real_name] ([ckey]) has used apostasy at [H.real_name] ([H.ckey])")
+		log_game("APOSTASY: [real_name] ([ckey]) has used apostasy at [H.real_name] ([H.ckey])")
+		return TRUE
 
 	if (!found)
 		return FALSE
