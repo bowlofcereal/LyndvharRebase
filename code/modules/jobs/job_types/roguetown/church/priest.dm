@@ -396,7 +396,9 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 	GLOB.last_excommunication_time = world.time // set cooldown
 	return
 
-/mob/living/carbon/human/proc/churchpriestcurse()
+/*Powerful curses that can and most likely will ruin a player's round
+code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep that updated if this gets any changes.*/
+/mob/living/carbon/human/proc/churchpriestcurse(var/mob/living/carbon/human/H in GLOB.player_list)
 	set name = "Divine Curse"
 	set category = "Priest"
 
@@ -404,11 +406,23 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 		return
 
 	if (world.time < GLOB.last_curse_time + 1200) // 1200 seconds = 20 minutes
-		to_chat(src, span_warning("You must wait before invoking divine punishment again."))
+		to_chat(src, span_warning("You must wait before invoking a curse again."))
 		return
 
-	var/target_name = input("Who shall receive divine punishment?", "Target Name") as text|null
+	var/target_name = input("Who shall receive a curse?", "Target Name") as text|null
+
 	if (!target_name)
+		return
+
+	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+		to_chat(src, span_warning("I need to do this from the House of the Ten."))
+		return FALSE
+
+	if(!src.key)
+		return
+
+	if(!src.mind || !src.mind.do_i_know(name=target_name))
+		to_chat(src, span_warning("I don't know anyone by that name."))
 		return
 
 	var/list/curse_choices = list(
@@ -425,26 +439,25 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 
 	var/curse_type = curse_choices[curse_pick]
 
-	for (var/mob/living/carbon/human/H in GLOB.player_list)
-		if (H.real_name == target_name)
-			if (H == src)
-				to_chat(src, span_warning("Cursing yourself is heresy!"))
+	if (H.real_name == target_name)
+		var/datum/curse/temp = new curse_type()
+
+		if (H.is_cursed(temp))
+			H.remove_curse(temp)
+			priority_announce("[real_name] has lifted [curse_pick] from [H.real_name]! They are once again part of the flock!", title = "REDEMPTION", sound = 'sound/misc/bell.ogg')
+			message_admins("DIVINE CURSE: [real_name] ([ckey]) has removed [curse_pick] from [H.real_name]) ") //[ADMIN_LOOKUPFLW(user)] Maybe add this here if desirable but dunno.
+			log_game("DIVINE CURSE: [real_name] ([ckey]) has removed [curse_pick] from [H.real_name])")
+		else
+			if (length(H.curses) >= 1)
+				to_chat(src, span_syndradio("[H.real_name] is already afflicted by another curse."))
+				message_admins("DIVINE CURSE: [real_name] ([ckey]) has attempted to strike [H.real_name] ([H.ckey] with [curse_pick])")
+				log_game("DIVINE CURSE: [real_name] ([ckey]) has attempted to strike [H.real_name] ([H.ckey] with [curse_pick])")
 				return
 
-			var/datum/curse/temp = new curse_type()
+			H.add_curse(curse_type)
+			priority_announce("[real_name] has stricken [H.real_name] with [curse_pick]! SHAME!", title = "JUDGEMENT", sound = 'sound/misc/excomm.ogg')
+			message_admins("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
+			log_game("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
 
-			if (H.is_cursed(temp))
-				H.remove_curse(temp)
-				priority_announce("[real_name] has lifted [curse_pick] from [H.real_name]!", title = "Mercy of the Faith", sound = 'sound/misc/bell.ogg')
-			else
-				if (length(H.curses) >= 1)
-					to_chat(src, span_warning("[H.real_name] is already afflicted by another curse."))
-					return
-
-				H.add_curse(curse_type)
-				priority_announce("[real_name] has cursed [H.real_name] with [curse_pick]!", title = "Judgment of the Gods", sound = 'sound/misc/excomm.ogg')
-
-			GLOB.last_curse_time = world.time // set cooldown
-			return
-
-	to_chat(src, span_warning("No soul has such name."))
+		GLOB.last_curse_time = world.time // set cooldown
+		return

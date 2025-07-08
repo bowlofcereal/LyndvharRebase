@@ -37,19 +37,21 @@
 
 	for (var/mob/living/carbon/human/H in GLOB.player_list)
 		if (H.real_name == target_name)
-			if (H == src)
-				to_chat(src, span_warning("Cursing yourself is heresy!"))
-				return
-
 			var/datum/curse/temp = new curse_type()
 
 			if (H.is_cursed(temp))
 				H.remove_curse(temp)
-				priority_announce("Gods have lifted [curse_pick] from [H.real_name]!", title = "Mercy of the Gods", sound = 'sound/misc/bell.ogg')
+				priority_announce("Gods have lifted [curse_pick] from [H.real_name]!", title = "DIVINE MERCY", sound = 'sound/misc/bell.ogg')
+				message_admins("ADMIN DIVINE WRATH: ([ckey]) has lifted [curse_pick] from [H.real_name]) ") //[ADMIN_LOOKUPFLW(user)] Maybe add this here if desirable but dunno.
+				log_game("ADMIN DIVINE WRATH: ([ckey]) has lifted [curse_pick] from [H.real_name])")
 			else
 				if (length(H.curses) >= 1)
-					to_chat(src, span_warning("[H.real_name] is already afflicted by another curse."))
+					to_chat(src, span_syndradio("[H.real_name] is already afflicted by another curse."))
+					message_admins("ADMIN DIVINE WRATH: ([ckey]) has attempted to strike [H.real_name] ([H.ckey] with [curse_pick])")
+					log_game("ADMIN DIVINE WRATH: ([ckey]) has attempted to strike [H.real_name] ([H.ckey] with [curse_pick])")					
 					return
 
 				H.add_curse(curse_type)
-				priority_announce("Gods have marked [H.real_name] with [curse_pick]!", title = "Punishment of the Gods", sound = 'sound/misc/excomm.ogg')
+				priority_announce("Gods have stricken [H.real_name] with [curse_pick]!", title = "DIVINE PUNISHMENT", sound = 'sound/misc/excomm.ogg')
+				message_admins("ADMIN DIVINE WRATH: ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
+				log_game("ADMIN DIVINE WRATH: ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
