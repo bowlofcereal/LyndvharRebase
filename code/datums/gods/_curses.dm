@@ -118,6 +118,29 @@
 	description = "I am forsaken by the Lover. There is no beauty to be found for me in this world."
 	trait = TRAIT_CURSE_EORA
 
+////////////////////////////
+///   ASCENDANT CURSES   ///
+////////////////////////////
+/datum/curse/zizo
+	name = "Curse of Zizo"
+	description = "I am forsaken by the Architect. Her grasp reaches for my heart."
+	trait = TRAIT_CURSE_ZIZO
+
+/datum/curse/graggar
+	name = "Curse of Graggar"
+	description = "I am forsaken by the Warlord. Bloodlust is only thing I know for real."
+	trait = TRAIT_CURSE_GRAGGAR
+
+/datum/curse/matthios
+	name = "Curse of Matthios"
+	description = "I am forsaken by the Dragon. Greed will be my only salvation."
+	trait = TRAIT_CURSE_MATTHIOS
+
+/datum/curse/baotha
+	name = "Curse of Baotha"
+	description = "I am forsaken by the Heartbreaker. I am drowning in her promises."
+	trait = TRAIT_CURSE_BAOTHA
+
 //////////////////////
 ///	ON LIFE	 ///
 //////////////////////
@@ -160,6 +183,8 @@
 //////////////////////
 /// ON GAIN / LOSS ///
 //////////////////////
+
+//TENNITES//
 /datum/curse/astrata/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_NOSLEEP, TRAIT_GENERIC)
@@ -213,3 +238,48 @@
 	REMOVE_TRAIT(owner, TRAIT_LIMPDICK, TRAIT_GENERIC)
 	REMOVE_TRAIT(owner, TRAIT_UNSEEMLY, TRAIT_GENERIC)
 	REMOVE_TRAIT(owner, TRAIT_BAD_MOOD, TRAIT_GENERIC)
+
+//ASCENDANTS//
+/datum/curse/zizo/on_gain(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STAINT -= 20
+	ADD_TRAIT(owner, TRAIT_SPELLCOCKBLOCK, TRAIT_GENERIC)
+
+/datum/curse/zizo/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STAINT += 20
+	REMOVE_TRAIT(owner, TRAIT_SPELLCOCKBLOCK, TRAIT_GENERIC)
+
+/datum/curse/graggar/on_gain(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STASTR -= 15
+	ADD_TRAIT(owner, TRAIT_DISFIGURED, TRAIT_GENERIC)
+	ADD_TRAIT(owner, TRAIT_INHUMEN_ANATOMY, TRAIT_GENERIC)
+
+/datum/curse/graggar/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STASTR += 15
+	REMOVE_TRAIT(owner, TRAIT_DISFIGURED, TRAIT_GENERIC)
+	REMOVE_TRAIT(owner, TRAIT_INHUMEN_ANATOMY, TRAIT_GENERIC)
+
+/datum/curse/matthios/on_gain(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STALUC -= 15
+	ADD_TRAIT(owner, TRAIT_CLUMSY, TRAIT_GENERIC)
+
+/datum/curse/matthios/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	owner.STALUC += 15
+	REMOVE_TRAIT(owner, TRAIT_CLUMSY, TRAIT_GENERIC)
+
+/datum/curse/baotha/on_gain(mob/living/carbon/human/owner)
+	. = ..()
+	ADD_TRAIT(owner, TRAIT_NUDIST, TRAIT_GENERIC)
+	ADD_TRAIT(owner, TRAIT_NUDE_SLEEPER, TRAIT_GENERIC)
+	ADD_TRAIT(owner, TRAIT_LIMPDICK, TRAIT_GENERIC)
+
+/datum/curse/baotha/on_loss(mob/living/carbon/human/owner)
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_NUDIST, TRAIT_GENERIC)
+	REMOVE_TRAIT(owner, TRAIT_NUDE_SLEEPER, TRAIT_GENERIC)
+	REMOVE_TRAIT(owner, TRAIT_LIMPDICK, TRAIT_GENERIC)
