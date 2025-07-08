@@ -11,7 +11,7 @@
 	sellprice = 6
 	craftdiff = 0
 
-/datum/crafting_recipe/leather/container/magepouch
+/datum/crafting_recipe/roguetown/leather/container/magepouch
 	name = "summoner's pouch"
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
@@ -20,7 +20,7 @@
 	result = /obj/item/storage/magebag
 	craftdiff = 1
 
-/datum/crafting_recipe/leather/container/meatbag
+/datum/crafting_recipe/roguetown/leather/container/meatbag
 	name = "game satchel"
 	reqs = list(
 		/obj/item/natural/hide/cured = 2,
