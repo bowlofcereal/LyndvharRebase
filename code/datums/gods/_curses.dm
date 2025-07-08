@@ -1,9 +1,5 @@
 /mob/living/carbon/human
 	var/list/curses = list()
-	var/last_curse_time = 0
-	var/last_apostasy_time = 0
-	var/last_excommunication_time = 0
-	var/last_announcement_priest_time = 0
 
 /mob/living/carbon/human/proc/handle_curses()
 	for(var/curse in curses)

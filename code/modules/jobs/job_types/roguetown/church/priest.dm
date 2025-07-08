@@ -2,6 +2,11 @@ GLOBAL_LIST_EMPTY(apostasy_players)
 GLOBAL_LIST_EMPTY(cursed_players)
 GLOBAL_LIST_EMPTY(excommunicated_players)
 GLOBAL_LIST_EMPTY(heretical_players)
+GLOBAL_VAR_INIT(last_announcement_priest_time, 0)
+GLOBAL_VAR_INIT(last_sermon_time, 0)
+GLOBAL_VAR_INIT(last_excommunication_time, 0)
+GLOBAL_VAR_INIT(last_apostasy_time, 0)
+GLOBAL_VAR_INIT(last_curse_time, 0)
 
 /datum/job/roguetown/priest
 	title = "Priest"
@@ -174,17 +179,25 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 	if(stat)
 		return
-	if (world.time < last_announcement_priest_time + 300) // 300 seconds = 5 minutes
-		to_chat(src, span_warning("You must wait until you can speak again."))
-		return
-	var/inputty = input("Make an announcement", "ROGUETOWN") as text|null
-	if(inputty)
-		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-			to_chat(src, span_warning("I need to do this from the chapel."))
+	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
+		to_chat(src, span_warning("I need to do this in the chapel."))
+		return FALSE
+	var/announcementinput = input("Bellow to the Peaks", "Make an Announcement") as text|null
+	if(announcementinput)
+		if(!src.can_speak_vocal())
+			to_chat(src,span_warning("I can't speak!"))
 			return FALSE
-		priority_announce("[inputty]", title = "The Priest Speaks", sound = 'sound/misc/bell.ogg', sender = src)
-		last_announcement_priest_time = world.time // set cooldown
-		return
+		if(world.time < GLOB.last_announcement_priest_time + 300 SECONDS)// 300 seconds = 5 minutes
+			to_chat(src, span_warning("You must wait [round((GLOB.last_announcement_priest_time + 300 SECONDS - world.time)/300, 0.1)] minutes before making another announcement!"))
+			return FALSE
+		visible_message(span_warning("[src] takes a deep breath, preparing to make an announcement.."))
+		if(do_after(src, 15 SECONDS, target = src)) // Reduced to 15 seconds from 30 on the original Herald PR. 15 is well enough time for sm1 to shove you.
+			say(announcementinput)
+			priority_announce("[announcementinput]", "The Priest Speaks", 'sound/misc/bell.ogg', sender = src)
+			GLOB.last_announcement_priest_time = world.time
+		else
+			to_chat(src, span_warning("Your announcement was interrupted!"))
+			return FALSE
 
 /obj/effect/proc_holder/spell/self/convertrole/templar
 	name = "Recruit Templar"
@@ -215,6 +228,10 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		to_chat(src, span_warning("I need to do this in the chapel."))
 		return FALSE
 
+	if (world.time < GLOB.last_sermon_time + 1800) // 1800 seconds = 30 minutes = 10 minute downtime
+		to_chat(src, span_warning("You must wait until you can speak again."))
+		return
+
 	src.visible_message(span_notice("[src] begins preaching a sermon..."))
 
 	if (!do_after(src, 120, target = src)) // 120 seconds
@@ -241,6 +258,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 			// Other patrons - fluff only
 			to_chat(H, span_notice("Nothing seems to happen to you."))
 
+	GLOB.last_sermon_time = world.time // set cooldown
 	return TRUE
 
 /mob/living/carbon/human/proc/churcheapostasy()
@@ -250,7 +268,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	if (stat)
 		return
 
-	if (world.time < last_apostasy_time + 600) // 600 seconds = 10 minutes
+	if (world.time < GLOB.last_apostasy_time + 600) // 600 seconds = 10 minutes
 		to_chat(src, span_warning("You must wait until you can mark another."))
 		return
 
@@ -297,7 +315,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	if (!found)
 		return FALSE
 
-	last_apostasy_time = world.time // set cooldown
+	GLOB.last_apostasy_time = world.time // set cooldown
 	return
 
 /mob/living/carbon/human/proc/churchexcommunicate()
@@ -307,7 +325,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	if (stat)
 		return
 
-	if (world.time < last_excommunication_time + 600) // 600 seconds = 10 minutes
+	if (world.time < GLOB.last_excommunication_time + 600) // 600 seconds = 10 minutes
 		to_chat(src, span_warning("You must wait until you can excommunicate another."))
 		return
 
@@ -357,7 +375,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		GLOB.excommunicated_players += inputty
 		priority_announce("[real_name] has excommunicated [inputty]!", title = "SHAME", sound = 'sound/misc/excomm.ogg')
 
-		last_excommunication_time = world.time // set cooldown
+		GLOB.last_excommunication_time = world.time // set cooldown
 		return
 
 /mob/living/carbon/human/proc/churchpriestcurse()
@@ -367,7 +385,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	if (stat)
 		return
 
-	if (world.time < last_curse_time + 1200) // 1200 seconds = 20 minutes
+	if (world.time < GLOB.last_curse_time + 1200) // 1200 seconds = 20 minutes
 		to_chat(src, span_warning("You must wait before invoking divine punishment again."))
 		return
 
@@ -408,7 +426,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 				H.add_curse(curse_type)
 				priority_announce("[real_name] has cursed [H.real_name] with [curse_pick]!", title = "Judgment of the Gods", sound = 'sound/misc/excomm.ogg')
 
-			last_curse_time = world.time // set cooldown
+			GLOB.last_curse_time = world.time // set cooldown
 			return
 
 	to_chat(src, span_warning("No soul has such name."))
