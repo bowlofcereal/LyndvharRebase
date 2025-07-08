@@ -137,3 +137,45 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 /obj/effect/landmark/map_load_mark/Initialize()
 	. = ..()
 	LAZYADD(SSmapping.map_load_marks,src)
+
+/obj/effect/mapping_helpers/access
+	name = "access helper parent"
+	layer = DOOR_HELPER_LAYER
+	late = TRUE
+
+/obj/effect/mapping_helpers/access/LateInitialize()
+	var/static/list/valid = list(
+		/obj/structure/mineral_door, \
+		/obj/structure/closet, \
+		/obj/structure/roguemachine/vendor, \
+	)
+
+	// Get the first thing we find starting with doors and closets
+	for(var/thing as anything in valid)
+		var/obj/found = locate(thing) in loc
+		if(found)
+			payload(found)
+			qdel(src)
+			return
+
+	log_mapping("[src] failed to find a target at [AREACOORD(src)]")
+	qdel(src)
+
+/obj/effect/mapping_helpers/access/proc/payload(obj/payload)
+	return
+
+/obj/effect/mapping_helpers/access/locker
+	name = "access lock helper"
+	icon_state = "door_locker"
+
+/obj/effect/mapping_helpers/access/locker/payload(obj/payload)
+	if(istype(payload, /obj/structure/mineral_door))
+		var/obj/structure/mineral_door/door = payload
+		door.lock_toggle()
+	else if(istype(payload, /obj/structure/closet))
+		var/obj/structure/closet/closet = payload
+		closet.locked = TRUE
+	else if(istype(payload, /obj/structure/roguemachine/vendor))
+		var/obj/structure/roguemachine/vendor/vendor = payload
+		vendor.locked = TRUE
+
