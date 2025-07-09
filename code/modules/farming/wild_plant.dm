@@ -1,6 +1,6 @@
 /obj/structure/wild_plant
-	name = "wild "
-	desc = "A wild "
+	name = "wild plants"
+	desc = "A wild plant"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	var/datum/plant_def/plant_type
 	var/spread_chance = 75
@@ -90,9 +90,13 @@
 	spread_chance = 0
 
 /obj/structure/wild_plant/nospread/manabloom
+	name = "wild manabloom"
+	desc = "Wild manabloom"
 	icon_state = "manabloom2"
 	plant_type = /datum/plant_def/manabloom
 
 /obj/structure/wild_plant/nospread/poppy
+	name = "wild poppy"
+	desc = "Wild poppy"
 	icon_state = "poppy2"
 	plant_type = /datum/plant_def/poppy
