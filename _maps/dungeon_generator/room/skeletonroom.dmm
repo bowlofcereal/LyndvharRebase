@@ -19,10 +19,13 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/food/snacks/rogue/breadslice{
 	pixel_y = -2;
 	pixel_x = -13
+	},
+/obj/structure/table/wood/crafted{
+	icon_state = "longtable";
+	dir = 1
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/church)
@@ -124,7 +127,7 @@
 /area/rogue/under/tomb)
 "sj" = (
 /obj/structure/table/church{
-	dir = 1
+	icon_state = "churchtable_end"
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors/church)
@@ -233,8 +236,11 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/glass/bottle/rogue/wine/sourwine,
+/obj/structure/table/wood/crafted{
+	icon_state = "longtable_mid";
+	dir = 1
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/church)
 "Mw" = (
@@ -253,7 +259,8 @@
 /obj/structure/fluff/railing/border{
 	dir = 9
 	},
-/turf/open/floor/rogue/wood)
+/turf/open/floor/rogue/wood,
+/area/rogue/under/tomb/indoors/church)
 "Qo" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -275,7 +282,8 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/tomb)
 "SQ" = (
-/turf/open/floor/rogue/wood)
+/turf/open/floor/rogue/wood,
+/area/rogue/under/tomb/indoors/church)
 "TH" = (
 /obj/structure/closet/crate/drawer/inn,
 /obj/item/clothing/suit/roguetown/shirt/tunic/random,
@@ -314,13 +322,15 @@
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/food/snacks/rogue/breadslice{
 	pixel_x = 19
 	},
 /obj/item/rogueweapon/huntingknife/cleaver{
 	pixel_x = -2;
 	pixel_y = -8
+	},
+/obj/structure/table/wood/crafted{
+	icon_state = "longtable"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/church)
