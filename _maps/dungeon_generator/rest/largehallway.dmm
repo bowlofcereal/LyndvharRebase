@@ -10,8 +10,10 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "h" = (
-/obj/structure/table/wood/crafted,
 /obj/item/flashlight/flare/torch/lantern,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "j" = (
@@ -19,12 +21,16 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/cave)
 "k" = (
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "m" = (
-/obj/structure/table/wood/crafted,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "o" = (
@@ -78,12 +84,20 @@
 "I" = (
 /turf/closed/wall/mineral/rogue/wooddark/slitted,
 /area/rogue/under/tomb/cave)
+"M" = (
+/obj/structure/roguerock,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/under/tomb/cave)
 "R" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave)
 "S" = (
 /turf/open/floor/rogue/rooftop/green,
+/area/rogue/under/tomb/cave)
+"U" = (
+/obj/item/natural/rock/random,
+/turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb/cave)
 "W" = (
 /turf/closed/mineral/rogue/bedrock,
@@ -122,7 +136,7 @@ W
 W
 W
 o
-o
+U
 o
 o
 o
@@ -141,7 +155,7 @@ o
 o
 o
 o
-o
+U
 o
 o
 W
@@ -155,7 +169,7 @@ W
 W
 o
 o
-o
+U
 o
 o
 o
@@ -174,7 +188,7 @@ W
 W
 o
 o
-o
+U
 o
 I
 o
@@ -195,7 +209,7 @@ o
 o
 o
 o
-o
+U
 o
 W
 W
@@ -206,7 +220,7 @@ W
 W
 W
 I
-o
+U
 o
 o
 o
@@ -221,7 +235,7 @@ o
 o
 o
 o
-o
+M
 o
 o
 o
@@ -247,7 +261,7 @@ p
 o
 W
 W
-o
+U
 o
 o
 "}
@@ -503,7 +517,7 @@ e
 e
 o
 o
-o
+M
 o
 o
 "}
