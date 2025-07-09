@@ -402,6 +402,12 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /turf/open/floor/carpet/red,
 /area/rogue/under/tomb/indoors)
+"fb" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	redstone_id = "CastleSecret6"
+	},
+/turf/closed/wall/mineral/rogue/decostone,
+/area/rogue/under/tomb/indoors)
 "fc" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /obj/structure/chair/bench/couchablack,
@@ -1301,6 +1307,13 @@
 /obj/structure/bars,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/tomb/indoors)
+"oa" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	redstone_id = "CastleSecret5";
+	floor_turf = /turf/open/floor/rogue/cobble
+	},
+/turf/closed/wall/mineral/rogue/decostone,
+/area/rogue/under/tomb/indoors)
 "og" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/rogue/cobblerock,
@@ -1682,6 +1695,13 @@
 /obj/structure/closet/crate/drawer/inn,
 /obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/floor/rogue/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors)
+"tD" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	redstone_id = "CastleSecret1";
+	floor_turf = /turf/open/floor/rogue/tile/masonic/spiral
+	},
+/turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/under/tomb/indoors)
 "tH" = (
 /obj/structure/table/wood/crafted,
@@ -2968,6 +2988,13 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/under/tomb/indoors/magic)
+"Hi" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	redstone_id = "CastleSecret4";
+	floor_turf = /turf/open/floor/rogue/hexstone
+	},
+/turf/closed/wall/mineral/rogue/decostone,
+/area/rogue/under/tomb/indoors)
 "Hj" = (
 /obj/structure/table/wood,
 /obj/item/paper{
@@ -4573,6 +4600,13 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
+"YI" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	redstone_id = "CastleSecret3";
+	floor_turf = /turf/open/floor/rogue/tile
+	},
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/under/tomb/indoors/royal)
 "YJ" = (
 /obj/structure/roguerock,
 /turf/open/floor/rogue/cobblerock,
@@ -5490,7 +5524,7 @@ tY
 tY
 oQ
 rk
-rk
+oa
 My
 rk
 rk
@@ -6196,7 +6230,7 @@ Xf
 rk
 zT
 mn
-rk
+Hi
 mb
 rk
 rk
@@ -6414,7 +6448,7 @@ lF
 OT
 jA
 iK
-Jx
+YI
 HI
 Dq
 RI
@@ -6486,7 +6520,7 @@ Ff
 iP
 Bw
 VD
-Jx
+YI
 Ia
 Ia
 Ia
@@ -6558,7 +6592,7 @@ pq
 wS
 VD
 VD
-Jx
+YI
 qx
 WX
 kH
@@ -6630,7 +6664,7 @@ ZA
 OK
 iP
 VD
-Jx
+YI
 uY
 uY
 uY
@@ -6702,7 +6736,7 @@ jA
 mJ
 OT
 Ae
-Jx
+YI
 Cz
 Dq
 iw
@@ -8378,7 +8412,7 @@ GI
 nm
 rk
 kU
-rk
+tD
 ZG
 ZG
 rp
@@ -9723,7 +9757,7 @@ Xf
 (21,1,2) = {"
 rk
 IV
-rk
+fb
 Cw
 oH
 oH

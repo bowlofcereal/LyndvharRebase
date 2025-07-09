@@ -65,6 +65,10 @@
 /obj/structure/fluff/walldeco/med,
 /obj/structure/trap/chill,
 /obj/effect/decal/cleanable/blood/footprints,
+/obj/effect/mapping_helpers/secret_door_creator{
+	floor_turf = /turf/open/floor/rogue/ruinedwood;
+	redstone_id = Ship1
+	},
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/under/tomb/indoors)
 "bj" = (
@@ -1165,6 +1169,13 @@
 	},
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/ruinedwood,
+/area/rogue/under/tomb/indoors)
+"FW" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	floor_turf = /turf/open/floor/rogue/ruinedwood;
+	redstone_id = Ship1
+	},
+/turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/under/tomb/indoors)
 "FY" = (
 /obj/structure/flora/roguegrass/water,
@@ -6218,7 +6229,7 @@ jn
 jn
 jn
 jn
-jn
+FW
 jn
 jn
 jn

@@ -480,6 +480,13 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/indoors)
+"sD" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	floor_turf = /turf/open/floor/rogue/blocks/stonered/tiny;
+	redstone_id = "hctomb03sdB"
+	},
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/under/tomb/indoors)
 "sI" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/churchrough,
@@ -547,6 +554,13 @@
 /area/rogue/under/tomb/cave/wet)
 "tT" = (
 /obj/structure/fluff/walldeco/sparrowflag,
+/turf/closed/wall/mineral/rogue/craftstone,
+/area/rogue/under/tomb/indoors)
+"ue" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	floor_turf = /turf/open/floor/rogue/blocks/stonered/tiny;
+	redstone_id = "hctomb03sdA"
+	},
 /turf/closed/wall/mineral/rogue/craftstone,
 /area/rogue/under/tomb/indoors)
 "us" = (
@@ -864,7 +878,7 @@
 "Fs" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/mimic,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/roguegem/random,
+/obj/item/natural/rock/random_ore,
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/cave/spider)
 "Fz" = (
@@ -1235,7 +1249,7 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/mimic,
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/roguegem/random,
+/obj/item/natural/rock/random_ore,
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/cave/spider)
 "PG" = (
@@ -1343,6 +1357,13 @@
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/under/tomb/indoors)
+"TE" = (
+/obj/effect/mapping_helpers/secret_door_creator{
+	floor_turf = /turf/open/floor/rogue/blocks/stonered/tiny;
+	redstone_id = "hctomb03sdC"
+	},
+/turf/closed/wall/mineral/rogue/decostone,
+/area/rogue/under/tomb/cave/spider)
 "TZ" = (
 /obj/machinery/light/rogue/forge,
 /turf/open/floor/rogue/church,
@@ -1809,7 +1830,7 @@ Fs
 Hy
 CE
 wj
-nh
+TE
 Mu
 xh
 Ms
@@ -2704,7 +2725,7 @@ fc
 ho
 LO
 LO
-ho
+ue
 EF
 dK
 ho
@@ -2889,7 +2910,7 @@ ho
 LO
 ho
 ho
-ho
+sD
 lJ
 ho
 rN
@@ -3024,7 +3045,7 @@ ZJ
 ZJ
 ZJ
 ho
-ho
+ue
 IU
 ho
 EC
