@@ -374,82 +374,22 @@
 	var/sentience_type = SENTIENCE_ORGANIC
 	var/chosen_name
 	var/binding = FALSE
+
 /obj/item/rope/chain/bindingshackles/Initialize()
-	.=..()
+	. = ..()
 	src.filters += filter(type="drop_shadow", x=0, y=0, size=1, offset=2, color=rgb(rand(1,255),rand(1,255),rand(1,255)))
 
-/obj/item/rope/chain/bindingshackles/attackby(obj/item/P, mob/living/carbon/human/user, params)
-	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(P, /obj/item/magic/melded/t2))
-		if(isturf(loc)&& (found_table))
-			var/crafttime = (100 - ((user.get_skill_level(/datum/skill/magic/arcane))*5))
-			if(do_after(user, crafttime, target = src))
-				playsound(loc, 'sound/items/book_close.ogg', 100, TRUE)
-				to_chat(user, span_notice("I mold the [P] into the [src] with my arcyne power."))
-				new /obj/item/rope/chain/bindingshackles/t2(loc)
-				qdel(P)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
-	else
-		return ..()
 /obj/item/rope/chain/bindingshackles/t2
 	name = "greater planar binding shackles"
 	tier = 2
 
-/obj/item/rope/chain/bindingshackles/t2/attackby(obj/item/P, mob/living/carbon/human/user, params)
-	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(P, /obj/item/magic/melded/t3))
-		if(isturf(loc)&& (found_table))
-			var/crafttime = (100 - ((user.get_skill_level(/datum/skill/magic/arcane))*5))
-			if(do_after(user, crafttime, target = src))
-				playsound(loc, 'sound/items/book_close.ogg', 100, TRUE)
-				to_chat(user, span_notice("I mold the [P] into the [src] with my arcyne power."))
-				new /obj/item/rope/chain/bindingshackles/t3(loc)
-				qdel(P)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
-	else
-		return ..()
 /obj/item/rope/chain/bindingshackles/t3
 	name = "woven planar binding shackles"
 	tier = 3
 
-/obj/item/rope/chain/bindingshackles/t3/attackby(obj/item/P, mob/living/carbon/human/user, params)
-	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(P, /obj/item/magic/melded/t4))
-		if(isturf(loc)&& (found_table))
-			var/crafttime = (100 - ((user.get_skill_level(/datum/skill/magic/arcane))*5))
-			if(do_after(user, crafttime, target = src))
-				playsound(loc, 'sound/items/book_close.ogg', 100, TRUE)
-				to_chat(user, span_notice("I mold the [P] into the [src] with my arcyne power."))
-				new /obj/item/rope/chain/bindingshackles/t4(loc)
-				qdel(P)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
-	else
-		return ..()
 /obj/item/rope/chain/bindingshackles/t4
 	name = "confluent planar binding shackles"
 	tier = 4
-
-/obj/item/rope/chain/bindingshackles/t4/attackby(obj/item/P, mob/living/carbon/human/user, params)
-	var/found_table = locate(/obj/structure/table) in (loc)
-	if(istype(P, /obj/item/magic/melded/t5))
-		if(isturf(loc)&& (found_table))
-			var/crafttime = (100 - ((user.get_skill_level(/datum/skill/magic/arcane))*5))
-			if(do_after(user, crafttime, target = src))
-				playsound(loc, 'sound/items/book_close.ogg', 100, TRUE)
-				to_chat(user, span_notice("I mold the [P] into the [src] with my arcyne power."))
-				new /obj/item/rope/chain/bindingshackles/t5(loc)
-				qdel(P)
-				qdel(src)
-		else
-			to_chat(user, "<span class='warning'>You need to put the [src] on a table to work on it.</span>")
-	else
-		return ..()
 
 /obj/item/rope/chain/bindingshackles/t5
 	name = "abberant planar binding shackles"

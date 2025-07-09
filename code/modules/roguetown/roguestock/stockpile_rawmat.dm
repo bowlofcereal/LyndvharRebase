@@ -123,7 +123,6 @@
 	withdraw_price = 5
 	transport_fee = 10
 	export_price = 10
-	export_only = TRUE
 	stockpile_limit = 25 // Better hope someone mine them, no importing
 	importexport_amt = 5
 
