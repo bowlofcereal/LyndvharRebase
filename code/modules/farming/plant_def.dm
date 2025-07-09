@@ -251,6 +251,7 @@
 	produce_amount_min = 1
 	produce_amount_max = 3
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/manabloom
+	maturation_time = FAST_GROWING
 
 // /datum/plant_def/manabloom
 // 	name = "manabloom"

@@ -13,6 +13,13 @@
 				/datum/reagent/medicine/manapot = 15)
 	craftdiff = 2
 
+/datum/crafting_recipe/roguetown/arcana/artifact
+	name = "runed artifact (1 Rock, 5oz Mana Potion)"
+	result = /obj/item/natural/artifact
+	reqs = list(/obj/item/natural/rock = 1,
+				/datum/reagent/medicine/manapot = 15)
+	skill_level = 2
+
 /datum/crafting_recipe/roguetown/arcana/chalk
 	name = "chalk (1 Cinnabar, 5oz Mana Potion)"
 	result = /obj/item/chalk
