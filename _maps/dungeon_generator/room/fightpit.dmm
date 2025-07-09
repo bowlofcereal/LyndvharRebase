@@ -13,8 +13,10 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "aX" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked,
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
 "aY" = (
@@ -33,7 +35,8 @@
 /area/rogue/under/tomb/indoors)
 "cP" = (
 /obj/structure/table/wood{
-	dir = 1
+	dir = 1;
+	icon_state = "longtable_mid"
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
@@ -150,8 +153,11 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb)
 "lc" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/skull,
+/obj/structure/table/wood{
+	dir = 8;
+	icon_state = "longtable"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb)
 "lR" = (
@@ -192,12 +198,13 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ok" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked{
 	pixel_y = 5;
 	pixel_x = -7
+	},
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable_mid"
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
@@ -214,6 +221,13 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
+"qH" = (
+/obj/item/reagent_containers/glass/cup/skull,
+/obj/structure/table/wood{
+	icon_state = "longtable_mid"
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb)
 "qZ" = (
 /obj/structure/mineral_door/wood/window{
 	dir = 4
@@ -222,9 +236,6 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
 "rc" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/snacks/rogue/biscuit,
 /obj/item/reagent_containers/food/snacks/rogue/biscuit,
 /obj/item/reagent_containers/food/snacks/rogue/biscuit{
@@ -238,10 +249,16 @@
 	pixel_y = 12;
 	pixel_x = 9
 	},
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable_mid"
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
 "rI" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	icon_state = "longtable_mid"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb)
 "sr" = (
@@ -333,10 +350,11 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb)
 "yn" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked,
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable_mid"
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
 "yO" = (
@@ -420,12 +438,12 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb)
 "IJ" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked{
 	pixel_x = 12;
 	pixel_y = 11
+	},
+/obj/structure/table/wood{
+	icon_state = "longtable"
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
@@ -479,10 +497,13 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
 "Mp" = (
-/obj/structure/table/wood,
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
 	dir = 5
+	},
+/obj/structure/table/wood{
+	icon_state = "longtable";
+	dir = 4
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb)
@@ -512,10 +533,11 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "QB" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged,
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable"
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb)
 "QJ" = (
@@ -589,6 +611,13 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
+"Zf" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable"
+	},
+/turf/open/floor/rogue/hexstone,
+/area/rogue/under/tomb)
 "Zw" = (
 /obj/structure/chair/bench/church/mid,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -992,7 +1021,7 @@ Yv
 lW
 lW
 lW
-cP
+Zf
 lW
 xp
 "}
@@ -1359,7 +1388,7 @@ zb
 gS
 uS
 Mp
-lc
+qH
 rI
 lc
 gS
