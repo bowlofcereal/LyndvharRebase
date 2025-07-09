@@ -39,7 +39,7 @@
 			H.set_blindness(0)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			H.cmode_music = 'sound/music/cmode/adventurer/combat_outlander2.ogg'
-			var/weapons = list("Longsword","Mace","Billhook","Battle Axe","Short Sword & Heater Shield")
+			var/weapons = list("Longsword","Mace","Billhook","Battle Axe","Short Sword & Iron Shield")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
 				if("Longsword")
@@ -86,7 +86,11 @@
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
-			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/recipe_book/survival = 1)
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/rogueweapon/huntingknife = 1,
+				/obj/item/recipe_book/survival = 1,
+				)
 
 		if("Duelist")
 			to_chat(H, span_warning("You are an esteemed swordsman who foregoes armor in exchange for a more nimble fighting style."))
@@ -130,7 +134,11 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/rogueweapon/shield/buckler
 			belt = /obj/item/storage/belt/rogue/leather
-			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife/idagger/steel/parrying = 1, /obj/item/recipe_book/survival = 1)
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/rogueweapon/huntingknife/idagger/steel/parrying = 1,
+				/obj/item/recipe_book/survival = 1,
+				)
 
 		if("Barbarian")
 			to_chat(H, span_warning("You are a brutal warrior who foregoes armor in order to showcase your raw strength. You specialize in unarmed combat and wrestling."))
@@ -228,14 +236,20 @@
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			head = /obj/item/clothing/head/roguetown/bucklehat
 			gloves = /obj/item/clothing/gloves/roguetown/angle
-			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/rogueweapon/huntingknife = 1, /obj/item/recipe_book/survival = 1)
-			beltl = pick(/obj/item/reagent_containers/glass/bottle/alchemical/strpot,
-						/obj/item/reagent_containers/glass/bottle/alchemical/conpot,
-						/obj/item/reagent_containers/glass/bottle/alchemical/endpot,
-						/obj/item/reagent_containers/glass/bottle/alchemical/spdpot,
-						/obj/item/reagent_containers/glass/bottle/alchemical/perpot,
-						/obj/item/reagent_containers/glass/bottle/alchemical/intpot,
-						/obj/item/reagent_containers/glass/bottle/alchemical/lucpot)
+			backpack_contents = list(
+				/obj/item/flashlight/flare/torch = 1,
+				/obj/item/rogueweapon/huntingknife = 1,
+				/obj/item/recipe_book/survival = 1,
+				)
+			beltl = pick(
+				/obj/item/reagent_containers/glass/bottle/alchemical/strpot,
+				/obj/item/reagent_containers/glass/bottle/alchemical/conpot,
+				/obj/item/reagent_containers/glass/bottle/alchemical/endpot,
+				/obj/item/reagent_containers/glass/bottle/alchemical/spdpot,
+				/obj/item/reagent_containers/glass/bottle/alchemical/perpot,
+				/obj/item/reagent_containers/glass/bottle/alchemical/intpot,
+				/obj/item/reagent_containers/glass/bottle/alchemical/lucpot,
+				)
 
 		if("Flagellant")
 			to_chat(H, span_warning("You are a pacifistic warrior who embraces suffering, believing pain is the path to enlightenment."))
@@ -265,4 +279,7 @@
 			belt = /obj/item/storage/belt/rogue/leather
 			beltr = /obj/item/rogueweapon/whip
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-			backpack_contents = list(/obj/item/recipe_book/survival = 1, /obj/item/flashlight/flare/torch = 1)
+			backpack_contents = list(
+				/obj/item/recipe_book/survival = 1,
+				/obj/item/flashlight/flare/torch = 1,
+				)
