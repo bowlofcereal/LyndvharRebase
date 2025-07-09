@@ -104,7 +104,7 @@
 #define TRAIT_CURSE_NOC "Curse of Noc" //Cannot use magic and burn up in moonlight
 #define TRAIT_CURSE_DENDOR "Curse of Dendor"//It will do something once I decide what that will be
 #define TRAIT_CURSE_ABYSSOR "Curse of Abyssor" //fears the water and cannot open sleep menu
-#define TRAIT_CURSE_RAVOX "Curse of Ravox" // effect same as ~ -2 (-30% parry -30% dodge -30% accuracy) to all weapon skills
+#define TRAIT_CURSE_RAVOX "Curse of Ravox" // effect same as -2 (-40% parry -40% dodge -40% accuracy) to all weapon skills
 #define TRAIT_CURSE_NECRA "Curse of Necra" //critical weakness and CON nuke
 #define TRAIT_CURSE_XYLIX "Curse of Xylix" //no fortune
 #define TRAIT_CURSE_PESTRA "Curse of Pestra" //less stamina, cannot run and missing nose
