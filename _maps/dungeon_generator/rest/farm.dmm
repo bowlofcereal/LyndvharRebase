@@ -6,7 +6,6 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/cave/wet)
 "aF" = (
-/obj/structure/table/wood/crafted,
 /obj/item/cooking/skewer{
 	pixel_y = -7
 	},
@@ -34,6 +33,9 @@
 /obj/item/kitchen/spoon/iron{
 	pixel_x = 13;
 	pixel_y = -4
+	},
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors)
@@ -88,29 +90,14 @@
 	pixel_y = 4;
 	pixel_x = 2
 	},
-/turf/open/floor/rogue/wood,
+/turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
 "gO" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/cave/wet)
-"hV" = (
-/obj/item/reagent_containers/glass/bucket{
-	pixel_y = 14;
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/glass/bottle/claybottle/whitewine{
-	pixel_x = 8;
-	pixel_y = 10
-	},
-/turf/closed/wall/mineral/rogue/wood,
-/area/rogue/under/tomb/indoors)
 "if" = (
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
-"iS" = (
-/obj/structure/irrigation_channel,
-/turf/open/floor/rogue/dirt,
-/area/rogue/under/tomb/cave/wet)
 "jt" = (
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/blocks,
@@ -128,8 +115,13 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors)
 "lH" = (
-/obj/structure/soil,
-/turf/open/floor/rogue/dirt,
+/obj/effect/decal/mossy{
+	dir = 8
+	},
+/obj/effect/decal/mossy{
+	dir = 4
+	},
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/under/tomb/cave/wet)
 "qB" = (
 /obj/structure/closet/crate/chest/wicker,
@@ -163,19 +155,9 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/cave/wet)
 "tr" = (
-/turf/closed/mineral/rogue,
-/area/rogue/under/tomb/indoors)
-"tz" = (
-/obj/item/millstone,
-/obj/structure/table/wood/crafted,
-/obj/item/storage/roguebag{
-	pixel_x = -10;
-	pixel_y = 19
-	},
-/turf/open/floor/rogue/blocks,
+/turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/tomb/indoors)
 "tE" = (
-/obj/structure/rack/rogue/shelf,
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/reagent_containers/glass/cup{
 	pixel_y = 14;
@@ -194,28 +176,16 @@
 /obj/item/rogueweapon/shovel{
 	pixel_y = -5
 	},
-/turf/open/floor/rogue/wood,
-/area/rogue/under/tomb/indoors)
-"tY" = (
-/obj/structure/vertical_gearbox{
-	dir = 4
-	},
-/turf/open/floor/rogue/blocks,
-/area/rogue/under/tomb/indoors)
-"ys" = (
-/turf/open/floor/rogue/wood,
+/turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
 "za" = (
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors)
-"zM" = (
-/obj/structure/irrigation_channel,
-/obj/structure/fluff/railing/wood,
-/turf/open/floor/rogue/dirt,
-/area/rogue/under/tomb/cave/wet)
 "BU" = (
-/obj/structure/table/wood/crafted,
 /obj/item/cooking/pan,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors)
 "CP" = (
@@ -225,13 +195,12 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb/cave/wet)
 "Dl" = (
-/obj/structure/rack/rogue/shelf,
 /obj/structure/bookcase/random_recipes,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
 "DI" = (
 /obj/item/roguegear,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
 "Eb" = (
 /obj/item/roguegear,
@@ -248,18 +217,21 @@
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/cave/wet)
-"GT" = (
-/obj/structure/fluff/railing/wood,
-/obj/structure/soil,
-/turf/open/floor/rogue/dirt,
-/area/rogue/under/tomb/cave/wet)
 "HL" = (
 /obj/machinery/light/rogue/torchholder/c,
 /obj/item/roguebin/water,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/cave/wet)
 "HV" = (
-/obj/structure/gearbox,
+/obj/structure/table/wood{
+	dir = 10;
+	icon_state = "largetable"
+	},
+/obj/item/storage/roguebag{
+	pixel_x = 2;
+	pixel_y = 13
+	},
+/obj/item/millstone,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors)
 "JU" = (
@@ -269,7 +241,8 @@
 "KL" = (
 /obj/structure/ladder,
 /obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/wood,
+/obj/structure/rack/rogue/shelf,
+/turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
 "KV" = (
 /turf/open/floor/rogue/cobble/mossy,
@@ -292,8 +265,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/tomb/cave/wet)
 "MF" = (
-/obj/structure/pottery_lathe,
-/turf/open/floor/rogue/wood,
+/turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
 "Ny" = (
 /turf/open/water/river{
@@ -315,23 +287,30 @@
 /obj/effect/dungeon_directional_helper/south,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/tomb/cave/wet)
+"QL" = (
+/obj/effect/decal/mossy{
+	dir = 4
+	},
+/obj/effect/decal/mossy{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/tomb/cave/wet)
+"TF" = (
+/obj/item/roguegear,
+/turf/open/floor/rogue/dirt,
+/area/rogue/under/tomb/cave/wet)
 "TL" = (
 /obj/structure/fluff/railing/wood,
 /turf/open/floor/rogue/dirt,
-/area/rogue/under/tomb/cave/wet)
-"Vz" = (
-/obj/structure/waterwheel,
-/turf/open/water/river{
-	dir = 4
-	},
 /area/rogue/under/tomb/cave/wet)
 "Yg" = (
 /obj/structure/ladder,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors)
 "Yh" = (
-/obj/structure/vertical_gearbox,
-/turf/open/floor/rogue/wood,
+/obj/structure/rack/rogue/shelf,
+/turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
 "YB" = (
 /obj/machinery/light/rogue/hearth,
@@ -341,6 +320,17 @@
 "YE" = (
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/cave/wet)
+"YG" = (
+/obj/item/reagent_containers/glass/bottle/claybottle/whitewine{
+	pixel_x = 8;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/turf/closed/wall/mineral/rogue/wood,
+/area/rogue/under/tomb/indoors)
 
 (1,1,1) = {"
 dz
@@ -412,7 +402,7 @@ dz
 "}
 (5,1,1) = {"
 dz
-fw
+TF
 Ny
 Ny
 tr
@@ -449,7 +439,7 @@ dz
 Ny
 YE
 tr
-tY
+za
 za
 za
 za
@@ -463,10 +453,10 @@ fw
 "}
 (8,1,1) = {"
 dz
-Vz
+Ny
 Eb
 Pi
-HV
+za
 za
 za
 za
@@ -484,7 +474,7 @@ fv
 Ny
 tr
 HV
-tz
+za
 le
 YB
 tr
@@ -517,7 +507,7 @@ dz
 fw
 Ny
 Ny
-lH
+QL
 lH
 lH
 lH
@@ -534,11 +524,11 @@ dz
 YE
 Ny
 Ny
-iS
-iS
-iS
-iS
-zM
+fw
+fw
+fw
+fw
+TL
 YE
 fw
 fw
@@ -552,10 +542,10 @@ fw
 fv
 Ny
 Ny
-lH
-lH
-lH
-GT
+fw
+fw
+fw
+TL
 YE
 Mo
 KV
@@ -569,9 +559,9 @@ YE
 fw
 Ny
 Ny
-lH
-lH
-lH
+fw
+fw
+fw
 qB
 KV
 Mo
@@ -689,8 +679,8 @@ gO
 gO
 La
 KL
-ys
-ys
+MF
+MF
 ge
 La
 gO
@@ -704,7 +694,7 @@ dz
 dz
 gO
 gO
-La
+YG
 Yh
 DI
 DI
@@ -721,9 +711,9 @@ gO
 dz
 gO
 gO
-hV
+La
 Dl
-ys
+MF
 if
 if
 aR
@@ -740,7 +730,7 @@ gO
 gO
 La
 tE
-ys
+MF
 if
 KX
 La
