@@ -15,9 +15,16 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "cE" = (
-/obj/structure/table/wood,
 /obj/structure/bars/pipe,
 /obj/item/candle/yellow/lit,
+/obj/structure/table/wood{
+	dir = 4;
+	icon_state = "longtable"
+	},
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81
+	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/tomb/indoors)
 "dA" = (
@@ -45,10 +52,11 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "gi" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/snacks/rogue/breadslice,
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable_mid"
+	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb/indoors)
 "gQ" = (
@@ -81,6 +89,7 @@
 /area/rogue/under/tomb/indoors)
 "iP" = (
 /obj/structure/closet/crate/drawer/inn,
+/obj/effect/spawner/lootdrop/general_loot_low,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "jy" = (
@@ -97,8 +106,15 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "ly" = (
-/obj/structure/table/wood,
 /obj/structure/bars/pipe,
+/obj/structure/table/wood{
+	icon_state = "longtable_mid"
+	},
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81
+	},
+/obj/effect/spawner/lootdrop/general_loot_low,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/tomb/indoors)
 "mC" = (
@@ -158,11 +174,22 @@
 /obj/item/alch/irondust,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
+"td" = (
+/obj/effect/spawner/lootdrop/general_loot_low,
+/obj/structure/table/wood/crafted,
+/turf/open/floor/rogue/ruinedwood/turned,
+/area/rogue/under/tomb/indoors)
+"tG" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/spawner/lootdrop/general_loot_low,
+/turf/open/floor/rogue/ruinedwood/turned,
+/area/rogue/under/tomb/indoors)
 "uk" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/snacks/rogue/breadslice,
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable"
+	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "uJ" = (
@@ -184,7 +211,6 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/tomb)
 "wV" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/breadslice,
 /obj/item/reagent_containers/food/snacks/rogue/breadslice{
 	pixel_y = 3;
@@ -194,13 +220,21 @@
 	pixel_y = 7;
 	pixel_x = 3
 	},
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb/indoors)
 "xM" = (
-/obj/structure/table/wood{
-	dir = 8
-	},
 /obj/structure/bars/pipe,
+/obj/structure/table/wood{
+	dir = 8;
+	icon_state = "longtable"
+	},
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81
+	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/tomb/indoors)
 "xQ" = (
@@ -264,7 +298,7 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "Eo" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/mineral_door/swing_door,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/tomb/indoors)
 "Eq" = (
@@ -307,6 +341,14 @@
 /obj/item/reagent_containers/food/snacks/grown/wheat,
 /obj/item/reagent_containers/food/snacks/grown/wheat,
 /turf/open/floor/rogue/ruinedwood/turned,
+/area/rogue/under/tomb/indoors)
+"Lw" = (
+/obj/structure/table/wood/crafted,
+/obj/effect/spawner/lootdrop/general_loot_mid,
+/turf/open/floor/rogue/ruinedwood/turned,
+/area/rogue/under/tomb/indoors)
+"LG" = (
+/turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/tomb/indoors)
 "Ns" = (
 /obj/structure/mineral_door/wood/violet,
@@ -406,6 +448,10 @@
 /obj/structure/stairs/d{
 	dir = 4
 	},
+/turf/open/floor/rogue/ruinedwood/turned,
+/area/rogue/under/tomb/indoors)
+"Ux" = (
+/obj/effect/spawner/lootdrop/general_loot_low,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "UM" = (
@@ -534,7 +580,7 @@ uJ
 iP
 iK
 iK
-iK
+tG
 uJ
 Rv
 Wu
@@ -957,12 +1003,12 @@ uJ
 uJ
 Yi
 Yi
-UM
-UM
-UM
-UM
-UM
-UM
+LG
+LG
+LG
+LG
+LG
+LG
 Yi
 Yi
 zM
@@ -973,18 +1019,18 @@ Yi
 Yi
 uJ
 jy
-iK
+Ux
 jy
 iK
 uJ
 Yi
 Yi
-UM
+LG
 Eq
 ew
 Ra
 Cl
-UM
+LG
 Yi
 Yi
 zM
@@ -1001,12 +1047,12 @@ iK
 uP
 Yi
 Yi
-UM
+LG
 tb
 rj
 lo
 iK
-UM
+LG
 Yi
 Yi
 zM
@@ -1019,16 +1065,16 @@ uJ
 iK
 fQ
 iK
-iK
+td
 uJ
 Yi
 Yi
-UM
+LG
 zf
 Yr
 Ra
 iK
-UM
+LG
 Yi
 Yi
 zM
@@ -1045,12 +1091,12 @@ iK
 uJ
 Yi
 Yi
-UM
+LG
 Ra
 Ra
 Ra
 Cr
-UM
+LG
 Yi
 Yi
 zM
@@ -1067,12 +1113,12 @@ uJ
 Yi
 Yi
 Yi
-UM
+LG
 Oa
 Cr
 iK
 iK
-UM
+LG
 Yi
 Yi
 zM
@@ -1089,12 +1135,12 @@ Yi
 Yi
 Yi
 Yi
-UM
+LG
 iB
 iK
 Cr
 Cr
-UM
+LG
 Yi
 Yi
 Yi
@@ -1111,12 +1157,12 @@ Yi
 Yi
 Yi
 Yi
-UM
+LG
 aJ
 iK
 iK
 xQ
-UM
+LG
 Yi
 Yi
 Yi
@@ -1125,20 +1171,20 @@ Yi
 zM
 Yi
 Yi
-UM
-UM
-UM
-UM
-UM
-UM
+LG
+LG
+LG
+LG
+LG
+LG
 Yi
 Yi
-UM
-UM
-UM
+LG
+LG
+LG
 HN
-UM
-UM
+LG
+LG
 Yi
 Yi
 zM
@@ -1147,12 +1193,12 @@ zM
 zM
 Yi
 Yi
-UM
+LG
 ek
 mV
 oZ
 RK
-UM
+LG
 Yi
 Yi
 Yi
@@ -1169,7 +1215,7 @@ zM
 zM
 Yi
 Yi
-UM
+LG
 iK
 iK
 iK
@@ -1191,20 +1237,20 @@ zM
 zM
 Yi
 Yi
-UM
+LG
 uP
 iK
 iK
 iK
-UM
+LG
 Yi
 Yi
 Yi
-UM
-UM
+LG
+LG
 iK
-UM
-UM
+LG
+LG
 Yi
 Yi
 zM
@@ -1213,11 +1259,11 @@ zM
 zM
 Yi
 Yi
-UM
+LG
 Uu
 iK
 iK
-iK
+td
 uP
 Yi
 Yi
@@ -1226,7 +1272,7 @@ uP
 uP
 iK
 zU
-UM
+LG
 Yi
 Yi
 zM
@@ -1235,20 +1281,20 @@ zM
 zM
 Yi
 Yi
-UM
-UM
-UM
-UM
-UM
-UM
+LG
+LG
+LG
+LG
+LG
+LG
 Yi
 Yi
 Yi
-UM
+LG
 iK
 Cl
 iK
-UM
+LG
 Yi
 Yi
 zM
@@ -1266,11 +1312,11 @@ Yi
 Yi
 Yi
 Yi
-UM
+LG
+Lw
 iK
 iK
-iK
-UM
+LG
 Yi
 Yi
 zM
@@ -1288,11 +1334,11 @@ Yi
 Yi
 Yi
 Yi
-UM
-UM
-UM
-UM
-UM
+LG
+LG
+LG
+LG
+LG
 Yi
 Yi
 zM
