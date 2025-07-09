@@ -106,7 +106,7 @@
 
 /obj/structure/well/fountain/mana
 	name = "mana fountain"
-	desc = "This fountain produces a strange blue liquid. It seems faintly magical."
+	desc = "This fountain produces a strange blue liquid. It seems faintly magical. Attempts to bottle it seems to cause it to inexplicably turn into water."
 	icon = 'icons/roguetown/misc/64x64.dmi'
 	icon_state = "manafountain"
 	layer = BELOW_MOB_LAYER
@@ -135,20 +135,6 @@
 		return
 	..()
 	
-/obj/structure/well/fountain/mana/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		var/obj/item/reagent_containers/glass/W = I
-		if(W.reagents.holder_full())
-			to_chat(user, span_warning("[W] is full."))
-			return
-		if(do_after(user, 60, target = src))
-			var/list/waterl = list(/datum/reagent/medicine/manapot = 40)
-			W.reagents.add_reagent_list(waterl)
-			to_chat(user, "<span class='notice'>I fill [W] from [src].</span>")
-			playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 80, FALSE)
-			return
-	if(istype(I, /obj/item/reagent_containers/glass))
-	else ..()
 
 /obj/machinery/light/rogue/forge/arcane
 	icon = 'icons/roguetown/misc/forge.dmi'

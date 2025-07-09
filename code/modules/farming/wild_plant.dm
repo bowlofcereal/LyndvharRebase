@@ -85,3 +85,14 @@
 	incoming_type = pick(subtypesof(/datum/plant_def))
 	spread_chance = rand(25, 100)
 	. = ..()
+
+/obj/structure/wild_plant/nospread
+	spread_chance = 0
+
+/obj/structure/wild_plant/nospread/manabloom
+	icon_state = "manabloom2"
+	plant_type = /datum/plant_def/manabloom
+
+/obj/structure/wild_plant/nospread/poppy
+	icon_state = "poppy2"
+	plant_type = /datum/plant_def/poppy
