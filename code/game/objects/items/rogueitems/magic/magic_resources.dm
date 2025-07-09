@@ -53,15 +53,11 @@
 	icon = 'icons/obj/shards.dmi'
 	icon_state = "obsidian"
 	desc = "Volcanic glass cooled from molten lava rapidly."
-	resistance_flags = FLAMMABLE
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/magic/leyline
 	name = "leyline shards"
 	icon_state = "leyline"
 	desc = "A shard of a fractured leyline, it glows with lost power."
-	resistance_flags = FLAMMABLE
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/reagent_containers/food/snacks/grown/manabloom
 	name = "mana bloom"
