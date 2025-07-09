@@ -212,7 +212,11 @@
 
 /obj/item/mimictrinket/attack_self(mob/living/carbon/human/user)
 	revert()
+
 /obj/item/mimictrinket/proc/revert()
+	if(oldicon == null || oldicon_state == null || oldname == null || olddesc == null)
+		return
+	to_chat(usr, span_notice("[src] reverts back to its original form."))
 	icon = oldicon
 	icon_state = oldicon_state
 	name = oldname
