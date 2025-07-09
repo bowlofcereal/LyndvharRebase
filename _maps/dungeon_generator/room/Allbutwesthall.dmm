@@ -1,6 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
 /obj/structure/table/wood{
+	icon_state = "longtable";
 	dir = 8
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -67,7 +68,9 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb/indoors)
 "gn" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	icon_state = "longtable_mid"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "iB" = (
@@ -122,10 +125,11 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb)
 "wK" = (
+/obj/item/clothing/ring/silver,
 /obj/structure/table/wood{
+	icon_state = "longtable";
 	dir = 4
 	},
-/obj/item/clothing/ring/silver,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "xt" = (
@@ -177,7 +181,6 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Is" = (
-/obj/structure/fluff/buysign,
 /obj/structure/fluff/buysign{
 	desc = " Store Closed"
 	},
@@ -208,7 +211,6 @@
 /area/rogue/under/tomb/indoors)
 "Xi" = (
 /obj/structure/rack/rogue,
-/obj/item/clothing/suit/roguetown/armor/leather,
 /obj/item/clothing/under/roguetown/trou/leather{
 	pixel_x = 14;
 	pixel_y = -4
@@ -217,6 +219,7 @@
 	pixel_y = -9;
 	pixel_x = -6
 	},
+/obj/item/clothing/suit/roguetown/armor/leather/cuirass,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "XJ" = (
