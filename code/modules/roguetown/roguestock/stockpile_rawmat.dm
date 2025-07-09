@@ -123,7 +123,7 @@
 	withdraw_price = 5
 	transport_fee = 10
 	export_price = 10
-	stockpile_limit = 25
+	stockpile_limit = 50
 	importexport_amt = 5
 
 /datum/roguestock/stockpile/cloth

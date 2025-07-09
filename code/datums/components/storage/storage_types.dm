@@ -127,6 +127,12 @@
 
 /datum/component/storage/concrete/grid/magebag
 	max_w_class = WEIGHT_CLASS_NORMAL
+	click_gather = TRUE
+	collection_mode = COLLECT_EVERYTHING
+	dump_time = 0
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
+	allow_dump_out = TRUE
 	screen_max_rows = 8
 	screen_max_columns = 5
 
