@@ -52,7 +52,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ha" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "hi" = (
@@ -60,9 +62,11 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "hm" = (
-/obj/structure/table/wood/crafted,
 /obj/item/rogueweapon/huntingknife/cleaver,
 /obj/structure/fluff/walldeco/bigpainting/lake,
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "ih" = (
@@ -70,15 +74,16 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb)
 "is" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
 	pixel_y = -5;
 	pixel_x = 13
 	},
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "jH" = (
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/glass/bottle/rogue/wine/sourwine{
 	pixel_y = 9
 	},
@@ -90,12 +95,18 @@
 	pixel_y = 7;
 	pixel_x = 8
 	},
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "longtable"
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "kl" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage{
 	pixel_y = 4
+	},
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
@@ -121,9 +132,11 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "nW" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
 	pixel_x = 9
+	},
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
@@ -192,10 +205,12 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/tomb)
 "ur" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
 	pixel_x = -6;
 	pixel_y = 16
+	},
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
@@ -208,6 +223,13 @@
 "vh" = (
 /obj/structure/chair/stool/rogue{
 	pixel_x = -5
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
+"wR" = (
+/obj/structure/fluff/walldeco/vinez/r,
+/obj/structure/fluff/railing/border{
+	dir = 9
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
@@ -231,6 +253,12 @@
 "Bz" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush,
 /turf/open/water/bath,
+/area/rogue/under/tomb/indoors)
+"BG" = (
+/obj/structure/table/wood{
+	icon_state = "longtable_mid"
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "BZ" = (
 /obj/machinery/light/rogue/torchholder/l,
@@ -256,7 +284,8 @@
 /area/rogue/under/tomb/indoors)
 "Du" = (
 /obj/structure/table/wood{
-	dir = 4
+	dir = 8;
+	icon_state = "longtable"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
@@ -278,18 +307,27 @@
 	dir = 8
 	},
 /area/rogue/under/tomb)
+"Fq" = (
+/obj/structure/closet/crate/drawer/inn,
+/obj/effect/spawner/lootdrop/general_loot_low/x3,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "Ft" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
+"FP" = (
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
+/obj/effect/spawner/lootdrop/general_loot_low,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "GU" = (
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Ha" = (
-/obj/structure/bed/rogue/inn/wooldouble{
-	pixel_x = 0;
-	pixel_y = -6
-	},
+/obj/structure/bearpelt,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Im" = (
@@ -388,6 +426,13 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
+"SI" = (
+/obj/structure/table/wood{
+	icon_state = "longtable_mid"
+	},
+/obj/effect/spawner/lootdrop/general_loot_low,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "SM" = (
 /obj/structure/mineral_door/wood,
 /obj/item/restraints/legcuffs/beartrap/armed,
@@ -448,9 +493,6 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Zg" = (
-/obj/structure/table/wood{
-	dir = 4
-	},
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
 	pixel_x = -6;
 	pixel_y = 16
@@ -461,6 +503,10 @@
 /obj/item/reagent_containers/glass/cup/wooden/crafted{
 	pixel_x = 4;
 	pixel_y = 14
+	},
+/obj/structure/table/wood{
+	dir = 4;
+	icon_state = "longtable"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
@@ -592,7 +638,7 @@ Qe
 tu
 Im
 Wx
-ha
+FP
 fO
 lU
 MK
@@ -731,9 +777,9 @@ Im
 SM
 Im
 Zg
-Du
-Du
-Du
+BG
+BG
+SI
 Du
 Im
 tu
@@ -1010,17 +1056,17 @@ tP
 Ft
 Fa
 AX
-hi
+Fq
 lU
 lU
 AX
-hi
+Fq
 Xl
 AX
-hi
+Fq
 lU
 AX
-hi
+Fq
 Xl
 AX
 kA
@@ -1186,9 +1232,9 @@ tP
 Ft
 Fa
 AX
-lU
-lU
-lU
+KB
+KB
+uG
 AX
 Oj
 Oj
@@ -1210,7 +1256,7 @@ Fa
 AX
 yH
 yH
-lU
+tN
 AX
 Dx
 lU
@@ -1232,7 +1278,7 @@ Fa
 AX
 Ly
 Ly
-lU
+tN
 AX
 lU
 lU
@@ -1254,9 +1300,9 @@ Fa
 AX
 GU
 tA
-tA
+wR
 AX
-hi
+Fq
 lU
 lU
 dU
