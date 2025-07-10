@@ -5,18 +5,30 @@
 	var/datum/plant_def/plant_type
 	var/spread_chance = 75
 
-/obj/structure/wild_plant/New(loc, datum/plant_def/incoming_type, spread_chance = 75)
-	. = ..()
-	src.plant_type = new incoming_type
 
+/obj/structure/wild_plant/Initialize(mapload, ...)
+	. = ..()
+	if(!plant_type || !istype(plant_type))
+		return
+	plant_type = new plant_type
 	if(prob(spread_chance))
 		try_spread()
 
-	name = name + src.plant_type.name
-	desc = desc + src.plant_type.name
-	icon_state = "[src.plant_type.icon_state]2"
+	name = name + plant_type.name
+	desc = desc + plant_type.name
 
+	pixel_x = rand(-12, 12)
+	pixel_y = rand(-12, 12)
 
+	icon_state = "[plant_type.icon_state]2"
+
+/obj/structure/wild_plant/Destroy()
+	if(istype(plant_type))
+		QDEL_NULL(plant_type)
+	return ..()
+
+/obj/structure/wild_plant/Crossed(mob/living/carbon/human/H)
+	playsound(loc, "plantcross", 80, FALSE, -1)
 
 /obj/structure/wild_plant/proc/try_spread()
 	var/list/dirs = GLOB.cardinals.Copy()
