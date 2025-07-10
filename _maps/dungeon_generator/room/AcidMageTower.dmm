@@ -345,9 +345,9 @@
 /area/rogue/under/tomb/indoors/magic)
 "pd" = (
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_constitution = 15;
-	base_endurance = 15;
-	base_strength = 15;
+	STACON = 15;
+	STAEND = 15;
+	STASTR = 15;
 	candodge = 0
 	},
 /obj/item/clothing/gloves/roguetown/plate/paalloy,
@@ -1336,10 +1336,10 @@
 /obj/item/rogueweapon/sword/falchion,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_constitution = 15;
-	base_endurance = 15;
-	base_speed = 15;
-	base_strength = 14;
+	STACON = 15;
+	STAEND = 15;
+	STASPD = 15;
+	STASTR = 14;
 	candodge = 0
 	},
 /turf/open/floor/rogue/ruinedwood/chevron,
@@ -1404,7 +1404,7 @@
 /obj/item/rogueweapon/shield/buckler/palloy,
 /obj/effect/mapping_helpers/floor_clothing_equipper,
 /mob/living/carbon/human/species/skeleton/npc/no_equipment{
-	base_constitution = 15;
+	STACON = 15;
 	candodge = 0
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
