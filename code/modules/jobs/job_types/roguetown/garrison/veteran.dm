@@ -442,4 +442,4 @@
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC)
-	H.cmode_music = 'sound/music/cmode/antag/combat_deadlyshadows.ogg'
+	H.cmode_music = 'sound/music/cmode/nobility/combat_spymaster.ogg'
