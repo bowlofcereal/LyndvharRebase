@@ -60,6 +60,7 @@
 			head = /obj/item/clothing/head/roguetown/dendormask
 			neck = /obj/item/clothing/neck/roguetown/psicross/dendor
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
+			H.cmode_music = 'sound/music/combat_druid.ogg'
 		if(/datum/patron/divine/necra)
 			head = /obj/item/clothing/head/roguetown/necrahood
 			neck = /obj/item/clothing/neck/roguetown/psicross/necra
@@ -103,6 +104,7 @@
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe
 			neck = /obj/item/clothing/neck/roguetown/luckcharm // For good luck, as Xylix would intend
+			H.cmode_music = 'sound/music/combat_jester.ogg'
 		else
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
 			neck = /obj/item/clothing/neck/roguetown/psicross/astrata
@@ -139,7 +141,7 @@
 		H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE) // digging graves and carrying bodies builds muscles probably.
 		H.cmode_music = 'sound/music/cmode/church/combat_necra.ogg'
 	if(H.patron?.type == /datum/patron/divine/pestra) // Medicine and Healing - better surgeons and alchemists
-		H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE)
 		H.adjust_skillrank(/datum/skill/craft/alchemy, 1, TRUE)
 		ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
 	if(H.patron?.type == /datum/patron/divine/eora) // Beauty and Love - beautiful and can read people pretty well.

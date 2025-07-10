@@ -59,6 +59,7 @@
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC)
 			H.cmode_music = 'sound/music/combat_holy.ogg' // left in bc i feel like monk players want their darktide
+			H.cmode_music = 'sound/music/combat_holy.ogg'
 			switch(H.patron?.type)
 				if(/datum/patron/old_god)
 					cloak = /obj/item/clothing/cloak/psydontabard
@@ -84,6 +85,8 @@
 				if (/datum/patron/divine/eora)
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/eora
 					head = /obj/item/clothing/head/roguetown/eoramask
+				if (/datum/patron/divine/xylix)
+					cloak = /obj/item/clothing/cloak/templar/xylix
 				else
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe //placeholder, anyone who doesn't have cool patron drip sprites just gets generic robes
 					head = /obj/item/clothing/head/roguetown/roguehood
@@ -197,11 +200,11 @@
 			beltr = /obj/item/rogueweapon/huntingknife/idagger/steel/special
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
-			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1)	//Capped to T1 miracles.
+			C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = FALSE, devotion_limit = CLERIC_REQ_2)	//Capped to T2 miracles.
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1,
 				/obj/item/recipe_book/survival = 1,
-				)
+			)
 			H.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -307,7 +310,6 @@
 				if(/datum/patron/divine/dendor)
 					head = /obj/item/clothing/head/roguetown/dendormask
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
-					H.cmode_music = 'sound/music/combat_druid.ogg'
 				if(/datum/patron/divine/necra)
 					head = /obj/item/clothing/head/roguetown/necrahood
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/necra
@@ -317,6 +319,8 @@
 				if (/datum/patron/divine/eora)
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe/eora
 					head = /obj/item/clothing/head/roguetown/eoramask
+				if (/datum/patron/divine/xylix)
+					cloak = /obj/item/clothing/cloak/templar/xylix
 				if(/datum/patron/inhumen/zizo)
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe 
 					head = /obj/item/clothing/head/roguetown/roguehood
@@ -339,6 +343,7 @@
 			neck = /obj/item/clothing/neck/roguetown/psicross/abyssor
 		if(/datum/patron/divine/dendor)
 			neck = /obj/item/clothing/neck/roguetown/psicross/dendor
+			H.cmode_music = 'sound/music/combat_druid.ogg'
 		if(/datum/patron/divine/necra)
 			neck = /obj/item/clothing/neck/roguetown/psicross/necra
 			H.cmode_music = 'sound/music/cmode/church/combat_necra.ogg'
@@ -359,20 +364,9 @@
 			H.cmode_music = 'sound/music/combat_graggar.ogg'
 		if (/datum/patron/inhumen/baotha)
 			H.cmode_music = 'sound/music/combat_baotha.ogg'
-		if(/datum/patron/divine/xylix) // Random pricross for Xylix
-			var/list/psicross_options = list(
-			/obj/item/clothing/neck/roguetown/psicross,
-			/obj/item/clothing/neck/roguetown/psicross/astrata,
-			/obj/item/clothing/neck/roguetown/psicross/noc,
-			/obj/item/clothing/neck/roguetown/psicross/abyssor,
-			/obj/item/clothing/neck/roguetown/psicross/dendor,
-			/obj/item/clothing/neck/roguetown/psicross/necra,
-			/obj/item/clothing/neck/roguetown/psicross/pestra,
-			/obj/item/clothing/neck/roguetown/psicross/ravox,
-			/obj/item/clothing/neck/roguetown/psicross/malum,
-			/obj/item/clothing/neck/roguetown/psicross/eora
-			)
-			neck = pick(psicross_options)
+		if(/datum/patron/divine/xylix)
+			neck = /obj/item/clothing/neck/roguetown/luckcharm
+			H.cmode_music = 'sound/music/combat_jester.ogg'
 		if(/datum/patron/inhumen/zizo,
 	  		/datum/patron/inhumen/matthios,
 	   		/datum/patron/inhumen/graggar,
