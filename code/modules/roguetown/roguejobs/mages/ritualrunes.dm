@@ -520,7 +520,7 @@ GLOBAL_LIST(teleport_runes)
 
 	to_chat(usr, span_hierophant_warning("template retrieving"))
 	var/datum/map_template/temporary = new fortress
-	template =  SSmapping.map_templates[temporary.id]
+	template = SSmapping.map_templates[temporary.id]
 	if(!template)
 		WARNING("Shelter template ([template.id]) not found!")
 		qdel(src)
