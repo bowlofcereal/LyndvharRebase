@@ -109,10 +109,23 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
+"bK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "bO" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/tomb/indoors)
+"bR" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/under/tomb)
 "bT" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/effect/spawner/lootdrop/potion_poisons,
@@ -462,6 +475,13 @@
 /mob/living/carbon/human/species/skeleton/npc/no_equipment,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/tomb/indoors)
+"jW" = (
+/obj/structure/fluff/railing/border{
+	dir = 5;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors/church)
 "kb" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/rogue/torchholder/c,
@@ -492,7 +512,7 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "kD" = (
-/obj/structure/fluff/railing/wood{
+/obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -889,6 +909,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/closed/wall/mineral/rogue/decostone/cand,
 /area/rogue/under/tomb)
+"sb" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "sc" = (
 /obj/structure/barricade,
 /turf/open/floor/rogue/grass,
@@ -1116,8 +1142,10 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "we" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4
+/obj/structure/fluff/railing/border{
+	dir = 4;
+	pixel_x = 0;
+	pixel_y = 0
 	},
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/church)
@@ -1186,6 +1214,14 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
+"yf" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/railing/border{
+	dir = 5;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/ruinedwood/chevron,
+/area/rogue/under/tomb/indoors/church)
 "yo" = (
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/under/tomb/indoors)
@@ -1499,11 +1535,10 @@
 /area/rogue/under/tomb/indoors/church)
 "Ez" = (
 /obj/structure/closet/crate/chest/crate,
-/obj/structure/fluff/railing/wood{
-	dir = 8;
-	pixel_y = -1
-	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/armor,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "EN" = (
@@ -1709,9 +1744,15 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb)
 "IC" = (
-/obj/structure/fluff/railing/wood,
+/obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/tomb)
+"ID" = (
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "IG" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/tomb/indoors)
@@ -1757,10 +1798,10 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "JX" = (
-/obj/structure/fluff/railing/wood{
+/mob/living/simple_animal/hostile/rogue/skeleton/bow,
+/obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/mob/living/simple_animal/hostile/rogue/skeleton/bow,
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/church)
 "JZ" = (
@@ -1968,10 +2009,12 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "OC" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4
-	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/railing/border{
+	dir = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/church)
 "OH" = (
@@ -1983,7 +2026,7 @@
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/tomb/indoors)
 "OP" = (
-/obj/structure/fluff/railing/wood{
+/obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/rogue/ruinedwood/chevron,
@@ -2111,10 +2154,12 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
 "Sj" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4
-	},
 /mob/living/simple_animal/hostile/rogue/skeleton/bow,
+/obj/structure/fluff/railing/border{
+	dir = 4;
+	pixel_x = 0;
+	pixel_y = 0
+	},
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/church)
 "St" = (
@@ -2179,11 +2224,6 @@
 "TY" = (
 /obj/structure/stairs{
 	dir = 8
-	},
-/obj/structure/fluff/railing/wood{
-	dir = 1;
-	pixel_y = 11;
-	pixel_x = -2
 	},
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/church)
@@ -2321,6 +2361,7 @@
 /area/rogue/under/tomb/indoors)
 "Xj" = (
 /obj/structure/mineral_door/wood/violet,
+/obj/effect/spawner/roguemap/beartrap,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/under/tomb/indoors)
 "Xu" = (
@@ -2331,10 +2372,10 @@
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/tomb/indoors/church)
 "Xw" = (
-/obj/structure/fluff/railing/wood{
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/railing/border{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "XD" = (
@@ -2342,7 +2383,7 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/tomb)
 "XJ" = (
-/obj/structure/fluff/railing/wood{
+/obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -2386,7 +2427,7 @@
 /turf/open/water/swamp,
 /area/rogue/under/tomb)
 "Yp" = (
-/obj/structure/fluff/railing/wood{
+/obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -2442,9 +2483,10 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
 "ZL" = (
-/obj/structure/fluff/railing/wood{
+/obj/structure/fluff/railing/border{
 	dir = 4;
-	pixel_x = 1
+	pixel_x = 0;
+	pixel_y = 0
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/tomb)
@@ -3780,11 +3822,11 @@ iI
 Mt
 iI
 rV
-ms
+bK
 XJ
 XJ
 XJ
-lL
+sb
 ms
 ms
 gu
@@ -3824,7 +3866,7 @@ lL
 lL
 Kk
 ZL
-cc
+bR
 cc
 Rm
 cM
@@ -3876,7 +3918,7 @@ XD
 Mt
 iI
 rV
-lL
+ID
 Ez
 Tq
 Tq
@@ -4233,8 +4275,8 @@ OC
 we
 OC
 OC
-DY
-AJ
+yf
+jW
 AJ
 AF
 wu
