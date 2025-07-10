@@ -45,6 +45,13 @@
 "aT" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/tomb/wilds)
+"aY" = (
+/obj/structure/table/wood/crafted{
+	icon_state = "largetable";
+	dir = 9
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "aZ" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/closed/wall/mineral/rogue/decostone,
@@ -86,10 +93,6 @@
 /obj/item/rogueweapon/mace/wsword,
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/tomb/indoors)
-"bJ" = (
-/obj/structure/table/wood/crafted,
-/turf/open/floor/rogue/carpet,
-/area/rogue/under/tomb/indoors/royal)
 "bO" = (
 /obj/structure/trap/chill,
 /turf/open/floor/rogue/cobble,
@@ -99,8 +102,11 @@
 /turf/open/water/swamp/deep,
 /area/rogue/under/tomb/indoors)
 "bX" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/frybirdtato,
+/obj/structure/table/wood/crafted{
+	icon_state = "longtable";
+	dir = 1
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "bZ" = (
@@ -138,8 +144,11 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "cz" = (
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/glass/cup/skull,
+/obj/structure/table/wood{
+	icon_state = "longtable_mid";
+	dir = 1
+	},
 /turf/open/floor/rogue/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "cB" = (
@@ -301,6 +310,13 @@
 /obj/item/natural/glass/shard,
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/indoors/church)
+"ez" = (
+/obj/effect/spawner/lootdrop/roguetown/dungeon/food,
+/obj/structure/table/wood/crafted{
+	icon_state = "longtable"
+	},
+/turf/open/floor/rogue/tile/checker,
+/area/rogue/under/tomb/indoors)
 "eD" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/church,
@@ -335,7 +351,9 @@
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/tomb/indoors/church)
 "eI" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "eL" = (
@@ -356,14 +374,23 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/tomb/indoors)
+"eU" = (
+/obj/effect/spawner/lootdrop/roguetown/dungeon/food,
+/obj/structure/table/wood/crafted{
+	icon_state = "longtable_mid"
+	},
+/turf/open/floor/rogue/tile/checker,
+/area/rogue/under/tomb/indoors)
 "fa" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/roguegrass/pyroclasticflowers,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/wilds)
 "fb" = (
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/glass/cup/golden,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "fe" = (
@@ -406,7 +433,9 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/indoors/church)
 "fH" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors/royal)
 "fT" = (
@@ -670,8 +699,11 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/tomb/cave)
 "jq" = (
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/glass/cup/golden,
+/obj/structure/table/wood{
+	icon_state = "longtable";
+	dir = 1
+	},
 /turf/open/floor/rogue/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "js" = (
@@ -695,8 +727,11 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
 "jx" = (
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/glass/cup/golden,
+/obj/structure/table/wood/crafted{
+	icon_state = "largetable";
+	dir = 4
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "jz" = (
@@ -1001,8 +1036,11 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/indoors/church)
 "og" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry,
+/obj/structure/table/wood/crafted{
+	icon_state = "longtable";
+	dir = 8
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "oh" = (
@@ -1100,8 +1138,10 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb/indoors)
 "pG" = (
-/obj/structure/table/wood,
 /obj/item/natural/feather,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
 "pI" = (
@@ -1117,8 +1157,11 @@
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/under/tomb)
 "pY" = (
-/obj/structure/table/wood/crafted,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
+/obj/structure/table/wood/crafted{
+	icon_state = "largetable";
+	dir = 8
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "qc" = (
@@ -1145,8 +1188,10 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/indoors/church)
 "qp" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "qx" = (
@@ -1240,6 +1285,14 @@
 /obj/item/rogueweapon/surgery/cautery,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
+"sj" = (
+/obj/item/reagent_containers/glass/cup/golden,
+/obj/structure/table/wood/crafted{
+	icon_state = "largetable";
+	dir = 8
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "sk" = (
 /obj/machinery/light/rogue/oven,
 /turf/open/floor/rogue/tile/checker,
@@ -1257,7 +1310,10 @@
 	},
 /area/rogue/under/tomb/indoors)
 "so" = (
-/obj/structure/table/wood/crafted,
+/obj/structure/table/wood/crafted{
+	icon_state = "largetable";
+	dir = 10
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "sp" = (
@@ -1277,7 +1333,9 @@
 /area/rogue/under/tomb/indoors)
 "sv" = (
 /obj/machinery/light/rogue/wallfire/candle/l,
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "sB" = (
@@ -1499,7 +1557,9 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/indoors/church)
 "vl" = (
-/obj/structure/table/wood/crafted,
+/obj/structure/table/wood{
+	icon_state = "longtable"
+	},
 /turf/open/floor/rogue/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "vm" = (
@@ -1636,6 +1696,13 @@
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/wilds)
+"xQ" = (
+/obj/structure/table/wood/crafted{
+	icon_state = "largetable";
+	dir = 6
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/under/tomb/indoors)
 "xU" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/ausbushes/grassybush,
@@ -1905,7 +1972,9 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/under/tomb/wilds)
 "Ce" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Ch" = (
@@ -2140,8 +2209,10 @@
 /turf/open/floor/rogue/churchbrick,
 /area/rogue/under/tomb/indoors)
 "FT" = (
-/obj/structure/table/wood,
 /obj/item/millstone,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "FV" = (
@@ -2544,8 +2615,11 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb/indoors)
 "Ll" = (
-/obj/structure/table/wood/crafted,
 /obj/item/natural/stone,
+/obj/structure/table/wood{
+	icon_state = "longtable_mid";
+	dir = 1
+	},
 /turf/open/floor/rogue/tile/masonic/spiral,
 /area/rogue/under/tomb/indoors/royal)
 "Lm" = (
@@ -2604,8 +2678,11 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb/indoors)
 "Mb" = (
-/obj/structure/table/wood/crafted,
 /obj/item/reagent_containers/glass/cup/skull,
+/obj/structure/table/wood/crafted{
+	icon_state = "largetable";
+	dir = 5
+	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "Mi" = (
@@ -2716,8 +2793,10 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/tomb/indoors/church)
 "NQ" = (
-/obj/structure/table/wood,
 /obj/effect/decal/cleanable/blood,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "NU" = (
@@ -2768,6 +2847,13 @@
 "OE" = (
 /obj/structure/bookcase/random/nonfiction,
 /turf/open/floor/rogue/hexstone,
+/area/rogue/under/tomb/indoors)
+"OH" = (
+/obj/structure/table/wood/crafted{
+	icon_state = "largetable";
+	dir = 4
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "OI" = (
 /obj/item/natural/rock,
@@ -2900,8 +2986,10 @@
 /turf/open/floor/rogue/tile,
 /area/rogue/under/tomb/indoors)
 "Rn" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/poison,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "Rr" = (
@@ -3228,8 +3316,10 @@
 /turf/open/water/swamp,
 /area/rogue/under/tomb/cave)
 "Vz" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/badrecipe,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "VD" = (
@@ -3275,13 +3365,17 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/tomb)
 "VS" = (
-/obj/structure/table/wood,
 /obj/item/paper,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/tomb/indoors)
 "VV" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/meat/bacon,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "Wd" = (
@@ -3390,8 +3484,11 @@
 /area/rogue/under/tomb/indoors)
 "XE" = (
 /obj/machinery/light/rogue/wallfire/candle/l,
-/obj/structure/table/wood,
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince,
+/obj/structure/table/wood/crafted{
+	icon_state = "longtable";
+	dir = 4
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "XJ" = (
@@ -3468,8 +3565,10 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "YH" = (
-/obj/structure/table/wood,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
+/obj/structure/table/wood{
+	icon_state = "tablewood1"
+	},
 /turf/open/floor/rogue/tile/checker,
 /area/rogue/under/tomb/indoors)
 "YI" = (
@@ -3835,8 +3934,8 @@ Mi
 hr
 cK
 cK
-so
-jx
+aY
+sj
 pY
 so
 TA
@@ -3883,9 +3982,9 @@ WU
 cK
 cK
 Mb
-so
+OH
 jx
-so
+xQ
 cK
 GA
 hr
@@ -4071,7 +4170,7 @@ eo
 ba
 ba
 XE
-YH
+eU
 og
 ba
 hr
@@ -4209,7 +4308,7 @@ GY
 Mi
 Mi
 GY
-YH
+ez
 jm
 FT
 VV
@@ -4742,7 +4841,7 @@ hr
 EF
 NK
 Ar
-bJ
+fH
 Ar
 Ar
 Ar
