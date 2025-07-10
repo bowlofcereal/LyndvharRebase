@@ -3,7 +3,14 @@
 /obj/structure/table/wood,
 /obj/item/pestle,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/spawner/lootdrop/general_loot_low/x3,
 /turf/open/floor/rogue/cobble,
+/area/rogue/under/tomb/indoors/rest)
+"aC" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table/wood,
+/obj/effect/spawner/lootdrop/general_loot_low,
+/turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/rest)
 "aS" = (
 /obj/machinery/light/rogue/wallfire/candle/weak/l,
@@ -44,7 +51,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/tomb)
 "fv" = (
-/turf/closed/mineral/rogue,
+/turf/closed/wall/mineral/rogue/stone,
 /area/rogue/under/tomb/indoors/rest)
 "fx" = (
 /obj/effect/decal/cobbleedge{
@@ -80,17 +87,10 @@
 /obj/effect/decal/shadow_floor{
 	dir = 4
 	},
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	pixel_y = 8
+/obj/structure/fluff/railing/border{
+	dir = 4
 	},
 /turf/open/floor/rogue/cobble,
-/area/rogue/under/tomb/indoors/rest)
-"iE" = (
-/obj/machinery/light/rogue/hearth{
-	pixel_x = -32
-	},
-/turf/closed/mineral/rogue,
 /area/rogue/under/tomb/indoors/rest)
 "js" = (
 /turf/closed/wall/mineral/rogue/decostone/cand,
@@ -110,6 +110,12 @@
 "lA" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/tomb)
+"nX" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/under/tomb/indoors/rest)
 "ok" = (
 /obj/structure/mineral_door/wood/red,
 /turf/open/floor/rogue/wood/nosmooth,
@@ -139,6 +145,7 @@
 	pixel_y = 11;
 	pixel_x = -2
 	},
+/obj/effect/spawner/lootdrop/general_loot_mid,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/rest)
 "sk" = (
@@ -205,11 +212,16 @@
 	dir = 1;
 	icon_state = "stonestairs"
 	},
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	pixel_y = 8
+/obj/structure/fluff/railing/border{
+	dir = 4
 	},
 /turf/open/floor/rogue/cobble,
+/area/rogue/under/tomb/indoors/rest)
+"zu" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/rogue/oven/south,
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/rest)
 "zH" = (
 /obj/effect/decal/cobbleedge{
@@ -263,7 +275,7 @@
 /area/rogue/under/tomb/indoors/rest)
 "GS" = (
 /obj/structure/rack/rogue,
-/obj/item/cooking/pan,
+/obj/item/reagent_containers/glass/bucket/pot,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/rest)
 "Ih" = (
@@ -275,7 +287,14 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/tomb/indoors/rest)
 "IF" = (
-/obj/structure/fluff/railing/wood,
+/obj/structure/fluff/railing/border,
+/turf/open/floor/rogue/wood,
+/area/rogue/under/tomb/indoors/rest)
+"JF" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
 /turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/rest)
 "Kz" = (
@@ -298,12 +317,24 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/tomb/indoors/rest)
+"Nc" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/railing/border{
+	dir = 8
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/under/tomb/indoors/rest)
 "OK" = (
-/obj/structure/fluff/railing/wood{
+/obj/structure/fluff/railing/border{
 	dir = 4
 	},
+/obj/structure/table/wood,
+/obj/effect/spawner/lootdrop/general_loot_low/x3,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/rest)
 "Pa" = (
@@ -336,6 +367,12 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors/rest)
+"PL" = (
+/obj/structure/fluff/railing/border{
+	dir = 6
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/under/tomb/indoors/rest)
 "Qh" = (
 /obj/effect/dungeon_directional_helper/west,
 /turf/open/floor/rogue/naturalstone,
@@ -346,8 +383,11 @@
 /area/rogue/under/tomb/indoors/rest)
 "QE" = (
 /obj/structure/table/wood,
-/obj/structure/plasticflaps,
 /obj/effect/decal/shadow_floor,
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81
+	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors/rest)
 "Ra" = (
@@ -404,11 +444,19 @@
 /obj/machinery/light/rogue/wallfire/candle/weak/l,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/tomb/indoors)
+"Ul" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/light/rogue/oven/south,
+/obj/structure/fluff/railing/border{
+	dir = 10
+	},
+/turf/open/floor/rogue/wood,
+/area/rogue/under/tomb/indoors/rest)
 "Vd" = (
-/obj/structure/fluff/railing/wood{
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/fluff/railing/border{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/rogue/wood,
 /area/rogue/under/tomb/indoors/rest)
 "WJ" = (
@@ -421,9 +469,9 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/tomb)
 "WV" = (
-/obj/item/candle/yellow,
-/obj/structure/table/wood,
-/turf/open/floor/rogue/wood,
+/obj/machinery/light/rogue/hearth,
+/obj/item/cooking/pan,
+/turf/open/floor/rogue/blocks,
 /area/rogue/under/tomb/indoors/rest)
 "Xw" = (
 /obj/structure/mineral_door/bars,
@@ -1171,7 +1219,7 @@ Kz
 (13,1,2) = {"
 fv
 fv
-bm
+zu
 WV
 fv
 fv
@@ -1192,10 +1240,10 @@ Kz
 "}
 (14,1,2) = {"
 fv
-iE
-bm
-bm
-bm
+fv
+Ul
+Nc
+JF
 bm
 ke
 rX
@@ -1239,7 +1287,7 @@ fv
 bm
 Rb
 ZJ
-bm
+aC
 xw
 xw
 ok
@@ -1258,9 +1306,9 @@ oZ
 "}
 (17,1,2) = {"
 fv
-Rb
+PL
 Vd
-OK
+nX
 OK
 xw
 RP
@@ -1280,7 +1328,7 @@ oZ
 "}
 (18,1,2) = {"
 fv
-Rb
+PL
 yU
 id
 ME

@@ -26,7 +26,7 @@
 /area/rogue/under/tomb/indoors)
 "aW" = (
 /obj/structure/table/wood{
-	dir = 8
+	icon_state = "longtable"
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
@@ -79,7 +79,8 @@
 /area/rogue/under/tomb/indoors)
 "cC" = (
 /obj/structure/table/wood{
-	dir = 10
+	dir = 10;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/tomb/indoors)
@@ -122,7 +123,8 @@
 /area/rogue/under/tomb)
 "dE" = (
 /obj/structure/table/wood{
-	dir = 10
+	dir = 10;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
@@ -192,7 +194,8 @@
 /area/rogue/under/tomb)
 "hg" = (
 /obj/structure/table/wood{
-	dir = 9
+	dir = 9;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
@@ -235,7 +238,8 @@
 /area/rogue/under/tomb/indoors/magic)
 "ji" = (
 /obj/structure/table/wood{
-	dir = 1
+	dir = 1;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
@@ -268,10 +272,12 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/tomb)
 "kJ" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup{
 	pixel_x = -3;
 	pixel_y = 6
+	},
+/obj/structure/table/wood{
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
@@ -319,7 +325,8 @@
 /area/rogue/under/tomb/indoors)
 "mC" = (
 /obj/structure/table/wood{
-	dir = 5
+	dir = 5;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
@@ -376,20 +383,23 @@
 /turf/open/floor/rogue/blocks/newstone/alt,
 /area/rogue/under/tomb/indoors)
 "od" = (
-/obj/structure/table/wood{
-	dir = 9
-	},
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_x = 4;
 	pixel_y = -7
 	},
+/obj/structure/table/wood{
+	dir = 9;
+	icon_state = "largetable"
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/tomb/indoors)
 "oi" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_y = 3;
 	pixel_x = 6
+	},
+/obj/structure/table/wood{
+	icon_state = "longtable"
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
@@ -417,7 +427,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "pd" = (
-/obj/structure/table/wood,
+/obj/structure/table/wood{
+	icon_state = "longtable_mid"
+	},
 /turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
 "pf" = (
@@ -467,7 +479,8 @@
 /area/rogue/under/tomb/indoors)
 "qD" = (
 /obj/structure/table/wood{
-	dir = 10
+	dir = 10;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
@@ -513,12 +526,13 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/tomb/indoors)
 "tl" = (
-/obj/structure/table/wood{
-	dir = 1
-	},
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_x = -5;
 	pixel_y = 8
+	},
+/obj/structure/table/wood{
+	icon_state = "longtable_mid";
+	dir = 1
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/under/tomb/indoors)
@@ -713,11 +727,12 @@
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/tomb/indoors/magic)
 "BW" = (
-/obj/structure/table/wood{
-	dir = 6
-	},
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_x = -12
+	},
+/obj/structure/table/wood{
+	dir = 6;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
@@ -758,6 +773,7 @@
 /area/rogue/under/tomb/indoors)
 "CJ" = (
 /obj/structure/table/wood{
+	icon_state = "longtable";
 	dir = 1
 	},
 /turf/open/floor/rogue/twig,
@@ -882,7 +898,8 @@
 /area/rogue/under/tomb/indoors)
 "Jc" = (
 /obj/structure/table/wood{
-	dir = 4
+	icon_state = "longtable";
+	dir = 1
 	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
@@ -915,6 +932,7 @@
 /area/rogue/under/tomb/indoors)
 "Ll" = (
 /obj/structure/table/wood{
+	icon_state = "longtable";
 	dir = 8
 	},
 /turf/open/floor/rogue/twig,
@@ -932,10 +950,12 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
 "Mm" = (
-/obj/structure/table/wood,
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_y = -3;
 	pixel_x = 7
+	},
+/obj/structure/table/wood{
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
@@ -979,9 +999,6 @@
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/tomb)
 "NC" = (
-/obj/structure/table/wood{
-	dir = 5
-	},
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_y = -5;
 	pixel_x = -4
@@ -989,6 +1006,10 @@
 /obj/item/reagent_containers/glass/cup/wooden{
 	pixel_y = -14;
 	pixel_x = 2
+	},
+/obj/structure/table/wood{
+	dir = 5;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/tomb/indoors)
@@ -1009,10 +1030,11 @@
 /turf/open/floor/rogue/blocks/newstone/alt,
 /area/rogue/under/tomb/indoors)
 "OZ" = (
-/obj/structure/table/wood{
-	dir = 8
-	},
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
+/obj/structure/table/wood{
+	dir = 8;
+	icon_state = "largetable"
+	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "Pb" = (
@@ -1103,12 +1125,14 @@
 /area/rogue/under/tomb/indoors)
 "Tb" = (
 /obj/structure/table/wood{
-	dir = 1
+	dir = 1;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/under/tomb/indoors)
 "Tz" = (
 /obj/structure/table/wood{
+	icon_state = "longtable";
 	dir = 4
 	},
 /turf/open/floor/rogue/twig,
@@ -1178,10 +1202,11 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/tomb)
 "Wf" = (
-/obj/structure/table/wood{
-	dir = 9
-	},
 /obj/item/reagent_containers/glass/cup/wooden,
+/obj/structure/table/wood{
+	dir = 9;
+	icon_state = "largetable"
+	},
 /turf/open/floor/rogue/carpet,
 /area/rogue/under/tomb/indoors)
 "Wj" = (
@@ -1293,7 +1318,8 @@
 /area/rogue/under/tomb/cave)
 "ZU" = (
 /obj/structure/table/wood{
-	dir = 6
+	dir = 6;
+	icon_state = "largetable"
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/under/tomb/indoors)
