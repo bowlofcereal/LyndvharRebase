@@ -1399,20 +1399,3 @@
 
 /turf/open/floor/rogue/naturalstone/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)
-
-/turf/open/floor/rogue/plank
-	icon_state = "plank"
-	footstep = FOOTSTEP_WOOD
-	barefootstep = FOOTSTEP_HARD_BAREFOOT
-	clawfootstep = FOOTSTEP_WOOD_CLAW
-	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
-	landsound = 'sound/foley/jumpland/woodland.ogg'
-	damage_deflection = 8
-	max_integrity = 1000
-
-/turf/open/floor/rogue/plank/turf_destruction(damage_flag)
-	. = ..()
-	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-
-/turf/open/floor/rogue/plank/h
-	icon_state = "plank2"
