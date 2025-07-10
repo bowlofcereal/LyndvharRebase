@@ -26,3 +26,5 @@
 	clotting_rate = 0.02
 	clotting_threshold = 0.3
 	woundpain = 25
+
+/datum/wound/bruise/dynamic

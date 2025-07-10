@@ -37,6 +37,8 @@
 	sewn_clotting_threshold = 0.1
 	sew_threshold = 75
 
+/datum/wound/slash/dynamic
+
 /datum/wound/slash/disembowel
 	name = "disembowelment"
 	check_name = span_userdanger("<B>GUTS</B>")

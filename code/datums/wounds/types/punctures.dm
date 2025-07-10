@@ -37,6 +37,8 @@
 	sewn_clotting_threshold = 0.25
 	sew_threshold = 100
 
+/datum/wound/puncture/dynamic
+
 /datum/wound/puncture/drilling
 	name = "drilling"
 	check_name = span_bloody("<B>DRILLING</B>")
