@@ -18,6 +18,14 @@
 		/mob/living/carbon/human/species/human/northern/deranged_knight
 	)
 
+/obj/effect/landmark/quest_spawner/Initialize()
+	. = ..()
+	GLOB.quest_landmarks_list += src
+
+/obj/effect/landmark/quest_spawner/Destroy()
+	GLOB.quest_landmarks_list -= src
+	return ..()
+
 /obj/effect/landmark/quest_spawner/proc/generate_quest(datum/quest/new_quest, mob/user)
 	new_quest.quest_receiver_reference = user ? WEAKREF(user) : null
 	new_quest.quest_receiver_name = user ? user.real_name : null
@@ -100,7 +108,7 @@
 
 /obj/effect/landmark/quest_spawner/proc/get_safe_spawn_turf()
 	var/list/possible_landmarks = list()
-	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.landmarks_list)
+	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.quest_landmarks_list)
 		if((quest_difficulty in landmark.quest_difficulty) || (landmark.quest_difficulty in quest_difficulty))
 			possible_landmarks += landmark
 

@@ -380,7 +380,8 @@
 /obj/structure/roguemachine/noticeboard/proc/find_quest_landmark(difficulty, type)
 	// First try to find landmarks that match both difficulty AND type
 	var/list/correctest_landmarks = list()
-	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.landmarks_list)
+	GLOB.quest_landmarks_list = shuffle(GLOB.quest_landmarks_list)
+	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.quest_landmarks_list)
 		if(landmark.quest_difficulty != difficulty || !(type in landmark.quest_type))
 			continue
 
@@ -401,7 +402,7 @@
 
 	// If none found, try landmarks that match just the difficulty
 	var/list/correcter_landmarks = list()
-	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.landmarks_list)
+	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.quest_landmarks_list)
 		if(landmark.quest_difficulty != difficulty)
 			continue
 
