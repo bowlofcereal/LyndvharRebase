@@ -210,7 +210,7 @@
 				if(/datum/patron/inhumen/zizo)
 					H.cmode_music = 'sound/music/combat_cult.ogg'
 			var/weapons = list("Sword", "Mace", "Flail")
-			var/weapon_choice = input("Choose your instrument.", "TAKE UP ARMS") as anything in weapons
+			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
 				if("Sword")
 					beltr = /obj/item/rogueweapon/sword/iron
