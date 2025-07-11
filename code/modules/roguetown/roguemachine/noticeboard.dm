@@ -381,8 +381,20 @@
 	// First try to find landmarks that match both difficulty AND type
 	var/list/correctest_landmarks = list()
 	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.landmarks_list)
-		if(landmark.quest_difficulty == difficulty && (type in landmark.quest_type))
-			correctest_landmarks += landmark
+		if(landmark.quest_difficulty != difficulty || !(type in landmark.quest_type))
+			continue
+
+		var/has_clients_around = FALSE
+		for(var/mob/M in get_hearers_in_view(world.view, landmark))
+			if(!M.client)
+				continue
+
+			has_clients_around = TRUE
+
+		if(has_clients_around)
+			continue
+
+		correctest_landmarks += landmark
 
 	if(length(correctest_landmarks))
 		return pick(correctest_landmarks)
@@ -390,19 +402,27 @@
 	// If none found, try landmarks that match just the difficulty
 	var/list/correcter_landmarks = list()
 	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.landmarks_list)
-		if(landmark.quest_difficulty == difficulty)
-			correcter_landmarks += landmark
+		if(landmark.quest_difficulty != difficulty)
+			continue
+
+		var/has_clients_around = FALSE
+		for(var/mob/M in get_hearers_in_view(world.view, landmark))
+			if(!M.client)
+				continue
+
+			has_clients_around = TRUE
+
+		if(has_clients_around)
+			continue
+
+		correcter_landmarks += landmark
 
 	if(length(correcter_landmarks))
 		return pick(correcter_landmarks)
 
 	// If still none found, return a random landmark as fallback
-	var/list/fallback_landmarks = list()
-	for(var/obj/effect/landmark/quest_spawner/landmark in GLOB.landmarks_list)
-		fallback_landmarks += landmark
-
-	if(length(fallback_landmarks))
-		return pick(fallback_landmarks)
+	if(length(GLOB.landmarks_list))
+		return pick(GLOB.landmarks_list)
 
 	return null
 
