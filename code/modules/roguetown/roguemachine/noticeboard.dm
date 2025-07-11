@@ -420,10 +420,6 @@
 	if(length(correcter_landmarks))
 		return pick(correcter_landmarks)
 
-	// If still none found, return a random landmark as fallback
-	if(length(GLOB.landmarks_list))
-		return pick(GLOB.landmarks_list)
-
 	return null
 
 /obj/structure/roguemachine/noticeboard/proc/turn_in_quest(mob/user)
