@@ -46,6 +46,15 @@
 	desc = ""
 	icon_state = "foodbuff"
 
+/datum/status_effect/buff/tribalism
+	id = "tribalism"
+	effectedstats = list("endurance" = 1, "speed" = 1)
+	duration = 5 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/tribalism
+	name = "Tribalism"
+	desc = "I just saw my kin, and know I am not alone."
+
 /datum/status_effect/buff/druqks
 	id = "druqks"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
@@ -378,7 +387,7 @@
 /datum/status_effect/buff/barkeepbuff
 	id = "barkeepbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/barkeepbuff
-	effectedstats = list("constitution" = 1,"endurance" = 1, "speed" = 1, "strength" = 3) 
+	effectedstats = list("constitution" = 1,"endurance" = 1, "speed" = 1, "strength" = 3)
 
 /datum/status_effect/buff/barkeepbuff/process()
 

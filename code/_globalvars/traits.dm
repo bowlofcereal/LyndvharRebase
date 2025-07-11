@@ -121,6 +121,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		TRAIT_BLACKLEG,
 		TRAIT_PERMAMUTE,
 		TRAIT_MONK_ROBE,
+		TRAIT_TRIBALISM
 	),
 	/obj/item/bodypart = list(
 		"TRAIT_PARALYSIS" = TRAIT_PARALYSIS
