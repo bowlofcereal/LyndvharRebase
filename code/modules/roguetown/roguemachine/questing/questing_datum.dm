@@ -24,6 +24,8 @@
 	var/obj/item/paper/scroll/quest/quest_scroll
 	/// Weak reference to the quest scroll
 	var/datum/weakref/quest_scroll_ref
+	/// List of weakrefs to actual quest items/mobs for reducing overhead of compass.
+	var/list/datum/weakref/tracked_atoms = list()
 
 /datum/quest/Destroy()
 	// Clean up mobs with quest components
@@ -33,17 +35,19 @@
 			M.remove_filter("quest_item_outline")
 			qdel(Q)
 
-	// Clean up items with quest components carefully
-	for(var/obj/item/I in world)
-		var/datum/component/quest_object/Q = I.GetComponent(/datum/component/quest_object)
-		if(Q && Q.quest_ref?.resolve() == src && !QDELETED(I))
-			I.remove_filter("quest_item_outline")
-			qdel(Q)
-			// Only delete the item if it's part of a fetch or courier quest
-			if(quest_type == QUEST_FETCH && istype(I, target_item_type))
-				qdel(I)
-			else if(quest_type == QUEST_COURIER && istype(I, target_delivery_item))
-				qdel(I)
+	for(var/datum/weakref/tracked_weakref in tracked_atoms)
+		var/atom/target_atom = tracked_weakref.resolve()
+		if(QDELETED(target_atom))
+			continue
+
+		// Only delete the item if it's part of a fetch or courier quest
+		if(quest_type == QUEST_FETCH && istype(target_atom, target_item_type))
+			qdel(target_atom)
+		else if(quest_type == QUEST_COURIER && istype(target_atom, target_delivery_item))
+			qdel(target_atom)
+
+		tracked_atoms -= tracked_weakref
+		qdel(tracked_weakref)
 
 	// Clean up references
 	quest_scroll = null
@@ -55,3 +59,6 @@
 		quest_scroll_ref = null
 		
 	return ..()
+
+/datum/quest/proc/add_tracked_atom(atom/movable/to_track)
+	tracked_atoms += WEAKREF(to_track)

@@ -185,33 +185,15 @@
 	var/min_distance = INFINITY
 
 	// Find the appropriate target based on quest type
-	switch(assigned_quest.quest_type)
-		if(QUEST_FETCH, QUEST_COURIER)
-			for(var/datum/component/quest_object/quest_component in GLOB.quest_components)
-				if(quest_component.quest_ref?.resolve() != assigned_quest)
-					continue
+	for(var/datum/weakref/tracked_weakref in assigned_quest.tracked_atoms)
+		var/atom/target_atom = tracked_weakref.resolve()
+		if(QDELETED(target_atom))
+			continue
 
-				var/atom/target_item = quest_component.parent
-				if(QDELETED(target_item))
-					continue
-
-				var/dist = get_dist(user_turf, target_item)
-				if(!target || dist < min_distance)
-					target = target_item
-					min_distance = dist
-		if(QUEST_KILL, QUEST_CLEAR_OUT, QUEST_MINIBOSS)
-			for(var/datum/component/quest_object/quest_component in GLOB.quest_components)
-				if(quest_component.quest_ref?.resolve() != assigned_quest)
-					continue
-
-				var/mob/target_mob = quest_component.parent
-				if(QDELETED(target_mob))
-					continue
-
-				var/dist = get_dist(user_turf, target_mob)
-				if(!target || dist < min_distance)
-					target = target_mob
-					min_distance = dist
+		var/dist = get_dist(user_turf, target_atom)
+		if(!target || dist < min_distance)
+			target = target_atom
+			min_distance = dist
 
 	if(!target || !(target_turf = get_turf(target)))
 		last_compass_direction = "Target location unknown"

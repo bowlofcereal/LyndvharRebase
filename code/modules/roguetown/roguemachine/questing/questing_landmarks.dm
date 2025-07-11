@@ -88,6 +88,7 @@
 	for(var/i in 1 to amount)
 		var/obj/item/new_item = new item_type(spawn_turf)
 		new_item.AddComponent(/datum/component/quest_object, quest)
+		quest.add_tracked_atom(new_item)
 
 /obj/effect/landmark/quest_spawner/proc/spawn_kill_mob(mob_type, datum/quest/quest)
 	for(var/i in 1 to quest.target_amount)
@@ -198,6 +199,7 @@
 	quest.target_delivery_item = contained_item_type
 	delivery_parcel.AddComponent(/datum/component/quest_object, quest)
 	contained_item.AddComponent(/datum/component/quest_object, quest)
+	quest.add_tracked_atom(delivery_parcel)
 
 	return delivery_parcel
 
@@ -210,6 +212,7 @@
 		var/mob/living/new_mob = new mob_type(spawn_turf)
 		new_mob.faction |= "quest"
 		new_mob.AddComponent(/datum/component/quest_object, quest)
+		quest.add_tracked_atom(new_mob)
 		add_quest_faction_to_nearby_mobs(spawn_turf)
 		sleep(1)
 
@@ -224,6 +227,7 @@
 	new_mob.maxHealth *= 2
 	new_mob.health = new_mob.maxHealth
 	add_quest_faction_to_nearby_mobs(spawn_turf)
+	quest.add_tracked_atom(new_mob)
 
 /obj/effect/landmark/quest_spawner/easy
 	name = "easy quest landmark"
