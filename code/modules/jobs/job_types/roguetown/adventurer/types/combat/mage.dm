@@ -6,18 +6,18 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/mage
 	category_tags = list(CTAG_ADVENTURER, CTAG_COURTAGENT)
 	traits_applied = list(TRAIT_OUTLANDER)
-	classes = list("Sorcerer" = "You are a learned mage and a scholar, having spent your life studying the arcane and its ways.", 
-					"Spellblade" = "You are skilled in both the arcyne art and swordsmanship. But you are not a master of either nor could you channel your magick in armor.",			
-					"Spellsinger" = "You belong to a school of bards renowned for their study of both the arcane and the arts.")
+	classes = list("Sorcerer" = "You are a learned mage and a scholar, having spent your life studying the arcane and its ways.",
+					"Spellblade" = "You are skilled in both the arcyne art and swordsmanship. But you are not a master of either nor could you channel your magick in armor.",
+					"Spellsinger" = "You belong to a school of bards renowned for their study of both the arcane and the arts.",
+					"Mageknight" = "You are a mage, trained with weapons and heavier types of armor at the cost of your studying time.",)
 
 /datum/outfit/job/roguetown/adventurer/mage/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_blindness(-3)
-	var/classes = list("Sorcerer", ,"Spellblade", "Spellsinger")
+	var/classes = list("Sorcerer", "Spellblade", "Spellsinger", "Mageknight")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
-	
 		if("Sorcerer")
 			to_chat(H, span_warning("You are a learned mage and a scholar, having spent your life studying the arcane and its ways."))
 			head = /obj/item/clothing/head/roguetown/roguehood/mage
@@ -173,3 +173,51 @@
 					backr = /obj/item/rogue/instrument/viola
 				if("Vocal Talisman")
 					backr = /obj/item/rogue/instrument/vocals
+		if("Mageknight")
+			to_chat(H, span_warning("You are a mage, trained with weapons and heavier types of armor at the cost of your studying time."))
+			head = /obj/item/clothing/head/roguetown/roguehood
+			shoes = /obj/item/clothing/shoes/roguetown/boots
+			pants = /obj/item/clothing/under/roguetown/chainlegs/iron
+			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+			gloves = /obj/item/clothing/gloves/roguetown/leather
+			belt = /obj/item/storage/belt/rogue/leather
+			neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
+			armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron
+			backl = /obj/item/storage/backpack/rogue/satchel
+			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
+			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+			backpack_contents = list(/obj/item/flashlight/flare/torch = 1, /obj/item/recipe_book/survival = 1)
+			if(H.mind)
+				H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+			H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+			H.change_stat("constitution", 2)
+			H.change_stat("strength", 1)
+			H.change_stat("intelligence", 1)
+			H.change_stat("endurance", 1)
+			H.change_stat("speed", -1)
+			H?.mind.adjust_spellpoints(6)
+			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_ARCYNE_T2, TRAIT_GENERIC)
+			switch(H.patron?.type)
+				if(/datum/patron/inhumen/zizo)
+					H.cmode_music = 'sound/music/combat_cult.ogg'
+			var/weapons = list("Sword", "Mace", "Flail")
+			var/weapon_choice = input("Choose your instrument.", "TAKE UP ARMS") as anything in weapons
+			switch(weapon_choice)
+				if("Sword")
+					beltr = /obj/item/rogueweapon/sword/iron
+					H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+				if("Mace")
+					beltr = /obj/item/rogueweapon/mace
+					H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+				if("Flail")
+					beltr = /obj/item/rogueweapon/flail
+					H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
