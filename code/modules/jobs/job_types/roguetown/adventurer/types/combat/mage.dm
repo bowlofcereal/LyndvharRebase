@@ -214,10 +214,10 @@
 			switch(weapon_choice)
 				if("Sword")
 					beltr = /obj/item/rogueweapon/sword/iron
-					H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+					H.adjust_skillrank_up_to(/datum/skill/combat/swords, 3, TRUE)
 				if("Mace")
 					beltr = /obj/item/rogueweapon/mace
-					H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+					H.adjust_skillrank_up_to(/datum/skill/combat/maces, 3, TRUE)
 				if("Flail")
 					beltr = /obj/item/rogueweapon/flail
-					H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+					H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 3, TRUE)
