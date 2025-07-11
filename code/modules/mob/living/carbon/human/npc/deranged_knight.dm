@@ -224,7 +224,6 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 
 /datum/outfit/job/roguetown/quest_miniboss/matthios/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	H.adjust_skillrank(/datum/skill/combat/whipsflails, 5, TRUE)
 
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/full/matthios
 	pants = /obj/item/clothing/under/roguetown/platelegs/matthios
@@ -238,7 +237,6 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 
 /datum/outfit/job/roguetown/quest_miniboss/zizo/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/full/zizo
 	pants = /obj/item/clothing/under/roguetown/platelegs/zizo
@@ -252,7 +250,6 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 
 /datum/outfit/job/roguetown/quest_miniboss/graggar/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	H.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
 
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/fluted/graggar
 	pants = /obj/item/clothing/under/roguetown/platelegs/graggar
@@ -268,7 +265,6 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 
 /datum/outfit/job/roguetown/quest_miniboss/blacksteel/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/modern/blacksteel_full_plate
 	pants = /obj/item/clothing/under/roguetown/platelegs/blacksteel/modern
@@ -283,7 +279,6 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 
 /datum/outfit/job/roguetown/quest_miniboss/hedge_knight/pre_equip(mob/living/carbon/human/H)
 	. = ..()
-	H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/full/fluted
 	pants = /obj/item/clothing/under/roguetown/platelegs
