@@ -57,7 +57,7 @@
 	if(!assigned_quest.quest_receiver_reference)
 		. += span_notice("This quest hasn't been claimed yet. Open it to claim it for yourself!")
 	else if(assigned_quest.complete)
-		. += span_notice("\nThis quest is complete! Return it to the Quest Book to claim your reward.")
+		. += span_notice("\nThis quest is complete! Return it to the Notice Board to claim your reward.")
 		. += span_info("\nPlace it on the marked area next to the book.")
 	else
 		. += span_notice("\nThis quest is still in progress.")
@@ -144,7 +144,7 @@
 	
 	if(assigned_quest.complete)
 		scroll_text += "<br><center><b>QUEST COMPLETE</b></center>"
-		scroll_text += "<br><b>Return this scroll to the Quest Book to claim your reward!</b>"
+		scroll_text += "<br><b>Return this scroll to the Notice Board to claim your reward!</b>"
 		scroll_text += "<br><i>Place it on the marked area next to the book.</i>"
 	else
 		scroll_text += "<br><i>The magic in this scroll will update as you progress.</i>"

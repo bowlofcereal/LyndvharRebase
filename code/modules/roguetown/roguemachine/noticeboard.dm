@@ -25,7 +25,7 @@
 /obj/structure/roguemachine/noticeboard/Initialize()
 	. = ..()
 	SSroguemachine.noticeboards += src
-	input_point = locate(x + 1, y, z)
+	input_point = locate(x, y - 1, z)
 	var/obj/effect/decal/marker_export/marker = new(get_turf(input_point))
 	marker.desc = "Place completed quest scrolls here to turn them in."
 	marker.layer = ABOVE_OBJ_LAYER
