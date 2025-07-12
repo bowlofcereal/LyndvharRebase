@@ -48,6 +48,7 @@
 
 /datum/status_effect/buff/tribalism
 	id = "tribalism"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/tribalism
 	effectedstats = list("endurance" = 1, "speed" = 1)
 	duration = 5 MINUTES
 
