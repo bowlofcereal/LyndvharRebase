@@ -569,11 +569,11 @@ GLOBAL_VAR(restart_counter)
 	if(!announce_channel)
 		return
 
-	var/round_duration = SSticker ? round((world.time-SSticker.round_start_time)/10) : 0
+	var/round_duration_timestamp = gameTimestamp("hh:mm:ss", world.time - SSticker.round_start_time)
 
 	var/datum/tgs_chat_embed/structure/embed = new()
 	embed.title = "Конец!"
-	embed.description = "История длилась [round_duration]."
+	embed.description = "История длилась [round_duration_timestamp]."
 	embed.colour = "#9f5255"
 	embed.footer = new(GLOB.rogue_round_id)
 
