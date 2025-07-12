@@ -54,6 +54,7 @@
 /atom/movable/screen/alert/status_effect/buff/tribalism
 	name = "Tribalism"
 	desc = "I just saw my kin, and know I am not alone."
+	icon_state = "buff"
 
 /datum/status_effect/buff/druqks
 	id = "druqks"
