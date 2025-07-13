@@ -129,8 +129,8 @@
 		"Chyerno" = SKIN_COLOR_CHYERNO,
 		"Drema"	= SKIN_COLOR_DREMA,
 		"Chir"	= SKIN_COLOR_CHIR,
-		"GLASYA"	= SKIN_COLOR_GLASYA,
-		"ASMODEUS"	= SKIN_COLOR_ASMODEUS
+		"Glasya"	= SKIN_COLOR_GLASYA,
+		"Asmodeus"	= SKIN_COLOR_ASMODEUS
 	)
 
 /datum/species/tieberian/get_hairc_list()
