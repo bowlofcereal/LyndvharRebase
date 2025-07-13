@@ -41,7 +41,7 @@
 	if(isliving(target))
 		var/mob/living/H = target
 		if((H.job in list("Templar", "Acolyte", "Priest", "Priestess")))
-			visible_message(span_warning("[src] fizzles on contact with [H]!"))
+			visible_message(span_warning("[src]'s power brushes off of [H] with no harm!"))
 			playsound(get_turf(H), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
