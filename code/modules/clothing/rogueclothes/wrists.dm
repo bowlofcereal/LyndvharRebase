@@ -156,7 +156,7 @@
 
 /obj/item/clothing/wrists/roguetown/splintarms/iron
 	name = "splint bracers"
-	desc = "splint bracers, pauldrons and a set of metal couters, designed to protect the arms while still providing almost complete free range of movement, these ones are made with iron."
+	desc = "A pair of leather sleeves backed with iron splints, couters, and shoulderpieces that protect your arms and remain decently light."
 	body_parts_covered = ARMS
 	icon_state = "ironsplintarms"
 	item_state = "ironsplintarms"
