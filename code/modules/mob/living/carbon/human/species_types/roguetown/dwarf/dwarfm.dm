@@ -21,7 +21,7 @@
 	Though they are well adapted to seeing in the dark, and a near-zealous \
 	cultural appreciation of alcohol has made them heal quicker whilst under \
 	it's influence. Each dwarf hails from a ancient fortress named after the \
-	most plentiful mineral.<br>\
+	most plentiful mineral, and almost all of them know the basics of mining.<br>\
 	(+1 Constitution, +1 Endurance)"
 
 	skin_tone_wording = "Dwarf Fortress"
@@ -144,3 +144,8 @@
 
 /datum/species/dwarf/mountain/random_surname()
 	return " [pick(world.file2list("strings/rt/names/dwarf/dwarmlast.txt"))]"
+
+/datum/species/dwarf/mountain/on_species_gain(mob/living/carbon/C, datum/species/old_species)
+	..()
+	H.adjust_skillrank(/datum/skill/labor/mining, 1, TRUE)
+	
