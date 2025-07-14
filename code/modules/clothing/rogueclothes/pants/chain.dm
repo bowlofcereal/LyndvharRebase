@@ -47,7 +47,7 @@
 
 /obj/item/clothing/under/roguetown/splintlegs/iron
 	name = "Splint leggings"
-	desc = "Splint maille and leather pants mixed together, they provide decent protection allowing you to move, jump and run away from better armed enemies."
+	desc = "A pair of leather pants backed with iron splints, offering superior protection while remaining lightweight."
 	icon_state = "ironsplintlegs"
 	item_state = "ironsplintlegs"
 	max_integrity = ARMOR_INT_LEG_IRON_CHAIN
