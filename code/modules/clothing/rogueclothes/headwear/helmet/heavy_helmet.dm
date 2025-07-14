@@ -583,7 +583,7 @@
 	AddComponent(/datum/component/adjustable_clothing, (HEAD|EARS|HAIR), (HIDEEARS|HIDEHAIR), null, 'sound/items/visor.ogg', null, UPD_HEAD)	//Standard helmet
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron
-	name = "iron bucket"
+	name = "iron bucket helm"
 	desc = "A helmet which covers the whole of the head. Offers excellent protection while makes your breathing way more difficult."
 	icon_state = "ironplate"
 	item_state = "ironplate"
