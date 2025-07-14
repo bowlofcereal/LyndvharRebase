@@ -584,7 +584,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron
 	name = "iron bucket helm"
-	desc = "A helmet which covers the whole of the head. Offers excellent protection while makes your breathing way more difficult."
+	desc = "A helmet that covers your entire head, offering good protection while making breathing a difficult ordeal."
 	icon_state = "ironplate"
 	item_state = "ironplate"
 	emote_environment = 3
