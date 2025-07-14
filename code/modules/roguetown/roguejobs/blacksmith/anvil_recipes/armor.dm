@@ -334,7 +334,7 @@
 	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/splintarms
-	name = "splint bracers (+1 leather bracers)" //you modify the bracers to have splints and cover the arm way more
+	name = "Splinted Bracers (+1 leather bracers)" //you modify the bracers to have splints and cover the arm way more
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/clothing/wrists/roguetown/bracers/leather)
 	created_item = /obj/item/clothing/wrists/roguetown/splintarms/iron
