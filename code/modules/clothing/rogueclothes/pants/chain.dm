@@ -46,7 +46,7 @@
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_COAT_STEP)
 
 /obj/item/clothing/under/roguetown/splintlegs/iron
-	name = "Splint leggings"
+	name = "splinted leggings"
 	desc = "A pair of leather pants backed with iron splints, offering superior protection while remaining lightweight."
 	icon_state = "ironsplintlegs"
 	item_state = "ironsplintlegs"
