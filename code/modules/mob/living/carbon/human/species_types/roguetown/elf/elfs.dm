@@ -181,4 +181,4 @@
 
 /datum/species/elf/wood/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
-	H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+	C.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
