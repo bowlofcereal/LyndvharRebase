@@ -39,7 +39,7 @@
 
 /obj/item/clothing/neck/roguetown/coif/padded
 	name = "padded coif"
-	desc = "Cheap and easy to make. It's better than leaving your head exposed."
+	desc = "A cheap and simple gambeson coif meant to be worn on its own or under a helmet. It's better than nothing."
 	icon_state = "ccoif"
 	item_state = "ccoif"
 	color = null
