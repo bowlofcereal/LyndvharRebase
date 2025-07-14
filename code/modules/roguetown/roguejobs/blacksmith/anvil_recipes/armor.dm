@@ -852,7 +852,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/splintarms
-	name = "Brigandine bracers (+1 leather bracers)" 
+	name = "Brigandine Bracers (+1 leather bracers)" 
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/clothing/wrists/roguetown/bracers/leather)
 	created_item = /obj/item/clothing/wrists/roguetown/splintarms
