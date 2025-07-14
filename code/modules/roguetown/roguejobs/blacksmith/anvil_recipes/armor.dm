@@ -301,7 +301,7 @@
 	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/splintlegs
-	name = "Splint Chausses (+1 leather pants)"
+	name = "Splinted Chausses (+1 leather pants)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/clothing/under/roguetown/trou/leather)//basically you just add a lot of iron bits to the pants
 	created_item = /obj/item/clothing/under/roguetown/splintlegs/iron
