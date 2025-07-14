@@ -109,11 +109,11 @@
 	icon_state = "light_brigandine"
 	blocksound = SOFTHIT
 	body_parts_covered = COVERAGE_TORSO
-	armor = ARMOR_CUIRASS
-	max_integrity = ARMOR_INT_CHEST_MEDIUM_BRIGANDINE
-	smeltresult = /obj/item/ingot/iron
+	armor = ARMOR_LEATHER_STUDDED
+	max_integrity = ARMOR_INT_CHEST_MEDIUM_SCALE//less durability than a cuirass
+	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 40
-	armor_class = ARMOR_CLASS_MEDIUM
+	armor_class = ARMOR_CLASS_LIGHT//steel version of the studded leather armor now, highly nerfed
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/light/attack_right(mob/user)
