@@ -388,7 +388,7 @@
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/knight/iron
 
 /datum/anvil_recipe/armor/iron/bucket
-	name = "bucket Helmet (+1 Iron)"
+	name = "Iron Bucket Helmet (+1 Iron)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/ingot/iron)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron
