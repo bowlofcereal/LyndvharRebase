@@ -141,7 +141,7 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Mookmania, TrueType;}
 .reptile				{font-family: "Kautiva Cyrillic Black", Mookmania; font-size: 120%;}
 .grenzelhoftian			{font-family: "ALOT Gutenberg B Normal", Mookmania; font-size: 120%;}
 .kazengunese 			{font-family: "Yuji Boku", Mookmania;}
-.otavan					{font-family: "Deutsch Gothic", "Mookmania"; font-size: 200%;}
+.otavan					{font-family: "Deutsch Gothic", "Mookmania";}
 .etruscan				{font-family: "Feronia", "Mookmania"; font-size: 100%;}
 .gronnic				{font-family: "Jorvik Informal", "Mookmania"; font-size: 100%;}
 .aavnic					{font-family: "Romeodn", "Mookmania"; font-size: 100%;}
