@@ -155,7 +155,7 @@ SUBSYSTEM_DEF(vote)
 					log_game("LOG VOTE: ROUNDVOTEEND [REALTIMEOFDAY]")
 					to_chat(world, "\n<font color='purple'>[ROUND_END_TIME_VERBAL]</font>")
 					SSgamemode.roundvoteend = TRUE
-					SSgamemode.round_ends_at = GLOB.round_timer + ROUND_END_TIME
+					SSgamemode.round_ends_at = (world.time - SSticker.round_start_time) + ROUND_END_TIME
 					world.TgsAnnounceVoteEndRound()
 			if("storyteller")
 				SSgamemode.storyteller_vote_result(.)
