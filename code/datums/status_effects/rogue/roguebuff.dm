@@ -57,6 +57,26 @@
 	desc = "I just saw my kin, and know I am not alone."
 	icon_state = "buff"
 
+/datum/status_effect/buff/burstofspeed
+	id = "burstofspeed"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/burstofspeed
+	duration = 0.5 SECONDS
+	var/speed_modifier_id
+
+/datum/status_effect/buff/burstofspeed/on_apply()
+	. = ..()
+	speed_modifier_id = "burstofspeed"
+	owner.add_movespeed_modifier(speed_modifier_id, TRUE, 100, override = TRUE, multiplicative_slowdown = -1)
+
+/datum/status_effect/buff/burstofspeed/on_remove()
+	owner.remove_movespeed_modifier(speed_modifier_id)
+	return ..()	
+
+/atom/movable/screen/alert/status_effect/buff/burstofspeed
+	name = "Burst of speed"
+	desc = "I am the fastest!"
+	icon_state = "buff"
+
 /datum/status_effect/buff/druqks
 	id = "druqks"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
