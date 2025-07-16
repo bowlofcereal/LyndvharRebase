@@ -58,6 +58,8 @@
 	var/mob/living/carbon/human/H = current
 	if(istype(H) && istype(H.dna?.species, /datum/species/human/northern)) //Humen xp bonus
 		amt *= 1.3
+	if(istype(H) && istype(H.dna?.species, /datum/species/human/halfelf)) //half elf xp bonus
+		amt *= 1.2
 	skill_experience[S] = max(0, skill_experience[S] + amt) //Prevent going below 0
 	var/old_level = known_skills[S]
 	switch(skill_experience[S])
