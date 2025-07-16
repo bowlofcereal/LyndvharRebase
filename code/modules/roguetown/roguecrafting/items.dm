@@ -211,8 +211,8 @@
 /datum/crafting_recipe/roguetown/survival/mantrap
 	name = "mantrap"
 	result = list(
-		/obj/item/restraints/legcuffs/beartrap,
-		/obj/item/restraints/legcuffs/beartrap,
+		/obj/item/restraints/legcuffs/beartrap/crafted,
+		/obj/item/restraints/legcuffs/beartrap/crafted,
 		)
 	reqs = list(
 		/obj/item/grown/log/tree/small = 1,
