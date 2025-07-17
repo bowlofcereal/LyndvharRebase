@@ -301,7 +301,7 @@
 	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/splintlegs
-	name = "Splint Chausses (+1 leather pants)"
+	name = "Splinted Chausses (+1 leather pants)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/clothing/under/roguetown/trou/leather)//basically you just add a lot of iron bits to the pants
 	created_item = /obj/item/clothing/under/roguetown/splintlegs/iron
@@ -334,7 +334,7 @@
 	craftdiff = 0
 
 /datum/anvil_recipe/armor/iron/splintarms
-	name = "splint bracers (+1 leather bracers)" //you modify the bracers to have splints and cover the arm way more
+	name = "Splinted Bracers (+1 leather bracers)" //you modify the bracers to have splints and cover the arm way more
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/clothing/wrists/roguetown/bracers/leather)
 	created_item = /obj/item/clothing/wrists/roguetown/splintarms/iron
@@ -388,7 +388,7 @@
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/knight/iron
 
 /datum/anvil_recipe/armor/iron/bucket
-	name = "bucket Helmet (+1 Iron)"
+	name = "Iron Bucket Helmet (+1 Iron)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/ingot/iron)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/bucket/iron
@@ -852,7 +852,7 @@
 	craftdiff = 2
 
 /datum/anvil_recipe/armor/steel/splintarms
-	name = "Brigandine bracers (+1 leather bracers)" 
+	name = "Brigandine Bracers (+1 leather bracers)" 
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/clothing/wrists/roguetown/bracers/leather)
 	created_item = /obj/item/clothing/wrists/roguetown/splintarms

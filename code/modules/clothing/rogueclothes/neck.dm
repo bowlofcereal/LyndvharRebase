@@ -55,7 +55,7 @@
 
 /obj/item/clothing/neck/roguetown/coif/heavypadding
 	name = "heavy padded coif"
-	desc = "Cheap and easy to make, used on poor soldiers this coif keeps your face warm and covered, pair with a helmet."
+	desc = "A heavier padded coif meant to be worn on its own or under a helmet. Layered properly, it can last through even the busiest of daes."
 	icon_state = "fullpadded"
 	item_state = "fullpadded"
 	color = null
