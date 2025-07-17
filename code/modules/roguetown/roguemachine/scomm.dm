@@ -20,7 +20,7 @@
 	var/obj/structure/roguemachine/scomm/called_by = null
 	var/spawned_rat = FALSE
 	var/garrisonline = FALSE
-	var/bad_words = list("Zizo", "Zezus Psyst")
+	var/bad_words = list("Zizo", "Graggar", "Boatha", "Matthios", "Zezus Psyst")
 
 /obj/structure/roguemachine/scomm/OnCrafted(dirin, mob/user)
 	. = ..()
@@ -363,7 +363,7 @@
 	var/speaking = TRUE
 	var/messagereceivedsound = 'sound/misc/scom.ogg'
 	var/hearrange = 1 // change to 0 if you want your special scomstone to be only hearable by wearer
-	var/bad_words = list("Zizo", "Zezus Psyst")
+	var/bad_words = list("Zizo", "Graggar", "Boatha", "Matthios", "Zezus Psyst")
 	drop_sound = 'sound/foley/coinphy (1).ogg'
 	sellprice = 100
 	grid_width = 32
