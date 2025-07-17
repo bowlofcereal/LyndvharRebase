@@ -29,7 +29,6 @@
 	item_state = "ironplate"
 	boobed = FALSE	//the armor just looks better with this, makes sense and is 8 sprites less
 	max_integrity = ARMOR_INT_CHEST_PLATE_IRON
-	armor_class = ARMOR_CLASS_MEDIUM//is a halfplate, not a fullplate
 	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/suit/roguetown/armor/plate/aalloy
