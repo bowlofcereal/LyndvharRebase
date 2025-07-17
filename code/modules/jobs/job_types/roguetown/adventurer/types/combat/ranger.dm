@@ -36,6 +36,7 @@
 				/obj/item/bait = 1,
 				/obj/item/rogueweapon/huntingknife = 1,
 				/obj/item/recipe_book/survival = 1,
+				/obj/item/rogueweapon/scabbard/sheath = 1
 				)
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
@@ -90,6 +91,7 @@
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1,
 				/obj/item/recipe_book/survival = 1,
+				/obj/item/rogueweapon/scabbard/sheath = 1
 				)
 			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
@@ -129,6 +131,7 @@
 				/obj/item/bomb = 4,
 				/obj/item/rogueweapon/huntingknife = 1,
 				/obj/item/recipe_book/survival = 1,
+				/obj/item/rogueweapon/scabbard/sheath = 1
 				)
 			H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
@@ -160,6 +163,7 @@
 			backpack_contents = list(
 				/obj/item/rogueweapon/huntingknife = 1,
 				/obj/item/flashlight/flare/torch/lantern = 1,
+				/obj/item/rogueweapon/scabbard/sheath = 1
 				)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE) // Base skill, if not wanted, pick another weapon.
