@@ -31,3 +31,5 @@
 	can_sew = TRUE
 	can_cauterize = TRUE
 	passive_healing = 0
+
+/datum/wound/bite/dynamic

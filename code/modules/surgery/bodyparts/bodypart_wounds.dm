@@ -135,56 +135,32 @@
 		if(istype(user.rmb_intent, /datum/rmb_intent/weak) || bclass == BCLASS_PEEL)
 			do_crit = FALSE
 	testing("bodypart_attacked_by() dam [dam]")
-	var/added_wound
-	switch(bclass) //do stuff but only when we are a blade that adds wounds
-		if(BCLASS_SMASH, BCLASS_BLUNT)
-			switch(dam)
-				if(20 to INFINITY)
-					added_wound = /datum/wound/bruise/large
-				if(10 to 20)
-					added_wound = /datum/wound/bruise
-				if(1 to 10)
-					added_wound = /datum/wound/bruise/small
-		if(BCLASS_CUT, BCLASS_CHOP)
-			switch(dam)
-				if(20 to INFINITY)
-					added_wound = /datum/wound/slash/large
-				if(10 to 20)
-					added_wound = /datum/wound/slash
-				if(1 to 10)
-					added_wound = /datum/wound/slash/small
-		if(BCLASS_STAB, BCLASS_PICK)
-			switch(dam)
-				if(20 to INFINITY)
-					added_wound = /datum/wound/puncture/large
-				if(10 to 20)
-					added_wound = /datum/wound/puncture
-				if(1 to 10)
-					added_wound = /datum/wound/puncture/small
-		if(BCLASS_LASHING)
-			switch(dam)
-				if(20 to INFINITY)
-					added_wound = /datum/wound/lashing/large
-				if(10 to 20)
-					added_wound = /datum/wound/lashing
-				if(1 to 10)
-					added_wound = /datum/wound/lashing/small
-		if(BCLASS_BITE)
-			switch(dam)
-				if(20 to INFINITY)
-					added_wound = /datum/wound/bite/large
-				if(10 to 20)
-					added_wound = /datum/wound/bite
-				if(1 to 10)
-					added_wound = /datum/wound/bite/small
-	if(added_wound)
-		added_wound = add_wound(added_wound, silent, crit_message)
+
+	manage_dynamic_wound(bclass, dam)
+
 	if(do_crit)
 		var/crit_attempt = try_crit(bclass, dam, user, zone_precise, silent, crit_message)
 		if(crit_attempt)
 			return crit_attempt
 	return added_wound
 
+/obj/item/bodypart/proc/add_dynamic_wound()
+
+/obj/item/bodypart/proc/manage_dynamic_wound(bclass, dam)
+	var/woundtype
+	switch(bclass)
+		if(BCLASS_BLUNT)
+			woundtype = /datum/wound/bruise/dynamic
+		if(BCLASS_BITE)
+			woundtype = /datum/wound/bite/dynamic
+		if(BCLASS_CHOP, BCLASS_CUT)
+			woundtype = /datum/wound/slash/dynamic
+		if(BCLASS_STAB, BCLASS_PICK, BCLASS_PIERCE)
+			woundtype = /datum/wound/puncture/dynamic
+	var/datum/wound/dynwound = has_wound(woundtype)
+	if()
+
+/obj/item/bodypart/proc/remove_dynamic_wound()
 /// Behemoth of a proc used to apply a wound after a bodypart is damaged in an attack
 /obj/item/bodypart/proc/try_crit(bclass = BCLASS_BLUNT, dam, mob/living/user, zone_precise = src.body_zone, silent = FALSE, crit_message = FALSE)
 	if(!bclass || !dam || (owner.status_flags & GODMODE))
