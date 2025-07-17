@@ -6,6 +6,10 @@
 	throwforce = 0
 	w_class = WEIGHT_CLASS_TINY
 
+/obj/item/natural/dirtclod/Initialize()
+	. = ..()
+	icon_state = "clod[rand(1,2)]"
+
 /obj/item/natural/dirtclod/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/rogueweapon/shovel))
 		var/obj/item/rogueweapon/shovel/S = W
@@ -15,7 +19,7 @@
 			S.heldclod = src
 			W.update_icon()
 			return
-	..()
+	return ..()
 
 /obj/item/natural/dirtclod/Moved(oldLoc, dir)
 	..()

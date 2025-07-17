@@ -1,10 +1,11 @@
+/*
 /datum/component/personal_crafting/Initialize()
 	if(!ismob(parent))
 		return COMPONENT_INCOMPATIBLE
 	var/mob/living/L = parent
 	L.craftingthing = src
 //	RegisterSignal(parent, COMSIG_MOB_CLIENT_LOGIN, PROC_REF(create_mob_button))
-/*
+
 /datum/component/personal_crafting/proc/create_mob_button(mob/user, client/CL)
 	var/datum/hud/H = user.hud_used
 	var/atom/movable/screen/craft/C = new()
@@ -27,8 +28,17 @@
 	var/display_craftable_only = TRUE
 	var/display_compact = TRUE
 
+/datum/component/personal_crafting/Initialize()
+	if(!ismob(parent))
+		return COMPONENT_INCOMPATIBLE
+	var/mob/living/L = parent
+	L.craftingthing = src
 
-
+/datum/component/personal_crafting/Destroy(force)
+	if(parent)
+		var/mob/living/L = parent
+		L.craftingthing = null
+	return ..()
 
 /*	This is what procs do:
 	get_environment - gets a list of things accessable for crafting by user
@@ -38,9 +48,6 @@
 	construct_item - takes a recipe and a user, call all the checking procs, calls do_after, checks all the things again, calls del_reqs, creates result, calls CheckParts of said result with argument being list returned by deel_reqs
 	del_reqs - takes recipe and a user, loops over the recipes reqs var and tries to find everything in the list make by get_environment and delete it/add to parts list, then returns the said list
 */
-
-
-
 
 /datum/component/personal_crafting/proc/check_contents(datum/crafting_recipe/R, list/contents)
 	contents = contents["other"]

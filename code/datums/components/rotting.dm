@@ -20,8 +20,8 @@
 
 /datum/component/rot/Destroy()
 	if(soundloop)
-		soundloop.stop()
-	. = ..()
+		QDEL_NULL(soundloop)
+	return ..()
 
 /datum/component/rot/process()
 

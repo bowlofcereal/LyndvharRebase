@@ -407,6 +407,7 @@
 /atom/movable/Destroy(force)
 	QDEL_NULL(proximity_monitor)
 	QDEL_NULL(language_holder)
+	QDEL_NULL(em_block)
 
 	unbuckle_all_mobs(force=1)
 
@@ -415,18 +416,53 @@
 		//Restore air flow if we were blocking it (movables with ATMOS_PASS_PROC will need to do this manually if necessary)
 		if(((CanAtmosPass == ATMOS_PASS_DENSITY && density) || CanAtmosPass == ATMOS_PASS_NO) && isturf(loc))
 			CanAtmosPass = ATMOS_PASS_YES
-			air_update_turf(TRUE)
-		loc.handle_atom_del(src)
-	for(var/atom/movable/AM in contents)
-		qdel(AM)
-	moveToNullspace()
+			_turf(TRUE)
+		
 	invisibility = INVISIBILITY_ABSTRACT
+
+	if(loc)
+		loc.handle_atom_del(src)
+
+	var/turf/T = loc
+	if(opacity && istype(T))
+		var/old_has_opaque_atom = T.has_opaque_atom
+		T.recalc_atom_opacity()
+		if(old_has_opaque_atom != T.has_opaque_atom)
+			T.reconsider_lights()
+
 	if(pulledby)
 		pulledby.stop_pulling()
+
+	if(pulling)
+		stop_pulling()
 
 	if(orbiting)
 		orbiting.end_orbit(src)
 		orbiting = null
+
+	if(move_packet)
+		if(!QDELETED(move_packet))
+			qdel(move_packet)
+		move_packet = null
+
+	if(spatial_grid_key)
+		SSspatial_grid.force_remove_from_grid(src)
+
+	LAZYCLEARLIST(client_mobs_in_contents)
+
+	. = ..()
+
+	for(var/movable_content in contents)
+		qdel(movable_content)
+
+	moveToNullspace()
+
+	LAZYCLEARLIST(important_recursive_contents)
+
+	vis_locs = null
+
+	if(length(vis_contents))
+		vis_contents.Cut()
 
 // Make sure you know what you're doing if you call this, this is intended to only be called by byond directly.
 // You probably want CanPass()

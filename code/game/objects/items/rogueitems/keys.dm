@@ -139,6 +139,11 @@
 	else
 		SSroguemachine.key = src
 
+/obj/item/key/lord/Destroy()
+	if(SSroguemachine.key == src)
+		SSroguemachine.key = null
+	return ..()
+
 /obj/item/roguekey/lord/proc/anti_stall()
 	src.visible_message(span_warning("The Key of Azure Peak crumbles to dust, the ashes spiriting away in the direction of the Keep."))
 	SSroguemachine.key = null //Do not harddel.

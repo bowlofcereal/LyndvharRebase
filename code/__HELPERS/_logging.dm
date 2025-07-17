@@ -26,12 +26,24 @@
 #define testing(msg)
 #endif
 
+#if defined(UNIT_TESTS || define(SPACEMAN_DMM)
 /proc/log_test(text)
-#ifdef UNIT_TESTS
 	WRITE_LOG(GLOB.test_log, text)
 	SEND_TEXT(world.log, text)
 #endif
 
+#if defined(REFERENCE_DOING_IT_LOVE)
+#define log_reftracker(msg) log_harddel("## REF SEARCH [msg]")
+
+/proc/log_harddel(text)
+		WRITE_LOG(GLOB.harddel_log, text)
+
+#elif defined(REFERENCE_TRACKING) //doing it locally
+#define log_reftrackerr(msg) log_world("## REF SEARCH [msg]")
+
+#else //not tracking at all
+#define log_reftracker(msg)
+#endif
 
 /* Items with ADMINPRIVATE prefixed are stripped from public logs. */
 /proc/log_admin(text)

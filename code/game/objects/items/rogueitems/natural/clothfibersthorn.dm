@@ -186,6 +186,10 @@
 		slapcraft_recipes = slapcraft_recipe_list,\
 		)
 
+/obj/item/natural/cloth/Destroy()
+	cleaner_component = null
+	return ..()
+
 /obj/item/natural/cloth/attack_right(mob/user)
 	if(user.get_active_held_item())
 		return
