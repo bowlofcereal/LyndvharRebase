@@ -338,6 +338,8 @@
 	explosion(get_turf(speaker), light_impact_range = 1, flame_range = 1, smoke = FALSE)
 	speaker.IgniteMob()
 	speaker.add_stress(/datum/stressevent/psycurse)
+	message_admins("[speaker.real_name]([key_name(speaker)]) said a profane word on scoms [src.name]. [ADMIN_JMP(src)]")
+	log_admin("[speaker.real_name]([key_name(speaker)]) said a profane word on scoms [src.name].")
 
 //SCOMSTONE                 SCOMSTONE
 
@@ -410,6 +412,8 @@
 	explosion(get_turf(user), light_impact_range = 1, flame_range = 1, smoke = FALSE)
 	user.IgniteMob()
 	user.add_stress(/datum/stressevent/psycurse)
+	message_admins("[user.real_name]([key_name(user)]) said a profane word on scoms [src.name]. [ADMIN_JMP(src)]")
+	log_admin("[user.real_name]([key_name(user)]) said a profane word on scoms [src.name].")
 
 /obj/item/scomstone/MiddleClick(mob/user)
 	if(.)
