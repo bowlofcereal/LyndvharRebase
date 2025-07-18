@@ -45,19 +45,19 @@
 	switch(weapon_choice)
 		if("Archery")
 			H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
-    	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
-    	beltl = /obj/item/quiver/pyroarrows
+    		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+    		beltl = /obj/item/quiver/pyroarrows
 		if("Crossbows")
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
-      beltl = /obj/item/quiver/pyrobolts
+      		beltl = /obj/item/quiver/pyrobolts
 		if ("LET THERE BE FLAME!!!")
-    	H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
+    		H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 			backr = /obj/item/rogueweapon/woodstaff/toper
-  		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-      H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fireball)
-      H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/spitfire)
-      H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/stoneskin) // Try not to eat shit from your own fire 
+  			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+      		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fireball)
+      		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/spitfire)
+     		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/stoneskin) // To not be instapaincritted if you accidentally hit yourself
 	H.change_stat("endurance", 3)
 	H.change_stat("constitution", 3)
 	H.change_stat("intelligence", 3)
