@@ -31,7 +31,7 @@
 				budget2change(E.sellprice * return_ratio, user)
 			else
 				topay += E.sellprice * return_ratio
-			E.forceMove(src)
+			qdel(E)
 			return
 
 	if(istype(H, /obj/item/natural/head))
@@ -43,7 +43,7 @@
 				budget2change(A.sellprice * return_ratio, user)
 			else
 				topay += A.sellprice * return_ratio
-			A.forceMove(src)
+			qdel(A)
 			return
 
 /obj/structure/roguemachine/headeater/attack_right(mob/user)

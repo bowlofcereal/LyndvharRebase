@@ -244,8 +244,8 @@
 				L.consider_ambush()
 
 /obj/item/grown/log/tree/stick/Initialize()
+	. = ..()
 	icon_state = "stick[rand(1,2)]"
-	..()
 	var/static/list/slapcraft_recipe_list = list(
 		/datum/crafting_recipe/roguetown/survival/fishingcage,
 		/datum/crafting_recipe/roguetown/survival/woodspade,

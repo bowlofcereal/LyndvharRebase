@@ -281,6 +281,11 @@
 	torchy.weather_resistant = TRUE
 	. = ..()
 
+/obj/machinery/light/fueled/torchholder/Destroy()
+	if(torchy)
+		QDEL_NULL(torchy)
+	return ..()
+
 /obj/machinery/light/rogue/torchholder/OnCrafted(dirin, user)
 	dirin = turn(dirin, 180)
 	QDEL_NULL(torchy)
@@ -415,6 +420,7 @@
 	var/datum/looping_sound/boilloop/boilloop
 
 /obj/machinery/light/rogue/hearth/Initialize()
+	. = ..()
 	boilloop = new(src, FALSE)
 	. = ..()
 

@@ -115,7 +115,7 @@
 	var/on = FALSE
 
 /datum/intent/mace/strike/stunner/afterchange()
-	var/obj/item/rogueweapon/mace/stunmace/I = masteritem
+	var/obj/item/rogueweapon/mace/stunmace/I = get_master_item()
 	if(I)
 		if(I.on)
 			hitsound = list('sound/items/stunmace_hit (1).ogg','sound/items/stunmace_hit (2).ogg')
@@ -124,7 +124,7 @@
 	. = ..()
 
 /datum/intent/mace/smash/stunner/afterchange()
-	var/obj/item/rogueweapon/mace/stunmace/I = masteritem
+	var/obj/item/rogueweapon/mace/stunmace/I = get_master_mob()
 	if(I)
 		if(I.on)
 			hitsound = list('sound/items/stunmace_hit (1).ogg','sound/items/stunmace_hit (2).ogg')

@@ -48,6 +48,7 @@
 			if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_item, null, TRUE, TRUE))
 				testing("Deleting:[new_item] from [src]")
 				qdel(new_item)
+	populate_content.Cut()
 
 /obj/item/storage/proc/emptyStorage()
 	var/datum/component/storage/ST = GetComponent(/datum/component/storage)

@@ -16,8 +16,8 @@
 	sellprice = 10
 
 /obj/item/rogueore/gold/Initialize()
+	. = ..()
 	icon_state = "oregold[rand(1,3)]"
-	..()
 
 
 /obj/item/rogueore/silver
@@ -28,8 +28,8 @@
 	sellprice = 8
 
 /obj/item/rogueore/silver/Initialize()
+	. = ..()
 	icon_state = "oresilv[rand(1,3)]"
-	..()
 
 
 /obj/item/rogueore/iron
@@ -40,8 +40,8 @@
 	sellprice = 5
 
 /obj/item/rogueore/iron/Initialize()
+	. = ..()
 	icon_state = "oreiron[rand(1,3)]"
-	..()
 
 
 /obj/item/rogueore/copper
@@ -52,8 +52,8 @@
 	sellprice = 3
 
 /obj/item/rogueore/copper/Initialize()
+	. = ..()
 	icon_state = "orecop[rand(1,3)]"
-	..()
 
 /obj/item/rogueore/tin
 	name = "raw tin"
@@ -63,8 +63,8 @@
 	sellprice = 4
 
 /obj/item/rogueore/tin/Initialize()
+	. = ..()
 	icon_state = "oretin[rand(1,3)]"
-	..()
 
 /obj/item/rogueore/coal
 	name = "coal"
@@ -75,8 +75,8 @@
 	sellprice = 1
 
 /obj/item/rogueore/coal/Initialize()
+	. = ..()
 	icon_state = "orecoal[rand(1,3)]"
-	..()
 
 /obj/item/rogueore/coal/charcoal
 	name = "charcoal"
@@ -161,7 +161,7 @@
 		var/obj/machinery/anvil/A = loc
 		A.hingot = null
 		A.update_icon()
-	..()
+	return ..()
 
 /obj/item/ingot/gold
 	name = "gold bar"

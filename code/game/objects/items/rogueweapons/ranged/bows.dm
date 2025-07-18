@@ -43,10 +43,11 @@
 	charging_slowdown = 3
 
 /datum/intent/arc/bow/can_charge()
-	if(mastermob)
-		if(mastermob.get_num_arms(FALSE) < 2)
+	var/mob/living/master = get_master_mob()
+	if(master)
+		if(master.usable_hands < 2)
 			return FALSE
-		if(mastermob.get_inactive_held_item())
+		if(master.get_inactive_held_item())
 			return FALSE
 	return TRUE
 
