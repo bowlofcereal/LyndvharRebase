@@ -24,8 +24,7 @@
 		/obj/item/rogueweapon/huntingknife = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,
-		/obj/item/rogueweapon/scabbard/sheath = 1,
-    /obj/item/flint = 1,
+   		/obj/item/flint = 1,
 		)
 	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
