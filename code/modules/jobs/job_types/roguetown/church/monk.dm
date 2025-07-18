@@ -35,6 +35,7 @@
 	beltl = /obj/item/storage/keyring/churchie
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/ritechalk)
+	H.cmode_music = 'sound/music/combat_holy.ogg'
 	switch(H.patron?.type)
 		if(/datum/patron/divine/astrata)
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
@@ -60,6 +61,7 @@
 			head = /obj/item/clothing/head/roguetown/dendormask
 			neck = /obj/item/clothing/neck/roguetown/psicross/dendor
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
+			H.cmode_music = 'sound/music/combat_druid.ogg'
 		if(/datum/patron/divine/necra)
 			head = /obj/item/clothing/head/roguetown/necrahood
 			neck = /obj/item/clothing/neck/roguetown/psicross/necra
@@ -96,6 +98,7 @@
 			wrists = /obj/item/clothing/wrists/roguetown/wrappings
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/white
+			backpack_contents = list(/obj/item/ritechalk, /obj/item/book/rogue/law)
 		if(/datum/patron/divine/xylix)
 			head = /obj/item/clothing/head/roguetown/roguehood
 			cloak = /obj/item/clothing/cloak/templar/xylixian
@@ -103,6 +106,7 @@
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe
 			neck = /obj/item/clothing/neck/roguetown/luckcharm // For good luck, as Xylix would intend
+			H.cmode_music = 'sound/music/combat_jester.ogg'
 		else
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
 			neck = /obj/item/clothing/neck/roguetown/psicross/astrata
@@ -161,7 +165,6 @@
 	H.change_stat("intelligence", 3)
 	H.change_stat("endurance", 2)
 	H.change_stat("speed", 1)
-	H.cmode_music = 'sound/music/combat_holy.ogg'
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MAJOR, start_maxed = TRUE)	//Starts off maxed out.

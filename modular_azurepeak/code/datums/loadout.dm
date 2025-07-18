@@ -60,6 +60,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Fancy Hat"
 	path = /obj/item/clothing/head/roguetown/fancyhat
 
+/datum/loadout_item/furhat
+	name = "Fur Hat"
+	path = /obj/item/clothing/head/roguetown/hatfur
+
 /datum/loadout_item/smokingcap
 	name = "Smoking Cap"
 	path = /obj/item/clothing/head/roguetown/smokingcap
@@ -391,6 +395,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/collar
 	name = "Collar"
 	path = /obj/item/clothing/neck/roguetown/collar
+
+/datum/loadout_item/forlon_collar
+	name = "Light Forlorn Collar"
+	path = /obj/item/clothing/neck/roguetown/collar/forlorn
 
 /datum/loadout_item/bell_collar
 	name = "Bell Collar"
