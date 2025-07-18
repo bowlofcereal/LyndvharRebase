@@ -129,6 +129,16 @@
 //	for(var/i in 1 to maxhaunts)
 	spawn_haunt()
 
+/obj/structure/bonepile/Destroy()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	for(var/mob/living/simple_animal/hostile/haunt/H as anything in haunts)
+		H.death()
+	haunts.Cut()
+	var/spawned = pick(/obj/item/reagent_containers/powder/spice)
+	new spawned(get_turf(src))
+	return ..()
+
 /obj/structure/bonepile/update_icon()
 	. = ..()
 	if(spawning)
@@ -155,16 +165,6 @@
 	spawning = TRUE
 	update_icon()
 	addtimer(CALLBACK(src, PROC_REF(createhaunt)), 4 SECONDS)
-
-/obj/structure/bonepile/Destroy()
-	soundloop.stop()
-	spawning = FALSE
-	for(var/H in haunts)
-		var/mob/living/simple_animal/hostile/rogue/haunt/D = H
-		D.death()
-	var/spawned = pick(/obj/item/reagent_containers/powder/spice)
-	new spawned(get_turf(src))
-	. = ..()
 
 /obj/structure/bonepile/attackby(obj/item/W, mob/user, params)
 	. = ..()

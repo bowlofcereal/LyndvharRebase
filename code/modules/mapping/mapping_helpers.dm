@@ -136,4 +136,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 
 /obj/effect/landmark/map_load_mark/Initialize()
 	. = ..()
-	LAZYADD(SSmapping.map_load_marks,src)
+	LAZYADD(SSmapping.map_load_marks, src)
+
+/obj/effect/landmark/map_load_mark/Destroy()
+	LAZYREMOVE(SSmapping.map_load_marks, src)
+	return ..()

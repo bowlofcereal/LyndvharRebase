@@ -1117,7 +1117,7 @@
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/O = new X()
 		O.owner = src
-		bodyparts.Remove(X)
+		bodyparts -= (X)
 		bodyparts.Add(O)
 		if(O.body_part == ARM_LEFT)
 			l_arm_index_next += 2
@@ -1139,8 +1139,7 @@
 				. *= 0.90
 
 /mob/living/carbon/proc/create_internal_organs()
-	for(var/X in internal_organs)
-		var/obj/item/organ/I = X
+	for(var/obj/item/organ/I as anything in internal_organs)
 		I.Insert(src)
 
 /mob/living/carbon/proc/update_disabled_bodyparts()

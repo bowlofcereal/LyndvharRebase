@@ -82,10 +82,11 @@
 		weapon_parry = TRUE
 
 	if(U.mind)
-		if(intenty.masteritem)
-			attacker_skill = U.get_skill_level(intenty.masteritem.associated_skill)
+		var/obj/item/master = intenty.get_master_item()
+		if(master)
+			attacker_skill = U.get_skill_level(master.associated_skill)
 			prob2defend -= (attacker_skill * 20)
-			if((intenty.masteritem.wbalance == WBALANCE_SWIFT) && (user.STASPD > src.STASPD)) //enemy weapon is quick, so get a bonus based on spddiff
+			if((master.wbalance == WBALANCE_SWIFT) && (user.STASPD > src.STASPD)) //enemy weapon is quick, so get a bonus based on spddiff
 				var/spdmod = ((user.STASPD - src.STASPD) * 10)
 				var/permod = ((src.STAPER - user.STAPER) * 10)
 				var/intmod = ((src.STAINT - user.STAINT) * 3)
@@ -174,9 +175,8 @@
 		to_chat(user, span_info("[attacker_feedback]"))
 
 	if(parry_status)
-		if(intenty.masteritem)
-			if(intenty.masteritem.wbalance < 0 && user.STASTR > src.STASTR) //enemy weapon is heavy, so get a bonus scaling on strdiff
-				drained = drained + ( intenty.masteritem.wbalance * ((user.STASTR - src.STASTR) * -5) )
+		if(master?.wbalance < 0 && user.STASTR > src.STASTR)
+			drained = drained + (master.wbalance * ((user.STASTR - src.STASTR) * -5))
 	else
 		to_chat(src, span_warning("The enemy defeated my parry!"))
 		if(HAS_TRAIT(src, TRAIT_MAGEARMOR))

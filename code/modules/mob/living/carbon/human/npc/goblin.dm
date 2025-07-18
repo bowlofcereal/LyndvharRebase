@@ -432,5 +432,6 @@
 	addtimer(CALLBACK(src, PROC_REF(creategob)), 2 SECONDS)
 
 /obj/structure/gob_portal/Destroy()
-	soundloop.stop()
-	. = ..()
+	if(soundloop)
+		QDEL_NULL(soundloop)
+	return ..()
