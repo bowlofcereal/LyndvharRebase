@@ -197,6 +197,12 @@
 			// Randomize con roll from -1 to +1 to make it less consistent
 			self_points += rand(-1, 1)
 
+			// Half-Orcs get a bonus (equivalent to +2 or +4 stat points depending on the roll)
+			if(ishuman(L))
+				var/mob/living/carbon/human/H = L
+				if(istype(H.dna?.species, /datum/species/halforc))
+					self_points += rand(1, 2)
+
 			//Safety check for changing direction at the last step
 			if(src.dir != src.sprint_dir)
 				self_points -= 99
