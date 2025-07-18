@@ -25,6 +25,10 @@
 			name = "burnt tree"
 			update_icon()
 
+/obj/structure/flora/newtree/Destroy()
+	SStreesetup.initialize_me -= src
+	return ..()
+
 /obj/structure/flora/newtree/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)

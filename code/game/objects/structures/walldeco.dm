@@ -165,8 +165,8 @@
 	layer = BELOW_MOB_LAYER+0.1
 
 /obj/structure/fluff/walldeco/stone/Initialize()
+	. = ..()
 	icon_state = "walldec[rand(1,6)]"
-	..()
 
 /obj/structure/fluff/walldeco/maidensigil
 	name = "stone sigil"
@@ -208,8 +208,8 @@
 	buckleverb = "tie"
 
 /obj/structure/fluff/walldeco/chains/Initialize()
+	. = ..()
 	icon_state = "chains[rand(1,8)]"
-	..()
 
 /obj/structure/fluff/walldeco/customflag
 	name = "Azure Peak flag"

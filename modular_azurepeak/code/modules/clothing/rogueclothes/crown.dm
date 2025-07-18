@@ -26,6 +26,10 @@
 		SSroguemachine.crown = src
 		SSroguemachine.scomm_machines += src
 
+/obj/item/clothing/head/crown/serpcrown/Destroy()
+	SSroguemachine.crown = null //I don't know if this is necessary or even works. Yay!
+	return ..()
+
 /obj/item/clothing/head/roguetown/crown/serpcrown/proc/anti_stall()
 	src.visible_message(span_warning("The Crown of Azure Peak crumbles to dust, the ashes spiriting away in the direction of the Keep."))
 	SSroguemachine.scomm_machines -= src

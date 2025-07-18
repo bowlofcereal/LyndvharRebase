@@ -63,13 +63,16 @@ GLOBAL_LIST_EMPTY(biggates)
 	GLOB.biggates += src
 
 /obj/structure/gate/Destroy()
-	for(var/A in blockers)
-		qdel(A)
+	if(is_big_gate)
+		GLOB.biggates -= src
+	for(var/A as anything in blockers)
+		QDEL_NULL(A)
+	blockers.Cut()
+	turfsy.Cut()
 	if(attached_to)
 		var/obj/structure/winch/W = attached_to
 		W.attached_gate = null
-	GLOB.biggates -= src
-	..()
+	return ..()
 
 /obj/structure/gate/update_icon()
 	cut_overlays()
@@ -155,7 +158,7 @@ GLOBAL_LIST_EMPTY(biggates)
 	if(attached_gate)
 		var/obj/structure/gate/W = attached_gate
 		W.attached_to = null
-	..()
+	return ..()
 
 /obj/structure/winch/LateInitialize()
 	for(var/obj/structure/gate/G in GLOB.biggates)

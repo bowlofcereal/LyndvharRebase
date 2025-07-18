@@ -86,6 +86,16 @@ All foods are distributed among various categories. Use common sense.
 
 	var/cooked_smell
 
+/obj/item/reagent_containers/food/snacks/Initialize(mapload)
+	. = ..()
+	if(rotprocess)
+		SSticker.OnRoundstart(CALLBACK(src, PROC_REF(begin_rotting)))
+
+/obj/item/reagent_containers/food/snacks/Destroy()
+	if(reagents)
+		QDEL_NULL(reagents)
+	STOP_PROCESSING(SSobj, src)
+	return ..()
 
 /datum/intent/food
 	name = "feed"
@@ -98,11 +108,14 @@ All foods are distributed among various categories. Use common sense.
 	if(ismob(target))
 		var/mob/M = target
 		var/list/targetl = list(target)
-		user.visible_message(span_green("[user] beckons [M] with [masteritem]."), span_green("I beckon [M] with [masteritem]."), ignored_mobs = targetl)
+		var/obj/item/master = get_master_item()
+		if(!master)
+			return
+		user.visible_message("<span class='green'>[user] beckons [M] with [master].</span>", "<span class='green'>I beckon [M] with [master].</span>", ignored_mobs = targetl)
 		if(M.client)
 			if(M.can_see_cone(user))
-				to_chat(M, span_green("[user] beckons me with [masteritem]."))
-		M.food_tempted(masteritem, user)
+				to_chat(M, "<span class='green'>[user] beckons me with [master].</span>")
+		M.food_tempted(master, user)
 	return
 
 /obj/item/reagent_containers/food/snacks/fire_act(added, maxstacks)

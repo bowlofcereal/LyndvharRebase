@@ -184,7 +184,7 @@ GLOBAL_VAR(restart_counter)
 	start_log(GLOB.world_pda_log)
 	start_log(GLOB.world_telecomms_log)
 	start_log(GLOB.world_manifest_log)
-	start_log(GLOB.world_href_log)
+	start_log(GLOB.world_href_log)	
 	start_log(GLOB.world_qdel_log)
 	start_log(GLOB.world_runtime_log)
 	start_log(GLOB.world_job_debug_log)
@@ -198,6 +198,10 @@ GLOBAL_VAR(restart_counter)
 
 	if(GLOB.round_id)
 		log_game("Round ID: [GLOB.round_id]")
+
+#ifdef REFERENCE_DOING_IT_LIVE
+	GLOB.harddel_log = "[GLOB.log_directory]/harddel.log"
+#endif
 
 	// This was printed early in startup to the world log and config_error.log,
 	// but those are both private, so let's put the commit info in the runtime

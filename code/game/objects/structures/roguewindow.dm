@@ -22,8 +22,8 @@
 	destroy_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
 
 /obj/structure/roguewindow/Initialize()
+	. = ..()
 	update_icon()
-	..()
 
 /obj/structure/roguewindow/obj_destruction(damage_flag)
 	..()
@@ -78,7 +78,7 @@
 	lockdir = dir
 
 /obj/structure/roguewindow/openclose/Initialize()
-	..()
+	. = ..()
 	lockdir = dir
 	icon_state = base_state
 

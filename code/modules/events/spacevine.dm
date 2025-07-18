@@ -355,6 +355,8 @@
 
 /datum/vine_controller/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	tree = null
+	vines.Cut()
 	return ..()
 
 /datum/vine_controller/proc/spawn_spacevine_piece(turf/location, obj/structure/vine/parent, list/muts)
@@ -380,7 +382,7 @@
 	return SV
 
 /datum/vine_controller/proc/endvines()
-	for(var/obj/structure/vine/V in vines)
+	for(var/obj/structure/vine/V as anything in vines)
 		V.dieepic()
 	qdel(src)
 

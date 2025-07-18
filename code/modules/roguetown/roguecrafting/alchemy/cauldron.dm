@@ -11,7 +11,7 @@
 	var/list/ingredients = list()
 	var/maxingredients = 4
 	var/brewing = 0
-	var/mob/living/carbon/human/lastuser
+	var/datum/weakref/lastuser
 	fueluse = 20 MINUTES
 	crossfire = FALSE
 
@@ -33,16 +33,16 @@
 
 /obj/machinery/light/rogue/cauldron/Initialize()
 	create_reagents(500, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
-	. = ..()
+	return ..()
 
 /obj/machinery/light/rogue/cauldron/Destroy()
-	chem_splash(loc, 2, list(reagents))
-	qdel(reagents)
-	..()
+	hem_splash(loc, 2, list(reagents))
+	playsound(loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
+	return ..()
 
 /obj/machinery/light/rogue/cauldron/burn_out()
 	brewing = 0
-	..()
+	return ..()
 
 /*
 /obj/machinery/light/rogue/cauldron/examine(mob/user)
@@ -56,6 +56,7 @@
 /obj/machinery/light/rogue/cauldron/process()
 	..()
 	update_icon()
+	var/mob/living/L = lastuser.resolve()
 	if(on)
 		if(ingredients.len)
 			if(brewing < 20)
@@ -88,14 +89,14 @@
 				if(outcomes[outcomes[1]] >= 5)
 					var/result_path = outcomes[1]
 					var/datum/alch_cauldron_recipe/found_recipe = new result_path
-					var/amt2raise = lastuser?.STAINT*2
+					var/amt2raise = L.STAINT*2
 					var/in_cauldron = src?.reagents?.get_reagent_amount(/datum/reagent/water)
 					// Handle skillgating
-					if(!lastuser)
+					if(!L)
 						brewing = 0
 						src.visible_message(span_info("The cauldron can't brew anything without an alchemist to guide it."))
 						return
-					if(found_recipe.skill_required > lastuser?.get_skill_level(/datum/skill/craft/alchemy))
+					if(found_recipe.skill_required > L.get_skill_level(/datum/skill/craft/alchemy))
 						brewing = 0
 						src.visible_message(span_warning("The ingredients in the cauldron melds together into a disgusting mess! Perhaps a more skilled alchemist is needed for this recipe."))
 						if(reagents)
@@ -104,7 +105,7 @@
 							qdel(ing)
 						src.reagents.add_reagent(/datum/reagent/yuck, in_cauldron) // 1 to 1 transmutation of yuck
 						// Learn from your failure (Yeah you can technically still grind this way you just blow through a lot of ingredients)
-						lastuser?.adjust_experience(/datum/skill/craft/alchemy, amt2raise, FALSE) 
+						L.adjust_experience(/datum/skill/craft/alchemy, amt2raise, FALSE) 
 						return
 					for(var/obj/item/ing in src.ingredients)
 						qdel(ing)
@@ -117,10 +118,10 @@
 							new itempath(get_turf(src))
 					//handle player perception and reset for next time
 					src.visible_message("<span class='info'>The cauldron finishes boiling with a faint [found_recipe.smells_like] smell.</span>")
-					record_featured_stat(FEATURED_STATS_ALCHEMISTS, lastuser)
+					record_featured_stat(FEATURED_STATS_ALCHEMISTS, L)
 					GLOB.azure_round_stats[STATS_POTIONS_BREWED]++
 					//give xp for /datum/skill/craft/alchemy
-					lastuser?.adjust_experience(/datum/skill/craft/alchemy, amt2raise, FALSE)
+					L.adjust_experience(/datum/skill/craft/alchemy, amt2raise, FALSE)
 					playsound(src, "bubbles", 100, TRUE)
 					playsound(src,'sound/misc/smelter_fin.ogg', 30, FALSE)
 					ingredients = list()
@@ -145,7 +146,7 @@
 		to_chat(user, "<span class='info'>I add [I] to [src].</span>")
 		ingredients += I
 		brewing = 0
-		lastuser = user
+		lastuser = WEAKREF(user)
 		playsound(src, "bubbles", 100, TRUE)
 		cut_overlays()
 		var/mutable_appearance/filling = mutable_appearance('icons/roguetown/misc/alchemy.dmi', "cauldron_boiling")

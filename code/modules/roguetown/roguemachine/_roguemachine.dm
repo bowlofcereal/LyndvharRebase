@@ -4,7 +4,7 @@
 	anchored = TRUE
 	max_integrity = 0
 
-/obj/structure/fake_machine/proc/budget2change(budget, mob/user, specify)
+/obj/structure/roguemachine/proc/budget2change(budget, mob/user, specify)
 	var/turf/T
 	if(!user || (!ismob(user)))
 		T = get_turf(src)

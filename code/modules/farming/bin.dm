@@ -21,6 +21,7 @@
 		START_PROCESSING(SSweather,src)
 
 /obj/item/roguebin/Initialize()
+	. = ..()
 	if(!base_state)
 		create_reagents(600, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
 		icon_state = "washbin[rand(1,2)]"

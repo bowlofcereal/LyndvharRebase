@@ -1353,8 +1353,8 @@
 	icon_state = "carpet_c"
 
 /turf/open/floor/rogue/carpet/lord/center/Initialize()
+	. = ..()
 	dir = pick(GLOB.cardinals)
-	..()
 
 /turf/open/floor/rogue/carpet/lord/left
 	icon_state = "carpet_l"
