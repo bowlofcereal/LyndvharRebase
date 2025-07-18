@@ -14,17 +14,17 @@
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/physician
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	backl = /obj/item/storage/backpack/rogue/satchel
-	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor = 1
+	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
-  	backpack_contents = list(
+	backpack_contents = list(
 		/obj/item/reagent_containers/glass/bottle/rogue/poison = 1, // You get one epic poison. As a treat because you're valid. Don't waste it. 
 		/obj/item/reagent_containers/glass/bottle/rogue/stampoison = 1,
 		/obj/item/recipe_book/alchemy = 1,
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,
-   		/obj/item/reagent_containers/glass/bottle/rogue/strongpoison = 1,
+		/obj/item/reagent_containers/glass/bottle/rogue/strongpoison = 1,
 		)
 	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -46,14 +46,14 @@
 	switch(weapon_choice)
 		if("Archery")
 			H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
-    		backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
-    		beltl = /obj/item/quiver/poisonarrows
-		if ("LET THERE BE PLAGUE!!!")
-    		H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
+			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+			beltl = /obj/item/quiver/poisonarrows
+		if("LET THERE BE PLAGUE!!!")
+			H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 			backr = /obj/item/rogueweapon/woodstaff/toper
-  			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-      		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/aerosolize)
-     		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/acidsplash)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/aerosolize)
+			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/acidsplash)
 	H.change_stat("perception", 3)
 	H.change_stat("constitution", 2)
 	H.change_stat("intelligence", 4)
