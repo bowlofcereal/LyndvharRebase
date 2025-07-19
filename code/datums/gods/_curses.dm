@@ -181,6 +181,8 @@
 //////////////////////
 
 //TENNITES//
+
+//ASTRATA//
 /datum/curse/astrata/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_NOSLEEP, TRAIT_GENERIC)
@@ -189,6 +191,7 @@
 	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_NOSLEEP, TRAIT_GENERIC)
 
+//NECRA//
 /datum/curse/necra/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	owner.STACON -= 10
@@ -199,10 +202,7 @@
 	owner.STACON += 10
 	REMOVE_TRAIT(owner, TRAIT_CRITICAL_WEAKNESS, TRAIT_GENERIC)
 
-/datum/curse/xylix/on_loss(mob/living/carbon/human/owner)
-	. = ..()
-	owner.STACON += 10
-
+//XYLIX//
 /datum/curse/xylix/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	owner.STALUC -= 20
@@ -211,6 +211,7 @@
 	. = ..()
 	owner.STALUC += 20
 
+//PESTRA//
 /datum/curse/pestra/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	owner.STAEND -= 10
@@ -223,6 +224,7 @@
 	REMOVE_TRAIT(owner, TRAIT_NORUN, TRAIT_GENERIC)
 	REMOVE_TRAIT(owner, TRAIT_MISSING_NOSE, TRAIT_GENERIC)
 
+//EORA//
 /datum/curse/eora/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_LIMPDICK, TRAIT_GENERIC)
@@ -236,6 +238,8 @@
 	REMOVE_TRAIT(owner, TRAIT_BAD_MOOD, TRAIT_GENERIC)
 
 //ASCENDANTS//
+
+//ZIZO//
 /datum/curse/zizo/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	owner.STAINT -= 20
@@ -246,6 +250,7 @@
 	owner.STAINT += 20
 	REMOVE_TRAIT(owner, TRAIT_SPELLCOCKBLOCK, TRAIT_GENERIC)
 
+//GRAGGAR//
 /datum/curse/graggar/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	owner.STASTR -= 15
@@ -258,6 +263,7 @@
 	REMOVE_TRAIT(owner, TRAIT_DISFIGURED, TRAIT_GENERIC)
 	REMOVE_TRAIT(owner, TRAIT_INHUMEN_ANATOMY, TRAIT_GENERIC)
 
+//MATTHIOS//
 /datum/curse/matthios/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	owner.STALUC -= 15
@@ -268,6 +274,7 @@
 	owner.STALUC += 15
 	REMOVE_TRAIT(owner, TRAIT_CLUMSY, TRAIT_GENERIC)
 
+//BAOTHA//
 /datum/curse/baotha/on_gain(mob/living/carbon/human/owner)
 	. = ..()
 	ADD_TRAIT(owner, TRAIT_NUDIST, TRAIT_GENERIC)
