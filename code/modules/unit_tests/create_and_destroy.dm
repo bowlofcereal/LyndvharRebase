@@ -6,7 +6,7 @@
 GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 /datum/unit_test/create_and_destroy/Run()
 	//We'll spawn everything here
-	var/turf/spawn_at = run_loc_floor_bottom_left
+	var/turf/spawn_at = run_loc_bottom_left
 
 	var/list/cached_contents = spawn_at.contents.Copy()
 	var/original_turf_type = spawn_at.type

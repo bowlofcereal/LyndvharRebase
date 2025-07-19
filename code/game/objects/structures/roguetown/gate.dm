@@ -63,8 +63,6 @@ GLOBAL_LIST_EMPTY(biggates)
 	GLOB.biggates += src
 
 /obj/structure/gate/Destroy()
-	if(is_big_gate)
-		GLOB.biggates -= src
 	for(var/A as anything in blockers)
 		QDEL_NULL(A)
 	blockers.Cut()

@@ -1,7 +1,7 @@
 GLOBAL_LIST_INIT(animal_migration_points, list())
 
 /obj/effect/landmark/events/animal_migration_point
-	name = MAP_SWITCH("", "Migration Point")
+	name = "Migration Point"
 
 /obj/effect/landmark/events/animal_migration_point/Initialize(mapload)
 	. = ..()
