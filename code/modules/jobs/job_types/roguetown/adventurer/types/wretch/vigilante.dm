@@ -1,5 +1,5 @@
 /datum/advclass/wretch/vigilante
-	name = "Vigilante"
+	name = "Masked Lunatic"
 	tutorial = "You were a disenfranchised pauper, sickened by the rampant corruption of the garrison - or perhaps, just a crazed vagrant in a costume? Whether those brutalized 'thieves' were justified in their acts is up to YOU to decide, not them! You specialize in utilizing your various gadgets and thrown projectiles to dote out JUSTICE, however you see it fit."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
@@ -32,13 +32,13 @@
 	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE) //You WILL be getting neckstabbed A LOT. 
 	H.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE) //SNIFF OUT JUSTICE.
 	H.cmode_music = 'sound/music/combatmaniac.ogg'
-	var/classes = list("The Watchman", "The Owl", "I AM JUSTICE INCARNATE!!!")
+	var/classes = list("The Watchman", "The Gadgeteer", "I AM JUSTICE INCARNATE!!!")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 	switch(classchoice)
 		if("The Watchman") //Face-to-face CQC. No crit resist. Pure aura. Rorschach. 
 			H.set_blindness(0)
 			watchman_equip(H)
-		if("The Night") //Make gadgets, be precise and smart. Think ahead before you start swinging. Nite Owl. 
+		if("The Gadgeteer") //Make gadgets, be precise and smart. Think ahead before you start swinging. Nite Owl. 
 			H.set_blindness(0)
 			owl_equip(H)
 		if("I AM JUSTICE INCARNATE!!!") //THROW SHIT AT PEOPLE. RANDOM BULLSHIT GO!!!! MOON KNIGHT. 
@@ -63,15 +63,18 @@
 /datum/outfit/job/roguetown/wretch/vigilante/proc/owl_equip(mob/living/carbon/human/H)
 	backl = /obj/item/rogueweapon/woodstaff/quarterstaff/steel //nonlethal takedowns
 	beltr = /obj/item/quiver/sling/iron
-	beltl = /obj/item/grapplinghook
+	l_hand = /obj/item/grapplinghook
 	r_hand = /obj/item/smokebomb
-	l_hand = /obj/item/smokebomb
+	beltl = /obj/item/smokebomb
 	cloak = /obj/item/clothing/cloak/cape/puritan
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
 	mask = /obj/item/clothing/mask/rogue/duelmask
 	backpack_contents = list(
 		/obj/item/lockpickring/mundane = 1,
-		/obj/item/gun/ballistic/revolver/grenadelauncher/sling,
+		/obj/item/gun/ballistic/revolver/grenadelauncher/sling = 1,
+		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
+		/obj/item/flashlight/flare/torch/lantern/prelit = 1,
+		/obj/item/rope/chain = 1,
 		)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE) //Investigations
 	H.adjust_skillrank(/datum/skill/combat/slings, 4, TRUE) // Funny as shit to use. 
@@ -79,7 +82,7 @@
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE) //I lurk in the shadows...
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE) //Crafty
 	H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE) // Escape routes
-	H.adjust_skillrank(/datum/skill/craft/engineering, 2, TRUE) //Make your own tinkering tools
+	H.adjust_skillrank(/datum/skill/craft/engineering, 3, TRUE) //Make your own tinkering tools and smokebombs
 	H.adjust_skillrank(/datum/skill/craft/smelting, 3, TRUE) //Just so your smelted ingots aren't ruined
 	H.change_stat("intelligence", 3) 
 	H.change_stat("endurance", 3)
@@ -90,8 +93,8 @@
 	beltr = /obj/item/rogueweapon/stoneaxe/hurlbat
 	r_hand = /obj/item/rogueweapon/stoneaxe/hurlbat
 	l_hand = /obj/item/rogueweapon/stoneaxe/hurlbat
-	beltl = /datum/supply_pack/rogue/ranged_weapons/javelinsteel
-	backl = /datum/supply_pack/rogue/ranged_weapons/javelinsteel
+	beltl = /obj/item/quiver/javelin/steel
+	backl = /obj/item/quiver/javelin/steel
 	cloak = /obj/item/clothing/cloak/cape
 	mask = /obj/item/clothing/mask/rogue/facemask
 	H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)

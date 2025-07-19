@@ -15,6 +15,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
+	r_hand = /obj/item/storage/belt/rogue/surgery_bag/full/physician
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/angle
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather

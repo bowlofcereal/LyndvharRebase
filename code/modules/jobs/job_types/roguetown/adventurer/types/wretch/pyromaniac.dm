@@ -19,8 +19,10 @@
 	gloves = /obj/item/clothing/gloves/roguetown/plate/iron
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	wrists = /obj/item/clothing/wrists/roguetown/splintarms
+	r_hand = /obj/item/bomb
+	l_hand = /obj/item/bomb
 	backpack_contents = list(
-		/obj/item/bomb = 4,
+		/obj/item/bomb = 2,
 		/obj/item/rogueweapon/huntingknife = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,
@@ -57,6 +59,7 @@
 			beltl = /obj/item/quiver/pyrobolts
 		if("LET THERE BE FLAME!!!")
 			H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
+			backr = /obj/item/rogueweapon/woodstaff/toper
 			if(H.mind)
 				H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fireball)
