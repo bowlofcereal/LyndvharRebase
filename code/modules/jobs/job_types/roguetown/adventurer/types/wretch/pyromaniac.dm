@@ -40,6 +40,8 @@
 	H.adjust_skillrank(/datum/skill/craft/traps, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
 	H.change_stat("endurance", 3)
 	H.change_stat("constitution", 3)
 	H.change_stat("intelligence", 3)
