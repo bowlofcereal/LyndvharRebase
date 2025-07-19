@@ -100,9 +100,6 @@
 
 /obj/item/bodypart/Initialize()
 	. = ..()
-	if(can_be_disabled)
-		RegisterSignal(src, SIGNAL_ADDTRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_gain))
-		RegisterSignal(src, SIGNAL_REMOVETRAIT(TRAIT_PARALYSIS), PROC_REF(on_paralysis_trait_loss))
 	update_HP()
 
 /obj/item/bodypart/Destroy()

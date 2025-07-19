@@ -132,7 +132,7 @@
 /obj/structure/bonepile/Destroy()
 	if(soundloop)
 		QDEL_NULL(soundloop)
-	for(var/mob/living/simple_animal/hostile/haunt/H as anything in haunts)
+	for(var/mob/living/simple_animal/hostile/rogue/haunt/H as anything in haunts)
 		H.death()
 	haunts.Cut()
 	var/spawned = pick(/obj/item/reagent_containers/powder/spice)
