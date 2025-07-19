@@ -142,25 +142,31 @@
 		var/crit_attempt = try_crit(bclass, dam, user, zone_precise, silent, crit_message)
 		if(crit_attempt)
 			return crit_attempt
-	return added_wound
+	return TRUE
 
 /obj/item/bodypart/proc/add_dynamic_wound()
 
+
 /obj/item/bodypart/proc/manage_dynamic_wound(bclass, dam)
 	var/woundtype
-	switch(bclass)
-		if(BCLASS_BLUNT)
-			woundtype = /datum/wound/bruise/dynamic
-		if(BCLASS_BITE)
-			woundtype = /datum/wound/bite/dynamic
-		if(BCLASS_CHOP, BCLASS_CUT)
-			woundtype = /datum/wound/slash/dynamic
-		if(BCLASS_STAB, BCLASS_PICK, BCLASS_PIERCE)
-			woundtype = /datum/wound/puncture/dynamic
 	var/datum/wound/dynwound = has_wound(woundtype)
-	if()
+	if(!isnull(dynwound))
+		dynwound.upgrade(dam)
+	else
+		switch(bclass)
+			if(BCLASS_BLUNT)
+				woundtype = /datum/wound/bruise/dynamic
+			if(BCLASS_BITE)
+				woundtype = /datum/wound/bite/dynamic
+			if(BCLASS_CHOP, BCLASS_CUT)
+				woundtype = /datum/wound/slash/dynamic
+			if(BCLASS_STAB, BCLASS_PICK, BCLASS_PIERCE)
+				woundtype = /datum/wound/puncture/dynamic
+		add_wound(woundtype)
+		
 
 /obj/item/bodypart/proc/remove_dynamic_wound()
+
 /// Behemoth of a proc used to apply a wound after a bodypart is damaged in an attack
 /obj/item/bodypart/proc/try_crit(bclass = BCLASS_BLUNT, dam, mob/living/user, zone_precise = src.body_zone, silent = FALSE, crit_message = FALSE)
 	if(!bclass || !dam || (owner.status_flags & GODMODE))
@@ -330,11 +336,7 @@
 		var/fracture_type = /datum/wound/fracture/head
 		var/necessary_damage = 0.9
 		if(resistance)
-			if(zone_precise == BODY_ZONE_PRECISE_MOUTH) // critically resistant people can still have their jaw broken
-				fracture_type = /datum/wound/fracture/mouth // this is awful implementation. i'm sorry free
-				necessary_damage = 0.8 // they get a bit higher threshold 2 do so. raise it if we need 2.
-			else
-				fracture_type = /datum/wound/fracture // everything else is still a normal fracture doe
+			fracture_type = /datum/wound/fracture
 		else if(zone_precise == BODY_ZONE_PRECISE_SKULL)
 			fracture_type = /datum/wound/fracture/head/brain
 		else if(zone_precise== BODY_ZONE_PRECISE_EARS)
