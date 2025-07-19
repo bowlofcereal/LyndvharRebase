@@ -130,6 +130,8 @@
 #define EM_MASK_MATRIX list(0,0,0,1/3, 0,0,0,1/3, 0,0,0,1/3, 0,0,0,0, 1,1,1,0)
 /// A globaly cached version of [EM_MASK_MATRIX] for quick access.
 GLOBAL_LIST_INIT(em_mask_matrix, EM_MASK_MATRIX)
+/// A globaly cached version of [EM_BLOCK_COLOR] for quick access.
+GLOBAL_LIST_INIT(em_block_color, EM_BLOCK_COLOR)
 
 /// Returns the red part of a #RRGGBB hex sequence as number
 #define GETREDPART(hexa) hex2num(copytext(hexa, 2, 4))

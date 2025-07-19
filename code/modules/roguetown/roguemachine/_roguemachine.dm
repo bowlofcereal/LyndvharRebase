@@ -19,43 +19,43 @@
 		switch(specify)
 			if("GOLD")
 				zenars_to_put = budget/10
-				type_to_put = /obj/item/coin/gold
+				type_to_put = /obj/item/roguecoin/gold
 			if("SILVER")
 				zenars_to_put = budget/5
-				type_to_put = /obj/item/coin/silver
+				type_to_put = /obj/item/roguecoin/silver
 			if("BRONZE")
 				zenars_to_put = budget
-				type_to_put = /obj/item/coin/copper
+				type_to_put = /obj/item/roguecoin/copper
 	else
 		var/highest_found = FALSE
 		var/zenars = floor(budget/10)
 		if(zenars)
 			budget -= zenars * 10
 			highest_found = TRUE
-			type_to_put = /obj/item/coin/gold
+			type_to_put = /obj/item/roguecoin/gold
 			zenars_to_put = zenars
 		zenars = floor(budget/5)
 		if(zenars)
 			budget -= zenars * 5
 			if(!highest_found)
 				highest_found = TRUE
-				type_to_put = /obj/item/coin/silver
+				type_to_put = /obj/item/roguecoin/silver
 				zenars_to_put = zenars
 			else
-				new /obj/item/coin/silver(T, zenars)
+				new /obj/item/roguecoin/silver(T, zenars)
 		if(budget >= 1)
 			if(!highest_found)
-				type_to_put = /obj/item/coin/copper
+				type_to_put = /obj/item/roguecoin/copper
 				zenars_to_put = budget
 			else
-				new /obj/item/coin/copper(T, budget)
+				new /obj/item/roguecoin/copper(T, budget)
 	if(!type_to_put || zenars_to_put < 1)
 		return
 
 	var/stacks = CEILING(zenars_to_put / 20, 1)
 	for(var/i in 1 to stacks)
 		var/zenar_value = min(floor(zenars_to_put), 20)
-		var/obj/item/coin/G = new type_to_put(T, zenar_value)
+		var/obj/item/roguecoin/G = new type_to_put(T, zenar_value)
 		zenars_to_put -= zenar_value
 		G.pixel_y = rand(-4, 4)
 		G.pixel_x = rand(-4, 4)

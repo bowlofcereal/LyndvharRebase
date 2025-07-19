@@ -49,7 +49,8 @@
 	. = ..()
 
 /obj/item/rogue/instrument/Destroy()
-	qdel(soundloop)
+	terminate_playing(loc)
+	QDEL_NULL(soundloop)
 	. = ..()
 
 /obj/item/rogue/instrument/dropped(mob/living/user, silent)

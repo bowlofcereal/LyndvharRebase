@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 /obj/effect/proc_holder/Destroy()
 	if (action)
-		qdel(action)
+		QDEL_NULL(action)
 	if(ranged_ability_user)
 		remove_ranged_ability()
 	return ..()
@@ -383,11 +383,6 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	still_recharging_msg = span_warning("[name] is still recharging!")
 	charge_counter = recharge_time
-
-/obj/effect/proc_holder/spell/Destroy()
-	STOP_PROCESSING(SSfastprocess, src)
-	qdel(action)
-	return ..()
 
 /obj/effect/proc_holder/spell/Click()
 	if(cast_check())

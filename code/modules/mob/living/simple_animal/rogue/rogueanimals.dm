@@ -199,7 +199,8 @@
 	..()
 
 /mob/living/simple_animal/hostile/retaliate/rogue/Destroy()
-	QDEL_NULL(udder)
+	if(udder)
+		QDEL_NULL(udder)
 	return ..()
 
 /mob/living/simple_animal/hostile/retaliate/rogue/Life()

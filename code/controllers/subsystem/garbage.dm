@@ -59,6 +59,10 @@ SUBSYSTEM_DEF(garbage)
 	#endif
 	#endif
 
+	/// Toggle for enabling/disabling hard deletes. Objects that don't explicitly request hard deletion with this disabled will leak.
+	var/enable_hard_deletes = FALSE
+	var/list/failed_hard_deletes = list()
+
 
 /datum/controller/subsystem/garbage/PreInit()
 	InitQueues()

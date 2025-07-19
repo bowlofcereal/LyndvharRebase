@@ -26,7 +26,7 @@
 #define testing(msg)
 #endif
 
-#if defined(UNIT_TESTS || define(SPACEMAN_DMM)
+#if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
 /proc/log_test(text)
 	WRITE_LOG(GLOB.test_log, text)
 	SEND_TEXT(world.log, text)

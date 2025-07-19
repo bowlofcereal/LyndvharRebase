@@ -1366,7 +1366,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 				thing.datum_flags &= ~DF_USE_TAG
 			else
 				return "\[[url_encode(thing.tag)]\]"
-	return text_ref(input)"
+	return text_ref(input)
 
 // Makes a call in the context of a different usr
 // Use sparingly

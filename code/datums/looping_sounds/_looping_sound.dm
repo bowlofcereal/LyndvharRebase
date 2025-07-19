@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 		group.last_iter++
 		channel = picked_channel
 
-	set_parent(_parent_)
+	set_parent(_parent)
 	direct = _direct
 
 	if(_channel)

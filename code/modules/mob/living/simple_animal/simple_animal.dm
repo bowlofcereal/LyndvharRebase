@@ -205,9 +205,6 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		QDEL_NULL(ssaddle)
 		ssaddle = null
 
-	if(udder)
-		QDEL_NULL(udder)
-
 	owner = null
 
 	var/turf/T = get_turf(src)

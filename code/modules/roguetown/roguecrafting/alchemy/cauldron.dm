@@ -36,7 +36,7 @@
 	return ..()
 
 /obj/machinery/light/rogue/cauldron/Destroy()
-	hem_splash(loc, 2, list(reagents))
+	chem_splash(loc, 2, list(reagents))
 	playsound(loc, pick('sound/foley/water_land1.ogg','sound/foley/water_land2.ogg', 'sound/foley/water_land3.ogg'), 100, FALSE)
 	return ..()
 
