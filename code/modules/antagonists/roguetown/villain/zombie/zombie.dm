@@ -376,6 +376,9 @@
 	Proc for our newly infected to wake up as a zombie
 */
 /proc/wake_zombie(mob/living/carbon/zombie, infected_wake = FALSE, converted = FALSE)
+	if(!zombie.infected) //Ensure they werent cured
+		return
+		
 	if (!zombie || QDELETED(zombie)) 
 		return
 
