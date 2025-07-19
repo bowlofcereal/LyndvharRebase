@@ -2,11 +2,11 @@ GLOBAL_LIST_EMPTY(apostasy_players)
 GLOBAL_LIST_EMPTY(cursed_players)
 GLOBAL_LIST_EMPTY(excommunicated_players)
 GLOBAL_LIST_EMPTY(heretical_players)
-GLOBAL_VAR_INIT(last_announcement_priest_time, -1000)
-GLOBAL_VAR_INIT(last_sermon_time, -1000)
-GLOBAL_VAR_INIT(last_excommunication_time, -1000)
-GLOBAL_VAR_INIT(last_apostasy_time, -1000)
-GLOBAL_VAR_INIT(last_curse_time, -1000)
+#define PRIEST_ANNOUNCEMENT_COOLDOWN (5 MINUTES)
+#define PRIEST_SERMON_COOLDOWN (30 MINUTES)
+#define PRIEST_APOSTASY_COOLDOWN (10 MINUTES)
+#define PRIEST_EXCOMMUNICATION_COOLDOWN (10 MINUTES)
+#define PRIEST_CURSE_COOLDOWN (15 MINUTES)
 
 /datum/job/roguetown/priest
 	title = "Priest"
@@ -176,22 +176,24 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 
 	if(stat)
 		return
+
 	if (!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
 		to_chat(src, span_warning("I need to do this in the chapel."))
 		return FALSE
+
 	var/announcementinput = input("Bellow to the Peaks", "Make an Announcement") as text|null
 	if(announcementinput)
 		if(!src.can_speak_vocal())
 			to_chat(src,span_warning("I can't speak!"))
 			return FALSE
-		if(world.time < GLOB.last_announcement_priest_time + 300 SECONDS)// 300 seconds = 5 minutes
-			to_chat(src, span_warning("You must wait [round((GLOB.last_announcement_priest_time + 300 SECONDS - world.time)/300, 0.1)] minutes before making another announcement!"))
-			return FALSE
+		if (!COOLDOWN_FINISHED(src, priest_announcement))
+			to_chat(src, span_warning("You must wait before speaking again."))
+			return
 		visible_message(span_warning("[src] takes a deep breath, preparing to make an announcement.."))
 		if(do_after(src, 15 SECONDS, target = src)) // Reduced to 15 seconds from 30 on the original Herald PR. 15 is well enough time for sm1 to shove you.
 			say(announcementinput)
 			priority_announce("[announcementinput]", "The Priest Speaks", 'sound/misc/bell.ogg', sender = src)
-			GLOB.last_announcement_priest_time = world.time
+			COOLDOWN_START(src, priest_announcement, PRIEST_ANNOUNCEMENT_COOLDOWN)
 		else
 			to_chat(src, span_warning("Your announcement was interrupted!"))
 			return FALSE
@@ -225,8 +227,8 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 		to_chat(src, span_warning("I need to do this in the chapel."))
 		return FALSE
 
-	if (world.time < GLOB.last_sermon_time + 1800) // 1800 seconds = 30 minutes = 10 minute downtime
-		to_chat(src, span_warning("You must wait until you can speak again."))
+	if (!COOLDOWN_FINISHED(src, priest_sermon))
+		to_chat(src, span_warning("You cannot inspire others so early."))
 		return
 
 	src.visible_message(span_notice("[src] begins preaching a sermon..."))
@@ -236,6 +238,8 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 		return
 
 	src.visible_message(span_notice("[src] finishes the sermon, inspiring those nearby!"))
+	playsound(src.loc, 'sound/magic/bless.ogg', 80, TRUE)
+	COOLDOWN_START(src, priest_sermon, PRIEST_SERMON_COOLDOWN)
 
 	for (var/mob/living/carbon/human/H in view(7, src))
 		if (!H.patron)
@@ -255,7 +259,6 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 			// Other patrons - fluff only
 			to_chat(H, span_notice("Nothing seems to happen to you."))
 
-	GLOB.last_sermon_time = world.time // set cooldown
 	return TRUE
 
 /mob/living/carbon/human/proc/churcheapostasy(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -263,10 +266,6 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 	set category = "Priest"
 
 	if (stat)
-		return
-
-	if (world.time < GLOB.last_apostasy_time + 600) // 600 seconds = 10 minutes
-		to_chat(src, span_warning("You must wait until you can mark another."))
 		return
 
 	var/found = FALSE
@@ -301,8 +300,12 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 		return TRUE
 
 	if (H.real_name == inputty)
+		if (!COOLDOWN_FINISHED(src, priest_apostasy))
+			to_chat(src, span_warning("You must wait until you can mark another."))
+			return
 		found = TRUE
 		GLOB.apostasy_players += inputty
+		COOLDOWN_START(src, priest_apostasy, PRIEST_APOSTASY_COOLDOWN)
 
 		if (istype(H.patron, /datum/patron/divine) && H.devotion)
 			H.devotion.excommunicate()
@@ -320,7 +323,6 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 	if (!found)
 		return FALSE
 
-	GLOB.last_apostasy_time = world.time // set cooldown
 	return
 
 /mob/living/carbon/human/proc/churchexcommunicate(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -328,10 +330,6 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 	set category = "Priest"
 
 	if (stat)
-		return
-
-	if (world.time < GLOB.last_excommunication_time + 600) // 600 seconds = 10 minutes
-		to_chat(src, span_warning("You must wait until you can excommunicate another."))
 		return
 
 	var/found = FALSE
@@ -369,10 +367,13 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 					return
 		return
 
-
 	if (H.real_name == inputty)
+		if (!COOLDOWN_FINISHED(src, priest_excommunicate))
+			to_chat(src, span_warning("You must wait until you can excommunicate another."))
+			return
 		found = TRUE
 		ADD_TRAIT(H, TRAIT_EXCOMMUNICATED, TRAIT_GENERIC)
+		COOLDOWN_START(src, priest_excommunicate, PRIEST_EXCOMMUNICATION_COOLDOWN)
 
 		if (H.patron)
 			if (istype(H.patron, /datum/patron/divine))
@@ -390,20 +391,15 @@ GLOBAL_VAR_INIT(last_curse_time, -1000)
 	message_admins("EXCOMMUNICATION: [real_name] ([ckey]) has excommunicated [H.real_name] ([H.ckey])")
 	log_game("EXCOMMUNICATION: [real_name] ([ckey]) has excommunicated [H.real_name] ([H.ckey])")
 
-	GLOB.last_excommunication_time = world.time // set cooldown
 	return
 
-/*Powerful curses that can and most likely will ruin a player's round
+/* PRIEST CURSE - powerful debuffs to punish ppl outside church otherwise use apostasy
 code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep that updated if this gets any changes.*/
 /mob/living/carbon/human/proc/churchpriestcurse(var/mob/living/carbon/human/H in GLOB.player_list)
 	set name = "Divine Curse"
 	set category = "Priest"
 
 	if (stat)
-		return
-
-	if (world.time < GLOB.last_curse_time + 1200) // 1200 seconds = 20 minutes
-		to_chat(src, span_warning("You must wait before invoking a curse again."))
 		return
 
 	var/target_name = input("Who shall receive a curse?", "Target Name") as text|null
@@ -451,10 +447,14 @@ code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep 
 				log_game("DIVINE CURSE: [real_name] ([ckey]) has attempted to strike [H.real_name] ([H.ckey] with [curse_pick])")
 				return
 
+			if (!COOLDOWN_FINISHED(src, priest_curse))
+				to_chat(src, span_warning("You must wait before invoking a curse again."))
+				return
+			COOLDOWN_START(src, priest_curse, PRIEST_CURSE_COOLDOWN)
 			H.add_curse(curse_type)
+			
 			priority_announce("[real_name] has stricken [H.real_name] with [curse_pick]! SHAME!", title = "JUDGEMENT", sound = 'sound/misc/excomm.ogg')
 			message_admins("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
 			log_game("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
 
-		GLOB.last_curse_time = world.time // set cooldown
 		return

@@ -1,5 +1,10 @@
 /mob/living/carbon/human
 	var/list/curses = list()
+	COOLDOWN_DECLARE(priest_announcement)
+	COOLDOWN_DECLARE(priest_sermon)
+	COOLDOWN_DECLARE(priest_apostasy)
+	COOLDOWN_DECLARE(priest_excommunicate)
+	COOLDOWN_DECLARE(priest_curse)
 
 /mob/living/carbon/human/proc/handle_curses()
 	for(var/curse in curses)
