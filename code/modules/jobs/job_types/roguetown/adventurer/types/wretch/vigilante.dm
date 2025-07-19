@@ -6,6 +6,7 @@
 	outfit = /datum/outfit/job/roguetown/wretch/vigilante
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_OUTLAW, TRAIT_DECEIVING_MEEKNESS, TRAIT_PERFECT_TRACKER, TRAIT_HERESIARCH)
+	maximum_possible_slots = 1 // There can only be one. 
 
 /datum/outfit/job/roguetown/wretch/vigilante/pre_equip(mob/living/carbon/human/H)
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/ //So your skull isn't caved in if you decide to wear a cool hat. 
