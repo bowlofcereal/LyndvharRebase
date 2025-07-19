@@ -707,6 +707,12 @@
 		examination += bodypart.check_for_injuries(user, deep_examination)
 
 	examination += "ø ------------ ø</span>"
+	if(infected)
+		if(user == src)
+			examination += span_boldwarning("I feel rot slowly seepinging into me...")
+		else
+			examination += span_boldwarning("Rot slowly seeps into their body")
+
 	if(!silent)
 		to_chat(user, examination.Join("\n"))
 	return examination

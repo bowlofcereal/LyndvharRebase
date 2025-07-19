@@ -351,6 +351,7 @@
 	var/datum/antagonist/zombie/zombie_antag = source.mind?.has_antag_datum(/datum/antagonist/zombie)
 	if (!zombie_antag || !zombie_antag.has_turned) //Check that the zombie who bit us is real
 		return FALSE
+	victim.infected = TRUE //They are being infected
 
 	//How did the victim get infected
 	switch (infection_type)
@@ -411,6 +412,7 @@
 	zombie.update_mobility()
 	zombie.update_sight()
 	zombie.reload_fullscreen()
+	zombie.infected = FALSE //The infection has finished and they are now a zombie
 
 	var/datum/antagonist/zombie/zombie_antag = zombie.mind?.has_antag_datum(/datum/antagonist/zombie)
 	if(zombie_antag)
