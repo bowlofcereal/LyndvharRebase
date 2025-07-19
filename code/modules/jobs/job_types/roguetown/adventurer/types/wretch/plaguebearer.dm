@@ -41,6 +41,7 @@
 	H.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE) //Disgraced medicine man. 
 	H.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE) // This is literally their whole thing
+	H.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE) // Farm ingredients so you have something to do that isn't grinding skills
 	H.cmode_music = 'sound/music/combat_physician.ogg'
 	var/weapons = list("Archery", "LET THERE BE PLAGUE!!!")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
