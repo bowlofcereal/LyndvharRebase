@@ -8,6 +8,7 @@
 	flee_in_pain = FALSE
 	ambushable = FALSE
 	wander = TRUE
+	infected = TRUE
 
 /mob/living/carbon/human/species/npc/deadite/Initialize()
 	. = ..()
