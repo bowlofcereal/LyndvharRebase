@@ -148,7 +148,7 @@
 	var/mob/living/carbon/human/zombie = owner?.current
 	if(zombie)
 
-		infected = FALSE // Makes sure admins removing deadification removes the infected var if they do it before they turn
+		zombie.infected = FALSE // Makes sure admins removing deadification removes the infected var if they do it before they turn
 		zombie.verbs -= /mob/living/carbon/human/proc/zombie_seek
 		zombie.mind?.special_role = special_role
 		zombie.ambushable = ambushable
