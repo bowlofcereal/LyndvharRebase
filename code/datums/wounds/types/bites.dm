@@ -15,6 +15,7 @@
 /datum/wound/bite/small
 	name = "nip"
 	whp = 15
+	woundpain = 5
 
 /datum/wound/bite/large
 	name = "gnarly bite"

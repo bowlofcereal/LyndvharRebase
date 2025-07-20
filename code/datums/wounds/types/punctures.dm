@@ -9,6 +9,7 @@
 	clotting_threshold = 0.2
 	sewn_clotting_threshold = 0.1
 	sew_threshold = 75
+	woundpain = 6
 	mob_overlay = "cut"
 	can_sew = TRUE
 	can_cauterize = TRUE
@@ -24,6 +25,7 @@
 	clotting_threshold = 0.1
 	sewn_clotting_threshold = 0.1
 	sew_threshold = 35
+	woundpain = 3
 
 /datum/wound/puncture/large
 	name = "gaping puncture"
@@ -36,6 +38,7 @@
 	clotting_threshold = 0.5
 	sewn_clotting_threshold = 0.25
 	sew_threshold = 100
+	woundpain = 10
 
 /datum/wound/puncture/drilling
 	name = "drilling"

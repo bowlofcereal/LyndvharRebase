@@ -10,7 +10,7 @@
 	sewn_bleed_rate = 0.2
 	clotting_threshold = null
 	sewn_clotting_threshold = null
-	woundpain = 50
+	woundpain = 30		//Should hurt but believe it or not it doesn't hurt as much as people think. (Still urgently fatal.)
 	sewn_woundpain = 20
 	mob_overlay = "s1"
 	sewn_overlay = "cut"
@@ -79,7 +79,6 @@
 	var/static/list/heartaches = list(
 		"OOHHHH MY HEART!",
 		"MY HEART! IT HURTS!",
-		"I AM DYING!",
 		"MY HEART IS TORN!",
 		"MY HEART IS BLEEDING!",
 	)

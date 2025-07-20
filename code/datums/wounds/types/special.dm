@@ -143,7 +143,7 @@
 		"The tongue is severed!",
 		"The tongue flies off in an arc!"
 	)
-	woundpain = 20
+	woundpain = 25
 	can_sew = FALSE
 	can_cauterize = FALSE
 	critical = TRUE
@@ -168,7 +168,7 @@
 	severity = 0
 	crit_message = "The face is mangled beyond recognition!"
 	whp = null
-	woundpain = 20
+	woundpain = 25
 	mob_overlay = "cut"
 	can_sew = FALSE
 	can_cauterize = FALSE
@@ -286,7 +286,7 @@
 	)
 	sound_effect = 'sound/combat/crit.ogg'
 	whp = 80
-	woundpain = 30
+	woundpain = 40
 	can_sew = FALSE
 	can_cauterize = FALSE
 	disabling = TRUE

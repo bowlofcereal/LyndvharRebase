@@ -2,13 +2,14 @@
 	name = "slash"
 	whp = 30
 	sewn_whp = 10
-	bleed_rate = 0.4
+	bleed_rate = 0.8
 	sewn_bleed_rate = 0.02
 	clotting_rate = 0.02
 	sewn_clotting_rate = 0.02
 	clotting_threshold = 0.2
 	sewn_clotting_threshold = 0.1
 	sew_threshold = 50
+	woundpain = 6
 	mob_overlay = "cut"
 	can_sew = TRUE
 	can_cauterize = TRUE
@@ -17,25 +18,27 @@
 	name = "small slash"
 	whp = 15
 	sewn_whp = 5
-	bleed_rate = 0.2
+	bleed_rate = 0.4
 	sewn_bleed_rate = 0.01
 	clotting_rate = 0.02
 	sewn_clotting_rate = 0.02
 	clotting_threshold = 0.1
 	sewn_clotting_threshold = 0.05
 	sew_threshold = 25
+	woundpain = 3
 
 /datum/wound/slash/large
 	name = "gruesome slash"
 	whp = 40
 	sewn_whp = 12
-	bleed_rate = 1
+	bleed_rate = 1.6
 	sewn_bleed_rate = 0.05
 	clotting_rate = 0.02
 	sewn_clotting_rate = 0.02
 	clotting_threshold = 0.4
 	sewn_clotting_threshold = 0.1
 	sew_threshold = 75
+	woundpain = 10
 
 /datum/wound/slash/disembowel
 	name = "disembowelment"
@@ -48,13 +51,14 @@
 	sound_effect = 'sound/combat/crit2.ogg'
 	whp = 100
 	sewn_whp = 35
-	bleed_rate = 20
+	bleed_rate = 25
 	sewn_bleed_rate = 0.8
 	clotting_rate = 0.02
 	sewn_clotting_rate = 0.02
 	clotting_threshold = 10
 	sewn_clotting_threshold = 0.5
 	sew_threshold = 150 //absolutely awful to sew up
+	woundpain = 50
 	critical = TRUE
 	/// Organs we can disembowel associated with chance to disembowel
 	var/static/list/affected_organs = list(
