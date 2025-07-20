@@ -321,3 +321,8 @@
 	timer = 2 MINUTES
 	stressadd = 2
 	desc = span_red("Oww, my head...")
+
+/datum/stressevent/evileye
+	timer = 30 MINUTES
+	stressadd = 5
+	desc = span_red("That tiefling's gaze has left me disturbed...")

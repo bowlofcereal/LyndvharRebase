@@ -1450,9 +1450,15 @@
 		update_fire()
 
 /mob/living/proc/adjust_fire_stacks(add_fire_stacks) //Adjusting the amount of fire_stacks we have on person
-	fire_stacks = CLAMP(fire_stacks + add_fire_stacks, -20, 20)
-	if(on_fire && fire_stacks <= 0)
-		ExtinguishMob()
+    var/final_amount = add_fire_stacks
+    if(istype(src, /mob/living/carbon/human))
+        var/mob/living/carbon/human/H = src
+        if(istype(H.dna?.species, /datum/species/tieberian)) //Tieflings get halved fire_stacks
+            final_amount *= 0.5
+
+    fire_stacks = CLAMP(fire_stacks + final_amount, -20, 20)
+    if(on_fire && fire_stacks <= 0)
+        ExtinguishMob()
 
 /mob/living/proc/adjust_divine_fire_stacks(add_fire_stacks) //Adjusting the amount of divine_fire_stacks we have on person
 	divine_fire_stacks = CLAMP(divine_fire_stacks + add_fire_stacks, 0, 100)
