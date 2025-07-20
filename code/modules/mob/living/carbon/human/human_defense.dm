@@ -708,7 +708,7 @@
 
 	examination += "ø ------------ ø</span>"
 	if(infected)
-		examination += span_boldwarning("[m1] slowly rotting away")
+		examination += span_boldwarning("[m1] slowly rotting away.")
 
 	if(!silent)
 		to_chat(user, examination.Join("\n"))
