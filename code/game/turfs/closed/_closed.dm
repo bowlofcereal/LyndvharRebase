@@ -179,6 +179,7 @@
 					playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
 				if(L.mind)
 					L.mind.add_sleep_experience(/datum/skill/misc/climbing, (L.STAINT/2), FALSE)
+				return TRUE
 	else
 		..()
 
