@@ -144,26 +144,24 @@
 			return crit_attempt
 	return TRUE
 
-/obj/item/bodypart/proc/add_dynamic_wound()
-
 
 /obj/item/bodypart/proc/manage_dynamic_wound(bclass, dam)
 	var/woundtype
+	switch(bclass)
+		if(BCLASS_BLUNT)
+			woundtype = /datum/wound/dynamic/bruise
+		if(BCLASS_BITE)
+			woundtype = /datum/wound/dynamic/bite
+		if(BCLASS_CHOP, BCLASS_CUT)
+			woundtype = /datum/wound/dynamic/slash
+		if(BCLASS_STAB, BCLASS_PICK, BCLASS_PIERCE)
+			woundtype = /datum/wound/dynamic/puncture
 	var/datum/wound/dynwound = has_wound(woundtype)
 	if(!isnull(dynwound))
 		dynwound.upgrade(dam)
 	else
-		switch(bclass)
-			if(BCLASS_BLUNT)
-				woundtype = /datum/wound/bruise/dynamic
-			if(BCLASS_BITE)
-				woundtype = /datum/wound/bite/dynamic
-			if(BCLASS_CHOP, BCLASS_CUT)
-				woundtype = /datum/wound/slash/dynamic
-			if(BCLASS_STAB, BCLASS_PICK, BCLASS_PIERCE)
-				woundtype = /datum/wound/puncture/dynamic
-		add_wound(woundtype)
-		
+		var/datum/wound/newwound = add_wound(woundtype)
+		newwound.upgrade(dam)
 
 /obj/item/bodypart/proc/remove_dynamic_wound()
 
