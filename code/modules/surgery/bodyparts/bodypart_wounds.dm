@@ -148,7 +148,7 @@
 /obj/item/bodypart/proc/manage_dynamic_wound(bclass, dam)
 	var/woundtype
 	switch(bclass)
-		if(BCLASS_BLUNT)
+		if(BCLASS_BLUNT, BCLASS_SMASH, BCLASS_PUNCH)
 			woundtype = /datum/wound/dynamic/bruise
 		if(BCLASS_BITE)
 			woundtype = /datum/wound/dynamic/bite
@@ -156,6 +156,8 @@
 			woundtype = /datum/wound/dynamic/slash
 		if(BCLASS_STAB, BCLASS_PICK, BCLASS_PIERCE)
 			woundtype = /datum/wound/dynamic/puncture
+		else	//Wrong bclass type for wounds, skip adding this.
+			return
 	var/datum/wound/dynwound = has_wound(woundtype)
 	if(!isnull(dynwound))
 		dynwound.upgrade(dam)
