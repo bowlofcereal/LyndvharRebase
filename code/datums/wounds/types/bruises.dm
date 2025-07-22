@@ -47,16 +47,19 @@
 	)
 
 #define BRUISE_UPG_BLEEDRATE 0.02
-#define BRUISE_UPG_WHPRATE 1.1
+#define BRUISE_UPG_WHPRATE 0.8
 #define BRUISE_UPG_PAINRATE 0.7
+#define BRUISE_UPG_PASSIVEHEAL 0.5
 
 /datum/wound/dynamic/bruise/upgrade(dam)
 	whp += (dam * BRUISE_UPG_WHPRATE)
 	bleed_rate += (dam * BRUISE_UPG_BLEEDRATE)
 	woundpain += (dam * BRUISE_UPG_PAINRATE)
+	passive_healing += BRUISE_UPG_PASSIVEHEAL
 	update_name()
 	..()
 
 #undef BRUISE_UPG_BLEEDRATE
 #undef BRUISE_UPG_WHPRATE
 #undef BRUISE_UPG_PAINRATE
+#undef BRUISE_UPG_PASSIVEHEAL

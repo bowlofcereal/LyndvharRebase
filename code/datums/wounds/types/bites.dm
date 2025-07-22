@@ -56,8 +56,8 @@
 	)
 
 #define BITE_UPG_BLEEDRATE 0.35
-#define BITE_UPG_WHPRATE 0.5
-#define BITE_UPG_SEWRATE 0.75
+#define BITE_UPG_WHPRATE 0.05
+#define BITE_UPG_SEWRATE 0.1
 #define BITE_UPG_PAINRATE 0.5
 
 /datum/wound/dynamic/bite/upgrade(dam)
