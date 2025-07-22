@@ -48,8 +48,7 @@
 	/obj/item/clothing/head/roguetown/roguehood,
 	/obj/item/clothing/head/roguetown/roguehood/random,
 	/obj/item/clothing/head/roguetown/roguehood/shalal/heavyhood,
-	/obj/item/clothing/head/roguetown/fancyhat
-	)
+	/obj/item/clothing/head/roguetown/fancyhat)
 
 	if(prob(50))
 		mask = /obj/item/clothing/mask/rogue/spectacles
