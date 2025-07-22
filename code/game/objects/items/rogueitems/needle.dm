@@ -198,7 +198,7 @@
 		playsound(loc, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
 		target_wound.sew_progress = min(target_wound.sew_progress + moveup, target_wound.sew_threshold)
 
-		var/bleedreduction = (doctor.get_skill_level(/datum/skill/misc/medicine)) / 2
+		var/bleedreduction = max(((doctor.get_skill_level(/datum/skill/misc/medicine)) / 2), 1)	//Half of medicine skill, or 1, whichever is higher.
 		target_wound.bleed_rate = max( (target_wound.bleed_rate - bleedreduction), 0)
 		if(istype(target_wound, /datum/wound/dynamic))
 			var/datum/wound/dynamic/dynwound = target_wound
