@@ -79,9 +79,6 @@
 #undef SLASH_UPG_SEWRATE
 #undef SLASH_UPG_PAINRATE
 
-/datum/wound/dynamic/slash/sew_wound()
-	heal_wound(whp)
-
 /datum/wound/slash/disembowel
 	name = "disembowelment"
 	check_name = span_userdanger("<B>GUTS</B>")

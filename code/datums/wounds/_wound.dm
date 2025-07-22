@@ -354,6 +354,9 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 /datum/wound/dynamic
 	var/is_maxed = FALSE
 
+/datum/wound/dynamic/sew_wound()
+	heal_wound(whp)
+
 /datum/wound/dynamic/upgrade(dam as num)
 	if(bleed_rate >= ARTERY_LIMB_BLEEDRATE)
 		if(is_maxed)
