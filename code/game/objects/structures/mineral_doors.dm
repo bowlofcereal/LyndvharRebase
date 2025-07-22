@@ -940,27 +940,27 @@
 	resident_key_amount = 2
 
 /obj/structure/mineral_door/wood/towner/blacksmith
-	resident_advclass = list(/datum/advclass/blacksmith)
+	resident_advclass = list(/datum/advclass/towner)
 	lockid = "towner_blacksmith"
 
 /obj/structure/mineral_door/wood/towner/cheesemaker
-	resident_advclass = list(/datum/advclass/cheesemaker)
+	resident_advclass = list(/datum/advclass/towner)
 	lockid = "towner_cheesemaker"
 
 /obj/structure/mineral_door/wood/towner/miner
-	resident_advclass = list(/datum/advclass/miner)
+	resident_advclass = list(/datum/advclass/towner)
 	lockid = "towner_miner"
 
 /obj/structure/mineral_door/wood/towner/seamstress
-	resident_advclass = list(/datum/advclass/seamstress)
+	resident_advclass = list(/datum/advclass/towner)
 	lockid = "towner_seamstress"
 
 /obj/structure/mineral_door/wood/towner/woodcutter
-	resident_advclass = list(/datum/advclass/woodcutter)
+	resident_advclass = list(/datum/advclass/towner)
 	lockid = "towner_woodcutter"
 
 /obj/structure/mineral_door/wood/towner/fisher
-	resident_advclass = list(/datum/advclass/fisher)
+	resident_advclass = list(/datum/advclass/towner)
 	lockid = "towner_fisher"
 
 /obj/structure/mineral_door/wood/towner/hunter

@@ -158,6 +158,28 @@
 	else
 		to_chat(current, span_warning("I feel like I've become worse at [lowertext(S.name)]!"))
 
+	var/datum/job/J = SSjob.GetJob(current.job)
+	if(J && J.adaptive_name)
+		to_chat(world, "entering L163")
+		var/str
+		var/list/jobnames = list()
+		for(var/skillt in SSskills.all_skills)
+			var/datum/skill/sk = GetSkillRef(skillt)
+			if(current.get_skill_level(sk.type) >= SKILL_LEVEL_EXPERT)
+				to_chat(world, "added [sk.expert_name] to list")
+				jobnames.Add(initial(sk.expert_name))
+		if(length(jobnames))
+			if(length(jobnames) == 1)
+				current.advjob = jobnames[1]
+			else
+				for(var/i in 1 to length(jobnames))
+					if(i == 1)
+						str += "[jobnames[i]]"
+					else
+						str += "-[jobnames[i]]"
+				to_chat(world, "new advjob is [str]")
+				current.advjob = str
+
 /datum/skill_holder/proc/get_skill_speed_modifier(skill)
 	var/datum/skill/S = GetSkillRef(skill)
 	return S.get_skill_speed_modifier(known_skills[S] || SKILL_LEVEL_NONE)
