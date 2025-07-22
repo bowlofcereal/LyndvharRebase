@@ -69,6 +69,15 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = 'sound/music/area/banditcamp.ogg'
 	droning_sound_night = 'sound/music/area/banditcamp.ogg'
 
+
+/area/rogue/indoors/ravoxarena
+	name = "ravox arena"
+
+/area/rogue/indoors/ravoxarena/proc/cleanthearena(var/turf/returnzone)
+	for(var/obj/item/trash in src)
+		do_teleport(trash, returnzone)
+
+
 /area/rogue/indoors/cave
 	name = "latejoin cave"
 	icon_state = "cave"

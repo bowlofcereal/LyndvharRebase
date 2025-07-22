@@ -230,3 +230,98 @@
 		return FALSE
 	revert_cast()
 	return FALSE
+
+
+/obj/effect/proc_holder/spell/invoked/challenge
+	name = "Challenge"
+	overlay_state = "ravoxchallenge"
+	recharge_time = 20 MINUTES
+	movement_interrupt = FALSE
+	chargedrain = 0
+	chargetime = 3 SECONDS
+	charging_slowdown = 2
+	chargedloop = null
+	associated_skill = /datum/skill/magic/holy
+	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
+	sound = 'sound/magic/timestop.ogg'
+	invocation = "By Ravox, I challenge you!!"
+	chargedloop = /datum/looping_sound/invokeholy
+	invocation_type = "shout"
+	antimagic_allowed = TRUE
+	miracle = TRUE
+	devotion_cost = 100
+
+/obj/effect/proc_holder/spell/invoked/challenge/cast(list/targets, mob/living/user)
+	var/area/thearena = GLOB.areas_by_type[/area/rogue/indoors/ravoxarena]
+	var/turf/challengerspawnpoint
+	var/turf/challengedspawnpoint
+	var/arenacount = 0
+
+	for(var/mob/living/guysinarena in thearena)
+		arenacount +=1
+		if(arenacount >= 2)
+			to_chat(user, span_italics("The arena is not yet ready for the next trial! Wait your turn!"))
+			return FALSE
+
+	if(isliving(targets[1]))
+		var/mob/living/target = targets[1]
+		var/originalcmodeuser = user.cmode_music
+		var/originalcmodetarget = target.cmode_music
+		var/turf/storedchallengerturf = get_turf(user)
+		var/turf/storedchallengedturf = get_turf(target)
+
+		for(var/obj/structure/fluff/ravox/challenger/aflag in thearena)
+			challengerspawnpoint = get_turf(aflag)
+		for(var/obj/structure/fluff/ravox/challenged/bflag in thearena)
+			challengedspawnpoint = get_turf(bflag)
+		
+		do_teleport(user, challengerspawnpoint)
+		do_teleport(target, challengedspawnpoint)
+		storedchallengerturf.visible_message((span_cult("[user] calls upon the Ravoxian rite of Trial! [target] and [user] are brought to Trial!")))
+
+		new /obj/structure/fluff/ravox/challenger/recall(storedchallengerturf)
+		new /obj/structure/fluff/ravox/challenged/recall(storedchallengedturf)
+
+		to_chat(user, span_userdanger("THE TRIAL IS CALLED, IMPRESS US, PROSECUTOR!!"))
+		to_chat(target, span_userdanger("A TRIAL OF RAVOX BEGINS. IMPRESS US, DEFENDANT!!"))
+
+		user.cmode_change('sound/music/ravoxarena.ogg')
+		target.cmode_change('sound/music/ravoxarena.ogg')
+
+		addtimer(CALLBACK(user, GLOBAL_PROC_REF(do_teleport), user, storedchallengerturf), 3 MINUTES)
+		addtimer(CALLBACK(target, GLOBAL_PROC_REF(do_teleport), target, storedchallengedturf), 3 MINUTES)
+		addtimer(CALLBACK(user, TYPE_PROC_REF(/mob, cmode_change), originalcmodeuser), 3 MINUTES)
+		addtimer(CALLBACK(target,TYPE_PROC_REF(/mob, cmode_change), originalcmodetarget), 3 MINUTES)
+		addtimer(CALLBACK(thearena,TYPE_PROC_REF(/area/rogue/indoors/ravoxarena, cleanthearena), storedchallengedturf), 3 MINUTES) // shunt all items from the arena out onto the challenged spot.
+
+		return TRUE
+
+	return FALSE
+
+
+/obj/structure/fluff/ravox
+	icon = 'icons/roguetown/rav/obj/flags.dmi'
+	density = FALSE
+	anchored = TRUE
+	blade_dulling = DULLING_BASHCHOP
+	layer = BELOW_MOB_LAYER
+	max_integrity = 0
+
+/obj/structure/fluff/ravox/challenger
+	name = "Flag of the challenger"
+	desc = "Where the challenger will return after the trial is decided."
+	icon_state = "ravoxchallenger"
+
+/obj/structure/fluff/ravox/challenged
+	name = "Flag of the challenged"
+	desc = "Where the challenged will return after the trial is decided."
+	icon_state = "ravoxchallenged"
+
+
+/obj/structure/fluff/ravox/challenger/recall/Initialize()
+	. = ..()
+	addtimer(CALLBACK(src, GLOBAL_PROC_REF(qdel), src), 3 MINUTES)
+
+/obj/structure/fluff/ravox/challenged/recall/Initialize()
+	. = ..()
+	addtimer(CALLBACK(src, GLOBAL_PROC_REF(qdel), src), 3 MINUTES)
