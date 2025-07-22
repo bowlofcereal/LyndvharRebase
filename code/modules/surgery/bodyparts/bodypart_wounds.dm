@@ -148,7 +148,7 @@
 /obj/item/bodypart/proc/manage_dynamic_wound(bclass, dam)
 	var/woundtype
 	switch(bclass)
-		if(BCLASS_BLUNT, BCLASS_SMASH, BCLASS_PUNCH)
+		if(BCLASS_BLUNT, BCLASS_SMASH, BCLASS_PUNCH, BCLASS_TWIST)
 			woundtype = /datum/wound/dynamic/bruise
 		if(BCLASS_BITE)
 			woundtype = /datum/wound/dynamic/bite
@@ -164,8 +164,6 @@
 	else
 		var/datum/wound/newwound = add_wound(woundtype)
 		newwound.upgrade(dam)
-
-/obj/item/bodypart/proc/remove_dynamic_wound()
 
 /// Behemoth of a proc used to apply a wound after a bodypart is damaged in an attack
 /obj/item/bodypart/proc/try_crit(bclass = BCLASS_BLUNT, dam, mob/living/user, zone_precise = src.body_zone, silent = FALSE, crit_message = FALSE)
