@@ -6,6 +6,7 @@
 	outfit = /datum/outfit/job/roguetown/homesteader
 	traits_applied = list(TRAIT_JACKOFALLTRADES)
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
+	adaptive_name = TRUE
 
 /datum/outfit/job/roguetown/homesteader/pre_equip(mob/living/carbon/human/H)
 	..()
