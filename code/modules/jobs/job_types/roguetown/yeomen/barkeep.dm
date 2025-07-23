@@ -160,6 +160,7 @@
 		H.mind.special_items["Hoe"] = /obj/item/rogueweapon/hoe
 		H.mind.special_items["Thresher"] = /obj/item/rogueweapon/thresher
 		H.mind.special_items["Sickle"] = /obj/item/rogueweapon/sickle
+		H.mind.special_items["Fishing Rod"] = /obj/item/fishingrod
 		H.mind.special_items["Well-worn Instrument"] = pick(subtypesof(/obj/item/rogue/instrument))
 	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
@@ -172,6 +173,7 @@
 	H.adjust_skillrank(/datum/skill/labor/butchering, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/farming, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/fishing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/blacksmithing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/armorsmithing, 2, TRUE)
@@ -198,6 +200,6 @@
 	H.change_stat("constitution", 1)
 	ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES_SHITTY, "[type]")
-	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_TAVERN_FIGHTER, TRAIT_GENERIC)
