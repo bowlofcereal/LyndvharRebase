@@ -23,7 +23,7 @@
 
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
-	inherent_traits = list(TRAIT_WOODWALKER)
+	inherent_traits = list(TRAIT_WOODWALKER,TRAIT_KEENEARS)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = 1
 	disliked_food = NONE
@@ -181,4 +181,3 @@
 
 /datum/species/elf/wood/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
-	C.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)

@@ -77,6 +77,17 @@
 	desc = "I am the fastest!"
 	icon_state = "buff"
 
+/datum/status_effect/buff/godspeak
+	id = "godspeak"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/godspeak
+	effectedstats = list("fortune" = 2)
+	duration = 30 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/godspeak
+	name = "Godspeak"
+	desc = "I feel closer to divinity."
+	icon_state = "buff"
+
 /datum/status_effect/buff/druqks
 	id = "druqks"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/druqks
