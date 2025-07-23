@@ -264,6 +264,7 @@
 		arenacount +=1
 		if(arenacount >= 2)
 			to_chat(user, span_italics("The arena is not yet ready for the next trial! Wait your turn!"))
+			revert_cast()
 			return FALSE
 
 	if(isliving(targets[1]))
@@ -272,6 +273,9 @@
 		var/originalcmodetarget = target.cmode_music
 		var/turf/storedchallengerturf = get_turf(user)
 		var/turf/storedchallengedturf = get_turf(target)
+		if(target == user)
+			revert_cast()
+			return FALSE
 
 		for(var/obj/structure/fluff/ravox/challenger/aflag in thearena)
 			challengerspawnpoint = get_turf(aflag)
@@ -303,7 +307,7 @@
 
 
 		return TRUE
-
+	revert_cast()
 	return FALSE
 
 
