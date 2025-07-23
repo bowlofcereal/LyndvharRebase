@@ -321,7 +321,9 @@
 /obj/structure/fluff/ravox/challenger/recall/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, GLOBAL_PROC_REF(qdel), src), 3 MINUTES)
+	addtimer(CALLBACK(src, GLOBAL_PROC_REF(explosion), src, -1, 0, 3, 2), 178 SECONDS) // spawn protection, doesnt do damage, just flicks people away and blinds for a bit.
 
 /obj/structure/fluff/ravox/challenged/recall/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, GLOBAL_PROC_REF(qdel), src), 3 MINUTES)
+	addtimer(CALLBACK(src, GLOBAL_PROC_REF(explosion), src, -1, 0, 3, 2), 178 SECONDS)
