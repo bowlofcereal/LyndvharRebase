@@ -104,6 +104,8 @@
 		H.mind.special_items["Trusty Pick"] = /obj/item/rogueweapon/pick
 		H.mind.special_items["Hoe"] = /obj/item/rogueweapon/hoe
 		H.mind.special_items["Tuneful Instrument"] = pick(subtypesof(/obj/item/rogue/instrument))
+		H.mind.special_items["Fishing Rod"] = /obj/item/fishingrod/crafted
+		H.mind.special_items["Pan for Frying"] = /obj/item/cooking/pan
 
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 	H.change_stat("strength", 1)
