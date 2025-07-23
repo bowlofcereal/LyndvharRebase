@@ -7,7 +7,7 @@
 	traits_applied = list(TRAIT_JACKOFALLTRADES)
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 
-/datum/outfit/job/roguetown/towner/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/homesteader/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank_up_to(/datum/skill/combat/axes, 2, TRUE)
 	H.adjust_skillrank_up_to(/datum/skill/combat/unarmed, 2, TRUE)
@@ -88,6 +88,10 @@
 						/obj/item/rogueweapon/shovel/small = 1,
 						/obj/item/hair_dye_cream = 3,
 						/obj/item/rogueweapon/chisel = 1,
+						/obj/item/natural/clay = 3,
+						/obj/item/natural/clay/glassbatch = 1, 
+						/obj/item/rogueore/coal = 1,
+						/obj/item/roguegear = 1,
 	)
 	if(H.mind)
 		H.mind.special_items["Hammer"] = /obj/item/rogueweapon/hammer/steel
