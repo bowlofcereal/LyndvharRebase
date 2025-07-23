@@ -234,7 +234,10 @@
 
 /obj/effect/proc_holder/spell/invoked/challenge
 	name = "Challenge"
+	overlay_icon = 'icons/mob/actions/ravoxmiracles.dmi'
 	overlay_state = "ravoxchallenge"
+	action_icon_state = "ravoxchallenge"
+	action_icon = 'icons/mob/actions/ravoxmiracles.dmi'
 	recharge_time = 20 MINUTES
 	movement_interrupt = FALSE
 	chargedrain = 0
