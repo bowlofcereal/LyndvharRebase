@@ -34,7 +34,7 @@
 	H.change_stat("endurance", 1)
 	H.change_stat("speed", 2)
 	H.verbs |= /mob/proc/haltyell
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)//They don't start with it but too many D expert archers
+	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_WOODSMAN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OUTDOORSMAN, TRAIT_GENERIC)
 	H.adjust_blindness(-3)
