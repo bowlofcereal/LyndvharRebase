@@ -186,6 +186,8 @@
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	beltl = /obj/item/rogueweapon/scabbard
 	l_hand = /obj/item/rogueweapon/sword/sabre/shamshir
+	
+	H.merctype = 4
 
 
 
