@@ -52,11 +52,10 @@
 	..()
 	backpack_contents = list(
 		/obj/item/bottle_kit,
-		/obj/item/storage/belt/rogue/pouch/coins/mid
+		/obj/item/storage/belt/rogue/pouch/coins/mid,
+		/obj/item/rogueweapon/scabbard/sheath,
+		/obj/item/rogueweapon/huntingknife
 		)
-	beltl = /obj/item/rogueweapon/scabbard/sword
-	backl = /obj/item/rogueweapon/sword/long
-	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -86,6 +85,27 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_CICERONE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_TAVERN_FIGHTER, TRAIT_GENERIC)
+	var/weapons = list("Old Longsword (pickup at the inn)", "Falchion", "Mace", "Quarterstaff (iron)", "Greataxe")
+	var/weapon_choice = input("Your trusty weapon.", "TAKE UP ARMS") as anything in weapons
+	switch(weapon_choice)
+		if("Old Longsword (pickup at the inn)")
+			backl = /obj/item/gwstrap
+			beltl = /obj/item/rogueweapon/scabbard/sword
+			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		if("Falchion")
+			beltl = /obj/item/rogueweapon/scabbard/sword
+			r_hand = /obj/item/rogueweapon/sword/falchion
+			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		if("Mace")
+			beltl = /obj/item/rogueweapon/mace
+			H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+		if("Quarterstaff (iron)")
+			backl = /obj/item/rogueweapon/woodstaff/quarterstaff/iron
+			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+		if("Greataxe")
+			backl = /obj/item/rogueweapon/greataxe
+			H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
+
 
 /datum/advclass/barkeep/f_mage
 	name = "Former Mage"
