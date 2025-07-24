@@ -351,13 +351,13 @@
 				var/mob/living/M = AM
 				M.Paralyze(10)
 				M.adjustBruteLoss(20)
-				to_chat(M, "<span class='danger'>You're slammed into the floor by [src]!</span>")
+				to_chat(M, "<span class='danger'>You're slammed into the floor by Ravox's strength!!</span>")
 		else
 			new sparkle_path(get_turf(AM), get_dir(src, AM)) //created sparkles will disappear on their own
 			if(isliving(AM))
 				var/mob/living/M = AM
 				M.Paralyze(5)
-				to_chat(M, "<span class='danger'>You're thrown back by [src]!</span>")
+				to_chat(M, "<span class='danger'>You're thrown back by Ravox's strength!!</span>")
 			AM.safe_throw_at(throwtarget, ((CLAMP((maxthrow - (CLAMP(distfromflag - 2, 0, distfromflag))), 3, maxthrow))), 1,null, force = repulse_force)
 
 
