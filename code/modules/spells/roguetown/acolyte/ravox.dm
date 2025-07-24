@@ -241,6 +241,7 @@
 	recharge_time = 20 MINUTES
 	movement_interrupt = FALSE
 	chargedrain = 0
+	range = 7
 	chargetime = 3 SECONDS
 	charging_slowdown = 2
 	chargedloop = null
