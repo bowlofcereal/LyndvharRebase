@@ -102,10 +102,7 @@
 	icon_state = "under_compass"
 
 /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/kazengun
-	name = "saichain"
-	desc = "Not a Kazengunite invention, per sae, but rather a meeting of cultures, this anchor-like trinket is said to anchor one's souls to the Land-and-Lord. Controversial among the Orthodoxists and the \
-	Holy See alike, but tolerated nonetheless. Veneration is veneration, after all, especially in these trying tymes."
-	icon_state = "kazengun_saicross"
+	// NOT CURRENTLY IMPLEMENTED
 
 /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/routier
 	name = "otavan silvered halo"
@@ -125,8 +122,5 @@
 	icon_state = "vaquero_ring"
 
 /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/warscholar
-	name = "demonologist's wardstone"
-	desc = "What lies within this knuckle-sized iron cage is unknown to all but the most devoted of the warscholars. Some say it protects the soul, like a lych's phylactery; others claim it is \
-	a powerful arcyne relic."
-	icon_state = "naledi_wardstone"
+// NOT CURRENTLY IMPLEMENTED
 

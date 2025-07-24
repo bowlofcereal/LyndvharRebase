@@ -134,7 +134,7 @@
 				H.tokenclaimed = TRUE
 				switch(H.merctype)
 					if(0)
-						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/(src.loc)
+						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal(src.loc)
 					if(1)
 						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/atgervi(src.loc)
 					if(2)
@@ -152,7 +152,7 @@
 					if(8)
 						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/grudgebearer(src.loc)
 					if(9)
-						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/kazengun(src.loc)
+						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal(src.loc) // NOT CURRENTLY IMPLEMENTED
 					if(10)
 						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/routier(src.loc)
 					if(11)
@@ -162,7 +162,7 @@
 					if(13)
 						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/vaquero(src.loc)
 					if(14)
-						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/warscholar(src.loc)
+						new /obj/item/clothing/neck/roguetown/luckcharm/mercmedal(src.loc) // NOT CURRENTLY IMPLEMENTED
 			if(C.signed == 0)
 				to_chat(H, "<span class='warning'>I cannot send an unsigned token.</span>")
 				return
