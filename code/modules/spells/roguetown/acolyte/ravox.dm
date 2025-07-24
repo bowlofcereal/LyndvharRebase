@@ -319,6 +319,48 @@
 	layer = BELOW_MOB_LAYER
 	max_integrity = 0
 
+/obj/structure/fluff/ravox/proc/spawnprotection()
+	var/list/thrownatoms = list()
+	var/atom/throwtarget
+	var/distfromflag
+	var/maxthrow = 6
+	var/sparkle_path = /obj/effect/temp_visual/gravpush
+	var/repulse_force = MOVE_FORCE_EXTREMELY_STRONG
+	var/push_range = 3
+
+	playsound(src, 'sound/magic/repulse.ogg', 80, TRUE)
+	for(var/turf/T in view(push_range, src))
+		new /obj/effect/temp_visual/kinetic_blast(T)
+		for(var/atom/movable/AM in T)
+			thrownatoms += AM
+
+	for(var/am in thrownatoms)
+		var/atom/movable/AM = am
+		if(AM == src || AM.anchored)
+			continue
+
+		if(ismob(AM))
+			var/mob/M = AM
+			if(M.anti_magic_check())
+				continue
+
+		throwtarget = get_edge_target_turf(src, get_dir(src, get_step_away(AM, src)))
+		distfromflag = get_dist(src, AM)
+		if(distfromflag == 0)
+			if(isliving(AM))
+				var/mob/living/M = AM
+				M.Paralyze(10)
+				M.adjustBruteLoss(20)
+				to_chat(M, "<span class='danger'>You're slammed into the floor by [src]!</span>")
+		else
+			new sparkle_path(get_turf(AM), get_dir(src, AM)) //created sparkles will disappear on their own
+			if(isliving(AM))
+				var/mob/living/M = AM
+				M.Paralyze(5)
+				to_chat(M, "<span class='danger'>You're thrown back by [src]!</span>")
+			AM.safe_throw_at(throwtarget, ((CLAMP((maxthrow - (CLAMP(distfromflag - 2, 0, distfromflag))), 3, maxthrow))), 1,null, force = repulse_force)
+
+
 /obj/structure/fluff/ravox/challenger
 	name = "Flag of the challenger"
 	desc = "Where the challenger will return after the trial is decided."
@@ -333,9 +375,9 @@
 /obj/structure/fluff/ravox/challenger/recall/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, GLOBAL_PROC_REF(qdel), src), 3 MINUTES)
-	addtimer(CALLBACK(src, GLOBAL_PROC_REF(explosion), src, -1, 0, 3, 2), 178 SECONDS) // spawn protection, doesnt do damage, just flicks people away and blinds for a bit.
+	addtimer(CALLBACK(src,TYPE_PROC_REF(/obj/structure/fluff/ravox, spawnprotection)), 179 SECONDS)
 
 /obj/structure/fluff/ravox/challenged/recall/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, GLOBAL_PROC_REF(qdel), src), 3 MINUTES)
-	addtimer(CALLBACK(src, GLOBAL_PROC_REF(explosion), src, -1, 0, 3, 2), 178 SECONDS)
+	addtimer(CALLBACK(src,TYPE_PROC_REF(/obj/structure/fluff/ravox, spawnprotection)), 179 SECONDS)
