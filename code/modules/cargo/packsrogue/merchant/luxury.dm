@@ -116,4 +116,4 @@
 /datum/supply_pack/rogue/luxury/merctoken
 	name = "Writ of Commendation"
 	cost = 80
-	contains = /obj/item/merctoken
+	contains = list(/obj/item/merctoken)

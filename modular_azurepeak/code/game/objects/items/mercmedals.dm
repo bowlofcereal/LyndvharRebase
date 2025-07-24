@@ -20,9 +20,6 @@
 		if(!user.can_read(src))
 			to_chat(user, "<span class='warning'>Even a reader would find these verba incomprehensible.</span>")
 			return
-		if(signed == 0)
-			to_chat(user, "<span class='warning'>This could be signed with a quill... or a thorn, if one was desperate.</span>")
-			return
 		if(signed == 1)
 			to_chat(user, "<span class='warning'>This writ has already been signed.</span>")
 			return
@@ -39,6 +36,9 @@
 				signed = 1
 				return
 		else
+			if(signed == 0)
+				to_chat(user, "<span class='warning'>This could be signed with a quill... or a thorn, if one was desperate.</span>")
+				return
 			return
 
 
@@ -120,12 +120,13 @@
 
 /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/vaquero
 	name = "vaquero's ring"
-	desc = "A beautiful gold-and-rontz ring, a masterwork of Etruscan jeweling."
-	icon_state = "vaquero_songpick"
+	desc = "A beautiful gold-and-rontz ring, a masterwork of Etruscan jeweling. This does more than prove you a true vaquero; it shows you are as beautiful as you are dangerous, a crimson stone set against gold. Lyve dangerously, \
+	but lyve all the same."
+	icon_state = "vaquero_ring"
 
 /obj/item/clothing/neck/roguetown/luckcharm/mercmedal/warscholar
 	name = "demonologist's wardstone"
 	desc = "What lies within this knuckle-sized iron cage is unknown to all but the most devoted of the warscholars. Some say it protects the soul, like a lych's phylactery; others claim it is \
 	a powerful arcyne relic."
-	icon_state = "wardstone"
+	icon_state = "naledi_wardstone"
 
