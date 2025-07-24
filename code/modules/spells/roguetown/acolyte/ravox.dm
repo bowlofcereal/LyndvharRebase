@@ -234,6 +234,7 @@
 
 /obj/effect/proc_holder/spell/invoked/challenge
 	name = "Challenge"
+	desc = "Bring an opponent with you to Ravoxian Trial. Engage in 3 minute combat."
 	overlay_icon = 'icons/mob/actions/ravoxmiracles.dmi'
 	overlay_state = "ravoxchallenge"
 	action_icon_state = "ravoxchallenge"
