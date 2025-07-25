@@ -17,6 +17,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/plate
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/jackchain
+	l_hand = /obj/item/gun/ballistic/revolver
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,

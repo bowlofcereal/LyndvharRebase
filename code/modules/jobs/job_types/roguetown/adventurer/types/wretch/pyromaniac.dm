@@ -20,7 +20,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
 	wrists = /obj/item/clothing/wrists/roguetown/splintarms
 	r_hand = /obj/item/bomb
-	l_hand = /obj/item/bomb
+	l_hand = /obj/item/gun/ballistic/revolver
 	backpack_contents = list(
 		/obj/item/bomb = 2,
 		/obj/item/rogueweapon/huntingknife = 1,

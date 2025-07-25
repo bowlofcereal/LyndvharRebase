@@ -20,6 +20,7 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	neck = /obj/item/clothing/neck/roguetown/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
+	l_hand = /obj/item/gun/ballistic/revolver
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife = 1,
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,

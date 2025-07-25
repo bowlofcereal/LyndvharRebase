@@ -25,6 +25,7 @@
 	beltl = /obj/item/storage/magebag
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backr = /obj/item/rogueweapon/woodstaff/ruby
+	l_hand = /obj/item/gun/ballistic/revolver
 	backpack_contents = list(
 		/obj/item/spellbook_unfinished/pre_arcyne = 1, 
 		/obj/item/roguegem/amethyst = 1,

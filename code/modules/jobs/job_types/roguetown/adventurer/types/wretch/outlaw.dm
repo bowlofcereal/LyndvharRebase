@@ -35,6 +35,7 @@
 			mask = /obj/item/clothing/mask/rogue/ragmask/black
 			beltr = /obj/item/quiver/bolts
 			r_hand = /obj/item/rogueweapon/mace/cudgel //From thief PR
+			l_hand = /obj/item/gun/ballistic/revolver
 			backpack_contents = list(
 				/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 				/obj/item/lockpickring/mundane = 1,
