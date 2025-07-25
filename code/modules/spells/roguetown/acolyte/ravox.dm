@@ -256,18 +256,17 @@
 	miracle = TRUE
 	devotion_cost = 100
 
+GLOBAL_LIST_EMPTY(arenafolks) // we're just going to use a list and add to it. Since /entered doesnt work on teleported mobs. 
+
 /obj/effect/proc_holder/spell/invoked/challenge/cast(list/targets, mob/living/user)
-	var/area/thearena = GLOB.areas_by_type[/area/rogue/indoors/ravoxarena]
+	var/area/rogue/indoors/ravoxarena/thearena = GLOB.areas_by_type[/area/rogue/indoors/ravoxarena]
 	var/turf/challengerspawnpoint
 	var/turf/challengedspawnpoint
-	var/arenacount = 0
-
-	for(var/mob/living/guysinarena in thearena)
-		arenacount +=1
-		if(arenacount >= 2)
-			to_chat(user, span_italics("The arena is not yet ready for the next trial! Wait your turn!"))
-			revert_cast()
-			return FALSE
+	var/arenacount = GLOB.arenafolks.len
+	if(arenacount >= 2)
+		to_chat(user, span_italics("The arena is not yet ready for the next trial! Wait your turn!"))
+		revert_cast()
+		return FALSE
 
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
@@ -286,6 +285,8 @@
 		
 		do_teleport(user, challengerspawnpoint)
 		do_teleport(target, challengedspawnpoint)
+		GLOB.arenafolks += user
+		GLOB.arenafolks += target
 		storedchallengerturf.visible_message((span_cult("[user] calls upon the Ravoxian rite of Trial! [target] and [user] are brought to Trial!")))
 
 		new /obj/structure/fluff/ravox/challenger/recall(storedchallengerturf)

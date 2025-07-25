@@ -79,6 +79,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/indoors/ravoxarena/proc/cleanthearena(var/turf/returnzone)
 	for(var/obj/item/trash in src)
 		do_teleport(trash, returnzone)
+	GLOB.arenafolks.len = list()
 
 
 /area/rogue/indoors/cave
