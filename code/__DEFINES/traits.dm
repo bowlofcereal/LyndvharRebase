@@ -164,6 +164,7 @@
 #define TRAIT_MONK_ROBE	"Holy Vestatures"
 // UNIQUE RACIAL TRAITS
 #define TRAIT_TRIBALISM "Tribalism"
+#define TRAIT_WATERSLEEP "Amphibious"
 
 GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_LEPROSY = span_necrosis("I'm a disgusting leper..."),
@@ -298,7 +299,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_EORAN_SERENE = span_greentext("Eora has blessed me with all-encompassing serenity. I feel no more stress."),
 	TRAIT_NECRAS_VOW = span_warning("I've pledged myself to Necra. If I fall, I am Hers."),
 	TRAIT_HERESIARCH = span_warning("I know of sacred sites of worship where followers of the Ascendants convene, and the path to the nearest conclave is etched into my memory."),
-	TRAIT_TRIBALISM = span_warning("My confidence is bolstered when I see my own kin.")
+	TRAIT_TRIBALISM = span_warning("My confidence is bolstered when I see my own kin."),
+	TRAIT_WATERSLEEP = span_warning("I sleep quite soundly in land or water both.")
 ))
 
 // trait accessor defines
