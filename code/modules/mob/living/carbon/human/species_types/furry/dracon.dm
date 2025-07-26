@@ -206,7 +206,7 @@
 	miracle = FALSE
 	var/delay = 12
 	var/strike_delay = 2
-	var/damage = 30
+	var/damage = 30 //an arcyne bolt on a 5 min cooldown, nothing groundbreaking
 
 /obj/effect/proc_holder/spell/invoked/drakianbreath/cast(list/targets, mob/user = usr)
 	var/turf/T = get_turf(targets[1])
@@ -236,11 +236,10 @@
 	for(var/mob/living/L in damage_turf)
 		if(L == usr)
 			continue
-		L.adjustFireLoss(damage)
-		L.adjust_fire_stacks(5)
+		L.adjustFireLoss(damage) // Just straight damage, no firestacks or ignite
 		to_chat(L, span_userdanger("You're scorched by flames!"))
 	
-	new /obj/effect/hotspot(damage_turf)
+	new /obj/effect/hotspot(damage_turf) // This is the actual scary part
 
 /obj/effect/temp_visual/trap/firebreath
 	icon = 'icons/effects/effects.dmi'
