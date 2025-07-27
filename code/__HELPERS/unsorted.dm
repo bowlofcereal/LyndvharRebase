@@ -562,6 +562,28 @@ Turf and target are separate in case you want to teleport some distance from a t
 					turfs += T
 	return turfs
 
+/// Gets a safe open turf from the given area
+/proc/get_safe_area_turf(area_to_pick_from)
+	for(var/i in 1 to 5)
+		var/list/turf_list = get_area_turfs(area_to_pick_from)
+		var/turf/target
+		while(turf_list.len && !target)
+			var/I = rand(1, turf_list.len)
+			var/turf/checked_turf = turf_list[I]
+			var/area/turf_area = get_area(checked_turf)
+			if(!checked_turf.density && !isgroundlessturf(checked_turf))
+				var/clear = TRUE
+				for(var/obj/checked_object in checked_turf)
+					if(checked_object.density)
+						clear = FALSE
+						break
+				if(clear)
+					target = checked_turf
+			if (!target)
+				turf_list.Cut(I, I + 1)
+		if (target)
+			return target
+
 /proc/get_cardinal_dir(atom/A, atom/B)
 	var/dx = abs(B.x - A.x)
 	var/dy = abs(B.y - A.y)
