@@ -936,15 +936,14 @@
 /obj/item/bodypart/taur
 	name = "taur"
 	desc = ""
-	// alternative spellings of 'pokey' are availible
 	icon = 'icons/mob/taurs.dmi'
-	icon_state = "naga_s"
+	icon_state = ""
 	attack_verb = list("hit")
 	max_damage = 200
 	body_zone = BODY_ZONE_TAUR
 	body_part = LEGS
 	body_damage_coeff = 1
-	px_x = 0
+	px_x = -16
 	px_y = 12
 	max_stamina_damage = 50
 	// aux_zone = "taur_above"
@@ -954,6 +953,8 @@
 	dismember_wound = /datum/wound/dismemberment/taur
 
 	var/offset_x = -16
+	var/taur_icon_state = "naga_s"
+
 	// defaults to on
 	var/icon/clip_mask_icon = 'icons/mob/taurs.dmi'
 	var/clip_mask_state = "taur_clip_mask_def"
@@ -974,7 +975,7 @@
 	if(dropped)
 		image_dir = SOUTH
 
-	var/image/limb = image(icon, icon_state, layer = -BODYPARTS_LAYER, dir = image_dir)
+	var/image/limb = image(icon, taur_icon_state, layer = -BODYPARTS_LAYER, dir = image_dir)
 	limb.pixel_x = offset_x
 
 	. += limb
