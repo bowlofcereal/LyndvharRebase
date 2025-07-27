@@ -91,10 +91,10 @@
 	. = 0
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/affecting = X
-		if(affecting.body_part == LEG_RIGHT)
+		if(affecting.body_part & LEG_RIGHT)
 			if(!check_disabled || !affecting.disabled)
 				.++
-		if(affecting.body_part == LEG_LEFT)
+		if(affecting.body_part & LEG_LEFT)
 			if(!check_disabled || !affecting.disabled)
 				.++
 
@@ -144,6 +144,17 @@
 		if(affecting && affecting.disabled)
 			disabled += zone
 	return disabled
+
+/mob/living/proc/get_taur_tail()
+	RETURN_TYPE(/obj/item/bodypart/taur)
+	return null
+
+/mob/living/carbon/get_taur_tail()
+	for(var/X in bodyparts)
+		var/obj/item/bodypart/affecting = X
+		if(affecting.body_zone == BODY_ZONE_TAUR)
+			return affecting
+	return null
 
 //Helper for quickly creating a new limb - used by augment code in species.dm spec_attacked_by
 /mob/living/carbon/proc/newBodyPart(zone, robotic, fixed_icon)
@@ -222,3 +233,19 @@
 				H.update_inv_w_uniform()
 		if(H.shoes && !swap_back)
 			H.dropItemToGround(H.shoes)
+
+/mob/living/carbon/proc/Taurize()
+	for(var/X in bodyparts)
+		var/obj/item/bodypart/O = X
+		if(O.body_part == LEG_LEFT || O.body_part == LEG_RIGHT)
+			O.drop_limb(1)
+			qdel(O)
+	
+	var/obj/item/bodypart/taur/T = new()
+	T.attach_limb(src)
+
+	if(shoes)
+		dropItemToGround(shoes)
+
+	// make sure we apply our clipmasks
+	regenerate_icons()
