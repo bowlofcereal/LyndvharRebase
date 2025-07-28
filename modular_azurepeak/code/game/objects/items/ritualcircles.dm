@@ -427,7 +427,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			if(!do_after(user, 5 SECONDS))
 				return
 			icon_state = "zizo_active"
-			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended_heavy)
+			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			new /obj/item/necro_relics/necro_crystal(loc)
 			loc.visible_message(span_purple("A dark crystal materializes in the center of the ritual circle, pulsing with necromantic energy!"))
 			spawn(120)
