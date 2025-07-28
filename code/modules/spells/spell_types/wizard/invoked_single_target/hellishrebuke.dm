@@ -1,6 +1,6 @@
-/obj/effect/proc_holder/spell/invoked/rebuke // to do: get scroll icon
+/obj/effect/proc_holder/spell/invoked/rebuke 
 	name = "Hellish Rebuke"
-	desc = "With a point of your finger, you shall cause a creature in front of you to burst into flames, dealing damage over time. Castable whilst mouthgrabbed."
+	desc = "With a point of your finger, you shall cause a creechur in front of you to burst into flames, dealing damage over time. Able to cast whilst mouthgrabbed."
 	cost = 3
 	overlay_state = "hellish_rebuke"
 	xp_gain = TRUE
@@ -16,7 +16,7 @@
 	associated_skill = /datum/skill/magic/arcane
 	spell_tier = 2
 	invocation_type = "none"
-	glow_color = GLOW_COLOR_FIRER
+	glow_color = GLOW_COLOR_FIRE
 	glow_intensity = GLOW_INTENSITY_LOW
 	gesture_required = TRUE
 	range = 1
@@ -28,6 +28,6 @@
 		target.adjustFireLoss(30) //damage
 		target.adjust_fire_stacks(4)
 		target.IgniteMob()
-		target.visible_message(span_warning("[user] points at [target] and causes them to burst into flames!"), \
-			span_userdanger("[user] points at you and causes you to burst into flames!"))
+		target.visible_message(span_warning("[user] makes a rude gesture at [target] and causes them to burst into flames!"), \
+			span_userdanger("[user] makes a rude gesture at you and causes you to burst into flames!"))
 			playsound(get_turf(target), 'sound/misc/explode/incendiary (1).ogg', 100, TRUE)
