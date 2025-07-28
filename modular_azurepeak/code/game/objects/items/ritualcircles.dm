@@ -427,7 +427,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			if(!do_after(user, 5 SECONDS))
 				return
 			icon_state = "zizo_active"
-			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
+			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended_heavy)
 			new /obj/item/necro_relics/necro_crystal(loc)
 			loc.visible_message(span_purple("A dark crystal materializes in the center of the ritual circle, pulsing with necromantic energy!"))
 			spawn(120)
@@ -569,6 +569,28 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
 	new /obj/item/roguecoin/silver/pile(get_turf(src))
 	new /obj/item/roguecoin/silver/pile(get_turf(src))
+	// Draining nobility from the duke or the heirs increases payout and causes CHAOS. Astrata weeps!
+	if((victim == SSticker.rulermob) || (victim == SSticker.regentmob) || (victim.mind?.assigned_role in list ("Prince", "Princess")))
+		new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
+		new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
+		new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
+		new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
+		// Astrata loses her bearing due to this vile ritual
+		priority_announce("The Noble Gift of Astrata was tainted! The Sun, she is weeping!", "Bad Omen", 'sound/misc/evilevent.ogg')
+		var/datum/round_event_control/lightsout/E = new()
+		E.req_omen = FALSE
+		E.earliest_start = 0
+		E.min_players = 0
+		if(E.canSpawnEvent())
+			E.runEvent()
+
+		var/datum/round_event_control/haunts/H = new()
+		H.req_omen = FALSE
+		H.earliest_start = 0
+		H.min_players = 0
+		if(H.canSpawnEvent())
+			H.runEvent()
+
 	victim.Stun(60)
 	victim.Knockdown(60)
 	to_chat(victim, span_userdanger("UNIMAGINABLE PAIN!"))
@@ -696,6 +718,10 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	to_chat(victim, span_userdanger("UNIMAGINABLE PAIN!"))
 	victim.apply_status_effect(/datum/status_effect/debuff/ritualdefiled)
 	victim.emote("Agony")
+	victim.visible_message(
+		span_danger("[victim] writhes in unimaginable pain!"),
+		span_userdanger("IT HURTS! IT BURNS!")
+	)
 
 	to_chat(world, span_danger("A war ritual has been completed! Goblin portals begin to tear open across the land!"))
 	playsound(loc, 'sound/magic/bloodrage.ogg', 100, FALSE, -1)
@@ -719,6 +745,8 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 					if(G)
 						continue
 					new /obj/structure/gob_portal(_T)
+	sleep(2 SECONDS)
+	victim.emote("painscream", forced = TRUE)
 	return TRUE
 
 /datum/outfit/job/roguetown/viciousrite/pre_equip(mob/living/carbon/human/H)
