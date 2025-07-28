@@ -705,7 +705,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 /obj/structure/ritualcircle/graggar/proc/perform_warritual()
 	var/mob/living/carbon/human/victim = null
 	for(var/mob/living/carbon/human/H in get_turf(src))
-		if(H.is_noble() || HAS_TRAIT(H, TRAIT_INQUISITION) || H.mind?.assigned_role in list("Priest", "Templar", "Martyr"))
+		if(H.is_noble() || HAS_TRAIT(H, TRAIT_INQUISITION) || (H.mind?.assigned_role in list("Priest", "Templar", "Martyr")))
 			victim = H
 			break
 
