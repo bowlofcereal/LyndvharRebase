@@ -667,6 +667,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			//spawn(120)
 				//icon_state = "graggar_chalky" 
 		if("War Ritual")
+			to_chat(user, span_userdanger("This rite will get me more tired than usual... I wonder, should I proceed?"))
 			if(!do_after(user, 5 SECONDS))
 				return
 			user.say("Blood for the war god, the circle is drawn!")
@@ -679,7 +680,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			if(!do_after(user, 5 SECONDS))
 				return
 			if(perform_warritual())
-				user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
+				user.apply_status_effect(/datum/status_effect/debuff/ritesexpended_heavy)
 			else
 				to_chat(user, span_smallred("The ritual fails. A noble, member of the inquisition or a tennite churchling body must be in the center of the circle!"))
 
@@ -704,11 +705,9 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 /obj/structure/ritualcircle/graggar/proc/perform_warritual()
 	var/mob/living/carbon/human/victim = null
 	for(var/mob/living/carbon/human/H in get_turf(src))
-		if(!H.is_noble() || !HAS_TRAIT(H, TRAIT_INQUISITION) || !(H.mind?.assigned_role in list("Priest", "Templar", "Martyr")))
-			continue
-
-		victim = H
-		break
+		if(H.is_noble() || HAS_TRAIT(H, TRAIT_INQUISITION) || H.mind?.assigned_role in list("Priest", "Templar", "Martyr"))
+			victim = H
+			break
 
 	if(!victim)
 		return FALSE
