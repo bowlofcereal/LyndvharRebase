@@ -7,7 +7,7 @@
 	releasedrain = 10
 	chargedrain = 1
 	chargetime = 1
-	recharge_time = 40 SECONDS
+	recharge_time = 5 SECONDS
 	warnie = "spellwarning"
 	no_early_release = FALSE
 	movement_interrupt = FALSE
@@ -20,7 +20,7 @@
 	glow_intensity = GLOW_INTENSITY_LOW
 	gesture_required = TRUE
 	range = 1
-	damage = 10
+
 
 /obj/effect/proc_holder/spell/invoked/rebuke/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
@@ -29,5 +29,5 @@
 		target.adjust_fire_stacks(4)
 		target.IgniteMob()
 		target.visible_message(span_warning("[user] makes a rude gesture at [target] and causes them to burst into flames!"), \
-			span_userdanger("[user] makes a rude gesture at you and causes you to burst into flames!"))
-			playsound(get_turf(target), 'sound/misc/explode/incendiary (1).ogg', 100, TRUE)
+		span_userdanger("[user] makes a rude gesture at you and causes you to burst into flames!"))
+		playsound(get_turf(target), 'sound/misc/explode/incendiary (1).ogg', 100, TRUE)
