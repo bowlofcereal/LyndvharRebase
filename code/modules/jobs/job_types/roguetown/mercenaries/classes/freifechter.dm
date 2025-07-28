@@ -34,10 +34,10 @@
 			H.change_stat("intelligence", 4)	//To give you an edge in specialty moves like feints and stop you from being feinted
 			l_hand = /obj/item/rogueweapon/scabbard/sword
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/half/fencer	//Experimental.
-			var/weapons = list("Modified Training Sword \(CHALLENGE!\)", "Etruscan Longsword", "Kriegsmesser", "Field Longsword")
+			var/weapons = list("Modified Training Sword !!!CHALLENGE!!!", "Etruscan Longsword", "Kriegsmesser", "Field Longsword")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
-				if("Modified Training Sword \(CHALLENGE!\)")		//A sharp feder. Less damage, better defense. Definitely not a good choice.
+				if("Modified Training Sword !!!CHALLENGE!!!")		//A sharp feder. Less damage, better defense. Definitely not a good choice.
 					r_hand = /obj/item/rogueweapon/sword/long/frei
 					beltr = /obj/item/rogueweapon/huntingknife/idagger
 				if("Etruscan Longsword")		//A longsword with a compound ricasso. Accompanied by a traditional flip knife.
@@ -66,7 +66,7 @@
 			beltr = /obj/item/rogueweapon/scabbard/sheath
 			l_hand = /obj/item/rogueweapon/huntingknife/idagger
 			backl = /obj/item/gwstrap
-			var/weapons = list("Graduate's Spear", "Boar Spear" "Lucerne")
+			var/weapons = list("Graduate's Spear", "Boar Spear", "Lucerne")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
 				if("Graduate's Spear")		//A steel spear with a cool-looking stick & a banner sticking out of it.
