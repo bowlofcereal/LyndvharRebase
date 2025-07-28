@@ -566,9 +566,11 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	playsound(loc, 'sound/combat/gib (1).ogg', 100, FALSE, -1)
 	loc.visible_message(span_cult("[victim]'s lux pours from their nose, into the rune... Transforming into freshly mint zennies!"))
 	new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
-	new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
 	new /obj/item/roguecoin/silver/pile(get_turf(src))
 	new /obj/item/roguecoin/silver/pile(get_turf(src))
+	if(victim.mind?.assigned_role in GLOB.noble_positions) // Intentionally stacked with rulermob/regent/prince to get extra payout for royals
+		new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
+		new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
 	// Draining nobility from the duke or the heirs increases payout and causes CHAOS. Astrata weeps!
 	if((victim == SSticker.rulermob) || (victim == SSticker.regentmob) || (victim.mind?.assigned_role in list ("Prince", "Princess")))
 		new /obj/item/roguecoin/gold/virtuepile(get_turf(src))
@@ -679,7 +681,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			if(perform_warritual())
 				user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 			else
-				to_chat(user, span_smallred("The ritual fails. A noble or inquisition body must be in the center of the circle!"))
+				to_chat(user, span_smallred("The ritual fails. A noble, member of the inquisition or a tennite churchling body must be in the center of the circle!"))
 
 /obj/structure/ritualcircle/graggar/proc/graggararmor(mob/living/carbon/human/target)
 	if(!HAS_TRAIT(target, TRAIT_HORDE))
@@ -702,7 +704,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 /obj/structure/ritualcircle/graggar/proc/perform_warritual()
 	var/mob/living/carbon/human/victim = null
 	for(var/mob/living/carbon/human/H in get_turf(src))
-		if(!H.is_noble() && !HAS_TRAIT(H, TRAIT_INQUISITION))
+		if(!H.is_noble() || !HAS_TRAIT(H, TRAIT_INQUISITION) || !(H.mind?.assigned_role in list("Priest", "Templar", "Martyr")))
 			continue
 
 		victim = H
