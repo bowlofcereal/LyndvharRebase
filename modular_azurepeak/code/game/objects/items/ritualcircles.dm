@@ -554,6 +554,9 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 /obj/structure/ritualcircle/matthios/proc/defenestration()
 	var/mob/living/carbon/human/victim = null
 	for(var/mob/living/carbon/human/H in get_turf(src))
+		if(HAS_TRAIT(H, TRAIT_OUTLAW))
+			continue
+
 		if(!H.is_noble() || H.has_status_effect(/datum/status_effect/debuff/ritualdefiled))
 			continue
 
