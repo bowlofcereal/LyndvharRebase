@@ -586,14 +586,13 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 		E.req_omen = FALSE
 		E.earliest_start = 0
 		E.min_players = 0
-		if(E.canSpawnEvent())
-			E.runEvent()
+		E.runEvent()
 
 		var/datum/round_event_control/haunts/H = new()
 		H.req_omen = FALSE
 		H.earliest_start = 0
 		H.min_players = 0
-		if(H.canSpawnEvent())
+		if(LAZYLEN(GLOB.hauntstart))
 			H.runEvent()
 
 	victim.Stun(60)
@@ -736,22 +735,9 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 	E.req_omen = FALSE
 	E.earliest_start = 0
 	E.min_players = 0
-	if(E.canSpawnEvent())
+	if(LAZYLEN(GLOB.hauntstart))
 		E.runEvent()
-	else
-		// fallback: force spawn portals directly
-		var/list/spawn_locs = GLOB.hauntstart.Copy()
-		if(LAZYLEN(spawn_locs))
-			for(var/i in 1 to 5)
-				var/obj/effect/landmark/events/haunts/_T = pick_n_take(spawn_locs)
-				if(!_T)
-					continue
-				_T = get_turf(_T)
-				if(isfloorturf(_T))
-					var/obj/structure/gob_portal/G = locate() in _T
-					if(G)
-						continue
-					new /obj/structure/gob_portal(_T)
+
 	sleep(2 SECONDS)
 	victim.emote("painscream", forced = TRUE)
 	return TRUE
