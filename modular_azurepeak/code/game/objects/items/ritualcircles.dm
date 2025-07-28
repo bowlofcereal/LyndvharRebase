@@ -521,7 +521,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			user.say("Pieces Tens, Hundreds, Thousands. The transactor feeds 'pon them all!!")
 			if(!do_after(user, 5 SECONDS))
 				return
-			user.say("The reansactor, feast upon this gluttonous pig!!")
+			user.say("The Transactor, feast upon this gluttonous pig!!")
 			if(!do_after(user, 5 SECONDS))
 				return
 			icon_state = "matthios_active"
