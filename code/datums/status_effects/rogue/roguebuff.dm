@@ -50,7 +50,7 @@
 	id = "tribalism"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/tribalism
 	effectedstats = list("endurance" = 1, "speed" = 1)
-	duration = 5 MINUTES
+	duration = 5 MINUTES //this is to encourage goblins actually sticking together, not just looking at each other once
 
 /atom/movable/screen/alert/status_effect/buff/tribalism
 	name = "Tribalism"
@@ -86,6 +86,17 @@
 /atom/movable/screen/alert/status_effect/buff/godspeak
 	name = "Godspeak"
 	desc = "I feel closer to divinity."
+	icon_state = "buff"
+
+/datum/status_effect/buff/mothfire
+	id = "mothfire"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/mothfire
+	effectedstats = list("endurance" = 1, "speed" = 1)
+	duration = 15 MINUTES //short enough to encourage moths looking at fires here and there, long enough to be usable
+
+/atom/movable/screen/alert/status_effect/buff/mothfire
+	name = "Fire-trance"
+	desc = "How the flames dance... "
 	icon_state = "buff"
 
 /datum/status_effect/buff/druqks
