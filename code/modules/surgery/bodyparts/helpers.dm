@@ -234,14 +234,37 @@
 		if(H.shoes && !swap_back)
 			H.dropItemToGround(H.shoes)
 
-/mob/living/carbon/proc/Taurize()
+/mob/living/carbon/proc/ensure_not_taur()
+	var/needs_new_legs = FALSE
 	for(var/X in bodyparts)
 		var/obj/item/bodypart/O = X
-		if(O.body_part == LEG_LEFT || O.body_part == LEG_RIGHT)
+		if(O.body_zone == BODY_ZONE_TAUR)
+			O.drop_limb(1)
+			qdel(O)
+			needs_new_legs = TRUE
+
+	if(needs_new_legs)
+		var/obj/item/bodypart/N
+		N = new /obj/item/bodypart/l_leg
+		N.attach_limb(src)
+
+		N = new /obj/item/bodypart/r_leg
+		N.attach_limb(src)
+
+	// make sure we unapply our clipmasks
+	regenerate_icons()
+	set_resting(FALSE)
+
+/mob/living/carbon/proc/Taurize(taur_type = /obj/item/bodypart/taur/lamia, color = "#ffffff")
+	for(var/X in bodyparts)
+		var/obj/item/bodypart/O = X
+		// drop taur tails too
+		if(O.body_part == LEG_LEFT || O.body_part == LEG_RIGHT || O.body_zone == BODY_ZONE_TAUR)
 			O.drop_limb(1)
 			qdel(O)
 	
-	var/obj/item/bodypart/taur/T = new()
+	var/obj/item/bodypart/taur/T = new taur_type()
+	T.taur_color = color
 	T.attach_limb(src)
 
 	if(shoes)
@@ -249,3 +272,4 @@
 
 	// make sure we apply our clipmasks
 	regenerate_icons()
+	set_resting(FALSE)

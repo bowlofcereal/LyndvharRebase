@@ -125,6 +125,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	/// List of bodypart features of this species
 	var/list/bodypart_features
 
+	var/list/allowed_taur_types = list()
+
 	/// List of descriptor choices this species gets in preferences customization
 	var/list/descriptor_choices = list(
 		/datum/descriptor_choice/height,
@@ -249,6 +251,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 
 /datum/species/proc/get_skin_list()
 	return GLOB.skin_tones
+
+/datum/species/proc/get_taur_list()
+	return allowed_taur_types
 
 /datum/species/proc/get_hairc_list()
 	return GLOB.haircolor
