@@ -236,6 +236,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	reset_all_customizer_accessory_colors()
 	randomize_all_customizer_accessories()
 	reset_descriptors()
+	taur_type = null
 
 #define APPEARANCE_CATEGORY_COLUMN "<td valign='top' width='14%'>"
 #define MAX_MUTANT_ROWS 4
