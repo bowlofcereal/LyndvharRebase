@@ -171,7 +171,6 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 			if(ispath(message_language))
 				message_language = GLOB.language_datum_instances[message_language]
 			var/skill_level = get_skill_level(message_language.associated_skill)
-			to_chat(world, span_info("[skill_level] for [message_language.name] with [message_language]"))
 			message = message_language.scramble_for_speaker(message, skill_level)
 
 	if(!language)
