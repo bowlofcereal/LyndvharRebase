@@ -363,29 +363,26 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	var/deaf_type
 	var/own_message = FALSE
 	if(speaker != src)
-		if(!radio_freq) //These checks have to be seperate, else people talking on the radio will make "You can't hear yourself!" appear when hearing people over the radio while deaf.
+		if(!radio_freq)
 			deaf_message = "<span class='name'>[speaker]</span> [speaker.verb_say] something but you cannot hear [speaker.p_them()]."
 			deaf_type = 1
 	else
 		own_message = TRUE
 		deaf_message = span_notice("I can't hear yourself!")
-		deaf_type = 2 // Since you should be able to hear myself without looking
+		deaf_type = 2
 
 	// Create map text prior to modifying message for goonchat
 	if(can_see_runechat(speaker) && can_hear())
 		create_chat_message(speaker, message_language, raw_message, spans, message_mode)
 
-	// Apply listener-side language comprehension scrambling
+	// Only apply listener-side scrambling to non-own messages
 	var/processed_message = message
-	if(message_language && !has_language(message_language) && !check_language_hear(message_language) && !own_message)
-		// Get listener's skill level in the spoken language
+	if(!own_message && message_language && !has_language(message_language) && !check_language_hear(message_language))
 		var/skill_level = get_skill_level(message_language.associated_skill)
 		processed_message = message_language.scramble_for_speaker(raw_message, skill_level)
 
-	// Recompose message for AI hrefs, language incomprehension.
-	message = compose_message(speaker, message_language, processed_message, radio_freq, spans, message_mode)
-	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type)
-	return message
+	show_message(processed_message, MSG_AUDIBLE, deaf_message, deaf_type)
+	return processed_message
 
 /mob/living/send_speech(message, message_range = 6, obj/source = src, bubble_type = bubble_icon, list/spans, datum/language/message_language=null, message_mode, original_message)
 	var/static/list/eavesdropping_modes = list(MODE_WHISPER = TRUE, MODE_WHISPER_CRIT = TRUE)
