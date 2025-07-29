@@ -24,6 +24,7 @@
 	icon_state = "hotspring"
 	nomouseover = TRUE
 	plane = FLOOR_PLANE
+	blade_dulling = DULLING_BASH
 	max_integrity = 0
 	object_slowdown = 5
 
