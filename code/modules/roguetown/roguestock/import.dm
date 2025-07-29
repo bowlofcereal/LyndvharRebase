@@ -279,14 +279,26 @@
 	new /obj/item/natural/glass(src)
 	new /obj/item/natural/glass(src)
 
+/datum/roguestock/import/extrakeyrings
+	name = "Extra Keyrings (2x)"
+	desc = "Keys for new Manor Guardsmen."
+	item_type = /obj/structure/closet/crate/chest/steward/extrakeyrings
+	export_price = 75
+	importexport_amt = 1
 
+/obj/structure/closet/crate/chest/steward/extrakeyrings/Initialize()
+	. = ..()
+	new /obj/item/storage/keyring/guardcastle(src)
+	new /obj/item/storage/keyring/guardcastle(src)
 
+/datum/roguestock/import/extrahoundstones
+	name = "Extra Houndstones (2x)"
+	desc = "Imported Houndstones from Grenzelhoft."
+	item_type = /obj/structure/closet/crate/chest/steward/extrahoundstones
+	export_price = 400 // expensive; discourages garrison from losing their shit
+	importexport_amt = 1
 
-
-
-
-
-
-
-
-
+/obj/structure/closet/crate/chest/steward/extrahoundstones/Initialize()
+	. = ..()
+	new /obj/item/scomstone/bad/garrison(src)
+	new /obj/item/scomstone/bad/garrison(src)
