@@ -153,14 +153,15 @@
 			if(2) // Apprentice
 				scramble_chance = max(0, (word_length - 5) * 10)
 				if(word_length <= 5)
-					scramble_chance = 20 // 20% base for medium words
+					scramble_chance = 20
 			if(3) // Journeyman
-				scramble_chance = max(0, (word_length - 8) * 10) // +10% per extra character beyond 8
+				scramble_chance = max(0, (word_length - 8) * 10)
 				if(word_length <= 8)
-					scramble_chance = 20 // 20% base for long words
+					scramble_chance = 20
 
 		if(prob(scramble_chance))
 			var/lookup = check_cache(word)
+			// If it's already in the cache, don't generate a new scramble for that word. Keeps things consistent.
 			word = lookup ? lookup : generate_scrambled_word(word, skill_level)
 
 		// Re-add punctuation and space
@@ -172,13 +173,35 @@
 	var/input_size = length(word)
 	var/scrambled_word = ""
 	var/capitalize = (uppertext(copytext(word, 1, 2)) == copytext(word, 1, 2))
-	var/target_length = max(round(input_size * (1 - (skill_level * 0.15)), 1)) // Longer words for lower skills
 
-	while(length(scrambled_word) < target_length)
-		scrambled_word += pick(syllables)
+	// Determine scrambling intensity based on skill level
+	var/syllable_count = 0
+	var/max_syllables = 0
+	var/quality_mod = 0
+
+	switch(skill_level)
+		if(1)
+			max_syllables = rand(3, 5)
+			quality_mod = 5
+		if(2)
+			max_syllables = rand(2, 4)
+			quality_mod = 15
+		if(3)
+			max_syllables = rand(1, 3)
+			quality_mod = 25
+
+	while(length(scrambled_word) < input_size && syllable_count < max_syllables)
+		var/next = pick(syllables)
+		scrambled_word += next
+		syllable_count++
+
 		// Higher skills have better syllable selection
-		if(prob(skill_level * 25))
+		if(prob(quality_mod))
 			break
+
+	// Fill remaining characters if needed
+	while(length(scrambled_word) < input_size)
+		scrambled_word += pick(syllables)
 
 	// Trim to original word length
 	scrambled_word = copytext(scrambled_word, 1, input_size + 1)
@@ -187,7 +210,7 @@
 	if(capitalize)
 		scrambled_word = capitalize(scrambled_word)
 
-	// Add to cache for efficiency
+	// Add to cache for efficiency, if the same word comes up and it rolls for scramble, it -should- scramble as the same thing.
 	add_to_cache(word, scrambled_word)
 	return scrambled_word
 

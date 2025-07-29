@@ -122,6 +122,8 @@
 	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/magic/holy, 5, TRUE)
+	H.grant_language(/datum/language/grenzelhoftian)
+	H.adjust_skillrank(/datum/skill/language/grenzelhoftian, 2, TRUE)
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/divineblast)
 	if(H.age == AGE_OLD)
