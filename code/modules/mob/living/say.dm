@@ -363,13 +363,13 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	var/deaf_type
 	var/own_message = FALSE
 	if(speaker != src)
-		if(!radio_freq)
+		if(!radio_freq) //These checks have to be seperate, else people talking on the radio will make "You can't hear yourself!" appear when hearing people over the radio while deaf.
 			deaf_message = "<span class='name'>[speaker]</span> [speaker.verb_say] something but you cannot hear [speaker.p_them()]."
 			deaf_type = 1
 	else
 		own_message = TRUE
 		deaf_message = span_notice("I can't hear yourself!")
-		deaf_type = 2
+		deaf_type = 2 // Since you should be able to hear myself without looking
 
 	// Create map text prior to modifying message for goonchat
 	if(can_see_runechat(speaker) && can_hear())
@@ -382,7 +382,7 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		var/skill_level = get_skill_level(message_language.associated_skill)
 		processed_message = message_language.scramble_for_speaker(raw_message, skill_level)
 
-	// Recompose message for display for AI and such.
+	// Recompose message for AI hrefs, language incomprehension.
 	message = compose_message(speaker, message_language, processed_message, radio_freq, spans, message_mode)
 	show_message(message, MSG_AUDIBLE, deaf_message, deaf_type)
 	return message
