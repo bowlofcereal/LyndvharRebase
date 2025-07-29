@@ -290,15 +290,3 @@
 	. = ..()
 	new /obj/item/storage/keyring/guardcastle(src)
 	new /obj/item/storage/keyring/guardcastle(src)
-
-/datum/roguestock/import/extrahoundstones
-	name = "Extra Houndstones (2x)"
-	desc = "Imported Houndstones from Grenzelhoft."
-	item_type = /obj/structure/closet/crate/chest/steward/extrahoundstones
-	export_price = 400 // expensive; discourages garrison from losing their shit
-	importexport_amt = 1
-
-/obj/structure/closet/crate/chest/steward/extrahoundstones/Initialize()
-	. = ..()
-	new /obj/item/scomstone/bad/garrison(src)
-	new /obj/item/scomstone/bad/garrison(src)
