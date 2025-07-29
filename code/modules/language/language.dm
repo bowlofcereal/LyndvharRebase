@@ -21,8 +21,7 @@
 	var/list/spans = list()
 	var/list/scramble_cache = list()
 	var/default_priority = 0          // the language that an atom knows with the highest "default_priority" is selected by default.
-
-
+	var/associated_skill = 0
 
 	// if you are seeing someone speak popcorn language, then something is wrong.
 	var/icon = 'icons/misc/language.dmi'
@@ -121,5 +120,75 @@
 		if("?")
 			return ask_verb
 	return speech_verb
+
+/datum/language/proc/scramble_for_speaker(message, skill_level = 0)
+	// Expert speakers and native speakers have perfect speech
+	if(skill_level >= 4 || skill_level == 0)
+		return message
+
+	// Intermediate speakers get partial scrambling
+	var/list/words = splittext(message, " ")
+	var/scrambled_text = ""
+
+	for(var/word in words)
+		var/word_length = length(word)
+		var/punctuation = ""
+
+		// Preserve trailing punctuation
+		if(word_length > 1)
+			var/last_char = copytext(word, word_length, word_length + 1)
+			if(last_char in list(".", ",", "!", "?", ";", ":"))
+				punctuation = last_char
+				word = copytext(word, 1, word_length)
+				word_length--
+
+		// Calculate scramble chance based on skill level and word length
+		var/scramble_chance = 0
+
+		switch(skill_level)
+			if(1) // Novice
+				scramble_chance = max(0, (word_length - 3) * 10) // +10% per extra character beyond 3
+				if(word_length <= 3)
+					scramble_chance = 20
+			if(2) // Apprentice
+				scramble_chance = max(0, (word_length - 5) * 10)
+				if(word_length <= 5)
+					scramble_chance = 20 // 20% base for medium words
+			if(3) // Journeyman
+				scramble_chance = max(0, (word_length - 8) * 10) // +10% per extra character beyond 8
+				if(word_length <= 8)
+					scramble_chance = 20 // 20% base for long words
+
+		if(prob(scramble_chance))
+			var/lookup = check_cache(word)
+			word = lookup ? lookup : generate_scrambled_word(word, skill_level)
+
+		// Re-add punctuation and space
+		scrambled_text += word + punctuation + " "
+
+	return trim(scrambled_text)
+
+/datum/language/proc/generate_scrambled_word(word, skill_level)
+	var/input_size = length(word)
+	var/scrambled_word = ""
+	var/capitalize = (uppertext(copytext(word, 1, 2)) == copytext(word, 1, 2))
+	var/target_length = max(round(input_size * (1 - (skill_level * 0.15)), 1)) // Longer words for lower skills
+
+	while(length(scrambled_word) < target_length)
+		scrambled_word += pick(syllables)
+		// Higher skills have better syllable selection
+		if(prob(skill_level * 25))
+			break
+
+	// Trim to original word length
+	scrambled_word = copytext(scrambled_word, 1, input_size + 1)
+
+	// Maintain original capitalization
+	if(capitalize)
+		scrambled_word = capitalize(scrambled_word)
+
+	// Add to cache for efficiency
+	add_to_cache(word, scrambled_word)
+	return scrambled_word
 
 #undef SCRAMBLE_CACHE_LEN
