@@ -147,17 +147,11 @@
 
 		switch(skill_level)
 			if(1) // Novice
-				scramble_chance = max(0, (word_length - 3) * 10) // +10% per extra character beyond 3
-				if(word_length <= 3)
-					scramble_chance = 20
+				scramble_chance = max(20, (word_length - 1) * 10) // +10% per extra character beyond 3
 			if(2) // Apprentice
-				scramble_chance = max(0, (word_length - 5) * 10)
-				if(word_length <= 5)
-					scramble_chance = 20
+				scramble_chance = max(20, (word_length - 3) * 10)
 			if(3) // Journeyman
-				scramble_chance = max(0, (word_length - 8) * 10)
-				if(word_length <= 8)
-					scramble_chance = 20
+				scramble_chance = max(10, (word_length - 7) * 10)
 
 		if(prob(scramble_chance))
 			var/lookup = check_cache(word)
