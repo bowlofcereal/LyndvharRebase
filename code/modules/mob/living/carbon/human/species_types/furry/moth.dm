@@ -5,8 +5,9 @@
 	name = "Fluvian"
 	id = "moth"
 	desc = "Many comparisons have been made to the common moths in an attempt to describe this unique species. \
-	From the appetite for clothing to the disconcertingly insectoid appearance, the name 'Moth' is forever stamped \
-	onto the common vocabulary. The comparison, however, falls short on the matter of flight.<br>\
+	From the appetite for raw cloth to the fascination with large fires, the name 'Moth' is forever stamped \
+	onto the common vocabulary that describes this species and their disconcertingly insectoid appearance. \
+	The comparison, however, falls short on the matter of flight.<br>\
 	(+1 Speed)"
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS,HAIR)
 	possible_ages = ALL_AGES_LIST
