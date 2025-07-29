@@ -24,6 +24,7 @@
 	icon_state = "hotspring"
 	nomouseover = TRUE
 	plane = FLOOR_PLANE
+	max_integrity = 0
 	object_slowdown = 5
 
 	var/edge = FALSE
