@@ -27,7 +27,8 @@
 	foodtype = GRAIN
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 	cooktime = 30 SECONDS
-	var/process_step // used for pie making and other similar modular foods
+	/// used for pie making and other similar modular foods
+	var/process_step
 
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
 	. = ..()

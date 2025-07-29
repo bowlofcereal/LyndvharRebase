@@ -15,6 +15,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	..................   Onion steak   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/onionsteak
@@ -31,7 +32,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/onionsteak/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -61,6 +62,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/carrotsteak/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -90,6 +92,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.................   Wiener Cabbage   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienercabbage
@@ -105,7 +108,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.................   Wiener & Fried potato   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato
@@ -121,7 +124,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -152,7 +155,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/wieneronions/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -183,6 +186,7 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.................   Frybird & Tato   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/frybirdtato
@@ -198,3 +202,4 @@
 	warming = 3 MINUTES
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT

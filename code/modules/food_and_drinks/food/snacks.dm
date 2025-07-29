@@ -85,7 +85,8 @@ All foods are distributed among various categories. Use common sense.
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
 
 	var/cooked_smell
-
+	/// How hard this is to eat. Used to calculate amount of SUFFERING you will have eating it without teeth.
+	var/hardness = FOOD_HARDNESS_BREAD
 
 /datum/intent/food
 	name = "feed"
@@ -325,22 +326,6 @@ All foods are distributed among various categories. Use common sense.
 			fullness += C.nutriment_factor * C.volume / C.metabolization_rate
 
 		if(M == user)								//If you're eating it myself.
-/*			if(junkiness && M.satiety < -150 && M.nutrition > NUTRITION_LEVEL_STARVING + 50 && !HAS_TRAIT(user, TRAIT_VORACIOUS))
-				to_chat(M, span_warning("I don't feel like eating any more junk food at the moment!"))
-				return FALSE
-			else if(fullness <= 50)
-				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src], gobbling it down!"), span_notice("I hungrily [eatverb] \the [src], gobbling it down!"))
-			else if(fullness > 50 && fullness < 150)
-				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src]."), span_notice("I hungrily [eatverb] \the [src]."))
-			else if(fullness > 150 && fullness < 500)
-				user.visible_message(span_notice("[user] [eatverb]s \the [src]."), span_notice("I [eatverb] \the [src]."))
-			else if(fullness > 500 && fullness < 600)
-				user.visible_message(span_notice("[user] unwillingly [eatverb]s a bit of \the [src]."), span_notice("I unwillingly [eatverb] a bit of \the [src]."))
-			else if(fullness > (600 * (1 + M.overeatduration / 2000)))	// The more you eat - the more you can eat
-				user.visible_message(span_warning("[user] cannot force any more of \the [src] to go down [user.p_their()] throat!"), span_warning("I cannot force any more of \the [src] to go down your throat!"))
-				return FALSE
-			if(HAS_TRAIT(M, TRAIT_VORACIOUS))
-				M.changeNext_move(CLICK_CD_MELEE * 0.5)*/
 			switch(M.nutrition)
 				if(NUTRITION_LEVEL_FAT to INFINITY)
 					user.visible_message(span_notice("[user] forces [M.p_them()]self to eat \the [src]."), span_notice("I force myself to eat \the [src]."))
@@ -349,17 +334,8 @@ All foods are distributed among various categories. Use common sense.
 				if(0 to NUTRITION_LEVEL_STARVING)
 					user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src], gobbling it down!"), span_notice("I hungrily [eatverb] \the [src], gobbling it down!"))
 					M.changeNext_move(CLICK_CD_MELEE * 0.5)
-/*			if(M.energy <= 50)
-				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src], gobbling it down!"), span_notice("I hungrily [eatverb] \the [src], gobbling it down!"))
-			else if(M.energy > 50 && M.energy < 500)
-				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src]."), span_notice("I hungrily [eatverb] \the [src]."))
-			else if(M.energy > 500 && M.energy < 1000)
-				user.visible_message(span_notice("[user] [eatverb]s \the [src]."), span_notice("I [eatverb] \the [src]."))
-			if(HAS_TRAIT(M, TRAIT_VORACIOUS))
-			M.changeNext_move(CLICK_CD_MELEE * 0.5) nom nom nom*/
 		else
 			if(!isbrain(M))		//If you're feeding it to someone else.
-//				if(fullness <= (600 * (1 + M.overeatduration / 1000)))
 				if(M.nutrition in NUTRITION_LEVEL_FAT to INFINITY)
 					M.visible_message(span_warning("[user] cannot force any more of [src] down [M]'s throat!"), \
 										span_warning("[user] cannot force any more of [src] down your throat!"))
@@ -385,6 +361,37 @@ All foods are distributed among various categories. Use common sense.
 		if(reagents)								//Handle ingestion of the reagent.
 			if(M.satiety > -200)
 				M.satiety -= junkiness
+			var/mob/living/carbon/human/H = M
+			var/obj/item/bodypart/head/head = H?.get_bodypart(BODY_ZONE_HEAD)
+			var/cooldown = CLICK_CD_MELEE
+			if(istype(head))
+				var/lacking_teeth_percentage = round(100 - (100 / (head.max_teeth_count / head.get_teeth_count())))
+				switch(hardness)
+					if(FOOD_HARDNESS_BREAD)
+						if(lacking_teeth_percentage < 87)
+							to_chat(M, span_notice("It is hard to eat with broken teeth..."))
+							if(prob(25))
+								M.flash_fullscreen("redflash1")
+								M.emote("groan")
+					if(FOOD_HARDNESS_MEAT)
+						if(lacking_teeth_percentage < 93)
+							to_chat(M, span_notice("It is hard to eat with broken teeth..."))
+							if(prob(25))
+								M.flash_fullscreen("redflash1")
+								M.emote("groan")
+					if(FOOD_HARDNESS_HARDTACK) // Maximum pain & suffering
+						if(lacking_teeth_percentage != 0)
+							M.flash_fullscreen("redflash1")
+							cooldown = CLICK_CD_EXHAUSTED
+							to_chat(M, span_notice("It hurts! My jaw hurts!"))
+							if(prob(50))
+								M.emote("whimper")
+							else
+								M.emote("painmoan")
+							if(prob(35))
+								if(user == M)
+									to_chat(M, span_userdanger("I can't force myself to eat \the [src]! It hurts too much!"))
+									return
 			playsound(M.loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 			if(reagents.total_volume)
 				SEND_SIGNAL(src, COMSIG_FOOD_EATEN, M, user)
@@ -399,12 +406,12 @@ All foods are distributed among various categories. Use common sense.
 				if(bitecount >= bitesize)
 					qdel(src)
 				else if(user.client?.prefs.autoconsume)
-					if(M == user && do_after(user, CLICK_CD_MELEE))
+					if(M == user && do_after(user, cooldown))
 						INVOKE_ASYNC(src, PROC_REF(attack), M, user, def_zone)
-						user.changeNext_move(CLICK_CD_MELEE)
+						user.changeNext_move(cooldown)
 					else if(M != user)
 						INVOKE_ASYNC(src, PROC_REF(attack), M, user, def_zone)
-						user.changeNext_move(CLICK_CD_MELEE)
+						user.changeNext_move(cooldown)
 				return TRUE
 		playsound(M.loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 		qdel(src)

@@ -12,6 +12,7 @@
 	faretype = FARE_NEUTRAL
 	rotprocess = SHELFLIFE_DECENT
 	tastes = list("warm steak" = 1)
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
@@ -66,6 +67,7 @@
 	bitesize = 3
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEATSLAB_NUTRITION)
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.............   Crispy bacon   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/bacon/fried
@@ -77,6 +79,7 @@
 	icon_state = "friedbacon"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.............   Fryspider   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/spider/fried
@@ -88,6 +91,7 @@
 	eat_effect = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.................  Whole Chicken roast   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
@@ -103,7 +107,7 @@
 	cooked_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
 	rotprocess = SHELFLIFE_DECENT
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/attackby(obj/item/I, mob/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
@@ -146,6 +150,7 @@
 	color = "#ffc0c0"
 	tastes = list("spicy birdmeat" = 1)
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.............   Frybird   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried
@@ -160,6 +165,7 @@
 	fried_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -195,6 +201,7 @@
 	icon_state = "crabmeat"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	desc = ""
+	hardness = FOOD_HARDNESS_MEAT
 
 /* .............   Fried Cabbit   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/rabbit/fried
@@ -208,6 +215,7 @@
 	faretype = FARE_NEUTRAL
 	rotprocess = SHELFLIFE_DECENT
 	tastes = list("warm cabbit" = 1)
+	hardness = FOOD_HARDNESS_MEAT
 
 /* .............   Fried Volf   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried
@@ -220,6 +228,7 @@
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEATSLAB_NUTRITION)
 	faretype = FARE_NEUTRAL
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /* .............   Fried Filet    ................ */
 // This is seafood but is one of the "simple cooked meat" so I put it here.
@@ -234,6 +243,7 @@
 	faretype = FARE_NEUTRAL
 	rotprocess = SHELFLIFE_DECENT
 	tastes = list("warm fish" = 1)
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/fish/fried/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
@@ -270,7 +280,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_meat.dmi'
 	icon_state = "shellfish_meat_cooked"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEATSLAB_NUTRITION)
-
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.............   Sausage & Wiener   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked
@@ -283,3 +293,4 @@
 	fried_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_EXTREME
+	hardness = FOOD_HARDNESS_MEAT

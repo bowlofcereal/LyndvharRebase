@@ -1288,3 +1288,7 @@
 	if(istype(loc, /turf/open/water) && !(mobility_flags & MOBILITY_STAND))
 		return FALSE
 
+/mob/living/carbon/say(message, bubble_type, list/spans, sanitize, datum/language/language, ignore_spam, forced)
+	. = ..()
+	if(.)
+		last_spoke = world.time

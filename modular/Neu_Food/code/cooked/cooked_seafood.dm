@@ -11,6 +11,7 @@
 	foodtype = MEAT
 	warming = 5 MINUTES
 	dropshrink = 0.6
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp
 	name = "cooked carp"

@@ -68,6 +68,7 @@
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/animal,
 		/datum/customizer/organ/vagina/animal,
+		/datum/customizer/bodypart_feature/teeth,
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/moth/reddish,

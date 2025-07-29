@@ -8,6 +8,7 @@
 	bitesize = 3
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_LONG
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/preserved/rice_cooked/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -46,6 +47,7 @@
 	faretype = FARE_FINE
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/ricepork/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -73,6 +75,7 @@
 	faretype = FARE_LAVISH
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.................   Rice & beef ................... */
 /obj/item/reagent_containers/food/snacks/rogue/ricebeef
@@ -85,6 +88,7 @@
 	faretype = FARE_FINE
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/ricebeef/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -112,3 +116,4 @@
 	faretype = FARE_LAVISH
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT

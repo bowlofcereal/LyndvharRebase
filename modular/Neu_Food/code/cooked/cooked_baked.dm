@@ -10,6 +10,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/crackerscooked
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
+	hardness = FOOD_HARDNESS_BREAD
 
 /*	.................   Hardtack   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/crackerscooked
@@ -23,6 +24,7 @@
 	tastes = list("spelt" = 1)
 	bitesize = 6
 	rotprocess = null
+	hardness = FOOD_HARDNESS_HARDTACK
 
 /obj/item/reagent_containers/food/snacks/rogue/crackerscooked/On_Consume(mob/living/eater)
 	..()
@@ -53,6 +55,7 @@
 	slice_batch = FALSE
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_EXTREME	
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/bread/update_icon()
 	if(slices_num)
@@ -86,6 +89,7 @@
 	bitesize = 2
 	rotprocess = SHELFLIFE_LONG
 	dropshrink = 0.8
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/breadslice/attackby(obj/item/I, mob/living/user, params)
 	update_cooktime(user)
@@ -139,6 +143,7 @@
 	cooked_type = null
 	bitesize = 2
 	rotprocess = null
+	hardness = FOOD_HARDNESS_HARDTACK
 
 /obj/item/reagent_containers/food/snacks/rogue/breadslice/toast/attackby(obj/item/I, mob/user, params)
 	update_cooktime(user)
@@ -173,6 +178,7 @@
 	foodtype = GRAIN
 	bitesize = 1
 	rotprocess = 30 MINUTES
+	hardness = FOOD_HARDNESS_LIQUID // Cuz you can simply swallow them
 
 // -------------- BREAD WITH FOOD ON IT (not american sandwich) -----------------
 /obj/item/reagent_containers/food/snacks/rogue/sandwich
@@ -182,6 +188,7 @@
 	faretype = FARE_NEUTRAL
 	rotprocess = 30 MINUTES
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/sandwich/salami
 	tastes = list("salumoi" = 1,"bread" = 1)
@@ -235,6 +242,7 @@
 	tastes = list("bread" = 1)
 	bitesize = 2
 	rotprocess = SHELFLIFE_EXTREME
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/bun/attackby(obj/item/I, mob/living/user, params)
 	update_cooktime(user)
@@ -265,6 +273,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "crossbun_raw"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/crossbun
+	hardness = FOOD_HARDNESS_BREAD
 
 // Psydon variant
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/psycrossbun_raw
@@ -273,6 +282,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "psycrossbun_raw"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/psycrossbun
+	hardness = FOOD_HARDNESS_BREAD
 
 /* 	.................   Crossbuns   ................... */
 // Astrata variant
@@ -287,6 +297,7 @@
 	tastes = list("bread" = 1)
 	bitesize = 2
 	rotprocess = SHELFLIFE_EXTREME
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/psycrossbun
 	name = "psycrossbun"
@@ -299,6 +310,7 @@
 	tastes = list("bread" = 1)
 	bitesize = 2
 	rotprocess = SHELFLIFE_EXTREME
+	hardness = FOOD_HARDNESS_BREAD
 
 /*	.................   Cheese bun   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesebun_raw
@@ -311,6 +323,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | DAIRY
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/cheesebun
 	name = "fresh cheese bun"
@@ -324,6 +337,7 @@
 	foodtype = GRAIN | DAIRY
 	bitesize = 2
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/frybread
 	name = "frybread"
@@ -336,6 +350,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_BREAD
 
 /*	.................   Raisin bread   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/rbread_half
@@ -346,6 +361,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = 30 MINUTES
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/rbread_half/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -374,6 +390,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = 30 MINUTES
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/raisinbread
 	name = "raisin loaf"
@@ -390,6 +407,7 @@
 	slice_sound = TRUE
 	rotprocess = SHELFLIFE_EXTREME
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/raisinbread/update_icon()
 	if(slices_num)
@@ -425,6 +443,7 @@
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 	dropshrink = 0.8
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/bun_grenz
 	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+SMALLDOUGH_NUTRITION)
@@ -438,6 +457,7 @@
 	warming = 5 MINUTES
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.............   Raston   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/bun_raston
@@ -449,3 +469,4 @@
 	desc = "A slice of cheese melted between two lightly-toasted buns."
 	rotprocess = SHELFLIFE_EXTREME
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_BREAD

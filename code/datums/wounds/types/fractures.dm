@@ -206,6 +206,10 @@
 
 /datum/wound/fracture/mouth/on_mob_gain(mob/living/affected)
 	. = ..()
+	var/mob/living/carbon/carbon_affected = affected
+	if(istype(carbon_affected)) // Jawbreak ALWAYS dislodges some teeth.
+		var/obj/item/bodypart/head/head = owner.get_bodypart(BODY_ZONE_HEAD)
+		head?.knock_teeth(rand(JAWBREAK_TEETH_DISLODGE_MIN, JAWBREAK_TEETH_DISLODGE_MAX))
 	ADD_TRAIT(affected, TRAIT_NO_BITE, "[type]")
 	ADD_TRAIT(affected, TRAIT_GARGLE_SPEECH, "[type]")
 

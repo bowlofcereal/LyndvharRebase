@@ -8,6 +8,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | DAIRY
 	rotprocess = SHELFLIFE_LONG
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/cake_base/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -49,6 +50,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | DAIRY | SUGAR
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/hcake
 	name = "ranesheni cake"
@@ -67,6 +69,7 @@
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 16
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/hcakeslice
 	name = "ranesheni cake slice"
@@ -81,7 +84,8 @@
 	bitesize = 3
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_LONG
-	
+	hardness = FOOD_HARDNESS_BREAD
+
 // -------------- CHEESECAKE -----------------
 
 /obj/item/reagent_containers/food/snacks/rogue/ccakeuncooked
@@ -95,6 +99,7 @@
 	foodtype = GRAIN | DAIRY | SUGAR
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/ccake
 	name = "cheesecake"
@@ -113,6 +118,7 @@
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 16
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/ccakeslice
 	name = "cheesecake slice"
@@ -127,3 +133,4 @@
 	bitesize = 2
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_LONG
+	hardness = FOOD_HARDNESS_BREAD

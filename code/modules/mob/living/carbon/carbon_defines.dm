@@ -90,3 +90,6 @@
 	var/vitae_pool = 8000
 
 	var/next_smell = 0
+
+	/// Purely for teeth examine
+	var/last_spoke

@@ -124,6 +124,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		)
 	/// List of bodypart features of this species
 	var/list/bodypart_features
+	var/list/teeth_types = list(
+		/obj/item/natural/tooth = 32
+	)
+	var/max_teeth_count = 32
 
 	/// List of descriptor choices this species gets in preferences customization
 	var/list/descriptor_choices = list(
@@ -437,6 +441,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(flying_species && isnull(fly))
 		fly = new
 		fly.Grant(C)
+
+	var/obj/item/bodypart/head/head = C.get_bodypart(BODY_ZONE_HEAD)
+	if(istype(head))
+		head.teeth_types = teeth_types
+		head.max_teeth_count = max_teeth_count
 
 	soundpack_m = new soundpack_m()
 	soundpack_f = new soundpack_f()

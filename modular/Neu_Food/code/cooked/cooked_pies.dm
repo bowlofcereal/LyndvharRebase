@@ -8,6 +8,7 @@
 	color = "#e7e2df"
 	dropshrink = 0.8
 	var/stunning = FALSE
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked
 	icon_state = "pie"
@@ -73,6 +74,7 @@
 	eat_effect = /datum/status_effect/buff/foodbuff
 	color = "#e7e2df"
 	rotprocess = SHELFLIFE_LONG
+	hardness = FOOD_HARDNESS_MEAT
 
 // -------------- MEAT PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat // bae item

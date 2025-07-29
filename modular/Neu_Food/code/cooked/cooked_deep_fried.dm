@@ -12,6 +12,7 @@
 	tastes = list("crunchy toastcrumbs" = 1, "molten butter" = 1)
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 // Cooked results
 /obj/item/reagent_containers/food/snacks/rogue/meat/nitzel
@@ -27,6 +28,7 @@
 	cooked_type = null
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 // Doesn't matter it was spider meat if you go through the effort it should be as good
 /obj/item/reagent_containers/food/snacks/rogue/meat/nitzel/schnitzel

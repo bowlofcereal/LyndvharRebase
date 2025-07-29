@@ -358,3 +358,25 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define BLUNT_DEFAULT_PENFACTOR		-100
 
 #define UNARMED_DAMAGE_DEFAULT		12
+
+/// Min amount of teeh sailing off in an arc after jawbreak
+#define JAWBREAK_TEETH_DISLODGE_MIN 3
+/// Max amount of teeh sailing off in an arc after jawbreak
+#define JAWBREAK_TEETH_DISLODGE_MAX 6
+
+/// Min amount of teeh sailing off in an arc after crit
+#define TEETH_DISLODGE_MIN 1
+/// Max amount of teeh sailing off in an arc after crit
+#define TEETH_DISLODGE_MAX 2
+
+/// Currently, incoming damage is multiplied by this amount to get the prob() of teeth dislodging when punching mouth
+#define TEETH_DISLODGE_CHANCE_MULTIPLIER 1.5
+
+/// Extremely hard to chew. Hope your teeth are in order!
+#define FOOD_HARDNESS_HARDTACK 1
+/// Somewhat medium, will cauze pain if you have 93% (30/32) of your teeth
+#define FOOD_HARDNESS_MEAT 2
+/// You can eat this without problems as long as you have more than 87% (28/32) 
+#define FOOD_HARDNESS_BREAD 3
+/// Can be eaten with gums only.
+#define FOOD_HARDNESS_LIQUID 4

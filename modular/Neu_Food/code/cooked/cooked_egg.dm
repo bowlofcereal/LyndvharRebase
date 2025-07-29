@@ -10,6 +10,7 @@
 	foodtype = MEAT
 	warming = 5 MINUTES
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -69,6 +70,7 @@
 	foodtype = MEAT
 	warming = 5 MINUTES
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/preserved/stuffegg
 	tastes = list("creamy cheese" = 1, "egg" = 1)
@@ -80,6 +82,7 @@
 	foodtype = MEAT
 	warming = 5 MINUTES
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /* * * * * * * * * * * **
  *						*
@@ -100,6 +103,7 @@
 	icon_state = "omelette"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT
 
 /*	.................   Bacon & Eggs   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/bacon
@@ -111,3 +115,4 @@
 	icon_state = "baconegg"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_DECENT
+	hardness = FOOD_HARDNESS_MEAT

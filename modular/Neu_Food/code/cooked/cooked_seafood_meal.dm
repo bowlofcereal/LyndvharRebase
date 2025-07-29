@@ -14,7 +14,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /* salmon st dendor*/
 /obj/item/reagent_containers/food/snacks/rogue/dendorsalmon
@@ -30,7 +30,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /* salmon wit the berry on it */
 /obj/item/reagent_containers/food/snacks/rogue/berrysalmon
@@ -46,7 +46,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /* lobsta with the pepper all over it*/
 /obj/item/reagent_containers/food/snacks/rogue/pepperlobsta
@@ -62,7 +62,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /*garlick seabass*/
 /obj/item/reagent_containers/food/snacks/rogue/garlickbass
@@ -78,7 +78,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /*milk clam*/
 /obj/item/reagent_containers/food/snacks/rogue/milkclam
@@ -94,7 +94,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT\
 
 /*ale cod*/
 /obj/item/reagent_containers/food/snacks/rogue/alecod
@@ -110,7 +110,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /*onion plaice*/
 /obj/item/reagent_containers/food/snacks/rogue/onionplaice
@@ -126,7 +126,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /*buttery soles*/
 /obj/item/reagent_containers/food/snacks/rogue/buttersole
@@ -142,7 +142,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
-	
+	hardness = FOOD_HARDNESS_MEAT
 
 /*jellied eel*/
 /obj/item/reagent_containers/food/snacks/rogue/jelliedeel
@@ -158,6 +158,7 @@
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
+	hardness = FOOD_HARDNESS_MEAT
 
 /* ............ Shellfish ................... */
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/lobster/meal
@@ -172,6 +173,7 @@
 	warming = 5 MINUTES
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_MEAT
 
 // Close enough crab cake has two steps but it is a whatever
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/crabcakeraw
@@ -184,6 +186,7 @@
 	cooked_smell = /datum/pollutant/food/pie_base
 	w_class = WEIGHT_CLASS_NORMAL
 	dropshrink = 0.8
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/crabcake
 	name = "crab cake"
@@ -196,3 +199,4 @@
 	tastes = list("crispy butterdough and shellfish meat" = 1)
 	rotprocess = null
 	dropshrink = 0.8
+	hardness = FOOD_HARDNESS_MEAT

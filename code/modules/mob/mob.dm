@@ -291,6 +291,10 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(self_message)
 		show_message(self_message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 
+/mob/living/carbon/audible_message(message, deaf_message, hearing_distance, self_message, runechat_message, log_seen, log_seen_msg)
+	. = ..()
+	last_spoke = world.time
+
 ///Get the item on the mob in the storage slot identified by the id passed in
 /mob/proc/get_item_by_slot(slot_id)
 	return null

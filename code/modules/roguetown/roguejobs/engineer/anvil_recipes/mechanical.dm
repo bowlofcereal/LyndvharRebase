@@ -161,6 +161,20 @@
 	created_item = /obj/item/bodypart/r_leg/prosthetic/bronzeright
 	craftdiff = 4
 
+/datum/anvil_recipe/engineering/golden_teeth
+	name = "golden teeth (x10)"
+	req_bar = /obj/item/ingot/gold
+	created_item = /obj/item/natural/tooth/golden
+	createditem_num = 10
+	craftdiff = 3
+
+/datum/anvil_recipe/engineering/golden_fangs
+	name = "golden fangs (x4)"
+	req_bar = /obj/item/ingot/gold
+	created_item = /obj/item/natural/tooth/fang/golden
+	createditem_num = 4
+	craftdiff = 3
+
 // ------------ Rings ----------------
 /datum/anvil_recipe/engineering/serfstone
 	name = "Serf Stone (+1 cog, +1 Topar)"

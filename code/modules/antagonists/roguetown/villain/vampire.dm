@@ -87,6 +87,10 @@
 		owner.current.verbs |= /mob/living/carbon/human/proc/blood_celerity
 		owner.current.verbs |= /mob/living/carbon/human/proc/blood_fortitude
 
+	var/obj/item/bodypart/head/head = owner.current.get_bodypart(BODY_ZONE_HEAD)
+	if(istype(head))
+		head.teeth_types[/obj/item/natural/tooth/fang] += 4
+
 	return ..()
 
 /datum/antagonist/vampire/on_removal()

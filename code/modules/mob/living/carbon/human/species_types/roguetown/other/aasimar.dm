@@ -57,7 +57,8 @@
 		/datum/customizer/organ/breasts/human,
 		/datum/customizer/organ/vagina/human_anthro,
 		/datum/customizer/organ/wings/anthro,
-		/datum/customizer/organ/ears/elf
+		/datum/customizer/organ/ears/elf,
+		/datum/customizer/bodypart_feature/teeth,
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,

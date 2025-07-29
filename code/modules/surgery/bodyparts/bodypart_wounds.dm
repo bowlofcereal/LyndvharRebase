@@ -183,6 +183,10 @@
 		var/crit_attempt = try_crit(bclass, dam, user, zone_precise, silent, crit_message)
 		if(crit_attempt)
 			return crit_attempt
+	else if(zone_precise == BODY_ZONE_PRECISE_MOUTH && (bclass in GLOB.fracture_bclasses) && ishuman(owner) && prob(dam * TEETH_DISLODGE_CHANCE_MULTIPLIER))
+		var/obj/item/bodypart/head/head = owner.get_bodypart(BODY_ZONE_HEAD)
+		head.knock_teeth(rand(TEETH_DISLODGE_MIN, TEETH_DISLODGE_MAX))
+
 	return added_wound
 
 /// Behemoth of a proc used to apply a wound after a bodypart is damaged in an attack
@@ -303,7 +307,6 @@
 				attempted_wounds += /datum/wound/artery/chest
 			else
 				attempted_wounds += /datum/wound/scarring
-
 	for(var/wound_type in shuffle(attempted_wounds))
 		var/datum/wound/applied = add_wound(wound_type, silent, crit_message)
 		if(applied)

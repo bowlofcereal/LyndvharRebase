@@ -77,6 +77,7 @@
 		/datum/customizer/organ/vagina/human,
 		/datum/customizer/organ/horns/tusks,
 		/datum/customizer/organ/ears/halforc,
+		/datum/customizer/bodypart_feature/teeth,
 		)
 	languages = list(
 		/datum/language/common,

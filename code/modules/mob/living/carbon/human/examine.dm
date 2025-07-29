@@ -777,6 +777,15 @@
 		if(heart?.inscryption && (heart.inscryption_key in maniac.key_nums))
 			. += span_danger("[t_He] know[p_s()] [heart.inscryption_key], I AM SURE OF IT!")
 
+	if(last_spoke + 10 SECONDS >= world.time)
+		var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
+		if(head?.get_teeth_count() < head.max_teeth_count)
+			. += span_warning("[t_He] is missing some their teeth!")
+		if(head?.teeth_types[/obj/item/natural/tooth/fang] > 0)
+			. += span_greentext("[t_He] seems to have fangs!")
+		if(head?.teeth_types[/obj/item/natural/tooth/golden] > 0)
+			. += span_greentext("Their smile brings a lustrous shine to their surroundings!")
+
 	if(Adjacent(user))
 		if(observer_privilege)
 			var/static/list/check_zones = list(

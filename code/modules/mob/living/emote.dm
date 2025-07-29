@@ -1040,6 +1040,18 @@
 	key_third_person = "smiles"
 	message = "smiles."
 	emote_type = EMOTE_VISIBLE
+
+/datum/emote/living/smile/select_message_type(mob/user, intentional)
+	var/mob/living/carbon/human/H = user
+	var/obj/item/bodypart/head/head = H?.get_bodypart(BODY_ZONE_HEAD)
+	if(!istype(head))
+		return ..()
+
+	if(head?.teeth_types[/obj/item/natural/tooth/fang] > 2)
+		. += span_greentext("smiles, baring [user.p_their()] fangs!")
+	if(head?.teeth_types[/obj/item/natural/tooth/golden] > 0)
+		. += span_greentext("smiles, flashing [user.p_their()] golden teeth!")
+
 /mob/living/carbon/human/verb/emote_smile()
 	set name = "Smile"
 	set category = "Emotes"

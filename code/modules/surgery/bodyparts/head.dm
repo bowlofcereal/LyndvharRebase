@@ -23,6 +23,11 @@
 	var/obj/item/organ/ears/ears
 	var/obj/item/organ/tongue/tongue
 
+	/// Maximum teeth count this head can hold
+	var/max_teeth_count = 32
+	/// Assoc list of all teeth in this head. tooth.type = amt
+	var/list/teeth_types
+
 	//Limb appearance info:
 	var/real_name = "" //Replacement name
 	//Hair colour and style
@@ -70,6 +75,9 @@
 			return list(/datum/intent/grab/move, /datum/intent/grab/twist, /datum/intent/grab/smash)
 		if(BODY_ZONE_PRECISE_NECK)
 			return list(/datum/intent/grab/move, /datum/intent/grab/choke, /datum/intent/grab/hostage)
+
+/obj/item/bodypart/head/Initialize()
+	. = ..()
 
 /obj/item/bodypart/head/Destroy()
 	QDEL_NULL(brainmob) //order is sensitive, see warning in handle_atom_del() below
@@ -219,6 +227,38 @@
 
 			if(eyes.eye_color)
 				eyes_overlay.color = "#" + eyes.eye_color
+
+/// Wrapper to get total amount of teeth, regardless of their type
+/obj/item/bodypart/head/proc/get_teeth_count()
+	var/amt = 0
+	for(var/type in teeth_types)
+		amt += teeth_types[type]
+
+	return amt
+
+/// Knockes teeth out, playes gore sound, randomly picks tooth type from list/teeth_types 
+/obj/item/bodypart/head/proc/knock_teeth(num_to_kick)
+	num_to_kick = clamp(num_to_kick, 1, max_teeth_count)
+	if(get_teeth_count() <= 0)
+		return
+
+	playsound(get_turf(owner), pick('sound/gore/gore1.ogg', 'sound/gore/gore2.ogg'), 75, FALSE, -1)
+
+	for(var/i = 1 to num_to_kick)
+		var/tooth_type = safepick(teeth_types)
+		if(teeth_types[tooth_type] <= 0)
+			continue
+
+		var/obj/item/natural/tooth/tooth = new tooth_type(get_turf(owner))
+		tooth.add_mob_blood(owner)
+		tooth.make_bloody()
+		teeth_types[tooth_type]--
+		tooth.throw_at(get_ranged_target_turf(get_turf(owner), pick(GLOB.alldirs), 2), 2, 1, spin = TRUE)
+		owner?.visible_message(span_danger("[owner]'s teeth fly off in an arc!"), \
+					span_danger("My teeth fly off in an arc!"), null, COMBAT_MESSAGE_RANGE)
+
+		if(get_teeth_count() <= 0)
+			return
 
 /obj/item/bodypart/head/monkey
 	icon = 'icons/mob/animal_parts.dmi'

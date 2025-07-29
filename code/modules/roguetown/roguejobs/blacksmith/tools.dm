@@ -358,6 +358,56 @@
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
+/obj/item/rogueweapon/tongs/afterattack(atom/target, mob/living/user, proximity)
+	if(!proximity)
+		return
+
+	if(ishuman(target) && user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
+		var/mob/living/carbon/human/victim = target
+		var/failchance = 5
+		if(!victim.restrained())
+			failchance += 60
+
+		if(hott)
+			to_chat(user, "<span class='pulsedeath'>\The [src] are hot! IT BURNS MY MOUTH!!!</span>")
+			failchance += 20
+			victim.flash_fullscreen("redflash3")
+		user.visible_message(
+			span_danger("[user] begins to manipulate the tongs in [victim]'s mouth!"),
+			span_danger("I begin removing [victim]'s teeth...")
+		)
+		if(do_after(user, 2 SECONDS, victim))
+			if(prob(failchance))
+				if(!HAS_TRAIT(victim, TRAIT_NOPAIN))
+					victim.Immobilize(hott ? 16 : 10)
+					shake_camera(victim, 2, 2)
+					victim.stuttering += hott ? 10 : 5
+					if(hott)
+						victim.flash_fullscreen("redflash3")
+						victim.emote("agony")
+					else
+						victim.flash_fullscreen("redflash2")
+						victim.emote("pain")
+					victim.visible_message(
+						span_danger("[victim] writhes in pain, prevernting the tooth to be removed!"),
+						"<span class='pulsedeath'>My mouth! It hurts!</span>"
+					)
+			else
+				if(!HAS_TRAIT(victim, TRAIT_NOPAIN))
+					victim.flash_fullscreen("redflash1")
+					victim.emote("painmoan")
+					victim.stuttering += 2
+				var/obj/item/bodypart/head/head = victim.get_bodypart(BODY_ZONE_HEAD)
+				head.knock_teeth(1)
+			//victim.teeth -= 1
+			//victim.recently_lost_teeth += 1
+			//victim.flying_teeth(1)
+			//to_chat(victim, span_warning("MY MOUTH HURTS!"))
+			//victim.decay_lost_teeth()
+		return
+
+	return ..()
+
 /obj/item/rogueweapon/tongs/stone
 	name = "stone tongs"
 	icon_state = "stonetongs"

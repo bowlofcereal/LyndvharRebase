@@ -12,6 +12,7 @@
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/biscuit_raw
 	name = "uncooked raisin biscuit"
@@ -21,6 +22,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/biscuit
 	name = "raisin biscuit"
@@ -34,6 +36,7 @@
 	bitesize = 3
 	tastes = list("crispy butterdough" = 1, "raisins" = 1)
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_BREAD
 
 // MISSING RECIPE
 /obj/item/reagent_containers/food/snacks/rogue/cookie		//It's a biscuit.......
@@ -44,6 +47,7 @@
 	color = "#ecce61"
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
+	hardness = FOOD_HARDNESS_HARDTACK
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/prezzel_raw
 	name = "uncooked prezzel"
@@ -52,6 +56,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/prezzel
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/prezzel
 	name = "prezzel"
@@ -64,6 +69,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
 	eat_effect = /datum/status_effect/buff/foodbuff
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw
 	name = "raw handpie"
@@ -74,6 +80,7 @@
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
 	w_class = WEIGHT_CLASS_NORMAL
 	dropshrink = 0.8
+	hardness = FOOD_HARDNESS_BREAD
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mushroom
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
@@ -109,6 +116,7 @@
 	tastes = list("crispy dough" = 1)
 	rotprocess = null
 	dropshrink = 0.8
+	hardness = FOOD_HARDNESS_MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/handpie/On_Consume(mob/living/eater)
 	..()

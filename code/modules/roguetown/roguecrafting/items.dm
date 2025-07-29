@@ -457,3 +457,40 @@
 		)
 	skillcraft = /datum/skill/craft/cooking
 	craftdiff = 4
+
+/datum/crafting_recipe/roguetown/survival/wooden_tooth
+	name = "wooden tooth (x5)"
+	result = list(
+		/obj/item/natural/tooth/woooden,
+		/obj/item/natural/tooth/woooden,
+		/obj/item/natural/tooth/woooden,
+		/obj/item/natural/tooth/woooden,
+		/obj/item/natural/tooth/woooden,
+	)
+	reqs = list(
+		/obj/item/grown/log/tree/small = 1,
+		)
+	skillcraft = /datum/skill/craft/crafting
+	craftdiff = 2
+
+/datum/crafting_recipe/roguetown/survival/bone_tooth
+	name = "bone tooth"
+	result = list(
+		/obj/item/natural/tooth,
+	)
+	reqs = list(
+		/obj/item/natural/bone = 1,
+	)
+	skillcraft = /datum/skill/craft/crafting
+	craftdiff = 3
+
+/datum/crafting_recipe/roguetown/survival/bone_fang
+	name = "bone fang"
+	result = list(
+		/obj/item/natural/tooth/fang,
+	)
+	reqs = list(
+		/obj/item/natural/bone = 1,
+	)
+	skillcraft = /datum/skill/craft/crafting
+	craftdiff = 3

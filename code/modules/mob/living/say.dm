@@ -577,6 +577,20 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 
 	return message
 
+/mob/living/carbon/human/treat_message(message)
+	. = ..()
+	
+	var/obj/item/bodypart/head/head = get_bodypart(BODY_ZONE_HEAD)
+	if(head?.get_teeth_count() < head?.max_teeth_count)
+		var/lisp_intensity = 0
+		if(head.get_teeth_count() <= 0)
+			lisp_intensity = 100
+		else
+			lisp_intensity = clamp(((1 - (head.get_teeth_count() / head.max_teeth_count)) * 100), 25, 100)
+		message = lisp_replace(message, lisp_intensity)
+
+	return message
+
 /mob/living/proc/radio(message, message_mode, list/spans, language)
 	switch(message_mode)
 		if(MODE_WHISPER)
