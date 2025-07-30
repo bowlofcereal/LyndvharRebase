@@ -41,3 +41,15 @@
 /datum/skill/language/sandspeak
 	name = "Sama'glos"
 	desc = "An eloquent language spoken by various Naledians."
+
+/datum/skill/language/kazengunese
+	name = "Kazengunese"
+	desc = "The language of the islands of Kazengun. With intricate honorifics and complex grammar. The version spoken commonly in Azuria is a result of centuries of cultural contact between the Kazengunese and Zhongese, and is a trade language combining Zhongese & Kazengunese vocabulary."
+
+/datum/skill/language/aanvic
+	name = "Aanvic"
+	desc = "The most spoken language in the Steppes of Aavnr, abundant within the Potentate and often used by Nomads. The tribes that settled in Aavnr for millenia have been perfecting their uniquely complex tongue, foreigners find it incredibly difficult to pick the language up - let alone master it."
+
+/datum/skill/language/draconic
+	name = "Draconic"
+	desc = "Spoken by zards, sometimes of questionable size."
