@@ -43,7 +43,7 @@
 	if(speech_mods[MODE_WHISPER]) // Makes you quieter when whispering...
 		initial_volume -= 25
 		initial_falloff -= 5
-	else if(speech_spans[SPAN_YELL]) // And louder when yelling
+	if(speech_spans[SPAN_YELL]) // And louder when yelling
 		initial_volume += 15
 		initial_pitch += 5
 		initial_falloff += 3
@@ -53,7 +53,7 @@
 	var/initial_delay = duration
 	var/list/hearers = GLOB.player_list.Copy() 	// This stuff is for people that don't want to hear it
 	for(var/mob/hearer as anything in hearers)
-		if(hearer.client && hearer.can_hear() && hearer.client.prefs.read_preference(/datum/preference/toggle/enable_mumbleboops))
+		if(hearer.client && hearer.can_hear() && hearer.client.prefs.toggles & TOGGLE_MUMBLEBOOP)
 			continue
 		hearers -= hearer
 	var/mumbleboop_delay_cumulative = 0
@@ -140,6 +140,6 @@
 	if(!volume || (last_mumbleboop != initial_mumbleboop_time))
 		return
 	for(var/mob/hearer as anything in hearers)
-		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, FALSE, falloff_exponent, max_distance = 14)
+		hearer.playsound_local(get_turf(mumblebooper), final_boop, volume, FALSE, falloff_exponent)
 
 #undef MAX_MUMBLEBOOP_CHARACTERS

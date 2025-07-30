@@ -1605,7 +1605,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					)
 					var/list/voice_choices = list("None")
 					for(var/voice in selectable_voices)
-						if(voice in pref_species.voice_type_mumble)
+						if(voice in GLOB.all_voice_type_list)
 							continue
 						var/datum/language/mumble_voice = new voice_type_mumble()
 						voice_choices[mumble_voice.name] = voice_type_mumble
