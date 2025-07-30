@@ -52,7 +52,7 @@
 		if("Lancer")
 			H.set_blindness(0)
 			to_chat(H, span_warning("You put complete trust in your polearm, the most effective weapon the world has seen. Why wear armour when you cannot be hit? You can choose your polearm, and are exceptionally accurate."))
-			H.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)	//This is the danger zone. Ultimately, the class won't be picked without this. I took the liberty of adjusting everything around to make this somewhat inoffensive.
+			H.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)	//This is the danger zone. Ultimately, the class won't be picked without this. I took the liberty of adjusting everything around to make this somewhat inoffensive, but we'll see if it sticks.
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)	//Wrestling is a swordsman's luxury.
