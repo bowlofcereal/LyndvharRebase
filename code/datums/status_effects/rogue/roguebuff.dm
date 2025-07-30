@@ -13,6 +13,11 @@
 	desc = ""
 	icon_state = "drunk"
 
+/datum/status_effect/buff/drunk/process()
+	. = ..()
+	if(HAS_TRAIT(owner, TRAIT_DRUNK_HEALING))
+		owner.apply_status_effect(/datum/status_effect/buff/healing) //will keep refreshing until no longer drunk
+
 /atom/movable/screen/alert/status_effect/buff/drunkmurk
 	name = "Murk-Knowledge"
 	desc = ""
