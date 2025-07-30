@@ -165,6 +165,7 @@
 // UNIQUE RACIAL TRAITS
 #define TRAIT_TRIBALISM "Tribalism"
 #define TRAIT_WATERSLEEP "Amphibious"
+#define TRAIT_DRUNK_HEALING "Drunk Healing"
 
 GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_LEPROSY = span_necrosis("I'm a disgusting leper..."),
@@ -300,7 +301,8 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_NECRAS_VOW = span_warning("I've pledged myself to Necra. If I fall, I am Hers."),
 	TRAIT_HERESIARCH = span_warning("I know of sacred sites of worship where followers of the Ascendants convene, and the path to the nearest conclave is etched into my memory."),
 	TRAIT_TRIBALISM = span_info("My confidence is bolstered when I see my own kin."),
-	TRAIT_WATERSLEEP = span_info("I sleep quite soundly in land or water both.")
+	TRAIT_WATERSLEEP = span_info("I sleep quite soundly in land or water both."),
+	TRAIT_DRUNK_HEALING = span_info("Alcohol helps my body recover from injury.")
 ))
 
 // trait accessor defines
@@ -488,7 +490,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_SKITTISH			"skittish"
 #define TRAIT_POOR_AIM			"poor_aim"
 #define TRAIT_PROSOPAGNOSIA		"prosopagnosia"
-#define TRAIT_DRUNK_HEALING		"drunk_healing"
 #define TRAIT_TAGGER			"tagger"
 #define TRAIT_PHOTOGRAPHER		"photographer"
 #define TRAIT_MUSICIAN			"musician"
