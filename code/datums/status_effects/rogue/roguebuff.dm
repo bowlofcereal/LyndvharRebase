@@ -14,6 +14,8 @@
 	icon_state = "drunk"
 
 /datum/status_effect/buff/drunk/process()
+	if(QDELETED(src) || !owner)  //prevents runtime
+		return
 	. = ..()
 	if(HAS_TRAIT(owner, TRAIT_DRUNK_HEALING))
 		owner.apply_status_effect(/datum/status_effect/buff/healing) //will keep refreshing until no longer drunk
