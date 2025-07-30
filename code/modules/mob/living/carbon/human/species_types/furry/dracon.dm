@@ -212,13 +212,19 @@
 	var/turf/T = get_turf(targets[1])
 	var/turf/source_turf = get_turf(user)
 
-	user.visible_message(span_danger("<b>[user] breathes red-hot flame!</b>"), span_notice("<b>I breathe red-hot flame!</b>"))
-
 	if(T.z != user.z)
+		revert_cast()
 		return FALSE
 
 	var/list/affected_turfs = getline(source_turf, T)
 	affected_turfs -= source_turf // Remove caster's turf
+
+	if(get_dist(source_turf, T) > range)
+		to_chat(user, span_danger("Too far!"))
+		revert_cast()
+		return FALSE
+
+	user.visible_message(span_danger("<b>[user] breathes red-hot flame!</b>"), span_notice("<b>I breathe red-hot flame!</b>"))
 
 	for(var/i = 1, i <= min(affected_turfs.len, range), i++) // Respect spell range
 		var/turf/affected_turf = affected_turfs[i]
