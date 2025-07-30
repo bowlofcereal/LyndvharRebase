@@ -16,7 +16,7 @@
 		LIPS,
 		HAIR,
 	)
-	inherent_traits = list(TRAIT_NASTY_EATER, TRAIT_WILD_EATER)
+	inherent_traits = list(TRAIT_WILD_EATER)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	attack_verb = "slash"
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
