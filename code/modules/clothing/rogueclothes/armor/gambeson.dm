@@ -119,6 +119,8 @@
 	desc = "A strong loosely worn quilted shirt that places little weight on the arms, usually worn underneath a strong leather vest. It won't cover your legs."
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	icon_state = "fencingshirt"
+	color = "#FFFFFF"
+	shiftable = FALSE
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/chargah
 	name = "steppesman chargah robe"
