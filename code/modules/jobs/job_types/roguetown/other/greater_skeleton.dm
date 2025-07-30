@@ -48,9 +48,9 @@ NECRO SKELETONS
 
 
 /datum/outfit/job/roguetown/greater_skeleton/necro
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/aalloy
-	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/aalloy
-	pants = /obj/item/clothing/under/roguetown/chainlegs/kilt/aalloy
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
+	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	head = /obj/item/clothing/head/roguetown/helmet/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 
@@ -77,31 +77,16 @@ NECRO SKELETONS
 	H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 
-	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 
 	shirt = prob(50) ? /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant : /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant/l
-	var/weapon_choice = input(H, "Choose your weapon.", "TAKE UP ARMS") as anything in list("Spear", "Axe", "Sword", "Warhammer")
-	switch(weapon_choice)
-		if("Spear")
-			r_hand = /obj/item/rogueweapon/spear/aalloy
-			H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-		if ("Warhammer")
-			r_hand = /obj/item/rogueweapon/mace/warhammer/alloy
-			H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
-		if("Axe")
-			r_hand = /obj/item/rogueweapon/stoneaxe/woodcut/aaxe
-			H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
-		if("Sword")
-			r_hand = /obj/item/rogueweapon/sword
-			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	r_hand = prob(50) ? /obj/item/rogueweapon/sword : /obj/item/rogueweapon/stoneaxe/woodcut
