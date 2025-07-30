@@ -9298,6 +9298,16 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/church/basement)
+"cTk" = (
+/obj/structure/fluff/walldeco/church/line,
+/obj/structure/fluff/walldeco/church/line{
+	dir = 1
+	},
+/obj/machinery/light/rogue/torchholder{
+	dir = 8
+	},
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors/town)
 "cTm" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -29956,6 +29966,21 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/underdark/north)
+"jgh" = (
+/obj/structure/bars{
+	icon_state = "barsbent";
+	layer = 2.81
+	},
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "tablewood1"
+	},
+/obj/structure/bars/passage/shutter/open{
+	redstone_id = "stewardshutter"
+	},
+/obj/structure/roguemachine/stockpile,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/town)
 "jgm" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 8
@@ -31839,12 +31864,6 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
-"jMm" = (
-/obj/machinery/light/rogue/torchholder{
-	dir = 8
-	},
-/turf/open/floor/rogue/herringbone,
-/area/rogue/indoors/town)
 "jMw" = (
 /obj/machinery/light/rogue/torchholder{
 	dir = 4
@@ -77907,6 +77926,10 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/mountains/decap/gunduzirak)
+"xRw" = (
+/obj/structure/roguemachine/stockpile,
+/turf/closed/wall/mineral/rogue/wooddark,
+/area/rogue/indoors/town)
 "xRx" = (
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 6
@@ -273237,14 +273260,14 @@ cMz
 sns
 sns
 sns
-gUd
-jMm
+cTk
 wBe
 wBe
 wBe
 wBe
-jMm
-gUd
+wBe
+wBe
+cTk
 sns
 exO
 sns
@@ -273691,12 +273714,12 @@ sns
 sns
 cDX
 phl
-aIi
+jgh
 aIi
 aIi
 aIi
 phl
-cDX
+xRw
 sns
 sns
 sns
