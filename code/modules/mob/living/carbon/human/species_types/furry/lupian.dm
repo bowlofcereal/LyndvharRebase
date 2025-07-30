@@ -19,7 +19,7 @@
 		LIPS,
 		HAIR,
 	)
-	inherent_traits = list(TRAIT_STRONGBITE)
+	inherent_traits = list(TRAIT_STRONGBITE,TRAIT_PERFECT_TRACKER)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	use_skintones = 1
 	attack_verb = "slash"
@@ -185,4 +185,3 @@
 
 /datum/species/lupian/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
-	C.adjust_skillrank(/datum/skill/misc/tracking, 1, TRUE)
