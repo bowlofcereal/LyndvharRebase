@@ -5,16 +5,7 @@
 	name = "Half Orc"
 	id = "halforc"
 	desc = "<b>Half Orcs</b><br>\
-	With the Ironmask clan on a centuries-long warpath to consolidate all orcs beneath their banner, \
-	crushed orc tribes have lost their menfolk, and war-widows have been scattered to the hinterlands. \
-	Between humen civilization and orc savagery, orc-women opting for exile over dishonor have become \
-	more common visitors to fur trading posts and prospecting camps, eventually leading to half-orcs \
-	being born in these rough places otherwise devoid of a fairer sex. Your mother-clan is in thrall \
-	to the Ironmask. True orcs would kill you on sight, seeing you as a mongrel dog, and non-orcish \
-	people cannot decide between regarding you with either mere distrust or outright disgust. Yet \
-	somehow your wandering feet came to Lyndvhar, where half-orcs ply muscle and their hardiness \
-	in the rough underbelly or outer reaches of society.<br>\
-	(+1 Strength)"
+	Considered to be an unholy union by many, a Half Orc is as the name implies what is created when a Humen and an Orc have children. Considered to be a bastardization of races, and usually created through less-than-friendly means of interaction, Half-Orcs face heavy scrutiny- most pure Orcs will kill them on sight, and most other races view them with similar disdain to true Orcs. Half-Orcs have no true lineage to call their own beyond their own formed clans of half-orcs.<br>"
 
 	skin_tone_wording = "Clan"
 
@@ -43,7 +34,6 @@
 	OFFSET_FACE_F = list(0,1), OFFSET_BELT_F = list(0,1), OFFSET_BACK_F = list(0,1), \
 	OFFSET_NECK_F = list(0,1), OFFSET_MOUTH_F = list(0,1), OFFSET_PANTS_F = list(0,1), \
 	OFFSET_SHIRT_F = list(0,1), OFFSET_ARMOR_F = list(0,1), OFFSET_UNDIES_F = list(0,1))
-	race_bonus = list(STAT_STRENGTH = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
