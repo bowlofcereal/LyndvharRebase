@@ -5,22 +5,7 @@
 	name = "Dark Elf"
 	id = "elfd"
 	desc = "<b>Dark Elf</b><br>\
-	\"Elf\" is a catch-all term used for tall, pointy-eared humanoids who can trace their \
-	heritage to the ancient and mysterious Snow Elves. This species of elf, less frequently \
-	seen, are also referred to by some as \"drow,\" and have several key differences \
-	that set them apart from their more well-known and surface-dwelling kin. Chief among these \
-	differences are their dark complexions and origins from the Underdark; a massive subterranean \
-	landscape made up of a vast network of interconnected caves, caverns and tunnels. In this world \
-	hidden deep beneath the soil are several dark elven cities who exist and function far from the \
-	reaches of the rest of the surface-dwelling societies. These are a large part of what has earned \
-	the dark elves their notoriety, for in these cities the worship of the ascendant pantheon is \
-	normalized, and their cruel and bloodthirsty culture reflects this. It was rare to see dark \
-	elves outside of their underground homes, but in recent years, more and more of them have fled \
-	to the surface. The reasons for each dark elf fleeing the Underdark vary depending on the \
-	individual, such as a kinder heart fleeing from a brutal society that scorns them for their \
-	less cruel nature. However, not every dark elf seen on the surface can be safely assumed as \
-	kind, for some leave the Underdark simply to find their own greater heights of power.<br>\
-	(+1 Intellect, +1 Perception)"
+	Often referred to as the Drow, very little is known about this species outside of those who live aboveground. Below the ground, they live in large, interconnected caves, in which many cities of the below reside hosting entirely Dark Elf communities ruled by a Matriarch. They are a brash, and often aggressive race of ambitious and bloodthirsty culture. There is often an expedition of Dark Elves entering the surface to raid smaller towns for slaves, before retreating back underground in unseen passages before they can be stopped. As a result, the Dark Elves living above ground face much scrutiny. Dark Elves aboveground are usually refugees exiled from their communities, or wanted criminals escaping justice.<br>"
 
 /*
 	Former RT Desc: These guys were undead which doesn't really fit considering now you have a ton of them walking around.
@@ -65,7 +50,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_PERCEPTION = 1, STAT_INTELLIGENCE = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,

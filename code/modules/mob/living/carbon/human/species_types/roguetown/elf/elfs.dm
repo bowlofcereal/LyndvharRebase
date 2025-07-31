@@ -5,19 +5,7 @@
 	name = "Elf"
 	id = "elfw"
 	desc = "<b>Elf</b><br>\
-	\"Elf\" is a catch-all term used for tall, pointy-eared humanoids who can trace \
-	their heritage to the ancient and mysterious Snow Elves. This particular species \
-	of elf are what most imagine when they hear the word, and are also known among \
-	the elder races as \"Wood-Elves\". Considering their diverse history, it is extremely \
-	difficult for other mortals to even conceive the various intricacies found in elven \
-	society, thanks in no small part to the hundreds if not thousands of tribes that exist \
-	within their culture. Although ancient and complex, Elves tend to be looked poorly upon by \
-	Humens, as historically the two races have been rivals in various conflicts and \
-	territorial disputes. This, however, does not stop many Humens and Elves from forming \
-	relationships, which are capable of producing half-elven children. Elves are known for \
-	their intelligence and sharp eyes, but their graceful nature typically leaves their bodies \
-	more frail and fagile than most. In these lands, only a handful of the many Elvish tribes are seen.<br>\
-	(+1 Speed)"
+	The eldest of the Pantheon’s creations, the elves are one of the most ancient races in Beowricke. Known for being one of the most intelligent and long-living races, they have graceful nature in their stead and are almost exclusively seen in the upper echelons of societies, and in fact many baronies, cities, and even realms (like Greencrest) are made up of an entire elvish nobility. Elves are prideful and believe themselves to be the superior mortal race, however have been intertwined with Humens for so long that it is not uncommon to see a half-elf.<br>"
 
 	skin_tone_wording = "Tribal Identity"
 
@@ -48,7 +36,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_SPEED = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
