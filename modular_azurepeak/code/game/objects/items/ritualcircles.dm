@@ -371,8 +371,8 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 
 
 /obj/structure/ritualcircle/zizo
-	name = "Rune of Progress"
-	desc = "A Holy Rune of ZIZO"
+	name = "Rune of Ambition"
+	desc = "A Daemonic Rune to the Archdaemon, ZIZO."
 	icon_state = "zizo_chalky"
 	var/zizorites = list("Rite of Armaments")
 
@@ -398,7 +398,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			if(!target)
 				return
 			if(do_after(user, 50))
-				user.say("ZIZO! ZIZO! DAME OF PROGRESS!!")
+				user.say("ZIZO! ZIZO! DAEMON OF AMBITION!!")
 				if(do_after(user, 50))
 					user.say("ZIZO! ZIZO! HEED MY CALL!!")
 					if(do_after(user, 50))
@@ -446,8 +446,8 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 
 
 /obj/structure/ritualcircle/matthios
-	name = "Rune of Transaction"
-	desc = "A Holy Rune of Matthios."
+	name = "Rune of Envy"
+	desc = "A Daemonic Rune to the Archdaemon, MATTHIOS."
 	icon_state = "matthios_chalky"
 	var/matthiosrites = list("Rite of Armaments")
 
@@ -474,11 +474,11 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			if(!target)
 				return
 			if(do_after(user, 50))
-				user.say("Gold and Silver, he feeds!!")
+				user.say("GOLD AND SILVER, HE DEMANDS!!")
 				if(do_after(user, 50))
-					user.say("Pieces Tens, Hundreds, Thousands. The transactor feeds 'pon them all!!")
+					user.say("PIECES TENS, HUNDREDS, THOUSANDS. MATTHIOS FEEDS 'PON THEM ALL!!")
 					if(do_after(user, 50))
-						user.say("Arms to claim, Arms to take!!")
+						user.say("ARMS TO CLAIM. ARMS TO TAKE!!")
 						if(do_after(user, 50))
 							icon_state = "matthios_active"
 							user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
@@ -501,7 +501,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 		target.equipOutfit(/datum/outfit/job/roguetown/gildedrite)
 		target.apply_status_effect(/datum/status_effect/debuff/devitalised)
 		spawn(40)
-			to_chat(target, span_cult("More to the maw, this shall help feed our greed."))
+			to_chat(target, span_cult("More to the maw, this shall help feed our greed. Go forth."))
 
 
 /datum/outfit/job/roguetown/gildedrite/pre_equip(mob/living/carbon/human/H)
@@ -522,7 +522,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 
 /obj/structure/ritualcircle/graggar
 	name = "Rune of Violence"
-	desc = "A Holy Rune of Graggar."
+	desc = "A Daemonic Rune to the Archdaemon, Graggar."
 	// icon_state = "graggar_chalky"
 	var/graggarrites = list("Rite of Armaments")
 
@@ -548,11 +548,11 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 			if(!target)
 				return
 			if(do_after(user, 50))
-				user.say("MOTIVE FORCE, OH VIOLENCE!!")
+				user.say("GRAGGAR, WITNESS THIS VIOLENCE!!")
 				if(do_after(user, 50))
-					user.say("A GORGEOUS FEAST OF VIOLENCE, FOR YOU, FOR YOU!!")
+					user.say("A GORGEOUS BUFFET OF BLOOD AND VIOLENCE, FOR YOU, FOR YOU!!")
 					if(do_after(user, 50))
-						user.say("A SLAUGHTER AWAITS!!") // see the numbers taste the violence
+						user.say("THE SLAUGHTER AWAITS US!!")
 						if(do_after(user, 50))
 							//icon_state = "graggar_active" when we have one
 							user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
@@ -575,7 +575,7 @@ var/forgerites = list("Ritual of Blessed Reforgance")
 		target.equipOutfit(/datum/outfit/job/roguetown/viciousrite)
 		target.apply_status_effect(/datum/status_effect/debuff/devitalised)
 		spawn(40)
-			to_chat(target, span_cult("Break them."))
+			to_chat(target, span_cult("Break them. Make them suffer."))
 
 /datum/outfit/job/roguetown/viciousrite/pre_equip(mob/living/carbon/human/H)
 	..()
