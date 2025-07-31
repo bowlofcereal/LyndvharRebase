@@ -1,4 +1,4 @@
-/datum/language/etruscan
+/datum/language/DUNARGI
 	name = "Etrusco"
 	desc = "The language of the inhabitants of the Isles of Etrusca. Fast-paced, for those unused to its emotiveness."
 	speech_verb = "remarks"
@@ -9,7 +9,7 @@
 	space_chance = 60
 	default_priority = 90
 	icon_state = "asse"
-	spans = list(SPAN_ETRUSCAN)
+	spans = list(SPAN_DUNARGI)
 	syllables = list(
 		"que", "ent", "ante", "con", "est", "ado", "para", "los", "era", "ien", "men",
 		"per", "osta", "ara", "por", "una", "ión", "ant", "tra", "ero", "anto", "ació",

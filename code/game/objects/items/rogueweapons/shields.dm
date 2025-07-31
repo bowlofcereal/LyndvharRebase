@@ -366,7 +366,7 @@
 
 /*/obj/item/rogueweapon/shield/buckler/freelancer
 	name = "fencer's wrap"
-	desc = "A traditional Etruscan quilted cloth square with a woolen cover. It can be used to daze and distract people with its bright colours and hanging steel balls."
+	desc = "A traditional Dunargi quilted cloth square with a woolen cover. It can be used to daze and distract people with its bright colours and hanging steel balls."
 	force = 10
 	throwforce = 10
 	coverage = 15

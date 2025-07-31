@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/condottiero
 	name = "Condottiero Guildsman"
-	tutorial = "Hailing from the Kingdom of Etrusca, Condottieri are soldiers of fortune oft found in the employ of powerful merchants. Without a war to fight back home, the Grand Duchy has become a much-needed source of contracts. Afterall, this land is rich in coin yet poor in manpower..."
+	tutorial = "Hailing from the Dunargun Province, Condottieri are soldiers of fortune oft found in the employ of powerful merchants. With the civil war currently raging, the city of Lyndvhar has become desperate for mercenaries. You took the contract-- after all, the most lucrative contracts come from desperate times."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	traits_applied = list(TRAIT_OUTLANDER)
@@ -50,6 +50,6 @@
 	H.change_stat("speed", 2)
 	H.change_stat("intelligence", 1)
 
-	H.grant_language(/datum/language/etruscan)
+	H.grant_language(/datum/language/dunargi)
 	H.grant_language(/datum/language/thievescant)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)

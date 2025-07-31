@@ -9,7 +9,7 @@
 	cmode_music = 'sound/music/combat_noble.ogg'	
 	classes = list("Fencer" = "You are a master in the arts of the longsword. Wielder of Psydonia's most versatile and noble weapon, you needn't anything else.",
 					"Lancer" = "You put complete trust in your polearm, the most effective weapon the world has seen. Why wear armour when you cannot be hit?")
-					//"Cortador" = "You completely forego long arms, having proven yourself effective in the teachings of the Etruscan knife-fighting masters of old. Your knife and traditionally decorated cloth shield are unrivaled.")
+					//"Cortador" = "You completely forego long arms, having proven yourself effective in the teachings of the Dunargi knife-fighting masters of old. Your knife and traditionally decorated cloth shield are unrivaled.")
 
 /datum/outfit/job/roguetown/mercenary/freelancer/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -32,11 +32,11 @@
 			H.change_stat("constitution", 4)	//+2 CON in place of END, sorry staminachuds!
 			H.change_stat("intelligence", 3)	//To give you an edge in specialty moves like feints and stop you from being feinted
 			l_hand = /obj/item/rogueweapon/scabbard/sword
-			var/weapons = list("Etruscan Longsword", "Kriegsmesser", "Common Longsword")
+			var/weapons = list("Dunargiac Longsword", "Kriegsmesser", "Common Longsword")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
-				if("Etruscan Longsword")
-					r_hand = /obj/item/rogueweapon/sword/long/etruscan
+				if("Dunargiac Longsword")
+					r_hand = /obj/item/rogueweapon/sword/long/dunargi
 					beltr = /obj/item/rogueweapon/huntingknife/idagger/navaja
 				if("Kriegsmesser")
 					r_hand = /obj/item/rogueweapon/sword/long/kriegmesser
@@ -69,7 +69,7 @@
 					r_hand = /obj/item/rogueweapon/eaglebeak/lucerne
 /*		if("Cortador")								TBA
 			H.set_blindness(0)
-			to_chat(H, span_warning("You completely forego long arms, having proven yourself effective in the teachings of the Etruscan knife-fighting masters of old. You are a master knife fighter and your \"shield\" can daze opponents easily."))
+			to_chat(H, span_warning("You completely forego long arms, having proven yourself effective in the teachings of the dunargi knife-fighting masters of old. You are a master knife fighter and your \"shield\" can daze opponents easily."))
 			H.adjust_skillrank(/datum/skill/combat/knives, 5, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

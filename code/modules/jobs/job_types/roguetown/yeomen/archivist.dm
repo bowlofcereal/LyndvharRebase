@@ -57,7 +57,7 @@
 	H.grant_language(/datum/language/orcish)
 	H.grant_language(/datum/language/grenzelhoftian)
 	H.grant_language(/datum/language/valorian)
-	H.grant_language(/datum/language/etruscan)
+	H.grant_language(/datum/language/dunargi)
 	H.grant_language(/datum/language/gronnic)
 	H.grant_language(/datum/language/kazengunese)
 	H.grant_language(/datum/language/draconic)
