@@ -4,8 +4,8 @@
 /datum/species/vulpkanin
 	name = "Vulpkian"
 	id = "vulpkanin"
-	desc = "Foxy creatures known for their cleverness and mischief. In ancient history they were Dendor's original champions, but as His madness grew the connect became frey and forgotten, leaving them to their own devices. Or, at least, that's what they say.<br>\
-	(+1 Intelligence, +1 Perception)"
+	desc = "<b>Vulpkian</b><br>\
+	A race hailing from Yoheon, they cohabit the Kingdom of Forvheipal with the Lupians. It is believed that the Lupians make up the majority of the martial administrative duties, while the Vulpkian handle economic and political trades. They are a race of clever fox-beasts, often depicted as wise and enigmatic, but completely practical and oftentimes devoid of much emotion. As a result they are not often seen in these parts of Llewyn, however the ones that do face much fear and judgement from those who do not trust them. They share a strong bond with the Lupians, however.<br>"
 	default_color = "444"
 	species_traits = list(
 		MUTCOLORS,
@@ -34,7 +34,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_PERCEPTION = 1, STAT_INTELLIGENCE = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,

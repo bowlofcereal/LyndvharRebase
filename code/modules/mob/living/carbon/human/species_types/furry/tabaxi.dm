@@ -7,14 +7,7 @@
 
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | SLIME_EXTRACT
 	desc = "<b>Tabaxi</b><br>\
-		Tabaxi are taller than most humans at six to seven feet. \
-		Their bodies are slender and covered in spotted or striped fur. \
-		Like most felines, Tabaxi have long tails and retractable claws. \
-		Tabaxi fur color ranges from light yellow to brownish red. \
-		Tabaxi eyes are slit-pupilled and usually green or yellow. \
-		Tabaxi are competent swimmers and climbers as well as speedy runners. \
-		They have a good sense of balance and an acute sense of smell.<br>\
-		(+1 Speed)"
+	These feline-like beings hail from the far northern territories of Zybantu, found more in jungles than the rest of the territory. They are quite tall, often being seen at six to eight feet tall. With slender bodies they are often quite agile, making it much easier for them to hunt prey in the jungles of Northeastern Zybantu. Matched with an acute sense of smell and striking intelligence, the Tabaxi are some of the most feared hunters in these regions, often preying on travellers who stray into their prides. Many Tabaxi seen outside of these regions are descendants of those who were captured by patrols of Zybantu Slavers and sentenced to work elsewhere as free labor abroad.<br>"
 	skin_tone_wording = "Fur Colors"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE, MUTCOLORS)
 	possible_ages = ALL_AGES_LIST
@@ -37,7 +30,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1)
 		)
-	race_bonus = list(STAT_SPEED = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
