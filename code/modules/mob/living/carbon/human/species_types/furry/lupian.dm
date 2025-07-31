@@ -5,13 +5,7 @@
 	name = "Lupian"
 	id = "lupian"
 	desc = "<b>Lupian</b><br>\
-	Lupians are the sons and daughters of Noc. They are a volf-like people hailing from the Northern Regions of the world. \
-	They are resilient, cunning and fight ready creachures capable of surviving the north thanks to their rugged pelts, \
-	sharp teeth and deep-rooted spirit of community. They are very dutiful individuals and make fantastic and fearsome \
-	warriors to those who earn their loyalty. Thanks to their pack minded nature they are slow to trust the other races \
-	but form deep connections with those they do. In recent years they have been driven from the forests by unrest and pressed \
-	into cohabitation with races they'd deem lesser.<br>\
-	(+1 Constitution, +1 Intelligence)"
+	One of the many strange races that hail from the continent of Yoheon, the Lupian are believed to have originally come from Forvheipal, the kingdom located south of Khazumia. They cohabitate with the Vulpkian, forming tight pack communities. They are known for their cunning resilience, and fierce warriors. However due to their fighting prowess and the worth of their pelts, they are often hunted as game in communities outside of Yoheon across Lyndhardtia in the more decentralized regions for both sport and mammon. They also have an inherent amount of aggression in their culture, usually bringing simple arguments into full brawls abruptly and suddenly, likely ringing the truth that Forvheipal is an incredibly hostile land due to its tall cliffs, stinging tundras, and glistening swamps.<br>"
 	skin_tone_wording = "Pack"
 	species_traits = list(
 		MUTCOLORS,
@@ -43,7 +37,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_INTELLIGENCE = 1, STAT_CONSTITUTION = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
