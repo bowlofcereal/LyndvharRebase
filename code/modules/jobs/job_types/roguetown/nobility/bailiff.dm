@@ -6,11 +6,19 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_NO_CONSTRUCT
+	allowed_patrons = ALL_DIVINE_PATRONS
+	allowed_races = list(
+		/datum/species/human/northern,
+		/datum/species/elf/wood,
+		/datum/species/human/halfelf,
+		/datum/species/dwarf/mountain,
+		/datum/species/elf/dark,
+		/datum/species/aasimar,
+		/datum/species/demihuman
+	)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	display_order = JDO_MARSHAL
-	tutorial = "You are an agent of the crown in matters of law and military, making sure that laws are pushed, verified and carried out by the retinue upon the citizenry of the realm. \
-				While you preside over the knights and men-at-arms, much of your work happens behind a desk, deferring to the Sergeant-at-Arms or the Knight Captain to make sure your will is carried out in the field."
+	tutorial = "You are an agent of the Viscount in matters of local law and levy, making sure that laws are pushed, verified and carried out by the retinue upon the citizenry. While you preside over the knights and men-at-arms, much of your work happens behind a desk, deferring to the Retinue Captain to make sure your will is carried out in the field."
 	whitelist_req = FALSE
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard) // /obj/effect/proc_holder/spell/self/convertrole/bog
@@ -72,7 +80,7 @@
 
 /datum/advclass/marshal/classic
 	name = "Marshal"
-	tutorial = "You've spent your daes in the courts and garrisons of the city. You've studied the law tome from back to front and enforce your word with the iron hand of justice, and the iron mace in your hands. More men have spent days rotting in the dungeon than that Knight Commander could ever have claimed, and every person in the realm respects your authority in matters of law and order."
+	tutorial = "You've spent your daes in the courts and garrisons of the city. You've studied the law tome from back to front and enforce your word with the iron hand of justice, and the iron mace in your hands. More men have spent days rotting in the dungeon than that Retinue Captain could ever have claimed, and every person in the realm respects your authority in matters of law and order."
 	outfit = /datum/outfit/job/roguetown/marshal/classic
 
 	category_tags = list(CTAG_MARSHAL)
@@ -107,7 +115,7 @@
 	set category = "Voice of Command"
 	if(stat)
 		return
-	var/inputty = input("Write a new law", "SHERIFF") as text|null
+	var/inputty = input("Write a new law", "MARSHAL") as text|null
 	if(inputty)
 		if(hasomen(OMEN_NOLORD))
 			make_law(inputty)
@@ -123,7 +131,7 @@
 	set category = "Voice of Command"
 	if(stat)
 		return
-	var/inputty = input("Remove a law", "SHERIFF") as text|null
+	var/inputty = input("Remove a law", "MARSHAL") as text|null
 	var/law_index = text2num(inputty) || 0
 	if(law_index && GLOB.laws_of_the_land[law_index])
 		if(hasomen(OMEN_NOLORD))
@@ -154,7 +162,7 @@
 	set category = "Voice of Command"
 	if(stat)
 		return
-	var/inputty = input("Outlaw a person", "SHERIFF") as text|null
+	var/inputty = input("Outlaw a person", "MARSHAL") as text|null
 	if(inputty)
 		if(hasomen(OMEN_NOLORD))
 			make_outlaw(inputty)
@@ -175,7 +183,7 @@
 	return lord
 
 /proc/lord_law_requested(mob/living/bailiff, mob/living/carbon/human/lord, requested_law)
-	var/choice = alert(lord, "The sheriff requests a new law!\n[requested_law]", "SHERIFF LAW REQUEST", "Yes", "No")
+	var/choice = alert(lord, "The Marshal requests a new law!\n[requested_law]", "MARSHAL LAW REQUEST", "Yes", "No")
 	if(choice != "Yes" || QDELETED(lord) || lord.stat > CONSCIOUS)
 		if(bailiff)
 			to_chat(span_warning("The lord has denied the request for a new law!"))
@@ -185,7 +193,7 @@
 /proc/lord_law_removal_requested(mob/living/bailiff, mob/living/carbon/human/lord, requested_law)
 	if(!requested_law || !GLOB.laws_of_the_land[requested_law])
 		return
-	var/choice = alert(lord, "The sheriff requests the removal of a law!\n[GLOB.laws_of_the_land[requested_law]]", "SHERIFF LAW REQUEST", "Yes", "No")
+	var/choice = alert(lord, "The Marshal requests the removal of a law!\n[GLOB.laws_of_the_land[requested_law]]", "MARSHAL LAW REQUEST", "Yes", "No")
 	if(choice != "Yes" || QDELETED(lord) || lord.stat > CONSCIOUS)
 		if(bailiff)
 			to_chat(span_warning("The lord has denied the request for a law removal!"))
@@ -193,7 +201,7 @@
 	remove_law(requested_law)
 
 /proc/lord_purge_requested(mob/living/bailiff, mob/living/carbon/human/lord)
-	var/choice = alert(lord, "The sheriff requests a purge of all laws!", "SHERIFF PURGE REQUEST", "Yes", "No")
+	var/choice = alert(lord, "The Marshal requests a purge of all laws!", "MARSHAL PURGE REQUEST", "Yes", "No")
 	if(choice != "Yes" || QDELETED(lord) || lord.stat > CONSCIOUS)
 		if(bailiff)
 			to_chat(span_warning("The lord has denied the request for a purge of all laws!"))
@@ -201,7 +209,7 @@
 	purge_laws()
 
 /proc/lord_outlaw_requested(mob/living/bailiff, mob/living/carbon/human/lord, requested_outlaw)
-	var/choice = alert(lord, "The sheriff requests to outlaw someone!\n[requested_outlaw]", "SHERIFF OUTLAW REQUEST", "Yes", "No")
+	var/choice = alert(lord, "The Marshal requests to outlaw someone!\n[requested_outlaw]", "MARSHAL OUTLAW REQUEST", "Yes", "No")
 	if(choice != "Yes" || QDELETED(lord) || lord.stat > CONSCIOUS)
 		if(bailiff)
 			to_chat(span_warning("The lord has denied the request for declaring an outlaw!"))
