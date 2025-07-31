@@ -86,8 +86,8 @@
 
 
 /datum/roguestock/import/knight
-	name = "Knight Equipment Crate"
-	desc = "Kit for a Knight."
+	name = "Cataphract Equipment Crate"
+	desc = "Kit for a Cataphract."
 	item_type = /obj/structure/closet/crate/chest/steward/knight
 	export_price = 490
 	importexport_amt = 1
