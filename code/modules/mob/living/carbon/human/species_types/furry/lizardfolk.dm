@@ -4,13 +4,8 @@
 /datum/species/lizardfolk
 	name = "Zardman"
 	id = "lizardfolk"
-	desc = "<b>Zardman</b><br>\
-	Zardmen are semi-aquatic reptilian humanoids. \
-	Their flesh is covered in scales varying in color from dark green to shades of brown and gray. \
-	Taller than humans and powerfully built, zardmen are often between 6 and 7 feet tall. \
-	Zardmen have non-prehensile muscular tails that grow to three or four feet in length, and these are used for balance. \
-	They also have sharp claws and teeth.<br>\
-	(+1 Constitution, +1 Endurance)"
+	desc = "<b>Sissean</b><br>\
+	Composed of scales resembling what could be seen in the common lizard, the Zardman is anything but this. Once the slave chattel of the Drakian of the Calmirixial province, they are a very industrious and martial race, having served under the direct oppression of Drakian overlordship for years. When Naexidor came to Calmirixial and destroyed Drakian hegemony over the region, what followed was a complete schism of Drakian and Zardman society. Sissean often kill their young that form into their draconic counterparts as a result of this deep hatred for each other.<br>"
 	skin_tone_wording = "Skin Colors"
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS)
 	possible_ages = ALL_AGES_LIST
