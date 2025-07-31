@@ -1,8 +1,6 @@
 /datum/faith/divine
+/datum/faith/divine
 	name = "Divine Pantheon"
-	desc = "The TEN, children of PSYDON. The most accepted religion in Lyndvhar. born from Psydon sending the Comet Syon to defeat the rampaging Archdevil and splitting him into Ten. \n \n\
-		The <b>Holy See</b>, recently rocked by a violent schism, controls diosces across the world.\
-		The splinter church, the <b>Holy Ecclesial</b>, recognize the heretical 'Ascendants' - better known as INHUMEN GODS- as True Divinity. \
-		But it is only through faith of the TRUE DIVINE that hope can be found in this world."
-	worshippers = "Citizens of Lyndvhar, conservative religious-folk, many commonfolk."
+	desc = "The Pantheon is the de facto majority icon of worship in Lyndhardtia. As a result, Lyndvhar itself is nigh completely pantheonic worshippers. The Holy Mother Church of the Pantheonic Ten (Holy Mother Church, Pantheonic Church) is the centralized authority of this faith. They revere the Ten as the creators of Beowricke, destroyers of the Archdaemons in the Bloodwake, and the aspects of all life as we know it."
+	worshippers = "Lyndhardtians, commonfolk, nobility."
 	godhead = /datum/patron/divine/astrata

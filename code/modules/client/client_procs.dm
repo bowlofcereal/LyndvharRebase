@@ -223,16 +223,16 @@ GLOBAL_LIST_EMPTY(respawncounts)
 	else
 		if(most_influential == most_frequent && max_influence > 0)
 			data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
-			data += "The most dominant God was <span style='color:[most_influential.color_theme];'>[most_influential.name]</span>"
+			data += "The most dominant Patron was <span style='color:[most_influential.color_theme];'>[most_influential.name]</span>"
 			data += "</div>"
 		else
 			if(max_influence > 0)
 				data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
-				data += "The most influential God is <span style='color:[most_influential.color_theme];'>[most_influential.name]</span>"
+				data += "The most influential Patron is <span style='color:[most_influential.color_theme];'>[most_influential.name]</span>"
 				data += "</div>"
 			if(max_chosen > 0)
 				data += "<div style='font-size: 1.2em; font-weight: bold; margin-bottom: 12px;'>"
-				data += "The longest reigning God was <span style='color:[most_frequent.color_theme];'>[most_frequent.name]</span>"
+				data += "The longest reigning Patron was <span style='color:[most_frequent.color_theme];'>[most_frequent.name]</span>"
 				data += "</div>"
 
 	data += "<div style='border-top: 1.5px solid #444; margin: 15px auto; width: 100%;'></div>"

@@ -1,7 +1,5 @@
 /datum/faith/inhumen
-	name = "Ascendents"
-	desc = "The Holy Ecclesial is a series of sects formed by a violent schism with the Holy See that split the church in twain. \n\
-		The Holy Ecclesial accepts the Four Ascendents as True Divinity, proof that Mortals can ascend past their limits.  \
-		So close to the seat of the Holy See, worship of the Four is considered heretical, and they are denounced as the INHUMEN. But we laugh, and spit in their face."
-	worshippers = "Cultists, those spurned by the Ten."
+	name = "Archdaemon Worship"
+	desc = "The Archdaemons are the beings born from the worst sinful parts of mortals, given form as monstrous deities representing these. They began the BLOODWAKE in an attempt to usurp the PANTHEON and bring about an age of destruction and calamity and reshape Beowricke in their own sinful image. Despite this, there are many shady organizations and those of corruption who worship these beings in secret, awaiting their return. Archdaemon worship is considered utter heresy by almost all organized faiths, and is met quickly with the pyre or the sword when uncovered."
+	worshippers = "Cultists, those who believe the daemons should rule, those spurned by the Pantheon."
 	godhead = /datum/patron/inhumen/zizo
