@@ -84,8 +84,8 @@
 	ADD_TRAIT(H, TRAIT_GOODTRAINER, TRAIT_GENERIC)
 
 /datum/advclass/knight/heavy
-	name = "Heavy Knight"
-	tutorial = "You've trained thoroughly and hit far harder than most - adept with massive swords, axes, maces, and polearms. People may fear the mounted knights, but they should truly fear those who come off their mount..."
+	name = "Heavy Cataphract"
+	tutorial = "You are the indesputed master of man-on-man combat. Shockingly adept with massive swords, axes, and maces. People may fear the mounted Cataphract, but they should truly fear those who come off their mount.."
 	outfit = /datum/outfit/job/roguetown/knight/heavy
 
 	category_tags = list(CTAG_ROYALGUARD)
@@ -176,8 +176,8 @@
 	)
 
 /datum/advclass/knight/footknight
-	name = "Foot Knight"
-	tutorial = "You are accustomed to traditional foot-soldier training in one-handed weapons such as flails, swords, and maces. Your fortitude and mastery with the versatile combination of a shield and weapon makes you a fearsome opponent to take down!"
+	name = "Light Cataphract"
+	tutorial = "You are accustomed to traditional foot-soldier training in swords, flails, and shields. You are not as used to riding a mount as other Cataphract, but you are the finest of all with the versatile combination of a shield and weapon!"
 	outfit = /datum/outfit/job/roguetown/knight/footknight
 
 	category_tags = list(CTAG_ROYALGUARD)
@@ -258,8 +258,8 @@
 	)
 
 /datum/advclass/knight/mountedknight
-	name = "Mounted Knight"
-	tutorial = "You are the picture-perfect knight from a high tale, knowledgeable in riding steeds into battle. You specialize in weapons most useful on a saiga including spears, swords, maces, and a variety of ranged weaponry."
+	name = "Mounted Cataphract"
+	tutorial = "You are the picture-perfect knight from a high tale, knowledgeable in riding steeds into battle. You specialize in weapons most useful on a saiga including spears, swords and maces, but know your way around a shield."
 	outfit = /datum/outfit/job/roguetown/knight/mountedknight
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled
 
