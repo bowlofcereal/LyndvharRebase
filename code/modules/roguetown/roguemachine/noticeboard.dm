@@ -1,6 +1,6 @@
 /obj/structure/roguemachine/noticeboard
 	name = "Notice Board"
-	desc = "A large wooden notice board, carrying postings from all across Azurea. A ZAD perch sits atop it."
+	desc = "A large wooden notice board, carrying postings from all across Lyndhardtia. A ZAD perch sits atop it."
 	icon = 'icons/roguetown/misc/64x64.dmi'
 	icon_state = "noticeboard0"
 	density = TRUE
@@ -16,7 +16,7 @@
 
 /obj/structure/roguemachine/boardbarrier //Blocks sprite locations
 	name = ""
-	desc = "A large wooden notice board, carrying postings from all across Azurea. A ZAD perch sits atop it."
+	desc = "A large wooden notice board, carrying postings from all across Lyndhardtia. A ZAD perch sits atop it."
 	icon = 'icons/roguetown/underworld/underworld.dmi'
 	icon_state = "spiritpart"
 	density = TRUE
@@ -105,7 +105,7 @@
 		return
 	var/can_remove = FALSE
 	var/can_premium = FALSE
-	if(user.job in list("Man at Arms","Inquisitor", "Knight", "Sergeant", "Retinue Captain", "Orthodoxist"))
+	if(user.job in list("Watchman","Inquisitor", "Cataphract", "Sergeant", "Retinue Captain", "Orthodoxist"))
 		can_remove = TRUE
 	if(user.job in list("Bathmaster","Merchant", "Innkeeper", "Steward", "Archmagus"))
 		can_premium = TRUE
