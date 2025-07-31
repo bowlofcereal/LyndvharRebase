@@ -54,7 +54,7 @@
 
 /datum/crafting_recipe/roguetown/leather/unique/fencingbreeches
 	name = "frencing breeches (1 fibers, 2 leather, 4 cloth)"
-	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/n/generic)
+	result = list(/obj/item/clothing/under/roguetown/heavy_leather_pants/valorian/generic)
 	reqs = list(/obj/item/natural/fibers = 1,
 				/obj/item/natural/hide/cured = 2,
 				/obj/item/natural/cloth = 4)
