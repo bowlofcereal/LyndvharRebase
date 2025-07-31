@@ -1098,14 +1098,14 @@
 
 /obj/structure/fluff/psycross/psycrucifix
 	name = "wooden psydonic crucifix"
-	desc = "A rarely seen symbol of absolute and devoted certainty, more common in Otava: HE yet lyves. HE yet breathes."
+	desc = "A rarely seen symbol of absolute and devoted certainty to the Orthodoxist faith, more common in Valoria."
 	icon_state = "psycruci"
 	max_integrity = 80
 	chance2hear = 10
 
 /obj/structure/fluff/psycross/psycrucifix/stone
 	name = "stone psydonic crucifix"
-	desc = "Formed of stone, this great Psycross symbolises that HE is forever ENDURING. Considered a rare sight upon the Peaks."
+	desc = "Formed of stone, this great Psycross symbolises that HE is forever ENDURING. A rare sight this far east."
 	icon_state = "psycruci_r"
 	max_integrity = 120
 	chance2hear = 10

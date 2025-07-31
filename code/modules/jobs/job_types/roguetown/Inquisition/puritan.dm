@@ -31,7 +31,7 @@
 	. = ..()
 	if(ishuman(L))
 		var/mob/living/carbon/human/H = L
-		H.grant_language(/datum/language/otavan)
+		H.grant_language(/datum/language/valorian)
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
@@ -40,8 +40,8 @@
 ////Classic Inquisitor with a much more underground twist. Use listening devices, sneak into places to gather evidence, track down suspicious individuals. Has relatively the same utility stats as Confessor, but fulfills a different niche in terms of their combative job as the head honcho. 
 
 /datum/advclass/puritan/inspector
-	name = "Inquisitor"
-	tutorial = "Investigators from countless backgrounds, personally chosen by the High Bishop of the Otavan Sovereignty to root out heresy all across the world. Dressed in fashionable leathers and armed with a plethora of equipment, these beplumed officers are ready to tackle the inhumen: anywhere, anytime. Ideal for those who prefer sleuthy-and-clandestine affairs."
+	name = "Puritan"
+	tutorial = "Abandoning your titles and estate in the republic, you joined with the Valorian Inquisition in order to fight the heretical and monsters abroad. Serving no true specialty, your blade has been your go-to option for problems-- as well as your silver tongue. Despite abandoning your titles, you are still seen by many as noble-blooded, and that can get you places in Psydon's name."
 	outfit = /datum/outfit/job/roguetown/puritan/inspector
 
 	category_tags = list(CTAG_PURITAN)
@@ -77,16 +77,17 @@
 	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PURITAN, JOB_TRAIT)
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/psydon
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	shoes = /obj/item/clothing/shoes/roguetown/boots/otavan/inqboots
+	shoes = /obj/item/clothing/shoes/roguetown/boots/valorian/inqboots
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	beltr = /obj/item/quiver/bolts
 	head = /obj/item/clothing/head/roguetown/inqhat
-	gloves = /obj/item/clothing/gloves/roguetown/otavan/inqgloves
+	gloves = /obj/item/clothing/gloves/roguetown/valorian/inqgloves
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
 	beltl = /obj/item/rogueweapon/scabbard/sword
 	l_hand = /obj/item/rogueweapon/sword/rapier
@@ -105,7 +106,7 @@
 
 /datum/advclass/puritan/ordinator
 	name = "Ordinator"
-	tutorial = "Adjudicators who - through valor and martiality - have proven themselves to be champions in all-but-name. Now, they have been personally chosen by the High Bishop of the Otavan Sovereignty for a mission-most-imperative: to hunt down and destroy the monsters threatening this fief. Ideal for those who prefer overt-and-chivalrous affairs."
+	tutorial = "Adjudicators who - through valor and martiality - have proven themselves to be champions in all-but-name. Now, they have been personally chosen by the High Bishop of the Valorian Republic for a mission-most-imperative: to hunt down and destroy the monsters threatening this fief. Ideal for those who prefer overt-and-chivalrous affairs."
 	outfit = /datum/outfit/job/roguetown/puritan/ordinator
 	cmode_music = 'sound/music/combat_inqordinator.ogg'
 
@@ -146,7 +147,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/chainmantle
-	shoes = /obj/item/clothing/shoes/roguetown/boots/otavan/inqboots
+	shoes = /obj/item/clothing/shoes/roguetown/boots/valorian/inqboots
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
 	pants = /obj/item/clothing/under/roguetown/chainlegs/kilt
 	cloak = /obj/item/clothing/cloak/psydontabard
@@ -154,7 +155,7 @@
 	backl = /obj/item/rogueweapon/shield/tower/metal
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm
-	gloves = /obj/item/clothing/gloves/roguetown/otavan/inqgloves
+	gloves = /obj/item/clothing/gloves/roguetown/valorian/inqgloves
 	beltl = /obj/item/rogueweapon/scabbard/sword
 	l_hand = /obj/item/rogueweapon/sword/long/psysword
 	backpack_contents = list(

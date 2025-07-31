@@ -56,8 +56,8 @@
 		/datum/crafting_recipe/roguetown/leather/armor/heavy_leather_armor/coat,
 		/datum/crafting_recipe/roguetown/leather/armor/heavy_leather_armor/jacket,
 		/datum/crafting_recipe/roguetown/leather/hidebikini,
-		/datum/crafting_recipe/roguetown/leather/unique/otavanleatherpants,
-		/datum/crafting_recipe/roguetown/leather/unique/otavanboots,
+		/datum/crafting_recipe/roguetown/leather/unique/valorianleatherpants,
+		/datum/crafting_recipe/roguetown/leather/unique/valorianboots,
 		)
 
 	AddElement(

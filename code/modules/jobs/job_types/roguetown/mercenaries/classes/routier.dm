@@ -1,6 +1,6 @@
-/datum/advclass/mercenary/routier
-	name = "Otavan Routiers"
-	tutorial = "The Routiers are a formidable Otavan mercenary band, a brotherhood of knights from noble families serving lords who seek to profit in peacetime. The Otavan nobility at large and even some of the clergy eagerly awaits to hear about your feats, they expect you to ENDURE, to be the champion of their faith and represent the true values of nobility, will you?"
+/* /datum/advclass/mercenary/routier
+	name = "Valorian Routiers"
+	tutorial = "The Routiers are a formidable Valorian mercenary band, a brotherhood of knights from noble families serving lords who seek to profit in peacetime. The Valorian nobility at large and even some of the clergy eagerly awaits to hear about your feats, they expect you to ENDURE, to be the champion of their faith and represent the true values of nobility, will you?"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = NON_DWARVEN_RACE_TYPES
 	outfit = /datum/outfit/job/roguetown/mercenary/routier
@@ -16,7 +16,7 @@
 	var/classes = list("Swordsman","Macebearer","Flailman", "Foot Lancer")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 	H.set_blindness(0)
-	to_chat(H, span_warning("You are a Knight of Otava, well experienced in the use of your chosen arms."))
+	to_chat(H, span_warning("You are a Knight of Valoria, well experienced in the use of your chosen arms."))
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
@@ -55,12 +55,12 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 	neck = /obj/item/clothing/neck/roguetown/fencerguard
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan
-	head = /obj/item/clothing/head/roguetown/helmet/otavan
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/otavan
-	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/otavan
-	shoes = /obj/item/clothing/shoes/roguetown/boots/otavan
-	gloves = /obj/item/clothing/gloves/roguetown/otavan
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/valorian
+	head = /obj/item/clothing/head/roguetown/helmet/valorian
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/valorian
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants/valorian
+	shoes = /obj/item/clothing/shoes/roguetown/boots/valorian
+	gloves = /obj/item/clothing/gloves/roguetown/valorian
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/rogueweapon/shield/tower/metal
 	backpack_contents = list(
@@ -68,7 +68,7 @@
 		/obj/item/flashlight/flare/torch = 1,
 		)
 
-	H.grant_language(/datum/language/otavan)
+	H.grant_language(/datum/language/valorian)
 	
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)

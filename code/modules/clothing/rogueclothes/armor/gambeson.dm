@@ -80,7 +80,7 @@
 			return
 
 
-/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/valorian
 	name = "fencing gambeson"
 	desc = "A large shirt with heavy padding meant to be used below armor. Will probably stop an arrow, unlikely to stop a bolt."
 	icon_state = "fancygamb"
@@ -91,10 +91,10 @@
 	sellprice = 30
 	var/picked = FALSE
 
-/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan/attack_right(mob/user)
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/valorian/attack_right(mob/user)
 	..()
 	if(!picked)
-		var/choice = input(user, "Choose a color.", "Otavan colors") as anything in colorlist
+		var/choice = input(user, "Choose a color.", "Valorian colors") as anything in colorlist
 		var/playerchoice = colorlist[choice]
 		picked = TRUE
 		detail_color = playerchoice

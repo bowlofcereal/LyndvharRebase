@@ -831,7 +831,7 @@
 
 /obj/item/rogueweapon/greatsword/psygsword
 	name = "Apocrypha"
-	desc = "In the Otavan mosaics, Saint Ravox - bare in all but a beaked helmet and loincloth - is often depicted wielding such an imposing greatweapon against the Dark Star, Graggar. Regardless of whether this relic was actually wielded by divinity-or-not, its unparallel strength will nevertheless command even the greatest foes to fall."
+	desc = "In the Valorian mosaics, Psydon - bare in all but a beaked helmet and loincloth - is often depicted wielding such an imposing greatweapon against the Daemon of Conquest, Graggar. Regardless of whether this relic was actually wielded by divinity-or-not, its unparallel strength will nevertheless command even the greatest foes to fall."
 	icon_state = "psygsword"
 
 /obj/item/rogueweapon/greatsword/psygsword/ComponentInitialize()

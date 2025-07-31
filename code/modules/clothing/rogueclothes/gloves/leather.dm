@@ -54,9 +54,9 @@
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/hide/cured
 
-/obj/item/clothing/gloves/roguetown/otavan
-	name = "otavan leather gloves"
-	desc = "A pair of heavy Otavan leather gloves, commonly used by fencers, renowned for their quality."
+/obj/item/clothing/gloves/roguetown/valorian
+	name = "valorian leather gloves"
+	desc = "A pair of heavy Valorian leather gloves, commonly used by fencers, renowned for their quality."
 	icon_state = "fencergloves"
 	item_state = "fencergloves"
 	armor = ARMOR_GLOVES_CHAIN
@@ -71,7 +71,7 @@
 	sewrepair = TRUE
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
-/obj/item/clothing/gloves/roguetown/otavan/inqgloves
+/obj/item/clothing/gloves/roguetown/valorian/inqgloves
 	name = "inquisitorial leather gloves"
 	desc = "Masterfully crafted leather gloves, psycross included."
 	icon_state = "inqgloves"

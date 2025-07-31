@@ -20,7 +20,7 @@
 	base_icon_state = "chest3"
 
 /obj/structure/closet/crate/chest/reliquary
-	name = "Otavan Reliquary"
+	name = "Valorian Reliquary"
 	desc = "A foreboding red chest with a intricate lock design. It seems to only fit a very specific key. Choose wisely."
 	icon_state = "chestweird1"
 	base_icon_state = "chestweird1"

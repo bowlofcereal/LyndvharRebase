@@ -21,7 +21,7 @@
 		/datum/language/thievescant,
 		/datum/language/grenzelhoftian,
 		/datum/language/kazengunese,
-		/datum/language/otavan,
+		/datum/language/valorian,
 		/datum/language/etruscan,
 		/datum/language/gronnic,
 		/datum/language/aavnic

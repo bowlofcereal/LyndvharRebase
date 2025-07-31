@@ -77,7 +77,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate
 	name = "psydonian half-plate"
 	desc = "A sturdily made fluted half-plate armour-set, complete with pauldrons and shoulder-guards. \
-			Favored by both the Holy Otavan Inquisition and the Order of the Silver Psycross. It smells of the madness of an enduring God."
+			Favored by both the Valorian Inquisition."
 	icon_state = "ornatehalfplate"
 
 	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON
@@ -122,7 +122,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
 	name = "psydonian plate"
 	desc = "A sturdily made fluted full-plate. Heavy-duty, and made to deflect blows from blades and arrows. \
-			Favored by both the Holy Otavan Inquisition and the Order of the Silver Psycross. It smells of the madness of an enduring God."
+			Favored by both the Valorian Inquisition."
 	icon_state = "ornateplate"
 
 	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON
@@ -223,9 +223,9 @@
 	armor_class = ARMOR_CLASS_HEAVY
 	smelt_bar_num = 4
 
-/obj/item/clothing/suit/roguetown/armor/plate/otavan
-	name = "otavan half-plate"
-	desc = "Half-plate armor with pauldrons. Recommended to layer with the otavan gambeson."
+/obj/item/clothing/suit/roguetown/armor/plate/valorian
+	name = "valorian half-plate"
+	desc = "Half-plate armor with pauldrons. Recommended to layer with the valorian gambeson."
 	armor = ARMOR_PLATE
 	body_parts_covered = COVERAGE_TORSO
 	icon_state = "corsethalfplate"
@@ -237,7 +237,7 @@
 	detail_color = "#5058c1"
 	var/swapped_color // holder for corset colour when the corset is toggled off.
 
-/obj/item/clothing/suit/roguetown/armor/plate/otavan/update_icon()
+/obj/item/clothing/suit/roguetown/armor/plate/valorian/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -246,7 +246,7 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
-/obj/item/clothing/suit/roguetown/armor/plate/otavan/AdjustClothes(mob/user)
+/obj/item/clothing/suit/roguetown/armor/plate/valorian/AdjustClothes(mob/user)
 	if(loc == user)
 		playsound(user, "sound/foley/dropsound/cloth_drop.ogg", 100, TRUE, -1)
 		if(adjustable == CAN_CADJUST)
@@ -337,7 +337,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
 	name = "psydonian cuirass"
 	icon_state = "ornatecuirass"
-	desc = "An ornate steel cuirass with tassets, favored by both the Holy Otavan Inquisition and the Order of the Silver Psycross. \
+	desc = "An ornate steel cuirass with tassets, favored by the Valorian Inquisition. \
 			Made to endure."
 	
 /obj/item/clothing/suit/roguetown/armor/plate/half/iron

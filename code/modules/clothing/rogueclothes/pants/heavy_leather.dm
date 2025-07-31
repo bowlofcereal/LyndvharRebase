@@ -27,13 +27,13 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	body_parts_covered = GROIN
 
-/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan
-	name = "otavan leather trousers"
-	desc = "padded leather armor made by Otavan tailors, its quality is remarkable."
+/obj/item/clothing/under/roguetown/heavy_leather_pants/valorian
+	name = "valorian leather trousers"
+	desc = "padded leather armor made by Valorian tailors, its quality is remarkable."
 	icon_state = "fencerpants"
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
-/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan/generic
+/obj/item/clothing/under/roguetown/heavy_leather_pants/valorian/generic
 	name = "fencing breeches"
 	desc = "A pair of loose breeches with leather reinforcements on the waist and legs. Worn with a cup."
 	icon_state = "fencingbreeches"
@@ -41,7 +41,7 @@
 	color = "#FFFFFF"
 	detail_color = "#3b2b29"
 
-/obj/item/clothing/under/roguetown/heavy_leather_pants/otavan/generic/update_icon()
+/obj/item/clothing/under/roguetown/heavy_leather_pants/valorian/generic/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))

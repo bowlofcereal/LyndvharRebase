@@ -218,11 +218,11 @@
 	worn_y_dimension = 64
 	bloody_icon = 'icons/effects/blood64.dmi'
 
-/obj/item/clothing/head/roguetown/helmet/otavan
-	name = "otavan helmet"
-	desc = "A helmet of Otavan make, similar in structure to a Psydonian Armet but fitted with an angular klappvisier."
-	icon_state = "otavahelm"
-	item_state = "otavahelm"
+/obj/item/clothing/head/roguetown/helmet/valorian
+	name = "valorian helmet"
+	desc = "A helmet of Valorian make, similar in structure to a Psydonian Armet but fitted with an angular klappvisier."
+	icon_state = "valoriahelm"
+	item_state = "valoriahelm"
 	adjustable = CAN_CADJUST
 	emote_environment = 3
 	body_parts_covered = FULL_HEAD
@@ -236,7 +236,7 @@
 	color = "#FFFFFF"
 	detail_color = "#e08828"
 
-/obj/item/clothing/head/roguetown/helmet/otavan/update_icon()
+/obj/item/clothing/head/roguetown/helmet/valorian/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
@@ -245,7 +245,7 @@
 			pic.color = get_detail_color()
 		add_overlay(pic)
 
-/obj/item/clothing/head/roguetown/helmet/otavan/getonmobprop(tag)
+/obj/item/clothing/head/roguetown/helmet/valorian/getonmobprop(tag)
 	if(tag)
 		switch(tag)
 			if("gen")
@@ -253,8 +253,8 @@
 			if("onbelt")
 				return list("shrink" = 0.32,"sx" = -3,"sy" = -8,"nx" = 6,"ny" = -8,"wx" = -1,"wy" = -8,"ex" = 3,"ey" = -8,"nturn" = 180,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 1,"sflip" = 0,"wflip" = 0,"eflip" = 8,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
-/obj/item/clothing/head/roguetown/helmet/otavan/ComponentInitialize()
-	AddComponent(/datum/component/adjustable_clothing, (HEAD|EARS|HAIR), HIDEEARS, null, 'sound/items/visor.ogg', null, UPD_HEAD)	//Otavan. Only hides ears when open.
+/obj/item/clothing/head/roguetown/helmet/valorian/ComponentInitialize()
+	AddComponent(/datum/component/adjustable_clothing, (HEAD|EARS|HAIR), HIDEEARS, null, 'sound/items/visor.ogg', null, UPD_HEAD)	//valorian. Only hides ears when open.
 
 /obj/item/clothing/head/roguetown/helmet/elvenbarbute
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP

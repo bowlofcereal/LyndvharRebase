@@ -64,7 +64,7 @@
 #define SPAN_DELF "delf"
 #define SPAN_HELL "hellspeak"
 #define SPAN_GRENZELHOFTIAN "grenzelhoftian"
-#define SPAN_OTAVAN "otavan"
+#define SPAN_VALORIAN "valorian"
 #define SPAN_ETRUSCAN "etruscan"
 #define SPAN_GRONNIC "gronnic"
 #define SPAN_BEAST "beast"

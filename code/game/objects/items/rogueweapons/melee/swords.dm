@@ -153,7 +153,7 @@
 
 /obj/item/rogueweapon/sword/falchion
 	name = "falchion"
-	desc = "A single-edged sword that is similar to a messer in appearance, its origins trace back to Otava. An implement of commoners and knights alike. It's good for cutting and thrusting."
+	desc = "A single-edged sword that is similar to a messer in appearance, its origins trace back to Valoria. An implement of commoners and knights alike. It's good for cutting and thrusting."
 	force = 20
 	possible_item_intents = list(/datum/intent/sword/cut/short, /datum/intent/sword/thrust/short, /datum/intent/sword/peel)
 	icon_state = "falchion"
@@ -976,7 +976,7 @@
 
 /obj/item/rogueweapon/sword/long/blackflamb
 	name = "blacksteel flamberge"
-	desc = "An uncommon kind of sword with a characteristically undulating style of blade, made with an equally rare metal. The wave in the blade is considered to contribute a flame-like quality to its appearance, turning it into a menacing sight. \"Flaming swords\" are often the protagonists of Otavan epics and other knights' tales."
+	desc = "An uncommon kind of sword with a characteristically undulating style of blade, made with an equally rare metal. The wave in the blade is considered to contribute a flame-like quality to its appearance, turning it into a menacing sight. \"Flaming swords\" are often the protagonists of Valorian epics and other knights' tales."
 	force = 20
 	force_wielded = 32
 	icon_state = "blackflamb"
