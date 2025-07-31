@@ -5,17 +5,7 @@
 	name = "Half-Elf"
 	id = "helf"
 	desc = "<b>Half Elf</b><br>\
-	The child of an Elf and Humen, Half-Elves are generally frowned \
-	upon by the more conservatively minded. However, as racial tensions lower, \
-	the rate of Half-Elf births has continues to increase. So common has it become that some scholars \
-	worry that someday it may be impossible to distinguish the Humens and Elves from one another. \
-	From physical to cultural characteristics, Half-Elves are an incredibly diverse people, \
-	thanks in no small part to the incredibly varied nature of their Humen halves. Indeed, no other race \
-	embodies the term \"melting pot\" quite like the Half-Elves. Due to their half-breed nature, their physical \
-	characteristics can be either more Elvish or more Humen, depending on which of their parents' genes \
-	are more predominant. In terms of cultural identity, a Half-Elf will typically choose to lean more \
-	towards either their Humen or Elvish heritages.<br>\
-	(+1 Constitution, +1 Perception)" 
+	The children of an Elf and a Humen, most conservative minds frown upon such a union. Half-Elves are distinguishable by their elf-ears yet humen appearance and features. However with the lack of a true cultural identity and pillar, they are often found either acting more as an elf or more as a humen. They are the embodiment of a “melting pot” of cultures, where the identity of humen and elf is blended into one.<br>" 
 
 	skin_tone_wording = "Identity"
 	default_color = "FFFFFF"
@@ -45,7 +35,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_PERCEPTION = 1, STAT_CONSTITUTION = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
@@ -96,29 +85,21 @@
 
 /datum/species/human/halfelf/get_skin_list()
 	return list(
-		"Timber-Gronn" = SKIN_COLOR_TIMBER_GRONN,
-		"Giza-Azure" = SKIN_COLOR_GIZA_AZURE,
-		"Walnut-Stine" = SKIN_COLOR_WALNUT_STINE,
-		"Etrustcan-Dandelion" = SKIN_COLOR_ETRUSTCAN_DANDELION,
-		"Naledi-Born" = SKIN_COLOR_NALEDI_BORN,
-		"Naledi-Southerner" = SKIN_COLOR_NALEDI_LIGHT,
-		"Kaze-Lotus" = SKIN_COLOR_KAZE_LOTUS,
-		"Grenzel-Azuria" = SKIN_COLOR_GRENZEL_WOODS,
-		"Etrusca-Lirvas" = SKIN_COLOR_ETRUSCA_LIRVAS,
-		"Free Roamers" = SKIN_COLOR_FREE_FOLK,
-		"Avar Borne"	= SKIN_COLOR_AVAR_BORNE,
-		"Shalvine Roamer" = SKIN_COLOR_SHALVINE_AZURE,
-		"Lalve-Steppes" = SKIN_COLOR_LALVE_NALEDI,
-		"Naledi-Otava" = SKIN_COLOR_NALEDI_OTAVA,
-		"Grezel-Avar" = SKIN_COLOR_GRENZEL_AVAR,
-		"Hammer-Gronn" = SKIN_COLOR_HAMMER_GRONN,
-		"Commorah-kin" = SKIN_COLOR_COMMORAH,
-		"Gloomhaven-kin" = SKIN_COLOR_GLOOMHAVEN,
-		"Darkpila-kin" = SKIN_COLOR_DARKPILA,
-		"Sshanntynlan-kin" = SKIN_COLOR_SSHANNTYNLAN,
-		"Llurth Dreir-kin" = SKIN_COLOR_LLURTH_DREIR,
-		"Tafravma-kin" = SKIN_COLOR_TAFRAVMA,
-		"Yuethindrynn-kin" = SKIN_COLOR_YUETHINDRYNN
+		"Jungle-Atvergian" = SKIN_COLOR_JUNGLE_ATVERGIAN,     // Was Timber-Gronn
+		"Zybantia-Valorian" = SKIN_COLOR_ZYBANTIA_VALORIAN,    // Was Giza-Azure
+		"Moon-Dunargi" = SKIN_COLOR_MOON_DUNARGI,         // Was Walnut-Stine
+		"Plains-Calmirixian" = SKIN_COLOR_PLAINS_CALMIRIXIAN,   // Was Etrustcan-Dandelion
+		"Khazumite-Borne" = SKIN_COLOR_KHAZUMITE_BORNE,       // Was Naledi-Born
+		"Salvum-Lotus" = SKIN_COLOR_SALVUM_LOTUS,         // Was Kaze-Lotus
+		"Grenzel-Lyndhardtian" = SKIN_COLOR_GRENZEL_RHAENVAL, // Was Grenzel-Azuria (using GRENZEL_RHAENVAL define)
+		"Plains-Atvergian" = SKIN_COLOR_PLAINS_ATVERGIAN,     // Was Etrusca-Lirvas
+		"Bastardborne" = SKIN_COLOR_BASTARDBORNE,         // Was Free Roamers
+		"Crestfallen" = SKIN_COLOR_CRESTFALLEN,          // Was Avar Borne
+		"Zybantia-Khazumite" = SKIN_COLOR_ZYBANTIA_KHAZUMITE,   // Was Shalvine Roamer
+		"Grenzel-Desert" = SKIN_COLOR_GRENZEL_DESERT,       // Was Lalve-Steppes
+		"Khazum-Valorian" = SKIN_COLOR_KHAZUM_VALORIAN,      // Was Naledi-Otava
+		"Grenzel-Rhaenval" = SKIN_COLOR_GRENZEL_RHAENVAL,     // Was Grezel-Avar
+		"Lynd-Khazumite" = SKIN_COLOR_LYND_KHAZUMITE        // Was Hammer-Gronn
 	)
 
 /datum/species/human/halfelf/proc/languages(mob/living/carbon/human/literally_him)
