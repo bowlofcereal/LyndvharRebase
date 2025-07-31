@@ -1,6 +1,6 @@
 /datum/advclass/wretch/deserter
 	name = "Deserter"
-	tutorial = "You served a Duchy, once. Be it as a soldier in their armies or a member of their retinue. And then, you left. But it wasn't an ordered retreat, or even dismissal. You made your decision."
+	tutorial = "You served a realm, once. Be it as a soldier in their armies or a member of their retinue. And then, you left. But it wasn't an ordered retreat, or even dismissal. You made your decision."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/deserter

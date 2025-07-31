@@ -213,7 +213,7 @@
 
 /obj/structure/fluff/walldeco/customflag
 	name = "Lyndvhar flag"
-	desc = "A banner flutters in the breeze in the proud heraldic colors of the Duchy."
+	desc = "A banner flutters in the breeze in the proud heraldic colors of the Empire."
 	icon_state = "wallflag"
 
 /obj/structure/fluff/walldeco/customflag/Initialize()
