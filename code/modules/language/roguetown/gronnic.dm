@@ -1,4 +1,4 @@
-/datum/language/gronnic
+/datum/language/rhaenvalian
 	name = "Rhaenish"
 	desc = "The harsh tongue of the Rhaenvalians."
 	speech_verb = "remarks"
