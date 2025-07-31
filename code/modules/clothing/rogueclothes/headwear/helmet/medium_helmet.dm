@@ -210,7 +210,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/sallet/raneshen
 	name = "kulah khud"
-	desc = "A sturdy, conical helm that has served the Empire well throughout its many campaigns. It's a sight to see, thousands of these bobbing as an army marches. The only greater humiliation than losing it is losing one's medallion."
+	desc = "A sturdy, conical helm that has served the Ziggurat well throughout its many campaigns. It's a sight to see, thousands of these bobbing as an army marches. The only greater humiliation than losing it is losing one's medallion."
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	bloody_icon = 'icons/effects/blood64.dmi'
 	icon_state = "raneshen"
