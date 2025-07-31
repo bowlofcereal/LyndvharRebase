@@ -1,4 +1,4 @@
-/datum/advclass/mercenary/warscholar
+/* /datum/advclass/mercenary/warscholar
 	name = "Naledi Warscholar"
 	tutorial = "Heralded by sigils of black-and-gold and their distinct masks, the Naledi Warscholars once prowled the dunes of their homeland, exterminating daemons in exchange for coin, artifacts, or knowledge. As Naledi's economy falters, the Warscholars travel to foreign lands to seek further business."
 	allowed_sexes = list(MALE, FEMALE)
