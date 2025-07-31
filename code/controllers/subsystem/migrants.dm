@@ -225,7 +225,7 @@ SUBSYSTEM_DEF(migrants)
 		if(!character.mind.special_role)
 			GLOB.actors_list[character.mobid] = "[character.real_name] as [rank]<BR>"
 		if(character.mind.special_role == "Court Agent")
-			GLOB.actors_list[character.mobid] = "[character.real_name] as Adventurer<BR>"
+			GLOB.actors_list[character.mobid] = "[character.real_name] as Outlander<BR>"
 		log_character("[character.ckey] ([fakekey]) - [character.real_name] - [rank]")
 	if(GLOB.respawncounts[character.ckey])
 		var/AN = GLOB.respawncounts[character.ckey]

@@ -132,7 +132,7 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	"Docker",
 	"Prisoner",
 	"Beggar",
-	"Adventurer",
+	"Outlander",
 	"Pilgrim",
 	"Bandit",
 	"Court Agent",
@@ -158,12 +158,12 @@ GLOBAL_LIST_INIT(youngfolk_positions, list(
 ))
 
 GLOBAL_LIST_INIT(allmig_positions, list(
-	"Adventurer",
+	"Outlander",
 	"Pilgrim",
 ))
 
 GLOBAL_LIST_INIT(roguewar_positions, list(
-	"Adventurer",
+	"Outlander",
 ))
 
 GLOBAL_LIST_INIT(roguefight_positions, list(
