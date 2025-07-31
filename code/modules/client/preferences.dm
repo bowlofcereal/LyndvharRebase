@@ -2303,7 +2303,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 								if(!name)
 									name = "Slot[i]"
 								choices[name] = i
-					var/choice = input(user, "CHOOSE A HERO","ROGUETOWN") as null|anything in choices
+					var/choice = input(user, "CHOOSE A HERO","LYNDVHAR") as null|anything in choices
 					if(choice)
 						choice = choices[choice]
 						if(!load_character(choice))

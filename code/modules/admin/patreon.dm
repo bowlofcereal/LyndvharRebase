@@ -31,7 +31,7 @@ GLOBAL_VAR(PatreonsLoaded)
 		GLOB.allpatreons |= ckey(line)
 
 	for(var/line in csvlist)
-		if(findtext(line, "ROGUETOWN SILVER"))
+		if(findtext(line, "LYNDVHAR SILVER"))
 			if(findtext(line, "Active patron"))
 				var/index = findtext(line, ",")
 				var/indexs = findtext(line, ",",index+1)
@@ -243,7 +243,7 @@ GLOBAL_LIST_EMPTY(anonymize)
 //		to_chat(src, span_warning("Whitelisted players only."))
 //		return
 	if(client.prefs.anonymize == TRUE)
-		if(alert(src, "Disable Anonymize? (Not Recommended)", "ROGUETOWN", "YES", "NO") == "YES")
+		if(alert(src, "Disable Anonymize? (Not Recommended)", "LYNDVHAR", "YES", "NO") == "YES")
 			if(GLOB.respawncounts[client.ckey])
 				to_chat(src, span_warning("You have already spawned."))
 				return
@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(anonymize)
 	else
 		if(alert(src, "Enable Anonymize? This will hide your BYOND name from anyone except \
 		Dungeon Masters while playing here, useful for dealing with negative OOC bias or \
-		maintaining privacy from other BYOND users.", "ROGUETOWN", "YES", "NO") == "YES")
+		maintaining privacy from other BYOND users.", "LYNDVHAR", "YES", "NO") == "YES")
 			if(GLOB.respawncounts[client.ckey])
 				to_chat(src, span_warning("You have already spawned."))
 				return
