@@ -2,7 +2,7 @@
 
 /obj/structure/roguemachine/scomm
 	name = "SCOM"
-	desc = "The Supernatural Communication Optical Machine is a wonder of magic and technology."
+	desc = "The Supernatural Communication Optical Machine is a wonder of magic and technology, brought forth by dwarven master artificers of old. The technology to reproduce these has been lost during the civil war."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "scomm1"
 	density = FALSE
@@ -55,9 +55,9 @@
 	if(scom_number)
 		. += "Its designation is #[scom_number]."
 	if(user.loc == loc)
-		. += "<b>THE LAWS OF THE LAND:</b>"
+		. += "<b>THE LAWS OF THE CITY:</b>"
 		if(!length(GLOB.laws_of_the_land))
-			. += span_danger("The land has no laws! <b>We are doomed!</b>")
+			. += span_danger("The city has no laws! <b>We are doomed!</b>")
 			return
 		if(!user.is_literate())
 			. += span_warning("Uhhh... I can't read them...")
@@ -299,13 +299,13 @@
 	if(dictating)
 		return
 	dictating = TRUE
-	repeat_message("THE LAWS OF THE LAND ARE...", tcolor = COLOR_RED)
+	repeat_message("THE LAWS OF THE CITY ARE...", tcolor = COLOR_RED)
 	INVOKE_ASYNC(src, PROC_REF(dictation))
 
 /obj/structure/roguemachine/scomm/proc/dictation()
 	if(!length(GLOB.laws_of_the_land))
 		sleep(2)
-		repeat_message("THE LAND HAS NO LAWS!", tcolor = COLOR_RED)
+		repeat_message("THE CITY HAS NO LAWS!", tcolor = COLOR_RED)
 		dictating = FALSE
 		return
 	for(var/i in 1 to length(GLOB.laws_of_the_land))
