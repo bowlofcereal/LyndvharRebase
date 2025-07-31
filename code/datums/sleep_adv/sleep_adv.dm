@@ -93,7 +93,7 @@
 	if(!mind.current)
 		return
 	if(HAS_TRAIT(mind.current, TRAIT_CURSE_ABYSSOR))
-		to_chat(mind.current, span_notice("His domain is forbidden to the likes of me."))
+		to_chat(mind.current, span_notice("Waves crash in my mind- I can not sleep.."))
 		return
 	if(prob(0)) //TODO SLEEP ADV SPECIALS
 		rolled_specials++

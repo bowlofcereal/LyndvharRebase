@@ -28,7 +28,7 @@
 
 /datum/storyteller/psydon
 	name = "Psydon"
-	desc = "Psydon will do little, events will be common as he takes a hands-off approach to the world. Consider this the 'extended' experience."
+	desc = "Psydon is the faith of the Valorians, believed to take little interference in the world. Therefore, he will do nothing."
 	weight = 6
 	always_votable = TRUE
 	color_theme = "#80ced8"
