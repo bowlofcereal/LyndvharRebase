@@ -22,7 +22,7 @@
 		/datum/language/grenzelhoftian,
 		/datum/language/kazengunese,
 		/datum/language/valorian,
-		/datum/language/gronnic,
+		/datum/language/rhaenvalian,
 		/datum/language/aavnic
 	))
 

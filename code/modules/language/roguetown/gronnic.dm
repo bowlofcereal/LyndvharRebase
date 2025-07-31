@@ -9,7 +9,7 @@
 	space_chance = 45
 	default_priority = 90
 	icon_state = "asse"
-	spans = list(SPAN_GRONNIC)
+	spans = list(SPAN_RHAENVALIAN)
 	syllables = list(
 		"to", "ost", "no", "na", "ni", "ko", "ne", "en", "po", "ra", "li",
 		"on", "ro", "er", "go", "ol", "al", "ot", "ov", "re", "vo", "ka",

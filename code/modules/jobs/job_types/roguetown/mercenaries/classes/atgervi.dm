@@ -6,8 +6,8 @@
 	outfit = /datum/outfit/job/roguetown/mercenary/atgervi
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
-	classes = list("Varangian" = "You are a Varangian of the Gronn Highlands. Warrior-Traders whose exploits into the Raneshen Empire will be forever remembered by historians.",
-					"Shaman" = "You are a Shaman of the Fjall, The Northern Empty. Savage combatants who commune with the Ecclesical Beast gods through ritualistic violence, rather than idle prayer.")
+	classes = list("Varangian" = "You are a Varangian Mercenary of Rhaenvali. The Varangians are one of the more prestigious mercenary groups of their time, known for their loyalty to their clients.",
+					"Shaman" = "You are a Shaman of the Atgervian. Savage combatants who commune with their gods through gut-wrenching violence, rather than idle prayer.")
 
 /datum/outfit/job/roguetown/mercenary/atgervi
 	//allowed_patrons = ALL_INHUMEN_PATRONS

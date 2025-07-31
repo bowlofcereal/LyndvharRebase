@@ -161,8 +161,8 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/nred = 48)
 	desc = "A bottle with the Miloski Brewery cork-seal. A red ale brewed to perfection in the lands of Hammerhold."
 
-/obj/item/reagent_containers/glass/bottle/rogue/beer/gronnmead
-	list_reagents = list(/datum/reagent/consumable/ethanol/gronnmead = 48)
+/obj/item/reagent_containers/glass/bottle/rogue/beer/rhaenvalianmead
+	list_reagents = list(/datum/reagent/consumable/ethanol/rhaenvalianmead = 48)
 	desc = "A bottle with a Shieldmaiden Brewerey cork-seal. A deep red honey-wine, refined with the red berries native to far northern Rhaenvalian highlands."
 
 /obj/item/reagent_containers/glass/bottle/rogue/beer/avarmead
@@ -246,8 +246,8 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/nred = 65)
 	desc = "A clay bottle with the Miloski Brewery cork-seal. A red ale brewed to perfection in southern Lyndhardtia."
 
-/obj/item/reagent_containers/glass/bottle/claybottle/gronnmead
-	list_reagents = list(/datum/reagent/consumable/ethanol/gronnmead = 65)
+/obj/item/reagent_containers/glass/bottle/claybottle/rhaenvalianmead
+	list_reagents = list(/datum/reagent/consumable/ethanol/rhaenvalianmead = 65)
 	desc = "A clay bottle with a Shieldmaiden Brewery cork-seal. A deep red honey-wine, refined with the red berries native to the northern Rhaenvalian highlands."
 
 /obj/item/reagent_containers/glass/bottle/claybottle/whitewine

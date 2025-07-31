@@ -112,7 +112,7 @@
 
 /obj/structure/fermentation_keg/gronmead/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/consumable/ethanol/gronnmead,900)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/rhaenvalianmead,900)
 
 /obj/structure/fermentation_keg/coffee
 	desc = "A barrel with the mark of a brewed cup of coffee.  A strong, bitter drink that rejuvenates the body and mind."

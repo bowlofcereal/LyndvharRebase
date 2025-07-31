@@ -20,6 +20,6 @@
 		"kazengunese.ttf" = 'interface/fonts/languages/kazengunese.ttf',
 		"valorian.ttf" = 'interface/fonts/languages/valorian.ttf',
 		"dunargi.ttf" = 'interface/fonts/languages/dunargi.ttf',
-		"gronnic.ttf" = 'interface/fonts/languages/gronnic.ttf',
+		"rhaenvalian.ttf" = 'interface/fonts/languages/rhaenvalian.ttf',
 		"aavnic.ttf" = 'interface/fonts/languages/aavnic.ttf',
 	)

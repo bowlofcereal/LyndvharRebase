@@ -66,7 +66,7 @@
 #define SPAN_GRENZELHOFTIAN "grenzelhoftian"
 #define SPAN_VALORIAN "valorian"
 #define SPAN_DUNARGI "dunargi"
-#define SPAN_GRONNIC "gronnic"
+#define SPAN_RHAENVALIAN "rhaenvali"
 #define SPAN_BEAST "beast"
 #define SPAN_ORC "orc"
 #define SPAN_DRACONIC "reptile"
