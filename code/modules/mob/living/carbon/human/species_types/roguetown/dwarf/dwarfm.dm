@@ -6,20 +6,7 @@
 	id = "dwarfm"
 	clothes_id = "dwarf"
 	desc = "<b>Dwarf</b><br>\
-	A proud and robust race of short mountain folk, \
-	the dwarves are known for their pride in martial strength \
-	and the tenacity with which they adhere to their ancient traditions. \
-	A Dwarf, much like the rock that they carve their fortresses out of, \
-	is stubborn and ancient, with their race being the longest lived of all \
-	of the Weeping God's creations. They, like stone, also rarely change \
-	and tend to shun the modernization of the world around them. \
-	Instead, a Dwarf looks to their ancestorial heritage for guidance on \
-	the various challenges they face. Even if, ironically, this behaviour \
-	leads their kind towards technological advacement as they continue \
-	to improve their crafts, both in engineering workshops and the forges. \
-	Dwarves are hearty, but are not known for their speed or eyesight... \
-	Each dwarf hails from a ancient fortress named after the most plentiful mineral.<br>\
-	(+1 Constitution, +1 Endurance)"
+	A proud and robust race of smaller folk that live in mountains, dwarves are notably the third mortal race created by the Pantheon. They are a stubborn race, often isolating themselves in mountain fortresses and holds. They live for a very long time, much like elves– to which they seem to hold a strange particular disdain for. They are hearty and taut, not often well known for their agility, but they are some of the most expert craftsmen and women in all of Beowricke. Many inventions have been created and forged from a dwarf.<br>"
 
 	skin_tone_wording = "Dwarf Fortress"
 
@@ -52,7 +39,6 @@
 		OFFSET_NECK_F = list(0,-5), OFFSET_MOUTH_F = list(0,-5), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,-4), OFFSET_UNDIES_F = list(0,-4), \
 		)
-	race_bonus = list(STAT_CONSTITUTION = 1, STAT_ENDURANCE = 1)
 	enflamed_icon = "widefire"
 	customizers = list(
 		/datum/customizer/organ/eyes/humanoid,
