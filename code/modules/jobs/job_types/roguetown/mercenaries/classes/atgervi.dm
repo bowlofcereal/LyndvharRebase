@@ -101,7 +101,7 @@
 			ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC) //Either no armor, or light armor.
 			H.cmode_music = 'sound/music/combat_shaman2.ogg'
 
-	H.grant_language(/datum/language/gronnic)
+	H.grant_language(/datum/language/rhaenvalian)
 	backpack_contents = list(
 		/obj/item/roguekey/mercenary = 1,
 		/obj/item/rogueweapon/huntingknife = 1,
