@@ -309,10 +309,10 @@
 	color = CLOTHING_RED
 
 /obj/item/clothing/mask/rogue/lordmask/naledi
-	name = "war scholar's mask"
+	name = "maktabia's mask"
 	item_state = "naledimask"
 	icon_state = "naledimask"
-	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian psycross. Armored to protect the wearer's face."
+	desc = "Runes and wards, meant for the Maktaba; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Khaliphate insignia."
 	max_integrity = 100
 	armor = ARMOR_MASK_METAL
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT)
