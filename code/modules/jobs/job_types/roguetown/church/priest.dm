@@ -17,10 +17,10 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	spawn_positions = 1
 	selection_color = JCOLOR_CHURCH
 	f_title = "Priestess"
-	allowed_races = RACES_NO_CONSTRUCT		//Too recent arrivals to ascend to priesthood.
+	allowed_races = RACES_SHUNNED_UP
 	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
-	tutorial = "The Divine is all that matters in a world of the immoral. The Weeping God left his children to rule over us mortals--and you will preach their wisdom to any who still heed their will. The faithless are growing in number. It is up to you to shepard them toward a Gods-fearing future; for you are a priest of Astrata."
+	tutorial = "In this time of strife and destruction, only the power of the PANTHEON is what truly matters against those of immorality. You control and oversee the entire Church of Lyndvhar, and are respected as such. Keep the spirits of those under you uplifted and the city faithful, for danger may always come from within."
 	whitelist_req = FALSE
 	cmode_music = 'sound/music/cmode/church/combat_astrata.ogg'
 
@@ -62,20 +62,19 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	ADD_TRAIT(H, TRAIT_CHOSEN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_RITUALIST, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 5, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/unarmed, 5, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/magic/holy, 5, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
-	H.grant_language(/datum/language/grenzelhoftian)
-	if(H.age == AGE_OLD)
-		H.adjust_skillrank(/datum/skill/magic/holy, 1, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/medicine, 5, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 4, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/magic/holy, 6, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
+	H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 3, TRUE)
+	H.grant_language(/datum/language/celestial)
 	H.change_stat("strength", -1)
 	H.change_stat("intelligence", 3)
 	H.change_stat("constitution", -1)
@@ -165,8 +164,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		SSticker.regentmob = null
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)
-		say("By the authority of the gods, I pronounce you Ruler of all Azuria!")
-		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of Lyndvhar!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
+		say("By the authority of the gods, I pronounce you Viscount of the city of Lyndvhar!")
+		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of the city of Lyndvhar!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
 		var/datum/job/roguetown/nomoredukes = SSjob.GetJob("Viscount")
 		if(nomoredukes)
 			nomoredukes.total_positions = -1000 //We got what we got now.
@@ -182,7 +181,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		to_chat(src, span_warning("I need to do this in the chapel."))
 		return FALSE
 
-	var/announcementinput = input("Bellow to the Peaks", "Make an Announcement") as text|null
+	var/announcementinput = input("Speak to the City", "Make an Announcement") as text|null
 	if(announcementinput)
 		if(!src.can_speak_vocal())
 			to_chat(src,span_warning("I can't speak!"))
@@ -316,7 +315,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		else
 			to_chat(H, span_warning("A holy silence falls upon you..."))
 
-		priority_announce("[real_name] has placed mark of shame upon [inputty]. Their prayers fall on deaf ears.", title = "APOSTASY", sound = 'sound/misc/excomm.ogg')
+		priority_announce("[real_name] has placed a mark of shame upon [inputty]! Their prayers fall on deaf ears..", title = "APOSTASY", sound = 'sound/misc/excomm.ogg')
 		message_admins("APOSTASY: [real_name] ([ckey]) has used apostasy at [H.real_name] ([H.ckey])")
 		log_game("APOSTASY: [real_name] ([ckey]) has used apostasy at [H.real_name] ([H.ckey])")
 		return TRUE
@@ -388,7 +387,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 			return FALSE
 
 	GLOB.excommunicated_players += inputty
-	priority_announce("[real_name] has excommunicated [inputty]! SHAME!", title = "EXCOMMUNICATION", sound = 'sound/misc/excomm.ogg')
+	priority_announce("[real_name] has excommunicated [inputty] from the Holy Pantheon! SHAME!", title = "EXCOMMUNICATION", sound = 'sound/misc/excomm.ogg')
 	message_admins("EXCOMMUNICATION: [real_name] ([ckey]) has excommunicated [H.real_name] ([H.ckey])")
 	log_game("EXCOMMUNICATION: [real_name] ([ckey]) has excommunicated [H.real_name] ([H.ckey])")
 
@@ -454,7 +453,7 @@ code\modules\admin\verbs\divinewrath.dm has a variant with all the gods so keep 
 			COOLDOWN_START(src, priest_curse, PRIEST_CURSE_COOLDOWN)
 			H.add_curse(curse_type)
 			
-			priority_announce("[real_name] has stricken [H.real_name] with [curse_pick]! SHAME!", title = "JUDGEMENT", sound = 'sound/misc/excomm.ogg')
+			priority_announce("[real_name] has stricken [H.real_name] with [curse_pick]! WOE UPON THEM!", title = "JUDGEMENT", sound = 'sound/misc/excomm.ogg')
 			message_admins("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
 			log_game("DIVINE CURSE: [real_name] ([ckey]) has stricken [H.real_name] ([H.ckey] with [curse_pick])")
 
