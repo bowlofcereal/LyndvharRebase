@@ -47,10 +47,10 @@
 	H.change_stat("speed", -1)
 	H.change_stat("fortune", 1)
 	H.mind.adjust_spellpoints(5)
-		if(H.age == AGE_OLD)
-			H.change_stat("speed", -2)
-			H.change_stat("intelligence", 1)
-			H.change_stat("fortune", 1)
+	if(H.age == AGE_OLD)
+		H.change_stat("speed", -2)
+		H.change_stat("intelligence", 1)
+		H.change_stat("fortune", 1)
 		
 	switch(H.patron?.type)
 		if(/datum/patron/inhumen/zizo,
