@@ -5,8 +5,7 @@
 	name = "Drakian"
 	id = "dracon"
 	desc = "<b>Drakian</b><br>\
-	Mighty scaled individuals who claim to be descendants of the dragons of yore.<br>\
-	(+1 Strength)"
+	The Drakian are incredibly distinct from other races- save for the Sisseans. They harbor many traits of which could be seen in many depictions of “dragons”,  as a result of their direct servitude to Dragons themselves before their mysterious disappearance. When their masters vanished, they themselves became the masters. Greedy and mysterious, they come from the province of Calmirixial in the western frontiers of Lyndhardtia. Before they were conquered in Naexidor’s campaign, Calmirixial was its own independent fiefdom, where the Drakian were the ultimate masters over their Sissean underlings due to their successful birth into the Drakian after being laid in the hatcheries. Those who would become Sissean would be seen as nothing more than slave chattel to be used as expendable resources. As such, the Drakian and Sissean in Lyndhardtia naturally despise eachother, where Drakian’s who have Sissean children often commit infanticide, and vice versa for the Sisseans. Due to this behavior the Drakian are very heavily disapproved of in Lyndhardtian society, and have been relegated to lower-end jobs and open hostilities at worst.<br>"
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS)
 	possible_ages = ALL_AGES_LIST
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | RACE_SWAP | SLIME_EXTRACT
@@ -28,7 +27,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_STRENGTH = 1)
 	enflamed_icon = "widefire"
 	attack_verb = "slash"
 	attack_sound = 'sound/blank.ogg'
