@@ -4,13 +4,8 @@
 /datum/species/anthromorph
 	name = "Wild-Kin"
 	id = "anthromorph"
-	desc = "A product of Dendor's enigmatic meddling in mortals races. The average wild-kin suffers from animalistic urges that vary in severity, \
-	from simply avoiding certain foods to smoldering desires to howl at the moon or chase prey. Usually these urges are tied to the animal that the wild-kin is melded with, \
-	making them rather predictable. Despite this, the way each wild-kin approaches their bizarre physiology and psychology varies, \
-	creating a diverse race of people who may not even empathise with one another. And whilst Dendor is considered the main culprit for Wild-kin, there are those created through other means, \
-	akin to Noc's stolen knowledge that created lupians and other abstract experimentation or circumstance. \
-	(Wild-kin are not a template race to play your own custom race. If you play a wild-kin, you are expected to roleplay to the setting and the race's lore.)<br>\
-	(+1 Constitution, +1 Perception)"
+	desc = "<b>Wild-Kin</b><br>\
+	The Mad God, at the beginning of his ceaseless and silent rage against mortalkind for the destruction of his woods, began to cast fell magics on the beasts of the realm. These magics went undetected for some time, before the animals slowly began to change, and morph. Many of them become fully sapient, walking on two-legs, and often harboring immense rage for those who despoil nature, seen many a time attacking settlements in groups. In old days it was not uncommon to even see a herd of cattle over time morph into the Wild-Kin, and destroy their farm. The Wild-Kin of today harbor much of the resentment that they were created with, and much resentment is still harbored to them. Despite this many Wild-Kin have found ways to calm themselves of Dendor’s rage- though it still lingers in the back of their minds, still attempting to break free..<br>"
 	default_color = "444"
 	species_traits = list(
 		MUTCOLORS,
@@ -40,7 +35,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_PERCEPTION = 1, STAT_CONSTITUTION = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,

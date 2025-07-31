@@ -4,8 +4,8 @@
 /datum/species/anthromorphsmall
 	name = "Verminvolk"
 	id = "anthromorphsmall"
-	desc = "A race akin to wild-kin, except afflicted with significantly smaller stature. A bit less respected than their kin due to their closer resemblance to vermin, like the dichotomy between Kobold and Zardman.<br>\
-	(+1 Speed)"
+	desc = "<b>Verminvolk</b><br>\
+	Crafted in much the same way as the Wild-Kin, the Verminvolk, or Small-Wildlings, these beings face even more resentment and hatred compared to their Wild-Kin siblings, as they were formed from pest animals, such as rodents.<br>"
 	default_color = "444"
 	species_traits = list(
 		MUTCOLORS,
@@ -38,7 +38,6 @@
 		OFFSET_NECK_F = list(0,-5), OFFSET_MOUTH_F = list(0,-5), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-4), \
 		)
-	race_bonus = list(STAT_SPEED = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
