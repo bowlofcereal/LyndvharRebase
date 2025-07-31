@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/moth
+/* /mob/living/carbon/human/species/moth
 	race = /datum/species/moth
 
 /datum/species/moth
