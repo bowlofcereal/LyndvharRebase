@@ -5,15 +5,7 @@
 	name = "Aasimar"
 	id = "aasimar"
 	desc = "<b>Aasimar</b><br>\
-	Aasimar are born of a rare union between Humens and Angels. \
-	They bear the mark of their celestial touch through their many varying physical features. \
-	Their looks resemble the traditional characteristics of whichever of the Gods their Angel parent was associated with. \
-	Most commonly, Aasimar are similar to Humens, albeit taller, and commonly possess an uncanny beauty. \
-	When compared to the average Humen, they have strangely colored skin and are more physically frail. \
-	Because of their upbringing, they make for natural conduits for godly powers. \
-	Lyndvhar's populace holds them with a mixture of uneasy mixture of fear and respect. \
-	Due to their celestial nature, it is widely believed that an Aasimar's death is a bad omen...<br>\
-	(+1 Fortune)"
+	The Aasimar, or as many call them Godlings, are the race created by the Pantheon to directly serve in the Bloodwake as the main bulk of the militaries. If they were not serving in these positions, they often held command over non-aasimar legions, like the humens or the elves. After the Bloodwake, the Aasimar were left to wander the realm after the Gods looked inward to recover. Due to the nature of their creation and construct they are much more prone to aggression and violence when feeling threatened than many other races, leading them to have a stigma about them. Despite this, they can be found in many positions of wisdom or still found in military garrisons, performing their duties they were created to do oh-so long ago.<br>"
 
 	skin_tone_wording = "Craft"
 
@@ -43,7 +35,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_FORTUNE = 1)
 	enflamed_icon = "widefire"
 	customizers = list(
 		/datum/customizer/organ/eyes/humanoid,
