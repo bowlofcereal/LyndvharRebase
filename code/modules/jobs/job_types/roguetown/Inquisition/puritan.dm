@@ -6,9 +6,9 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_NO_CONSTRUCT		//Not been around long enough to be inquisitor, brand new race to the world.
+	allowed_races = RACES_RESPECTED_UP
 	allowed_patrons = list(/datum/patron/old_god) //You MUST have a Psydonite character to start. Just so people don't get japed into Oops Suddenly Psydon!
-	tutorial = "You have been sent here as a diplomatic envoy from the Sovereignty of Otava: a silver-tipped olive branch, unmatched in aptitude and unshakable in faith. Though you might be ostracized due to your Psydonic beliefs, neither the Church nor Crown can deny your value, whenever matters of inhumenity arise to threaten this fief."
+	tutorial = "You are the direct hand of the Psydonic inquisition. You have been sent by the Bisphoric of Valoria, the leading realm of the Psydonian Orthodoxy, on a diplomatic misssion.. officially, that is. /n /n Unofficially, you work to cast out the sinners from God's house. Heresy of all kinds must be corrected; from Pantheon-worshippers that stray too far towards heretical thought, to fools that worship the Daemons, and converting those willing. The city of Lyndvhar tolerates you due to your ability to fight the daemonic, and the Pantheonic Church tolerates you due to your aligned goals...but it is probably best to not let them peer too closely."
 	whitelist_req = TRUE
 	cmode_music = 'sound/music/inquisitorcombat.ogg'
 	selection_color = JCOLOR_INQUISITION
@@ -383,7 +383,7 @@
 						held_confession.bad_type = "A SCION OF KAINE"
 						held_confession.antag = antag_type
 					if("Vampire Lord")
-						held_confession.bad_type = "THE BLOOD-LORD OF VANDERLIN"
+						held_confession.bad_type = "THE BLOOD-LORD OF THE ARCHDAEMONS"
 						held_confession.antag = antag_type
 					if("Vampire Spawn")
 						held_confession.bad_type = "AN UNDERLING OF THE BLOOD-LORD"
@@ -392,19 +392,19 @@
 						held_confession.bad_type = "A MANIAC DELUDED BY MADNESS"
 						held_confession.antag = antag_type
 					if("Matthios")
-						held_confession.bad_type = "A FOLLOWER OF THE THIEF-LORD"
+						held_confession.bad_type = "A FOLLOWER OF THE DAEMON OF ENVY"
 						held_confession.antag = "worshiper of " + antag_type
 					if("Zizo")
-						held_confession.bad_type = "A FOLLOWER OF THE FORBIDDEN ONE"
+						held_confession.bad_type = "A FOLLOWER OF THE DAEMON OF AMBITION"
 						held_confession.antag = "worshiper of " + antag_type
 					if("Graggar")
-						held_confession.bad_type = "A FOLLOWER OF THE DARK SUN"
+						held_confession.bad_type = "A FOLLOWER OF THE DAEMON OF WROTH"
 						held_confession.antag = "worshiper of " + antag_type
 					if("Godless")
 						held_confession.bad_type = "A DAMNED ANTI-THEIST"
 						held_confession.antag = "worshiper of nothing"
 					if("Baotha")
-						held_confession.bad_type = "A FOLLOWER OF THE REMORSELESS RUINER"
+						held_confession.bad_type = "A FOLLOWER OF THE DAEMON OF INDULGENCE"
 						held_confession.antag = "worshiper of " + antag_type
 					if("Peasant Rebel")
 						return // Inquisitors don't care about peasant revolts targeting the King
@@ -412,7 +412,7 @@
 						return // good job you tortured an innocent person
 				has_confessed = TRUE
 				held_confession.signed = real_name
-				held_confession.info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS <font color='red'>[held_confession.bad_type]</font>. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF THE PSYCROSS UNDER PENALTY OF DEATH.<br/><br/>SIGNED,<br/><font color='red'><i>[held_confession.signed]</i></font>"
+				held_confession.info = "THE GUILTY PARTY ADMITS THEIR SINFUL NATURE AS <font color='red'>[held_confession.bad_type]</font>. THEY WILL SERVE ANY PUNISHMENT OR SERVICE AS REQUIRED BY THE ORDER OF VALORIAN INQUISITION UNDER PENALTY OF DEATH.<br/><br/>SIGNED,<br/><font color='red'><i>[held_confession.signed]</i></font>"
 				held_confession.update_icon_state()
 			return
 		else
