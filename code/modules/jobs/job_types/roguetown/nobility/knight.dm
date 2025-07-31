@@ -362,8 +362,8 @@
 
 
 /datum/advclass/knight/irregularknight
-	name = "Royal Champion"
-	tutorial = "Your skillset is abnormal for a knight. Your swift maneuvers and masterful technique impress both lords and ladies alike, and you have a preference for quicker, more elegant blades. While you are an effective fighting force in medium armor, your evasive skills will only truly shine if you don even lighter protection."
+	name = "Champion Duelist"
+	tutorial = "Your skillset is abnormal for a Cataphract. Your swift maneuvers and masterful technique impress both lords and ladies alike, and you have a preference for quicker, more elegant blades. While you are an effective fighting force in medium armor, your evasive skills will only truly shine if you don even lighter protection."
 	outfit = /datum/outfit/job/roguetown/knight/irregularknight
 
 	category_tags = list(CTAG_ROYALGUARD)
