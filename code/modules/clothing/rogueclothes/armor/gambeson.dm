@@ -105,7 +105,7 @@
 			H.update_inv_shirt()
 			H.update_icon()
 
-/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/otavan/update_icon()
+/obj/item/clothing/suit/roguetown/armor/gambeson/heavy/valorian/update_icon()
 	cut_overlays()
 	if(get_detail_tag())
 		var/mutable_appearance/pic = mutable_appearance(icon(icon, "[icon_state][detail_tag]"))
