@@ -5,15 +5,7 @@
 	name = "Tiefling"
 	id = "tiefling"
 	desc = "<b>Tiefling</b><br>\
-	The offspring of demons with mortal races, a consequence of demonic incursions into the mortal realm and dark pacts. \
-	Their origins dating back to the demonic invasion of Archdevil Vheslyn who pillaged and ravaged the mortal lands and its people before being stopped by Psydon. \
-	These offspring of demon and mortal races came to be known as 'Tieflings', largely despised by most people for centuries for their unnatural origins and appearances. \
-	It was only recently that they became more tolerated, even if the Church still watches them with a weary eye. \
-	When a Tiefling has offspring, no matter the race of their partner, the child would always be a pureblooded Tiefling. \
-	The taint of their very being going back generations, and no amount of cleansing can be rid of it. \
-	As over a millennium a simple handful of Tieflings have created extended bloodlines linking back to their infernal progenitors. Some Tieflings embrace their demonic origin, while other shun it. \
-	No matter if they embrace their demonic ancestors or not, Tieflings have formed an importance upon their bloodline and family due to often being shunned and hunted through out time in which only those of their blood and kin they could truly trust. <br>\
-	(+1 Constitution, +1 Intelligence)"
+	Crafted by the Archdaemon ZIZO and her cultists and lesser daemons during the Bloodwake as enslaved thralls, the race of Tieflings have suffered much discrimination and scrutiny over the centuries. Many a time tieflings have been excised from entire regions or suffered genocide for their past history. Despite all of this- the modern Tiefling is a hardy survivor, and a staunch supporter of anti-slavery policies culturally. They have found themselves home in many enclaves or cities across Llewyn and Yoheon since the Bloodwake, forming their own distinct cultures in each. They are incapable of reproduction with other races, and as a result there are not many to be seen.<br>"
 
 	skin_tone_wording = "Progenitor"
 
@@ -124,12 +116,12 @@
 		"Nessyss" = SKIN_COLOR_NESSYSS,
 		"Helixia" = SKIN_COLOR_HELIXIA,
 		"Nymsea" = SKIN_COLOR_NYMSEA,
-		"Vodyanev" = SKIN_COLOR_ABYSS,
 		"Calvus" = SKIN_COLOR_CALVUS,
 		"Voibion" = SKIN_COLOR_VOIBION,
 		"Chyerno" = SKIN_COLOR_CHYERNO,
-		"Drema"	= SKIN_COLOR_DREMA,
-		"Chir"	= SKIN_COLOR_CHIR
+		"Zierzati" = SKIN_COLOR_ZIERZATI,
+		"Yolzuthboc" = SKIN_COLOR_YOLZUTHBOC,
+		"Yaborys" = SKIN_COLOR_YABORYS
 	)
 
 /datum/species/tieberian/get_hairc_list()
