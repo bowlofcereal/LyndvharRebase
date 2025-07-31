@@ -18,8 +18,8 @@
 		"draconic.ttf" = 'interface/fonts/languages/draconic.ttf',
 		"grenzelhoftian.ttf" = 'interface/fonts/languages/grenzelhoftian.ttf',
 		"kazengunese.ttf" = 'interface/fonts/languages/kazengunese.ttf',
-		"otavan.ttf" = 'interface/fonts/languages/otavan.ttf',
-		"etruscan.ttf" = 'interface/fonts/languages/etruscan.ttf',
+		"valorian.ttf" = 'interface/fonts/languages/valorian.ttf',
+		"dunargi.ttf" = 'interface/fonts/languages/dunargi.ttf',
 		"gronnic.ttf" = 'interface/fonts/languages/gronnic.ttf',
 		"aavnic.ttf" = 'interface/fonts/languages/aavnic.ttf',
 	)
