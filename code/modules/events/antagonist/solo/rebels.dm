@@ -21,8 +21,8 @@
 	weight = 2
 
 	restricted_roles = list(
-		"Grand Duke",
-		"Grand Duchess",
+		"Viscount",
+		"Viscountess",
 		"Consort",
 		"Dungeoneer",
 		"Sergeant",
