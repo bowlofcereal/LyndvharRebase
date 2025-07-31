@@ -308,7 +308,7 @@ GLOBAL_VAR_INIT(last_crown_announcement_time, -1000)
 			return
 		newtax = CLAMP(newtax, 1, 99)
 		SStreasury.tax_value = newtax / 100
-		priority_announce("The new tax in Lyndvhar shall be [newtax] percent.", "The Generous Lord Decrees", pick('sound/misc/royal_decree.ogg', 'sound/misc/royal_decree2.ogg'), "Captain")
+		priority_announce("The new tax in Lyndvhar shall be [newtax] percent.", "The Court Decrees", pick('sound/misc/royal_decree.ogg', 'sound/misc/royal_decree2.ogg'), "Retinue Captain")
 
 
 /obj/structure/roguemachine/titan/proc/make_announcement(mob/living/user, raw_message)
@@ -361,7 +361,7 @@ GLOBAL_VAR_INIT(last_crown_announcement_time, -1000)
 /proc/make_outlaw(raw_message)
 	if(raw_message in GLOB.outlawed_players)
 		GLOB.outlawed_players -= raw_message
-		priority_announce("[raw_message] is no longer an outlaw in the Lyndvhar.", "The [SSticker.rulertype] Decrees", 'sound/misc/royal_decree.ogg', "Captain")
+		priority_announce("[raw_message] is no longer an outlaw within the city limits of Lyndvhar.", "The [SSticker.rulertype] Decrees", 'sound/misc/royal_decree.ogg', "Retinue Captain")
 		return FALSE
 	var/found = FALSE
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -370,12 +370,12 @@ GLOBAL_VAR_INIT(last_crown_announcement_time, -1000)
 	if(!found)
 		return FALSE
 	GLOB.outlawed_players += raw_message
-	priority_announce("[raw_message] has been declared an outlaw and must be captured or slain.", "The [SSticker.rulertype] Decrees", 'sound/misc/royal_decree2.ogg', "Captain")
+	priority_announce("[raw_message] has been declared an outlaw by the nobility and must be captured or slain.", "The [SSticker.rulertype] Decrees", 'sound/misc/royal_decree2.ogg', "Retinue Captain")
 	return TRUE
 
 /proc/make_law(raw_message)
 	GLOB.laws_of_the_land += raw_message
-	priority_announce("[length(GLOB.laws_of_the_land)]. [raw_message]", "A LAW IS DECLARED", pick('sound/misc/new_law.ogg', 'sound/misc/new_law2.ogg'), "Captain")
+	priority_announce("[length(GLOB.laws_of_the_land)]. [raw_message]", "A LAW IS DECLARED", pick('sound/misc/new_law.ogg', 'sound/misc/new_law2.ogg'), "Retinue Captain")
 	GLOB.azure_round_stats[STATS_LAWS_AND_DECREES_MADE]++
 
 /proc/remove_law(law_index)
@@ -383,18 +383,18 @@ GLOBAL_VAR_INIT(last_crown_announcement_time, -1000)
 		return
 	var/law_text = GLOB.laws_of_the_land[law_index]
 	GLOB.laws_of_the_land -= law_text
-	priority_announce("[law_index]. [law_text]", "A LAW IS ABOLISHED", pick('sound/misc/new_law.ogg', 'sound/misc/new_law2.ogg'), "Captain")
+	priority_announce("[law_index]. [law_text]", "A LAW IS ABOLISHED", pick('sound/misc/new_law.ogg', 'sound/misc/new_law2.ogg'), "Retinue Captain")
 	GLOB.azure_round_stats[STATS_LAWS_AND_DECREES_MADE]--
 
 /proc/purge_laws()
 	GLOB.laws_of_the_land = list()
-	priority_announce("All laws of the land have been purged!", "LAWS PURGED", 'sound/misc/lawspurged.ogg', "Captain")
+	priority_announce("All laws of the city have been purged!", "LAWS PURGED", 'sound/misc/lawspurged.ogg', "Retinue Captain")
 
 /proc/purge_decrees()
 	GLOB.lord_decrees = list()
-	priority_announce("All of the land's prior decrees have been purged!", "DECREES PURGED", pick('sound/misc/royal_decree.ogg', 'sound/misc/royal_decree2.ogg'), "Captain")
+	priority_announce("All of the city's prior decrees have been purged!", "DECREES PURGED", pick('sound/misc/royal_decree.ogg', 'sound/misc/royal_decree2.ogg'), "Retinue Captain")
 
 /proc/become_regent(mob/living/carbon/human/H)
-	priority_announce("[H.name], the [H.get_role_title()], sits as the regent of the realm.", "A New Regent Resides", pick('sound/misc/royal_decree.ogg', 'sound/misc/royal_decree2.ogg'), "Captain")
+	priority_announce("[H.name], the [H.get_role_title()], sits as the regent of Lyndvhar.", "Regency Declared", pick('sound/misc/royal_decree.ogg', 'sound/misc/royal_decree2.ogg'), "Retinue Captain")
 	SSticker.regentmob = H
 	SSticker.regentday = GLOB.dayspassed
