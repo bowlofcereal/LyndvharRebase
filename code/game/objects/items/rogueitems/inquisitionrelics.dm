@@ -280,7 +280,7 @@ Inquisitorial armory down here
 
 /obj/item/flashlight/flare/torch/lantern/psycenser
 	name = "Golgatha"
-	desc = "A masterfully-crafted thurible that, when opened, emits a ghastly perfume that reinvigorates the flesh-and-steel of Psydonites. It is said to contain a volatile fragment of the Comet Syon, which - if mishandled - can lead to unforeseen consequences."
+	desc = "A masterfully-crafted thurible that, when opened, emits a ghastly perfume that reinvigorates the flesh-and-steel of the faithful Valorians. It is said to contain a volatile fragment of religious power, which - if mishandled - can lead to unforeseen consequences."
 	icon_state = "psycenser"
 	item_state = "psycenser"
 	light_outer_range = 8
@@ -294,7 +294,7 @@ Inquisitorial armory down here
 /obj/item/flashlight/flare/torch/lantern/psycenser/examine(mob/user)
 	. = ..()
 	if(fuel > 0)
-		. += span_info("If opened, it may bless Psydon weapons and those of Psydon faith.")
+		. += span_info("If opened, it may bless Psydonic weapons and those of Psydonic faith.")
 		. += span_warning("Smashing a creature with it open will create a devastating explosion and render it useless.")
 	if(fuel <= 0)
 		. += span_info("It is gone.")
@@ -356,7 +356,7 @@ Inquisitorial armory down here
 /obj/item/flashlight/flare/torch/lantern/psycenser/afterattack(atom/movable/A, mob/user, proximity)
 	. = ..()	//We smashed a guy with it turned on. Bad idea!
 	if(ismob(A) && on && (user.used_intent.type == /datum/intent/flail/strike/smash/golgotha) && user.cmode)
-		user.visible_message(span_warningbig("[user] smashes the exposed [src], shattering the shard of SYON!"))
+		user.visible_message(span_warningbig("[user] smashes the exposed [src], shattering the shard of faith!"))
 		explosion(get_turf(A),devastation_range = 2, heavy_impact_range = 3, light_impact_range = 4, flame_range = 2, flash_range = 4, smoke = FALSE)
 		fuel = 0
 		turn_off()
@@ -385,7 +385,7 @@ Inquisitorial armory down here
 				user.visible_message(span_info("[user] holds \the [src] over \the [A]..."))
 				if(do_after(user, 50, target = A))
 					H.apply_status_effect(/datum/status_effect/buff/censerbuff)
-					to_chat(H, span_notice("The comet dust invigorates you."))
+					to_chat(H, span_notice("The dust invigorates you."))
 					playsound(H, 'sound/magic/holyshield.ogg', 100)
 					new /obj/effect/temp_visual/censer_dust(get_turf(H))
 			else
@@ -419,9 +419,9 @@ Inquisitorial armory down here
 		
 /datum/component/psyblessed/proc/on_examine(datum/source, mob/user, list/examine_list)
 	if(!is_blessed)
-		examine_list += span_info("<font color = '#cfa446'>This object may be blessed by the lingering shard of COMET SYON. Until then, its impure alloying of silver-and-steel cannot blight inhumen foes on its own.</font>")
+		examine_list += span_info("<font color = '#cfa446'>This object may be blessed by the lingering dust of the faithful. Until then, its impure alloying of silver-and-steel cannot blight inhumen foes on its own.</font>")
 	if(is_blessed)
-		examine_list += span_info("<font color = '#46bacf'>This object has been blessed by COMET SYON.</font>")
+		examine_list += span_info("<font color = '#46bacf'>This object has been blessed by powerful dust.</font>")
 		if(silver)
 			examine_list += span_info("It has been imbued with <b>silver</b>.")
 
@@ -437,7 +437,7 @@ Inquisitorial armory down here
 	if(isitem(parent))
 		var/obj/item/I = parent
 		playsound(I, 'sound/magic/holyshield.ogg', 100)
-		I.visible_message(span_notice("[I] glistens with power as dust of COMET SYON lands upon it!"))
+		I.visible_message(span_notice("[I] glistens with power as dust of extreme arcyne power lands upon it!"))
 
 /datum/component/psyblessed/proc/apply_bless()
 	if(isitem(parent))
