@@ -1,6 +1,6 @@
 /datum/virtue/utility/noble
 	name = "Nobility"
-	desc = "By birth, blade or brain, I am noble known to the royalty of these lands, and have all the benefits associated with it."
+	desc = "By birth, blade or brain, I am noble known to the nobility of these lands, and have all the benefits associated with it."
 	added_traits = list(TRAIT_NOBLE)
 	added_skills = list(list(/datum/skill/misc/reading, 1, 6))
 	added_stashed_items = list("Heirloom Amulet" = /obj/item/clothing/neck/roguetown/ornateamulet/noble)
@@ -86,7 +86,7 @@
 					recipient.forceMove(spawn_loc)
 					to_chat(recipient, span_notice("As a resident of Lyndvhar, you find yourself in the local tavern."))
 
-/datum/virtue/utility/failed_squire
+/*/datum/virtue/utility/failed_squire
 	name = "Failed Squire"
 	desc = "I was once a squire in training, but failed to achieve knighthood. Though my dreams of glory were dashed, I retained my knowledge of equipment maintenance and repair, including how to polish arms and armor."
 	added_traits = list(TRAIT_SQUIRE_REPAIR)
@@ -98,7 +98,7 @@
 
 /datum/virtue/utility/failed_squire/apply_to_human(mob/living/carbon/human/recipient)
 	to_chat(recipient, span_notice("Though you failed to become a knight, your training in equipment maintenance and repair remains useful."))
-	to_chat(recipient, span_notice("You can retrieve your hammer and polishing tools from a tree, statue, or clock."))
+	to_chat(recipient, span_notice("You can retrieve your hammer and polishing tools from a tree, statue, or clock."))*/
 
 /datum/virtue/utility/linguist
 	name = "Intellectual"
@@ -153,10 +153,10 @@
 
 /datum/virtue/utility/deathless
 	name = "Deathless"
-	desc = "Some fell magick has rendered me inwardly unliving - I do not hunger, and I do not breathe."
+	desc = "Some fell magick has rendered me inwardly unliving - I do not hunger, and I do not breathe. (Abuse of this Virtue will net punishment for immersion break. Tailored to Aasimar.)"
 	added_traits = list(TRAIT_NOHUNGER, TRAIT_NOBREATH)
 
-/datum/virtue/utility/blacksmith
+/*/datum/virtue/utility/blacksmith
 	name = "Blacksmith's Apprentice"
 	desc = "In my youth, I worked under a skilled blacksmith, honing my skills with an anvil."
 	added_skills = list(list(/datum/skill/craft/crafting, 2, 2),
@@ -165,7 +165,7 @@
 						list(/datum/skill/craft/blacksmithing, 2, 2),
 						list(/datum/skill/craft/smelting, 2, 2)
 	)
-
+*/
 /datum/virtue/utility/hunter
 	name = "Hunter's Apprentice"
 	desc = "In my youth, I trained under a skilled hunter, learning how to butcher animals and work with leather/hide."
@@ -356,5 +356,5 @@
 
 /datum/virtue/heretic/zchurch_keyholder
 	name = "Heresiarch"
-	desc = "The 'Holy' See has their blood-stained grounds, and so do we. Underneath their noses, we pray to the true gods - I know the location of the local heretic conclave. Secrecy is paramount. If found out, I will surely be killed."
+	desc = "You've spent your days studying the ways of the occult and the methodology of all the Daemons. You've grown to tell the followers by hunch and sight. They give themselves away so easily in this world slowly brewing to a fester. I also know the location of a secret altar to the Archdaemons- where we may convene."
 	added_traits = list(TRAIT_HERESIARCH)
