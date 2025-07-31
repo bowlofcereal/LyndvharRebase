@@ -5,14 +5,7 @@
 	name = "Axian"
 	id = "akula"
 	desc = "<b>Axian</b><br>\
-	Axians are a proud, shark-like people that have a heritage founded in maritime trade, \
-	tax evasion, and piracy. They have a strong distaste for the nobility and taxation, \
-	making them a target of discrimination in the Azurean lands. They are oftentimes scapegoats for crime. \
-	Due to their penchant for trade and travel, they can be found all over the world, oftentimes \
-	seeing places many could not even dream of. They look down at those they considered the 'settled' \
-	and often uproot themselves quite often in their lifetimes. However, due to the isolation in Azure, many Axians \
-	find their sanity being clawed away as they find themselves stuck in one place.<br>\
-	(+1 Constitution, +1 Endurance)"
+	Axians are unique in that they do not hail from Llewyn or Yoheon. All oceans and seas of Beowricke are what they call home- and to this they heavily defend their territories and packs. They are an ocean hunter- and often a tale from an old sailor of sea beasts that attacked their vessel were actually a tribe of Axian warriors defending their perceived swathe of the ocean. Sailors must pay tribute to both Abyssor and the Axians in order to travel safely across the seas and the oceans. It is common belief that Abyssor made Axians to be her guardian of the oceans, and to annihilate anyone who disrespected her waves. For their open hostilities in the water, they are often perceived as dangerous beings, and face much scrutiny on land. On land however most Axians are exiles from their territories, whether it be from lost conflict, or simply a descendant of a migratory pod.<br>"
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS)
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS)
 	inherent_traits = list(TRAIT_WATERBREATHING, TRAIT_SEA_DRINKER)
@@ -36,7 +29,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_ENDURANCE = 1, STAT_CONSTITUTION = 1)
 	enflamed_icon = "widefire"
 	attack_verb = "slash"
 	attack_sound = 'sound/blank.ogg'
