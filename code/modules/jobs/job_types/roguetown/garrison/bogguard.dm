@@ -8,11 +8,9 @@
 	selection_color = JCOLOR_SOLDIER
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
-	tutorial = "Typically a denizen of the sparsely populated Azure woods, you volunteered up with the wardens--a group of ranger types who keep a vigil over the untamed wilds. \
-				While Wardens have no higher authority, operating as a fraternity of rangers, you will be called upon as members of the garrison by the Marshal or the Crown. \
-				Serve their will and recieve what a ranger craves the most - freedom and safety."
+	tutorial = "Whether through forced conscription, or the desire to serve, you have found a place in the Wardens. You are the frontline defense against evil, and protector of the frontier roads. The life is not easy, but it pays well. Protect the forests well, for if you fall, then nothing will stop what lurks outside from seeping in.."
 	display_order = JDO_TOWNGUARD
 	whitelist_req = TRUE
 
