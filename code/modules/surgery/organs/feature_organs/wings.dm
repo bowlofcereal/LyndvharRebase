@@ -23,8 +23,8 @@
 	flight_for_species = list("moth")
 
 /obj/item/organ/wings/dracon
-	name = "drakian wings"
-	desc = "A pair of majestic drakian wings."
+	name = "draconae wings"
+	desc = "A pair of majestic draconid wings."
 //	flight_for_species = list("dracon") we'll revisit this later it's probably moth sprite only
 
 
