@@ -181,6 +181,10 @@
 	miracle = FALSE
 
 /obj/effect/proc_holder/spell/invoked/evileye/cast(list/targets, mob/living/user)
+	if(user.is_eyes_covered())
+		revert_cast()
+		to_chat(user, span_info("They cannot see my eyes!"))
+		return FALSE
 	if(isliving(targets[1]))
 		var/mob/living/carbon/target = targets[1]
 		target.add_stress(/datum/stressevent/evileye)
