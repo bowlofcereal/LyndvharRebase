@@ -19,9 +19,9 @@
 
 /datum/patron/inhumen/zizo
 	name = "Zizo"
-	domain = "Progress, Undeath, Hubris, Left Hand Magicks"
-	desc = "A once-mortal snow elf turned god. Her hubris in thinking she could harvest lux from the planet itself led to the elimination of her entire race. Her works are still used to this dae in some cases."
-	worshippers = "Necromancers, Researchers, Warlocks, and the Undead"
+	domain = "Archdaemon of Advancement, Hubris, Ambition, and Power"
+	desc = "The Archdaemon ZIZO was the first to be born from the sins of mortalkind. She represents the aspects of unbridled ambition, and the lust for more power. It was her forces that first breached through the Hells and into the realm of Beowricke proper, bringing destruction as she began to carve out a realm for herself. She and her cultists crafted the TIEFLING from her lesser daemons as well as mortals."
+	worshippers = "Necromancers, Warlocks, and the Undead"
 	mob_traits = list(TRAIT_CABAL, TRAIT_ZIZOSIGHT)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison					= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/self/zizo_snuff						= CLERIC_T0,
@@ -33,15 +33,15 @@
 	confess_lines = list(
 		"PRAISE ZIZO!",
 		"LONG LIVE ZIZO!",
-		"ZIZO IS QUEEN!",
+		"ZIZO REIGNS SUPREME!",
 	)
 	storyteller = /datum/storyteller/zizo
 
 /datum/patron/inhumen/graggar
 	name = "Graggar"
-	domain = "God of Conquest, War, Strategy, Bind-Breaking"
-	desc = "Slave orc turned deity, said by the Holy Ecclesial to have been blessed by Ravox himself. He took his blessings to wage a bloody war against his once-captors, and then continued his conquest in his own name. Some Graggarites might care for honor, however many do not- what matters are results, and victory at a reasonable cost."
-	worshippers = "Prisoners, Slaves, Militants, and the Cruel"
+	domain = "Archdaemon of Conquest, War, and Murder"
+	desc = "The Archdaemon GRAGGAR was the second to be born from the sins of mortalkind. He represents all aspects of total rage, wroth, destruction, as well as murderous conquest. The strongest fighter of the Archdaemons, he crafted the ORCS and the GOBLINS in his own image and visage to fight alongside the daemons and TIEFLINGS of ZIZO."
+	worshippers = "Prisoners, Murderers and the Cruel"
 	mob_traits = list(TRAIT_HORDE, TRAIT_ORGAN_EATER)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison					= CLERIC_ORI,
 					/obj/effect/proc_holder/spell/self/graggar_bloodrage				= CLERIC_T0,
@@ -53,15 +53,15 @@
 	confess_lines = list(
 		"GRAGGAR IS THE BEAST I WORSHIP!",
 		"THROUGH VIOLENCE, DIVINITY!",
-		"THE GOD OF CONQUEST DEMANDS BLOOD!",
+		"THE DAEMON OF CONQUEST DEMANDS BLOOD!",
 	)
 	storyteller = /datum/storyteller/graggar
 
 /datum/patron/inhumen/matthios
 	name = "Matthios"
-	domain = "God of Exchange, Alchemy, Theft, and Greed"
-	desc = "The Man who stole fire from the sun and used it in his pursuit of immortality; exchanging the knowledge of how to make fire with the lessers for safety in doing so. He guides those who live in the dark, away from the flame of civilization; and those who believe in his cause bring the wealth of the undeserving in the light to the deserving in the dark."
-	worshippers = "Highwaymen, Alchemists, Downtrodden Peasants, and Merchants"
+	domain = "Archdaemon of Robbery, Envy, and Pillaging"
+	desc = "The Archdaemon MATTHIOS was the third to be born from the sins of mortalkind. Matthios is the physical embodiment of mass theft, pillaging, and envy. Many of his cultist followers practice this through open banditry and thievery. Despite all this he is believed to also be the patron of the destitute and beggars– though there is always insidious intent to be found in an Archdaemon."
+	worshippers = "Highwaymen, Robbers, Downtrodden Peasants"
 	crafting_recipes = list(/datum/crafting_recipe/roguetown/sewing/bandithood)
 	mob_traits = list(TRAIT_COMMIE, TRAIT_MATTHIOS_EYES)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison					= CLERIC_ORI,
@@ -81,8 +81,8 @@
 
 /datum/patron/inhumen/baotha
 	name = "Baotha"
-	domain = "Goddess of Hedonism, Addiction, Anguish, and Heartbreak"
-	desc = "The twin sister of Eora, fallen to disgrace. She brings comfort to those who can't find it elsewhere but the bottom of a bottle; and she tempts those who have lost much into her fold through offers of relief and pleasure, yet they soon find themselves unable to escape her grasp. Seen as a scorned lover by many, and followed by such."
+	domain = "Archdaemon of Degeneracy, Debauchery and Addiction"
+	desc = "The Archdaemon BAOTHA was the final one to be born from the sins of mortalkind. She is the complete and physical embodiment of all unrestrained lust, as well as immense degeneracy. Destruction of the vow of marriage, and mass addiction only follow in her wake, as her mere presence would awaken the worst aspects of the very things that Eora represents. Due to this, Baotha is an extreme opposite to her, and they are both mortal enemies."
 	worshippers = "Widows, Gamblers, Addicts, and Scorned Lovers"
 	mob_traits = list(TRAIT_DEPRAVED, TRAIT_CRACKHEAD)
 	miracles = list(/obj/effect/proc_holder/spell/targeted/touch/orison					= CLERIC_ORI,
