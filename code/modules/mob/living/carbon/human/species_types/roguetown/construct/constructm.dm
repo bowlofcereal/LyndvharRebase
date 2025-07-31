@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/construct/metal
+/* /mob/living/carbon/human/species/construct/metal
 	race = /datum/species/construct/metal
 	construct = 1
 

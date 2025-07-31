@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/kobold
+/* /mob/living/carbon/human/species/kobold
 	race = /datum/species/kobold
 
 /datum/species/kobold

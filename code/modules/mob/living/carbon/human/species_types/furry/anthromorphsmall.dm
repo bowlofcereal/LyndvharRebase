@@ -1,4 +1,4 @@
-/mob/living/carbon/human/species/anthromorphsmall
+/* /mob/living/carbon/human/species/anthromorphsmall
 	race = /datum/species/anthromorphsmall
 
 /datum/species/anthromorphsmall
