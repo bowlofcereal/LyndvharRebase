@@ -1,4 +1,4 @@
-/datum/job/roguetown/churchling
+/* /datum/job/roguetown/churchling
 	title = "Churchling"
 	flag = CHURCHLING
 	department_flag = YOUNGFOLK
