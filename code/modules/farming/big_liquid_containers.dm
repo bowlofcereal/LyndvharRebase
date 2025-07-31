@@ -92,7 +92,7 @@
 	reagents.add_reagent(/datum/reagent/consumable/ethanol/saigamilk,900)
 
 /obj/structure/fermentation_keg/kgsunsake
-	desc = "A barrel with a Golden Swan mark. A translucient, pale-blue liquid made from rice. A favourite drink of the warlords and nobles of Kazengun."
+	desc = "A bottle with a Golden Swan cork-seal. A translucient, pale-blue liquid made from rice. A favourite drink of the warlords and nobles of Saltlia."
 
 /obj/structure/fermentation_keg/kgsunsake/Initialize()
 	. = ..()
@@ -100,7 +100,7 @@
 
 
 /obj/structure/fermentation_keg/avarrice
-	desc = "A barrel with a simple mark. A murky, white wine made from rice grown in the steppes of Avar."
+	desc = "A bottle with a simple cork-seal. A murky, white wine made from rice grown in the plantations of Greencrest."
 
 /obj/structure/fermentation_keg/avarrice/Initialize()
 	. = ..()
@@ -108,7 +108,7 @@
 
 
 /obj/structure/fermentation_keg/gronmead
-	desc = "A barrel with a Shieldmaiden Brewery mark. A deep red honey-wine, refined with the red berries native to Gronns highlands."
+	desc = "A bottle with a Shieldmaiden Berewrey cork-seal. A deep red honey-wine, refined with the red berries native to far northern Rhaenvalian highlands."
 
 /obj/structure/fermentation_keg/gronmead/Initialize()
 	. = ..()
@@ -122,7 +122,7 @@
 	reagents.add_reagent(/datum/reagent/consumable/caffeine/coffee, 900)
 
 /obj/structure/fermentation_keg/tea
-	desc = "A barrel with several Kazengunese characters on it indicating the vintage of the tea within. A mild, refreshing drink that calms the mind and body. Hopefully its quality is \
+	desc = "A barrel with several Forvheipal characters on it indicating the vintage of the tea within. A mild, refreshing drink that calms the mind and body. Hopefully its quality is \
 	still intact after being stored in a barrel."
 
 /obj/structure/fermentation_keg/tea/Initialize()
