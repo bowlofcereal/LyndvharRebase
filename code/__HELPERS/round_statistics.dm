@@ -308,7 +308,7 @@ GLOBAL_LIST_INIT(featured_stats, list(
 		"entries" = list()
 	),
 	FEATURED_STATS_STORYTELLERS = list(
-		"name" = "TOP 10 Reigning Gods",
+		"name" = "TOP 10 Reigning Patrons",
 		"color" = "#eeca2c",
 		"entries" = list()
 	),

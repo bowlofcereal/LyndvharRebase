@@ -20,7 +20,7 @@
 /obj/item/mundane/puzzlebox/easy/Initialize()
 	. = ..()
 	dice_roll = rand(6,15)
-	fluff_desc = pick("It, frankly, looks rather depressing.","I can see an engraving of Psydon sending the Comet Syon on the side.","It doesn't look so difficult.","It's dusty and boring.","Why do I want to play with this for hours?","I could probably get a vagrant to solve this.","It looks like it was made for fools.")
+	fluff_desc = pick("It, frankly, looks rather depressing.","I can see an engraving of Astrata doing battle with.. someone on the side.","It doesn't look so difficult.","It's dusty and boring.","Why do I want to play with this for hours?","I could probably get a vagrant to solve this.","It looks like it was made for fools.")
 	desc += "[fluff_desc]"
 
 
@@ -31,7 +31,7 @@
 		return
 	playsound(src.loc, 'sound/items/wood_sharpen.ogg', 75, TRUE)
 	playsound(src.loc, 'sound/items/visor.ogg', 75, TRUE)
-	if (alert(user, "My fingers trace the outside of this box. It looks of average difficulty. Do I try to solve it?", "ROGUETOWN", "Yes", "No") != "Yes")
+	if (alert(user, "My fingers trace the outside of this box. It looks of average difficulty. Do I try to solve it?", "LYNDVHAR", "Yes", "No") != "Yes")
 		return
 	if(do_after(user,70, target = src))
 		if((dice_roll) <= user.STAINT)
