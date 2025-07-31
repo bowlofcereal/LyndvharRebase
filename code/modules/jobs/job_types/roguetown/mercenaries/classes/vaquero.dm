@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/vaquero
 	name = "Vaquero"
-	tutorial = "Originating in the vibrant Kingdom of Etrusca, a 'vaquero' had originally been a mere cattle-driver... Now, though, it has become a title for roaming swashbucklers. Whether they set out as a defender of the commonfolk or a pilferer of purses, the Vaquero is defined by the tale they carve across continents - and more frequently - by their story's violent end."
+	tutorial = "A Valorian subculture of fencing, bounty hunting charismatic nomads who are known for their skill in mounted combat and their flashy yet practical clothing."
 	outfit = /datum/outfit/job/roguetown/mercenary/vaquero
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled
 	cmode_music = 'sound/music/combat_vaquero.ogg'
