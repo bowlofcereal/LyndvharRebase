@@ -80,13 +80,13 @@
 			if("mt decapitation")
 				placetext = " from Mt Decapitation!"
 			if("azure basin")
-				placetext = " in the The Azure Basin!"
+				placetext = " in the outskirts of the City!"
 			if("wilderness")
-				placetext = " in the The Azure Grove!"
+				placetext = " in the Draguippe Forest!"
 			if("bog", "dense bog")
-				placetext = " in the The Terrorbog!"
+				placetext = " in the The Mirewood!"
 			if("coast", "coastforest")
-				placetext = " on the Azure Coast!"
+				placetext = " on the Lilac Coast!"
 			if("indoors", "Shop", "Physician", "outdoors", "roofs")
 				placetext = " somewhere in town!"
 			if("Manor", "Wizard's Tower")
@@ -105,12 +105,12 @@
 			if("Warden")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/bogguardhorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the horn of the Wardens somewhere[disttext],[dirtext],[placetext]"))
-			if("Marshall", "Watchman", "Sergeant", "Man at Arms")
+			if("Marshal", "Watchman", "Sergeant", "Man at Arms")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/watchhorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the horn of the Garrison somewhere[disttext],[dirtext],[placetext]"))
-			if("Retinue Captain", "Knight")
+			if("Retinue Captain", "Cataphract")
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/rghorn.ogg', 35, FALSE, pressure_affected = FALSE)
-				to_chat(player, span_warning("I hear the horn of the Royal Guard somewhere[disttext],[dirtext],[placetext]"))
+				to_chat(player, span_warning("I hear the horn of the Cataphract somewhere[disttext],[dirtext],[placetext]"))
 			else
 				player.playsound_local(get_turf(player), 'modular_hearthstone/sound/items/signalhorn.ogg', 35, FALSE, pressure_affected = FALSE)
 				to_chat(player, span_warning("I hear the signal horn somewhere[disttext], [dirtext],[placetext]"))
