@@ -1,6 +1,6 @@
 /datum/language/kazengunese
-	name = "Kazengunese"
-	desc = "The language of the islands of Kazengun. With intricate honorifics and complex grammar. The version spoken commonly in Azuria is a result of centuries of cultural contact between the Kazengunese and Zhongese, and is a trade language combining Zhongese & Kazengunese vocabulary"
+	name = "Saltliac"
+	desc = "The language of the Saltlian Kingdom. With intricate honorifics and complex grammar. The version rarely seen in Lyndhardtia is a result of centuries of cultural contact between the locale and Saltlian merchants from afar, and is a trade language combining Lyndhardtian and Saltlian vocabulary"
 	speech_verb = "says"
 	whisper_verb = "whispers"
 	exclaim_verb = "yells"
