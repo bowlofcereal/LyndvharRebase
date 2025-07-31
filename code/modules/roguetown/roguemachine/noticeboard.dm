@@ -107,7 +107,7 @@
 	var/can_premium = FALSE
 	if(user.job in list("Man at Arms","Inquisitor", "Knight", "Sergeant", "Retinue Captain", "Orthodoxist"))
 		can_remove = TRUE
-	if(user.job in list("Bathmaster","Merchant", "Innkeeper", "Steward", "Court Magician"))
+	if(user.job in list("Bathmaster","Merchant", "Innkeeper", "Steward", "Archmagus"))
 		can_premium = TRUE
 	var/contents
 	contents += "<center>NOTICEBOARD<BR>"

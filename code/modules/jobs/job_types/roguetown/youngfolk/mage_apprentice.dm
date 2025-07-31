@@ -21,7 +21,7 @@
 	max_pq = null
 	round_contrib_points = 2
 	cmode_music = 'sound/music/cmode/nobility/combat_courtmage.ogg'
-	advjob_examine = TRUE // So that Court Magicians can know if they're teachin' a Apprentice or if someone's a bit more advanced of a player. Just makes the title show up as the advjob's name.
+	advjob_examine = TRUE // So that Archmaguss can know if they're teachin' a Apprentice or if someone's a bit more advanced of a player. Just makes the title show up as the advjob's name.
 
 /datum/outfit/job/roguetown/wapprentice
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
