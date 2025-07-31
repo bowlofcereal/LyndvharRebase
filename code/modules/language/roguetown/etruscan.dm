@@ -1,6 +1,6 @@
 /datum/language/DUNARGI
-	name = "Etrusco"
-	desc = "The language of the inhabitants of the Isles of Etrusca. Fast-paced, for those unused to its emotiveness."
+	name = "Dunargiac"
+	desc = "The language of the inhabitants of the capitol region of Dunargi. Fast-paced, for those unused to its emotiveness."
 	speech_verb = "remarks"
 	ask_verb = "inquires"
 	exclaim_verb = "asserts"

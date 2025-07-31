@@ -229,7 +229,7 @@
 /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/hounskull/black
 	color = CLOTHING_BLACK
 
-/obj/item/clothing/head/roguetown/helmet/bascinet/etruscan/black
+/obj/item/clothing/head/roguetown/helmet/bascinet/dunargi/black
 	color = CLOTHING_BLACK
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle/black
