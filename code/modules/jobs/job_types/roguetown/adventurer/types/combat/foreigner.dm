@@ -1,7 +1,7 @@
 /datum/advclass/foreigner
 	name = "Foreigner"
 	tutorial = "Strangers from relatively obscure lands, with completely different cultures\
-	they usually bring unique and varied fighting styles. They typically originate from Kazengun, or elsewhere."
+	they usually bring unique and varied fighting styles. They typically originate from Saltlia, or elsewhere."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = NON_DWARVEN_RACE_TYPES //roughneck & custodian sprites dont have dwarf variants - adjust if/when a second update comes out with dwarf sprites
 	outfit = /datum/outfit/job/roguetown/adventurer/foreigner

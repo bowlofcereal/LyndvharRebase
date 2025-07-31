@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/rumaclan
 	name = "Ruma Clan"
-	tutorial = "A band of foreign outcast Kazengunites. The Ruma Clan were outcasts from the Xinyi Dynasty, believed to be associated with the rebels at the time. The clan departed lest they risked being executed for such suspicions, or worse. It is no organized group of soldiers, but rather a loose collection of experienced fighters."
+	tutorial = "A band of foreign outcast Saltlians. The Ruma Clan are outcasts from the Xinyi Dynasty currently overseeing Saltlia, believed to be associated with the rebels at the time. The clan departed lest they risked being executed for such suspicions, or worse. It is no organized group of soldiers, but rather a loose collection of experienced fighters that have wandered an entire continent to get here."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = NON_DWARVEN_RACE_TYPES //no dwarf sprites
 	outfit = /datum/outfit/job/roguetown/mercenary/rumaclan

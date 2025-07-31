@@ -1,7 +1,7 @@
 // Meant for cave-races, less boons than other mercs but unique weapon + mining skill and helmet-torch combo. ALSO gets alchemy now for bomb-making.
 /datum/advclass/mercenary/underdweller
 	name = "Underdweller"
-	tutorial = "A member of the Underdwellers, you've taken many of the deadliest contracts known to man in literal underground circles. Drow or Dwarf, you've put your differences aside for coin and adventure."
+	tutorial = "A member of the Underdwellers, you've taken many of the deadliest contracts known to man in literal underground circles. No matter the race, you've put your differences aside for coin and adventure."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/mercenary/underdweller
