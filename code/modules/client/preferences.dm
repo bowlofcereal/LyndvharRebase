@@ -98,6 +98,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/shake = TRUE
 	var/sexable = FALSE
 	var/stat_bonus = "None" // This is only for the -kin races.
+	var/compliance_notifs = TRUE
 
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
@@ -133,6 +134,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/anonymize = TRUE
 	var/masked_examine = FALSE
 	var/mute_animal_emotes = FALSE
+	var/autoconsume = FALSE
 
 	var/lastclass
 
@@ -229,7 +231,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 		if(pref_species.desc)
 			to_chat(user, "[pref_species.desc]")
 		to_chat(user, "<font color='red'>Classes reset.</font>")
-	random_character(gender)
+	random_character(gender, FALSE, FALSE)
 	accessory = "Nothing"
 
 	customizer_entries = list()
@@ -478,7 +480,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
 			dat += "<h2>General Settings</h2>"
 //			dat += "<b>UI Style:</b> <a href='?_src_=prefs;task=input;preference=ui'>[UI_style]</a><br>"
-//			dat += "<b>tgui Monitors:</b> <a href='?_src_=prefs;preference=tgui_lock'>[(tgui_lock) ? "Primary" : "All"]</a><br>"
+			dat += "<b>tgui Monitors:</b> <a href='?_src_=prefs;preference=tgui_lock'>[(tgui_lock) ? "Primary" : "All"]</a><br>"
 //			dat += "<b>tgui Style:</b> <a href='?_src_=prefs;preference=tgui_fancy'>[(tgui_fancy) ? "Fancy" : "No Frills"]</a><br>"
 //			dat += "<b>Show Runechat Chat Bubbles:</b> <a href='?_src_=prefs;preference=chat_on_map'>[chat_on_map ? "Enabled" : "Disabled"]</a><br>"
 //			dat += "<b>Runechat message char limit:</b> <a href='?_src_=prefs;preference=max_chat_length;task=input'>[max_chat_length]</a><br>"
@@ -1387,7 +1389,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("suit")
 					jumpsuit_style = PREF_SUIT
 				if("all")
-					random_character(gender)
+					random_character(gender, FALSE, FALSE)
 
 		if("input")
 
@@ -2329,7 +2331,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(choice)
 						choice = choices[choice]
 						if(!load_character(choice))
-							random_character()
+							random_character(null, FALSE, FALSE)
 							save_character()
 
 				if("tab")
@@ -2367,11 +2369,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	if(!(pref_species.name in GLOB.roundstart_races))
 		set_new_race(new /datum/species/human/northern)
 
-		random_character(gender)
+		random_character(gender, FALSE, FALSE)
 	if(parent)
 		if(pref_species.patreon_req > parent.patreonlevel())
 			set_new_race(new /datum/species/human/northern)
-			random_character(gender)
+			random_character(gender, FALSE, FALSE)
 
 	character.age = age
 	character.dna.features = features.Copy()

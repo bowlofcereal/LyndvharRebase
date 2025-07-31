@@ -6,7 +6,6 @@
 	outfit = /datum/outfit/job/roguetown/adventurer/witch
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	traits_applied = list(TRAIT_DEATHSIGHT, TRAIT_WITCH, TRAIT_ARCYNE_T1)
-	cmode_music = 'sound/music/combat_cult.ogg'
 
 /datum/outfit/job/roguetown/adventurer/witch/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -34,6 +33,7 @@
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/shapeshift/crow)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/arcynebolt)
 	if(H.gender == FEMALE)
 		armor = /obj/item/clothing/suit/roguetown/armor/corset
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
@@ -61,5 +61,5 @@
 	  		/datum/patron/inhumen/matthios,
 	   		/datum/patron/inhumen/graggar,
 	   		/datum/patron/inhumen/baotha)
-			H.cmode_music = 'sound/music/combat_cult.ogg'
+			H.cmode_music = 'sound/music/combat_heretic.ogg'
 			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)

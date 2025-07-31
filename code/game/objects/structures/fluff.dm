@@ -567,6 +567,19 @@
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
 	pixel_y = 32
 
+/obj/structure/fluff/wallclock/attack_right(mob/user)
+	if(user.mind && isliving(user))
+		if(user.mind.special_items && user.mind.special_items.len)
+			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
+			if(item)
+				if(user.Adjacent(src))
+					if(user.mind.special_items[item])
+						var/path2item = user.mind.special_items[item]
+						user.mind.special_items -= item
+						var/obj/item/I = new path2item(user.loc)
+						user.put_in_hands(I)
+			return
+
 /obj/structure/fluff/wallclock/Destroy()
 	if(soundloop)
 		soundloop.stop()
@@ -782,6 +795,9 @@
 /obj/structure/fluff/statue/gargoyle
 	icon_state = "gargoyle"
 
+/obj/structure/fluff/statue/aasimar
+	icon_state = "aasimar"
+
 /obj/structure/fluff/statue/gargoyle/candles
 	icon_state = "gargoyle_candles"
 
@@ -960,6 +976,12 @@
 		/obj/item/ingot/blacksteel,
 		/obj/item/clothing/neck/roguetown/psicross,
 		/obj/item/reagent_containers/glass/cup,
+		/obj/item/candle/candlestick/silver,
+		/obj/item/candle/candlestick/gold,
+		/obj/item/kitchen/fork/silver,
+		/obj/item/kitchen/fork/gold,
+        /obj/item/kitchen/spoon/silver,
+		/obj/item/kitchen/spoon/gold,
 		/obj/item/roguestatue,
 		/obj/item/riddleofsteel,
 		/obj/item/listenstone,
@@ -978,6 +1000,9 @@
 	var/donatedamnt = W.get_real_price()
 	if(user.mind)
 		if(user)
+			if(W.flags_1 & HOARDMASTER_SPAWNED_1)
+				to_chat(user, span_warning("This item is from the Hoard!"))
+				return
 			if(W.sellprice <= 0)
 				to_chat(user, span_warning("This item is worthless."))
 				return
@@ -1015,7 +1040,6 @@
 	layer = BELOW_MOB_LAYER
 	max_integrity = 100
 	sellprice = 40
-	flags_1 = HEAR_1
 	var/chance2hear = 30
 	buckleverb = "crucifie"
 	can_buckle = 1
@@ -1026,6 +1050,14 @@
 	buckle_prevents_pull = 1
 	var/divine = TRUE
 	obj_flags = UNIQUE_RENAME | CAN_BE_HIT
+
+/obj/structure/fluff/psycross/Initialize()
+	. = ..()
+	become_hearing_sensitive()
+
+/obj/structure/fluff/psycross/Destroy()
+	lose_hearing_sensitivity()
+	return ..()
 
 /obj/structure/fluff/psycross/post_buckle_mob(mob/living/M)
 	..()

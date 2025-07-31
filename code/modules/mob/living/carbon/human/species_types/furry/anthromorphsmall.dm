@@ -6,7 +6,7 @@
 	id = "anthromorphsmall"
 	desc = "A race akin to wild-kin, except afflicted with significantly smaller stature. \
 	A bit less respected than their kin due to their closer resemblance to vermin, like the \
-	dichotomy between Kobold and Sissean. It doesn't help that many have a habit of eating \
+	dichotomy between Kobold and Zardman. It doesn't help that many have a habit of eating \
 	just about anything, thanks to their uniquely robust digestion.<br>\
 	(Custom stat bonus. Don't forget to pick one.)"
 	default_color = "444"

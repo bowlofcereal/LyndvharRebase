@@ -5,13 +5,14 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/confessor
 	category_tags = list(CTAG_INQUISITION)
-	cmode_music = 'sound/music/combat_rogue.ogg'
+	cmode_music = 'sound/music/cmode/antag/combat_deadlyshadows.ogg'
 
 /datum/outfit/job/roguetown/confessor
 	job_bitflag = BITFLAG_CHURCH
 
 /datum/outfit/job/roguetown/confessor/pre_equip(mob/living/carbon/human/H)
 	..()
+	has_loadout = TRUE
 	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE) // Cudgellin - Nonlethals
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
@@ -31,7 +32,6 @@
 	beltl = /obj/item/rogueweapon/mace/cudgel
 	beltr = /obj/item/quiver/bolts
 	backr = /obj/item/storage/backpack/rogue/satchel/black
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/psydon
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
@@ -42,8 +42,9 @@
 	backpack_contents = list(
 		/obj/item/roguekey/inquisition = 1,
 		/obj/item/lockpickring/mundane = 1,
-		/obj/item/rogueweapon/huntingknife/idagger/silver/psydagger,
-		/obj/item/grapplinghook = 1,
+		/obj/item/rogueweapon/huntingknife/idagger/silver/psydagger = 1,
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		/obj/item/grapplinghook = 1
 		)
 	H.change_stat("strength", -1) // weasel
 	H.change_stat("endurance", 3)
@@ -55,3 +56,14 @@
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_OUTLANDER, TRAIT_GENERIC)		//You're a foreigner, a guest of the realm.
 	H.grant_language(/datum/language/otavan)
+
+
+/datum/outfit/job/roguetown/confessor/choose_loadout(mob/living/carbon/human/H)
+	. = ..()
+	var/weapons = list("Slurbow", "Crossbow")
+	var/weapon_choice = input(H,"Choose your armament", "TAKE UP ARMS") as anything in weapons
+	switch(weapon_choice)
+		if("Slurbow")
+			H.put_in_hands(new /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow/slurbow(H), TRUE)
+		if("Crossbow")
+			H.put_in_hands(new /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow(H), TRUE)

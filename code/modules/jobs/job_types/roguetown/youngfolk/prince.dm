@@ -21,7 +21,6 @@
 	max_pq = null
 	round_contrib_points = 3
 	cmode_music = 'sound/music/combat_noble.ogg'
-	allowed_patrons = NON_PSYDON_PATRONS		//Same reason as lord. See Lord.
 
 
 /datum/job/roguetown/prince/after_spawn(mob/living/H, mob/M, latejoin)
@@ -46,7 +45,8 @@
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/rogueweapon/sword/sabre
+	l_hand = /obj/item/rogueweapon/sword/sabre
+	beltl = /obj/item/rogueweapon/scabbard/sword
 	beltr = /obj/item/storage/keyring/heir
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	backr = /obj/item/storage/backpack/rogue/satchel
