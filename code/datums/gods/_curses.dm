@@ -86,7 +86,7 @@
 
 /datum/curse/abyssor
 	name = "Curse of Abyssor"
-	description = "I am forsaken by the Dreamer. His domain will surely become my grave."
+	description = "I am forsaken by the Sea. Her domain will surely become my grave."
 	trait = TRAIT_CURSE_ABYSSOR
 
 /datum/curse/ravox
@@ -124,22 +124,22 @@
 ////////////////////////////
 /datum/curse/zizo
 	name = "Curse of Zizo"
-	description = "I am forsaken by the Architect. Her grasp reaches for my heart."
+	description = "The Archdaemon of Ambition clutches my soul. Her grasp reaches for my heart."
 	trait = TRAIT_CURSE_ZIZO
 
 /datum/curse/graggar
 	name = "Curse of Graggar"
-	description = "I am forsaken by the Warlord. Bloodlust is only thing I know for real."
+	description = "The Archdaemon of Conquest yearns for my blood. Bloodlust is the only thing I will know."
 	trait = TRAIT_CURSE_GRAGGAR
 
 /datum/curse/matthios
 	name = "Curse of Matthios"
-	description = "I am forsaken by the Dragon. Greed will be my only salvation."
+	description = "The Archdaemon of Greed comes for my coin. Greed will be my only salvation."
 	trait = TRAIT_CURSE_MATTHIOS
 
 /datum/curse/baotha
 	name = "Curse of Baotha"
-	description = "I am forsaken by the Heartbreaker. I am drowning in her promises."
+	description = "The Archdaemon of Debauchery whispers in my ears. I am drowning in her promises."
 	trait = TRAIT_CURSE_BAOTHA
 
 //////////////////////
