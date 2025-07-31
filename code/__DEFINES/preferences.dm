@@ -1,5 +1,5 @@
 #define MINIMUM_FLAVOR_TEXT		0
-#define MINIMUM_OOC_NOTES 		20 //Just put something in there
+#define MINIMUM_OOC_NOTES 		20 // You need to actually clarify a preference.
 
 
 //Preference toggles
