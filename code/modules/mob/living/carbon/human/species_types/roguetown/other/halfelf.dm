@@ -103,7 +103,7 @@
 	)
 
 /datum/species/human/halfelf/proc/languages(mob/living/carbon/human/literally_him)
-	if(literally_him.skin_tone == SKIN_COLOR_NALEDI_BORN)
+	if(literally_him.skin_tone == SKIN_COLOR_KHAZUMITE_BORNE)
 		literally_him.grant_language(/datum/language/celestial)
 
 /datum/species/human/halfelf/get_hairc_list()

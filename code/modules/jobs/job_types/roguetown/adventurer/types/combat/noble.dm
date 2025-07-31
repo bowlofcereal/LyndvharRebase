@@ -1,4 +1,4 @@
-/*/datum/advclass/noble
+/datum/advclass/noble
 	name = "Noble"
 	tutorial = "Traveling nobility from other regions of the world."
 	allowed_sexes = list(MALE, FEMALE)

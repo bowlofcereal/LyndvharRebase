@@ -222,6 +222,7 @@
 	/datum/species/anthromorphsmall,\
 	/datum/species/goblinp,\
 	/datum/species/kobold,\
+	/datum/species/moth,\
 
 #define RACES_RESPECTED_UP list(RACES_RESPECTED, RACES_ESTEEMED)
 
