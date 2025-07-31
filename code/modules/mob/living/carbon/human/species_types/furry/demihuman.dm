@@ -4,8 +4,8 @@
 /datum/species/demihuman
 	name = "Half-Kin"
 	id = "demihuman"
-	desc = "The inevitable union between wildkin and some form of humanity or another. While they also experience animalistic tendencies akin to their full-blooded ancestors, their intermingling with others has stemmed the severity of such primordial impulses. (Half-kin are not a template race to play your own custom race. If you play a half-kin, you are expected to roleplay to the setting and the race's lore.)<br>\
-	(+1 Endurance, +1 Perception)"
+	desc = "<b>Half-Kin</b><br>\
+	With the advent and rise of more of the inhumen and denmorian races beginning to become larger communities in Llewyn and abroad, it was only natural that eventually half-humen and half-wild would begin to form. These beings retain much of their humen forms, however usually behave much in the same way of the animal or being that they are half of. Due to their union being one of humen they fair much better with other races, but their wild side often becomes a detriment due to differing tempers and behaviours. For this reason it is quite rare to see a half-kin in positions of power, usually working in lower-working jobs.<br>"
 	skin_tone_wording = "Ancestry"
 	default_color = "FFFFFF"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY,MUTCOLORS_PARTSONLY)
@@ -33,7 +33,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_PERCEPTION = 1, STAT_ENDURANCE = 1)
 	enflamed_icon = "widefire"
 	organs = list(
 		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
@@ -134,16 +133,16 @@
 /datum/species/demihuman/get_skin_list()
 	return list(
 		"Grenzelhoft" = SKIN_COLOR_GRENZELHOFT,
-		"Hammerhold" = SKIN_COLOR_HAMMERHOLD,
-		"Avar" = SKIN_COLOR_AVAR,
-		"Rockhill" = SKIN_COLOR_ROCKHILL,
-		"Otava" = SKIN_COLOR_OTAVA,
-		"Etrusca" = SKIN_COLOR_ETRUSCA,
-		"Gronn" = SKIN_COLOR_GRONN,
-		"North Raneshen (Chorodiaki)" = SKIN_COLOR_GIZA,
-		"West Raneshen (Vrdaqnan)" = SKIN_COLOR_SHALVISTINE,
-		"East Raneshen (Nshkormh)" = SKIN_COLOR_LALVESTINE,
-		"Naledi" = SKIN_COLOR_NALEDI,
-		"Naledi South" = SKIN_COLOR_NALEDI_LIGHT,
-		"Kazengun" = SKIN_COLOR_KAZENGUN,
+		"Lyndhardtian" = SKIN_COLOR_LYNDHARDTIAN,
+		"Rhaenvalian" = SKIN_COLOR_RHAENVALIAN,
+		"Dunargi" = SKIN_COLOR_DUNARGI,
+		"Valorian" = SKIN_COLOR_VALORIAN,
+		"Calmirixian" = SKIN_COLOR_CALMIRIXIAN,
+		"Atvergian" = SKIN_COLOR_ATVERGIAN,
+		"North Zybantium (Akunana)" = SKIN_COLOR_NORTHERN_ZYBANTIUM,
+		"West Zybantium (Messied)" = SKIN_COLOR_WESTERN_ZYBANTIUM,
+		"East Zybantium (Tarourache)" = SKIN_COLOR_EASTERN_ZYBANTIUM,
+		"Khazumian" = SKIN_COLOR_KHAZUMIAN,
+		"Saltlian" = SKIN_COLOR_SALTLIAN,
+		"Salvumitian" = SKIN_COLOR_SALVUMITE,
 	)
