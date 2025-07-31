@@ -171,7 +171,7 @@
 #define TRAIT_NOHUNGER	"Foodless"
 #define TRAIT_DARKVISION "Darksight"
 #define TRAIT_LIGHT_STEP	"Light Step"
-#define TRAIT_AZURENATIVE "Azure Native"
+#define TRAIT_AZURENATIVE "Lyndvhar Native"
 #define TRAIT_SLEUTH	"Sleuth"
 #define TRAIT_HARDSHELL "Hardshell"
 #define TRAIT_WOODWALKER "Woodwalker"
