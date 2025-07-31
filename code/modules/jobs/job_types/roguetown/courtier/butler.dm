@@ -6,9 +6,16 @@
 	total_positions = 1
 	spawn_positions = 1
 
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = list(
+		/datum/species/human/northern,
+		/datum/species/elf/wood,
+		/datum/species/human/halfelf,
+		/datum/species/dwarf/mountain,
+		/datum/species/demihuman
+	)
+	allowed_sexes = list(MALE, FEMALE)
 
-	tutorial = "Servitude unto death; that is your motto. You are the manor's major-domo, commanding over the house servants and seeing to the administrative affairs, day to day of the estate. This role has style options for chief butlers and head maids."
+	tutorial = "Servitude unto death; that is your motto. You have worked tirelessly in the court of Lyndvhar as a servant, and this had not gone unrecognized. You have become the de-facto head of the serving staff, with power over the lesser courtiers. For if it were not for you and your underlings, the nobles would have starved to death long ago."
 	outfit = /datum/outfit/job/roguetown/seneschal
 	advclass_cat_rolls = list(CTAG_SENESCHAL = 20)
 	display_order = JDO_BUTLER
