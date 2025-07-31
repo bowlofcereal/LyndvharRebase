@@ -766,7 +766,7 @@
 //Unique church sword - slightly better than regular sabre due to falx chop.
 /obj/item/rogueweapon/sword/sabre/nockhopesh
 	name = "moonlight khopesh"
-	desc = "A sickle-shaped sword of Naledi origin that owes its design to a type of battle axe its ancient settlers once used - it represents a symbol of power and conquest. This one in particular is made of blued steel."
+	desc = "A sickle-shaped sword of southern Zybantium origin that owes its design to a type of battle axe its ancient settlers once used - it represents a symbol of power and conquest. This one in particular is made of blued steel."
 	icon_state = "nockhopesh"
 	force = 25	//Base is 22
 	possible_item_intents = list(/datum/intent/sword/cut/sabre, /datum/intent/sword/thrust, /datum/intent/sword/chop/falx, /datum/intent/sword/peel)

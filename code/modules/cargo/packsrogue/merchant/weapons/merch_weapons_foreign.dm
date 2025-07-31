@@ -25,7 +25,7 @@
 	contains = list(/obj/item/rogueweapon/stoneaxe/woodcut/steel/atgervi)
 
 /datum/supply_pack/rogue/merc_weapons/naledistaff
-	name = "Naledi Warstaff"
+	name = "Khazumian Warstaff"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/woodstaff/naledi)
 
