@@ -6,12 +6,21 @@
 	total_positions = 1
 	spawn_positions = 1
 
-	allowed_races = RACES_NO_CONSTRUCT	//No noble constructs.
+	allowed_races = list(
+		/datum/species/human/northern,
+		/datum/species/elf/wood,
+		/datum/species/human/halfelf,
+		/datum/species/dwarf/mountain,
+		/datum/species/elf/dark,
+		/datum/species/aasimar,
+		/datum/species/demihuman
+	)
 	allowed_sexes = list(MALE, FEMALE)
+	allowed_patrons = ALL_DIVINE_PATRONS
 	outfit = /datum/outfit/job/roguetown/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
 	display_order = JDO_HAND
-	tutorial = "You owe everything to your liege. Once, you were just a humble friend--now you are one of the most important people within the city itself. You have played spymaster and confidant to the Noble-Family for so long that you are a veritable vault of intrigue, something you exploit with potent conviction at every opportunity. Let no man ever forget into whose ear you whisper. You've killed more men with those lips than any blademaster could ever claim to."
+	tutorial = "You owe your entire life to the Viscount. Once perhaps a childhood friend, crush, or even lover-- now you are one of the most important people within the city itself, second only to the Viscount. You have played spymaster and confidant to the noble family for so long that you are a veritable vault of intrigue, something you exploit with potent conviction at every opportunity. Let no man ever forget into whose ear you whisper. You've killed more men with those lips than any blademaster could ever claim to."
 	whitelist_req = TRUE
 	give_bank_account = 44
 	noble_income = 22
@@ -140,53 +149,3 @@
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
-
-/datum/advclass/hand/advisor
-	name = "Advisor"
-	tutorial = " You have played researcher and confidant to the Noble-Family for so long that you are a vault of knowledge, something you exploit with potent conviction. Let no man ever forget the knowledge you wield. You've read more books than any blademaster or spymaster could ever claim to."
-	outfit = /datum/outfit/job/roguetown/hand/advisor
-
-	category_tags = list(CTAG_HAND)
-
-//Advisor start. Trades combat skills for more knowledge and skills - for older hands, hands that don't do combat - people who wanna play wizened old advisors. 
-/datum/outfit/job/roguetown/hand/advisor/pre_equip(mob/living/carbon/human/H)
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
-	backr = /obj/item/storage/backpack/rogue/satchel/black
-	l_hand = /obj/item/rogueweapon/huntingknife/idagger/dtace
-	r_hand = /obj/item/rogueweapon/sword/rapier/dec
-	backpack_contents = list(
-		/obj/item/storage/keyring/hand = 1,
-		/obj/item/reagent_containers/glass/bottle/rogue/poison = 1 //starts with a vial of poison, like all wizened evil advisors do!
-		)
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
-	pants = /obj/item/clothing/under/roguetown/tights/black
-	id = /obj/item/scomstone/garrison
-	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/tracking, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/lockpicking, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
-	H.change_stat("intelligence", 4)
-	H.change_stat("perception", 3)
-	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_ARCYNE_T2, TRAIT_GENERIC)
-	if(H.mind)
-		H?.mind.adjust_spellpoints(15)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-	if(H.age == AGE_OLD)
-		H.change_stat("speed", -1)
-		H.change_stat("strength", -1)
-		H.change_stat("intelligence", 1)
-		H.change_stat("perception", 1)
-		H?.mind.adjust_spellpoints(3)
-
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-
