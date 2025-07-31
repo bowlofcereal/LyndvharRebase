@@ -49,6 +49,12 @@
 			if(m_intent == MOVE_INTENT_RUN)
 				toggle_rogmove_intent(MOVE_INTENT_WALK)
 			return
+	if(HAS_TRAIT(src, TRAIT_CATLANDING))
+		if(levels >= 2 && prob(33))
+			Immobilize(15)
+			if(m_intent == MOVE_INTENT_RUN)
+				toggle_rogmove_intent(MOVE_INTENT_WALK)
+			return
 	var/points
 	for(var/i in 2 to levels)
 		i++

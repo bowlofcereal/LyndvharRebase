@@ -166,6 +166,7 @@
 #define TRAIT_TRIBALISM "Tribalism"
 #define TRAIT_WATERSLEEP "Amphibious"
 #define TRAIT_DRUNK_HEALING "Drunk Healing"
+#define TRAIT_CATLANDING "Graceful Landing"
 
 GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_LEPROSY = span_necrosis("I'm a disgusting leper..."),
@@ -302,6 +303,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_HERESIARCH = span_warning("I know of sacred sites of worship where followers of the Ascendants convene, and the path to the nearest conclave is etched into my memory."),
 	TRAIT_TRIBALISM = span_info("My confidence is bolstered when I see my own kin."),
 	TRAIT_WATERSLEEP = span_info("I sleep quite soundly in land or water both."),
+	TRAIT_CATLANDING = span_info("I can land safely from any height... Occasionally!"),
 	TRAIT_DRUNK_HEALING = span_info("Alcohol helps my body recover from injury.")
 ))
 

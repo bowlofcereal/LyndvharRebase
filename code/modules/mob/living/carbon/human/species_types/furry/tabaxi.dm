@@ -17,7 +17,7 @@
 		(+1 Speed)"
 	skin_tone_wording = "Fur Colors"
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE, MUTCOLORS)
-	inherent_traits = list(TRAIT_ZJUMP,TRAIT_LEAPER,TRAIT_NOFALLDAMAGE1)
+	inherent_traits = list(TRAIT_CATLANDING,TRAIT_LEAPER,TRAIT_NOFALLDAMAGE1)
 	possible_ages = ALL_AGES_LIST
 	limbs_icon_m = 'icons/roguetown/mob/bodies/m/mta.dmi'
 	limbs_icon_f = 'icons/roguetown/mob/bodies/f/fma.dmi'
