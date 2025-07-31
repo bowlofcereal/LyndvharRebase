@@ -195,7 +195,7 @@
 	overlay_state = "sacredflame"
 	releasedrain = 50 
 	chargedrain = 2
-	chargetime = 2 SECONDS
+	chargetime = 1 SECONDS
 	range = 3
 	sound = 'sound/misc/bamf.ogg'
 	warnie = "sydwarning"
