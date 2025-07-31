@@ -15,27 +15,27 @@
 		return the_pq
 	else
 		if(the_pq >= 100)
-			return "<span style='color: #74cde0;'>TRUE AZUREAN</span>"
+			return "<span style='color: #74cde0;'>Legendary</span>"
 		if(the_pq >= 70)
-			return "<span style='color: #00ff00;'>Magnificent!</span>"
+			return "<span style='color: #00ff00;'>Heroic</span>"
 		if(the_pq >= 50)
-			return "<span style='color: #00ff00;'>Exceptional!</span>"
+			return "<span style='color: #00ff00;'>Master</span>"
 		if(the_pq >= 30)
-			return "<span style='color: #47b899;'>Great!</span>"
+			return "<span style='color: #47b899;'>Adept</span>"
 		if(the_pq >= 10)
-			return "<span style='color: #69c975;'>Good!</span>"
+			return "<span style='color: #69c975;'>Apprentice</span>"
 		if(the_pq >= 5)
-			return "<span style='color: #58a762;'>Nice</span>"
+			return "<span style='color: #58a762;'>Novice</span>"
 		if(the_pq >= -4)
 			return "Normal"
 		if(the_pq >= -30)
-			return "<span style='color: #be6941;'>Poor</span>"
+			return "<span style='color: #be6941;'>Weak</span>"
 		if(the_pq >= -70)
 			return "<span style='color: #cd4232;'>Terrible</span>"
 		if(the_pq >= -99)
 			return "<span style='color: #e2221d;'>Abysmal</span>"
 		if(the_pq <= -100)
-			return "<span style='color: #ff00ff;'>Shitter</span>"
+			return "<span style='color: #ff00ff;'>Daemon</span>"
 		return "Normal"
 
 /proc/adjust_playerquality(amt, key, admin, reason)

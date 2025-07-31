@@ -1,7 +1,7 @@
 // Azure Grove - the areas to the south of the map
 
 /area/rogue/outdoors/woods
-	name = "The Azure Grove"
+	name = "Draguippe Forest"
 	icon_state = "woods"
 	ambientsounds = AMB_FORESTDAY
 	ambientnight = AMB_FORESTNIGHT
@@ -21,19 +21,19 @@
 				/mob/living/carbon/human/species/skeleton/npc/easy = 10,
 				/mob/living/carbon/human/species/goblin/npc/ambush = 30,
 				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
-	first_time_text = "THE AZURE GROVE"
+	first_time_text = "DRAGUIPPE FOREST"
 	converted_type = /area/rogue/indoors/shelter/woods
 	deathsight_message = "somewhere in the wilds"
 
 /area/rogue/indoors/shelter/woods
-	name = "Azure Grove"
+	name = "Draguippe Grove"
 	icon_state = "woods"
 	droning_sound = 'sound/music/area/forest.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/forestnight.ogg'
 
 /area/rogue/outdoors/woods/north
-	name = "Azure Grove - North"
+	name = "Draguippe - North"
 	// This section shouldn't have any sea mobs, but is close to the old warden tower
 	// So should be relatively easy
 	ambush_mobs = list(
@@ -43,7 +43,7 @@
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
 
 /area/rogue/outdoors/woods/northeast
-	name = "Azure Grove - Northeast"
+	name = "Draguippe - Northeast"
 	// Ambush list here is "easier" with some pirates mob, possibility of sea goblin
 	ambush_mobs = list(
 			/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
@@ -54,7 +54,7 @@
 			/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30)
 
 /area/rogue/outdoors/woods/southeast
-	name = "Azure Grove - Southeast"
+	name = "Draguippe - Southeast"
 	ambush_mobs = list(
 		/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
 		/mob/living/carbon/human/species/skeleton/npc/easy = 10,
@@ -65,7 +65,7 @@
 
 // Below three areas is pretty deep into the wild, lean toward medium / hard skeletons
 /area/rogue/outdoors/woods/south
-	name = "Azure Grove - South"
+	name = "Draguippe - South"
 	ambush_mobs = list(
 		/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
 		/mob/living/carbon/human/species/skeleton/npc/medium = 10,
@@ -74,7 +74,7 @@
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 20)
 
 /area/rogue/outdoors/woods/southwest
-	name = "Azure Grove - Southwest"
+	name = "Draguippe - Southwest"
 	ambush_mobs = list(
 		/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
 		/mob/living/carbon/human/species/skeleton/npc/medium = 10,
@@ -83,7 +83,7 @@
 		/mob/living/carbon/human/species/human/northern/highwayman/ambush = 20)
 
 /area/rogue/outdoors/woods/northwest
-	name = "Azure Grove - Northwest"
+	name = "Draguippe - Northwest"
 	ambush_mobs = list(
 		/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 40,
 		/mob/living/carbon/human/species/skeleton/npc/medium = 10,

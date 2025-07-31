@@ -139,7 +139,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 
 
 /area/rogue/outdoors/rtfield
-	name = "Azure Basin"
+	name = "City Outskirts"
 	icon_state = "rtfield"
 	soundenv = 19
 	ambush_times = list("night")
@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/mob/living/simple_animal/hostile/retaliate/rogue/wolf = 30,
 				/mob/living/carbon/human/species/skeleton/npc/easy = 50,
 				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 20)
-	first_time_text = "AZURE BASIN"
+	first_time_text = "LYNDVHAR OUTSKIRTS"
 	droning_sound = 'sound/music/area/field.ogg'
 	droning_sound_dusk = 'sound/music/area/septimus.ogg'
 	droning_sound_night = 'sound/music/area/sleeping.ogg'
@@ -565,12 +565,12 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "entrance"
 
 /area/rogue/indoors/town/dwarfin
-	name = "The Guild of Craft"
+	name = "Crafting Guild"
 	icon_state = "dwarfin"
 	droning_sound = 'sound/music/area/dwarf.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "AZUREAN GUILD OF CRAFT"
+	first_time_text = "SMITHY QUARTER"
 	converted_type = /area/rogue/outdoors/exposed/dwarf
 
 /area/rogue/outdoors/exposed/dwarf
