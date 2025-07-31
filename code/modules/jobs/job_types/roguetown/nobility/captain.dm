@@ -1,17 +1,23 @@
 /datum/job/roguetown/captain
-	title = "Knight Captain" //The Knight Captain is clearly not drawn from the ranks of guardsmen, or sergeants. They're drawn from the Knightly ranks and should be treated as such.
+	title = "Retinue Captain"
 	flag = GUARD_CAPTAIN
 	department_flag = NOBLEMEN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	allowed_races = RACES_NO_CONSTRUCT
+	allowed_races = list(
+		/datum/species/human/northern,
+		/datum/species/elf/wood,
+		/datum/species/human/halfelf,
+		/datum/species/dwarf/mountain,
+		/datum/species/elf/dark,
+		/datum/species/aasimar,
+		/datum/species/demihuman
+	)
 	allowed_sexes = list(MALE, FEMALE)
+	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
-	tutorial = "Your lineage is noble, and generations of strong, loyal knights have come before you. You served your time \
-	gracefully as knight of his royal majesty, and now you've grown into a role which many men can only dream of becoming. \
-	Veteran among knights, you lead the crown's knights to battle and organize the training squires. Obey the Marshal and the Crown. \
-	Lead your men to victory--and keep them in line--and you will see this realm prosper under a thousand suns."
+	tutorial = "Your lineage is noble, and generations of strong, loyal knights have come before you. You served your time gracefully as one of the most prominent knights of the Viscount, and one of the most feared fighters in Lyndvhar.. and now you've grown into a role which many men can only dream of becoming. Lead your men to victory--and keep them in line--and you will see this city prosper under a thousand suns and be returned to its former glory."
 	display_order = JDO_GUARD_CAPTAIN
 	advclass_cat_rolls = list(CTAG_CAPTAIN = 20)
 
@@ -70,9 +76,7 @@
 
 /datum/advclass/captain/infantry
 	name = "Infantry Captain"
-	tutorial = "You've fought shoulder to shoulder with the realm's worthiest Knights while embedded directly within \
-	massed infantry formations. As a peerless armed combatant and tactician both, you are a formidable presence \
-	on any battlefield."
+	tutorial = "You've fought shoulder to shoulder with the soldiery of Lyndhardtia while embedded directly within massed infantry formations in expedition. As a peerless armed combatant and tactician both, you are a formidable presence on any battlefield."
 	outfit = /datum/outfit/job/roguetown/captain/infantry
 	category_tags = list(CTAG_CAPTAIN)
 
@@ -179,8 +183,7 @@
 
 /datum/advclass/captain/cavalry
 	name = "Cavalry Captain"
-	tutorial = "As the first among finest you ride at the speartip of cavalier forces, barreling saiga and blades through \
-	the soft flanks and hard fronts of enemy formations, remember Agincourt, and do not hit the dirt below."
+	tutorial = "As the first among finest you ride at the speartip of cavalier forces, barreling saiga and blades through the soft flanks of enemy formations."
 	outfit = /datum/outfit/job/roguetown/captain/cavalry
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled
 	category_tags = list(CTAG_CAPTAIN)
