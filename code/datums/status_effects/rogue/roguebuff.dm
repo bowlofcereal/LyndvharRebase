@@ -13,12 +13,16 @@
 	desc = ""
 	icon_state = "drunk"
 
-/datum/status_effect/buff/drunk/process()
-	if(QDELETED(src) || !owner)  //prevents runtime
-		return
+/datum/status_effect/buff/drunk/on_apply()
 	. = ..()
 	if(HAS_TRAIT(owner, TRAIT_DRUNK_HEALING))
-		owner.apply_status_effect(/datum/status_effect/buff/healing) //will keep refreshing until no longer drunk
+		owner.reagents.add_reagent(/datum/reagent/medicine/healthpot,6)//a sip of weak red every 30 seconds whilst drunk
+		addtimer(CALLBACK(src, PROC_REF(top_up_healing)), 30 SECONDS)
+
+/datum/status_effect/buff/drunk/proc/top_up_healing()//this is hacky as fuck but it doesn't throw up runtimes and just werks so
+	if(!QDELETED(src) && owner && HAS_TRAIT(owner, TRAIT_DRUNK_HEALING))
+		owner.reagents.add_reagent(/datum/reagent/medicine/healthpot,6)
+		addtimer(CALLBACK(src, PROC_REF(top_up_healing)), 30 SECONDS)
 
 /atom/movable/screen/alert/status_effect/buff/drunkmurk
 	name = "Murk-Knowledge"
