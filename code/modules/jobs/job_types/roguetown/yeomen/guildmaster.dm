@@ -84,7 +84,7 @@ GLOBAL_VAR_INIT(last_guildmaster_announcement, -50000) // Inits variable for lat
 	set category = "GUILDMASTER"
 	if(stat)
 		return
-	var/announcementinput = input("Bellow to the Peaks", "Make an Announcement") as text|null
+	var/announcementinput = input("Speak to the City", "Make an Announcement") as text|null
 	if(announcementinput)
 		if(!src.can_speak_vocal())
 			to_chat(src,span_warning("I can't speak!"))
