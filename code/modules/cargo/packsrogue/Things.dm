@@ -96,7 +96,7 @@
 //////////////
 
 /datum/supply_pack/rogue/Things/rubyband
-	name = "Matthian SCOMSTONE"
+	name = "Rontz"
 	cost = 20
 	contains = list(/obj/item/mattcoin)
 

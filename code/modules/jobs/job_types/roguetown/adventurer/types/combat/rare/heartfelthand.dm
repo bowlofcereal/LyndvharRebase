@@ -27,7 +27,6 @@
 						/obj/item/flashlight/flare/torch = 1,
 						)
 	mask = /obj/item/clothing/mask/rogue/spectacles/golden
-	id = /obj/item/scomstone
 	H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)

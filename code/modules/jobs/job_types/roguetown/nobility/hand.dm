@@ -74,7 +74,6 @@
 		)
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 	pants = /obj/item/clothing/under/roguetown/tights/black
-	id = /obj/item/scomstone/garrison
 	H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -116,14 +115,12 @@
 		gloves = /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
 		mask = /obj/item/clothing/mask/rogue/shepherd/shadowmask
 		pants = /obj/item/clothing/under/roguetown/trou/shadowpants
-		id = /obj/item/scomstone/garrison
 	else
 		cloak = /obj/item/clothing/cloak/raincloak/mortus //cool spymaster cloak
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 		backr = /obj/item/storage/backpack/rogue/satchel/black
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/hand
 		pants = /obj/item/clothing/under/roguetown/tights/black
-		id = /obj/item/scomstone/garrison
 	H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)

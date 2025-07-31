@@ -35,7 +35,6 @@
 	beltr = /obj/item/rogueweapon/mace//Sign of status - he doesn't have the stats to actually use this in any meaningful way.
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	backl = /obj/item/storage/backpack/rogue/satchel
-	id = /obj/item/scomstone/bad//He is meant to be helping people around - hard to do when he can't hear their calls
 	backpack_contents = list(
 		/obj/item/storage/keyring/velder  = 1,
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,

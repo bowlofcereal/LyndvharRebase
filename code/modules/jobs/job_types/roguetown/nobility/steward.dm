@@ -43,7 +43,6 @@
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold/steward
 	beltr = /obj/item/storage/keyring/steward
 	backr = /obj/item/storage/backpack/rogue/satchel
-	id = /obj/item/scomstone
 
 	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)

@@ -32,7 +32,6 @@
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	beltl = /obj/item/storage/belt/rogue/surgery_bag/full/physician
 	beltr = /obj/item/roguekey/physician
-	id = /obj/item/scomstone/bad
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(

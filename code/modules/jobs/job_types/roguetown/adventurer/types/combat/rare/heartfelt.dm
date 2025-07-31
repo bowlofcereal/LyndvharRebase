@@ -28,7 +28,6 @@
 	backpack_contents = list(
 						/obj/item/flashlight/flare/torch = 1,
 						)
-	id = /obj/item/scomstone
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
