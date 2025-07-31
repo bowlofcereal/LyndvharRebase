@@ -4,12 +4,12 @@
 	title = "Templar"
 	department_flag = CHURCHMEN
 	faction = "Station"
-	tutorial = "Templars are warriors who have forsaken wealth and title in lieu of service to the church, due to either zealotry or a past shame. They guard the church and its priest while keeping a watchful eye against heresy and nite-creechers. Within troubled dreams, they wonder if the blood they shed makes them holy or stained."
+	tutorial = "Having forsaken your own wealth and any titles you may have possessed to serve the Pantheon either due to past transgressions or dutiful zealotry, you serve as a Templar of the Most Holy, charged with the protection of the Church of Lyndvhar. You are one of the first lines of defense of what may lurk in the dark. Serve the Church faithfully, and perhaps you will live to see the dae when the realm is pure once more."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 	allowed_patrons = ALL_DIVINE_PATRONS
 	outfit = /datum/outfit/job/roguetown/templar
-	min_pq = 3 //Deus vult, but only according to the proper escalation rules
+	min_pq = 5
 	max_pq = null
 	round_contrib_points = 2
 	total_positions = 4
