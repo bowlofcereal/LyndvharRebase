@@ -3,11 +3,11 @@
 	flag = BANDIT
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 0
-	spawn_positions = 0
+	total_positions = 5
+	spawn_positions = 5
 	antag_job = TRUE
 	allowed_races = RACES_ALL_KINDS
-	tutorial = "Long ago you did a crime worthy of your bounty being hung on the wall outside of the local inn. You now live with your fellow freemen in the bog, and generally get up to no good."
+	tutorial = "Long ago you did a crime worthy of your bounty being hung on the wall outside of the local inn. It was those of MATTHIOS that took you in afterwards, and they are all have you known since as your closest confidants and allies. Do beware, however: as in the Cult of Matthios- loyalty is fleeting."
 
 	outfit = null
 	outfit_female = null
@@ -66,7 +66,7 @@
 			bounty_total = rand(300, 400)
 		if("Bay Butcher")
 			bounty_total = rand(400, 500)
-		if("Azurean Boogeyman")
+		if("Lyndhardtian Boogeyman")
 			bounty_total = rand(500, 600)
 	var/my_crime = input(H, "What is your crime?", "Crime") as text|null
 	if (!my_crime)
