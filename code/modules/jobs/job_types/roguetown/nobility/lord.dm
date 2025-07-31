@@ -10,7 +10,13 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	total_positions = 1
 	spawn_positions = 1
 	selection_color = JCOLOR_NOBLE
-	allowed_races = RACES_NO_CONSTRUCT
+	allowed_races = list(
+		/datum/species/human/northern,
+		/datum/species/elf/wood,
+		/datum/species/human/halfelf,
+		/datum/species/dwarf/mountain,
+		/datum/species/demihuman
+	)
 	allowed_sexes = list(MALE, FEMALE)
 	advclass_cat_rolls = list(CTAG_LORD = 20)
 
@@ -25,7 +31,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	visuals_only_outfit = /datum/outfit/job/roguetown/lord/visuals
 
 	display_order = JDO_LORD
-	tutorial = "Elevated upon your throne through a web of intrigue and political upheaval, you are the absolute authority of these lands and at the center of every plot within it. Every man, woman and child is envious of your position and would replace you in less than a heartbeat: Show them the error of their ways."
+	tutorial = "At one point you were merely a vassal to the Ruby Throne, given special status and overseen by the Empress herself. However since her death there has been almost no communication outside of the city. You have had to take increasing amounts of autocratic power in order to sustain your port, so much so that many see you as effectively a monarch in your own right. And many want to take this from you, or use it to their advantage- keep your family alive and your power secure, and Lyndvhar may live to see another dae."
 	whitelist_req = FALSE
 	min_pq = 10
 	max_pq = null
@@ -104,7 +110,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 */
 /datum/advclass/lord/warrior
 	name = "Valiant Warrior"
-	tutorial = "You're a noble warrior. You rose to your rank through your own strength and skill, whether by leading your men or by fighting alongside them. Or perhaps you are none of that, but simply a well-trained heir elevated to the position of Lord. You're trained in the usage of heavy armor, and knows swordsmanship well."
+	tutorial = "You're a noble warrior. You rose to your rank through your own strength and skill, whether by leading your men or by fighting alongside them. Or perhaps you are none of that, but simply a well-trained heir elevated to the position of Viscount. You're trained in the usage of heavy armor, and knows swordsmanship well."
 	outfit = /datum/outfit/job/roguetown/lord/warrior
 	category_tags = list(CTAG_LORD)
 
@@ -143,7 +149,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 */
 /datum/advclass/lord/merchant
 	name = "Merchant Lord"
-	tutorial = "You were always talented with coins and trade. And your talents have brought you to the position of the Lord of Lyndvhar. You could be a merchant who bought his way into nobility and power, or an exceptionally talented noble who were inclined to be good with coins. Fighting directly is not your forte\
+	tutorial = "You were always talented with coins and trade. And your talents have brought you to the position of the Viscount of Lyndvhar. You could be a merchant who bought his way into nobility and power, or an exceptionally talented noble who were inclined to be good with coins. Fighting directly is not your forte\
 	But you have plenty of wealth, keen ears, and know a good deal from a bad one."
 	outfit = /datum/outfit/job/roguetown/lord/merchant
 	category_tags = list(CTAG_LORD)
@@ -186,7 +192,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 */
 /datum/advclass/lord/inbred
 	name = "Inbred Lord"
-	tutorial = "Psydon and Astrata smiles upon you. For despite your inbred and weak body, and your family's conspiracies to remove you from succession, you have somehow become the Lord of Lyndvhar. May your reign lasts a hundred years."
+	tutorial = "The Gods smile upon you. For despite your inbred and weak body, and your family's conspiracies to remove you from succession, you have somehow become the Viscount of Lyndvhar. May your reign lasts a hundred years."
 	outfit = /datum/outfit/job/roguetown/lord/inbred
 	category_tags = list(CTAG_LORD)
 
@@ -357,7 +363,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	overlay_state = "recruit_servant"
 	recruitment_faction = "Servants"
 	recruitment_message = "Serve the crown, %RECRUIT!"
-	accept_message = "FOR THE CROWN!"
+	accept_message = "FOR THE NOBILITY!"
 	refuse_message = "I refuse."
 	recharge_time = 100
 
@@ -366,5 +372,5 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	new_role = "Warden"
 	recruitment_faction = "Bog Guard"
 	recruitment_message = "Serve the Wardens, %RECRUIT!"
-	accept_message = "FOR THE GROVE!"
+	accept_message = "FOR THE WATCH!"
 	refuse_message = "I refuse."
