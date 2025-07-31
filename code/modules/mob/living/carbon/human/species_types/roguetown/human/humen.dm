@@ -5,15 +5,7 @@
 	name = "Humen"
 	id = "humen"
 	desc = "<b>Humen</b><br>\
-	Humens (or \"Humans\") are the eldest of the Weeping God's creations. Noted for their \
-	tenacity and overwhelming population, humens are the most commonly seen race across the lands, \
-	at a rate of about ten to one in regions such as Grenzelhoft. However, to the west \
-	the opposite is true. Humens come from a vast swathe of cultures and ethnicities, most of which \
-	have historically been at odds with one another. Being the eldest creations of the Weeping God, humens \
-	tend to find fortune easier than the other races, and are so diverse that no other racial traits \
-	are dominant in their species.<br>\
-	(+1 Endurance, +1 Intelligence)"
-
+	Those of Humenity are the second eldest of the Pantheon’s creations. They are mostly noted for their tenacity, as well as their ability to adapt to most if not all situations. Humens are the largest majority of mortal life in Beowricke, and come in many shapes, sizes, as well as different cultures and personal beliefs. They are the most diverse of the mortal creations, and are the majority presence in Lyndhardtia and beyond.<br>"
 	skin_tone_wording = "Ancestry"
 
 	default_color = "FFFFFF"
@@ -42,7 +34,6 @@
 		OFFSET_NECK_F = list(0,-1), OFFSET_MOUTH_F = list(0,-1), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,-1), \
 		)
-	race_bonus = list(STAT_INTELLIGENCE = 1, STAT_ENDURANCE = 1)
 	enflamed_icon = "widefire"
 	customizers = list(
 		/datum/customizer/organ/eyes/humanoid,
@@ -80,18 +71,18 @@
 /datum/species/human/northern/get_skin_list()
 	return list(
 		"Grenzelhoft" = SKIN_COLOR_GRENZELHOFT,
-		"Hammerhold" = SKIN_COLOR_HAMMERHOLD,
-		"Avar" = SKIN_COLOR_AVAR,
-		"Rockhill" = SKIN_COLOR_ROCKHILL,
-		"Otava" = SKIN_COLOR_OTAVA,
-		"Etrusca" = SKIN_COLOR_ETRUSCA,
-		"Gronn" = SKIN_COLOR_GRONN,
-		"North Raneshen (Chorodiaki)" = SKIN_COLOR_GIZA,
-		"West Raneshen (Vrdaqnan)" = SKIN_COLOR_SHALVISTINE,
-		"East Raneshen (Nshkormh)" = SKIN_COLOR_LALVESTINE,
-		"Naledi" = SKIN_COLOR_NALEDI,
-		"Naledi South" = SKIN_COLOR_NALEDI_LIGHT,
-		"Kazengun" = SKIN_COLOR_KAZENGUN
+		"Lyndhardtian" = SKIN_COLOR_LYNDHARDTIAN,
+		"Rhaenvalian" = SKIN_COLOR_RHAENVALIAN,
+		"Dunargi" = SKIN_COLOR_DUNARGI,
+		"Valorian" = SKIN_COLOR_VALORIAN,
+		"Calmirixian" = SKIN_COLOR_CALMIRIXIAN,
+		"Atvergian" = SKIN_COLOR_ATVERGIAN,
+		"North Zybantium (Akunana)" = SKIN_COLOR_NORTHERN_ZYBANTIUM,
+		"West Zybantium (Messied)" = SKIN_COLOR_WESTERN_ZYBANTIUM,
+		"East Zybantium (Tarourache)" = SKIN_COLOR_EASTERN_ZYBANTIUM,
+		"Khazumian" = SKIN_COLOR_KHAZUMIAN,
+		"Saltlian" = SKIN_COLOR_SALTLIAN,
+		"Salvumitian" = SKIN_COLOR_SALVUMITE,
 	)
 
 /datum/species/human/northern/get_hairc_list()
