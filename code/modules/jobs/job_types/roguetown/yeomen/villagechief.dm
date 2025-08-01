@@ -13,7 +13,7 @@
 	whitelist_req = TRUE
 	outfit = /datum/outfit/job/roguetown/elder
 	display_order = JDO_CHIEF
-	min_pq = 2 //mentor role, not a high PQ requirement but not zero
+	min_pq = 2
 	max_pq = null
 	give_bank_account = 16
 	round_contrib_points = 3
@@ -27,12 +27,12 @@
 /datum/outfit/job/roguetown/elder/pre_equip(mob/living/carbon/human/H)
 	..()
 	
-	cloak = /obj/item/clothing/cloak/stabard/guardhood/elder
+	cloak = /obj/item/clothing/cloak/raincloak/furcloak/woad
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/white
-	pants = /obj/item/clothing/under/roguetown/tights//The idea is sort of that they just pick whichever colours correspond with the lord colours in round.
-	shoes = /obj/item/clothing/shoes/roguetown/shortboots
-	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/rogueweapon/mace//Sign of status - he doesn't have the stats to actually use this in any meaningful way.
+	pants = /obj/item/clothing/under/roguetown/trou/leather
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
+	belt = /obj/item/storage/belt/rogue/leather	
+	beltr = /obj/item/rogueweapon/mace/steel/morningstar
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
@@ -71,8 +71,9 @@
 	if(should_wear_femme_clothes(H))//Village grandma look.
 		head = /obj/item/clothing/head/roguetown/chaperon/greyscale/elder
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress
-		backr = /obj/item/clothing/cloak/raincloak/furcloak
 	else if(should_wear_masc_clothes(H))//Bailiff sort of look to it.
 		head = /obj/item/clothing/head/roguetown/chaperon/greyscale/elder
 		shirt = /obj/item/clothing/suit/roguetown/shirt/tunic
 		gloves = /obj/item/clothing/gloves/roguetown/leather
+	if(H.mind)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/teach)
