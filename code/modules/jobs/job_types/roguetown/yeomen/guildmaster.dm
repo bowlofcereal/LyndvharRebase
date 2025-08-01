@@ -10,8 +10,8 @@
 
 	allowed_races = RACES_ALL_KINDS
 
-	tutorial = "You are the leader of the Lyndvhar Guild of Crafts. You represents the interests of all of the craftsmen underneath you - including the Tailor\
-	the Blacksmiths, the Artificers and the Architects. Other townspeople may look to you for guidance, but they are not under your control. You are an experienced smith and artificer, and can do their work easily. Protect the craftsmen's interests."  
+	tutorial = "You are the leader of the Craftsman Guild of Lyndvhar. You represents the interests of all of the craftsmen underneath you - including the Tailor\
+	the Blacksmiths, the Artificers and the Architects. Other townspeople may look to you for guidance, but they are not under your control. Due to the increasing demand for material you were given privileged status as a member of nobility. Use this however you must.."  
 
 	outfit = /datum/outfit/job/roguetown/guildmaster
 	selection_color = JCOLOR_YEOMAN
@@ -25,6 +25,7 @@
 /datum/outfit/job/roguetown/guildmaster/pre_equip(mob/living/carbon/human/H)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_TRAINED_SMITH, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	head = /obj/item/clothing/head/roguetown/chaperon/noble/guildmaster
 	gloves = /obj/item/clothing/gloves/roguetown/angle/grenzelgloves/blacksmith
 	if(H.mind)
