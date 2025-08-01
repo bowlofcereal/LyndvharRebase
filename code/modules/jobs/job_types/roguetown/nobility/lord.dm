@@ -362,7 +362,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	new_role = "Servant"
 	overlay_state = "recruit_servant"
 	recruitment_faction = "Servants"
-	recruitment_message = "Serve the crown, %RECRUIT!"
+	recruitment_message = "Serve the nobility, %RECRUIT!"
 	accept_message = "FOR THE NOBILITY!"
 	refuse_message = "I refuse."
 	recharge_time = 100
