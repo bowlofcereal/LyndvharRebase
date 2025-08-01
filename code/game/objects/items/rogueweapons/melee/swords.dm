@@ -100,7 +100,7 @@
 
 /obj/item/rogueweapon/sword
 	name = "arming sword"
-	desc = "A long steel blade attached to a hilt, separated by a crossguard. The arming sword has been Psydonia's implement of war by excellence for generations."
+	desc = "A long steel blade attached to a hilt, separated by a crossguard. The arming sword has been Beowricke's implement of war by excellence for generations."
 	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
 	force = 22
 	force_wielded = 25
@@ -240,7 +240,7 @@
 
 /obj/item/rogueweapon/sword/long
 	name = "longsword"
-	desc = "A lethal and perfectly balanced weapon. The longsword is the protagonist of endless tales and myths all across Psydonia, seen in the hands of noblemen and an ever-decreasing quantity of master duelists.\
+	desc = "A lethal and perfectly balanced weapon. The longsword is the protagonist of endless tales and myths all across Beowricke, seen in the hands of noblemen and an ever-decreasing quantity of master duelists.\
 		 It has great cultural significance in the Ruby Empire, where legendary swordsmen have created and perfected many fighting techniques of todae."
 	force = 25
 	force_wielded = 30
@@ -505,7 +505,7 @@
 
 /obj/item/rogueweapon/sword/long/marlin
 	name = "shalal saber"
-	desc = "A large yet surprisingly agile curved blade meant to be wielded in two hands. It has a similar composition to northwestern Psydonian longswords, but it's notably lighter."
+	desc = "A large yet surprisingly agile curved blade meant to be wielded in two hands. It has a similar composition to northwestern Llewynic longswords, but it's notably lighter."
 	force = 26
 	force_wielded = 31
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/strike, /datum/intent/sword/peel)
@@ -611,7 +611,7 @@
 
 /obj/item/rogueweapon/sword/iron
 	name = "iron arming sword"
-	desc = "A long iron blade attached to a hilt, separated by a crossguard. The arming sword has been Psydonia's implement of war by excellence for generations, this one is cheaper than its steel brother."
+	desc = "A long iron blade attached to a hilt, separated by a crossguard. The arming sword has been Beowricke's implement of war by excellence for generations, this one is cheaper than its steel brother."
 	icon_state = "isword"
 	minstr = 6
 	smeltresult = /obj/item/ingot/iron

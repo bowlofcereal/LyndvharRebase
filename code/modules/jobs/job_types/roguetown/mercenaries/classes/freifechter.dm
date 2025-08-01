@@ -22,7 +22,7 @@
 	switch(classchoice)
 		if("Fencer")
 			H.set_blindness(0)
-			to_chat(H, span_warning("You are a master in the arts of the longsword. Wielder of Psydonia's most versatile and noble weapon, you needn't anything else. You can choose a regional longsword."))
+			to_chat(H, span_warning("You are a master in the arts of the longsword. Wielder of Beowricke's most versatile and noble weapon, you needn't anything else. You can choose a regional longsword."))
 			H.adjust_skillrank(/datum/skill/combat/swords, 5, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)

@@ -130,7 +130,7 @@
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/churn.ogg'
-	invocation = "Spiders of psydonia, allow me to pass safely!"
+	invocation = "Spiders of Beowricke, allow me to pass safely!"
 	invocation_type = "shout"
 	associated_skill = /datum/skill/magic/holy
 	recharge_time = 4 SECONDS
