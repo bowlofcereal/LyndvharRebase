@@ -8,8 +8,7 @@
 	category_tags = list(CTAG_MERCENARY)
 	cmode_music = 'sound/music/combat_desertrider.ogg' //GREATEST COMBAT TRACK IN THE GAME SO FAR BESIDES MAYBE MANIAC2.OGG
 	classes = list("Jannisary" = "The Janissaries are the Empire's elite infantry units, wielding mace and shield. We do not break.",
-					"Zeybek" = "Ranesheni 'Blade Dancers' famed and feared the world over. Their expertise in blades both long and short is well known.",
-					"Almah" = "Almah are those skilled in both magyck and swordsmanship, but excelling in nothing.")
+					"Zeybek" = "Ranesheni 'Blade Dancers' famed and feared the world over. Their expertise in blades both long and short is well known.")
 
 
 /datum/outfit/job/roguetown/mercenary/desert_rider/pre_equip(mob/living/carbon/human/H)
@@ -17,7 +16,7 @@
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
-	var/classes = list("Janissary","Zeybek","Almah")
+	var/classes = list("Janissary","Zeybek")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
