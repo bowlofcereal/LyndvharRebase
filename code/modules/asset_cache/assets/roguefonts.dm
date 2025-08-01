@@ -21,5 +21,5 @@
 		"valorian.ttf" = 'interface/fonts/languages/valorian.ttf',
 		"dunargi.ttf" = 'interface/fonts/languages/dunargi.ttf',
 		"rhaenvalian.ttf" = 'interface/fonts/languages/rhaenvalian.ttf',
-		"aavnic.ttf" = 'interface/fonts/languages/aavnic.ttf',
+		"kargradi.ttf" = 'interface/fonts/languages/kargradi.ttf',
 	)

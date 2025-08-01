@@ -71,7 +71,7 @@
 #define SPAN_ORC "orc"
 #define SPAN_DRACONIC "reptile"
 #define SPAN_SALTLIAN "saltlian"
-#define SPAN_AAVNIC "aavnic"
+#define SPAN_KARGRADI "kargradi"
 #define SPAN_UNDEAD "undead" //nyi but file found
 #define SPAN_CAT "cat"		 //nyi but file found
 #define SPAN_PULSEDEATH "pulsedeath"

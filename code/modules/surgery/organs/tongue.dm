@@ -22,8 +22,9 @@
 		/datum/language/grenzelhoftian,
 		/datum/language/saltlian,
 		/datum/language/valorian,
+		/datum/language/dunargi,
 		/datum/language/rhaenvalian,
-		/datum/language/aavnic
+		/datum/language/kargradi
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)
