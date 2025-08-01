@@ -15,7 +15,7 @@
 
 /datum/outfit/job/roguetown/mercenary/vaquero/pre_equip(mob/living/carbon/human/H)
 	..()
-	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
@@ -29,7 +29,7 @@
 	H.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/music, 5, TRUE)
 	head = /obj/item/clothing/head/roguetown/bardhat
 	mouth = /obj/item/alch/rosa
 	shoes = /obj/item/clothing/shoes/roguetown/boots
@@ -78,5 +78,4 @@
 	H.change_stat("endurance", 1)
 	H.change_stat("speed", 3)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DECEIVING_MEEKNESS, TRAIT_GENERIC)
