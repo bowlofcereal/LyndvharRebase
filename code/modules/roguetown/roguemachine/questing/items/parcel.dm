@@ -57,7 +57,7 @@
 		/area/rogue/indoors/town/dwarfin = list("Guildmaster", "Guildsman"),
 		/area/rogue/indoors/town/shop = list("Merchant", "Shophand"),
 		/area/rogue/indoors/town/manor = list("Councillor", "Nobleman", "Hand", "Retinue Captain", "Marshal", "Steward", "Clerk", "Head Mage", "Duke"),
-		/area/rogue/indoors/town/magician = list("Archmagus", "Magicians Associate"),
+		/area/rogue/indoors/town/magician = list("Archmagus", "Magicians Apprentice"),
 		/area/rogue/indoors/town = list("Guild Handler")
 	)
 	return area_jobs[area_type] || list("Town Elder", "Steward", "Merchant")
