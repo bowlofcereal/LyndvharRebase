@@ -394,7 +394,7 @@
 	H.adjust_blindness(-3)
 	var/weapons = list("Rapier + Longbow","Estoc + Recurve Bow","Sabre + Buckler","Whip + Crossbow","Greataxe + Sling")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
-	var/armor_choice = input("Choose your armor.", "TAKE UP ARMS") as anything in armors
+	var/armor_choice = input("Choose your armor.", "TAKE UP ARMS") as anything in armor_options
 	H.set_blindness(0)
 	switch(weapon_choice)
 		if("Rapier + Longbow")
