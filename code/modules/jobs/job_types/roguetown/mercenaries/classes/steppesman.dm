@@ -37,11 +37,11 @@
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
-	var/classes = list("Bahadur - Armored Fighter","Druzhina - Ranged Skirmisher","Kozak - Melee Skirmisher")
+	var/classes = list("Bahadur","Druzhina","Kozak")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
-		if("Bahadur - Armored Fighter")	//Tl;dr - medium armor class for Mount and Blade larpers who still get a saiga. Akin to Vaquero with specific drip.
+		if("Bahadur")	//Tl;dr - medium armor class for Mount and Blade larpers who still get a saiga. Akin to Vaquero with specific drip.
 			H.set_blindness(0)
 			to_chat(H, span_warning("The Bahadur are the elites of the southern steppes, veterans of conflict across the realm. Outfitted with a sabre and shield, these warriors sacrifice their swiftness for armor and civilized respect."))
 			shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
@@ -51,11 +51,11 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/steppe	//Scale armor w/ better durability & unique sprite
 			cloak = /obj/item/clothing/cloak/raincloak/furcloak
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
-			beltr = /obj/item/rogueweapon/shield/wood
+			backl = /obj/item/rogueweapon/shield/tower
 			beltl= /obj/item/rogueweapon/scabbard/sword
 			l_hand = /obj/item/rogueweapon/sword/sabre
 			neck = /obj/item/clothing/neck/roguetown/chaincoif
-			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -69,7 +69,7 @@
 			H.change_stat("speed", 1)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/evil() 	//Fits in my head all too well.
-		if("Druzhina - Ranged Skirmisher")	//Tl;dr - light armor class for Tatar-style archery. Has 'Druzhina' as a name cus czech/polish influence, couldn't think of better one.
+		if("Druzhina")	//Tl;dr - light armor class for Tatar-style archery. Has 'Druzhina' as a name cus czech/polish influence, couldn't think of better one.
 			H.set_blindness(0)
 			to_chat(H, span_warning("A Druzhina, a commoner of the steppes made into a professional soldier. Hunters, herders, and various nomads from all walks of life. Equal in service, equal behind their bow, and ready to fight."))
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
@@ -82,8 +82,8 @@
 			beltl = /obj/item/quiver/arrows
 			backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 			neck = /obj/item/clothing/neck/roguetown/leather
-			H.adjust_skillrank(/datum/skill/combat/bows, 5, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/slings, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
@@ -96,7 +96,7 @@
 			H.change_stat("endurance", 2)
 			H.change_stat("speed", 2)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-		if("Kozak - Melee Skirmisher")		//Tl;dr - Old Steppesman whip build, light armor, be the glass canon you always wanted to be. Live your life, king. 
+		if("Kozak")		//Tl;dr - Old Steppesman whip build, light armor, be the glass canon you always wanted to be. Live your life, king. 
 			H.set_blindness(0)
 			to_chat(H, span_warning("Being a Kozak is not a title one earns, nor is born with. It's a way of life. Known to be esentric, living life on the edge - but living as free as possible. Skilled with whips, these madmen are the bane of civilized warriors."))
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
@@ -108,7 +108,7 @@
 			beltr = /obj/item/rogueweapon/shield/buckler		//Doesn't get good shield skill + no armor, so they get this to compensate for no parry on whip.
 			beltl = /obj/item/rogueweapon/whip
 			neck = /obj/item/clothing/neck/roguetown/bevor		//Better neckpiece for slightly less skill variety. Based it off a cool piece of art...
-			H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)		//Bit high but he doesn't get huge strength boons so makes up for it. Same as a guard.
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
