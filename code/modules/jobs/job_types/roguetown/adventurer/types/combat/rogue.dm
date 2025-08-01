@@ -26,12 +26,11 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			belt = /obj/item/storage/belt/rogue/leather
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			backr = /obj/item/rogueweapon/shovel
 			head = /obj/item/clothing/head/roguetown/fedora
-			beltl = /obj/item/flashlight/flare/torch/lantern
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			backpack_contents = list(
 				/obj/item/lockpick = 1, 
@@ -119,14 +118,14 @@
 				if("Local Scoundrel")
 					backpack_contents = list(
 						/obj/item/flashlight/flare/torch = 1,
-						/obj/item/rogueweapon/huntingknife/idagger/steel = 1,
+						/obj/item/rogueweapon/huntingknife/idagger = 1,
 						/obj/item/lockpickring/mundane = 1,
 						/obj/item/recipe_book/survival = 1,
 						)
 					belt = /obj/item/storage/belt/rogue/leather/knifebelt/iron
 					gloves = /obj/item/clothing/gloves/roguetown/fingerless
 					pants = /obj/item/clothing/under/roguetown/trou/leather
-					shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+					shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 					cloak = /obj/item/clothing/cloak/raincloak/mortus
 				if("Eastern Agent")
 					backpack_contents = list(
@@ -166,7 +165,7 @@
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless
 			belt = /obj/item/storage/belt/rogue/leather
 			beltl = /obj/item/flashlight/flare/torch/lantern
-			beltr = /obj/item/rogueweapon/huntingknife/idagger/steel
+			beltr = /obj/item/rogueweapon/huntingknife/idagger
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 			backl = /obj/item/storage/backpack/rogue/satchel
 			cloak = /obj/item/clothing/cloak/half/red
@@ -215,7 +214,7 @@
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			beltl = /obj/item/flashlight/flare/torch/lantern
+			beltl = /obj/item/flashlight/flare/torch
 			beltr = /obj/item/rogueweapon/sword/cutlass
 			backpack_contents = list(
 				/obj/item/bomb = 1,
@@ -224,7 +223,7 @@
 				/obj/item/recipe_book/survival = 1,
 				/obj/item/rogueweapon/scabbard/sheath = 1
 				)
-			H.cmode_music = 'sound/music/jukeboxes/oldschool/Sea_Shanty2.ogg'
+			H.cmode_music = 'sound/music/combat_swashbuckler.ogg'
 			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
