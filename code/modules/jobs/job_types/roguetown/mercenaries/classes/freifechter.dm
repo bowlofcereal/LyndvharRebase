@@ -1,13 +1,13 @@
 /datum/advclass/mercenary/freelancer
 	name = "Freifechter"
-	tutorial = "You are a graduate of the Aavnic Freifechters - \"Freelancers\" - the Potentate's largest fighting guild, recognized as an encomium to Ravox by decree of the Holy See. It has formed in recent years, but its visitors come from all over Western Psydonia. You have swung one weapon ten-thousand times, and not the other way around. Your trust is placed in your skills, not your equipment."
+	tutorial = "You are a graduate of the Kargrade Freifechters - \"Freelancers\" - the Potentate's largest fighting guild from the southeastern most part of Lyndhardtia, recognized as an encomium to Ravox by decree of the Mother Church. It has waned in recent years due to civil war, but its visitors come from all over Llewyn. You have swung one weapon ten-thousand times, and not the other way around. Your trust is placed in your skills, not your equipment."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/freelancer
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
 	cmode_music = 'sound/music/combat_noble.ogg'	
-	classes = list("Fencer" = "You are a master in the arts of the longsword. Wielder of Psydonia's most versatile and noble weapon, you needn't anything else.",
+	classes = list("Fencer" = "You are a master in the arts of the longsword. Wielder of Beowricke's most versatile and noble weapon, you needn't anything else.",
 					"Lancer" = "You put complete trust in your polearm, the most effective weapon the world has seen. Why wear armour when you cannot be hit?")
 					//"Cortador" = "You completely forego long arms, having proven yourself effective in the teachings of the Dunargi knife-fighting masters of old. Your knife and traditionally decorated cloth shield are unrivaled.")
 
