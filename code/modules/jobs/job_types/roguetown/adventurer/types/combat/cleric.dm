@@ -37,11 +37,10 @@
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/priest
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/monk
 			pants = /obj/item/clothing/under/roguetown/tights/black
-			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
+			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			backl = /obj/item/storage/backpack/rogue/satchel
 			belt = /obj/item/storage/belt/rogue/leather/rope
-			beltr = /obj/item/flashlight/flare/torch/lantern
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1, 
@@ -99,12 +98,12 @@
 			belt = /obj/item/storage/belt/rogue/leather
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/rogueweapon/shield/iron
-			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-			wrists = /obj/item/clothing/wrists/roguetown/bracers
-			pants = /obj/item/clothing/under/roguetown/chainlegs
-			shoes = /obj/item/clothing/shoes/roguetown/boots
-			gloves = /obj/item/clothing/gloves/roguetown/chain
+			wrists = /obj/item/clothing/wrists/roguetown/bracers/iron
+			pants = /obj/item/clothing/under/roguetown/chainlegs/iron
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
+			gloves = /obj/item/clothing/gloves/roguetown/chain/iron
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1, 
@@ -164,14 +163,11 @@
 			H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
 			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1)	//Capped to T1 miracles.
-			var/weapons = list("Longsword","Mace","Flail")
+			var/weapons = list("Falchion","Mace","Flail")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
-				if("Longsword")
-					if(HAS_TRAIT(H, TRAIT_PSYDONITE))
-						beltr = /obj/item/rogueweapon/sword/long/oldpsysword
-					else
-						beltr = /obj/item/rogueweapon/sword/long
+				if("Falchion")
+					beltr = /obj/item/rogueweapon/sword/falchion
 					r_hand = /obj/item/rogueweapon/scabbard/sword
 					H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 				if("Mace")
@@ -191,16 +187,16 @@
 			head = /obj/item/clothing/head/roguetown/bardhat
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 			backl = /obj/item/storage/backpack/rogue/satchel
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 			belt = /obj/item/storage/belt/rogue/leather/knifebelt/iron
-			beltr = /obj/item/rogueweapon/huntingknife/idagger/steel/special
+			beltr = /obj/item/rogueweapon/huntingknife/idagger
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
-			C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = FALSE, devotion_limit = CLERIC_REQ_2)	//Capped to T2 miracles.
+			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1)	//Capped to T2 miracles.
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1,
 				/obj/item/recipe_book/survival = 1,
@@ -275,7 +271,6 @@
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			backr = /obj/item/rogueweapon/woodstaff
 			belt = /obj/item/storage/belt/rogue/leather
-			beltr = /obj/item/flashlight/flare/torch/lantern
 			backpack_contents = list(
 				/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 				/obj/item/flashlight/flare/torch = 1,
@@ -332,7 +327,7 @@
 					cloak = /obj/item/clothing/suit/roguetown/shirt/robe //placeholder, anyone who doesn't have cool patron drip sprites just gets generic robes
 					head = /obj/item/clothing/head/roguetown/roguehood
 			var/datum/devotion/C = new /datum/devotion(H, H.patron)
-			C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_3)	//Minor regen, capped to T3.
+			C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_3)	//Minor regen, capped to T3.
 	switch(H.patron?.type)
 		if(/datum/patron/old_god)
 			neck = /obj/item/clothing/neck/roguetown/psicross
@@ -373,4 +368,3 @@
 	  		/datum/patron/inhumen/matthios,
 	   		/datum/patron/inhumen/graggar,
 	   		/datum/patron/inhumen/baotha)
-			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)

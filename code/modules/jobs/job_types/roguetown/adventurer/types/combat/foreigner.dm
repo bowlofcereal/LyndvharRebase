@@ -42,7 +42,7 @@
 			H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) 			//this shouldn't be enough to allow them to craft shit, rather just repair their prone-to-break armor
 			backpack_contents = list(
 				/obj/item/recipe_book/survival = 1,
-				/obj/item/flashlight/flare/torch/lantern,
+				/obj/item/flashlight/flare/torch,
 				)
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 1)
@@ -59,7 +59,6 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/basiceast/mentorsuit
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			belt = /obj/item/storage/belt/rogue/leather/
-			beltl = /obj/item/flashlight/flare/torch/lantern
 			backl = /obj/item/storage/backpack/rogue/satchel
 			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)		
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
