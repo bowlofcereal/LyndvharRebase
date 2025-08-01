@@ -1,8 +1,8 @@
 /datum/advclass/mercenary/forlorn
 	name = "Forvheipal Thrall"
-	tutorial = "A thrall-warrior from the strange and enigmatic kingdom in Yoheon, Forvheipal. The thralls are a sellsword contingent of the Zapyrixian Order- mostly made up of Lupians and Vulpkian slaves-from-birth. They will do any work for the highest bidder as per their contract made from birth- and thus you will, too."
+	tutorial = "A thrall-warrior fromE the strange and enigmatic kingdom in Yoheon, Forvheipal. The thralls are a sellsword contingent of the Zapyrixian Order- mostly made up of Lupians and Vulpkian slaves-from-birth. They will do any work for the highest bidder as per their contract made from birth- and thus you will, too."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/forlorn
 	min_pq = 2
 	cmode_music = 'sound/music/combat_blackstar.ogg'

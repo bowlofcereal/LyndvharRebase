@@ -2,7 +2,7 @@
 	name = "Steppesman"
 	tutorial = "Once serving a Hetmen from the frontiers, you have been rented out as a mercenary in the distant realms to bring coin home. There are three things you value most; saigas, freedom, and coin."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/steppesman
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)

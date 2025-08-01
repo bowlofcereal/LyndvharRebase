@@ -2,7 +2,7 @@
 	name = "Freifechter"
 	tutorial = "You are a graduate of the Aavnic Freifechters - \"Freelancers\" - the Potentate's largest fighting guild, recognized as an encomium to Ravox by decree of the Holy See. It has formed in recent years, but its visitors come from all over Western Psydonia. You have swung one weapon ten-thousand times, and not the other way around. Your trust is placed in your skills, not your equipment."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/freelancer
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)

@@ -2,7 +2,7 @@
 	name = "Condottiero Guildsman"
 	tutorial = "Hailing from the Dunargun Province, Condottieri are soldiers of fortune oft found in the employ of powerful merchants. With the civil war currently raging, the city of Lyndvhar has become desperate for mercenaries. You took the contract-- after all, the most lucrative contracts come from desperate times."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 	traits_applied = list(TRAIT_OUTLANDER)
 	outfit = /datum/outfit/job/roguetown/mercenary/condottiero
 	category_tags = list(CTAG_MERCENARY)

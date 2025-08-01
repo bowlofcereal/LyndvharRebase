@@ -2,7 +2,7 @@
 	name = "Atgervi"
 	tutorial = "Atgervians are the term for those who live in the far north of Rhaenval. This land is particular known for its highlands and more hostile weather patterns- those who live here are the hardiest and most fiercesome of people. In past daes the Atgervians were known as fierce sea raiders. But those daes have passed."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/atgervi
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
