@@ -391,6 +391,9 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter/town/sargoth)
+"akO" = (
+/turf/closed/wall/mineral/rogue/decostone/cand,
+/area/rogue/indoors/town/dwarfin)
 "akR" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/ausbushes/brflowers,
@@ -5252,9 +5255,6 @@
 /area/rogue/indoors/town/manor)
 "dLz" = (
 /obj/machinery/light/rogue/smelter/hiron,
-/obj/machinery/light/rogue/wallfire{
-	pixel_y = 32
-	},
 /turf/open/floor/rogue/metal,
 /area/rogue/indoors/town/dwarfin)
 "dLC" = (
@@ -15392,9 +15392,7 @@
 /area/rogue/indoors/town)
 "kED" = (
 /obj/machinery/light/rogue/smelter,
-/obj/machinery/light/rogue/wallfire{
-	pixel_y = 32
-	},
+/obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/metal,
 /area/rogue/indoors/town/dwarfin)
 "kEO" = (
@@ -17205,9 +17203,6 @@
 /area/rogue/indoors/town/shop)
 "lRR" = (
 /obj/machinery/light/rogue/smelter/bronze,
-/obj/machinery/light/rogue/wallfire{
-	pixel_y = 32
-	},
 /turf/open/floor/rogue/metal{
 	dir = 4
 	},
@@ -17829,12 +17824,10 @@
 /area/rogue/outdoors/rtfield/eora)
 "mmy" = (
 /obj/machinery/light/rogue/smelter,
-/obj/machinery/light/rogue/wallfire{
-	pixel_y = 32
-	},
 /obj/structure/fluff/walldeco/chains{
 	icon_state = "chains7"
 	},
+/obj/machinery/light/rogue/torchholder/c,
 /turf/open/floor/rogue/metal{
 	dir = 4
 	},
@@ -23356,6 +23349,9 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/magician)
+"pTy" = (
+/turf/closed/wall/mineral/rogue/decostone/mossy/cand,
+/area/rogue/indoors/town/dwarfin)
 "pTP" = (
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -74695,7 +74691,7 @@ rGr
 dNA
 rGr
 rGr
-rGr
+pTy
 mWg
 rlR
 xhm
@@ -75180,7 +75176,7 @@ mhC
 nbT
 nbT
 xVi
-rGr
+akO
 kED
 prE
 hvt
@@ -75828,7 +75824,7 @@ rGr
 nbT
 nbT
 xVi
-rGr
+akO
 mmy
 prE
 xkS
@@ -76315,7 +76311,7 @@ rGr
 aEM
 rGr
 rGr
-rGr
+pTy
 rcY
 rGr
 qUy
