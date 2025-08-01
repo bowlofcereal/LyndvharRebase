@@ -37,16 +37,16 @@
 
 /datum/outfit/job/roguetown/dungeoneer/pre_equip(mob/living/carbon/human/H)
 	..()
-	pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/councillor//Just so I don't have to make another subtype just for it to start black.
+	pants = /obj/item/clothing/under/roguetown/trou/leather
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
 	armor = /obj/item/clothing/suit/roguetown/armor/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	gloves = /obj/item/clothing/gloves/roguetown/leather/black
 	belt = /obj/item/storage/belt/rogue/leather/black
 	beltr = /obj/item/rogueweapon/whip/antique
 	beltl = /obj/item/storage/keyring/dungeoneer
-	backr = /obj/item/storage/backpack/rogue/satchel/black
+	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 2,
 		/obj/item/flashlight/flare/torch/lantern = 1,
@@ -69,7 +69,6 @@
 	//Torture victim is for inquisition - doesn't even work without a psicross anymore so maybe come up with a variant for him specifically?
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DUNGEONMASTER, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_GUARDSMAN, TRAIT_GENERIC)
 	switch(H.patron?.type)
 		if(/datum/patron/divine/necra)
 			head = /obj/item/clothing/head/roguetown/necrahood
