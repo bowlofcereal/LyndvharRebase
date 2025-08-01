@@ -41,11 +41,11 @@
 /datum/outfit/job/roguetown/guardsman
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
-	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
-	belt = /obj/item/storage/belt/rogue/leather
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather		//Would seperate to leather bracers for archer for dodge but - funnily, armor class doesn't exist on bracers.
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+	neck = /obj/item/clothing/neck/roguetown/gorget
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
+	belt = /obj/item/storage/belt/rogue/leather/steel
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/signal_horn = 1)
 
@@ -87,7 +87,7 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	head = pickweight(list(/obj/item/clothing/head/roguetown/helmet = 3, /obj/item/clothing/head/roguetown/helmet/kettle = 7))
 	armor = pickweight(list(/obj/item/clothing/suit/roguetown/armor/plate/half = 3, /obj/item/clothing/suit/roguetown/armor/plate/half/iron = 7))
 	beltr = /obj/item/rogueweapon/mace/cudgel
-	backl = /obj/item/rogueweapon/shield/buckler		//Maybe give a buckler? Gave wood because 40 coverage is better than 10 but dunno.
+	backl = /obj/item/rogueweapon/shield/tower		//Maybe give a buckler? Gave wood because 40 coverage is better than 10 but dunno.
 	backr = /obj/item/storage/backpack/rogue/satchel
 	beltl = /obj/item/storage/keyring/guardcastle
 	belt = /obj/item/storage/belt/rogue/leather/black
@@ -128,9 +128,9 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
 	head = /obj/item/clothing/head/roguetown/roguehood/red		//To-do: Make a guard hood come in kingdom's colors.
-	armor = /obj/item/clothing/suit/roguetown/armor/leather		//So they get default-dodge expert usage.
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy	//So they get default-dodge expert usage.
 	beltr = /obj/item/quiver/arrows
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
+	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow
 	backr = /obj/item/storage/backpack/rogue/satchel
 	beltl = /obj/item/storage/keyring/guardcastle
 	belt = /obj/item/storage/belt/rogue/leather
@@ -151,16 +151,17 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
-	H.change_stat("strength", 1)
+	H.change_stat("strength", 2)
 	H.change_stat("endurance", 2)
+	H.change_stat("constitution", 1)
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
