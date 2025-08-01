@@ -95,7 +95,7 @@
 				"Hounskull Bascinet" 		= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface/hounskull,
 				"Dunargiac Bascinet" 		= /obj/item/clothing/head/roguetown/helmet/bascinet/dunargi,
 				"Slitted Kettle"		= /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle,
-				"Kulah Khud"	= /obj/item/clothing/head/roguetown/helmet/sallet/raneshen,
+				"Kulah Khud"	= /obj/item/clothing/head/roguetown/helmet/sallet/zybantu,
 				"None"
 			)
 			var/helmchoice = input("Choose your Helm.", "TAKE UP HELMS") as anything in helmets

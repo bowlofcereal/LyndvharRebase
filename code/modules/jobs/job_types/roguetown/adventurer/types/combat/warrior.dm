@@ -90,8 +90,8 @@
 					head = /obj/item/clothing/head/roguetown/helmet/kettle
 					gloves = /obj/item/clothing/gloves/roguetown/leather
 				if("Light Zybantium Armor")
-					shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/raneshen
-					pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/raneshen
+					shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/zybantu
+					pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/zybantu
 					head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab
 					gloves = /obj/item/clothing/gloves/roguetown/leather
 			H.change_stat("strength", 2)

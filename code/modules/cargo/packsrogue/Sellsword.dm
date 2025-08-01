@@ -206,7 +206,7 @@
 	contains = list(/obj/item/rogueweapon/halberd)
 
 //////////////
-// RANESHEN //
+// ZYBANTU //
 //////////////
 
 /datum/supply_pack/rogue/Sellsword/driderhead

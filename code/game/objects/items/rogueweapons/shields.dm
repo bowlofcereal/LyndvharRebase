@@ -242,17 +242,17 @@
 	smeltresult = /obj/item/ingot/purifiedaalloy
 	blade_dulling = DULLING_SHAFT_METAL
 
-/obj/item/rogueweapon/shield/tower/raneshen
+/obj/item/rogueweapon/shield/tower/zybantu
 	name = "rider shield"
-	desc = "A shield of Raneshen design. Clever usage of wood, iron, and leather make an impressive match for any weapon."
+	desc = "A shield of Zybantine design. Clever usage of wood, iron, and leather make an impressive match for any weapon."
 	icon_state = "desert_rider"
 	possible_item_intents = list(SHIELD_BASH_METAL, SHIELD_BLOCK)
 	force = 25
-	throwforce = 25 //for cosplaying captain raneshen
+	throwforce = 25 //for cosplaying captain zybantu
 	wdefense = 11
 	max_integrity = 250 //not fully metal but not fully wood either
 
-/obj/item/rogueweapon/shield/tower/raneshen/getonmobprop(tag)
+/obj/item/rogueweapon/shield/tower/zybantu/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)

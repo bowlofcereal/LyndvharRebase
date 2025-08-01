@@ -8,7 +8,7 @@
 	category_tags = list(CTAG_MERCENARY)
 	cmode_music = 'sound/music/combat_desertrider.ogg' //GREATEST COMBAT TRACK IN THE GAME SO FAR BESIDES MAYBE MANIAC2.OGG
 	classes = list("Jannisary" = "The Janissaries are the Empire's elite infantry units, wielding mace and shield. We do not break.",
-					"Zeybek" = "Ranesheni 'Blade Dancers' famed and feared the world over. Their expertise in blades both long and short is well known.")
+					"Zeybek" = "Zybantu 'Blade Dancers' famed and feared the world over. Their expertise in blades both long and short is well known.")
 
 
 /datum/outfit/job/roguetown/mercenary/desert_rider/pre_equip(mob/living/carbon/human/H)
@@ -81,14 +81,14 @@
 			H.change_stat("endurance", 2)
 			H.change_stat("intelligence", 1)
 			H.change_stat("speed", 3)
-			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/raneshen
+			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/zybantu
 			neck = /obj/item/clothing/neck/roguetown/leather
 			mask = /obj/item/clothing/mask/rogue/facemask/steel/paalloy
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/raneshen
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/raneshen
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/zybantu
+			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/zybantu
 			wrists = /obj/item/clothing/wrists/roguetown/splintarms
 			gloves = /obj/item/clothing/gloves/roguetown/angle
-			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/raneshen
+			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/zybantu
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backpack_contents = list(
 				/obj/item/roguekey/mercenary,
