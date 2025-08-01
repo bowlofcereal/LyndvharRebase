@@ -16,7 +16,7 @@
 	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE) // Cudgellin - Nonlethals
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE) // Stabbin - Lethals
+	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE) // Stabbin - Lethals
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE) // Quick
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
