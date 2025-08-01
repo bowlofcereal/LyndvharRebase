@@ -63,14 +63,14 @@
 
 /datum/outfit/job/roguetown/squire/lancer/pre_equip(mob/living/carbon/human/H)
 	r_hand = /obj/item/rogueweapon/spear
-	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
+	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch,
-		/obj/item/clothing/neck/roguetown/chaincoif
+		/obj/item/clothing/neck/roguetown/chaincoif/iron
 	)
 	H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
@@ -101,14 +101,14 @@
 	category_tags = list(CTAG_SQUIRE)
 
 /datum/outfit/job/roguetown/squire/footman/pre_equip(mob/living/carbon/human/H)
-	armor = /obj/item/clothing/suit/roguetown/armor/chainmail
+	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 		/obj/item/storage/belt/rogue/pouch,
-		/obj/item/clothing/neck/roguetown/chaincoif
+		/obj/item/clothing/neck/roguetown/chaincoif/iron
 	)
 	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
@@ -150,7 +150,7 @@
 
 /datum/outfit/job/roguetown/squire/skirmisher/pre_equip(mob/living/carbon/human/H)
 	beltr = /obj/item/quiver/arrows
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
+	armor = /obj/item/clothing/suit/roguetown/armor/leather
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	gloves = /obj/item/clothing/gloves/roguetown/leather
@@ -159,7 +159,7 @@
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger,
 		/obj/item/storage/belt/rogue/pouch,
-		/obj/item/clothing/neck/roguetown/chaincoif,
+		/obj/item/clothing/neck/roguetown/chaincoif/iron,
 		/obj/item/rogueweapon/scabbard/sheath
 		)
 	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
