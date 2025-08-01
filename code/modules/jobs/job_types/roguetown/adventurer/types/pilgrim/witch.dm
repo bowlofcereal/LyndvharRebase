@@ -19,7 +19,7 @@
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backr = /obj/item/rogueweapon/woodstaff/prepared/amethyst
+	backr = /obj/item/rogueweapon/woodstaff/amethyst
 	backpack_contents = list(
 						/obj/item/reagent_containers/glass/mortar = 1,
 						/obj/item/pestle = 1,
