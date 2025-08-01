@@ -13,7 +13,7 @@
 
 	// CLASS ARCHETYPES
 	H.adjust_blindness(-3)
-	var/classes = list("Swordsman","Macebearer","Flailman", "Foot Lancer")
+	var/classes = list("Swordsman","Macebearer","Flailman", "Lancer")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 	H.set_blindness(0)
 	to_chat(H, span_warning("You are a Knight of Valoria, well experienced in the use of your chosen arms."))
@@ -39,14 +39,14 @@
 	H.change_stat("speed", -1)
 	switch(classchoice)
 		if("Swordsman")
-			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 			beltl = /obj/item/rogueweapon/scabbard/sword
 			l_hand = /obj/item/rogueweapon/sword/falchion
 		if("Macebearer")
-			H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 			beltl = /obj/item/rogueweapon/mace/steel/morningstar
 		if("Flailman")
-			H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, 1, TRUE)
 			beltl = /obj/item/rogueweapon/flail/sflail
 		if("Foot Lancer")
 			H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
@@ -71,4 +71,4 @@
 	H.grant_language(/datum/language/valorian)
 	
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
