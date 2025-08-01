@@ -15,7 +15,7 @@
 					/obj/effect/proc_holder/spell/invoked/projectile/lightningbolt/sacred_flame_rogue	= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heal					= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/revive				= CLERIC_T4,
-					/obj/effect/proc_holder/spell/invoked/immolation			= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/immolation			= CLERIC_T3,
 	)
 	confess_lines = list(
 		"ASTRATA IS MY LIGHT!",
@@ -84,7 +84,7 @@
 					/obj/effect/proc_holder/spell/invoked/abyssheal				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/call_mossback			= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/call_dreamfiend		= CLERIC_T3,
-					/obj/effect/proc_holder/spell/invoked/abyssal_infusion		= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/abyssal_infusion		= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/resurrect/abyssor		= CLERIC_T4,
 	)
 	confess_lines = list(
@@ -206,7 +206,7 @@
 					/obj/effect/proc_holder/spell/invoked/vigorousexchange		= CLERIC_T1,
 					/obj/effect/proc_holder/spell/invoked/heatmetal				= CLERIC_T2,
 					/obj/effect/proc_holder/spell/invoked/hammerfall			= CLERIC_T3,
-					/obj/effect/proc_holder/spell/invoked/craftercovenant		= CLERIC_T4,
+					/obj/effect/proc_holder/spell/invoked/craftercovenant		= CLERIC_T3,
 					/obj/effect/proc_holder/spell/invoked/resurrect/malum		= CLERIC_T4,
 	)
 	confess_lines = list(
