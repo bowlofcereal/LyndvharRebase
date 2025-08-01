@@ -32,7 +32,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	visuals_only_outfit = /datum/outfit/job/roguetown/lord/visuals
 
 	display_order = JDO_LORD
-	tutorial = "At one point you were merely a vassal to the Ruby Throne, given special status and overseen by the Empress herself. However since her death there has been almost no communication outside of the city. You have had to take increasing amounts of autocratic power in order to sustain your port, so much so that many see you as effectively a monarch in your own right. And many want to take this from you, or use it to their advantage- keep your family alive and your power secure, and Lyndvhar may live to see another dae."
+	tutorial = "At one point you were merely a vassal to the Ruby Throne, given special status and overseen by the Empress herself. However since her death there has been almost no communication outside of the city. You have had to take increasing amounts of autocratic power in order to sustain your port, so much so that many see you as effectively a lord in your own right. And many want to take this from you, or use it to their advantage- keep your family alive and your power secure, and Lyndvhar may live to see another dae."
 	whitelist_req = FALSE
 	min_pq = 10
 	max_pq = null
