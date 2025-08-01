@@ -1,4 +1,4 @@
-/datum/language/DUNARGI
+/datum/language/dunargi
 	name = "Dunargiac"
 	desc = "The language of the inhabitants of the capitol region of Dunargi. Fast-paced, for those unused to its emotiveness."
 	speech_verb = "remarks"
