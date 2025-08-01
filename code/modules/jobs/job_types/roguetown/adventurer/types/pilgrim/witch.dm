@@ -3,6 +3,7 @@
 	tutorial = "You are a seer, seen as wisefolk, guides, divinators, and sometimes prophetic or demons to others. Often ostracized and sequestered for wrongthinks or outright heresy sometimes, your potions are what the commonfolk turn to when all else fails, and for this they tolerate you — at an arm’s length. Take care not to end ‘pon a pyre, for the church often condemns your left handed arts and trickery."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
+	maximum_possible_slots = 2
 	outfit = /datum/outfit/job/roguetown/adventurer/witch
 	category_tags = list(CTAG_PILGRIM, CTAG_TOWNER)
 	traits_applied = list(TRAIT_DEATHSIGHT, TRAIT_WITCH, TRAIT_ARCYNE_T1, TRAIT_RITUALIST)
