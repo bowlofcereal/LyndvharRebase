@@ -90,4 +90,4 @@
 
 	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC) //i swear this isn't as good as it sounds
-	H.grant_language(/datum/language/kazengunese)
+	H.grant_language(/datum/language/saltlian)

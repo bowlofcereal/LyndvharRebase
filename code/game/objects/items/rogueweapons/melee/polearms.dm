@@ -1028,7 +1028,7 @@
 
 /obj/item/rogueweapon/spear/naginata
 	name = "Naginata"
-	desc = "A traditional Kazengunese polearm, combining the reach of a spear with the cutting power of a curved blade. Due to the brittle quality of Kazengunese bladesmithing, weaponsmiths have adapted its blade to be easily replaceable when broken by a peg upon the end of the shaft."
+	desc = "A traditional Saltlian polearm, combining the reach of a spear with the cutting power of a curved blade. Due to the brittle quality of Saltlian bladesmithing, weaponsmiths have adapted its blade to be easily replaceable when broken by a peg upon the end of the shaft."
 	force = 16
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/spear/cut/naginata, SPEAR_BASH) // no stab for you little chuddy, it's a slashing weapon

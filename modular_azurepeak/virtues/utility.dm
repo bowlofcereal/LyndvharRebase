@@ -125,7 +125,7 @@
 		/datum/language/draconic,
 		/datum/language/celestial,
 		/datum/language/grenzelhoftian,
-		/datum/language/kazengunese,
+		/datum/language/saltlian,
 		/datum/language/valorian,
 		/datum/language/rhaenvalian,
 		/datum/language/aavnic

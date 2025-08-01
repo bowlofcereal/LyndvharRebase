@@ -83,4 +83,4 @@
 			H.change_stat("constitution", 2)
 			H.cmode_music = 'sound/music/combat_kazengite.ogg'
 
-	H.grant_language(/datum/language/kazengunese)
+	H.grant_language(/datum/language/saltlian)

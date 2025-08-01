@@ -17,7 +17,7 @@
 		"undead.ttf" = 'interface/fonts/languages/undead.ttf',
 		"draconic.ttf" = 'interface/fonts/languages/draconic.ttf',
 		"grenzelhoftian.ttf" = 'interface/fonts/languages/grenzelhoftian.ttf',
-		"kazengunese.ttf" = 'interface/fonts/languages/kazengunese.ttf',
+		"saltlian.ttf" = 'interface/fonts/languages/saltlian.ttf',
 		"valorian.ttf" = 'interface/fonts/languages/valorian.ttf',
 		"dunargi.ttf" = 'interface/fonts/languages/dunargi.ttf',
 		"rhaenvalian.ttf" = 'interface/fonts/languages/rhaenvalian.ttf',

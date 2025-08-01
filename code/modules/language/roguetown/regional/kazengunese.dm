@@ -1,4 +1,4 @@
-/datum/language/kazengunese
+/datum/language/saltlian
 	name = "Saltliac"
 	desc = "The language of the Saltlian Kingdom. With intricate honorifics and complex grammar. The version rarely seen in Lyndhardtia is a result of centuries of cultural contact between the locale and Saltlian merchants from afar, and is a trade language combining Lyndhardtian and Saltlian vocabulary"
 	speech_verb = "says"
@@ -9,7 +9,7 @@
 	space_chance = 30
 	default_priority = 90
 	icon_state = "asse"
-	spans = list(SPAN_KAZENGUNESE)
+	spans = list(SPAN_SALTLIAN)
 	syllables = list(
 		"ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu",
 		"te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma",

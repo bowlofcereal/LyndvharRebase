@@ -20,7 +20,7 @@
 		/datum/language/draconic,
 		/datum/language/thievescant,
 		/datum/language/grenzelhoftian,
-		/datum/language/kazengunese,
+		/datum/language/saltlian,
 		/datum/language/valorian,
 		/datum/language/rhaenvalian,
 		/datum/language/aavnic

@@ -342,7 +342,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/steel/kazengun
 	name = "steel tanto"
-	desc = "A steel dagger imported from the Kazengunese archipelago. A sturdy blade bears a subtle curve, set into a decorated circular crossguard. A waxed \
+	desc = "A steel dagger imported from the Saltlian Kingdoms. A sturdy blade bears a subtle curve, set into a decorated circular crossguard. A waxed \
 	wrapping of twisted cordage provides a secure grip."
 	icon_state = "eastdagger"
 

@@ -159,7 +159,7 @@
 
 /obj/machinery/light/rogue/torchholder/hotspring
 	name = "stone lantern"
-	desc = "A stone lantern, built in Kazengunese style. It is believed these lanterns attracts spirits and guide their way."
+	desc = "A stone lantern, built in an adorned style. It is believed these lanterns attracts spirits and guide their way."
 	icon = 'icons/obj/structures/hotspring.dmi'
 	icon_state = "stonelantern1"
 	torch_off_state = "stonelantern0"
