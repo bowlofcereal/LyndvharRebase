@@ -51,3 +51,4 @@
 	H.change_stat("intelligence", 1)
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+	H.grant_language(/datum/language/dunargi)
