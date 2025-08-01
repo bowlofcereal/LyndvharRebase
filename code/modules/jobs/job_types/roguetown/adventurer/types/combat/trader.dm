@@ -47,7 +47,7 @@
 			H.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 			head = /obj/item/clothing/head/roguetown/roguehood
-			mask = /obj/item/clothing/mask/rogue/facemask/steel
+			mask = /obj/item/clothing/mask/rogue/facemask
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			neck = /obj/item/storage/belt/rogue/pouch/coins/mid
 			pants = /obj/item/clothing/under/roguetown/tights/black
@@ -91,7 +91,7 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/storage/backpack/rogue/satchel
 			beltr = /obj/item/rogueweapon/mace/cudgel
-			beltl = /obj/item/flashlight/flare/torch/lantern
+			beltl = /obj/item/flashlight/flare/torch
 			backpack_contents = list(
 				/obj/item/reagent_containers/glass/bottle/rogue/beer/rhaenvalianmead = 1, 
 				/obj/item/reagent_containers/glass/bottle/rogue/beer/voddena = 1,
@@ -137,7 +137,7 @@
 			belt = /obj/item/storage/belt/rogue/leather/black
 			backl = /obj/item/storage/backpack/rogue/backpack
 			beltr = /obj/item/cooking/pan
-			beltl = /obj/item/flashlight/flare/torch/lantern
+			beltl = /obj/item/flashlight/flare/torch
 			backpack_contents = list(
 				/obj/item/clothing/mask/cigarette/rollie/nicotine/cheroot = 5,
 				/obj/item/reagent_containers/peppermill = 1,
@@ -177,7 +177,7 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/storage/backpack/rogue/satchel
 			neck = /obj/item/storage/belt/rogue/pouch/coins/mid
-			beltl = /obj/item/flashlight/flare/torch/lantern
+			beltl = /obj/item/flashlight/flare/torch
 			beltr = /obj/item/rogueweapon/huntingknife
 			backpack_contents = list(
 				/obj/item/clothing/ring/silver = 2,
@@ -216,7 +216,7 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/storage/backpack/rogue/satchel
 			neck = /obj/item/storage/belt/rogue/pouch/coins/mid
-			beltl = /obj/item/flashlight/flare/torch/lantern
+			beltl = /obj/item/flashlight/flare/torch
 			beltr = /obj/item/rogueweapon/stoneaxe/woodcut
 			backpack_contents = list(
 				/obj/item/clothing/neck/roguetown/psicross/silver = 3,
@@ -250,7 +250,7 @@
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/storage/backpack/rogue/satchel
 			neck = /obj/item/storage/belt/rogue/pouch/coins/mid
-			beltl = /obj/item/flashlight/flare/torch/lantern
+			beltl = /obj/item/flashlight/flare/torch
 			beltr = /obj/item/rogueweapon/huntingknife/idagger
 			if(H.mind)
 				H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
@@ -276,7 +276,7 @@
 			armor = /obj/item/clothing/suit/roguetown/shirt/jester
 			belt = /obj/item/storage/belt/rogue/leather
 			beltr = /obj/item/rogueweapon/huntingknife/idagger
-			beltl = /obj/item/flashlight/flare/torch/lantern
+			beltl = /obj/item/flashlight/flare/torch
 			backl = /obj/item/storage/backpack/rogue/satchel
 			head = /obj/item/clothing/head/roguetown/jester
 			neck = /obj/item/storage/belt/rogue/pouch/coins/mid
