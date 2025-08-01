@@ -43,21 +43,21 @@
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
 				if("Longsword")
-					H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 					backr = /obj/item/rogueweapon/sword/long
 					beltr = /obj/item/rogueweapon/scabbard/sword
 				if("Mace")
-					H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 					beltr = /obj/item/rogueweapon/mace
 				if("Billhook")
-					H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 					r_hand = /obj/item/rogueweapon/spear/billhook
 					backr = /obj/item/gwstrap
 				if("Battle Axe")
-					H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/axes, 1, TRUE)
 					backr = /obj/item/rogueweapon/stoneaxe/battle
 				if("Short Sword & Iron Shield")
-					H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+					H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 					H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
 					backr = /obj/item/rogueweapon/shield/iron
 					beltr = /obj/item/rogueweapon/scabbard/sword
@@ -80,7 +80,7 @@
 					neck = /obj/item/clothing/neck/roguetown/coif/heavypadding
 					shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/random
 					pants = /obj/item/clothing/under/roguetown/splintlegs/iron
-					gloves = /obj/item/clothing/gloves/roguetown/angle
+					gloves = /obj/item/clothing/gloves/roguetown/leather
 				if("Gambeson & Helmet")
 					armor = /obj/item/clothing/suit/roguetown/armor/gambeson
 					neck = /obj/item/clothing/neck/roguetown/coif/padded//neck cover
@@ -88,12 +88,12 @@
 					wrists = /obj/item/clothing/wrists/roguetown/splintarms/iron//adding it since this set feels far too weak compared to the other two, gets one helmet and arm cover at least
 					pants = /obj/item/clothing/under/roguetown/trou/leather
 					head = /obj/item/clothing/head/roguetown/helmet/kettle
-					gloves = /obj/item/clothing/gloves/roguetown/angle
+					gloves = /obj/item/clothing/gloves/roguetown/leather
 				if("Light Zybantium Armor")
 					shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/raneshen
 					pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/raneshen
 					head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab
-					gloves = /obj/item/clothing/gloves/roguetown/angle
+					gloves = /obj/item/clothing/gloves/roguetown/leather
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 2)
@@ -125,16 +125,16 @@
 			ADD_TRAIT(H, TRAIT_DECEIVING_MEEKNESS, TRAIT_GENERIC)
 			H.set_blindness(0)
 			H.cmode_music = 'sound/music/cmode/adventurer/combat_outlander2.ogg'
-			var/weapons = list("Rapier","Dagger")
+			var/weapons = list("Iron Saber","Dagger")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			switch(weapon_choice)
-				if("Rapier")
-					H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-					l_hand = /obj/item/rogueweapon/sword/rapier
+				if("Iron Saber")
+					H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+					l_hand = /obj/item/rogueweapon/sword/iron/saber
 					r_hand = /obj/item/rogueweapon/scabbard/sword
 				if("Dagger")
-					H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-					r_hand = /obj/item/rogueweapon/huntingknife/idagger/steel
+					H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+					r_hand = /obj/item/rogueweapon/huntingknife/idagger
 					beltr = /obj/item/rogueweapon/scabbard/sheath
 			H.change_stat("strength", 1)
 			H.change_stat("endurance", 1)
@@ -149,7 +149,6 @@
 			pants = /obj/item/clothing/under/roguetown/trou/leather
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			shoes = /obj/item/clothing/shoes/roguetown/boots
-			neck = /obj/item/clothing/neck/roguetown/gorget
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backr = /obj/item/rogueweapon/shield/buckler
@@ -188,7 +187,7 @@
 					beltr = /obj/item/rogueweapon/stoneaxe/boneaxe
 				if("Sword")
 					H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-					beltr = /obj/item/rogueweapon/scabbard/sword
+					beltr = /obj/item/rogueweapon/scabbard/sword/iron
 					r_hand = /obj/item/rogueweapon/sword/short
 				if("Club")
 					H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
@@ -228,9 +227,9 @@
 			backpack_contents = list(/obj/item/flashlight/flare/torch = 1)
 
 		if("Monster Hunter")
-			to_chat(H, span_warning("You specialize in hunting down monsters and the undead, carrying two blades - one of silver, one of steel."))
+			to_chat(H, span_warning("You specialize in hunting down monsters and the undead, carrying a silver blade."))
 			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
@@ -239,27 +238,25 @@
 			H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
-			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_SENTINELOFWITS, TRAIT_GENERIC)
 			H.cmode_music = 'sound/music/cmode/adventurer/combat_outlander2.ogg'
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 1)
-			H.change_stat("intelligence", 1)
+			H.change_stat("intelligence", 4)
 			beltr = /obj/item/rogueweapon/scabbard/sword
-			beltl = /obj/item/rogueweapon/scabbard/sword
 			r_hand = /obj/item/rogueweapon/sword/silver
-			backr = /obj/item/rogueweapon/sword
-			backl = /obj/item/storage/backpack/rogue/satchel/black
+			backl = /obj/item/storage/backpack/rogue/satchel
 			wrists = /obj/item/clothing/neck/roguetown/psicross/silver
-			armor = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
-			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-			belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/steel
-			shoes = /obj/item/clothing/shoes/roguetown/boots
-			pants = /obj/item/clothing/under/roguetown/tights/black
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
+			belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/iron
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
+			pants = /obj/item/clothing/under/roguetown/trou/leather
 			cloak = /obj/item/clothing/cloak/cape/puritan
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			head = /obj/item/clothing/head/roguetown/bucklehat
-			gloves = /obj/item/clothing/gloves/roguetown/angle
+			gloves = /obj/item/clothing/gloves/roguetown/leather
 			backpack_contents = list(
 				/obj/item/flashlight/flare/torch = 1,
 				/obj/item/rogueweapon/huntingknife = 1,
@@ -274,37 +271,4 @@
 				/obj/item/reagent_containers/glass/bottle/alchemical/perpot,
 				/obj/item/reagent_containers/glass/bottle/alchemical/intpot,
 				/obj/item/reagent_containers/glass/bottle/alchemical/lucpot,
-				)
-
-		if("Flagellant")
-			to_chat(H, span_warning("You are a pacifistic warrior who embraces suffering, believing pain is the path to enlightenment."))
-			H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
-			H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
-			H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-			H.set_blindness(0)
-
-			ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-			H.cmode_music = 'sound/music/cmode/adventurer/combat_outlander2.ogg'
-			H.change_stat("constitution", 5)
-			H.change_stat("endurance", 5)
-			H.change_stat("speed", 1)
-			H.change_stat("strength", -2)
-			H.change_stat("intelligence", -2)
-
-			pants = /obj/item/clothing/under/roguetown/tights/black
-			shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/black
-			shoes = /obj/item/clothing/shoes/roguetown/boots
-			backl = /obj/item/storage/backpack/rogue/satchel
-			belt = /obj/item/storage/belt/rogue/leather
-			beltr = /obj/item/rogueweapon/whip
-			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
-			backpack_contents = list(
-				/obj/item/recipe_book/survival = 1,
-				/obj/item/flashlight/flare/torch = 1,
 				)
