@@ -44,7 +44,7 @@
 			neck = /obj/item/clothing/neck/roguetown/gorget
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
-			pants = /obj/item/clothing/under/roguetown/chainlegs/iron
+			pants = /obj/item/clothing/under/roguetown/chainlegs
 			shoes = /obj/item/clothing/shoes/roguetown/boots
 			belt = /obj/item/storage/belt/rogue/leather/shalal
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
