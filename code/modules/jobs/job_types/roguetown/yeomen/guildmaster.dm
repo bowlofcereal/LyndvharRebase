@@ -8,7 +8,7 @@
 	min_pq = 0
 	selection_color = JCOLOR_YEOMAN
 
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 
 	tutorial = "You are the leader of the Craftsman Guild of Lyndvhar. You represents the interests of all of the craftsmen underneath you - including the Tailor\
 	the Blacksmiths, the Artificers and the Architects. Other townspeople may look to you for guidance, but they are not under your control. Due to the increasing demand for material you were given privileged status as a member of nobility. Use this however you must.."  
@@ -17,7 +17,7 @@
 	selection_color = JCOLOR_YEOMAN
 	display_order = JDO_GUILDMASTER
 	give_bank_account = 25
-	min_pq = 5 // Higher PQ requirement as it is a leadership role. Not for total newbie.
+	min_pq = 2
 	max_pq = null
 	round_contrib_points = 3
 	cmode_music = 'sound/music/cmode/towner/combat_retired.ogg'

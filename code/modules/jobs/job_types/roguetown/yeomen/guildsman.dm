@@ -21,7 +21,7 @@
 	min_pq = 0
 	max_pq = null
 	round_contrib_points = 3
-	advjob_examine = TRUE // So that everyone know which subjob they have picked
+	advjob_examine = TRUE
 	cmode_music = 'sound/music/cmode/towner/combat_towner3.ogg'
 
 /datum/job/roguetown/guildsman/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
