@@ -54,7 +54,7 @@
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backl = /obj/item/rogueweapon/shield/heater
 			backpack_contents = list(/obj/item/rogueweapon/huntingknife, /obj/item/roguekey/mercenary)
-		if("Forvheipal Sharpshooter")
+		if("Forvheipal Javelineer")
 			H.set_blindness(0)
 			to_chat(H, span_warning("The Forvheipal Javelineers are the Zapyrixian Order's ranged thrall, wielding javelins and relying on their agility to avoid blows."))
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
