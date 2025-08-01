@@ -28,7 +28,7 @@
 			gloves = /obj/item/clothing/gloves/roguetown/leather
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 			belt = /obj/item/storage/belt/rogue/leather
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/hide
+			armor = /obj/item/clothing/suit/roguetown/armor/leather
 			cloak = /obj/item/clothing/cloak/raincloak/green
 			backl = /obj/item/storage/backpack/rogue/satchel
 			beltr = /obj/item/flashlight/flare/torch/lantern
@@ -85,7 +85,7 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/leather
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
 			backl = /obj/item/storage/backpack/rogue/satchel
-			beltl = /obj/item/rogueweapon/huntingknife/idagger/steel
+			beltl = /obj/item/rogueweapon/huntingknife/idagger
 			beltr = /obj/item/quiver/bolts
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 			backpack_contents = list(
@@ -104,7 +104,7 @@
 			H.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE)
-			H.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			H.cmode_music = 'sound/music/cmode/adventurer/combat_outlander.ogg'
 			H.change_stat("perception", 2)
@@ -119,9 +119,7 @@
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			head = /obj/item/clothing/head/roguetown/roguehood
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
-			gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 			pants = /obj/item/clothing/under/roguetown/chainlegs/iron
-			armor = /obj/item/clothing/suit/roguetown/shirt/robe/mageorange
 			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
 			belt = /obj/item/storage/belt/rogue/leather
 			backl = /obj/item/storage/backpack/rogue/satchel
