@@ -927,9 +927,6 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/obj/structure/fluff/millstone{
-	pixel_y = 7
-	},
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter/woods)
 "gJ" = (
@@ -1105,12 +1102,9 @@
 	})
 "ig" = (
 /obj/structure/closet/crate/chest/neu_iron,
-/obj/item/clothing/neck/roguetown/collar/leather/cursed,
-/obj/item/clothing/neck/roguetown/collar/leather/cursed,
-/obj/item/clothing/neck/roguetown/collar/leather/cursed,
-/obj/item/leash/chain,
-/obj/item/leash/chain,
-/obj/item/leash/chain,
+/obj/item/clothing/neck/roguetown/gorget/cursed_collar,
+/obj/item/clothing/neck/roguetown/gorget/cursed_collar,
+/obj/item/clothing/neck/roguetown/gorget/cursed_collar,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/shelter/mountains)
 "ii" = (
@@ -1994,15 +1988,6 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter/woods)
-"pt" = (
-/obj/structure/fluff/railing/fence{
-	dir = 4
-	},
-/obj/structure/fermenting_barrel/water,
-/turf/open/floor/rogue/naturalstone,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "pv" = (
 /obj/effect/decal/cobbleedge{
 	dir = 2
@@ -2086,54 +2071,6 @@
 /area/rogue/indoors/shelter/mountains)
 "qt" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = 0;
-	pixel_y = -8
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = 1;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = 0;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = 6;
-	pixel_y = -5
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = 5;
-	pixel_y = 0
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = 6;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = -5;
-	pixel_y = -8
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = -6;
-	pixel_y = -2
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = -5;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = -11;
-	pixel_y = -6
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = -11;
-	pixel_y = -1
-	},
-/obj/item/reagent_containers/glass/alchemical{
-	pixel_x = -11;
-	pixel_y = 5
-	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/shelter/mountains)
 "qx" = (
@@ -2715,6 +2652,9 @@
 /area/rogue/outdoors/town/roofs)
 "uo" = (
 /obj/structure/closet/crate/chest/neu_iron,
+/obj/item/rope/chain,
+/obj/item/rope/chain,
+/obj/item/rope/chain,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/shelter/mountains)
 "up" = (
@@ -3000,9 +2940,6 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1";
 	pixel_y = -4
-	},
-/obj/structure/fluff/millstone{
-	pixel_y = 7
 	},
 /obj/item/kitchen/rollingpin,
 /turf/open/floor/rogue/blocks,
@@ -3875,9 +3812,6 @@
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
 	},
-/obj/structure/fluff/millstone{
-	pixel_y = 7
-	},
 /obj/item/kitchen/spoon{
 	pixel_y = -5;
 	pixel_x = -8
@@ -4257,10 +4191,6 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/shelter/mountains)
-"Gl" = (
-/obj/structure/fermenting_barrel/water,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/indoors/shelter/woods)
 "Gm" = (
 /obj/structure/chair/stool/rogue,
 /mob/living/carbon/human/species/skeleton/npc/ambush,
@@ -4348,12 +4278,6 @@
 "GR" = (
 /obj/structure/flora/newleaf,
 /turf/open/transparent/openspace,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
-"GT" = (
-/obj/structure/fermenting_barrel/water,
-/turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -4745,12 +4669,6 @@
 "JA" = (
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/outdoors/town/roofs)
-"JH" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "JL" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -5798,15 +5716,6 @@
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
-"Rc" = (
-/obj/structure/table/wood{
-	icon_state = "tablewood1"
-	},
-/obj/structure/fluff/millstone{
-	pixel_y = 5
-	},
-/turf/open/floor/rogue/cobble,
-/area/rogue/indoors/shelter/woods)
 "Rk" = (
 /obj/effect/spawner/roguemap/stump,
 /obj/structure/fluff/railing/border,
@@ -5890,7 +5799,6 @@
 /area/rogue/indoors/shelter/woods)
 "RQ" = (
 /obj/item/roguebin/water,
-/obj/item/reagent_containers/glass/bucket/wooden/alter,
 /turf/open/floor/rogue/grassred,
 /area/rogue/indoors/shelter/woods)
 "RT" = (
@@ -6727,15 +6635,6 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter/woods)
-"XK" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
-/obj/effect/decal/cobbleedge{
-	icon_state = "cobbleedge-n"
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "XN" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -82937,7 +82836,7 @@ vh
 My
 GL
 AN
-Rc
+aJ
 RT
 Ic
 Ic
@@ -83114,7 +83013,7 @@ Ic
 Ic
 fe
 fe
-Gl
+hM
 FF
 FF
 FF
@@ -132436,7 +132335,7 @@ bi
 FF
 qW
 vh
-XK
+du
 Ic
 Ic
 Yp
@@ -159765,7 +159664,7 @@ hs
 hs
 hs
 DW
-JH
+hs
 Er
 TQ
 DR
@@ -162384,8 +162283,8 @@ DK
 Ic
 Ic
 Ic
-GT
-GT
+Ic
+Ic
 Ic
 Jl
 vh
@@ -162789,8 +162688,8 @@ Ic
 hc
 Tc
 Tc
-pt
-pt
+Tc
+Tc
 Yp
 Yp
 aV
