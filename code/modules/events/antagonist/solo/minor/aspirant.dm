@@ -12,8 +12,8 @@
 	needed_job = list(
 		"Consort",
 		"Hand",
-		"Prince",
-		"Princess",
+		"Heir",
+		"Heiress",
 		"Captain",
 		"Marshal",
 		"Sergeant",

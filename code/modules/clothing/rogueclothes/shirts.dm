@@ -190,7 +190,7 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	name = "pristine dress"
-	desc = "A flowy, intricate dress made by the finest tailors in the land for the monarch's children."
+	desc = "A flowy, intricate dress made by the finest tailors in the land for the viscount's children."
 	icon_state = "princess"
 	boobed = TRUE
 	detail_color = CLOTHING_BLUE
@@ -199,7 +199,7 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	name = "gilded dress shirt"
-	desc = "A gold-embroidered dress shirt specially tailored for the monarch's children."
+	desc = "A gold-embroidered dress shirt specially tailored for the viscount's children."
 	icon_state = "prince"
 	boobed = TRUE
 	detail_color = CLOTHING_MAGENTA
