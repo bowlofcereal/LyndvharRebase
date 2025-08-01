@@ -16,9 +16,9 @@
 		if(/datum/patron/inhumen/graggar)
 			ritechoices+="Rune of Violence"
 		if(/datum/patron/inhumen/zizo)
-			ritechoices+="Rune of ZIZO" 
+			ritechoices+="Rune of Ambition" 
 		if(/datum/patron/inhumen/matthios)
-			ritechoices+="Rune of Transaction" 
+			ritechoices+="Rune of Envy" 
 		if(/datum/patron/divine/astrata)
 			ritechoices+="Rune of Sun"
 		if(/datum/patron/divine/noc)
@@ -89,22 +89,22 @@
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/ravox(step_turf)
 		if("Rune of Storm")
-			to_chat(user,span_cultsmall("I begin inscribing the rune of His Storm..."))
+			to_chat(user,span_cultsmall("I begin inscribing the rune of Her Storm..."))
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/abyssor(step_turf)
-		if("Rune of ZIZO")
-			to_chat(user,span_cultsmall("I begin inscribing the rune of Her Knowledge..."))
+		if("Rune of Ambition")
+			to_chat(user,span_cultsmall("I begin inscribing the rune of Her Ambition..."))
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/zizo(step_turf)
-		if("Rune of Transaction")
-			to_chat(user,span_cultsmall("I begin inscribing the rune of His Transactions"))
+		if("Rune of Envy")
+			to_chat(user,span_cultsmall("I begin inscribing the rune of His Envy..."))
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/matthios(step_turf)
 		if("Rune of Violence")
-			to_chat(user,span_cultsmall("I begin inscribing the rune of Slaughter"))
+			to_chat(user,span_cultsmall("I begin inscribing the rune of His Slaughter..."))
 			if(do_after(user, 30, src))
 				playsound(src, 'sound/foley/scribble.ogg', 40, TRUE)
 				new /obj/structure/ritualcircle/graggar(step_turf)
