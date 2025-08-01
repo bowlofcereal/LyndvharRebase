@@ -16,7 +16,7 @@
 	outfit = /datum/outfit/job/roguetown/magician
 	whitelist_req = TRUE
 	give_bank_account = 47
-	min_pq = 4 //High potential for abuse, lovepotion/killersice/greater fireball is not for the faint of heart
+	min_pq = 4
 	max_pq = null
 	round_contrib_points = 2
 	cmode_music = 'sound/music/cmode/nobility/combat_courtmage.ogg'
@@ -52,9 +52,10 @@
 	ADD_TRAIT(H, TRAIT_SEEPRICES, "[type]")
 	ADD_TRAIT(H, TRAIT_INTELLECTUAL, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_ARCYNE_T4, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
+	H.adjust_skillrank(/datum/skill/magic/arcane, 6, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
@@ -73,7 +74,6 @@
 		H?.mind.adjust_spellpoints(36)
 	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 	if(H.age == AGE_OLD)
-		H.adjust_skillrank(/datum/skill/magic/arcane, 1, TRUE)
 		H.change_stat("speed", -1)
 		H.change_stat("intelligence", 1)
 		H.change_stat("perception", 1)
@@ -89,5 +89,4 @@
 	  		/datum/patron/inhumen/matthios,
 	   		/datum/patron/inhumen/graggar,
 	   		/datum/patron/inhumen/baotha)
-			H.cmode_music = 'sound/music/combat_heretic.ogg' // to keep things simple, just giving CM demense. fitting 4 the role no matter the patron.
-			ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
+			H.cmode_music = 'sound/music/combat_heretic.ogg'
