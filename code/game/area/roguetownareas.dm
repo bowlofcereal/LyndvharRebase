@@ -507,17 +507,20 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "tavern"
 	ambientsounds = AMB_INGEN
 	ambientnight = AMB_INGEN
-	droning_sound = 'sound/silence.ogg'
+	droning_sound = 'sound/music/area/sargoth.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/tavern
 	tavern_area = TRUE
+	first_time_text = "THE FOOL'S FLAGON"
+
 /area/rogue/outdoors/exposed/tavern
 	icon_state = "tavern"
-	droning_sound = 'sound/silence.ogg'
+	droning_sound = 'sound/music/area/sargoth.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 	tavern_area = TRUE
+	first_time_text = "THE FOOL'S FLAGON"
 
 /area/rogue/indoors/town/church
 	name = "church"
@@ -570,7 +573,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/dwarf.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "SMITHY QUARTER"
+	first_time_text = "MAKERS GUILD QUARTER"
 	converted_type = /area/rogue/outdoors/exposed/dwarf
 
 /area/rogue/outdoors/exposed/dwarf
@@ -607,13 +610,13 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/indoors/shelter/town/sargoth
-	first_time_text = "SARGOTH"
+	first_time_text = "MERCENARIES GUILD"
 /area/rogue/indoors/shelter/town/sargoth
 	icon_state = "sargoth"
 	droning_sound = 'sound/music/area/sargoth.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "SARGOTH"
+	first_time_text = "MERCENARIES GUILD"
 
 /area/rogue/outdoors/town/roofs
 	name = "roofs"
@@ -646,7 +649,7 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/dwarf.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "The Dwarven Quarter"
+	first_time_text = "MAKERS GUILD QUARTER"
 	soundenv = 16
 	converted_type = /area/rogue/indoors/shelter/town/dwarf
 /area/rogue/indoors/shelter/town/dwarf
@@ -740,4 +743,4 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	droning_sound = 'sound/music/area/underworlddrone.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "The Forest of Repentence"
+	first_time_text = "REPENTANCE"
