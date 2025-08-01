@@ -5716,12 +5716,6 @@
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
-"Rc" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
-/turf/open/floor/rogue/wood/nosmooth,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "Rk" = (
 /obj/effect/spawner/roguemap/stump,
 /obj/structure/fluff/railing/border,
@@ -6641,6 +6635,12 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter/woods)
+"XK" = (
+/mob/living/carbon/human/species/skeleton/npc/ambush,
+/turf/open/floor/rogue/wood/nosmooth,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "XN" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -33953,7 +33953,7 @@ lv
 lv
 tC
 Pb
-Rc
+XK
 hN
 hN
 Vl
@@ -34965,7 +34965,7 @@ FE
 hN
 br
 br
-Rc
+XK
 Ul
 lv
 lv
@@ -135572,7 +135572,7 @@ Em
 Em
 Em
 nk
-nk
+FX
 Ic
 Ic
 vh
@@ -136993,7 +136993,7 @@ nk
 nk
 nk
 nk
-Ic
+Zi
 Ic
 Ic
 XG
