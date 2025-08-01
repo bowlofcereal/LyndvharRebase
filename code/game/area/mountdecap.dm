@@ -35,7 +35,7 @@
 
 
 /area/rogue/outdoors/mountains/decap/stepbelow
-	name = "Tarichea - Valley of Loss"
+	name = "Scorched City"
 	icon_state = "decap"
 	ambush_types = list(
 				/turf/open/floor/rogue/dirt,
@@ -57,7 +57,7 @@
 	droning_sound = 'sound/music/area/decap_deeper.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "TARICHEA, VALLEY OF LOSS"
+	first_time_text = "SCORCHED CITY"
 	ambush_times = list("night","dawn","dusk","day")
 	converted_type = /area/rogue/indoors/shelter/mountains/decap
 
