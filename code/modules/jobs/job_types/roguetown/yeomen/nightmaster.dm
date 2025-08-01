@@ -7,7 +7,7 @@
 	spawn_positions = 1
 	f_title = "Bathmatron"
 	allowed_races = RACES_SHUNNED_UP
-	tutorial = "You are renting out the bathhouse in a joint operation with the Innkeep. You provide security for the bathwenches and help them to find work--when you're not being a trouble-making rake that others suffer to tolerate."
+	tutorial = "While many may decry you as a pariah amongst the city, your services are nonetheless incredibly valuable for the economy. Having won your establishment through a bet a long time ago, you now operate and manage the largest- and only- bath house in the region. Provide security for your wenches and help them to find work--when you're not being a trouble-making rake that others suffer to tolerate."
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/roguetown/niteman
 	display_order = JDO_NITEMASTER
