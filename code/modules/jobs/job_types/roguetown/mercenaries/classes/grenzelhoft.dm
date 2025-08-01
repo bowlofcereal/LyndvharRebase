@@ -29,7 +29,7 @@
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)	//Won't be using normally with Zwiehander but useful.
 			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
@@ -61,7 +61,7 @@
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
