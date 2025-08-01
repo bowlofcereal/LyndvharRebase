@@ -27,18 +27,17 @@
 			H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/axes, 4, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/shields, 4, TRUE)	
+			H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)	
 			H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-			H.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
 
 			H.change_stat("strength", 2)	
 			H.change_stat("endurance", 3)
@@ -59,9 +58,6 @@
 			belt = /obj/item/storage/belt/rogue/leather
 			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 			beltl = /obj/item/flashlight/flare/torch
-
-			var/datum/devotion/C = new /datum/devotion(H, H.patron)
-			C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = FALSE, devotion_limit = CLERIC_REQ_2)	//Capped to T1 miracles.
 
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
