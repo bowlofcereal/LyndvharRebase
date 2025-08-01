@@ -2326,6 +2326,15 @@
 	icon_state = "weird1"
 	},
 /area/rogue/under/town/basement/keep)
+"bIo" = (
+/obj/structure/fluff/railing/border{
+	pixel_y = -7
+	},
+/obj/structure/fermentation_keg/blackgoat,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/tavern{
+	first_time_text = "THE FOOL'S FLAGON"
+	})
 "bIr" = (
 /obj/structure/handcart{
 	dir = 8
@@ -2477,13 +2486,6 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors)
-"bOl" = (
-/obj/structure/table/wood{
-	dir = 1;
-	icon_state = "tablewood1"
-	},
-/turf/open/floor/rogue/blocks,
-/area/rogue/indoors/town/magician)
 "bOK" = (
 /obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/cobble,
@@ -4392,6 +4394,11 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
+"duk" = (
+/obj/effect/decal/cleanable/dirt/cobweb,
+/obj/structure/fermentation_keg/sourwine,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement/keep)
 "dun" = (
 /obj/structure/fluff/railing/border{
 	dir = 4;
@@ -5626,6 +5633,7 @@
 /obj/structure/fluff/railing/border{
 	pixel_y = -7
 	},
+/obj/structure/fermentation_keg/gronmead,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/tavern{
 	first_time_text = "THE FOOL'S FLAGON"
@@ -7575,6 +7583,7 @@
 	dir = 8
 	},
 /obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/fermentation_keg/avarrice,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/tavern{
 	first_time_text = "THE FOOL'S FLAGON"
@@ -7721,6 +7730,10 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/basement/keep)
+"fSA" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/church/chapel)
 "fSC" = (
 /obj/structure/fluff/walldeco/alarm,
 /obj/structure/mineral_door/bars{
@@ -8555,6 +8568,15 @@
 /obj/item/ash,
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/exposed/magiciantower)
+"gzr" = (
+/obj/structure/fluff/railing/border{
+	pixel_y = -7
+	},
+/obj/structure/fermentation_keg/beer,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/tavern{
+	first_time_text = "THE FOOL'S FLAGON"
+	})
 "gzJ" = (
 /obj/structure/chair/bench/couch{
 	icon_state = "redcouch2"
@@ -10480,6 +10502,10 @@
 /area/rogue/outdoors/rtfield{
 	first_time_text = "CITY OUTSKIRTS"
 	})
+"hPE" = (
+/obj/structure/fermentation_keg/random/water,
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "hPO" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -13589,6 +13615,13 @@
 	},
 /turf/open/floor/rogue/blocks/green,
 /area/rogue/under/town/sewer)
+"jWQ" = (
+/obj/structure/table/wood{
+	dir = 1;
+	icon_state = "tablewood1"
+	},
+/turf/open/floor/rogue/blocks,
+/area/rogue/indoors/town/magician)
 "jXl" = (
 /obj/structure/stairs,
 /turf/open/floor/rogue/ruinedwood{
@@ -14443,6 +14476,10 @@
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
+/area/rogue/indoors/town)
+"kFW" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town)
 "kGb" = (
 /obj/structure/table/wood{
@@ -15546,6 +15583,11 @@
 	},
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/manor)
+"lyf" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/fermentation_keg/jagt,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement/keep)
 "lyq" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -18217,6 +18259,15 @@
 /area/rogue/indoors/town/tavern{
 	first_time_text = "THE FOOL'S FLAGON"
 	})
+"nkb" = (
+/obj/structure/mineral_door/wood{
+	locked = 1;
+	lockid = "manor"
+	},
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town/manor)
 "nkd" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10;
@@ -25193,6 +25244,13 @@
 	name = "chimney"
 	},
 /area/rogue/outdoors/town/roofs)
+"spZ" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town/manor)
 "sqq" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -27345,6 +27403,10 @@
 /obj/machinery/gear_painter,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor)
+"ueF" = (
+/obj/structure/fermentation_keg/hagwoodbitter,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement/keep)
 "ueU" = (
 /obj/item/roguemachine/mastermail,
 /turf/open/floor/rogue/carpet,
@@ -28668,6 +28730,15 @@
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/sewer)
+"vbv" = (
+/obj/structure/fluff/railing/border{
+	pixel_y = -7
+	},
+/obj/structure/fermentation_keg/zagul,
+/turf/open/floor/rogue/hexstone,
+/area/rogue/indoors/town/tavern{
+	first_time_text = "THE FOOL'S FLAGON"
+	})
 "vbS" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5
@@ -30274,6 +30345,10 @@
 /obj/item/toy/cards/deck,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
+"wgS" = (
+/obj/structure/fermentation_keg/gronmead,
+/turf/open/floor/rogue/blocks,
+/area/rogue/under/town/basement/keep)
 "wgX" = (
 /turf/open/water/ocean,
 /area/rogue/outdoors/beach)
@@ -30709,15 +30784,6 @@
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
-"wzd" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "manor"
-	},
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town/manor)
 "wzh" = (
 /turf/open/water/swamp/deep,
 /area/rogue/under/town/sewer)
@@ -64650,7 +64716,7 @@ wsJ
 wsJ
 wsJ
 wsJ
-cLY
+duk
 pGd
 ars
 pGd
@@ -64974,7 +65040,7 @@ pGd
 pGd
 pGd
 wsJ
-pGd
+wgS
 bLx
 riU
 pGd
@@ -65136,7 +65202,7 @@ byW
 drr
 drr
 wsJ
-pGd
+ueF
 pGd
 pGd
 pGd
@@ -65298,7 +65364,7 @@ sjP
 sjP
 qVM
 wsJ
-ajz
+lyf
 ber
 cfS
 rvO
@@ -90848,7 +90914,7 @@ oTv
 mXL
 mXL
 mXL
-mXL
+hPE
 oYy
 dvQ
 uvh
@@ -91695,7 +91761,7 @@ wDA
 wDA
 dgT
 dgT
-koR
+spZ
 gKP
 gKP
 gKP
@@ -94897,7 +94963,7 @@ bRY
 bRY
 bRY
 fWY
-epi
+gzr
 jIy
 jIy
 mRs
@@ -95059,7 +95125,7 @@ bRY
 bRY
 bRY
 fWY
-epi
+bIo
 jIy
 cvW
 hSC
@@ -95383,7 +95449,7 @@ bRY
 bRY
 bRY
 mRs
-epi
+vbv
 jIy
 fwe
 mRs
@@ -114875,7 +114941,7 @@ gKP
 gKP
 gKP
 gKP
-wzd
+nkb
 upW
 oHZ
 pDh
@@ -115661,7 +115727,7 @@ ixP
 tAL
 uXi
 xoK
-cQk
+kFW
 wDw
 cQk
 cQk
@@ -115951,8 +116017,8 @@ qWd
 qWd
 qWd
 hMs
-qLj
-qLj
+fSA
+fSA
 cSi
 cTn
 hks
@@ -116480,7 +116546,7 @@ xoK
 xoK
 mcV
 dLC
-wzd
+nkb
 siW
 siW
 kAe
@@ -169785,7 +169851,7 @@ qWd
 qWd
 qWd
 iyL
-bOl
+jWQ
 jYG
 iAl
 iAl
@@ -170114,7 +170180,7 @@ tZB
 pRj
 inZ
 sSo
-bOl
+jWQ
 ngK
 jla
 jla
