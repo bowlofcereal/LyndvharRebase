@@ -46,7 +46,7 @@
 /turf/closed/wall/mineral/rogue/wood,
 /area/rogue/outdoors/bog)
 "bJ" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains)
 "bP" = (
@@ -75,8 +75,8 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/obj/item/mortar,
 /obj/item/pestle,
+/obj/item/reagent_containers/glass/mortar,
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains)
 "cI" = (
@@ -168,7 +168,6 @@
 /area/rogue/outdoors/bog)
 "hC" = (
 /obj/structure/rack/rogue,
-/obj/item/clothing/head/roguetown/helmet/leather/minershelm,
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/cavewet/bogcaves)
@@ -184,7 +183,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cavewet/bogcaves)
 "ie" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/dirt,
 /area/rogue/under/cavewet/bogcaves)
 "ig" = (
@@ -204,14 +203,6 @@
 /obj/structure/bed/rogue/inn/double,
 /obj/item/bedsheet/rogue/double_pelt,
 /turf/open/floor/rogue/woodturned,
-/area/rogue/outdoors/mountains)
-"ji" = (
-/obj/structure/table/wood{
-	dir = 10;
-	icon_state = "tablewood2"
-	},
-/obj/structure/fluff/millstone,
-/turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/mountains)
 "jr" = (
 /turf/open/floor/rogue/twig,
@@ -290,7 +281,7 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/cavewet/bogcaves)
 "mA" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/grasscold,
 /area/rogue/outdoors/mountains)
 "mM" = (
@@ -327,7 +318,7 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/outdoors/mountains)
 "oR" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cavewet/bogcaves)
 "pn" = (
@@ -417,7 +408,6 @@
 /area/rogue/outdoors/mountains)
 "ra" = (
 /obj/structure/rack/rogue,
-/obj/item/clothing/head/roguetown/helmet/leather/minershelm,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/cavewet/bogcaves)
 "rd" = (
@@ -558,10 +548,6 @@
 "wG" = (
 /obj/effect/spawner/roguemap/hauntpile,
 /turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/mountains)
-"wN" = (
-/obj/structure/fermenting_barrel/random/water,
-/turf/open/floor/rogue/woodturned,
 /area/rogue/outdoors/mountains)
 "wO" = (
 /obj/structure/rack/rogue,
@@ -730,7 +716,7 @@
 /turf/closed/mineral/rogue/bedrock,
 /area/rogue/under/cavewet/bogcaves)
 "Hd" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /obj/structure/bed/rogue/bedroll,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/cavewet/bogcaves)
@@ -898,7 +884,7 @@
 /turf/closed/wall/mineral/rogue/tent,
 /area/rogue/under/cavewet/bogcaves)
 "Qo" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains)
 "Qs" = (
@@ -932,13 +918,9 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/bog)
 "SC" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/cavewet/bogcaves)
-"TX" = (
-/obj/structure/fermenting_barrel/random/water,
-/turf/open/floor/rogue/wood,
-/area/rogue/outdoors/mountains)
 "Uh" = (
 /obj/structure/flora/roguetree/stump,
 /turf/open/floor/rogue/grassyel,
@@ -953,7 +935,7 @@
 /area/rogue/outdoors/mountains)
 "Vp" = (
 /obj/structure/bed/rogue/bedroll,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/twig,
 /area/rogue/under/cavewet/bogcaves)
 "VW" = (
@@ -59182,7 +59164,7 @@ fo
 vN
 ob
 bW
-ji
+vE
 mo
 KI
 OI
@@ -59311,7 +59293,7 @@ OI
 jR
 KI
 fo
-TX
+ob
 ob
 bW
 vE
@@ -59443,7 +59425,7 @@ OI
 OI
 KI
 fo
-wN
+dx
 dx
 bW
 Wg
