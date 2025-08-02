@@ -66,13 +66,13 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
@@ -93,7 +93,7 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	beltl = /obj/item/storage/keyring/guardcastle
 	belt = /obj/item/storage/belt/rogue/leather/black
 	gloves = /obj/item/clothing/gloves/roguetown/leather
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/rope/chain = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/rope/chain = 1)
 	H.verbs |= /mob/proc/haltyell
 
 /datum/advclass/watchman/archer
@@ -109,11 +109,11 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)		//Why master? Because all it does is effect draw time, which is strength x skill / 1.2. (Bow is just skill / 1.0). You get poor bonus strength, so you get skill to offset.
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/maces, 	1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
@@ -136,7 +136,7 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	beltl = /obj/item/storage/keyring/guardcastle
 	belt = /obj/item/storage/belt/rogue/leather
 	gloves = /obj/item/clothing/gloves/roguetown/leather
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/rope/chain = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/rope/chain = 1)
 	H.verbs |= /mob/proc/haltyell
 
 /datum/advclass/watchman/pikeman
@@ -149,14 +149,14 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 /datum/outfit/job/roguetown/guardsman/pikeman/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
