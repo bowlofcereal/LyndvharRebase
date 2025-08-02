@@ -1113,6 +1113,7 @@
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/shovel,
 /obj/item/rogueweapon/shovel,
+/obj/structure/roguemachine/noticeboard,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/exposed/church)
 "aJi" = (
@@ -2254,6 +2255,10 @@
 /mob/living/simple_animal/hostile/rogue/deepone/arm,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
+"bvT" = (
+/obj/structure/chair/arrestchair,
+/turf/open/floor/rogue/wood,
+/area/rogue/outdoors/town)
 "bwW" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -3251,6 +3256,10 @@
 "clS" = (
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/town/basement/keep)
+"clW" = (
+/obj/structure/roguemachine/noticeboard,
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/town)
 "cmj" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
 /area/rogue/outdoors/town)
@@ -9195,9 +9204,8 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
 "gxL" = (
-/obj/structure/roguemachine/scomm,
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/rogue/cobble,
+/obj/structure/roguemachine/bounty,
+/turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/cell)
 "gxP" = (
 /obj/structure/closet/crate/chest/crate,
@@ -19888,6 +19896,10 @@
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin)
+"nAh" = (
+/obj/structure/roguemachine/bounty,
+/turf/open/floor/rogue/wood,
+/area/rogue/outdoors/town)
 "nAk" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -21264,6 +21276,7 @@
 /area/rogue/under/cave)
 "otM" = (
 /obj/structure/chair/stool/rogue,
+/obj/structure/fluff/walldeco/wantedposter,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/town/sargoth)
 "otU" = (
@@ -22015,14 +22028,8 @@
 /turf/open/water/cleanshallow,
 /area/rogue/indoors/cave)
 "oVm" = (
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = -32;
-	pixel_y = 0
-	},
-/obj/structure/closet/crate/chest{
-	name = "Evidence Storage"
-	},
-/turf/open/floor/rogue/cobble,
+/obj/structure/chair/arrestchair,
+/turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/cell)
 "oVD" = (
 /obj/structure/roguemachine/mail/r,
@@ -24840,8 +24847,7 @@
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor)
 "qRT" = (
-/obj/structure/fluff/walldeco/wantedposter,
-/obj/structure/chair/stool/rogue,
+/obj/structure/roguemachine/noticeboard,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/town/sargoth)
 "qSa" = (
@@ -25830,12 +25836,11 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town)
 "rzE" = (
-/obj/structure/fluff/walldeco/sparrowflag{
-	pixel_y = 32
-	},
-/obj/structure/chair/stool/rogue,
-/turf/open/floor/rogue/twig,
-/area/rogue/indoors/shelter/town/sargoth)
+/obj/structure/roguemachine/noticeboard,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/rtfield{
+	first_time_text = "CITY OUTSKIRTS"
+	})
 "rzK" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/cloak/templar/necran,
@@ -26808,6 +26813,10 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
+"shl" = (
+/obj/structure/roguemachine/noticeboard,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/town)
 "shB" = (
 /obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/tile/harem2,
@@ -68552,7 +68561,7 @@ vyz
 wsJ
 wsJ
 hwn
-gxL
+hwn
 lhR
 lhR
 jgb
@@ -68714,7 +68723,7 @@ rNG
 qCn
 wsJ
 hwn
-kSt
+gxL
 jED
 lhR
 jED
@@ -94939,7 +94948,7 @@ gFl
 bpi
 puA
 puA
-puA
+bvT
 dFt
 uMr
 wDA
@@ -95101,7 +95110,7 @@ bRY
 bpi
 xoE
 puA
-xoE
+ykP
 dFt
 uMr
 wDA
@@ -95263,7 +95272,7 @@ bRY
 bpi
 puA
 puA
-puA
+nAh
 dFt
 uMr
 wDA
@@ -95582,7 +95591,7 @@ vFk
 tPJ
 tPJ
 vFk
-bRY
+clW
 bRY
 hwK
 aoy
@@ -96801,7 +96810,7 @@ qNM
 iPF
 vvw
 vvw
-mqC
+rzE
 mqC
 mqC
 gVv
@@ -99913,7 +99922,7 @@ yaN
 yaN
 pfz
 vFk
-uAg
+shl
 rCg
 bFI
 xoK
@@ -103810,7 +103819,7 @@ oWV
 oWV
 oWV
 oWV
-rzE
+jIR
 jIR
 oqy
 bqv
