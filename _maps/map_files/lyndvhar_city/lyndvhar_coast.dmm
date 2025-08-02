@@ -93,11 +93,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
-"aT" = (
-/obj/structure/fermenting_barrel/random,
-/obj/machinery/light/rogue/torchholder/l,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/shelter)
 "bd" = (
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/beach)
@@ -192,7 +187,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
 "cR" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/hard,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/under/cave/dukecourt)
 "dd" = (
@@ -383,7 +378,7 @@
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/cave)
 "gO" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/rose_tea,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/dukecourt)
 "gW" = (
@@ -634,8 +629,6 @@
 /area/rogue/indoors/shelter)
 "jK" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/reagent_containers/glass/bottle/toxin,
-/obj/item/reagent_containers/glass/bottle/toxin,
 /turf/open/floor/rogue/blocks/green,
 /area/rogue/under/cave/dukecourt)
 "jO" = (
@@ -706,11 +699,6 @@
 /obj/structure/fluff/statue/knight/interior/r,
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/cave/orcdungeon)
-"lp" = (
-/obj/machinery/light/rogue/wallfire/candle/blue/r,
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/blocks/platform,
-/area/rogue/under/cave/dukecourt)
 "lF" = (
 /mob/living/carbon/human/species/human/northern/searaider/ambush,
 /obj/machinery/light/rogue/torchholder/c,
@@ -1004,10 +992,6 @@
 "pi" = (
 /turf/open/floor/rogue/ruinedwood/chevron,
 /area/rogue/under/cave/dukecourt)
-"pp" = (
-/obj/structure/fermenting_barrel/random/beer,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/under/cave/orcdungeon)
 "pt" = (
 /turf/closed/wall/mineral/rogue/tent,
 /area/rogue/indoors/shelter)
@@ -1513,10 +1497,6 @@
 /area/rogue/outdoors/beach/forest{
 	first_time_text = "LILAC BAY"
 	})
-"vX" = (
-/obj/structure/fermenting_barrel/random,
-/turf/open/floor/rogue/blocks/platform,
-/area/rogue/under/cave/dukecourt)
 "wa" = (
 /turf/closed/mineral/random/rogue/high,
 /area/rogue/indoors/cave)
@@ -1622,14 +1602,6 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/spells,
 /turf/open/floor/rogue/twig/platform,
 /area/rogue/indoors/shelter)
-"yg" = (
-/obj/structure/fermenting_barrel/random/water,
-/turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/shelter)
-"yh" = (
-/obj/structure/fermenting_barrel/random/beer,
-/turf/open/floor/rogue/ruinedwood/turned,
-/area/rogue/indoors/shelter)
 "yj" = (
 /obj/structure/closet/crate/chest/gold,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/money,
@@ -1641,10 +1613,6 @@
 /obj/item/roguegem/random,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/under/cave/dukecourt)
-"ys" = (
-/obj/effect/roguerune,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/orcdungeon)
 "yx" = (
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/naturalstone,
@@ -1805,10 +1773,6 @@
 /area/rogue/outdoors/beach/forest{
 	first_time_text = "LILAC BAY"
 	})
-"AB" = (
-/obj/structure/fermenting_barrel/random/beer,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/shelter)
 "AC" = (
 /obj/effect/decal/wood/herringbone2{
 	dir = 1
@@ -1979,7 +1943,6 @@
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/under/cave/dragonden)
 "CF" = (
-/obj/structure/fermenting_barrel/random/beer,
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/orcdungeon)
@@ -2002,7 +1965,7 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/dukecourt)
 "Db" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/dukecourt)
 "Dd" = (
@@ -2169,7 +2132,7 @@
 /area/rogue/under/cave/dukecourt)
 "FJ" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/kgsunsake,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/dukecourt)
 "FL" = (
@@ -2182,14 +2145,8 @@
 /obj/machinery/light/rogue/wallfire/candle/blue/l,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/dukecourt)
-"FS" = (
-/obj/structure/fermenting_barrel/random/water,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/beach/forest{
-	first_time_text = "LILAC BAY"
-	})
 "FV" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/under/cave/dukecourt)
 "FY" = (
@@ -2238,8 +2195,8 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
 "GP" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/blocks/paving,
+/mob/living/carbon/human/species/skeleton/npc/hard,
+/turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/dukecourt)
 "GQ" = (
 /obj/machinery/light/rogue/torchholder{
@@ -2423,10 +2380,6 @@
 "Kh" = (
 /obj/structure/bed/rogue/inn/double,
 /obj/item/bedsheet/rogue/fabric_double,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/shelter)
-"Km" = (
-/obj/structure/fermenting_barrel/random,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter)
 "Kt" = (
@@ -2772,7 +2725,7 @@
 	first_time_text = "LILAC BAY"
 	})
 "OJ" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/dukecourt)
 "OL" = (
@@ -2808,7 +2761,7 @@
 	first_time_text = "CAVERNOUS CALDERA"
 	})
 "Pj" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg/saigamilk,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/dukecourt)
 "Pm" = (
@@ -3106,10 +3059,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach)
-"TF" = (
-/obj/structure/fermenting_barrel,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/outdoors/beach)
 "TH" = (
 /mob/living/simple_animal/hostile/rogue/skeleton/bow,
 /turf/open/floor/rogue/naturalstone,
@@ -3124,7 +3073,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/dukecourt)
 "TP" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/dukecourt)
 "TR" = (
@@ -3147,14 +3096,8 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/beach)
-"Ud" = (
-/obj/item/clothing/head/roguetown/helmet/leather/minershelm,
-/turf/open/floor/rogue/blocks/platform,
-/area/rogue/under/cavelava{
-	first_time_text = "CAVERNOUS CALDERA"
-	})
 "Uf" = (
-/obj/structure/fermenting_barrel/random/water,
+/obj/structure/fermentation_keg/gronmead,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/under/cave/dukecourt)
 "Ug" = (
@@ -3189,11 +3132,6 @@
 /area/rogue/under/cave/mazedungeon{
 	first_time_text = "UNIDENTIFIED RUIN"
 	})
-"UA" = (
-/obj/structure/fermenting_barrel/random/water,
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/under/cave/orcdungeon)
 "UG" = (
 /obj/structure/chair/wood/rogue/chair3,
 /mob/living/simple_animal/hostile/rogue/skeleton/axe,
@@ -3338,22 +3276,16 @@
 /obj/structure/fluff/alch,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/dukecourt)
-"WK" = (
-/obj/structure/fermenting_barrel/random,
-/obj/machinery/light/rogue/torchholder/r,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/shelter)
 "WQ" = (
 /obj/machinery/light/rogue/wallfire/candle/blue,
-/obj/structure/fermenting_barrel,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/dukecourt)
 "WR" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/dukecourt)
 "WY" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
 "Xb" = (
@@ -3512,12 +3444,8 @@
 "ZA" = (
 /turf/open/floor/rogue/twig/platform,
 /area/rogue/indoors/shelter)
-"ZH" = (
-/obj/item/rogueweapon/sword/long/romphaia,
-/turf/open/floor/rogue/blocks/platform,
-/area/rogue/under/cave/dragonden)
 "ZI" = (
-/obj/structure/fermenting_barrel,
+/obj/structure/fermentation_keg/zagul,
 /turf/open/floor/rogue/blocks/platform,
 /area/rogue/under/cave/dukecourt)
 "ZJ" = (
@@ -11893,7 +11821,7 @@ VO
 Rx
 Rx
 Rx
-Ud
+Rx
 VO
 qC
 qW
@@ -11975,7 +11903,7 @@ dr
 Dt
 Fc
 uV
-ZH
+uV
 Tn
 EG
 dr
@@ -13344,7 +13272,7 @@ qC
 VO
 Rx
 Rx
-Ud
+Rx
 Rx
 VO
 qC
@@ -25246,7 +25174,7 @@ cm
 ab
 TT
 Ws
-ys
+cw
 cw
 cw
 cm
@@ -26194,9 +26122,9 @@ Pz
 fJ
 fJ
 fJ
-GP
-GP
-GP
+pa
+pa
+pa
 fJ
 Mb
 bQ
@@ -26427,7 +26355,7 @@ hr
 jO
 jO
 jO
-pp
+jO
 cm
 aB
 jO
@@ -26460,7 +26388,7 @@ jK
 fJ
 tZ
 PA
-GP
+pa
 fJ
 Yr
 Pz
@@ -26592,7 +26520,7 @@ Uu
 fJ
 jd
 pa
-GP
+pa
 fJ
 Mb
 Mb
@@ -26866,7 +26794,7 @@ FV
 ZV
 ZV
 ZV
-vX
+ZV
 fJ
 il
 il
@@ -27086,7 +27014,7 @@ dH
 cm
 oR
 cy
-UA
+Rp
 jO
 cm
 cm
@@ -28981,8 +28909,8 @@ fJ
 Bb
 fJ
 fJ
-gO
-gO
+gB
+gB
 ZV
 fJ
 bQ
@@ -29246,7 +29174,7 @@ pi
 nl
 fJ
 WQ
-Pj
+gB
 ZV
 fJ
 bQ
@@ -29510,7 +29438,7 @@ pi
 pi
 fJ
 Pj
-ZI
+ZV
 ZV
 fJ
 bQ
@@ -29642,7 +29570,7 @@ VE
 Au
 fJ
 ZI
-lp
+Wn
 ZV
 fJ
 bQ
@@ -30161,7 +30089,7 @@ Cw
 Cw
 kf
 fJ
-Mb
+GP
 Pb
 Mb
 fJ
@@ -30293,7 +30221,7 @@ Bb
 fJ
 fJ
 fJ
-cR
+Pb
 uB
 Pb
 fJ
@@ -51424,9 +51352,9 @@ mb
 mb
 mb
 mb
-Km
-aT
-Km
+Vu
+np
+Vu
 mb
 Mu
 tE
@@ -52216,9 +52144,9 @@ mb
 mb
 mb
 mb
-Km
-WK
-Km
+Vu
+pQ
+Vu
 mb
 Mu
 tE
@@ -60138,7 +60066,7 @@ uW
 aQ
 VD
 Vu
-yg
+Wk
 uW
 LZ
 LZ
@@ -68849,7 +68777,7 @@ Vu
 Vu
 Vu
 mb
-yh
+iK
 iK
 Zo
 iK
@@ -68976,7 +68904,7 @@ BJ
 BJ
 BJ
 mb
-AB
+Vu
 Vu
 VU
 mb
@@ -68989,7 +68917,7 @@ uW
 mb
 iH
 VU
-AB
+Vu
 mb
 BJ
 BJ
@@ -69114,7 +69042,7 @@ Vu
 Vu
 mb
 Ql
-yh
+iK
 Zo
 AR
 iK
@@ -69242,7 +69170,7 @@ BJ
 BJ
 mb
 mb
-AB
+Vu
 Vu
 BD
 iK
@@ -74434,7 +74362,7 @@ Ga
 ae
 Gm
 LZ
-FS
+eq
 eq
 zq
 vx
@@ -85750,7 +85678,7 @@ bd
 bd
 bd
 bd
-TF
+bd
 mb
 XP
 mb
@@ -85882,7 +85810,7 @@ bd
 xh
 bd
 bd
-TF
+bd
 mb
 Vu
 Vu
