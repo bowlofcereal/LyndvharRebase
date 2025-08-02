@@ -6987,6 +6987,10 @@
 	icon_state = "tile"
 	},
 /area/rogue/indoors/town/manor)
+"eQW" = (
+/obj/machinery/light/rogue/wallfire/candle/r,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "eRb" = (
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
 /turf/open/floor/rogue/naturalstone,
@@ -8594,6 +8598,10 @@
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/town)
+"gaq" = (
+/obj/machinery/light/rogue/torchholder/c,
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors/town/dwarfin)
 "gaA" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -9531,6 +9539,12 @@
 /obj/structure/closet/crate/drawer,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town)
+"gHH" = (
+/obj/machinery/light/rogue/torchholder/c,
+/turf/open/floor/rogue/woodturned,
+/area/rogue/indoors/town/tavern{
+	first_time_text = "THE FOOL'S FLAGON"
+	})
 "gHT" = (
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
@@ -11118,6 +11132,7 @@
 /obj/structure/table/wood{
 	icon_state = "map1"
 	},
+/obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/dwarfin)
 "hMk" = (
@@ -14019,6 +14034,10 @@
 "jCo" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
+	},
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = -32;
+	pixel_y = 0
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/garrison)
@@ -17826,6 +17845,12 @@
 	},
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/town)
+"mmt" = (
+/obj/structure/closet/crate/roguecloset,
+/turf/open/floor/rogue/ruinedwood{
+	icon_state = "weird1"
+	},
+/area/rogue/indoors/town/church)
 "mmv" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -19251,6 +19276,9 @@
 /obj/item/tablecloth/silk{
 	pixel_x = 6;
 	pixel_y = 10
+	},
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_y = -32
 	},
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/dwarfin)
@@ -20889,10 +20917,7 @@
 	})
 "oic" = (
 /obj/structure/table/wood,
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = 32;
-	pixel_y = 0
-	},
+/obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern{
 	first_time_text = "THE FOOL'S FLAGON"
@@ -20937,6 +20962,11 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/magician)
+"ojk" = (
+/obj/structure/chair/stool/rogue,
+/obj/machinery/light/rogue/wallfire/candle/l,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/garrison)
 "ojr" = (
 /obj/structure/fluff/statue/femalestatue/zizo,
 /turf/open/floor/rogue/cobble/mossy,
@@ -23329,6 +23359,7 @@
 /area/rogue/under/town/basement/keep)
 "pRr" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
+/obj/structure/rack/rogue,
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
 	},
@@ -33227,6 +33258,13 @@
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/manor)
+"wMo" = (
+/obj/structure/fluff/railing/border,
+/obj/machinery/light/rogue/torchholder/r,
+/turf/open/floor/rogue/rooftop{
+	dir = 8
+	},
+/area/rogue/outdoors/town/roofs)
 "wMp" = (
 /turf/open/floor/rogue/ruinedwood/herringbone,
 /area/rogue/indoors/shelter/town/sargoth)
@@ -122775,7 +122813,7 @@ brQ
 brQ
 brQ
 aqU
-hDK
+wMo
 qBE
 udS
 udS
@@ -123770,7 +123808,7 @@ kEy
 kEy
 kEy
 hSC
-nFa
+gHH
 oEV
 oEV
 mmK
@@ -123801,7 +123839,7 @@ nXx
 vgX
 vMK
 gdd
-wWD
+ojk
 nXx
 iVS
 iVS
@@ -124742,7 +124780,7 @@ kEy
 kEy
 kEy
 hSC
-nFa
+gHH
 mmK
 oic
 mmK
@@ -126712,7 +126750,7 @@ pYS
 ncx
 ncx
 ncx
-ncx
+lOl
 ukn
 qWd
 qWd
@@ -127030,7 +127068,7 @@ ukn
 ukn
 ukn
 rDC
-xHT
+gaq
 xHT
 ukn
 kjE
@@ -127678,7 +127716,7 @@ ukn
 ukn
 ukn
 rDC
-xHT
+gaq
 xHT
 ukn
 iVo
@@ -128008,7 +128046,7 @@ pYS
 ncx
 ncx
 ncx
-ncx
+lOl
 ukn
 qWd
 kEy
@@ -128483,11 +128521,11 @@ mVf
 qWd
 qWd
 vDf
-xHT
+mvf
 ykO
 ykO
 tYa
-xHT
+mvf
 fIj
 ykO
 rDC
@@ -145797,11 +145835,11 @@ hjD
 hjD
 hnt
 oYy
+mmt
 nbg
 nbg
 nbg
-nbg
-nbg
+mmt
 oYy
 qWd
 qWd
@@ -146121,11 +146159,11 @@ dym
 dym
 qgJ
 oYy
+mmt
 nbg
 nbg
 nbg
-nbg
-nbg
+mmt
 oYy
 qWd
 qWd
@@ -153278,8 +153316,8 @@ ukn
 ukn
 hek
 dxF
-ukn
-ncx
+rDC
+eQW
 ncx
 lcv
 gGy
