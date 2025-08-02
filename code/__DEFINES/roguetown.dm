@@ -203,19 +203,18 @@
 	/datum/species/human/halfelf
 
 #define RACES_TOLERATED \
-	/datum/species/tieberian,\
-	/datum/species/elf/dark,\
+	/datum/species/tabaxi,\
 	/datum/species/halforc,\
 	/datum/species/demihuman,\
 	/datum/species/lizardfolk
 
 #define RACES_SHUNNED \
 	/datum/species/akula,\
+	/datum/species/tieberian,\
+	/datum/species/elf/dark,\
 	/datum/species/lupian,\
-	/datum/species/tabaxi,\
 	/datum/species/vulpkanin,\
 	/datum/species/dracon,\
-	
 
 #define RACES_DESPISED \
 	/datum/species/anthromorph,\
@@ -233,7 +232,7 @@
 
 #define RACES_NO_CONSTRUCT list(RACES_DESPISED, RACES_SHUNNED, RACES_TOLERATED, RACES_RESPECTED, RACES_ESTEEMED)
 
-#define RACES_SHUNNED_UP list(RACES_SHUNNED, RACES_TOLERATED, RACES_RESPECTED, RACES_ESTEEMED )
+#define RACES_SHUNNED_UP list(RACES_SHUNNED, RACES_TOLERATED, RACES_RESPECTED, RACES_ESTEEMED)
 
 #define RACES_TOLERATED_UP list(RACES_TOLERATED, RACES_RESPECTED, RACES_ESTEEMED)
 
