@@ -6,29 +6,29 @@
 /datum/status_effect/debuff/hungryt1
 	id = "hungryt1"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt1
-	effectedstats = list("constitution" = -1)
+	effectedstats = list("constitution" = -1,"strength" = -1, "endurance" = -1)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt1
 	name = "Hungry"
-	desc = "Hunger weakens this living body."
+	desc = "Hunger weakens my living body."
 	icon_state = "hunger1"
 
 /datum/status_effect/debuff/hungryt2
 	id = "hungryt2"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt2
-	effectedstats = list("strength" = -2, "constitution" = -2, "endurance" = -1)
+	effectedstats = list("strength" = -2, "constitution" = -2, "endurance" = -2)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt2
 	name = "Hungry"
-	desc = "This living body suffers heavily from hunger."
+	desc = "My poor body suffers heavily from hunger."
 	icon_state = "hunger2"
 
 /datum/status_effect/debuff/hungryt3
 	id = "hungryt3"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/hungryt3
-	effectedstats = list("strength" = -5, "constitution" = -3, "endurance" = -2)
+	effectedstats = list("strength" = -5, "constitution" = -4, "endurance" = -3)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt3
@@ -46,7 +46,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/silver_curse
 	name = "Silver Curse"
-	desc = "My BANE!"
+	desc = "My bane sends its curse down my spine!"
 	icon_state = "hunger3"
 
 ////////////////////
@@ -77,7 +77,7 @@
 /datum/status_effect/debuff/thirstyt3
 	id = "thirsty3"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/thirstyt3
-	effectedstats = list("strength" = -1, "speed" = -2, "endurance" = -3)
+	effectedstats = list("strength" = -2, "speed" = -2, "endurance" = -3)
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt3
@@ -145,7 +145,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt1
 	name = "Dizzy"
-	desc = ""
+	desc = "I have lost some blood."
 	icon_state = "bleed1"
 
 /datum/status_effect/debuff/bleedingworse
@@ -156,7 +156,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt2
 	name = "Faint"
-	desc = ""
+	desc = "I have lost a lot of blood.."
 	icon_state = "bleed2"
 
 /datum/status_effect/debuff/bleedingworst
@@ -167,7 +167,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt3
 	name = "Drained"
-	desc = ""
+	desc = "My vision fails me, and reality begins to blur. I have lost too much blood.."
 	icon_state = "bleed3"
 
 /datum/status_effect/debuff/sleepytime
@@ -216,12 +216,12 @@
 /datum/status_effect/debuff/devitalised
 	id = "devitalised"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/devitalised
-	effectedstats = list("strength" = -1, "endurance" = -1, "constitution" = -1, "speed" = -1, "fortune" = -1)	//Slightly punishing.
-	duration = 15 MINUTES	//Punishing, same time as revival, but mildly less punishing than revival itself.
+	effectedstats = list("strength" = -3, "endurance" = -3, "constitution" = -3, "speed" = -3, "fortune" = -3)	// Punishing. The removal of one's lux is a traumatic experience.
+	duration = 15 MINUTES	//Punishing. You should feel the pain for this.
 
 /atom/movable/screen/alert/status_effect/debuff/devitalised
 	name = "Devitalised"
-	desc = "Something has been taken from me, and it will take time to recover."
+	desc = "I feel like something extremely important has been taken from me.. my body is horribly weak."
 
 /datum/status_effect/debuff/vamp_dreams
 	id = "sleepytime"
@@ -327,23 +327,23 @@
 /datum/status_effect/debuff/revived
 	id = "revived"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/revived
-	effectedstats = list("strength" = -1, "perception" = -1, "intelligence" = -1, "endurance" = -1, "constitution" = -1, "speed" = -1, "fortune" = -1)
+	effectedstats = list("strength" = -2, "perception" = -2, "intelligence" = -2, "endurance" = -2, "constitution" = -2, "speed" = -2, "fortune" = -2) // A traumatic experience. Death is painful, and the returning of ones soul doubly more so.
 	duration = 15 MINUTES		//Should be long enough to stop someone from running back into battle. Plus, this stacks with body-rot debuff. RIP.
 
 /atom/movable/screen/alert/status_effect/debuff/revived
 	name = "Revival Sickness"
-	desc = "You felt lyfe itself course through you, restoring your lux and your essance. You.. live - but your body aches. It still needs time to recover.."
+	desc = "You felt lyfe itself course through you, restoring your lux and your essence. You.. live - but your body aches. It still needs time to recover.."
 	icon_state = "revived"
 
 //For de-rot - your body ROTTED. Harsher penalty for longer, can be fully off-set with a cure-rot potion.
 /datum/status_effect/debuff/rotted
 	id = "rotted_body"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/rotted
-	effectedstats = list("strength" = -2, "perception" = -2, "intelligence" = -2, "endurance" = -2, "constitution" = -2, "speed" = -2, "fortune" = -2)
+	effectedstats = list("strength" = -4, "perception" = -4, "intelligence" = -4, "endurance" = -4, "constitution" = -4, "speed" = -4, "fortune" = -4) // Horrifically punishing. Revival is painful enough- but the purging of such destructive chaos from the body? Ouch.
 	duration = 30 MINUTES	//Back to a temporary 30 min duration. It hurts.
 
 /atom/movable/screen/alert/status_effect/debuff/rotted
-	name = "Body Rot Paralysis"
+	name = "Rot Paralysis"
 	desc = "You came back from death, but everything aches.. you can feel it in your muscles. Even in your nose, you can smell something putrid and foul. You live yet, but at what cost..?"
 	icon_state = "rotted_body"
 
@@ -440,7 +440,7 @@
 
 /atom/movable/screen/alert/status_effect/debuff/apostasy
 	name = "Apostasy!"
-	desc = "Shame upon the member of clergy!"
+	desc = "Shame upon this member of the clergy!"
 	icon_state = "debuff"
 	color ="#7a0606"
 
@@ -451,7 +451,7 @@
 	duration = 20 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/hereticsermon
-	name = "Heretic on sermon!"
-	desc = "I was on the sermon. My patron is not proud of me."
+	name = "Daemonic Omen"
+	desc = "I heard a holy pantheonic sermon. My patron is not pleased."
 	icon_state = "debuff"
 	color ="#af9f9f"
