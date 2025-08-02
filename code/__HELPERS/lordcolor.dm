@@ -42,8 +42,8 @@ GLOBAL_VAR(lordsecondary)
 		GLOB.lordcolor -= T
 
 /proc/lord_color_default()
-	GLOB.lordprimary = "#8B0000" //RED
-	GLOB.lordsecondary = "#00008B" //BLUE
+	GLOB.lordprimary = "#C6373C" //RED
+	GLOB.lordsecondary = "#1591EA" //BLUE
 	for(var/obj/O in GLOB.lordcolor)
 		O.lordcolor(GLOB.lordprimary,GLOB.lordsecondary)
 	for(var/turf/T in GLOB.lordcolor)
