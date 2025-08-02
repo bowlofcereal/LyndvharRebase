@@ -3,11 +3,10 @@
 	tutorial = "You have been ostracized and hunted by society for your dark magics and perversion of life."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
+	maximum_possible_slots = 2 // mages are rare
 	outfit = /datum/outfit/job/roguetown/wretch/necromancer
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_ZOMBIE_IMMUNE, TRAIT_MAGEARMOR, TRAIT_GRAVEROBBER, TRAIT_OUTLAW, TRAIT_ARCYNE_T3, TRAIT_HERESIARCH)
-	maximum_possible_slots = 3 //Onutsio said 2 was stupid
-
 
 /datum/outfit/job/roguetown/wretch/necromancer/pre_equip(mob/living/carbon/human/H)
 	H.mind.current.faction += "[H.name]_faction"
