@@ -14,7 +14,7 @@
 	var/votable = FALSE
 
 	// Config actually from the JSON - should default to Dun Manor
-	var/map_name = "Lyndvhar"
+	var/map_name = "lyndvharmap"
 	var/map_path = "map_files/lyndvhar_city"
 	var/map_file = "lyndvhar_city.dmm"
 
