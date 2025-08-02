@@ -63,13 +63,13 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	"Viscount",
 	"Consort",
 	"Suitor",
-	"Prince",
+	"Heir",
 	"Hand",
 	"Retinue Captain",
 	"Marshal",
 	"Councillor",
 	"Steward",
-	"Knight",
+	"Cataphract",
 ))
 
 GLOBAL_LIST_INIT(courtier_positions, list(
