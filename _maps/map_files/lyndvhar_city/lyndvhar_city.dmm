@@ -2255,10 +2255,6 @@
 /mob/living/simple_animal/hostile/rogue/deepone/arm,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
-"bvT" = (
-/obj/structure/chair/arrestchair,
-/turf/open/floor/rogue/wood,
-/area/rogue/outdoors/town)
 "bwW" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -3256,10 +3252,6 @@
 "clS" = (
 /turf/open/floor/rogue/woodturned,
 /area/rogue/under/town/basement/keep)
-"clW" = (
-/obj/structure/roguemachine/noticeboard,
-/turf/open/floor/rogue/cobble,
-/area/rogue/outdoors/town)
 "cmj" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
 /area/rogue/outdoors/town)
@@ -3700,7 +3692,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
 "cEr" = (
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/town/sewer)
 "cEQ" = (
@@ -4716,6 +4708,10 @@
 /obj/item/flashlight/flare/torch/lantern,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/garrison)
+"dpr" = (
+/obj/structure/roguemachine/bounty,
+/turf/open/floor/rogue/concrete,
+/area/rogue/indoors/town/cell)
 "dpu" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grass,
@@ -9204,9 +9200,11 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
 "gxL" = (
-/obj/structure/roguemachine/bounty,
-/turf/open/floor/rogue/concrete,
-/area/rogue/indoors/town/cell)
+/obj/structure/roguemachine/noticeboard,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/rtfield{
+	first_time_text = "CITY OUTSKIRTS"
+	})
 "gxP" = (
 /obj/structure/closet/crate/chest/crate,
 /obj/item/recipe_book/blacksmithing,
@@ -19896,10 +19894,6 @@
 /obj/structure/roguewindow,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin)
-"nAh" = (
-/obj/structure/roguemachine/bounty,
-/turf/open/floor/rogue/wood,
-/area/rogue/outdoors/town)
 "nAk" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -21984,6 +21978,10 @@
 /obj/structure/chair/stool/rogue,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/garrison)
+"oTF" = (
+/obj/structure/roguemachine/bounty,
+/turf/open/floor/rogue/wood,
+/area/rogue/outdoors/town)
 "oTV" = (
 /obj/structure/table/wood{
 	dir = 1;
@@ -22563,6 +22561,10 @@
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/town/dwarfin)
+"ppP" = (
+/obj/structure/roguemachine/noticeboard,
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/town)
 "pqk" = (
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/rogue/grass,
@@ -24405,6 +24407,10 @@
 	},
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/beach)
+"qCi" = (
+/obj/structure/chair/arrestchair,
+/turf/open/floor/rogue/wood,
+/area/rogue/outdoors/town)
 "qCn" = (
 /turf/open/water/swamp,
 /area/rogue/under/town/basement/keep)
@@ -25837,10 +25843,8 @@
 /area/rogue/outdoors/town)
 "rzE" = (
 /obj/structure/roguemachine/noticeboard,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/rtfield{
-	first_time_text = "CITY OUTSKIRTS"
-	})
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/town)
 "rzK" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/cloak/templar/necran,
@@ -26813,10 +26817,6 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town)
-"shl" = (
-/obj/structure/roguemachine/noticeboard,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/town)
 "shB" = (
 /obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/tile/harem2,
@@ -33185,7 +33185,7 @@
 "wKL" = (
 /obj/structure/bed/rogue/inn/pileofshit,
 /obj/item/bedsheet/rogue/cloth,
-/mob/living/carbon/human/species/skeleton/npc/ambush,
+/mob/living/carbon/human/species/skeleton/npc/hard,
 /turf/open/floor/rogue/blocks/green,
 /area/rogue/under/town/sewer)
 "wLj" = (
@@ -68723,7 +68723,7 @@ rNG
 qCn
 wsJ
 hwn
-gxL
+dpr
 jED
 lhR
 jED
@@ -94948,7 +94948,7 @@ gFl
 bpi
 puA
 puA
-bvT
+qCi
 dFt
 uMr
 wDA
@@ -95272,7 +95272,7 @@ bRY
 bpi
 puA
 puA
-nAh
+oTF
 dFt
 uMr
 wDA
@@ -95591,7 +95591,7 @@ vFk
 tPJ
 tPJ
 vFk
-clW
+ppP
 bRY
 hwK
 aoy
@@ -96810,7 +96810,7 @@ qNM
 iPF
 vvw
 vvw
-rzE
+gxL
 mqC
 mqC
 gVv
@@ -99922,7 +99922,7 @@ yaN
 yaN
 pfz
 vFk
-shl
+rzE
 rCg
 bFI
 xoK
