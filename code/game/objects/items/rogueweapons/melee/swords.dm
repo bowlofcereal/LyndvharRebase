@@ -805,7 +805,7 @@
 	name = "rapier"
 	desc = "A practically brand new sword type with a straight, slender and sharply pointed blade meant to be wielded in one hand. \
 		Originating in the southernmost plains of Valoria, its name comes from the term \"spada ropera\" (Literally \"dress sword\") due to its primary function being that of an accessory. \
-		A very young type of fighting technique for this weapon is emerging in southwest, aptly named \"Destreza\" for dexterity."
+		A very young type of fighting technique for this weapon is emerging in the southwest, aptly named \"Destreza\" for dexterity."
 	icon = 'icons/roguetown/weapons/64.dmi'
 	icon_state = "rapier"
 	sheathe_icon = "rapier"
