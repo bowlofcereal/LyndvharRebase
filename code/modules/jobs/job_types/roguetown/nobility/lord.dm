@@ -18,7 +18,6 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		/datum/species/demihuman
 	)
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_patrons = ALL_DIVINE_PATRONS
 	advclass_cat_rolls = list(CTAG_LORD = 20)
 
 	spells = list(

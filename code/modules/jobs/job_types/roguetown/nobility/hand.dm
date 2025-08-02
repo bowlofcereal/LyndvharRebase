@@ -16,7 +16,6 @@
 		/datum/species/demihuman
 	)
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_patrons = ALL_DIVINE_PATRONS
 	outfit = /datum/outfit/job/roguetown/hand
 	advclass_cat_rolls = list(CTAG_HAND = 20)
 	display_order = JDO_HAND

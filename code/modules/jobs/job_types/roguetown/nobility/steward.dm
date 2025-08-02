@@ -16,7 +16,6 @@
 		/datum/species/demihuman
 	)
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_patrons = ALL_DIVINE_PATRONS
 	display_order = JDO_STEWARD
 	tutorial = "Coin, Coin, Coin! Oh beautiful coin: You're addicted to it, and you hold the position as the Viscount's personal treasurer of both coin and information. You know the power silver and gold has on a man's mortal soul, and you know just what lengths they'll go to in order to get even more. Keep your festering economy and your clerks alive--they're the only two things you can weigh any trust into anymore."
 	outfit = /datum/outfit/job/roguetown/steward
