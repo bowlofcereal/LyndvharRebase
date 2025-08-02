@@ -113,7 +113,7 @@
 		return
 	var/canread = user.can_read(src, TRUE)
 	var/contents
-	if(SSticker.rulertype == "VISCOUNT")
+	if(SSticker.rulertype == "Viscount")
 		contents += "<center>VISCOUNT'S DECREES<BR>"
 	else
 		contents += "<center>VISCOUNTESS' DECREES<BR>"
