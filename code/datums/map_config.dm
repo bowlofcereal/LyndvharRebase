@@ -5,7 +5,7 @@
 
 /datum/map_config
 	// Metadata
-	var/config_filename = "_maps/dun_manor.json"
+	var/config_filename = "_maps/lyndvhar_city.json"
 	var/defaulted = TRUE  // set to FALSE by LoadConfig() succeeding
 	// Config from maps.txt
 	var/config_max_users = 0
@@ -14,9 +14,9 @@
 	var/votable = FALSE
 
 	// Config actually from the JSON - should default to Dun Manor
-	var/map_name = "Dun Manor"
-	var/map_path = "map_files/dun_manor"
-	var/map_file = "dun_manor.dmm"
+	var/map_name = "Lyndvhar"
+	var/map_path = "map_files/lyndvhar_city"
+	var/map_file = "lyndvhar_city.dmm"
 
 	var/traits = null
 	var/space_ruin_levels = 7
