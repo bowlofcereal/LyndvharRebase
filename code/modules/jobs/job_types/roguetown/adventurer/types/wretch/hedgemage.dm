@@ -4,6 +4,7 @@
 	tutorial = "They reject your genius, they cast you out, they call you unethical. They do not understand the SACRIFICES you must make. But it does not matter anymore, your power eclipse any of those fools, save for the Court Magos themselves. Show them true magic. Why do I have an eyepatch?"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
+	maximum_possible_slots = 1 // mages are rare
 	outfit = /datum/outfit/job/roguetown/wretch/hedgemage
 	category_tags = list(CTAG_WRETCH)
 	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_MAGEARMOR, TRAIT_OUTLAW, TRAIT_ARCYNE_T3, TRAIT_HERESIARCH)
