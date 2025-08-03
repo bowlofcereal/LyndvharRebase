@@ -843,6 +843,9 @@
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
+"ge" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/cave)
 "gh" = (
 /obj/effect/landmark/start/adventurerlate{
 	icon_state = "arrow"
@@ -1528,6 +1531,10 @@
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
+"lu" = (
+/obj/structure/flora/rock,
+/turf/open/floor/rogue/dirt/ambush,
+/area/rogue/under/cave)
 "lv" = (
 /turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods{
@@ -2001,6 +2008,10 @@
 	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/outdoors/mountains)
+"pz" = (
+/obj/structure/flora/rock/pile,
+/turf/open/floor/rogue/dirt/ambush,
+/area/rogue/under/cave)
 "pD" = (
 /obj/structure/stairs{
 	dir = 8
@@ -3036,6 +3047,13 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/town/roofs)
+"wW" = (
+/obj/structure/fluff/traveltile/bandit{
+	aportalid = "banditexit";
+	aportalgoesto = "banditin"
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/under/cave)
 "xj" = (
 /mob/living/carbon/human/species/skeleton/npc/medium,
 /turf/open/floor/rogue/cobblerock,
@@ -3752,14 +3770,9 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "Dc" = (
-/obj/structure/fluff/traveltile/bandit{
-	aportalid = "banditexit";
-	aportalgoesto = "banditin"
-	},
-/turf/open/floor/rogue/grass,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
+/obj/structure/flora/roguegrass,
+/turf/open/floor/rogue/dirt/ambush,
+/area/rogue/under/cave)
 "Dd" = (
 /obj/structure/flora/roguetree/stump/log,
 /turf/open/floor/rogue/grass,
@@ -6896,6 +6909,9 @@
 	},
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/outdoors/town/roofs)
+"ZI" = (
+/turf/open/floor/rogue/dirt/ambush,
+/area/rogue/under/cave)
 "ZJ" = (
 /obj/structure/stairs/stone,
 /turf/open/floor/rogue/naturalstone,
@@ -88875,13 +88891,13 @@ KL
 KL
 KL
 KL
-Ic
-vk
-vk
 KL
-Dc
-Dc
-Dc
+KL
+KL
+KL
+KL
+KL
+KL
 rO
 rO
 rO
@@ -89074,18 +89090,18 @@ KL
 KL
 KL
 vk
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
+KL
+KL
+KL
+KL
+KL
+KL
+KL
+KL
+KL
+KL
+KL
+KL
 rO
 rO
 rO
@@ -89276,19 +89292,19 @@ KL
 Ic
 Ic
 vk
-Ic
-Ic
-Ic
-Ic
-Ic
-nk
-Ic
-Ic
-Ic
-nk
-Ic
+sO
 sO
 Ic
+Ic
+Ic
+nk
+Ic
+Ic
+KL
+KL
+Ic
+sO
+sO
 Ic
 Ic
 rO
@@ -89478,8 +89494,8 @@ Ic
 Ic
 sO
 Ic
-Ic
-Ic
+sO
+sO
 sO
 sO
 UO
@@ -89490,7 +89506,7 @@ Ic
 Ic
 Ic
 Ic
-Ic
+sO
 Ic
 Ic
 Ic
@@ -89680,8 +89696,8 @@ Ic
 Ic
 Ic
 nk
-Ic
-Ic
+sO
+sO
 sO
 sO
 Ic
@@ -89691,8 +89707,8 @@ Ic
 Ic
 Ic
 Ic
-nk
-Ic
+UO
+sO
 Ic
 Ic
 Ic
@@ -89882,8 +89898,8 @@ Ic
 Ic
 Ic
 Ic
-Ic
-Ic
+sO
+sO
 Ic
 Ic
 Ic
@@ -89893,7 +89909,7 @@ Ic
 Ic
 nk
 nk
-Ic
+sO
 Ic
 sO
 Ic
@@ -90084,8 +90100,8 @@ Ic
 sO
 Ic
 Ic
-Ic
-Ic
+sO
+sO
 Ic
 Ic
 nk
@@ -90287,11 +90303,11 @@ Ic
 Ic
 Ic
 sO
-Ic
+sO
 Yr
-Ic
-Ic
-nk
+sO
+sO
+UO
 Ic
 nd
 nk
@@ -90493,8 +90509,8 @@ Ic
 Ic
 nd
 nd
-nk
-nk
+UO
+UO
 nd
 Ic
 Ic
@@ -128672,9 +128688,9 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
+wW
+wW
+wW
 KL
 KL
 KL
@@ -128873,12 +128889,12 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
+ZI
+ge
+ge
+Dc
+vG
+vG
 KL
 KL
 KL
@@ -129073,15 +129089,15 @@ KL
 KL
 KL
 KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
-KL
+vG
+vG
+ge
+vG
+ge
+ge
+pz
+vG
+vG
 KL
 KL
 KL
@@ -129275,16 +129291,16 @@ KL
 KL
 KL
 KL
-uN
-uN
-uN
-uN
-KL
-uN
-uN
-uN
-KL
-KL
+ge
+ge
+ge
+ZI
+Dc
+ge
+ge
+ZI
+vG
+vG
 KL
 KL
 KL
@@ -129475,18 +129491,18 @@ KL
 KL
 KL
 uN
-uN
-uN
-uN
-uN
-uN
-uN
-uN
-uN
-uN
-uN
-uN
-uN
+lu
+ZI
+ZI
+ge
+Dc
+ZI
+ZI
+ZI
+ge
+ge
+ZI
+pz
 KL
 KL
 KL
@@ -129685,8 +129701,8 @@ uN
 uN
 uN
 uN
-uN
-uN
+ZI
+Dc
 uN
 uN
 uN
@@ -169677,13 +169693,13 @@ kv
 kv
 kv
 kv
-iT
-iT
-iT
 kv
-iT
-iT
-iT
+kv
+kv
+kv
+kv
+kv
+kv
 kv
 kv
 kv
@@ -169876,18 +169892,18 @@ kv
 kv
 kv
 iT
-iT
-iT
-iT
-iT
-iT
-iT
-iT
-iT
-iT
-iT
-iT
-iT
+kv
+kv
+kv
+kv
+kv
+kv
+kv
+kv
+kv
+kv
+kv
+kv
 kv
 kv
 kv
@@ -170086,8 +170102,8 @@ iT
 iT
 iT
 iT
-iT
-iT
+kv
+kv
 iT
 iT
 iT
