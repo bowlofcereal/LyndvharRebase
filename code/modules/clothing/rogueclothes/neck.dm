@@ -385,12 +385,12 @@
 
 /obj/item/clothing/neck/roguetown/psicross/aalloy
 	name = "decrepit psicross"
-	desc = "Surely this one endures?"
+	desc = "A symbol of the Orthodoxy- though this one is quite old.. how strange."
 	icon_state = "psycross_a"
 
 /obj/item/clothing/neck/roguetown/zcross/aalloy
 	name = "decrepit zcross"
-	desc = "A symbol of progress from an era that had reason to believe in it."
+	desc = "A symbol of darkness from an era long forgotten in blood."
 	icon_state = "zcross_a"
 
 /obj/item/clothing/neck/roguetown/psicross/astrata
