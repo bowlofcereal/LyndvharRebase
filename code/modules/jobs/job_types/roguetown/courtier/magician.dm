@@ -18,7 +18,7 @@
 	give_bank_account = 47
 	min_pq = 4
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 3
 	cmode_music = 'sound/music/cmode/nobility/combat_courtmage.ogg'
 
 	// Can't get very far as a magician if you can't chant spells now can you?

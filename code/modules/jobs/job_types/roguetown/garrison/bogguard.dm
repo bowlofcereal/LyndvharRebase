@@ -20,7 +20,7 @@
 	give_bank_account = 16
 	min_pq = 0
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 1
 
 	cmode_music = 'sound/music/cmode/garrison/combat_warden.ogg'
 

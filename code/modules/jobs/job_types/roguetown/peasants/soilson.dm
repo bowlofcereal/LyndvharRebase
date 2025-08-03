@@ -20,7 +20,7 @@
 	give_bank_account = 17
 	min_pq = -10
 	max_pq = null
-	round_contrib_points = 3
+	round_contrib_points = 4
 
 /datum/outfit/job/roguetown/farmer/pre_equip(mob/living/carbon/human/H)
 	..()

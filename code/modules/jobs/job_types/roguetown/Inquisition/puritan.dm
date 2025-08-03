@@ -27,7 +27,7 @@
 	give_bank_account = 30
 	min_pq = 6
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 3
 
 /datum/outfit/job/roguetown/puritan
 	name = "Inquisitor"

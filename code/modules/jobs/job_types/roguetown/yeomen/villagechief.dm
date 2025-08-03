@@ -16,7 +16,7 @@
 	min_pq = 2
 	max_pq = null
 	give_bank_account = 16
-	round_contrib_points = 3
+	round_contrib_points = 5
 
 	cmode_music = 'sound/music/cmode/towner/combat_retired.ogg'
 

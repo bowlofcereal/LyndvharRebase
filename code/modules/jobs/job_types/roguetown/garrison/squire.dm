@@ -26,7 +26,7 @@
 	give_bank_account = TRUE
 	min_pq = -5 //squires aren't great but they can do some damage
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 1
 
 	cmode_music = 'sound/music/combat_squire.ogg'
 

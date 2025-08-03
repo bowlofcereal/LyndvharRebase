@@ -19,7 +19,7 @@
 	give_bank_account = 16
 	min_pq = 1
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 1
 
 	cmode_music = 'sound/music/combat_ManAtArms.ogg'
 

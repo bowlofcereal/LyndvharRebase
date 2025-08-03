@@ -17,7 +17,7 @@
 	give_bank_account = 35
 	min_pq = 5
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 3
 
 	cmode_music = 'sound/music/combat_veteran.ogg'
 
