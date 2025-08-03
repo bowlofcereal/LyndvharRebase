@@ -1,7 +1,7 @@
 /datum/job/roguetown/hostage
 	title = "Hostage"
 	flag = HOSTAGE
-	department_flag = NOBLEMEN
+	department_flag = PEASANTS
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
