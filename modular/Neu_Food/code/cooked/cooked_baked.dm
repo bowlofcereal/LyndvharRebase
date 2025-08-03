@@ -41,7 +41,7 @@
 /*	.................   Bread   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/bread
 	name = "bread loaf"
-	desc = "One of the staple foods of the world. With the decline of magic, the loss of bread-duplication has led to mass famines around Grimoria."
+	desc = "One of the most staple foods of the world. With the decline of the Empire, the loss of many farms has led to mass famines around Lyndhardtia."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "loaf6"
 	slices_num = 6
