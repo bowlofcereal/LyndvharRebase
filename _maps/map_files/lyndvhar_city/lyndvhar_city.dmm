@@ -12405,6 +12405,8 @@
 /obj/item/clothing/suit/roguetown/armor/leather/vest/winterjacket,
 /obj/item/dildo/gold,
 /obj/item/clothing/cloak/darkcloak,
+/obj/item/scomstone/garrison,
+/obj/item/scomstone/garrison,
 /turf/open/floor/rogue/tile{
 	icon_state = "tile"
 	},
@@ -25637,11 +25639,12 @@
 	pixel_y = -32
 	},
 /obj/structure/closet/crate/roguecloset/lord,
-/obj/item/scomstone/garrison,
-/obj/item/clothing/suit/roguetown/armor/brigandine/coatplates,
-/obj/item/clothing/wrists/roguetown/bracers/leather,
-/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk,
-/obj/item/scomstone/garrison,
+/obj/item/clothing/gloves/roguetown/blacksteel/modern/plategloves,
+/obj/item/clothing/head/roguetown/helmet/blacksteel/modern/armet,
+/obj/item/clothing/suit/roguetown/armor/plate/modern/blacksteel_full_plate,
+/obj/item/clothing/under/roguetown/platelegs/blacksteel/modern,
+/obj/item/clothing/shoes/roguetown/boots/armor/blk,
+/obj/item/clothing/wrists/roguetown/bracers,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/manor)
 "qYo" = (
@@ -35319,6 +35322,14 @@
 /area/rogue/indoors/town/tavern{
 	first_time_text = "THE FOOL'S FLAGON"
 	})
+"xGk" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/obj/effect/landmark/start/Cataphract,
+/turf/open/floor/rogue/wood,
+/area/rogue/indoors/town/manor)
 "xGA" = (
 /turf/closed/wall/mineral/rogue/pipe{
 	dir = 4;
@@ -145355,9 +145366,9 @@ iXf
 cNt
 cNt
 iXf
-pIk
+xGk
 vDi
-pIk
+xGk
 cNt
 iXf
 cNt
