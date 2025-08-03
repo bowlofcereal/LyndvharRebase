@@ -104,7 +104,8 @@
 #define KNIGHT		(1<<4)
 #define GUARD_CAPTAIN		(1<<5)
 #define MARSHAL		(1<<6)
-#define SUITOR		(1<<7)
+#define HOSTAGE		(1<<7)
+#define SUITOR		(1<<8)
 
 #define GARRISON		(1<<1)
 
@@ -162,9 +163,8 @@
 #define LUNATIC		(1<<17)
 #define MIGRANT		(1<<18)
 #define BANDIT		(1<<19)
-#define HOSTAGE		(1<<20)
-#define COURTAGENT	(1<<21)
-#define WRETCH		(1<<22)
+#define COURTAGENT	(1<<20)
+#define WRETCH		(1<<21)
 
 #define YOUNGFOLK	(1<<6)
 
@@ -287,7 +287,6 @@
 #define JDO_BANDIT 31.3
 #define JDO_COURTAGENT 30.3
 #define JDO_WRETCH 30.4
-#define JDO_HOSTAGE 30.5
 
 #define JDO_MERCENARY 31
 #define JDO_GRENZELHOFT 31.1
