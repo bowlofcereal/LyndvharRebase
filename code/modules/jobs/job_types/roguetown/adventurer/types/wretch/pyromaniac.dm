@@ -5,20 +5,20 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/pyromaniac
 	category_tags = list(CTAG_WRETCH)
-	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_OUTLAW, TRAIT_MEDIUMARMOR, TRAIT_HERESIARCH)
+	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_OUTLANDER, TRAIT_OUTLAW, TRAIT_DODGEEXPERT, TRAIT_HERESIARCH)
 
 /datum/outfit/job/roguetown/wretch/pyromaniac/pre_equip(mob/living/carbon/human/H)
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/sheriff //wear protection :) 
-	mask = /obj/item/clothing/mask/rogue/facemask/
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/full //Protect your head!
-	pants = /obj/item/clothing/under/roguetown/splintlegs
-	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
+	head = /obj/item/clothing/head/roguetown/helmet/bandana
+	mask = /obj/item/clothing/mask/rogue/facemask
+	neck = /obj/item/clothing/neck/roguetown/leather
+	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
-	gloves = /obj/item/clothing/gloves/roguetown/plate/iron
-	shoes = /obj/item/clothing/shoes/roguetown/boots/armor
-	wrists = /obj/item/clothing/wrists/roguetown/splintarms
+	gloves = /obj/item/clothing/gloves/roguetown/leather
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	r_hand = /obj/item/bomb
 	l_hand = /obj/item/bomb
 	backpack_contents = list(
@@ -42,12 +42,12 @@
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
-	H.change_stat("endurance", 3)
-	H.change_stat("constitution", 3)
+	H.change_stat("speed", 2)
+	H.change_stat("perception", 1)
 	H.change_stat("intelligence", 3)
 	wretch_select_bounty(H)
 	H.cmode_music = 'sound/music/Iconoclast.ogg'
-	var/weapons = list("Archery", "Crossbows", "LET THERE BE FLAME!!!")
+	var/weapons = list("Archery", "Crossbows", "Pyromancer")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
 	switch(weapon_choice)
@@ -59,7 +59,7 @@
 			H.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 			beltl = /obj/item/quiver/pyrobolts
-		if("LET THERE BE FLAME!!!")
+		if("Pyromancer")
 			H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 			backr = /obj/item/rogueweapon/woodstaff/toper
 			if(H.mind)

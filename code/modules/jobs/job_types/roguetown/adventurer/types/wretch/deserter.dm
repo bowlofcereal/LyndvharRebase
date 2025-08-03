@@ -56,7 +56,7 @@
 				"Lucerne",
 				"Battle Axe",
 				"Lance + Kite Shield",
-				"Samshir",
+				"Shamshir",
 			)
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 			H.set_blindness(0)
@@ -82,7 +82,7 @@
 				if("Lance + Kite Shield")
 					r_hand = /obj/item/rogueweapon/spear/lance
 					backr = /obj/item/rogueweapon/shield/tower/metal
-				if("Samshir")
+				if("Shamshir")
 					r_hand = /obj/item/rogueweapon/sword/sabre/shamshir
 			var/helmets = list(
 				"Pigface Bascinet" 	= /obj/item/clothing/head/roguetown/helmet/bascinet/pigface,
@@ -116,11 +116,11 @@
 			H.change_stat("endurance", 3)
 			gloves = /obj/item/clothing/gloves/roguetown/plate 
 			pants = /obj/item/clothing/under/roguetown/chainlegs
-			neck = /obj/item/clothing/neck/roguetown/bevor
+			neck = /obj/item/clothing/neck/roguetown/gorget
 			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor
-			belt = /obj/item/storage/belt/rogue/leather/steel
+			belt = /obj/item/storage/belt/rogue/leather/steel/tasset
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			backl = /obj/item/storage/backpack/rogue/satchel //gwstraps landing on backr asyncs with backpack_contents
 			backpack_contents = list(
@@ -188,13 +188,13 @@
 			H.change_stat("endurance", 2)
 			H.change_stat("perception", 1)
 
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk	
 			pants = /obj/item/clothing/under/roguetown/chainlegs
-			neck = /obj/item/clothing/neck/roguetown/chaincoif
+			neck = /obj/item/clothing/neck/roguetown/gorget
 			cloak = /obj/item/clothing/cloak/stabard/surcoat 
 			wrists = /obj/item/clothing/wrists/roguetown/bracers
-			gloves = /obj/item/clothing/gloves/roguetown/chain 
+			gloves = /obj/item/clothing/gloves/roguetown/chain
 			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron 
 			beltl = /obj/item/rogueweapon/mace/cudgel
 			belt = /obj/item/storage/belt/rogue/leather
