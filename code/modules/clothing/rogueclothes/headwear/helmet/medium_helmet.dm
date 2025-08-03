@@ -221,8 +221,8 @@
 /obj/item/clothing/head/roguetown/helmet/valorian
 	name = "valorian helmet"
 	desc = "A helmet of Valorian make, similar in structure to a Psydonian Armet but fitted with an angular klappvisier."
-	icon_state = "valoriahelm"
-	item_state = "valoriahelm"
+	icon_state = "otavahelm"
+	item_state = "otavahelm"
 	adjustable = CAN_CADJUST
 	emote_environment = 3
 	body_parts_covered = FULL_HEAD

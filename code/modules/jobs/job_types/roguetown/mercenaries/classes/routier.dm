@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/routier
 	name = "Valorian Routiers"
-	tutorial = "The Routiers are a formidable Valorian mercenary band, a brotherhood of knights from noble families serving lords who seek to profit in peacetime. The Valorian nobility at large and even some of the clergy eagerly awaits to hear about your feats, they expect you to ENDURE, to be the champion of their faith and represent the true values of nobility, will you?"
+	tutorial = "The Routiers are a rather ingrained mercenary band in the city- having made their trek here from Valoria a few years earlier. Originally a brotherhood of exiled warriors who seek to profit in peacetime- they have effectively just become another standard in the halls of the Mercenary Guild."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = NON_DWARVEN_RACE_TYPES
 	outfit = /datum/outfit/job/roguetown/mercenary/routier
@@ -16,7 +16,7 @@
 	var/classes = list("Swordsman","Macebearer","Flailman", "Lancer")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 	H.set_blindness(0)
-	to_chat(H, span_warning("You are a Knight of Valoria, well experienced in the use of your chosen arms."))
+	to_chat(H, span_warning("You are a one of the Routiers, decently experienced in the use of your chosen arms."))
 	H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)

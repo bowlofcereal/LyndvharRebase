@@ -54,6 +54,7 @@
 				/obj/item/rogueweapon/scabbard/sheath = 1
 				)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		if("Ranged (Bows)")
 			H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
@@ -85,6 +86,7 @@
 				/obj/item/flashlight/flare/torch = 1,
 				)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 
 	//Shared minor skillblock from Wardens
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)

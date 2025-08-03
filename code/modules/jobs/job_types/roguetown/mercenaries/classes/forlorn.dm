@@ -54,7 +54,7 @@
 			beltl = /obj/item/rogueweapon/mace/warhammer/steel
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backl = /obj/item/rogueweapon/shield/heater
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife, /obj/item/roguekey/mercenary)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife, /obj/item/roguekey/mercenary, /obj/item/rogueweapon/scabbard/sheath)
 		if("Forvheipal Javelineer")
 			H.set_blindness(0)
 			to_chat(H, span_warning("The Forvheipal Javelineers are the Zapyrixian Order's ranged thrall, wielding javelins and relying on their agility to avoid blows."))
@@ -84,9 +84,9 @@
 			belt = /obj/item/storage/belt/rogue/leather/steel/tasset
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
-			l_hand = /obj/item/rogueweapon/sword/short/messer
+			l_hand = /obj/item/rogueweapon/sword/iron/messer
 			beltr = /obj/item/rogueweapon/scabbard/sword
 			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backl = /obj/item/quiver/javelin/iron
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel, /obj/item/roguekey/mercenary)
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel, /obj/item/roguekey/mercenary, /obj/item/rogueweapon/scabbard/sheath)
