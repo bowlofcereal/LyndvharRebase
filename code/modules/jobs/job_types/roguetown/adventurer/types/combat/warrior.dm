@@ -243,7 +243,7 @@
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 1)
 			H.change_stat("constitution", 1)
-			H.change_stat("intelligence", 4)
+			H.change_stat("intelligence", 5)
 			beltr = /obj/item/rogueweapon/scabbard/sword
 			r_hand = /obj/item/rogueweapon/sword/silver
 			backl = /obj/item/storage/backpack/rogue/satchel
