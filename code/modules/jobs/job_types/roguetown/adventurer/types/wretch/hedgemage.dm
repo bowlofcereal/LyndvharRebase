@@ -28,7 +28,7 @@
 	backr = /obj/item/rogueweapon/woodstaff/quartz
 	backpack_contents = list(
 		/obj/item/spellbook_unfinished/pre_arcyne = 1, 
-		/obj/item/roguegem/quartz = 1,
+		/obj/item/roguegem/blue = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1, 
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,
 		/obj/item/rope/chain = 1,
