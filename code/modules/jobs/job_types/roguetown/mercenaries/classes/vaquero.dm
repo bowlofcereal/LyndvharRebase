@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/vaquero
 	name = "Vaquero"
-	tutorial = "A Valorian subculture of fencing, bounty hunting charismatic nomads who are known for their skill in mounted combat and their flashy yet practical clothing."
+	tutorial = "A localized Calmirixian subculture of fencing, bounty hunting charismatic nomads who are known for their skill in mounted combat and their flashy yet practical clothing."
 	outfit = /datum/outfit/job/roguetown/mercenary/vaquero
 	horse = /mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck/tame/saddled
 	cmode_music = 'sound/music/combat_vaquero.ogg'
@@ -79,3 +79,4 @@
 	H.change_stat("speed", 3)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DECEIVING_MEEKNESS, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
