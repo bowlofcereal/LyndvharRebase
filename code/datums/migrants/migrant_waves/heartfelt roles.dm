@@ -263,7 +263,7 @@
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
 	if(should_wear_masc_clothes(H))
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 	else if(should_wear_femme_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/armor/silkcoat
 	if(H.mind)
