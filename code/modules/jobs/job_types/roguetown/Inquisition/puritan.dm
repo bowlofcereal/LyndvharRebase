@@ -86,7 +86,7 @@
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PURITAN, JOB_TRAIT)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/psydon
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	shoes = /obj/item/clothing/shoes/roguetown/boots/valorian/inqboots
@@ -98,7 +98,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/valorian/inqgloves
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
 	beltl = /obj/item/rogueweapon/scabbard/sword
-	l_hand = /obj/item/rogueweapon/sword/rapier
+	l_hand = /obj/item/rogueweapon/sword/silver
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	backpack_contents = list(
 		/obj/item/storage/keyring/puritan = 1,
@@ -146,7 +146,7 @@
 	H.verbs |= /mob/living/carbon/human/proc/faith_test
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SILVER_BLESSED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
