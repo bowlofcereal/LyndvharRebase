@@ -228,12 +228,12 @@
 
 // Ancient - Valueless
 /obj/item/roguecoin/aalloy
-	name = "psilen"
-	desc = "Withered empires can never endure."
+	name = "astilen"
+	desc = "Withered empires of Aeon's past shared this coin, some theorize before even the Bloodwake- during our precursor daes. Nothing lasts forever."
 	icon_state = "a1"
 	sellprice = 0
 	base_type = CTYPE_ANCIENT
-	plural_name = "psila"
+	plural_name = "astila"
 
 /obj/item/roguecoin/aalloy/pile/Initialize()
 	. = ..()
