@@ -104,7 +104,7 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/stealing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/traps, 3, TRUE)
