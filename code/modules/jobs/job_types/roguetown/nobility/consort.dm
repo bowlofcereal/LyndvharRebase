@@ -11,6 +11,7 @@
 		/datum/species/human/northern,
 		/datum/species/elf/wood,
 		/datum/species/human/halfelf,
+		/datum/species/elf/dark,
 		/datum/species/dwarf/mountain,
 		/datum/species/demihuman
 	)
