@@ -24,7 +24,7 @@
 	outfit = /datum/outfit/job/roguetown/puritan
 	display_order = JDO_PURITAN
 	advclass_cat_rolls = list(CTAG_PURITAN = 20)
-	give_bank_account = 30
+	give_bank_account = 35
 	min_pq = 6
 	max_pq = null
 	round_contrib_points = 3
