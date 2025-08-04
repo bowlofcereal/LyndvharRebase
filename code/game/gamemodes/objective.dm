@@ -333,8 +333,8 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/marry
 	name = "marry"
-	explanation_text = "Secure a marriage with the local Duke/Duchess - or alternatively marry one of the royal heirs and ensure they are coronated by the week's end."
-	team_explanation_text = "Secure a marriage with the local Duke/Duchess - or alternatively marry one of the royal heirs and ensure they are coronated by the week's end."
+	explanation_text = "Secure a marriage with the local Viscount/Viscountess - or alternatively marry one of the royal heirs and ensure they are coronated by the week's end."
+	team_explanation_text = "Secure a marriage with the local Viscount/Viscountess - or alternatively marry one of the royal heirs and ensure they are coronated by the week's end."
 
 /datum/objective/marry/check_completion()
 	for(var/datum/mind/M in get_owners())
@@ -344,9 +344,9 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		if(the_duke)
 			var/duke_name = the_duke.real_name
 			if(duke_name && the_duke.real_name == marriagepartner)
-				testing("[duke_name] is duke, marriage partner is [marriagepartner]")
+				testing("[duke_name] is viscount, marriage partner is [marriagepartner]")
 				return TRUE
-	testing("duke is not marriagepartner")
+	testing("viscount is not marriagepartner")
 	return FALSE
 
 /datum/objective/dungeoneer

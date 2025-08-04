@@ -3,7 +3,7 @@
 	var/datum/job/suitor_job = SSjob.GetJob("Suitor")
 	var/datum/job/consort_job = SSjob.GetJob("Consort")
 
-	if (consort_job.total_positions > 0 || suitor_job.total_positions > 0) //Safety for if the duke far travels and another duke replaces them.
+	if (consort_job.total_positions > 0 || suitor_job.total_positions > 0) //Safety for if the viscount far travels and another viscount replaces them.
 		return
 
 	if(!client)
