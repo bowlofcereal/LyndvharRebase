@@ -6,8 +6,8 @@
 		/datum/species/human/northern,
 		/datum/species/elf/wood,
 		/datum/species/human/halfelf,
-		/datum/species/demihuman
-		/datum/species/vulpkanin
+		/datum/species/demihuman,
+		/datum/species/vulpkanin,
 	)
 	outfit = /datum/outfit/job/roguetown/mercenary/rumaclan
 	category_tags = list(CTAG_MERCENARY)
