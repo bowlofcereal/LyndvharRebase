@@ -2,7 +2,7 @@
 	name = "Valorian Routiers"
 	tutorial = "The Routiers are a rather ingrained mercenary band in the city- having made their trek here from Valoria a few years earlier. Originally a brotherhood of exiled warriors who seek to profit in peacetime- they have effectively just become another standard in the halls of the Mercenary Guild."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = NON_DWARVEN_RACE_TYPES
+	allowed_races = NON_DWARVEN_RACE_TYPES // it doesnt have dwarf sprites
 	outfit = /datum/outfit/job/roguetown/mercenary/routier
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
