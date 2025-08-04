@@ -11,10 +11,6 @@
 /obj/machinery/anvil,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue)
-"ac" = (
-/obj/structure/fermenting_barrel/water,
-/turf/open/floor/rogue/dirt/road,
-/area/rogue)
 "ad" = (
 /turf/closed/wall/mineral/rogue/stone/moss,
 /area/rogue)
@@ -586,9 +582,8 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue)
 "bm" = (
-/obj/item/reagent_containers/glass/bucket/wooden,
-/turf/open/floor/rogue/cobble,
-/area/rogue)
+/turf/closed/wall/mineral/rogue/stonebrick,
+/area/rogue/outdoors/banditcamp)
 "bn" = (
 /obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/cobble,
@@ -1146,7 +1141,7 @@
 /obj/structure/fluff/railing/wood{
 	pixel_y = -12
 	},
-/turf/open/water/cleanshallow,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "cY" = (
 /obj/structure/mineral_door/wood{
@@ -1184,7 +1179,7 @@
 	dir = 8;
 	pixel_x = -8
 	},
-/turf/open/water/cleanshallow,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "dd" = (
 /obj/structure/mineral_door/bars,
@@ -1465,8 +1460,8 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods)
 "ea" = (
-/obj/structure/fermenting_barrel/water,
-/turf/open/floor/rogue/grass,
+/obj/structure/chair/freedomchair,
+/turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/banditcamp)
 "eb" = (
 /mob/living/simple_animal/pet/cat/rogue/black,
@@ -1588,7 +1583,6 @@
 /area/rogue/indoors)
 "fU" = (
 /obj/structure/closet/crate/chest/old_crate,
-/obj/item/leash/chain,
 /obj/item/clothing/neck/roguetown/collar/leather,
 /turf/open/floor/rogue/ruinedwood{
 	dir = 1;
@@ -1680,7 +1674,7 @@
 	pixel_x = 2;
 	pixel_y = 7
 	},
-/turf/open/water/cleanshallow,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "ja" = (
 /obj/machinery/light/rogue/firebowl/standing,
@@ -2180,7 +2174,7 @@
 	dir = 8;
 	pixel_x = -10
 	},
-/turf/open/water/cleanshallow,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "vU" = (
 /obj/structure/roguetent,
@@ -2349,7 +2343,7 @@
 	dir = 8;
 	pixel_x = -8
 	},
-/turf/open/water/cleanshallow,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "yZ" = (
 /obj/structure/fluff/railing/border{
@@ -2435,7 +2429,7 @@
 /obj/structure/fluff/railing/wood{
 	pixel_y = -12
 	},
-/turf/open/water/cleanshallow,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "Ay" = (
 /obj/structure/table/wood{
@@ -2517,7 +2511,7 @@
 	layer = 2.8;
 	pixel_x = 8
 	},
-/turf/open/water/cleanshallow,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "CA" = (
 /obj/structure/bed/rogue,
@@ -2532,9 +2526,8 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
 "CE" = (
-/obj/structure/fermenting_barrel/random/water,
-/turf/open/floor/rogue/dirt,
-/area/rogue/indoors)
+/turf/open/water/bloody,
+/area/rogue/outdoors/woods)
 "CL" = (
 /turf/open/water/river{
 	icon_state = "rockwd";
@@ -2710,7 +2703,6 @@
 	dir = 10;
 	icon_state = "tablewood2"
 	},
-/obj/structure/fluff/millstone,
 /obj/item/rogueweapon/huntingknife/cleaver,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/banditcamp)
@@ -2914,17 +2906,11 @@
 	},
 /area/rogue/indoors/banditcamp)
 "Ms" = (
-/obj/docking_port/stationary{
-	name = "CentCom";
-	dir = 1;
-	width = 17;
-	height = 6;
-	id = "supply_away";
-	dwidth = 9;
-	json_key = "cargo"
+/obj/structure/roguemachine/bounty{
+	color = "#F75D59"
 	},
-/turf/open/water/swamp,
-/area/rogue/outdoors)
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/banditcamp)
 "MB" = (
 /obj/structure/stairs{
 	icon_state = "stairs";
@@ -2973,7 +2959,7 @@
 	pixel_x = 2;
 	pixel_y = 7
 	},
-/turf/open/water/cleanshallow,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "OQ" = (
 /obj/machinery/light/rogue/firebowl/standing,
@@ -3145,18 +3131,15 @@
 /obj/machinery/light/rogue/wallfire/candle{
 	pixel_y = -32
 	},
-/obj/structure/fermenting_barrel/water,
 /turf/open/floor/rogue/ruinedwood{
 	dir = 1;
 	icon_state = "vertw"
 	},
 /area/rogue/indoors/banditcamp)
 "Tc" = (
-/obj/structure/fermenting_barrel/water,
-/turf/open/floor/rogue/tile{
-	icon_state = "chess"
-	},
-/area/rogue/indoors)
+/obj/machinery/light/rogue/torchholder/l,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/banditcamp)
 "Te" = (
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
@@ -3259,8 +3242,8 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors)
 "Vu" = (
-/obj/structure/well/fountain,
-/turf/open/water/cleanshallow,
+/obj/structure/healingfountain,
+/turf/open/water/bloody,
 /area/rogue/outdoors/woods)
 "Vz" = (
 /turf/closed/indestructible/splashscreen,
@@ -3416,12 +3399,6 @@
 "YM" = (
 /obj/structure/fluff/walldeco/chains,
 /turf/open/floor/rogue/dirt,
-/area/rogue/indoors)
-"YP" = (
-/obj/structure/fermenting_barrel/beer,
-/turf/open/floor/rogue/tile{
-	icon_state = "chess"
-	},
 /area/rogue/indoors)
 "YQ" = (
 /obj/structure/chair/wood/rogue{
@@ -4146,7 +4123,7 @@ rQ
 rQ
 bX
 bX
-ac
+Dw
 Dw
 Dw
 Dw
@@ -4276,7 +4253,7 @@ rQ
 rQ
 bX
 bX
-ac
+Dw
 Dw
 Dw
 Dw
@@ -4536,7 +4513,7 @@ rQ
 rQ
 bX
 bX
-ac
+Dw
 Dw
 Dw
 Dw
@@ -4666,7 +4643,7 @@ rQ
 rQ
 bX
 bX
-ac
+Dw
 Dw
 Dw
 Dw
@@ -5077,7 +5054,7 @@ Xj
 ad
 aT
 lw
-bm
+lw
 lw
 jH
 vP
@@ -5112,9 +5089,9 @@ jg
 jg
 jg
 ky
-ky
-ky
-ky
+ea
+bm
+Ms
 ky
 xt
 Qa
@@ -5243,7 +5220,7 @@ jg
 jg
 jg
 kR
-kR
+Tc
 kR
 ky
 Tz
@@ -6923,7 +6900,7 @@ kR
 ky
 ky
 ky
-ea
+kR
 kR
 bj
 jg
@@ -13173,9 +13150,9 @@ bF
 cn
 bF
 Te
-bA
-bA
-bA
+CE
+CE
+CE
 bF
 nh
 cO
@@ -13302,11 +13279,11 @@ dU
 bF
 bF
 Te
-bA
-bA
+CE
+CE
 cP
-bA
-bA
+CE
+CE
 co
 cO
 bD
@@ -13433,10 +13410,10 @@ bF
 Te
 Te
 Te
-bA
-bA
-bA
-bA
+CE
+CE
+CE
+CE
 co
 cO
 bD
@@ -15630,7 +15607,7 @@ cW
 WB
 WB
 bN
-CE
+dp
 YM
 ca
 qj
@@ -16896,7 +16873,7 @@ VS
 VS
 VS
 VS
-Ms
+VS
 VS
 AU
 rQ
@@ -16928,7 +16905,7 @@ ni
 OQ
 ni
 ni
-Tc
+ni
 WB
 bE
 dO
@@ -17058,7 +17035,7 @@ ni
 ni
 ni
 ni
-YP
+ni
 WB
 Se
 dO
@@ -19031,9 +19008,9 @@ bF
 du
 gD
 iO
-bA
+CE
 Vu
-bA
+CE
 cX
 bF
 vQ
@@ -19161,9 +19138,9 @@ bF
 Te
 bF
 NG
-bA
-bA
-bA
+CE
+Vu
+CE
 Av
 bF
 vQ
