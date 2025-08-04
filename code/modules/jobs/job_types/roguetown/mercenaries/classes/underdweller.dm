@@ -20,7 +20,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	belt = /obj/item/storage/belt/rogue/leather/steel	//Should give these guys a unique miners belt at some point..
 	neck = /obj/item/clothing/neck/roguetown/gorget/steel
-	beltl = /obj/item/rogueweapon/stoneaxe/woodcut/pick/steel
+	beltl = /obj/item/rogueweapon/stoneaxe/woodcut/pick
 	beltr = /obj/item/rogueweapon/huntingknife
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backr = /obj/item/rogueweapon/shield/wood
