@@ -13,7 +13,7 @@
 	head = /obj/item/clothing/head/roguetown/helmet/kettle/minershelm
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	mask = /obj/item/clothing/mask/rogue/shepherd
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
