@@ -72,7 +72,7 @@
 			H.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-			H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/craft/tanning, 3, TRUE)
 
 			H.change_stat("strength", 3) 
 			H.change_stat("endurance", 2)
