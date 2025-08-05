@@ -89,6 +89,8 @@
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/zybantu
 			wrists = /obj/item/clothing/wrists/roguetown/splintarms
 			gloves = /obj/item/clothing/gloves/roguetown/angle/pontifex
+			belt = /obj/item/storage/belt/rogue/leather/shalal
+			beltl = /obj/item/rogueweapon/scabbard/sword
 			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/zybantu
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backpack_contents = list(
