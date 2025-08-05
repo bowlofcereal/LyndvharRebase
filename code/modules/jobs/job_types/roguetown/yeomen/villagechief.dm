@@ -31,7 +31,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/woad
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
-	shirt = /obj/item/suit/roguetown/shirt/tunic/ucolored
+	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/ucolored
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	belt = /obj/item/storage/belt/rogue/leather
