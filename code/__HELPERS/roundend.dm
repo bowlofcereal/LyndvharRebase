@@ -138,7 +138,7 @@
 	for(var/client/C in GLOB.clients)
 		if(C.mob)
 			SSdroning.kill_droning(C)
-			C.mob.playsound_local(C.mob, 'sound/music/roundend.ogg', 100, FALSE)
+			C.mob.playsound_local(C.mob, 'sound/music/creditsold.ogg', 100, FALSE)
 		if(isliving(C.mob) && C.ckey)
 			key_list += C.ckey
 //	if(key_list.len)
@@ -218,16 +218,16 @@
 	var/end_reason
 
 	if(!check_for_lord())
-		end_reason = pick("Without a Viscount, they were doomed to become slaves of Zizo.",
+		end_reason = pick("Without a Viscount, they were doomed to become slaves of daemons.",
 						"Without a Viscount, they were doomed to be eaten by nite creachers.",
-						"Without a Viscount, they were doomed to become victims of Gehenna.",
+						"Without a Viscount, they were doomed to become victims of ZIZO.",
 						"Without a Viscount, they were doomed to enjoy a mass-suicide.",
 						"Without a Viscount, the Lich made them his playthings.",
 						"Without a Viscount, some jealous rival reigned in tyranny.",
-						"Without a Viscount, the town was abandoned.")
+						"Without a Viscount, the city was abandoned. The war claims another.")
 
 	if(vampire_werewolf() == "vampire")
-		end_reason = "When the Vampires finished sucking the town dry, they moved on to the next one."
+		end_reason = "When the Vampires finished sucking the city dry, they moved on to the next one."
 	if(vampire_werewolf() == "werewolf")
 		end_reason = "The Werevolves formed an unholy clan, marauding Lyndvhar until the end of its daes."
 
