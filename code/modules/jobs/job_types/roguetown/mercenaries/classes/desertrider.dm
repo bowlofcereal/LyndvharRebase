@@ -41,6 +41,8 @@
 			H.change_stat("endurance", 2)
 			backl = /obj/item/rogueweapon/shield/tower/zybantu
 			r_hand = /obj/item/rogueweapon/sword/sabre/shamshir
+			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/zybantu
+			mask = /obj/item/clothing/mask/rogue/facemask/hound
 			neck = /obj/item/clothing/neck/roguetown/gorget
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
@@ -48,6 +50,7 @@
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 			belt = /obj/item/storage/belt/rogue/leather/shalal
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
+			beltr = /obj/item/rogueweapon/scabbard/sword
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backpack_contents = list(
 				/obj/item/roguekey/mercenary,
@@ -84,11 +87,11 @@
 			H.change_stat("speed", 3)
 			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/zybantu
 			neck = /obj/item/clothing/neck/roguetown/leather
-			mask = /obj/item/clothing/mask/rogue/facemask/steel/paalloy
+			mask = /obj/item/clothing/mask/rogue/facemask/steel/hound
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/zybantu
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/zybantu
-			wrists = /obj/item/clothing/wrists/roguetown/splintarms
-			gloves = /obj/item/clothing/gloves/roguetown/angle/pontifex
+			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
+			gloves = /obj/item/clothing/gloves/roguetown/leather
 			belt = /obj/item/storage/belt/rogue/leather/shalal
 			beltl = /obj/item/rogueweapon/scabbard/sword
 			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/zybantu
