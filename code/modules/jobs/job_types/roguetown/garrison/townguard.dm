@@ -42,7 +42,7 @@
 /datum/outfit/job/roguetown/guardsman
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	cloak = /obj/item/clothing/cloak/stabard/guard
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	belt = /obj/item/storage/belt/rogue/leather/steel
@@ -84,14 +84,15 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)	//You get medium armor training to go with your armor.
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GUARDSMAN, TRAIT_GENERIC)
 
 	head = pickweight(list(/obj/item/clothing/head/roguetown/helmet = 3, /obj/item/clothing/head/roguetown/helmet/kettle = 7))
 	armor = pickweight(list(/obj/item/clothing/suit/roguetown/armor/plate/half = 3, /obj/item/clothing/suit/roguetown/armor/plate/half/iron = 7))
 	beltr = /obj/item/rogueweapon/mace/cudgel
-	backl = /obj/item/rogueweapon/shield/tower		//Maybe give a buckler? Gave wood because 40 coverage is better than 10 but dunno.
+	backl = /obj/item/rogueweapon/shield/tower
 	backr = /obj/item/storage/backpack/rogue/satchel
 	beltl = /obj/item/storage/keyring/guardcastle
-	belt = /obj/item/storage/belt/rogue/leather/black
+	belt = /obj/item/storage/belt/rogue/leather/steel
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/rope/chain = 1)
 	H.verbs |= /mob/proc/haltyell
@@ -127,9 +128,10 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)		//You don't get medium armor training, instead you get a bonus to light armor usage.
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GUARDSMAN, TRAIT_GENERIC)
 
 	head = /obj/item/clothing/head/roguetown/roguehood/red		//To-do: Make a guard hood come in kingdom's colors.
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy	//So they get default-dodge expert usage.
+	armor = /obj/item/clothing/suit/roguetown/armor/leather	//So they get default-dodge expert usage.
 	beltr = /obj/item/quiver/arrows
 	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow
 	backr = /obj/item/storage/backpack/rogue/satchel
@@ -166,15 +168,17 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_GUARDSMAN, TRAIT_GENERIC)
 
 	head = /obj/item/clothing/head/roguetown/helmet/kettle
 	armor = pickweight(list(/obj/item/clothing/suit/roguetown/armor/leather/heavy = 4, /obj/item/clothing/suit/roguetown/armor/chainmail/iron = 3, /obj/item/clothing/suit/roguetown/armor/plate/half/iron = 2))
 	backr = /obj/item/storage/backpack/rogue/satchel
 	beltl = /obj/item/storage/keyring/guardcastle
-	beltr = /obj/item/rogueweapon/sword/iron/short
-	belt = /obj/item/storage/belt/rogue/leather/black
+	beltr = /obj/item/rogueweapon/scabbard/sword
+	l_hand = /obj/item/rogueweapon/sword/iron/short
+	belt = /obj/item/storage/belt/rogue/leather/steel
 	gloves = /obj/item/clothing/gloves/roguetown/leather
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/rope/chain = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger = 1, /obj/item/rope/chain = 1, /obj/item/rogueweapon/scabbard/sheath = 1)
 	var/weapontype = pickweight(list("Spear" = 5, "Bardiche" = 3, "Lucerne" = 2)) //pooors
 	switch(weapontype)
 		if("Spear")
