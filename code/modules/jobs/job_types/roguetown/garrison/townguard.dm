@@ -10,7 +10,7 @@
 	allowed_races = RACES_SHUNNED_UP
 	allowed_patrons = ALL_DIVINE_PATRONS 
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
-	tutorial = "Responsible for the safety of the port city and the enforcement of the law, you are the vanguard of the city faced with punishing those who defy the Viscount. Though you've many lords to obey, as both the Church and the Marshal have great sway over your life."
+	tutorial = "Responsible for the safety of the port city and the enforcement of the law, you are the vanguard of the city faced with punishing those who defy the Viscount. Life is difficult, but you find great camaraderie in your fellow men and women of the watch. Hopefully the city will endure another week with you protecting it."
 	display_order = JDO_TOWNGUARD
 
 	outfit = /datum/outfit/job/roguetown/guardsman
