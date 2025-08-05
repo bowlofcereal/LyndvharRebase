@@ -507,20 +507,22 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 	icon_state = "tavern"
 	ambientsounds = AMB_INGEN
 	ambientnight = AMB_INGEN
-	droning_sound = 'sound/music/area/sargoth.ogg'
+	droning_sound = 'sound/music/unused/tav1.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 	converted_type = /area/rogue/outdoors/exposed/tavern
 	tavern_area = TRUE
 	first_time_text = "THE FOOL'S FLAGON"
+	deathsight_message = "a place of joyous occasion, with clanking flasks of ale"
 
 /area/rogue/outdoors/exposed/tavern
 	icon_state = "tavern"
-	droning_sound = 'sound/music/area/sargoth.ogg'
+	droning_sound = 'sound/music/unused/tav1.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
 	tavern_area = TRUE
 	first_time_text = "THE FOOL'S FLAGON"
+	deathsight_message = "a place of joyous occasion, with clanking flasks of ale"
 
 /area/rogue/indoors/town/church
 	name = "church"
