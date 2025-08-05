@@ -71,6 +71,8 @@
 	ambush_mobs = list(
 				new /datum/ambush_config/treasure_hunter_posse = 1,
 				/mob/living/carbon/human/species/dwarfskeleton/ambush = 30,
+				new /datum/ambush_config/medium_skeleton_party = 20,
+				new /datum/ambush_config/heavy_skeleton_party = 10,
 				)
 	droning_sound = 'sound/music/area/siege.ogg'
 	droning_sound_dusk = null
