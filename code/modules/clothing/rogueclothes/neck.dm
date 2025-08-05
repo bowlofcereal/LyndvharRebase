@@ -310,8 +310,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/neck/roguetown/gorget/forlorncollar
-	name = "forlorn collar"
-	desc = "A old reminder."
+	name = "zaprixys collar"
+	desc = "A collar that denotes a slave-warrior of the Zaprixys Order. A general item used across Forvheipal."
 	icon_state = "iwolfcollaralt"
 
 /obj/item/clothing/neck/roguetown/gorget/steel
@@ -642,8 +642,8 @@
 	dropshrink = 0.5
 
 /obj/item/clothing/neck/roguetown/collar/forlorn
-	name = "light forlorn collar"
-	desc = "A old reminder. A lighter version often used more as a status symbol for slaves. Then and now."
+	name = "light forvheipal collar"
+	desc = "A collar that denotes a slave amongst the Kingdom of Forvheipal."
 	icon_state = "iwolfcollaralt"
 
 /obj/item/clothing/neck/roguetown/collar/bell_collar
