@@ -1776,6 +1776,7 @@
 /obj/machinery/light/rogue/torchholder{
 	dir = 8
 	},
+/obj/structure/fermentation_keg/water,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors)
 "me" = (
@@ -1897,6 +1898,12 @@
 	dir = 4
 	},
 /area/rogue/indoors/banditcamp)
+"nW" = (
+/obj/structure/fermentation_keg/blackgoat,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
+/area/rogue/indoors)
 "nZ" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle/rogue/redwine,
@@ -2305,6 +2312,12 @@
 /obj/structure/fluff/walldeco/bigpainting,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors)
+"yu" = (
+/obj/structure/fermentation_keg/onion,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
+/area/rogue/indoors)
 "yy" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
@@ -2538,6 +2551,10 @@
 /obj/effect/landmark/vteleport,
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/hexstone,
+/area/rogue/indoors)
+"CO" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "Dk" = (
 /obj/structure/mineral_door/wood/deadbolt{
@@ -2930,6 +2947,12 @@
 	lockid = "mansionvampire"
 	},
 /turf/open/floor/rogue/herringbone,
+/area/rogue/indoors)
+"MV" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors)
 "Nf" = (
 /obj/machinery/light/rogue/wallfire/candle,
@@ -16658,7 +16681,7 @@ WB
 Qe
 WB
 WB
-bR
+CO
 dJ
 dJ
 PT
@@ -16908,9 +16931,9 @@ gP
 ni
 ni
 OQ
+yu
 ni
-ni
-ni
+nW
 WB
 bE
 dO
@@ -17040,7 +17063,7 @@ ni
 ni
 ni
 ni
-ni
+MV
 WB
 Se
 dO
