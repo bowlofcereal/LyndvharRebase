@@ -1212,7 +1212,7 @@
 "dj" = (
 /obj/structure/closet/dirthole/grave,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/woods)
+/area/rogue/indoors)
 "dk" = (
 /obj/structure/closet/crate/chest/old_crate,
 /turf/open/floor/rogue/cobble/mossy,
@@ -1478,6 +1478,12 @@
 	dir = 4
 	},
 /area/rogue/outdoors/woods)
+"ee" = (
+/obj/structure/fermentation_keg/blackgoat,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
+/area/rogue/indoors)
 "ek" = (
 /obj/structure/fluff/railing/border{
 	icon_state = "border";
@@ -1595,6 +1601,10 @@
 "go" = (
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors)
+"gr" = (
+/obj/structure/bars/cemetery,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "gw" = (
 /obj/structure/vampire/scryingorb{
@@ -1898,12 +1908,6 @@
 	dir = 4
 	},
 /area/rogue/indoors/banditcamp)
-"nW" = (
-/obj/structure/fermentation_keg/blackgoat,
-/turf/open/floor/rogue/tile{
-	icon_state = "chess"
-	},
-/area/rogue/indoors)
 "nZ" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle/rogue/redwine,
@@ -2009,7 +2013,7 @@
 "pI" = (
 /obj/effect/landmark/start/vampireknight,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/woods)
+/area/rogue/indoors)
 "pP" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1";
@@ -2051,11 +2055,20 @@
 	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors)
+"qZ" = (
+/turf/closed/wall/mineral/rogue/stonebrick,
+/area/rogue/indoors)
 "ra" = (
 /obj/structure/rack/rogue,
 /obj/item/quiver/arrows,
 /obj/item/quiver/arrows,
 /turf/open/floor/rogue/blocks,
+/area/rogue/indoors)
+"rn" = (
+/obj/structure/fermentation_keg/onion,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
 /area/rogue/indoors)
 "rN" = (
 /turf/closed/wall/mineral/rogue/wooddark/vertical,
@@ -2063,6 +2076,10 @@
 "rQ" = (
 /turf/closed,
 /area/rogue)
+"sf" = (
+/obj/structure/bars/cemetery,
+/turf/open/floor/rogue/dirt,
+/area/rogue/indoors)
 "sj" = (
 /obj/structure/bed/rogue,
 /obj/machinery/light/rogue/wallfire/candle/l,
@@ -2122,6 +2139,9 @@
 	dir = 4
 	},
 /area/rogue/indoors/banditcamp)
+"uR" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/indoors)
 "vb" = (
 /turf/closed/wall/mineral/rogue/tent{
 	dir = 8
@@ -2312,12 +2332,6 @@
 /obj/structure/fluff/walldeco/bigpainting,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors)
-"yu" = (
-/obj/structure/fermentation_keg/onion,
-/turf/open/floor/rogue/tile{
-	icon_state = "chess"
-	},
-/area/rogue/indoors)
 "yy" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood2";
@@ -2344,6 +2358,10 @@
 /area/rogue/outdoors/banditcamp)
 "yK" = (
 /turf/closed,
+/area/rogue/indoors)
+"yN" = (
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/dirt,
 /area/rogue/indoors)
 "yO" = (
 /obj/structure/fluff/railing/fence{
@@ -2412,6 +2430,12 @@
 	},
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/woods)
+"zA" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/rogue/tile{
+	icon_state = "chess"
+	},
+/area/rogue/indoors)
 "zK" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/banditcamp)
@@ -2551,10 +2575,6 @@
 /obj/effect/landmark/vteleport,
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/hexstone,
-/area/rogue/indoors)
-"CO" = (
-/obj/structure/fermentation_keg/water,
-/turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "Dk" = (
 /obj/structure/mineral_door/wood/deadbolt{
@@ -2948,12 +2968,6 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors)
-"MV" = (
-/obj/structure/fermentation_keg/water,
-/turf/open/floor/rogue/tile{
-	icon_state = "chess"
-	},
-/area/rogue/indoors)
 "Nf" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/twig{
@@ -2963,7 +2977,7 @@
 "Nh" = (
 /obj/effect/landmark/start/vampireknight,
 /turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/woods)
+/area/rogue/indoors)
 "NC" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle/rogue/healthpot,
@@ -3287,6 +3301,10 @@
 /obj/structure/fluff/statue/tdummy,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors)
+"VM" = (
+/obj/structure/fermentation_keg/water,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors)
 "VS" = (
 /turf/open/water/swamp,
 /area/rogue/outdoors)
@@ -13034,13 +13052,13 @@ rQ
 rQ
 kB
 bz
-cm
-bD
-bD
-bD
-bD
-bD
-cm
+qZ
+sf
+sf
+sf
+sf
+sf
+qZ
 co
 cO
 nl
@@ -13164,13 +13182,13 @@ rQ
 rQ
 kB
 bz
-bD
-Te
-Te
-ct
-Te
-Te
-bD
+sf
+dp
+dp
+yN
+dp
+dp
+sf
 co
 cO
 dU
@@ -13294,13 +13312,13 @@ rQ
 rQ
 kB
 bz
-bD
-Te
+sf
+dp
 dj
 pI
 dj
-Te
-bD
+dp
+sf
 co
 cO
 dU
@@ -13424,13 +13442,13 @@ rQ
 rQ
 kB
 bz
-bD
-Te
-Te
-Te
-vQ
-Te
-bD
+sf
+dp
+dp
+dp
+uR
+dp
+sf
 co
 cO
 dU
@@ -13554,13 +13572,13 @@ rQ
 rQ
 kB
 bz
-bD
-Te
+sf
+dp
 dj
 pI
 dj
-Te
-bD
+dp
+sf
 co
 cO
 dU
@@ -13684,13 +13702,13 @@ rQ
 rQ
 kB
 bz
-bD
-Te
-vQ
-vQ
-Te
-vQ
-ft
+sf
+dp
+uR
+uR
+dp
+uR
+gr
 co
 cO
 dU
@@ -13814,13 +13832,13 @@ rQ
 rQ
 kB
 bz
-bD
-Te
+sf
+dp
 dj
 Nh
 dj
-vQ
-bD
+uR
+sf
 co
 cO
 dU
@@ -13944,13 +13962,13 @@ rQ
 rQ
 kB
 bz
-bD
-Te
-vQ
-Te
-Te
-Te
-bD
+sf
+dp
+uR
+dp
+dp
+dp
+sf
 co
 cO
 dU
@@ -14074,13 +14092,13 @@ rQ
 rQ
 kB
 bz
-bD
-Te
-Te
-Te
-Te
-Te
-bD
+sf
+dp
+dp
+dp
+dp
+dp
+sf
 co
 cO
 dU
@@ -14204,13 +14222,13 @@ rQ
 rQ
 kB
 bz
-cm
-bD
-cm
-Te
-cm
-bD
-cm
+qZ
+sf
+qZ
+dp
+qZ
+sf
+qZ
 co
 cO
 dU
@@ -16681,7 +16699,7 @@ WB
 Qe
 WB
 WB
-CO
+VM
 dJ
 dJ
 PT
@@ -16931,9 +16949,9 @@ gP
 ni
 ni
 OQ
-yu
+rn
 ni
-nW
+ee
 WB
 bE
 dO
@@ -17063,7 +17081,7 @@ ni
 ni
 ni
 ni
-MV
+zA
 WB
 Se
 dO
