@@ -75,7 +75,7 @@
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			H.change_stat("perception", 3)
 			H.change_stat("speed", 2)
-			shoes = /obj/item/clothing/shoes/roguetown/boots
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 			neck = /obj/item/clothing/neck/roguetown/gorget/forlorncollar
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/volfplate
 			pants = /obj/item/clothing/under/roguetown/heavy_leather_pants

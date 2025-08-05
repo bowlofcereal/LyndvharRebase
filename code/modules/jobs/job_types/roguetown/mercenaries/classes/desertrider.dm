@@ -95,6 +95,7 @@
 			belt = /obj/item/storage/belt/rogue/leather/shalal
 			beltl = /obj/item/rogueweapon/scabbard/sword
 			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/zybantu
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backpack_contents = list(
 				/obj/item/roguekey/mercenary,
