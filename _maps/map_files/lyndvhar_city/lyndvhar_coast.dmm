@@ -96,6 +96,14 @@
 "bd" = (
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/outdoors/beach)
+"bh" = (
+/obj/structure/fluff/railing/fence{
+	dir = 8
+	},
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/beach/forest{
+	first_time_text = "LILAC BAY"
+	})
 "bj" = (
 /obj/structure/stairs{
 	dir = 8
@@ -231,6 +239,12 @@
 "dr" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/dragonden)
+"dF" = (
+/obj/structure/fluff/railing/fence,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/beach/forest{
+	first_time_text = "LILAC BAY"
+	})
 "dH" = (
 /obj/effect/spawner/lootdrop/roguetown,
 /obj/structure/closet/crate/chest,
@@ -2005,6 +2019,8 @@
 /area/rogue/indoors/cave)
 "DC" = (
 /obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/clothing,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter)
@@ -57677,9 +57693,9 @@ Bp
 Bp
 Bp
 tV
-Cc
+bM
 Sw
-Cc
+bM
 pt
 Ur
 Lh
@@ -57814,7 +57830,7 @@ QX
 QX
 pt
 QX
-QX
+Gs
 QX
 Gs
 QX
@@ -58079,7 +58095,7 @@ QX
 rA
 QX
 QX
-QX
+Gs
 QX
 QX
 Hr
@@ -58336,7 +58352,7 @@ pt
 QX
 QX
 tV
-Cc
+bM
 bM
 bM
 QX
@@ -58725,8 +58741,8 @@ am
 eq
 eq
 eq
-LZ
-LZ
+dF
+bh
 eq
 eq
 Ga
@@ -59121,8 +59137,8 @@ Ga
 Ga
 LZ
 LZ
-eq
-eq
+tq
+By
 LZ
 LZ
 LZ
