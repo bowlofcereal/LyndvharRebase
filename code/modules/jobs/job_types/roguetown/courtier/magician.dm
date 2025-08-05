@@ -32,13 +32,13 @@
 	neck = /obj/item/clothing/neck/roguetown/talkstone
 	cloak = /obj/item/clothing/cloak/black_cloak
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/black
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-	pants = /obj/item/clothing/under/roguetown/tights/random
-	shoes = /obj/item/clothing/shoes/roguetown/shortboots
-	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+	pants = /obj/item/clothing/under/roguetown/tights/black
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced/short
+	belt = /obj/item/storage/belt/rogue/leather/plaquegold
 	beltr = /obj/item/storage/keyring/mage
 	beltl = /obj/item/storage/magebag
-	id = /obj/item/clothing/ring/gold
+	id = /obj/item/clothing/ring/active/nomag
 	r_hand = /obj/item/rogueweapon/woodstaff/riddle_of_steel/magos
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
@@ -54,7 +54,7 @@
 	ADD_TRAIT(H, TRAIT_ARCYNE_T4, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/alchemy, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/alchemy, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/magic/arcane, 6, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
