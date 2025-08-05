@@ -39,13 +39,13 @@
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 2)
-			backl = /obj/item/rogueweapon/shield/heater
+			backl = /obj/item/rogueweapon/shield/tower/zybantu
 			r_hand = /obj/item/rogueweapon/sword/sabre/shamshir
 			neck = /obj/item/clothing/neck/roguetown/gorget
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
 			pants = /obj/item/clothing/under/roguetown/chainlegs
-			shoes = /obj/item/clothing/shoes/roguetown/boots
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 			belt = /obj/item/storage/belt/rogue/leather/shalal
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 			backr = /obj/item/storage/backpack/rogue/satchel
@@ -88,7 +88,7 @@
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/zybantu
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/zybantu
 			wrists = /obj/item/clothing/wrists/roguetown/splintarms
-			gloves = /obj/item/clothing/gloves/roguetown/angle
+			gloves = /obj/item/clothing/gloves/roguetown/angle/pontifex
 			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/zybantu
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backpack_contents = list(
