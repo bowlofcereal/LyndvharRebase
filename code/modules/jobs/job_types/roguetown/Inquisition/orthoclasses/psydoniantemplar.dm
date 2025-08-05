@@ -15,17 +15,17 @@
 	has_loadout = TRUE
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
 	cloak = /obj/item/clothing/cloak/psydontabard
-	backr = /obj/item/rogueweapon/shield/tower/metal
+	backr = /obj/item/rogueweapon/shield/tower
 	gloves = /obj/item/clothing/gloves/roguetown/chain/psydon
-	neck = /obj/item/clothing/neck/roguetown/chaincoif
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-	backl = /obj/item/storage/backpack/rogue/satchel/black
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
+	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
+	backl = /obj/item/storage/backpack/rogue/satchel
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	shoes = /obj/item/clothing/shoes/roguetown/boots/psydonboots
 	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ornate
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/psydonhelm
-	belt = /obj/item/storage/belt/rogue/leather/black
-	beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
+	belt = /obj/item/storage/belt/rogue/leather/steel/tasset
+	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	id = /obj/item/clothing/ring/silver
 	backpack_contents = list(/obj/item/roguekey/inquisition = 1)
 	H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
