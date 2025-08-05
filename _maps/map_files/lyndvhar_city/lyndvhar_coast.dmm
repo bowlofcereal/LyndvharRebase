@@ -1193,10 +1193,6 @@
 "rZ" = (
 /turf/open/floor/rogue/herringbone,
 /area/rogue/under/cave/orcdungeon)
-"sg" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/axe,
-/turf/open/floor/rogue/blocks/platform,
-/area/rogue/under/cave/dukecourt)
 "sh" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /obj/structure/rack/rogue,
@@ -1910,11 +1906,9 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter)
 "Cd" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/guard,
-/turf/open/floor/rogue/volcanic,
-/area/rogue/under/cavelava{
-	first_time_text = "CAVERNOUS CALDERA"
-	})
+/mob/living/carbon/human/species/skeleton/npc/easy,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/indoors/cave)
 "Cl" = (
 /obj/machinery/light/rogue/firebowl/standing/blue,
 /turf/open/floor/rogue/hexstone,
@@ -2002,9 +1996,8 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/shelter)
 "Dr" = (
-/obj/structure/chair/wood/rogue/chair3,
-/mob/living/simple_animal/hostile/rogue/skeleton/spear,
-/turf/open/floor/rogue/tile/masonic/single,
+/mob/living/carbon/human/species/skeleton/npc/easy,
+/turf/open/floor/rogue/blocks/platform,
 /area/rogue/under/cave/dukecourt)
 "Dt" = (
 /turf/closed/wall/mineral/rogue/pipe,
@@ -2082,9 +2075,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/orcdungeon)
 "Ey" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/axe,
-/turf/open/floor/rogue/blocks/green,
-/area/rogue/under/cave/dukecourt)
+/obj/structure/gate/bars,
+/turf/open/floor/rogue/concrete,
+/area/rogue/under/cave/dragonden)
 "EB" = (
 /obj/structure/table/wood{
 	icon_state = "largetable";
@@ -2096,10 +2089,6 @@
 /obj/item/clothing/ring/gold,
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/dragonden)
-"EQ" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/spear,
-/turf/open/floor/rogue/blocks/platform,
-/area/rogue/under/cave/dukecourt)
 "Fc" = (
 /obj/structure/closet/crate/chest/neu_fancy,
 /obj/item/roguecoin/gold/pile,
@@ -2411,11 +2400,9 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/under/cave/orcdungeon)
 "KB" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/guard,
-/turf/open/floor/rogue/concrete,
-/area/rogue/under/cavelava{
-	first_time_text = "CAVERNOUS CALDERA"
-	})
+/mob/living/carbon/human/species/skeleton/npc/easy,
+/turf/open/floor/rogue/blocks/green,
+/area/rogue/under/cave/dukecourt)
 "KC" = (
 /obj/structure/mineral_door/wood/violet,
 /turf/open/floor/rogue/cobble,
@@ -2962,7 +2949,7 @@
 /area/rogue/indoors/shelter)
 "RP" = (
 /obj/structure/chair/wood/rogue/chair3,
-/mob/living/simple_animal/hostile/rogue/skeleton/guard,
+/mob/living/carbon/human/species/skeleton/npc/hard,
 /turf/open/floor/rogue/tile/masonic/single,
 /area/rogue/under/cave/dukecourt)
 "RW" = (
@@ -3148,11 +3135,6 @@
 /area/rogue/under/cave/mazedungeon{
 	first_time_text = "UNIDENTIFIED RUIN"
 	})
-"UG" = (
-/obj/structure/chair/wood/rogue/chair3,
-/mob/living/simple_animal/hostile/rogue/skeleton/axe,
-/turf/open/floor/rogue/tile/masonic/single,
-/area/rogue/under/cave/dukecourt)
 "UH" = (
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/dirt,
@@ -3297,7 +3279,7 @@
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/dukecourt)
 "WR" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/dukecourt)
 "WY" = (
@@ -3318,10 +3300,6 @@
 "Xv" = (
 /obj/machinery/light/rogue/wallfire/candle/blue/r,
 /turf/open/floor/rogue/cobblerock,
-/area/rogue/under/cave/dukecourt)
-"Xx" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/guard,
-/turf/open/floor/rogue/blocks/green,
 /area/rogue/under/cave/dukecourt)
 "Xy" = (
 /obj/structure/table/wood{
@@ -10152,7 +10130,7 @@ jI
 HD
 HD
 HD
-Cd
+HD
 HD
 HD
 jI
@@ -10677,7 +10655,7 @@ qW
 HD
 HD
 HD
-Cd
+HD
 HD
 qW
 qW
@@ -11076,7 +11054,7 @@ HD
 HD
 qW
 qW
-Cd
+HD
 qW
 jI
 jp
@@ -11321,7 +11299,7 @@ jI
 jI
 jI
 HD
-Cd
+HD
 Zm
 Zm
 HD
@@ -11368,7 +11346,7 @@ HD
 HD
 HD
 HD
-KB
+Zm
 Zm
 QD
 dr
@@ -11388,7 +11366,7 @@ dr
 uV
 dr
 uV
-uV
+Dt
 uV
 uV
 uV
@@ -11520,7 +11498,7 @@ uV
 dr
 dr
 uV
-Dt
+Ey
 uV
 dr
 Tn
@@ -11588,7 +11566,7 @@ HD
 HD
 Zm
 Zm
-Cd
+HD
 jI
 HD
 jp
@@ -11632,7 +11610,7 @@ HD
 HD
 HD
 HD
-KB
+Zm
 Zm
 QD
 dr
@@ -11652,7 +11630,7 @@ dr
 dr
 dr
 dr
-Dt
+dr
 dr
 uV
 uV
@@ -11784,7 +11762,7 @@ dr
 dr
 Up
 uV
-Dt
+dr
 uV
 uV
 dr
@@ -12375,7 +12353,7 @@ jp
 jp
 HD
 HD
-Cd
+HD
 HD
 HD
 Zm
@@ -12903,7 +12881,7 @@ jI
 qW
 jI
 qW
-Cd
+HD
 qW
 qW
 jI
@@ -23404,7 +23382,7 @@ GX
 hh
 GX
 GX
-WY
+Cd
 bZ
 hb
 hb
@@ -23530,7 +23508,7 @@ GX
 GX
 GX
 GX
-WY
+Cd
 GX
 GX
 GX
@@ -25252,7 +25230,7 @@ hh
 hh
 hb
 GX
-WY
+Cd
 hb
 hh
 hh
@@ -26038,7 +26016,7 @@ GX
 GX
 GX
 hb
-WY
+Cd
 hh
 hh
 GX
@@ -26797,7 +26775,7 @@ fJ
 PA
 xr
 PA
-PA
+KB
 PA
 PA
 fJ
@@ -26929,7 +26907,7 @@ fJ
 PA
 ZV
 ZV
-Ey
+PA
 ZV
 ZV
 CI
@@ -27322,8 +27300,8 @@ jk
 KU
 vb
 fJ
+Dr
 ZV
-sg
 PA
 PA
 PA
@@ -27458,7 +27436,7 @@ ZV
 ZV
 ZV
 ZV
-Xx
+PA
 fJ
 fJ
 fJ
@@ -27588,7 +27566,7 @@ Mb
 fJ
 fJ
 fJ
-ZV
+Dr
 xr
 fJ
 fJ
@@ -27725,7 +27703,7 @@ PA
 PA
 PA
 ZV
-ZV
+Dr
 PA
 fJ
 ZV
@@ -27854,15 +27832,15 @@ Mb
 fJ
 ZV
 ZV
+KB
+fJ
+ZV
 PA
-fJ
-ZV
-Xx
 ZV
 fJ
 me
 me
-FV
+Dr
 ZV
 ZV
 FV
@@ -28250,7 +28228,7 @@ Mb
 fJ
 fJ
 PA
-EQ
+ZV
 ZV
 PA
 ZV
@@ -28383,7 +28361,7 @@ Mb
 fJ
 PA
 ZV
-ZV
+Dr
 ZV
 ZV
 xr
@@ -28393,7 +28371,7 @@ ZV
 Db
 me
 ZV
-FV
+Dr
 ZV
 fJ
 fJ
@@ -28777,7 +28755,7 @@ fJ
 fJ
 fJ
 of
-RP
+JQ
 Et
 Cw
 Cw
@@ -28909,7 +28887,7 @@ Mb
 Mb
 fJ
 Cw
-UG
+JQ
 rM
 Cw
 Cw
@@ -29569,7 +29547,7 @@ Mb
 Mb
 fJ
 of
-JQ
+RP
 mY
 Cw
 Cw
@@ -29701,7 +29679,7 @@ Mb
 fJ
 fJ
 fJ
-Dr
+JQ
 oz
 Cw
 Cw

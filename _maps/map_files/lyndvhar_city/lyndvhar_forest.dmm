@@ -521,7 +521,7 @@
 	})
 "dw" = (
 /obj/structure/chair/stool/rogue,
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "dy" = (
@@ -978,7 +978,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "hj" = (
@@ -1372,7 +1372,7 @@
 /turf/open/floor/rogue/grass,
 /area/rogue/indoors/shelter/woods)
 "ka" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
@@ -1579,6 +1579,12 @@
 /mob/living/simple_animal/hostile/retaliate/rogue/orc/spear,
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/outdoors/town/roofs)
+"lQ" = (
+/mob/living/carbon/human/species/skeleton/npc/hard,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "lR" = (
 /obj/structure/mineral_door/bars,
 /turf/open/floor/rogue/cobblerock,
@@ -1822,7 +1828,7 @@
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
 	},
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "nK" = (
@@ -1850,6 +1856,7 @@
 /obj/structure/fluff/railing/border{
 	dir = 8
 	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
@@ -1939,12 +1946,21 @@
 	dir = 1
 	},
 /area/rogue/under/cave/inhumen)
+"oJ" = (
+/obj/structure/fluff/railing/border{
+	dir = 4
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "oL" = (
 /turf/open/floor/rogue/tile,
 /area/rogue/under/cave/inhumen)
 "oQ" = (
 /obj/structure/flora/ausbushes/brflowers,
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
@@ -2113,7 +2129,7 @@
 	},
 /area/rogue/indoors/shelter/woods)
 "qK" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/dirt/ambush,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
@@ -2215,7 +2231,7 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "rD" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter/woods)
 "rG" = (
@@ -3047,7 +3063,7 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/town/roofs)
 "xj" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
@@ -3139,7 +3155,7 @@
 /area/rogue/outdoors/town/roofs)
 "xS" = (
 /obj/structure/bed/rogue,
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "xU" = (
@@ -3214,6 +3230,11 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
+"yI" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/armor,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/shelter/woods)
 "yM" = (
 /obj/structure/fluff/railing/fence{
 	dir = 8
@@ -3257,7 +3278,7 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "zh" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
@@ -3267,6 +3288,11 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/twig,
+/area/rogue/indoors/shelter/woods)
+"zn" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter/woods)
 "zo" = (
 /obj/machinery/light/rogue/wallfire/candle,
@@ -3761,6 +3787,15 @@
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
+"CX" = (
+/obj/structure/fluff/railing/border{
+	dir = 1
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/turf/open/floor/rogue/cobble,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "CZ" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -4029,7 +4064,7 @@
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/outdoors/town/roofs)
 "EM" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
@@ -4140,6 +4175,11 @@
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
+"FO" = (
+/obj/structure/rack/rogue,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/tools,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/indoors/shelter/woods)
 "FP" = (
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/under/cave)
@@ -4208,7 +4248,7 @@
 /area/rogue/under/cave/inhumen)
 "Gm" = (
 /obj/structure/chair/stool/rogue,
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter/woods)
 "Gp" = (
@@ -4269,7 +4309,7 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "GL" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "GP" = (
@@ -5259,7 +5299,7 @@
 	dir = 10;
 	icon_state = "cobbleedge-w"
 	},
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "NB" = (
@@ -5478,7 +5518,7 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "OU" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter/woods)
 "OW" = (
@@ -5859,7 +5899,7 @@
 	dir = 10;
 	icon_state = "cobbleedge-e"
 	},
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "Sf" = (
@@ -5992,6 +6032,15 @@
 	})
 "SP" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
+"SQ" = (
+/obj/structure/fluff/railing/border{
+	dir = 9
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -6142,7 +6191,7 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "TM" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/indoors/shelter/woods)
 "TQ" = (
@@ -6492,6 +6541,15 @@
 /obj/item/rogueweapon/mace/woodclub,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
+"Wg" = (
+/obj/structure/fluff/railing/border{
+	dir = 5
+	},
+/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
+/turf/open/floor/rogue/cobble/mossy,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "Wm" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/cobble,
@@ -6678,7 +6736,7 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/shelter/woods)
 "XK" = (
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
@@ -6954,6 +7012,10 @@
 	},
 /turf/open/floor/rogue/hay,
 /area/rogue/outdoors/town/roofs)
+"ZR" = (
+/mob/living/carbon/human/species/skeleton/npc/hard,
+/turf/open/floor/rogue/cobble,
+/area/rogue/indoors/shelter/woods)
 "ZS" = (
 /turf/closed/wall/mineral/rogue/decostone/mossy/red/long,
 /area/rogue/outdoors/woods{
@@ -71196,8 +71258,8 @@ uN
 je
 Em
 Em
+lQ
 DW
-zh
 QJ
 VI
 KL
@@ -71397,8 +71459,8 @@ uN
 uN
 je
 QJ
-yU
-IH
+oJ
+Wg
 bG
 zx
 DR
@@ -71600,7 +71662,7 @@ uN
 je
 QJ
 ax
-FN
+CX
 bG
 NC
 Ic
@@ -71802,7 +71864,7 @@ uN
 je
 QJ
 nS
-oz
+SQ
 DW
 Zy
 DK
@@ -72004,7 +72066,7 @@ uN
 je
 iy
 iy
-zh
+lQ
 DW
 vi
 VI
@@ -123859,7 +123921,7 @@ uN
 uN
 br
 hN
-hN
+XK
 uN
 uN
 uN
@@ -124868,7 +124930,7 @@ uN
 uN
 uN
 MK
-hN
+XK
 hN
 uN
 uN
@@ -162656,7 +162718,7 @@ fe
 XO
 hM
 FF
-OU
+FF
 FF
 RT
 RT
@@ -162860,7 +162922,7 @@ FF
 FF
 FF
 FF
-FF
+zn
 RT
 RT
 uN
@@ -163063,7 +163125,7 @@ ou
 ia
 FF
 FF
-FF
+zn
 qB
 uN
 uN
@@ -163258,7 +163320,7 @@ uN
 uN
 RT
 FF
-OU
+ZR
 FF
 Gf
 vh
@@ -163467,7 +163529,7 @@ jQ
 ia
 FF
 hM
-hM
+FO
 qB
 uN
 uN
@@ -163662,13 +163724,13 @@ uN
 uN
 fe
 fe
+yI
 FF
 FF
 FF
 FF
 FF
-FF
-hM
+FO
 fe
 fe
 uN
@@ -163865,7 +163927,7 @@ uN
 uN
 fe
 fe
-FF
+yI
 FF
 FF
 FF
@@ -164069,7 +164131,7 @@ uN
 fe
 fe
 FF
-OU
+FF
 FF
 RT
 fe

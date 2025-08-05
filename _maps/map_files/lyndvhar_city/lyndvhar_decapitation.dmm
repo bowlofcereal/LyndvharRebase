@@ -341,10 +341,6 @@
 /obj/machinery/light/rogue/firebowl/standing/blue,
 /turf/open/floor/rogue/cobble/mossy,
 /area/rogue/under/cave/dungeon1/gethsmane)
-"hf" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/axe,
-/turf/open/floor/rogue/cobble,
-/area/rogue/under/cave/mazedungeon)
 "hi" = (
 /obj/structure/table/wood{
 	icon_state = "map2"
@@ -414,12 +410,6 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/mazedungeon)
-"iW" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/guard,
-/turf/open/floor/rogue/dirt,
-/area/rogue/outdoors/mountains/decap/stepbelow{
-	first_time_text = "ANCIENT RUINS"
-	})
 "jb" = (
 /obj/structure/closet/crate/chest/old_crate,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/food,
@@ -493,10 +483,7 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap)
 "kP" = (
-/obj/structure/chair/wood/rogue{
-	dir = 4
-	},
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/hard,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/mazedungeon)
 "kS" = (
@@ -824,11 +811,8 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/mazedungeon)
 "rn" = (
-/obj/structure/chair/wood/rogue{
-	dir = 4
-	},
-/mob/living/carbon/human/species/skeleton/npc/medium,
-/turf/open/floor/rogue/blocks,
+/mob/living/carbon/human/species/skeleton/npc/easy,
+/turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/mazedungeon)
 "rq" = (
 /turf/open/floor/rogue/metal/barograte,
@@ -896,7 +880,7 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/mazedungeon)
 "sV" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/spear,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/mazedungeon)
 "sW" = (
@@ -983,10 +967,6 @@
 	},
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/mazedungeon)
-"ve" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/axe,
-/turf/open/floor/rogue/blocks,
-/area/rogue/under/cave/mazedungeon)
 "vj" = (
 /obj/structure/closet/crate/chest/neu,
 /obj/effect/spawner/lootdrop/roguetown/dungeon,
@@ -1035,7 +1015,7 @@
 /obj/structure/chair/wood/rogue{
 	dir = 8
 	},
-/mob/living/carbon/human/species/skeleton/npc/medium,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/mazedungeon)
 "wg" = (
@@ -1166,7 +1146,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave/mazedungeon)
 "yT" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/axe,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/mountains/decap/stepbelow{
 	first_time_text = "ANCIENT RUINS"
@@ -1604,7 +1584,7 @@
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/mazedungeon)
 "Jh" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/spear,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/mazedungeon)
 "Ji" = (
@@ -1698,10 +1678,6 @@
 /obj/machinery/light/roguestreet/midlamp,
 /turf/open/floor/rogue/metal/barograte,
 /area/rogue/outdoors/mountains/decap)
-"KY" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/guard,
-/turf/open/floor/rogue/blocks,
-/area/rogue/under/cave/mazedungeon)
 "Lb" = (
 /obj/structure/closet/crate/drawer,
 /obj/machinery/light/rogue/torchholder/l,
@@ -1787,7 +1763,7 @@
 	first_time_text = "ANCIENT RUINS"
 	})
 "NN" = (
-/mob/living/simple_animal/hostile/rogue/skeleton/axe,
+/mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains/decap/stepbelow{
 	first_time_text = "ANCIENT RUINS"
@@ -16019,7 +15995,7 @@ Hm
 hk
 uk
 uk
-KY
+Jh
 hk
 sW
 hk
@@ -16113,11 +16089,11 @@ xl
 xl
 xl
 Hm
-ve
+Jh
 hk
 sW
 Hm
-hf
+sV
 uk
 uk
 uk
@@ -16125,7 +16101,7 @@ Hm
 hk
 sW
 Hm
-KY
+Jh
 hk
 sW
 hk
@@ -16226,7 +16202,7 @@ uk
 uk
 Hm
 sW
-KY
+Jh
 Hm
 Hm
 sW
@@ -17349,7 +17325,7 @@ Si
 Si
 sW
 hk
-Qn
+kP
 Si
 sW
 uk
@@ -18043,7 +18019,7 @@ xl
 xl
 Si
 hk
-Hl
+hk
 Hm
 uk
 uk
@@ -18862,12 +18838,12 @@ hk
 hk
 hk
 VR
+rn
 hk
 hk
 hk
 hk
-hk
-Hl
+rn
 hk
 hk
 hk
@@ -19065,8 +19041,8 @@ hk
 uk
 uk
 hk
-Hl
 hk
+rn
 hk
 hk
 hk
@@ -19888,7 +19864,7 @@ sW
 hk
 hk
 Hm
-Qn
+kP
 Hm
 Si
 Hm
@@ -20422,13 +20398,13 @@ TK
 qu
 Si
 Hm
-rn
-rn
+FF
+FF
 dd
 FF
 FF
-rn
-kP
+FF
+dd
 Hm
 hk
 sW
@@ -20731,7 +20707,7 @@ Si
 vV
 vV
 vV
-hw
+vV
 hw
 zC
 zC
@@ -35278,7 +35254,7 @@ Xh
 cM
 yb
 Xh
-iW
+yT
 IC
 yl
 Xh
@@ -36091,14 +36067,14 @@ ex
 ex
 Xh
 IZ
-iW
+yT
 IC
 yb
 OU
 yb
 yb
 Xh
-iW
+yT
 Xh
 Xh
 yb
