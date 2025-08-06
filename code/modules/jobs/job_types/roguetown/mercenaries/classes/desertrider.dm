@@ -44,8 +44,10 @@
 			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/zybantu
 			mask = /obj/item/clothing/mask/rogue/facemask/hound
 			neck = /obj/item/clothing/neck/roguetown/gorget
+			cloak = /obj/item/cloak/half/rider/red
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
+			wrists = /obj/item/clothing/wrists/roguetown/bracers
 			gloves = /obj/item/clothing/gloves/roguetown/leather
 			pants = /obj/item/clothing/under/roguetown/chainlegs
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
@@ -89,6 +91,7 @@
 			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/zybantu
 			neck = /obj/item/clothing/neck/roguetown/leather
 			mask = /obj/item/clothing/mask/rogue/facemask/steel/hound
+			cloak = /obj/item/cloak/half/rider/red
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/zybantu
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/zybantu
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
