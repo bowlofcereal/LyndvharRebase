@@ -13,14 +13,15 @@
 	if (!(istype(H.patron, /datum/patron/inhumen/zizo) || istype(H.patron, /datum/patron/inhumen/matthios) || istype(H.patron, /datum/patron/inhumen/graggar) || istype(H.patron, /datum/patron/inhumen/baotha)))
 		to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
 		H.set_patron(/datum/patron/inhumen/matthios)	//We allow other heretics into the cool-kids club, but if you are a tennite/psydonian it sets you to matthiosan.
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle/black
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/black
 	mask = /obj/item/clothing/mask/rogue/facemask/steel/hound
 	gloves = /obj/item/clothing/gloves/roguetown/chain/blk
 	pants = /obj/item/clothing/under/roguetown/chainlegs/blk
 	cloak = /obj/item/clothing/cloak/tabard/blkknight
-	neck = /obj/item/clothing/neck/roguetown/chaincoif/full
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate
+	neck = /obj/item/clothing/neck/roguetown/gorget
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/blkknight
+	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blk
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 	l_hand = /obj/item/rogueweapon/sword/long/dec
