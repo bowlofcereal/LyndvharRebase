@@ -64,4 +64,4 @@
 			beltr = /obj/item/rogueweapon/mace/cudgel
 		if("Flail & Shield") //plate users beware, you're in for a scare!
 			backl= /obj/item/rogueweapon/shield/tower
-			beltr = /obj/item/rogueweapon/sflail
+			beltr = /obj/item/rogueweapon/flail/sflail
