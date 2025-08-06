@@ -19,7 +19,7 @@
 	max_pq = null
 	round_contrib_points = 3
 
-	cmode_music = 'sound/music/combat_veteran.ogg'
+	cmode_music = 'sound/music/combat_garrison.ogg'
 
 /datum/outfit/job/roguetown/captain
 	job_bitflag = BITFLAG_ROYALTY | BITFLAG_GARRISON	//Not a noble per-say but not really garrison either. So both, you are a courtier of sorts afterall + combat
@@ -97,7 +97,7 @@
 	H.verbs |= /mob/proc/haltyell
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	H.cmode_music = 'sound/music/cmode/towner/combat_retired.ogg'
+	H.cmode_music = 'sound/music/combat_garrison.ogg'
 
 /datum/advclass/veteran/footman
 	name = "Retired Footman"
@@ -305,4 +305,4 @@
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_WOODSMAN, TRAIT_GENERIC)
-	H.cmode_music = 'sound/music/cmode/antag/combat_deadlyshadows.ogg'
+	H.cmode_music = 'sound/music/combat_garrison.ogg'

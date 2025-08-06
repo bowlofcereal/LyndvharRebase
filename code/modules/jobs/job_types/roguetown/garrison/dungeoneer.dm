@@ -20,7 +20,7 @@
 	max_pq = null
 	round_contrib_points = 1
 
-	cmode_music = 'sound/music/combat_dungeoneer.ogg'
+	cmode_music = 'sound/music/combat_garrison.ogg'
 
 /datum/job/roguetown/dungeoneer/New()
 	. = ..()
