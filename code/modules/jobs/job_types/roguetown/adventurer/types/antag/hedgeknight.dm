@@ -14,18 +14,18 @@
 		to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
 		H.set_patron(/datum/patron/inhumen/matthios)	//We allow other heretics into the cool-kids club, but if you are a tennite/psydonian it sets you to matthiosan.
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle/black
-	gloves = /obj/item/clothing/gloves/roguetown/leather/black
-	pants = /obj/item/clothing/under/roguetown/splintlegs/iron
+	mask = /obj/item/clothing/mask/rogue/facemask/hound/steel
+	gloves = /obj/item/clothing/gloves/roguetown/chain/blk
+	pants = /obj/item/clothing/under/roguetown/chainlegs/blk
 	cloak = /obj/item/clothing/cloak/tabard/blkknight
-	neck = /obj/item/clothing/neck/roguetown/gorget
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/iron
-	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light
-	wrists = /obj/item/clothing/wrists/roguetown/splintarms/iron
-	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-	belt = /obj/item/storage/belt/rogue/leather/steel/tasset
-	beltr = /obj/item/rogueweapon/sword/long
-	beltl = /obj/item/rogueweapon/scabbard/sword
-	backr = /obj/item/storage/backpack/rogue/satchel
+	neck = /obj/item/clothing/neck/roguetown/chaincoif/full
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/iron
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/blacksteel_half_plate
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/blk
+	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
+	l_hand = /obj/item/rogueweapon/sword/long/dec
+	backr = /obj/item/rogueweapon/scabbard/sword
+	backl = /obj/item/storage/backpack/rogue/satchel
 	id = /obj/item/mattcoin
 	backpack_contents = list(
 					/obj/item/rogueweapon/huntingknife/idagger = 1,
@@ -47,8 +47,8 @@
 	H.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
 	H.change_stat("strength", 3)
 	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 3) //dark souls 3 dual greatshield moment
+	H.change_stat("constitution", 2)
 	H.change_stat("intelligence", -3)
-	H.change_stat("speed", 1)
+	H.change_stat("speed", -2)
 	H.change_stat("fortune", 2)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)

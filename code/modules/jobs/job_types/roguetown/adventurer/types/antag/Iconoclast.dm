@@ -27,7 +27,7 @@
 	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	belt = /obj/item/storage/belt/rogue/leather
+	belt = /obj/item/storage/belt/rogue/leather/plaquegold
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	r_hand = /obj/item/rogueweapon/woodstaff
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/brown
