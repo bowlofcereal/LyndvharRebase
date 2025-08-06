@@ -30,8 +30,8 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	r_hand = /obj/item/rogueweapon/woodstaff
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
-	shoes = /obj/item/clothing/shoes/roguetown/shortboots
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/brown
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
@@ -41,7 +41,7 @@
 					/obj/item/ritechalk = 1,
 					)
 	head = /obj/item/clothing/head/roguetown/roguehood
-	armor = /obj/item/clothing/suit/roguetown/armor/plate
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron
 	beltr = /obj/item/rogueweapon/katar
 	id = /obj/item/mattcoin
 	H.change_stat("strength", 3)
