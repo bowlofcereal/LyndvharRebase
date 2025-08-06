@@ -29,7 +29,7 @@
 	min_pq = 12
 	max_pq = null
 	round_contrib_points = 3
-	cmode_music = 'sound/music/combat_garrison.ogg'
+	cmode_music = 'sound/music/combat_captain.ogg'
 
 /datum/outfit/job/roguetown/captain
 	neck = /obj/item/clothing/neck/roguetown/gorget/steel
@@ -54,7 +54,7 @@
 				index = copytext(H.real_name, 1,index)
 			if(!index)
 				index = H.real_name
-			S.name = "captain's tabard ([index])"
+			S.name = "captain's cape ([index])"
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
 		var/honorary = "Ser"
