@@ -26,7 +26,7 @@
 	H.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
-	cloak = /obj/item/clothing/suit/roguetown/armor/longcoat
+	cloak = /obj/item/clothing/cloak/psydontabard
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 	beltl = /obj/item/rogueweapon/mace/cudgel
@@ -35,8 +35,8 @@
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/psydon
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
-	shoes = /obj/item/clothing/shoes/roguetown/boots
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/brown
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	mask = /obj/item/clothing/mask/rogue/facemask/psydonmask
 	head = /obj/item/clothing/head/roguetown/roguehood/psydon
 	backpack_contents = list(
