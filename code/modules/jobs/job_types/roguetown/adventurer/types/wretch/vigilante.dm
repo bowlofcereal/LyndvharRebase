@@ -32,7 +32,7 @@
 	H.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE) //To make your own costumes.
 	H.adjust_skillrank(/datum/skill/misc/medicine, 2, TRUE) //You WILL be getting neckstabbed A LOT. 
 	H.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE) //SNIFF OUT JUSTICE.
-	H.cmode_music = 'sound/music/combatmaniac.ogg'
+	H.cmode_music = 'sound/music/combat_maniac.ogg'
 	var/classes = list("The Watchman", "The Gadgeteer", "I AM JUSTICE INCARNATE!!!")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 	switch(classchoice)

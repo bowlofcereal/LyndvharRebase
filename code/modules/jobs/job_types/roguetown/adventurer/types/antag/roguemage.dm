@@ -6,7 +6,7 @@
 	maximum_possible_slots = 1 // mages are supposed to be rare
 	outfit = /datum/outfit/job/roguetown/bandit/roguemage
 	category_tags = list(CTAG_BANDIT)
-	cmode_music = 'sound/music/combat_bandit_mage.ogg'
+	cmode_music = 'sound/music/combat_bandit.ogg'
 
 /datum/outfit/job/roguetown/bandit/roguemage/pre_equip(mob/living/carbon/human/H)
 	..()

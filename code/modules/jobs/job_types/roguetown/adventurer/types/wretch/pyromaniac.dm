@@ -46,7 +46,7 @@
 	H.change_stat("perception", 1)
 	H.change_stat("intelligence", 3)
 	wretch_select_bounty(H)
-	H.cmode_music = 'sound/music/Iconoclast.ogg'
+	H.cmode_music = 'sound/music/combat_maniac2.ogg'
 	var/weapons = list("Archery", "Crossbows", "Pyromancer")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
 	H.set_blindness(0)
