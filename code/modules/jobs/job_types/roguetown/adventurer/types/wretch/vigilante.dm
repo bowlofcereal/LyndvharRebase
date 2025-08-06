@@ -59,7 +59,6 @@
 	H.change_stat("constitution", 3)
 	H.change_stat("endurance", 3)
 	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC) //No crit resist - you can still get folded pretty easily if overwhelmed
-	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	wretch_select_bounty(H)
 
 /datum/outfit/job/roguetown/wretch/vigilante/proc/owl_equip(mob/living/carbon/human/H)
@@ -89,7 +88,6 @@
 	H.change_stat("intelligence", 3) 
 	H.change_stat("endurance", 3)
 	H.change_stat("perception", 3)
-	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	wretch_select_bounty(H)
 
 /datum/outfit/job/roguetown/wretch/vigilante/proc/bullshit_equip(mob/living/carbon/human/H)
@@ -107,7 +105,6 @@
 	H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/magicians_brick) //Trust the plan. 
 	ADD_TRAIT(H, TRAIT_MAGEARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	H.change_stat("speed", 2)
 	H.change_stat("endurance", 1)
 	H.change_stat("intelligence", 4) //Hilarious
