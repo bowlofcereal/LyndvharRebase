@@ -14,7 +14,7 @@
 		to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
 		H.set_patron(/datum/patron/inhumen/matthios)	//We allow other heretics into the cool-kids club, but if you are a tennite/psydonian it sets you to matthiosan.
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle/black
-	mask = /obj/item/clothing/mask/rogue/facemask/hound/steel
+	mask = /obj/item/clothing/mask/rogue/facemask/steel/hound
 	gloves = /obj/item/clothing/gloves/roguetown/chain/blk
 	pants = /obj/item/clothing/under/roguetown/chainlegs/blk
 	cloak = /obj/item/clothing/cloak/tabard/blkknight
