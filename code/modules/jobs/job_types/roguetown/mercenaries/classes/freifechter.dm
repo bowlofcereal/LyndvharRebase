@@ -81,7 +81,7 @@
 	head = /obj/item/clothing/head/roguetown/roguehood/pontifex
 	mask = /obj/item/clothing/mask/rogue/lordmask/naledi
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/iron
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/half
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
 	gloves = /obj/item/clothing/gloves/roguetown/angle/pontifex
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex
