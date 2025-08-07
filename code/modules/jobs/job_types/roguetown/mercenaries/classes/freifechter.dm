@@ -80,17 +80,18 @@
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	head = /obj/item/clothing/head/roguetown/roguehood/pontifex
 	mask = /obj/item/clothing/mask/rogue/lordmask/khazumian
-	neck = /obj/item/clothing/neck/roguetown/gorget
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/half
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
-	gloves = /obj/item/clothing/gloves/roguetown/angle/pontifex
+	neck = /obj/item/clothing/neck/roguetown/leather
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
+	gloves = /obj/item/clothing/gloves/roguetown/leather
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	backr = /obj/item/storage/backpack/rogue/satchel/short
 
-	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger/steel, /obj/item/rogueweapon/scabbard/sheath, /obj/item/flashlight/flare/torch/lantern)
+	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/scabbard/sheath, /obj/item/flashlight/flare/torch/lantern)
 
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_OUTDOORSMAN, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.grant_language(/datum/language/kargradi)
