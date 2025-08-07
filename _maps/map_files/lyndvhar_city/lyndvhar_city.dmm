@@ -2862,6 +2862,13 @@
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/church)
+"bRl" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "bRt" = (
 /obj/structure/curtain/magenta,
 /obj/structure/roguewindow/harem1{
@@ -7742,6 +7749,13 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
+"fgi" = (
+/obj/structure/mineral_door/wood/donjon/stone{
+	lockid = "church";
+	locked = 1
+	},
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "fgj" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 4
@@ -7887,7 +7901,8 @@
 /area/rogue/indoors/town/physician)
 "flp" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "church"
+	lockid = "church";
+	locked = 1
 	},
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
@@ -8510,7 +8525,8 @@
 /area/rogue/indoors/town/garrison)
 "fNI" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "church"
+	lockid = "church";
+	locked = 1
 	},
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/church)
@@ -10675,7 +10691,8 @@
 /area/rogue/indoors/town/church/chapel)
 "hkt" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "church"
+	lockid = "church";
+	locked = 1
 	},
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "weird1"
@@ -14128,13 +14145,6 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel)
-"jqB" = (
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/dwarfin)
 "jqJ" = (
 /obj/machinery/light/rogue/lanternpost,
 /turf/open/floor/rogue/grass,
@@ -15829,7 +15839,8 @@
 /area/rogue/under/town/basement/keep)
 "kyD" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "church"
+	lockid = "church";
+	locked = 1
 	},
 /obj/structure/fluff/walldeco/church/line{
 	dir = 1
@@ -16629,6 +16640,14 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
+"kZU" = (
+/obj/structure/stairs,
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "kZV" = (
 /obj/structure/fluff/railing/stonehedge{
 	dir = 8
@@ -22368,14 +22387,6 @@
 "oCc" = (
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/town)
-"oCh" = (
-/obj/structure/stairs,
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/dwarfin)
 "oCi" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5
@@ -26266,7 +26277,8 @@
 /area/rogue/under/town/sewer)
 "rdK" = (
 /obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "church"
+	lockid = "church";
+	locked = 1
 	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/church)
@@ -26493,6 +26505,10 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/outdoors/town/roofs)
+"rlw" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "rlG" = (
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/tile,
@@ -30018,6 +30034,14 @@
 "tKP" = (
 /turf/closed/wall/mineral/rogue/wooddark/slitted,
 /area/rogue/indoors/town/shop)
+"tLk" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	layer = 2.8;
+	pixel_x = 8
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "tLP" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -33489,7 +33513,8 @@
 /area/rogue/indoors/shelter/town/sargoth)
 "waw" = (
 /obj/structure/mineral_door/wood/window{
-	lockid = "tavern"
+	lockid = "tavern";
+	locked = 1
 	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/tavern{
@@ -33999,10 +34024,6 @@
 	},
 /turf/open/water/swamp,
 /area/rogue/indoors/cave)
-"wre" = (
-/obj/machinery/light/rogue/wallfire/candle,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/dwarfin)
 "wrP" = (
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -34034,14 +34055,6 @@
 /area/rogue/outdoors/rtfield{
 	first_time_text = "CITY OUTSKIRTS"
 	})
-"wtH" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	layer = 2.8;
-	pixel_x = 8
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/dwarfin)
 "wtN" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -94451,7 +94464,7 @@ tMM
 gXe
 mXL
 mXL
-iNh
+fgi
 mXL
 mXL
 bkZ
@@ -155718,7 +155731,7 @@ fFg
 ncx
 ncx
 ukn
-wre
+rlw
 ncx
 ncx
 ukn
@@ -155880,8 +155893,8 @@ vUb
 ncx
 ncx
 nWC
-wtH
-wtH
+tLk
+tLk
 ncx
 ukn
 tMw
@@ -156039,7 +156052,7 @@ xte
 iHt
 ukn
 wHq
-jqB
+bRl
 ubb
 ukn
 ujq
@@ -156205,7 +156218,7 @@ ukn
 ukn
 rDC
 ujq
-oCh
+kZU
 ncx
 ukn
 tMw
