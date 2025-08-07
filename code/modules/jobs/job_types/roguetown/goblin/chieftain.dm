@@ -26,7 +26,7 @@
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide/goblin
 	head = /obj/item/clothing/head/roguetown/crown/surplus
-	cloak = /obj/item/clothing/cloak/heartfelt
+	cloak = /obj/item/clothing/cloak/weocilyn
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.change_stat("strength", -1)

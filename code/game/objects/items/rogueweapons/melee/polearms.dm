@@ -925,7 +925,7 @@
 					"eflip" = 0,
 					)
 
-/obj/item/rogueweapon/woodstaff/naledi
+/obj/item/rogueweapon/woodstaff/khazumian
 	name = "Khazumian warstaff"
 	desc = "A staff carrying the crescent moon of Khuzker's knowledge, as well as the black and gold insignia of the Khaliphate."
 	icon_state = "naledistaff"
@@ -935,7 +935,7 @@
 	force_wielded = 22
 	max_integrity = 250
 
-/obj/item/rogueweapon/woodstaff/naledi/getonmobprop(tag)
+/obj/item/rogueweapon/woodstaff/khazumian/getonmobprop(tag)
 	. = ..()
 	if(tag)
 		switch(tag)

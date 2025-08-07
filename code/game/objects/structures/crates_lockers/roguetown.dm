@@ -181,7 +181,7 @@
 		base_icon_state = "drawer1"
 		pixel_y = 8
 /**
- * Closet preset for the duke ().
+ * Closet preset for the viscount ().
  * When opened for the first time by the ruler mob - spawns the blacksteel armor set.
  * Done to prevent nobles taking regency just to loot blacksteel
 */

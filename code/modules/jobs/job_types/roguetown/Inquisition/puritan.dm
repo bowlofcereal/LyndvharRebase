@@ -6,28 +6,20 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		/datum/species/human/northern,
-		/datum/species/elf/wood,
-		/datum/species/human/halfelf,
-		/datum/species/dwarf/mountain,
-		/datum/species/elf/dark,
-		/datum/species/aasimar,
-		/datum/species/demihuman
-	)
+	allowed_races = RACES_SHUNNED_UP
 	allowed_patrons = list(/datum/patron/old_god) //You MUST have a Psydonite character to start. Just so people don't get japed into Oops Suddenly Psydon!
-	tutorial = "You are the direct hand of the Psydonic inquisition. You have been sent by the Bisphoric of Valoria, the leading realm of the Psydonian Orthodoxy, on a diplomatic misssion.. officially, that is. /n /n Unofficially, you work to cast out the sinners from God's house. Heresy of all kinds must be corrected; from Pantheon-worshippers that stray too far towards heretical thought, to fools that worship the Daemons, and converting those willing. The city of Lyndvhar tolerates you due to your ability to fight the daemonic, and the Pantheonic Church tolerates you due to your aligned goals...but it is probably best to not let them peer too closely."
+	tutorial = "You are the direct hand of the Psydonic inquisition. You have been sent by the Bisphoric of Valoria, the leading realm of the Psydonian Orthodoxy, on a diplomatic misssion.. officially, that is. Unofficially, you work to cast out the sinners from Psydon's house. Heresy of all kinds must be corrected; from Pantheon-worshippers that stray too far towards heretical thought, to fools that worship the Daemons, and converting those willing. The city of Lyndvhar tolerates you due to your ability to fight the daemonic, and the Pantheonic Church tolerates you due to your aligned goals...but it is probably best to not let them peer too closely."
 	whitelist_req = TRUE
-	cmode_music = 'sound/music/inquisitorcombat.ogg'
+	cmode_music = 'sound/music/combat_inqordinator.ogg'
 	selection_color = JCOLOR_INQUISITION
 
 	outfit = /datum/outfit/job/roguetown/puritan
 	display_order = JDO_PURITAN
 	advclass_cat_rolls = list(CTAG_PURITAN = 20)
-	give_bank_account = 30
+	give_bank_account = 35
 	min_pq = 6
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 3
 
 /datum/outfit/job/roguetown/puritan
 	name = "Inquisitor"
@@ -86,7 +78,8 @@
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PURITAN, JOB_TRAIT)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
+	ADD_TRAIT(H, TRAIT_OUTLANDER, TRAIT_GENERIC)
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	belt = /obj/item/storage/belt/rogue/leather/knifebelt/black/psydon
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	shoes = /obj/item/clothing/shoes/roguetown/boots/valorian/inqboots
@@ -98,7 +91,7 @@
 	gloves = /obj/item/clothing/gloves/roguetown/valorian/inqgloves
 	wrists = /obj/item/clothing/neck/roguetown/psicross/silver
 	beltl = /obj/item/rogueweapon/scabbard/sword
-	l_hand = /obj/item/rogueweapon/sword/rapier
+	l_hand = /obj/item/rogueweapon/sword/silver
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	backpack_contents = list(
 		/obj/item/storage/keyring/puritan = 1,
@@ -146,11 +139,12 @@
 	H.verbs |= /mob/living/carbon/human/proc/faith_test
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SILVER_BLESSED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PERFECT_TRACKER, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_PURITAN, JOB_TRAIT)
+	ADD_TRAIT(H, TRAIT_OUTLANDER, TRAIT_GENERIC)
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/fluted/ornate
 	belt = /obj/item/storage/belt/rogue/leather/steel

@@ -6,7 +6,7 @@
 	outfit = /datum/outfit/job/roguetown/bandit/iconoclast
 	category_tags = list(CTAG_BANDIT)
 	maximum_possible_slots = 1 // We only want one of these. They're the leader.
-	cmode_music = 'sound/music/Iconoclast.ogg'
+	cmode_music = 'sound/music/combat_bandit.ogg'
 
 /datum/outfit/job/roguetown/bandit/iconoclast/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -27,11 +27,11 @@
 	H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
-	belt = /obj/item/storage/belt/rogue/leather
+	belt = /obj/item/storage/belt/rogue/leather/plaquegold
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	r_hand = /obj/item/rogueweapon/woodstaff
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
-	shoes = /obj/item/clothing/shoes/roguetown/shortboots
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/brown
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
@@ -41,7 +41,7 @@
 					/obj/item/ritechalk = 1,
 					)
 	head = /obj/item/clothing/head/roguetown/roguehood
-	armor = /obj/item/clothing/suit/roguetown/armor/plate
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/half/iron
 	beltr = /obj/item/rogueweapon/katar
 	id = /obj/item/mattcoin
 	H.change_stat("strength", 3)

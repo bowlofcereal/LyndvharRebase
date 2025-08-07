@@ -10,13 +10,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	total_positions = 1
 	spawn_positions = 1
 	selection_color = JCOLOR_NOBLE
-	allowed_races = list(
-		/datum/species/human/northern,
-		/datum/species/elf/wood,
-		/datum/species/human/halfelf,
-		/datum/species/dwarf/mountain,
-		/datum/species/demihuman
-	)
+	allowed_races = RACES_SHUNNED_UP
 	allowed_sexes = list(MALE, FEMALE)
 	advclass_cat_rolls = list(CTAG_LORD = 20)
 
@@ -35,10 +29,10 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	whitelist_req = FALSE
 	min_pq = 10
 	max_pq = null
-	round_contrib_points = 4
+	round_contrib_points = 5
 	give_bank_account = 1000
 	required = TRUE
-	cmode_music = 'sound/music/combat_noble.ogg'
+	cmode_music = 'sound/music/viscount.ogg'
 
 /datum/outfit/job/roguetown/lord
 	job_bitflag = BITFLAG_ROYALTY

@@ -11,13 +11,13 @@
 	display_order = 6
 	min_pq = 0
 	selection_color = JCOLOR_YEOMAN
-	allowed_races = RACES_ALL_KINDS
+	allowed_races = RACES_SHUNNED_UP
 	display_order = JDO_TAILOR
 	outfit = /datum/outfit/job/roguetown/tailor
 	give_bank_account = 16
 	min_pq = 0
 	max_pq = null
-	round_contrib_points = 3
+	round_contrib_points = 4
 	cmode_music = 'sound/music/cmode/towner/combat_towner3.ogg'
 
 /datum/outfit/job/roguetown/tailor/pre_equip(mob/living/carbon/human/H)

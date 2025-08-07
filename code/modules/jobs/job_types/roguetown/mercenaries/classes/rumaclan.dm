@@ -2,13 +2,19 @@
 	name = "Ruma Clan"
 	tutorial = "A band of foreign outcast Saltlians. The Ruma Clan are outcasts from the Xinyi Dynasty currently overseeing Saltlia, believed to be associated with the rebels at the time. The clan departed lest they risked being executed for such suspicions, or worse. It is no organized group of soldiers, but rather a loose collection of experienced fighters that have wandered an entire continent to get here."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = NON_DWARVEN_RACE_TYPES //no dwarf sprites
+	allowed_races = list(
+		/datum/species/human/northern,
+		/datum/species/elf/wood,
+		/datum/species/human/halfelf,
+		/datum/species/demihuman,
+		/datum/species/vulpkanin,
+	)
 	outfit = /datum/outfit/job/roguetown/mercenary/rumaclan
 	category_tags = list(CTAG_MERCENARY)
 	traits_applied = list(TRAIT_OUTLANDER)
 	cmode_music = 'sound/music/combat_kazengite.ogg'
-	classes = list("Kyodai" = "You are relatively versed in the art of \"swinging a sword until enemy death.\" - You would gladly take up most jobs for money, or a chance to cut loose.",
-					"Ishu" = "You are an archer. Pretty good in the art of \"pelting until enemy death.\" - You would gladly take up most jobs for money, or a chance to shoot loose.")
+	classes = list("Gun-in" = "You are well versed and experienced in swordfighting, you have no problem in taking up most jobs so long as the coin is good, for either yourself or the clan and the seonjang.",
+					"Sasu" = "You are an archer of the clan, many have called you an true marksman for your skills with the bow. You have no problem in taking up most jobs so long as the coin is good, for either yourself or the clan and the seonjang.")
 /datum/outfit/job/roguetown/mercenary/rumaclan/pre_equip(mob/living/carbon/human/H)
 	..()
 
@@ -89,5 +95,6 @@
 			H.change_stat("strength", -1)
 
 	ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC) //i swear this isn't as good as it sounds
+	ADD_TRAIT(H, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) //i swear this isn't as good as it sounds
 	H.grant_language(/datum/language/saltlian)

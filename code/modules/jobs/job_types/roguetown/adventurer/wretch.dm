@@ -12,14 +12,14 @@
 	outfit_female = null
 	display_order = JDO_WRETCH
 	show_in_credits = FALSE
-	min_pq = 20
+	min_pq = 10
 	max_pq = null
 
 	obsfuscated_job = TRUE
 
 	advclass_cat_rolls = list(CTAG_WRETCH = 20)
 	PQ_boost_divider = 10
-	round_contrib_points = 2
+	round_contrib_points = 1
 
 	announce_latejoin = FALSE
 	wanderer_examine = TRUE
@@ -52,13 +52,13 @@
 	var/bounty_total = rand(100, 400) // Just in case
 	switch(bounty_severity)
 		if("Misdeed")
-			bounty_total = rand(100, 200)
+			bounty_total = rand(100, 250)
 		if("Harm towards lyfe")
-			bounty_total = rand(200, 300)
+			bounty_total = rand(250, 400)
 		if("Horrific atrocities")
-			bounty_total = rand(300, 400) // Let's not make it TOO profitable
+			bounty_total = rand(400, 600) // Let's not make it TOO profitable
 	var/my_crime = input(H, "What is your crime?", "Crime") as text|null
 	if (!my_crime)
 		my_crime = "crimes against the Crown"
 	add_bounty(H.real_name, bounty_total, FALSE, my_crime, bounty_poster)
-	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the town while driving a story. Failure to use proper gravitas for this may get you punished for Low Role Play standards."))
+	to_chat(H, span_danger("You are an Antagonistic role. You are expected, by choosing to be a wretch, to sow chaos and division amongst the city while driving a story. Failure to use proper gravitas for this may get you punished for Low Roleplay standards and disrupting immersion."))

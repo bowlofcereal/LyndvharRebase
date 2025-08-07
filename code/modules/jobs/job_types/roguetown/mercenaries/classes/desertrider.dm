@@ -39,15 +39,21 @@
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 2)
-			backl = /obj/item/rogueweapon/shield/heater
+			backl = /obj/item/rogueweapon/shield/tower/zybantu
 			r_hand = /obj/item/rogueweapon/sword/sabre/shamshir
+			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/zybantu
+			mask = /obj/item/clothing/mask/rogue/facemask/hound
 			neck = /obj/item/clothing/neck/roguetown/gorget
+			cloak = /obj/item/clothing/cloak/half/rider/red
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
 			armor = /obj/item/clothing/suit/roguetown/armor/plate/scale
+			wrists = /obj/item/clothing/wrists/roguetown/bracers
+			gloves = /obj/item/clothing/gloves/roguetown/leather
 			pants = /obj/item/clothing/under/roguetown/chainlegs
-			shoes = /obj/item/clothing/shoes/roguetown/boots
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 			belt = /obj/item/storage/belt/rogue/leather/shalal
 			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
+			beltr = /obj/item/rogueweapon/scabbard/sword
 			backr = /obj/item/storage/backpack/rogue/satchel
 			backpack_contents = list(
 				/obj/item/roguekey/mercenary,
@@ -62,9 +68,9 @@
 		if("Zeybek")
 			H.set_blindness(0)
 			to_chat(H, span_warning("Zybantine 'Blade Dancers' are famed and feared the world over. Their expertise in blades both long and short is well known."))
-			H.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE) 
-			H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-			H.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE) 
+			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/whipsflails, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
@@ -78,17 +84,22 @@
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			H.change_stat("endurance", 2)
 			H.change_stat("intelligence", 1)
 			H.change_stat("speed", 3)
 			head = /obj/item/clothing/head/roguetown/roguehood/shalal/hijab/zybantu
 			neck = /obj/item/clothing/neck/roguetown/leather
-			mask = /obj/item/clothing/mask/rogue/facemask/steel/paalloy
+			mask = /obj/item/clothing/mask/rogue/facemask/steel/hound
+			cloak = /obj/item/clothing/cloak/half/rider/red
 			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat/zybantu
 			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/zybantu
-			wrists = /obj/item/clothing/wrists/roguetown/splintarms
-			gloves = /obj/item/clothing/gloves/roguetown/angle
+			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
+			gloves = /obj/item/clothing/gloves/roguetown/leather
+			belt = /obj/item/storage/belt/rogue/leather/shalal
+			beltl = /obj/item/rogueweapon/scabbard/sword
 			pants = /obj/item/clothing/under/roguetown/trou/leather/pontifex/zybantu
+			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 			backr = /obj/item/storage/backpack/rogue/satchel/black
 			backpack_contents = list(
 				/obj/item/roguekey/mercenary,

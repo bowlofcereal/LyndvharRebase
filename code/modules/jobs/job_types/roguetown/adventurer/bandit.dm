@@ -3,8 +3,8 @@
 	flag = BANDIT
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 5
-	spawn_positions = 5
+	total_positions = 7
+	spawn_positions = 7
 	antag_job = TRUE
 	allowed_races = RACES_ALL_KINDS
 	tutorial = "Long ago you did a crime worthy of your bounty being hung on the wall outside of the local inn. It was those of MATTHIOS that took you in afterwards, and they are all have you known since as your closest confidants and allies. Do beware, however: as in the Cult of Matthios- loyalty is fleeting."
@@ -16,9 +16,9 @@
 
 	display_order = JDO_BANDIT
 	announce_latejoin = FALSE
-	min_pq = 3
+	min_pq = 5
 	max_pq = null
-	round_contrib_points = 5
+	round_contrib_points = 2
 
 	advclass_cat_rolls = list(CTAG_BANDIT = 20)
 	PQ_boost_divider = 10
@@ -59,15 +59,15 @@
 // Changed up proc from Wretch to suit bandits bit more
 /proc/bandit_select_bounty(mob/living/carbon/human/H)
 	var/bounty_poster = input(H, "Who placed a bounty on you?", "Bounty Poster") as anything in list("The Justiciary of Lyndvhar", "The Bisphoric of Valoria", "The Holy Mother Church of Lyndhardtia")
-	var/bounty_severity = input(H, "How notorious are you?", "Bounty Amount") as anything in list("Small Fish", "Bay Butcher", "Lyndhardtian Boogeyman")
+	var/bounty_severity = input(H, "How notorious are you?", "Bounty Amount") as anything in list("Small Fish", "Notorious Outlaw", "Lyndhardtian Boogeyman")
 	var/bounty_total = rand(300, 600) // Just in case
 	switch(bounty_severity)
 		if("Small Fish")
-			bounty_total = rand(300, 400)
-		if("Bay Butcher")
-			bounty_total = rand(400, 500)
-		if("Lyndhardtian Boogeyman")
-			bounty_total = rand(500, 600)
+			bounty_total = rand(50, 150)
+		if("Notorious Outlaw")
+			bounty_total = rand(150, 200)
+		if("Lyndhardtian Pariah")
+			bounty_total = rand(350, 600)
 	var/my_crime = input(H, "What is your crime?", "Crime") as text|null
 	if (!my_crime)
 		my_crime = "Brigandry"

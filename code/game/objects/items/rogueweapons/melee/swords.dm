@@ -829,7 +829,7 @@
 
 /obj/item/rogueweapon/sword/rapier/vaquero
 	name = "cup-hilt rapier"
-	desc = "A special variant of a southwestern rapier. The cup hilt of this weapon is both simpler to produce and more protective than the type of traditional design of current rapiers."
+	desc = "A special variant of a southwestern rapier, found amongst those living in the Calmirixian provinces. The cup hilt of this weapon is both simpler to produce and more protective than the type of traditional design of current rapiers."
 	icon = 'icons/roguetown/weapons/64.dmi'
 	icon_state = "cup_hilt_rapier"
 	wdefense = 8

@@ -8,9 +8,10 @@
 	selection_color = JCOLOR_SOLDIER
 
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_SHUNNED_UP
+	allowed_races = RACES_ALL_KINDS
+	allowed_patrons = ALL_DIVINE_PATRONS 
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
-	tutorial = "Whether through forced conscription, or the desire to serve, you have found a place in the Wardens. You are the frontline defense against evil, and protector of the frontier roads. The life is not easy, but it pays well. Protect the forests well, for if you fall, then nothing will stop what lurks outside from seeping in.."
+	tutorial = "Whether through forced conscription, or the desire to serve, you have found a place in the Draguippe Wardens. You are the frontline defense against evil, and protector of the frontier roads. The life is not easy, but this is what you were conscripted for. Protect the forests well, for if you fall, then nothing will stop what lurks outside from seeping in.."
 	display_order = JDO_TOWNGUARD
 	whitelist_req = TRUE
 
@@ -20,9 +21,9 @@
 	give_bank_account = 16
 	min_pq = 0
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 1
 
-	cmode_music = 'sound/music/cmode/garrison/combat_warden.ogg'
+	cmode_music = 'sound/music/combat_garrison.ogg'
 
 /datum/outfit/job/roguetown/bogguardsman
 	head = /obj/item/clothing/head/roguetown/helmet/bascinet/antler
@@ -50,37 +51,36 @@
 
 /datum/outfit/job/roguetown/bogguardsman/ranger/pre_equip(mob/living/carbon/human/H)
 	..()
-	neck = /obj/item/clothing/neck/roguetown/coif
-	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
+	neck = /obj/item/clothing/neck/roguetown/coif/padded
+	gloves = /obj/item/clothing/gloves/roguetown/leather
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	pants = /obj/item/clothing/under/roguetown/trou/leather
-	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+	backl = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	beltr = /obj/item/quiver/arrows
-	beltl = /obj/item/rogueweapon/huntingknife/idagger/steel
+	beltl = /obj/item/rogueweapon/huntingknife/idagger
 	backpack_contents = list(
 		/obj/item/storage/keyring/guard = 1,
 		/obj/item/flashlight/flare/torch/lantern = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1
 		)
-	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/slings, 4, TRUE) 
-	H.adjust_skillrank(/datum/skill/combat/crossbows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/slings, 2, TRUE) 
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE) // This should let them fry meat on fires.
+	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
 	H.change_stat("perception", 2)
 	H.change_stat("endurance", 1)
 	H.change_stat("speed", 2)
@@ -112,25 +112,23 @@
 		)
 	H.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/shields, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/shields, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/slings, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/tracking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE) // This should let them fry meat on fires.
+	H.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
 	H.change_stat("perception", 1)
 	H.change_stat("constitution", 1)
 	H.change_stat("endurance", 1)

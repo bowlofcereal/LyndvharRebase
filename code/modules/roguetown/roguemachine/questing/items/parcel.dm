@@ -56,7 +56,7 @@
 		/area/rogue/indoors/town/church = list("Priest", "Acolyte", "Templar", "Churchling"),
 		/area/rogue/indoors/town/dwarfin = list("Guildmaster", "Guildsman"),
 		/area/rogue/indoors/town/shop = list("Merchant", "Shophand"),
-		/area/rogue/indoors/town/manor = list("Councillor", "Nobleman", "Hand", "Retinue Captain", "Marshal", "Steward", "Clerk", "Head Mage", "Duke"),
+		/area/rogue/indoors/town/manor = list("Councillor", "Nobleman", "Hand", "Retinue Captain", "Marshal", "Steward", "Clerk", "Archmagus", "Viscount"),
 		/area/rogue/indoors/town/magician = list("Archmagus", "Magicians Apprentice"),
 		/area/rogue/indoors/town = list("Guild Handler")
 	)

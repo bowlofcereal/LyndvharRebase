@@ -49,7 +49,7 @@
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/stonebeardreserve)
 
 /datum/supply_pack/rogue/alcohol/voddena
-	name = "Hammerhold Voddena"
+	name = "Crestborne Voddena"
 	cost = 25
 	contains = list(/obj/item/reagent_containers/glass/bottle/rogue/beer/voddena)
 

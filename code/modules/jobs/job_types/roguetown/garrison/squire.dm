@@ -5,14 +5,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	allowed_races = list(
-		/datum/species/human/northern,
-		/datum/species/elf/wood,
-		/datum/species/human/halfelf,
-		/datum/species/dwarf/mountain,
-		/datum/species/elf/dark,
-		/datum/species/demihuman
-	)
+	allowed_races = RACES_SHUNNED_UP
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_patrons = ALL_DIVINE_PATRONS 
 	allowed_ages = list(AGE_ADULT)
@@ -26,7 +19,7 @@
 	give_bank_account = TRUE
 	min_pq = -5 //squires aren't great but they can do some damage
 	max_pq = null
-	round_contrib_points = 2
+	round_contrib_points = 1
 
 	cmode_music = 'sound/music/combat_squire.ogg'
 

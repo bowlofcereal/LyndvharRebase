@@ -17,9 +17,9 @@
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	mask = /obj/item/clothing/mask/rogue/shepherd
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
-	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
-	belt = /obj/item/storage/belt/rogue/leather/black		//Should give these guys a unique miners belt at some point..
-	neck = /obj/item/clothing/neck/roguetown/chaincoif
+	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
+	belt = /obj/item/storage/belt/rogue/leather/steel	//Should give these guys a unique miners belt at some point..
+	neck = /obj/item/clothing/neck/roguetown/gorget/steel
 	beltl = /obj/item/rogueweapon/stoneaxe/woodcut/pick
 	beltr = /obj/item/rogueweapon/huntingknife
 	backl = /obj/item/storage/backpack/rogue/backpack
@@ -38,9 +38,9 @@
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)	//Gets this for bomb making.
-	H.adjust_skillrank(/datum/skill/craft/engineering, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/engineering, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
@@ -52,7 +52,8 @@
 	H.change_stat("speed", 1)
 
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_WEBWALK, TRAIT_GENERIC)	//A cave dweller fears no spider.
+	ADD_TRAIT(H, TRAIT_WEBWALK, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	//A cave dweller fears no spider.
 
 
 //Clothing here to avoid overcrowding the hats.dm with snowflake gear. It's just a kettle with a light.

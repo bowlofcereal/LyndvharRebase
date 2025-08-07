@@ -29,6 +29,7 @@
 /datum/storyteller/psydon
 	name = "Psydon"
 	desc = "Psydon is the faith of the Valorians, believed to take little interference in the world. Therefore, he will do nothing."
+	welcome_text = "The silence of Eternity envelops around you."
 	weight = 6
 	always_votable = TRUE
 	color_theme = "#80ced8"
@@ -45,6 +46,7 @@
 /datum/storyteller/astrata
 	name = "Astrata"
 	desc = "Astrata will provide a balanced and varied experience. Consider this the default experience."
+	welcome_text = "The tyranny of the Sun gets brighter."
 	weight = 6
 	always_votable = TRUE
 	follower_modifier = LOWER_FOLLOWER_MODIFIER
@@ -189,7 +191,7 @@
 /datum/storyteller/pestra
 	name = "Pestra"
 	desc = "Pestra keeps things simple, with a slight bias towards alchemy."
-	welcome_text = "The balance of life and craft tilts in your favor."
+	welcome_text = "The balance of health and illness tilts on a physician's needle."
 	color_theme = "#AADDAA"
 
 	tag_multipliers = list(
@@ -208,7 +210,7 @@
 /datum/storyteller/malum
 	name = "Malum"
 	desc = "Malum believes in hard work, intervening more often than others."
-	welcome_text = "Toil and perseverance shall shape your destiny."
+	welcome_text = "Your toil and perseverance shall shape your destiny- as his hammer forged his."
 	color_theme = "#D4A56C"
 
 	tag_multipliers = list(
@@ -235,7 +237,7 @@
 /datum/storyteller/eora
 	name = "Eora"
 	desc = "Eora hates death and promotes love. Raids will never naturally progress, only death will bring them."
-	welcome_text = "Life shall flourish under my watchful gaze."
+	welcome_text = "Life shall flourish under her watchful gaze."
 	color_theme = "#9966CC"
 
 	tag_multipliers = list(
@@ -263,7 +265,7 @@
 /datum/storyteller/dendor
 	name = "Dendor"
 	desc = "Dendor likes to send nature-themed events."
-	welcome_text = "The wilds whisper your name."
+	welcome_text = "The wilds whisper your name- an echoing call to abandon reason."
 	weight = 4
 	always_votable = TRUE
 	color_theme = "#664422"
@@ -294,7 +296,7 @@
 /datum/storyteller/zizo
 	name = "Zizo"
 	desc = "Zizo thrives on risk and reward, favoring the daring and unpredictable."
-	welcome_text = "You will kneel."
+	welcome_text = "You will kneel. All that shall be left in the WAKE is BLOOD."
 	weight = 4
 	always_votable = TRUE
 	color_theme = "#CC4444"
@@ -329,7 +331,7 @@
 /datum/storyteller/baotha
 	name = "Baotha"
 	desc = "Baotha revels in chaos, making events and reality unpredictable."
-	welcome_text = "The world bends to my whims."
+	welcome_text = "The world bends to my whims. I will never truly be satisfied."
 	weight = 4
 	always_votable = TRUE
 	color_theme = "#9933FF"
@@ -362,7 +364,7 @@
 /datum/storyteller/graggar
 	name = "Graggar"
 	desc = "Graggar encourages war and conquest, making combat the solution to all."
-	welcome_text = "Victory or death!"
+	welcome_text = "A glorious feast awaits us! Stain ourselves with the blood of our enemies!"
 	weight = 4
 	always_votable = TRUE
 	color_theme = "#8B3A3A"
@@ -395,7 +397,7 @@
 /datum/storyteller/matthios
 	name = "Matthios"
 	desc = "Matthios manipulates wealth and corruption, rewarding those who make deals."
-	welcome_text = "Fortune favors the cunning."
+	welcome_text = "Fortune favors the cunning, and the weak will be pilfered."
 	weight = 4
 	always_votable = TRUE
 	color_theme = "#8B4513"

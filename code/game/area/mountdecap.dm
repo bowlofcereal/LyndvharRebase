@@ -62,7 +62,7 @@
 	converted_type = /area/rogue/indoors/shelter/mountains/decap
 
 /area/rogue/outdoors/mountains/decap/gunduzirak
-	name = "Gundu Zirak"
+	name = "Ruins of Khuufvale"
 	icon_state = "decap"
 	ambush_types = list(
 				/turf/open/floor/rogue/dirt,
@@ -71,11 +71,13 @@
 	ambush_mobs = list(
 				new /datum/ambush_config/treasure_hunter_posse = 1,
 				/mob/living/carbon/human/species/dwarfskeleton/ambush = 30,
+				new /datum/ambush_config/medium_skeleton_party = 20,
+				new /datum/ambush_config/heavy_skeleton_party = 10,
 				)
-	droning_sound = 'sound/music/area/prospector.ogg'
+	droning_sound = 'sound/music/area/siege.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
-	first_time_text = "RUINS OF GUNDU-ZIRAK"
+	first_time_text = "KHUUFVALE RUINS"
 	ambush_times = list("night","dawn","dusk","day")
 	converted_type = /area/rogue/indoors/shelter/mountains/decap
 	ceiling_protected = TRUE

@@ -1,6 +1,6 @@
 /datum/advclass/wretch/heretic
 	name = "Heretic"
-	tutorial = "You are a heretic, spurned by the church, cast out from society - frowned upon by Psydon and his children for your faith."
+	tutorial = "You are a heretic, spurned by the church, cast out from society - hated by Astrata and her siblings for your faith."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/wretch/heretic
@@ -48,18 +48,18 @@
 			H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/gravemark)
 			H.mind.current.faction += "[H.name]_faction"
 		ADD_TRAIT(H, TRAIT_GRAVEROBBER, TRAIT_GENERIC)
-	head = /obj/item/clothing/head/roguetown/helmet/bascinet
-	mask = /obj/item/clothing/mask/rogue/facemask/steel
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/iron
+	mask = /obj/item/clothing/mask/rogue/facemask
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/half
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
-	gloves = /obj/item/clothing/gloves/roguetown/chain
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
-	pants = /obj/item/clothing/under/roguetown/chainlegs
-	shoes = /obj/item/clothing/shoes/roguetown/boots
-	cloak = /obj/item/clothing/cloak/cape/crusader
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/iron
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
+	gloves = /obj/item/clothing/gloves/roguetown/chain/iron
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/iron
+	pants = /obj/item/clothing/under/roguetown/chainlegs/iron
+	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/iron
+	cloak = /obj/item/clothing/cloak/raincloak/furcloak/black
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backr = /obj/item/rogueweapon/shield/tower/metal
+	backr = /obj/item/rogueweapon/shield/tower
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/rogueweapon/huntingknife
 	backpack_contents = list(

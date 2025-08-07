@@ -159,7 +159,7 @@
 
 /obj/item/reagent_containers/glass/bottle/rogue/beer/nred
 	list_reagents = list(/datum/reagent/consumable/ethanol/nred = 48)
-	desc = "A bottle with the Miloski Brewery cork-seal. A red ale brewed to perfection in the lands of Hammerhold."
+	desc = "A bottle with the Miloski Brewery cork-seal. A red ale brewed to perfection in the lands of southwestern Lyndhardtia."
 
 /obj/item/reagent_containers/glass/bottle/rogue/beer/rhaenvalianmead
 	list_reagents = list(/datum/reagent/consumable/ethanol/rhaenvalianmead = 48)

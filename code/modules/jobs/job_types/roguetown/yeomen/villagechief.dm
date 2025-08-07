@@ -16,7 +16,7 @@
 	min_pq = 2
 	max_pq = null
 	give_bank_account = 16
-	round_contrib_points = 3
+	round_contrib_points = 5
 
 	cmode_music = 'sound/music/cmode/towner/combat_retired.ogg'
 
@@ -26,22 +26,28 @@
 
 /datum/outfit/job/roguetown/elder/pre_equip(mob/living/carbon/human/H)
 	..()
-	
+
+	head = /obj/item/clothing/head/roguetown/helmet/leather/volfhelm
+	gloves = /obj/item/clothing/gloves/roguetown/leather
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/woad
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/white
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
+	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/ucolored
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-	belt = /obj/item/storage/belt/rogue/leather	
-	beltr = /obj/item/rogueweapon/mace/steel/morningstar
+	belt = /obj/item/storage/belt/rogue/leather
+	l_hand = /obj/item/rogueweapon/woodstaff/wise
+	beltr = /obj/item/quiver/arrows
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	backl = /obj/item/storage/backpack/rogue/satchel
+	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/longbow
 	backpack_contents = list(
 		/obj/item/storage/keyring/velder  = 1,
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
 		/obj/item/storage/belt/rogue/pouch/coins/rich = 1,
 		)
 	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/crafting, 5, TRUE)
@@ -52,28 +58,23 @@
 	H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/tanning, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/farming, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/medicine, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/tracking, 3, TRUE)
-	H.adjust_skillrank(/datum/skill/craft/cooking, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/cooking, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/butchering, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/ceramics, 3, TRUE)
-	H.change_stat("perception", 2)
+	H.change_stat("strength", 1)
+	H.change_stat("perception", 3)
 	H.change_stat("endurance", 2)
 	H.change_stat("speed", -1)
-	H.change_stat("constitution", 1)
-	H.change_stat("intelligence", 3)
+	H.change_stat("constitution", 2)
+	H.change_stat("intelligence", 4)
 	ADD_TRAIT(H, TRAIT_SEEPRICES_SHITTY, "[type]")
 	ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
-	if(should_wear_femme_clothes(H))//Village grandma look.
-		head = /obj/item/clothing/head/roguetown/chaperon/greyscale/elder
-		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress
-	else if(should_wear_masc_clothes(H))//Bailiff sort of look to it.
-		head = /obj/item/clothing/head/roguetown/chaperon/greyscale/elder
-		shirt = /obj/item/clothing/suit/roguetown/shirt/tunic
-		gloves = /obj/item/clothing/gloves/roguetown/leather
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/teach)

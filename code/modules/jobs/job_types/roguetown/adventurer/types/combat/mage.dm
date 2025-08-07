@@ -92,7 +92,7 @@
 			H.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 			H.change_stat("strength", 2) // Favoring a less speedy and more steady playstyle vs spellsinger
-			H.change_stat("intelligence", 3)
+			H.change_stat("intelligence", 5)
 			H.change_stat("constitution", 1)
 			H.change_stat("endurance", 1)
 			H?.mind.adjust_spellpoints(12)

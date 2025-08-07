@@ -17,7 +17,7 @@
 	min_pq = 1
 	max_pq = null
 	required = TRUE
-	round_contrib_points = 3
+	round_contrib_points = 4
 	cmode_music = 'sound/music/combat_noble.ogg'
 
 /datum/outfit/job/roguetown/merchant/pre_equip(mob/living/carbon/human/H)

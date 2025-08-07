@@ -30,7 +30,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	give_bank_account = 115
 	min_pq = 5 // You should know the basics of things if you're going to lead the town's entire religious sector
 	max_pq = null
-	round_contrib_points = 3
+	round_contrib_points = 4
 
 	//No nobility for you, being a member of the clergy means you gave UP your nobility. It says this in many of the church tutorial texts.
 	virtue_restrictions = list(/datum/virtue/utility/noble)
@@ -154,7 +154,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 					HL.mind.assigned_role = "Towner" //So they don't get the innate traits of the king
 			//would be better to change their title directly, but that's not possible since the title comes from the job datum
 			if(HL.job == "Viscount")
-				HL.job = "Duke Emeritus"
+				HL.job = "Viscount Emeritus"
 
 		//Coronate new King (or Queen)
 		HU.mind.assigned_role = "Viscount"

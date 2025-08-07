@@ -257,7 +257,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_islist(key_bindings, list())
 	
-	//ROGUETOWN
+	//LYNDVHAR
 	parallax = PARALLAX_INSANE
 
 	verify_keybindings_valid()

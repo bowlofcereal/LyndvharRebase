@@ -925,7 +925,7 @@
 	craftdiff = 6
 	sellprice = 35
 
-/datum/crafting_recipe/roguetown/sewing/naledisash
+/datum/crafting_recipe/roguetown/sewing/khazumiansash
 	name = "hierophant's sash (2 fibers, 2 cloth)"
 	result = list(/obj/item/clothing/cloak/hierophant)
 	reqs = list(/obj/item/natural/cloth = 2,

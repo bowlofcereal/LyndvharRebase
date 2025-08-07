@@ -5,7 +5,7 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/bandit/brigand
 	category_tags = list(CTAG_BANDIT)
-	cmode_music = 'sound/music/cmode/antag/combat_thewall.ogg'
+	cmode_music = 'sound/music/combat_bandit.ogg'
 
 /datum/outfit/job/roguetown/bandit/brigand/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -32,7 +32,7 @@
 	H.adjust_skillrank(/datum/skill/combat/shields, 3, TRUE)
 	belt = /obj/item/storage/belt/rogue/leather
 	pants = /obj/item/clothing/under/roguetown/trou/leather
-	shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/brown
 	shoes = /obj/item/clothing/shoes/roguetown/boots
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
@@ -40,10 +40,12 @@
 					/obj/item/natural/cloth = 1,
 					/obj/item/flashlight/flare/torch = 1,
 					)
-	mask = /obj/item/clothing/mask/rogue/facemask
+	mask = /obj/item/clothing/mask/rogue/facemask/hound
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
 	head = /obj/item/clothing/head/roguetown/helmet/leather/volfhelm
 	armor = /obj/item/clothing/suit/roguetown/armor/leather
+	gloves = /obj/item/clothing/gloves/roguetown/leather
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	id = /obj/item/mattcoin
 	H.change_stat("strength", 3)
 	H.change_stat("endurance", 2)
@@ -61,5 +63,5 @@
 			backl= /obj/item/rogueweapon/stoneaxe/battle
 			beltr = /obj/item/rogueweapon/mace/cudgel
 		if("Flail & Shield") //plate users beware, you're in for a scare!
-			backl= /obj/item/rogueweapon/shield/wood
-			beltr = /obj/item/rogueweapon/flail
+			backl= /obj/item/rogueweapon/shield/tower
+			beltr = /obj/item/rogueweapon/flail/sflail

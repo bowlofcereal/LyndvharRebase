@@ -10,19 +10,19 @@
 
 /datum/outfit/job/roguetown/wretch/poacher/pre_equip(mob/living/carbon/human/H)
 	head = /obj/item/clothing/head/roguetown/roguehood/darkgreen
-	mask = /obj/item/clothing/mask/rogue/wildguard
+	mask = /obj/item/clothing/mask/rogue/facemask/hound
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/darkgreen
-	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
-	neck = /obj/item/clothing/neck/roguetown/gorget
+	neck = /obj/item/clothing/neck/roguetown/leather
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
 	backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
 	beltl = /obj/item/quiver/arrows
-	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	backpack_contents = list(
 		/obj/item/bait = 1,
 		/obj/item/rogueweapon/huntingknife = 1,
@@ -67,7 +67,7 @@
 			H.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 			head = /obj/item/clothing/head/roguetown/duelhat
 	H.change_stat("endurance", 2)
-	H.change_stat("constitution", 1) // No straight upgrade to perception / speed to not stack one stat too high, but still stronger than MAA Skirm out of town.
+	H.change_stat("constitution", -2) // No straight upgrade to perception / speed to not stack one stat too high, but still stronger than MAA Skirm out of town.
 	H.change_stat("perception", 2)
 	H.change_stat("speed", 2)
 	wretch_select_bounty(H)

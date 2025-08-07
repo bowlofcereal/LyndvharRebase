@@ -20,17 +20,17 @@
 
 		if("Cutpurse")
 			to_chat(H, span_warning("You are the person folk fear at night - use your cunning and speed to strike fast and get out with your spoils before anyone notices."))
-			head = /obj/item/clothing/head/roguetown/helmet/kettle
+			head = /obj/item/clothing/head/roguetown/helmet/leather/advanced
 			pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy/coat
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/heavy
 			cloak = /obj/item/clothing/cloak/raincloak/mortus
-			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
+			shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 			backr = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
 			backl = /obj/item/storage/backpack/rogue/satchel
 			belt = /obj/item/storage/belt/rogue/leather
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless_leather
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-			neck = /obj/item/clothing/neck/roguetown/gorget
+			neck = /obj/item/clothing/neck/roguetown/leather
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
 			mask = /obj/item/clothing/mask/rogue/ragmask/black
 			beltr = /obj/item/quiver/bolts
@@ -90,7 +90,7 @@
 			belt = /obj/item/storage/belt/rogue/leather
 			gloves = /obj/item/clothing/gloves/roguetown/angle
 			shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-			neck = /obj/item/clothing/neck/roguetown/gorget 
+			neck = /obj/item/clothing/neck/roguetown/leather
 			wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
 			mask = /obj/item/clothing/mask/rogue/ragmask/black
 			r_hand = /obj/item/rogueweapon/mace/cudgel //From thief PR

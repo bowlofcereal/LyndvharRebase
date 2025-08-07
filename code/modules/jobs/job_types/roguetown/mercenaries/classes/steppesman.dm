@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/steppesman
 	name = "Steppesman"
-	tutorial = "Once serving a Hetmen from the frontiers, you have been rented out as a mercenary in the distant realms to bring coin home. There are three things you value most; saigas, freedom, and coin."
+	tutorial = "Once serving a Hetmen from the northwestern frontiers, you have been rented out as a mercenary in the distant realms to bring coin home. There are three things you value most; saigas, freedom, and coin."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/steppesman
@@ -68,6 +68,7 @@
 			H.change_stat("constitution", 2)
 			H.change_stat("speed", 1)
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/evil() 	//Fits in my head all too well.
 		if("Druzhina")	//Tl;dr - light armor class for Tatar-style archery. Has 'Druzhina' as a name cus czech/polish influence, couldn't think of better one.
 			H.set_blindness(0)
@@ -96,6 +97,7 @@
 			H.change_stat("endurance", 2)
 			H.change_stat("speed", 2)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 		if("Kozak")		//Tl;dr - Old Steppesman whip build, light armor, be the glass canon you always wanted to be. Live your life, king. 
 			H.set_blindness(0)
 			to_chat(H, span_warning("Being a Kozak is not a title one earns, nor is born with. It's a way of life. Known to be esentric, living life on the edge - but living as free as possible. Skilled with whips, these madmen are the bane of civilized warriors."))
@@ -121,4 +123,5 @@
 			H.change_stat("endurance", 1)
 			H.change_stat("speed", 2)
 			ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
+			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 			H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()		//Semi-crazed warrior vibe.

@@ -85,7 +85,7 @@
 #define TRAIT_SOUL_EXAMINE "Deathly Visionary" //can check bodies to see if they have departed
 #define TRAIT_CRACKHEAD "Daemonic Indulgence" //will never overdose
 #define TRAIT_CHOSEN "Astrata's Chosen"
-#define TRAIT_ABYSSOR_SWIM "Blessing of Abyssor" //less base fatigue drain when swimming
+#define TRAIT_ABYSSOR_SWIM "Devoted Swimmer" //less base fatigue drain when swimming
 #define TRAIT_XYLIX "Trickster's Teachings" //secret thieves cant language
 #define TRAIT_FORGEBLESSED "Forgeheart" //Reduces the fatigue cost of smithing a bit.
 #define TRAIT_APRICITY	"Apricity" //Decreased stamina regen time during "day" and less so during night

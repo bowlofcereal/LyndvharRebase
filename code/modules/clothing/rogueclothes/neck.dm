@@ -310,8 +310,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/neck/roguetown/gorget/forlorncollar
-	name = "forlorn collar"
-	desc = "A old reminder."
+	name = "zaprixys collar"
+	desc = "A collar that denotes a slave-warrior of the Zaprixys Order. A general item used across Forvheipal."
 	icon_state = "iwolfcollaralt"
 
 /obj/item/clothing/neck/roguetown/gorget/steel
@@ -385,12 +385,12 @@
 
 /obj/item/clothing/neck/roguetown/psicross/aalloy
 	name = "decrepit psicross"
-	desc = "Surely this one endures?"
+	desc = "A symbol of the Orthodoxy- though this one is quite old.. how strange."
 	icon_state = "psycross_a"
 
 /obj/item/clothing/neck/roguetown/zcross/aalloy
 	name = "decrepit zcross"
-	desc = "A symbol of progress from an era that had reason to believe in it."
+	desc = "A symbol of darkness from an era long forgotten in blood."
 	icon_state = "zcross_a"
 
 /obj/item/clothing/neck/roguetown/psicross/astrata
@@ -627,7 +627,7 @@
 	sellprice = 100
 	anvilrepair = /datum/skill/craft/armorsmithing
 
-/obj/item/clothing/neck/roguetown/psicross/naledi
+/obj/item/clothing/neck/roguetown/psicross/khazumian
 	name = "khazumian bracelet"
 	desc = "A peculiar icon of worship from a foreign land. Forming a cross in a circular ring, this bracelet embodies the Khazumian belief in Khuzker."
 	icon_state = "psybracelet"
@@ -642,8 +642,8 @@
 	dropshrink = 0.5
 
 /obj/item/clothing/neck/roguetown/collar/forlorn
-	name = "light forlorn collar"
-	desc = "A old reminder. A lighter version often used more as a status symbol for slaves. Then and now."
+	name = "light forvheipal collar"
+	desc = "A collar that denotes a slave amongst the Kingdom of Forvheipal."
 	icon_state = "iwolfcollaralt"
 
 /obj/item/clothing/neck/roguetown/collar/bell_collar

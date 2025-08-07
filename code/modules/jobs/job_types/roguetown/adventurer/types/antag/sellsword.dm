@@ -5,7 +5,7 @@
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/bandit/sellsword
 	category_tags = list(CTAG_BANDIT)
-	cmode_music = 'sound/music/cmode/antag/combat_cutpurse.ogg' // cutpurse or deadly shadows...?
+	cmode_music = 'sound/music/combat_bandit.ogg'
 
 /datum/outfit/job/roguetown/bandit/sellsword/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -59,9 +59,9 @@
 			backl= /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow //we really need to make this not a grenade launcher subtype
 			beltr = /obj/item/quiver/bolts
 			r_hand = /obj/item/rogueweapon/spear/billhook
-			head = /obj/item/clothing/head/roguetown/helmet/kettle
+			head = /obj/item/clothing/head/roguetown/helmet/kettle/iron
 		if("Sword & Buckler") //Mercenary on the wrong side of the law
 			backl= /obj/item/rogueweapon/shield/buckler
 			beltr = /obj/item/rogueweapon/sword //steel sword like literally every adventurer gets
 			beltl = /obj/item/rogueweapon/scabbard/sword
-			head = /obj/item/clothing/head/roguetown/helmet/sallet
+			head = /obj/item/clothing/head/roguetown/helmet/kettle/iron

@@ -9,13 +9,13 @@
 
 
 /datum/outfit/job/roguetown/wretch/berserker/pre_equip(mob/living/carbon/human/H)
-	head = /obj/item/clothing/head/roguetown/helmet/kettle
+	head = /obj/item/clothing/head/roguetown/helmet/leather/volfhelm
 	mask = /obj/item/clothing/mask/rogue/wildguard
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak/brown
-	wrists = /obj/item/clothing/wrists/roguetown/bracers
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-	gloves = /obj/item/clothing/gloves/roguetown/plate
+	gloves = /obj/item/clothing/gloves/roguetown/angle/atgervi
 	backr = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather
 	neck = /obj/item/clothing/neck/roguetown/leather
@@ -41,7 +41,7 @@
 	H.adjust_skillrank(/datum/skill/craft/tanning, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	H.adjust_skillrank(/datum/skill/labor/butchering, 1, TRUE)
-	H.cmode_music = 'sound/music/cmode/antag/combat_darkstar.ogg'
+	H.cmode_music = 'sound/music/combat_steppe.ogg'
 	H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 	var/weapons = list("Katar","Steel Knuckles","MY BARE HANDS!!!","Battle Axe","Mace","Sword")
 	var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons

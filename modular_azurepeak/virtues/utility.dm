@@ -167,7 +167,7 @@
 	)
 */
 /datum/virtue/utility/hunter
-	name = "Hunter's Apprentice"
+	name = "Hunter"
 	desc = "In my youth, I trained under a skilled hunter, learning how to butcher animals and work with leather/hide."
 	added_skills = list(list(/datum/skill/craft/crafting, 2, 2),
 						list(/datum/skill/craft/traps, 2, 2),
@@ -178,7 +178,7 @@
 	)
 
 /datum/virtue/utility/artificer
-	name = "Artificer's Apprentice"
+	name = "Artificer"
 	desc = "In my youth, I worked under a skilled artificer, studying construction and engineering."
 	added_skills = list(list(/datum/skill/craft/crafting, 2, 2),
 						list(/datum/skill/craft/carpentry, 2, 2),
@@ -194,7 +194,7 @@
 	)
 
 /datum/virtue/utility/physician
-	name = "Physician's Apprentice"
+	name = "Apothecary"
 	desc = "In my youth, I worked under a skilled physician, studying medicine and alchemy."
 	added_stashed_items = list("Medicine Pouch" = /obj/item/storage/belt/rogue/pouch/medicine)
 	added_skills = list(list(/datum/skill/craft/crafting, 2, 2),
