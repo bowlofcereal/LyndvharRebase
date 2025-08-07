@@ -17,8 +17,6 @@
 			return strings("german_replacement.json", type, convert_HTML = TRUE)
 		if("Lyndhardtian accent")
 			return strings("Anglish.json", type, convert_HTML = TRUE)
-		if("Hammerhold accent")
-			return strings("Anglish.json", type, convert_HTML = TRUE)
 		if("Assimar accent")
 			return strings("proper_replacement.json", type, convert_HTML = TRUE)
 		if("Lizard accent")
