@@ -14128,6 +14128,13 @@
 	},
 /turf/open/floor/rogue/church,
 /area/rogue/indoors/town/church/chapel)
+"jqB" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "jqJ" = (
 /obj/machinery/light/rogue/lanternpost,
 /turf/open/floor/rogue/grass,
@@ -22361,6 +22368,14 @@
 "oCc" = (
 /turf/closed/wall/mineral/rogue/decostone,
 /area/rogue/indoors/town)
+"oCh" = (
+/obj/structure/stairs,
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "oCi" = (
 /obj/effect/decal/cobbleedge{
 	dir = 5
@@ -33984,6 +33999,10 @@
 	},
 /turf/open/water/swamp,
 /area/rogue/indoors/cave)
+"wre" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "wrP" = (
 /obj/structure/mineral_door/wood/deadbolt,
 /turf/open/floor/rogue/ruinedwood/turned,
@@ -34015,6 +34034,14 @@
 /area/rogue/outdoors/rtfield{
 	first_time_text = "CITY OUTSKIRTS"
 	})
+"wtH" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	layer = 2.8;
+	pixel_x = 8
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "wtN" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8
@@ -155691,7 +155718,7 @@ fFg
 ncx
 ncx
 ukn
-ncx
+wre
 ncx
 ncx
 ukn
@@ -155853,8 +155880,8 @@ vUb
 ncx
 ncx
 nWC
-ncx
-ncx
+wtH
+wtH
 ncx
 ukn
 tMw
@@ -156012,7 +156039,7 @@ xte
 iHt
 ukn
 wHq
-ncx
+jqB
 ubb
 ukn
 ujq
@@ -156178,7 +156205,7 @@ ukn
 ukn
 rDC
 ujq
-eqE
+oCh
 ncx
 ukn
 tMw
