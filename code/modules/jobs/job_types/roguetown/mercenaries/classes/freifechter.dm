@@ -33,8 +33,8 @@
 			H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
 			H.change_stat("perception", 2)
-			H.change_stat("constitution", 3)	//+2 CON in place of END, sorry staminachuds!
-			H.change_stat("intelligence", 3)	//To give you an edge in specialty moves like feints and stop you from being feinted
+			H.change_stat("constitution", 3)
+			H.change_stat("intelligence", 3)
 			l_hand = /obj/item/rogueweapon/scabbard/sword
 			var/weapons = list("Dunargiac Longsword", "Kriegsmesser", "Longsword")
 			var/weapon_choice = input("Choose your weapon.", "TAKE UP ARMS") as anything in weapons
@@ -51,7 +51,7 @@
 		if("Lándzsa")
 			H.set_blindness(0)
 			to_chat(H, span_warning("You put complete trust in your polearm, the most effective weapon this side of the world has seen- perfect for piercing through Khaliphate raids. You can choose your polearm, and are exceptionally accurate."))
-			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)		//Master polearms is not a super bright idea, maybe.
+			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
@@ -93,4 +93,4 @@
 
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-	H.grant_language(/datum/language/kargradi)		//Your character could not have possibly "graduated" without atleast some basic knowledge of Kargradi.
+	H.grant_language(/datum/language/kargradi)
