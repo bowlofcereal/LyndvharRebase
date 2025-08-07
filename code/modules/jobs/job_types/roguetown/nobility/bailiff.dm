@@ -7,15 +7,7 @@
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_patrons = ALL_DIVINE_PATRONS
-	allowed_races = list(
-		/datum/species/human/northern,
-		/datum/species/elf/wood,
-		/datum/species/human/halfelf,
-		/datum/species/dwarf/mountain,
-		/datum/species/elf/dark,
-		/datum/species/aasimar,
-		/datum/species/demihuman
-	)
+	allowed_races = RACES_SHUNNED_UP
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	display_order = JDO_MARSHAL
 	tutorial = "You are an agent of the Viscount in matters of local law and levy, making sure that laws are pushed, verified and carried out by the retinue upon the citizenry. While you preside over the knights and men-at-arms, much of your work happens behind a desk, deferring to the Retinue Captain to make sure your will is carried out in the field."

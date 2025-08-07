@@ -10,13 +10,7 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	total_positions = 1
 	spawn_positions = 1
 	selection_color = JCOLOR_NOBLE
-	allowed_races = list(
-		/datum/species/human/northern,
-		/datum/species/elf/wood,
-		/datum/species/human/halfelf,
-		/datum/species/dwarf/mountain,
-		/datum/species/demihuman
-	)
+	allowed_races = RACES_SHUNNED_UP
 	allowed_sexes = list(MALE, FEMALE)
 	advclass_cat_rolls = list(CTAG_LORD = 20)
 

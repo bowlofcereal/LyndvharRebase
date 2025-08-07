@@ -10,7 +10,7 @@
 	contains = list(/obj/item/rogueweapon/huntingknife/idagger/steel/parrying/vaquero)
 
 /datum/supply_pack/rogue/merc_weapons/erapier
-	name = "Dunargiac Rapier"
+	name = "Calmirixian Rapier"
 	cost = 80
 	contains = list(/obj/item/rogueweapon/sword/rapier/vaquero)
 

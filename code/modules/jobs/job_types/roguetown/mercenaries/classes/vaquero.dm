@@ -75,6 +75,7 @@
 		if("Flute")
 			backr = /obj/item/rogue/instrument/flute
 	H.change_stat("intelligence", 2)
+	H.change_stat("perception", 1)
 	H.change_stat("endurance", 1)
 	H.change_stat("speed", 3)
 	ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
