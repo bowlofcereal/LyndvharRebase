@@ -1,6 +1,6 @@
 /datum/advclass/mercenary/freelancer
 	name = "Freifechter"
-	tutorial = "You are a graduate of the Kargrade Freifechters - \"Freelancers\" - the Potentate's largest fighting guild from the southeastern most part of Grenzelhoft, recognized as a mercenary force by the Kaiser themself, tasked with protecting a portion of the border against the Khaliphate. It is not uncommon to see one of these warriors dressed in equipment similar to the Khaliphate- as they adorn themselves in their gear like trophies. It has waned in recent years due to a lack of necessity, causing contingents to find work elsewhere- this one in particular made its way to Llewyn. You have swung one weapon ten-thousand times, and not the other way around. Your trust is placed in your skills, not your equipment."
+	tutorial = "As a member of the Kargrade Freifechters - \"Freelancers\" - you are a member of the Potentate's largest mercenary guild from the southeastern most part of Grenzelhoft, recognized as a mercenary force by the Kaiser themself, tasked with protecting a portion of the border against the Khaliphate. It is not uncommon to see one of these warriors dressed in equipment similar to the Khaliphate- as they adorn themselves in their gear like trophies. It has waned in recent years due to a lack of necessity, causing contingents to find work elsewhere- this one in particular made its way to Llewyn."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/freelancer
