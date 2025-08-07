@@ -26,7 +26,7 @@
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
@@ -52,9 +52,10 @@
 			to_chat(H, span_warning("You put complete trust in your polearm, the most effective weapon this side of the world has seen- perfect for piercing through Khaliphate raids. You can choose your polearm, and are exceptionally accurate."))
 			H.adjust_skillrank(/datum/skill/combat/polearms, 4, TRUE)		//Master polearms is not a super bright idea, maybe.
 			H.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 			H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-			H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
 			H.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
@@ -74,18 +75,19 @@
 				if("Lucerne")
 					r_hand = /obj/item/rogueweapon/eaglebeak/lucerne
 	belt = /obj/item/storage/belt/rogue/leather
-	beltl = /obj/item/flashlight/flare/torch/lantern
+	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	head = /obj/item/clothing/head/roguetown/roguehood/pontifex
 	mask = /obj/item/clothing/mask/rogue/lordmask/naledi
 	neck = /obj/item/clothing/neck/roguetown/gorget
-	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/steppe
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/iron
+	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy
+	gloves = /obj/item/clothing/gloves/roguetown/angle/pontifex
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/pontifex
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather/reinforced
-	gloves = /obj/item/clothing/gloves/roguetown/leather
 	backr = /obj/item/storage/backpack/rogue/satchel/short
 
-	backpack_contents = list(/obj/item/roguekey/mercenary)
+	backpack_contents = list(/obj/item/roguekey/mercenary, /obj/item/rogueweapon/huntingknife/idagger/steel, /obj/item/rogueweapon/scabbard/sheath, /obj/item/flashlight/flare/torch/lantern)
 
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
