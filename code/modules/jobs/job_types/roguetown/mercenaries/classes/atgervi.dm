@@ -94,7 +94,6 @@
 			ADD_TRAIT(H, TRAIT_STRONGBITE, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_CIVILIZEDBARBARIAN, TRAIT_GENERIC) //No weapons. Just beating them to death as God intended.
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC) //Their entire purpose is to rip people apart with their hands and teeth. I don't think they'd be too preturbed to see someone lose a limb.
-			ADD_TRAIT(H, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC) //Either no armor, or light armor.
 			H.cmode_music = 'sound/music/combat_shaman2.ogg'
 
 	H.grant_language(/datum/language/rhaenvalian)
