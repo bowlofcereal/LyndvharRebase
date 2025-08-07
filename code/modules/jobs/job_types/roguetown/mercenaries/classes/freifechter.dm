@@ -79,7 +79,7 @@
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	head = /obj/item/clothing/head/roguetown/roguehood/pontifex
-	mask = /obj/item/clothing/mask/rogue/lordmask/naledi
+	mask = /obj/item/clothing/mask/rogue/lordmask/khazumian
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/half
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/heavy

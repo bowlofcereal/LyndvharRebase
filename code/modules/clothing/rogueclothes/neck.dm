@@ -627,7 +627,7 @@
 	sellprice = 100
 	anvilrepair = /datum/skill/craft/armorsmithing
 
-/obj/item/clothing/neck/roguetown/psicross/naledi
+/obj/item/clothing/neck/roguetown/psicross/khazumian
 	name = "khazumian bracelet"
 	desc = "A peculiar icon of worship from a foreign land. Forming a cross in a circular ring, this bracelet embodies the Khazumian belief in Khuzker."
 	icon_state = "psybracelet"
