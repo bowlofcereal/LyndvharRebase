@@ -2862,13 +2862,6 @@
 	},
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/church)
-"bRl" = (
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/dwarfin)
 "bRt" = (
 /obj/structure/curtain/magenta,
 /obj/structure/roguewindow/harem1{
@@ -3545,6 +3538,13 @@
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/exposed/town/keep)
+"cqM" = (
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "cqT" = (
 /obj/item/paper/confession,
 /obj/item/paper/confession,
@@ -4637,6 +4637,13 @@
 /obj/structure/mineral_door/swing_door,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/town/sewer)
+"dhX" = (
+/obj/structure/mineral_door/wood/donjon/stone{
+	lockid = "church";
+	locked = 1
+	},
+/turf/open/floor/rogue/church,
+/area/rogue/indoors/town/church)
 "dif" = (
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/rtfield{
@@ -7749,13 +7756,6 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/cave)
-"fgi" = (
-/obj/structure/mineral_door/wood/donjon/stone{
-	lockid = "church";
-	locked = 1
-	},
-/turf/open/floor/rogue/church,
-/area/rogue/indoors/town/church)
 "fgj" = (
 /obj/structure/chair/wood/rogue/fancy{
 	dir = 4
@@ -16161,6 +16161,15 @@
 /obj/machinery/light/rogue/wallfire/candle/blue,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town/magician)
+"kIf" = (
+/obj/effect/particle_effect/smoke{
+	lifetime = 14400
+	},
+/turf/open/water/river{
+	dir = 1;
+	icon_state = "rockwd"
+	},
+/area/rogue/outdoors/river)
 "kIr" = (
 /turf/open/floor/rogue/ruinedwood{
 	icon_state = "horzw"
@@ -16640,14 +16649,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town)
-"kZU" = (
-/obj/structure/stairs,
-/obj/machinery/light/rogue/wallfire/candle{
-	pixel_x = 32;
-	pixel_y = 0
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/dwarfin)
 "kZV" = (
 /obj/structure/fluff/railing/stonehedge{
 	dir = 8
@@ -20682,6 +20683,14 @@
 	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath)
+"nxa" = (
+/obj/structure/stairs,
+/obj/machinery/light/rogue/wallfire/candle{
+	pixel_x = 32;
+	pixel_y = 0
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "nxd" = (
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/twig{
@@ -26379,6 +26388,14 @@
 "rgW" = (
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/bath)
+"rho" = (
+/obj/structure/fluff/railing/wood{
+	dir = 4;
+	layer = 2.8;
+	pixel_x = 8
+	},
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "rht" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/reagent_containers/glass/bucket,
@@ -26505,10 +26522,6 @@
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/outdoors/town/roofs)
-"rlw" = (
-/obj/machinery/light/rogue/wallfire/candle,
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/dwarfin)
 "rlG" = (
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/tile,
@@ -30034,14 +30047,6 @@
 "tKP" = (
 /turf/closed/wall/mineral/rogue/wooddark/slitted,
 /area/rogue/indoors/town/shop)
-"tLk" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	layer = 2.8;
-	pixel_x = 8
-	},
-/turf/open/floor/rogue/ruinedwood/spiral,
-/area/rogue/indoors/town/dwarfin)
 "tLP" = (
 /obj/structure/mineral_door/bars{
 	locked = 1;
@@ -36217,6 +36222,10 @@
 	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cave)
+"xTS" = (
+/obj/machinery/light/rogue/wallfire/candle,
+/turf/open/floor/rogue/ruinedwood/spiral,
+/area/rogue/indoors/town/dwarfin)
 "xTZ" = (
 /obj/structure/mineral_door/wood/deadbolt{
 	dir = 8
@@ -92760,7 +92769,7 @@ gVv
 aJr
 jUp
 jUp
-jUp
+kIf
 mqX
 mqX
 mqX
@@ -92922,7 +92931,7 @@ qVK
 jUp
 jUp
 eBN
-jUp
+kIf
 mqX
 mqX
 mqX
@@ -93084,7 +93093,7 @@ uRm
 ewj
 jUp
 phG
-jUp
+kIf
 mqX
 mqX
 mqX
@@ -94464,7 +94473,7 @@ tMM
 gXe
 mXL
 mXL
-fgi
+dhX
 mXL
 mXL
 bkZ
@@ -155731,7 +155740,7 @@ fFg
 ncx
 ncx
 ukn
-rlw
+xTS
 ncx
 ncx
 ukn
@@ -155893,8 +155902,8 @@ vUb
 ncx
 ncx
 nWC
-tLk
-tLk
+rho
+rho
 ncx
 ukn
 tMw
@@ -156052,7 +156061,7 @@ xte
 iHt
 ukn
 wHq
-bRl
+cqM
 ubb
 ukn
 ujq
@@ -156218,7 +156227,7 @@ ukn
 ukn
 rDC
 ujq
-kZU
+nxa
 ncx
 ukn
 tMw
