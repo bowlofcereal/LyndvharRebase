@@ -1,8 +1,16 @@
-/obj/item/legwears
-	name = "stockings(under)"
+/obj/item/clothing/under/roguetown/tights/stockings
+	name = "stockings"
 	desc = "A legwear made just for the pure aesthetics. Popular in courts and brothels alike."
 	icon = 'modular_hearthstone/icons/obj/items/clothes/stockings.dmi'
+	mob_overlay_icon = 'modular_hearthstone/icons/obj/items/clothes/on_mob/stockings.dmi'
 	icon_state = "stockings"
+	r_sleeve_status = SLEEVE_NOMOD
+	l_sleeve_status = SLEEVE_NOMOD
+	body_parts_covered = null
+	flags_inv = null
+	salvage_amount = 1
+
+/obj/item/clothing/under/roguetown/tights/stockings/random/Initialize()
 	resistance_flags = FLAMMABLE
 	obj_flags = CAN_BE_HIT
 	break_sound = 'sound/foley/cloth_rip.ogg'
@@ -43,112 +51,113 @@
 	. = ..()
 	color = pick("#e6e5e5", CLOTHING_BLACK, CLOTHING_BLUE, "#6F0000", "#664357")
 
-/obj/item/legwears/white
+/obj/item/clothing/under/roguetown/tights/stockings/white
 	color = "#e6e5e5"
 
-/obj/item/legwears/black
+/obj/item/clothing/under/roguetown/tights/stockings/black
 	color = CLOTHING_BLACK
 
-/obj/item/legwears/blue
+/obj/item/clothing/under/roguetown/tights/stockings/blue
 	color = CLOTHING_BLUE
 
-/obj/item/legwears/red
+/obj/item/clothing/under/roguetown/tights/stockings/red
 	color = "#6F0000"
 
-/obj/item/legwears/purple
+/obj/item/clothing/under/roguetown/tights/stockings/purple
 	color = "#664357"
 
 //Silk variants
 
-/obj/item/legwears/silk
+/obj/item/clothing/under/roguetown/tights/stockings/silk
 	name = "silk stockings"
 	desc = "A legwear made just for the pure aesthetics. Made out of thin silk. Popular among nobles."
 	icon_state = "silk"
 
-/obj/item/legwears/silk/random/Initialize()
+/obj/item/clothing/under/roguetown/tights/stockings/silk/random/Initialize()
 	. = ..()
 	color = pick("#e6e5e5", CLOTHING_BLACK, CLOTHING_BLUE, "#6F0000", "#664357")
 
-/obj/item/legwears/silk/white
+/obj/item/clothing/under/roguetown/tights/stockings/silk/white
 	color = "#e6e5e5"
 
-/obj/item/legwears/silk/black
+/obj/item/clothing/under/roguetown/tights/stockings/silk/black
 	color = CLOTHING_BLACK
 
-/obj/item/legwears/silk/blue
+/obj/item/clothing/under/roguetown/tights/stockings/silk/blue
 	color = CLOTHING_BLUE
 
-/obj/item/legwears/silk/red
+/obj/item/clothing/under/roguetown/tights/stockings/silk/red
 	color = "#6F0000"
 
-/obj/item/legwears/silk/purple
+/obj/item/clothing/under/roguetown/tights/stockings/silk/purple
 	color = "#664357"
 
 //Fishnets
 
-/obj/item/legwears/fishnet
+/obj/item/clothing/under/roguetown/tights/stockings/fishnet
 	name = "fishnet stockings"
 	desc = "A legwear popular among wenches."
 	icon_state = "fishnet"
 
-/obj/item/legwears/fishnet/random/Initialize()
+/obj/item/clothing/under/roguetown/tights/stockings/fishnet/random/Initialize()
 	. = ..()
 	color = pick("#e6e5e5", CLOTHING_BLACK, CLOTHING_BLUE, "#6F0000", "#664357")
 
-/obj/item/legwears/fishnet/white
+/obj/item/clothing/under/roguetown/tights/stockings/fishnet/white
 	color = "#e6e5e5"
 
-/obj/item/legwears/fishnet/black
+/obj/item/clothing/under/roguetown/tights/stockings/fishnet/black
 	color = CLOTHING_BLACK
 
-/obj/item/legwears/fishnet/blue
+/obj/item/clothing/under/roguetown/tights/stockings/fishnet/blue
 	color = CLOTHING_BLUE
 
-/obj/item/legwears/fishnet/red
+/obj/item/clothing/under/roguetown/tights/stockings/fishnet/red
 	color = "#6F0000"
 
-/obj/item/legwears/fishnet/purple
+/obj/item/clothing/under/roguetown/tights/stockings/fishnet/purple
 	color = "#664357"
 
-// Supply
+
+//SUPPLY
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_white
 	name = "White Stockings"
 	cost = 10
 	contains = list(
-					/obj/item/legwears/white,
-					/obj/item/legwears/white,
+					/obj/item/clothing/under/roguetown/tights/stockings/white,
+					/obj/item/clothing/under/roguetown/tights/stockings/white,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_black
 	name = "Black Stockings"
 	cost = 10
 	contains = list(
-					/obj/item/legwears/black,
-					/obj/item/legwears/black,
+					/obj/item/clothing/under/roguetown/tights/stockings/black,
+					/obj/item/clothing/under/roguetown/tights/stockings/black,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_blue
 	name = "Blue Stockings"
 	cost = 10
 	contains = list(
-					/obj/item/legwears/blue,
-					/obj/item/legwears/blue,
+					/obj/item/clothing/under/roguetown/tights/stockings/blue,
+					/obj/item/clothing/under/roguetown/tights/stockings/blue,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_red
 	name = "Red Stockings"
 	cost = 10
 	contains = list(
-					/obj/item/legwears/red,
-					/obj/item/legwears/red,
+					/obj/item/clothing/under/roguetown/tights/stockings/red,
+					/obj/item/clothing/under/roguetown/tights/stockings/red,
 				)
 /datum/supply_pack/rogue/wardrobe/suits/stockings_purple
 	name = "Purple Stockings"
 	cost = 10
 	contains = list(
-					/obj/item/legwears/purple,
-					/obj/item/legwears/purple,
+					/obj/item/clothing/under/roguetown/tights/stockings/purple,
+					/obj/item/clothing/under/roguetown/tights/stockings/purple,
 				)
 
 //Silk
@@ -157,39 +166,39 @@
 	name = "White Silk Stockings"
 	cost = 30
 	contains = list(
-					/obj/item/legwears/silk/white,
-					/obj/item/legwears/silk/white,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/white,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/white,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_black_silk
 	name = "Black Silk Stockings"
 	cost = 30
 	contains = list(
-					/obj/item/legwears/silk/black,
-					/obj/item/legwears/silk/black,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/black,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/black,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_blue_silk
 	name = "Blue Silk Stockings"
 	cost = 30
 	contains = list(
-					/obj/item/legwears/silk/blue,
-					/obj/item/legwears/silk/blue,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/blue,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/blue,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_red_silk
 	name = "Red Silk Stockings"
 	cost = 30
 	contains = list(
-					/obj/item/legwears/silk/red,
-					/obj/item/legwears/silk/red,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/red,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/red,
 				)
 /datum/supply_pack/rogue/wardrobe/suits/stockings_purple_silk
 	name = "Purple Silk Stockings"
 	cost = 30
 	contains = list(
-					/obj/item/legwears/silk/purple,
-					/obj/item/legwears/silk/purple,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/purple,
+					/obj/item/clothing/under/roguetown/tights/stockings/silk/purple,
 				)
 
 //Fishnets
@@ -198,59 +207,37 @@
 	name = "White Fishnet Stockings"
 	cost = 5
 	contains = list(
-					/obj/item/legwears/fishnet/white,
-					/obj/item/legwears/fishnet/white,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/white,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/white,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_black_fishnet
 	name = "Black Fishnet Stockings"
 	cost = 5
 	contains = list(
-					/obj/item/legwears/fishnet/black,
-					/obj/item/legwears/fishnet/black,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/black,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/black,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_blue_fishnet
 	name = "Blue Fishnet Stockings"
 	cost = 5
 	contains = list(
-					/obj/item/legwears/fishnet/blue,
-					/obj/item/legwears/fishnet/blue,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/blue,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/blue,
 				)
 
 /datum/supply_pack/rogue/wardrobe/suits/stockings_red_fishnet
 	name = "Red Fishnet Stockings"
 	cost = 5
 	contains = list(
-					/obj/item/legwears/fishnet/red,
-					/obj/item/legwears/fishnet/red,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/red,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/red,
 				)
 /datum/supply_pack/rogue/wardrobe/suits/stockings_purple_fishnet
 	name = "Purple Fishnet Stockings"
 	cost = 5
 	contains = list(
-					/obj/item/legwears/fishnet/purple,
-					/obj/item/legwears/fishnet/purple,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/purple,
+					/obj/item/clothing/under/roguetown/tights/stockings/fishnet/purple,
 				)
-
-// Craft
-
-/datum/crafting_recipe/roguetown/sewing/stockings_white
-	name = "stockings (1 fibers, 1 cloth)"
-	result = list(/obj/item/legwears/white)
-	reqs = list(/obj/item/natural/cloth = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 3
-
-/datum/crafting_recipe/roguetown/sewing/stockings_white_silk
-	name = "silk stockings (1 fibers, 1 silk)"
-	result = list(/obj/item/legwears/silk/white)
-	reqs = list(/obj/item/natural/silk = 1,
-				/obj/item/natural/fibers = 1)
-	craftdiff = 5
-
-/datum/crafting_recipe/roguetown/sewing/stockings_white_fishnet
-	name = "fishnet stockings (2 fibers)"
-	result = list(/obj/item/legwears/fishnet/white)
-	reqs = list(/obj/item/natural/fibers = 2)
-	craftdiff = 3

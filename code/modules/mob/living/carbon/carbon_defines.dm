@@ -42,7 +42,6 @@
 	var/obj/item/clothing/ears = null
 
 	var/obj/item/undies/underwear = null	//Underwear item
-	var/obj/item/legwears/legwear_socks = null	//legwear item
 
 
 	var/datum/dna/dna = null //Carbon
