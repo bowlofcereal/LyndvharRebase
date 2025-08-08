@@ -770,6 +770,13 @@
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter/woods)
+"fA" = (
+/obj/structure/barricade,
+/obj/structure/barricade/crude,
+/turf/open/floor/rogue/naturalstone,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "fD" = (
 /turf/closed/mineral/random/rogue/high,
 /area/rogue/indoors/cave)
@@ -4936,8 +4943,6 @@
 /obj/structure/stairs/stone{
 	dir = 4
 	},
-/obj/structure/barricade,
-/obj/structure/barricade/crude,
 /turf/open/floor/rogue/grass,
 /area/rogue/under/cave)
 "KJ" = (
@@ -6753,6 +6758,14 @@
 "WQ" = (
 /obj/structure/flora/roguegrass/water,
 /turf/open/water/swamp,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
+"WR" = (
+/obj/structure/flora/ausbushes/brflowers,
+/obj/structure/barricade,
+/obj/structure/barricade/crude,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -72742,10 +72755,10 @@ KL
 KL
 KL
 KL
-hc
-hc
-sy
-sO
+KL
+fA
+WR
+KL
 Ic
 sO
 Ic
