@@ -38,7 +38,6 @@
 	name = "Stockings"
 	cost = 10
 	contains = list(/obj/item/clothing/under/roguetown/tights/stockings/white)
-	contains = list(/obj/item/legwears/white)
 
 /datum/supply_pack/rogue/bath_clothes/briefs
 	name = "Briefs"

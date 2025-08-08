@@ -35,7 +35,7 @@
 	else
 		var/shown_patreon_level = client.patreonlevel()
 		if(!shown_patreon_level)
-			shown_patreon_level = "<font color='#41acc7'><b>Azurean Chad</b></font>"
+			shown_patreon_level = "<font color='#6b6b6b'><b>UGH</b></font>"
 		switch(shown_patreon_level)
 			if(1)
 				shown_patreon_level = "Silver"
@@ -47,7 +47,7 @@
 				shown_patreon_level = "Merchant"
 			if(5)
 				shown_patreon_level = "Lord"
-		to_chat(src, span_info("Donator Level: [shown_patreon_level]"))
+	//	to_chat(src, span_info("Donator Level: [shown_patreon_level]"))
 	client.recent_changelog()
 /*
 	if(CONFIG_GET(flag/usewhitelist))
