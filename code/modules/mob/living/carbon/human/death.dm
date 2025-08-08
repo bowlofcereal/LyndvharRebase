@@ -128,7 +128,7 @@
 				for(var/mob/living/carbon/human/HU in GLOB.player_list)
 					if(!HU.stat && is_in_roguetown(HU))
 						HU.playsound_local(get_turf(HU), 'sound/music/lorddeath.ogg', 80, FALSE, pressure_affected = FALSE)
-			if("Bishop")
+			if("Priest")
 				addomen(OMEN_NOPRIEST)
 //		if(yeae)
 //			if(mind)
@@ -157,7 +157,7 @@
 	switch(job)
 		if("Viscount")
 			removeomen(OMEN_NOLORD)
-		if("Bishop")
+		if("Priest")
 			removeomen(OMEN_NOPRIEST)
 
 /mob/living/carbon/human/gib(no_brain, no_organs, no_bodyparts, safe_gib = FALSE)
