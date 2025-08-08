@@ -1,5 +1,5 @@
 /datum/advclass/mercenary/grenzelhoft
-	name = "Grenzelhoft"
+	name = "Grenzelhoftian Krieger"
 	tutorial = "Experts, Professionals, Expensive. Those are the first words that come to mind when the emperiate Grenzelhoft mercenary guild is mentioned. While you may work for coin like any common sellsword, maintaining the prestige of the guild will be of utmost priority."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_SHUNNED_UP

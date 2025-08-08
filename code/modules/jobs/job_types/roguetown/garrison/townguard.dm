@@ -55,7 +55,7 @@ Footsman is basically a regular foots-soldier with gear to combat criminals, spe
 Archer is basically a 'bounty-catcher' in function, less specialized at close-quarters, beyond knives, but very capable of downing a fleeing criminal.*/
 /datum/advclass/watchman/footsman
 	name = "Watch Footsman"
-	tutorial = "You are a footsman of the Town Watch. Well versed in various close-quarters weapons and aprehending street-savy criminals."
+	tutorial = "You are a footsman of the City Watch. Well versed in various close-quarters weapons and aprehending street-savy criminals."
 	outfit = /datum/outfit/job/roguetown/guardsman/footsman
 
 	category_tags = list(CTAG_WATCH)
@@ -94,12 +94,12 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	beltl = /obj/item/storage/keyring/guardcastle
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	gloves = /obj/item/clothing/gloves/roguetown/leather
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/rope/chain = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/rope/chain = 1, /obj/item/rogueweapon/scabbard/sheath = 1)
 	H.verbs |= /mob/proc/haltyell
 
 /datum/advclass/watchman/archer
 	name = "Watch Archer"
-	tutorial = "You are an archer of the Town Watch. Once a hunter, now a man-hunter for the Viscount. Rooftops, bows, and daggers are your best friend."
+	tutorial = "You are an archer of the City Watch. Once a hunter, now a man-hunter for the Viscount. Rooftops, bows, and daggers are your best friend."
 	outfit = /datum/outfit/job/roguetown/guardsman/archer
 
 	category_tags = list(CTAG_WATCH)
@@ -107,7 +107,7 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 /datum/outfit/job/roguetown/guardsman/archer/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_skillrank(/datum/skill/combat/bows, 4, TRUE)
-	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)		//Why master? Because all it does is effect draw time, which is strength x skill / 1.2. (Bow is just skill / 1.0). You get poor bonus strength, so you get skill to offset.
+	H.adjust_skillrank(/datum/skill/combat/crossbows, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/knives, 4, TRUE)
@@ -138,12 +138,12 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 	beltl = /obj/item/storage/keyring/guardcastle
 	belt = /obj/item/storage/belt/rogue/leather
 	gloves = /obj/item/clothing/gloves/roguetown/leather
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/rope/chain = 1)
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1, /obj/item/rope/chain = 1, /obj/item/rogueweapon/scabbard/sheath = 1)
 	H.verbs |= /mob/proc/haltyell
 
 /datum/advclass/watchman/pikeman
 	name = "Watch Pikeman"
-	tutorial = "You are a Pikeman of the Town Watch. Given a polearm and some armor, you are expected to defend this town from all threats."
+	tutorial = "You are a Pikeman of the City Watch. Given a polearm and some armor, you are expected to defend this city from all threats."
 	outfit = /datum/outfit/job/roguetown/guardsman/pikeman
 
 	category_tags = list(CTAG_WATCH)
