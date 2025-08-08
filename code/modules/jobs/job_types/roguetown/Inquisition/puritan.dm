@@ -6,7 +6,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_SHUNNED_UP
+	allowed_races = RACES_TOLERATED_UP
 	allowed_patrons = list(/datum/patron/old_god) //You MUST have a Psydonite character to start. Just so people don't get japed into Oops Suddenly Psydon!
 	tutorial = "You are the direct hand of the Psydonic inquisition. You have been sent by the Bisphoric of Valoria, the leading realm of the Psydonian Orthodoxy, on a diplomatic misssion.. officially, that is. Unofficially, you work to cast out the sinners from Psydon's house. Heresy of all kinds must be corrected; from Pantheon-worshippers that stray too far towards heretical thought, to fools that worship the Daemons, and converting those willing. The city of Lyndvhar tolerates you due to your ability to fight the daemonic, and the Pantheonic Church tolerates you due to your aligned goals...but it is probably best to not let them peer too closely."
 	whitelist_req = TRUE
