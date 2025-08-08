@@ -8,7 +8,7 @@
 	allowed_races = RACES_TOLERATED_UP
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
-	allowed_patrons = ALL_DIVINE_PATRONS
+	allowed_patrons = ALL_NICE_PATRONS
 	tutorial = "You have served from squire all the way to where you stand now. After years of training, you were officially knighted by the Viscount and placed at their side as one of their formal Retinue. You are the last line of defense against any threat that may harm this city and its denizens, and would rather die than see such harm befall them."
 	display_order = JDO_KNIGHT
 	whitelist_req = TRUE

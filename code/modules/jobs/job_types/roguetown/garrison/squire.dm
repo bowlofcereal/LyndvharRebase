@@ -7,7 +7,7 @@
 	spawn_positions = 2
 	allowed_races = RACES_SHUNNED_UP
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_patrons = ALL_DIVINE_PATRONS 
+	allowed_patrons = ALL_NICE_PATRONS
 	allowed_ages = list(AGE_ADULT)
 	advclass_cat_rolls = list(CTAG_SQUIRE = 20)
 
