@@ -327,7 +327,7 @@
 /datum/status_effect/debuff/revived
 	id = "revived"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/revived
-	effectedstats = list("strength" = -2, "perception" = -2, "intelligence" = -2, "endurance" = -2, "constitution" = -2, "speed" = -2, "fortune" = -2) // A traumatic experience. Death is painful, and the returning of ones soul doubly more so.
+	effectedstats = list("strength" = -3, "perception" = -3, "intelligence" = -3, "endurance" = -3, "constitution" = -3, "speed" = -3, "fortune" = -3) // A traumatic experience. Death is painful, and the returning of ones soul doubly more so.
 	duration = 15 MINUTES		//Should be long enough to stop someone from running back into battle. Plus, this stacks with body-rot debuff. RIP.
 
 /atom/movable/screen/alert/status_effect/debuff/revived
