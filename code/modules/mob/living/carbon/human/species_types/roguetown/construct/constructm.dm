@@ -56,6 +56,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/human,
 		/datum/customizer/organ/vagina/human_anthro,
@@ -67,6 +68,8 @@
 		/datum/body_marking/eyeliner,
 		/datum/body_marking/tonage,
 		/datum/body_marking/nose,
+		/datum/body_marking/construct_plating_light,
+		
 	)
 
 /datum/species/construct/metal/check_roundstart_eligible()
@@ -77,7 +80,7 @@
 		"BRASS" = "dfbd6c",
 		"IRON" = "525352",
 		"STEEL" = "babbb9",
-		"BRONZE" = "e2a670"
+		"BRONZE" = "e2a670",
 	)
 
 /datum/species/construct/metal/get_hairc_list()

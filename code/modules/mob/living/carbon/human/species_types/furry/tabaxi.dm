@@ -59,6 +59,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/snout/tabaxi,
 		/datum/customizer/organ/tail/tabaxi,
 		/datum/customizer/organ/neck_feature/anthro,
@@ -73,6 +74,7 @@
 		/datum/body_marking_set/bellysocks,
 		/datum/body_marking_set/bellysockstertiary,
 		/datum/body_marking_set/belly,
+		/datum/body_marking_set/gradient,
 	)
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
@@ -80,7 +82,6 @@
 		/datum/body_marking/plain,
 		/datum/body_marking/tiger,
 		/datum/body_marking/tiger/dark,
-		/datum/body_marking_set/gradient,
 		/datum/body_marking/sock,
 		/datum/body_marking/socklonger,
 		/datum/body_marking/tips,
@@ -98,6 +99,7 @@
 		/datum/body_marking/harlequinreversed,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
+		/datum/body_marking/gradient,
 	)
 	languages = list(
 		/datum/language/common
