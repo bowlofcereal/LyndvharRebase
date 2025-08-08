@@ -10,6 +10,9 @@
 
 /datum/outfit/job/roguetown/bandit/hedgeknight/pre_equip(mob/living/carbon/human/H)
 	..()
+	if (!(istype(H.patron, /datum/patron/inhumen/matthios)))
+		to_chat(H, span_warning("My former deity has abandoned me.. Matthios is my new master."))
+		H.set_patron(/datum/patron/inhumen/matthios)	// MATTY.
 	head = /obj/item/clothing/head/roguetown/helmet/heavy/knight/black
 	mask = /obj/item/clothing/mask/rogue/facemask/steel/hound
 	gloves = /obj/item/clothing/gloves/roguetown/chain/blk
