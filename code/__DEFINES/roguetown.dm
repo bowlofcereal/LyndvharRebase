@@ -203,16 +203,16 @@
 
 #define RACES_TOLERATED \
 	/datum/species/tabaxi,\
-	/datum/species/halforc,\
+	/datum/species/lupian,\
+	/datum/species/vulpkanin,\
 	/datum/species/demihuman,\
 	/datum/species/lizardfolk \
 
 #define RACES_SHUNNED \
+	/datum/species/halforc,\
 	/datum/species/akula,\
 	/datum/species/tieberian,\
 	/datum/species/elf/dark,\
-	/datum/species/lupian,\
-	/datum/species/vulpkanin,\
 	/datum/species/dracon,\
 
 #define RACES_DESPISED \
