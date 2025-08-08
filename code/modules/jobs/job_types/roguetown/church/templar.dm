@@ -245,7 +245,8 @@
 	gloves = /obj/item/clothing/gloves/roguetown/chain
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	pants = /obj/item/clothing/under/roguetown/chainlegs
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	belt = /obj/item/storage/belt/rogue/leather/steel/tasset
 	beltl = /obj/item/rogueweapon/scabbard/sword
 	beltr = /obj/item/storage/keyring/churchie
