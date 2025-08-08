@@ -164,7 +164,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)
 		say("By the authority of the gods, I pronounce you Viscount of the city of Lyndvhar!")
-		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of the city of Lyndvhar!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
+		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of the city of Lyndvhar!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/coronation.ogg')
 		var/datum/job/roguetown/nomoredukes = SSjob.GetJob("Viscount")
 		if(nomoredukes)
 			nomoredukes.total_positions = -1000 //We got what we got now.
