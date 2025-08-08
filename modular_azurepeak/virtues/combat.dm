@@ -81,7 +81,7 @@
 	name = "Woodcutter"
 	desc = "I have trained under a skilled woodcutter, and always have my axe close at hand."
 	custom_text = "+1 to Axes and Whips/Flails, Up to Journeyman, Minimum Apprentice."
-	added_stashed_items = list("Leather Whip" = /obj/item/rogueweapon/whip)
+	added_stashed_items = list("Woodcutter's Axe" = /obj/item/rogueweapon/stoneaxe/woodcut)
 
 /datum/virtue/combat/executioner/apply_to_human(mob/living/carbon/human/recipient)
 	if(recipient.get_skill_level(/datum/skill/combat/whipsflails) < SKILL_LEVEL_APPRENTICE)
