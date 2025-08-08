@@ -226,12 +226,12 @@
 	base_type = CTYPE_COPP
 	plural_name = "zennies"
 
-// Ancient - Valueless
+// ANCIENT
 /obj/item/roguecoin/aalloy
 	name = "astilen"
 	desc = "Withered empires of Aeon's past shared this coin, some theorize before even the Bloodwake- during our precursor daes. Nothing lasts forever."
 	icon_state = "a1"
-	sellprice = 0
+	sellprice = 3 //Dungeon-specific coinage - valued by historians, collectors, and smelters. 
 	base_type = CTYPE_ANCIENT
 	plural_name = "astila"
 

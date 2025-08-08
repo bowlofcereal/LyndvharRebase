@@ -12,7 +12,17 @@
 
 /obj/item/clothing/under/roguetown/tights/stockings/random/Initialize()
 	. = ..()
-	color = pick("#e6e5e5", CLOTHING_BLACK, CLOTHING_BLUE, "#6F0000", "#664357")
+	resistance_flags = FLAMMABLE
+	obj_flags = CAN_BE_HIT
+	break_sound = 'sound/foley/cloth_rip.ogg'
+	blade_dulling = DULLING_CUT
+	max_integrity = 200
+	integrity_failure = 0.1
+	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
+
+	sewrepair = TRUE
+	salvage_result = /obj/item/natural/cloth
+
 
 /obj/item/clothing/under/roguetown/tights/stockings/white
 	color = "#e6e5e5"

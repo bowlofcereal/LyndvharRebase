@@ -39,6 +39,36 @@
 	cost = 10
 	contains = list(/obj/item/clothing/under/roguetown/tights/stockings/white)
 
+/datum/supply_pack/rogue/bath_clothes/briefs
+	name = "Briefs"
+	cost = 10
+	contains = list(/obj/item/undies)
+
+/datum/supply_pack/rogue/bath_clothes/bikini
+	name = "Bikini"
+	cost = 10
+	contains = list(/obj/item/undies/bikini)
+
+/datum/supply_pack/rogue/bath_clothes/panties
+	name = "Panties"
+	cost = 10
+	contains = list(/obj/item/undies/panties)
+
+/datum/supply_pack/rogue/bath_clothes/leotard
+	name = "Leotard"
+	cost = 10
+	contains = list(/obj/item/undies/leotard)
+
+/datum/supply_pack/rogue/bath_clothes/athletic_leotard
+	name = "Athletic Leotard"
+	cost = 10
+	contains = list(/obj/item/undies/athletic_leotard)
+
+/datum/supply_pack/rogue/bath_clothes/braies
+	name = "Braies"
+	cost = 10
+	contains = list(/obj/item/undies/braies)
+
 /datum/supply_pack/rogue/bath_clothes/collar
 	name = "Collar"
 	cost = 10

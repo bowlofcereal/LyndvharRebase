@@ -56,8 +56,8 @@
 			backl = /obj/item/storage/backpack/rogue/satchel/black
 			beltr = /obj/item/rogueweapon/stoneaxe/woodcut/steel/atgervi
 			belt = /obj/item/storage/belt/rogue/leather
-			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
-			beltl = /obj/item/flashlight/flare/torch
+			neck = /obj/item/clothing/neck/roguetown/chaincoif/chainmantle //They didn't have neck protection before.
+			beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 			ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)	
@@ -102,6 +102,7 @@
 		/obj/item/rogueweapon/huntingknife = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1
 		)
+	H.merctype = 1
 
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/atgervi
@@ -140,6 +141,7 @@
 	icon_state = "atgervi_raider"
 	item_state = "atgervi_raider"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDESNOUT
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x48/atgervi.dmi'
 	block2add = null
 	worn_x_dimension = 32

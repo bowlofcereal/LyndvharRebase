@@ -42,7 +42,7 @@
 				if("Dunargiac Longsword")
 					r_hand = /obj/item/rogueweapon/sword/long/dunargi
 					beltr = /obj/item/rogueweapon/huntingknife/idagger/navaja
-				if("Kriegsmesser")
+				if("Kriegsmesser")		//Och- eugh- German!
 					r_hand = /obj/item/rogueweapon/sword/long/kriegmesser
 					beltr = /obj/item/rogueweapon/huntingknife/idagger
 				if("Longsword")	
@@ -74,7 +74,8 @@
 			switch(weapon_choice)
 				if("Boar Spear")
 					r_hand = /obj/item/rogueweapon/spear/boar
-				if("Lucerne")
+					wrists = /obj/item/rogueweapon/katar/punchdagger
+				if("Lucerne")		//A normal lucerne for the people that get no drip & no bitches.
 					r_hand = /obj/item/rogueweapon/eaglebeak/lucerne
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
