@@ -1,11 +1,18 @@
 name: 'Merge Conflict Detection'
 on:
-  push:
+ push:
     branches:
       - main
+  pull_request_target:
+    types: [ready_for_review, opened, synchronize, reopened]
+
 jobs:
   triage:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
     steps:
       - uses: mschilde/auto-label-merge-conflicts@master
         with:
