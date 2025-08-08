@@ -1,5 +1,5 @@
 /datum/advclass/mercenary/steppesman
-	name = "Steppesman"
+	name = "Steppesman Kazak"
 	tutorial = "Once serving a Hetmen from the northwestern frontiers, you have been rented out as a mercenary in the distant realms to bring coin home. There are three things you value most; saigas, freedom, and coin."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_SHUNNED_UP
