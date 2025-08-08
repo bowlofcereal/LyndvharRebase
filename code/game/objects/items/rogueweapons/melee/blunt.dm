@@ -85,7 +85,7 @@
 
 /obj/item/rogueweapon/mace/alloy
 	name = "decrepit mace"
-	desc = "Frayed bronze, perched atop a rotwooden shaft. His sacrifice had drowned Old Syon, and - in its wake - left Man bereft of all it had accomplished. With all other prayers falling upon deaf ears, Man had crafted this idol in tribute to its new God; violence."
+	desc = "Frayed bronze, perched atop a rotwooden shaft. With all other prayers falling upon deaf ears, Man had crafted this idol in tribute to its new God; violence."
 	icon_state = "amace"
 	force = 17
 	force_wielded = 21

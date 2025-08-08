@@ -798,7 +798,7 @@
 
 /obj/item/rogueweapon/sword/sabre/palloy
 	name = "ancient khopesh"
-	desc = "A polished hook-sword, forged from gilbronze. The Comet Syon's glare once graced this blade; now, it's wielded by those who can't even remember what came before His sacrifice."
+	desc = "A polished hook-sword, forged from gilbronze. It's wielded by those who can't even remember what came before blood."
 	smeltresult = /obj/item/ingot/aaslag
 	icon_state = "akhopesh"
 
