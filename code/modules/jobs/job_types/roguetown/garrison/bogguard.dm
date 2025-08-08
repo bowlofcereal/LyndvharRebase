@@ -9,7 +9,7 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
-	allowed_patrons = ALL_DIVINE_PATRONS 
+	allowed_patrons = ALL_NICE_PATRONS
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED, AGE_OLD)
 	tutorial = "Whether through forced conscription, or the desire to serve, you have found a place in the Draguippe Wardens. You are the frontline defense against evil, and protector of the frontier roads. The life is not easy, but this is what you were conscripted for. Protect the forests well, for if you fall, then nothing will stop what lurks outside from seeping in.."
 	display_order = JDO_TOWNGUARD
