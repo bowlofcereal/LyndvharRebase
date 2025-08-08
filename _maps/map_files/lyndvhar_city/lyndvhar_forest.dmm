@@ -483,6 +483,11 @@
 /obj/machinery/anvil/crafted,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/woods)
+"dd" = (
+/turf/open/floor/rogue/greenstone/runed,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "df" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/newtree,
@@ -578,12 +583,6 @@
 /obj/item/reagent_containers/food/snacks/grown/wheat,
 /turf/open/floor/rogue/blocks,
 /area/rogue/under/cave/inhumen)
-"dU" = (
-/obj/effect/particle_effect/smoke,
-/turf/open/water/cleanshallow,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "dV" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "cobbleedge-sread"
@@ -1440,12 +1439,6 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/under/cave/inhumen)
-"kA" = (
-/obj/structure/leyline,
-/turf/open/floor/rogue/greenstone,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "kC" = (
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town/roofs)
@@ -2414,14 +2407,6 @@
 	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
-"sH" = (
-/obj/effect/particle_effect/smoke,
-/turf/open/water/river{
-	icon_state = "rockwd"
-	},
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "sO" = (
 /obj/structure/flora/newtree,
 /turf/open/floor/rogue/grass,
@@ -3133,6 +3118,11 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
+"xI" = (
+/turf/open/floor/rogue/greenstone,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "xJ" = (
 /obj/effect/landmark/start/bogguardlate,
 /turf/open/floor/rogue/cobble/mossy,
@@ -3497,11 +3487,6 @@
 "Az" = (
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
-"AA" = (
-/turf/open/floor/rogue/greenstone/runed,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "AB" = (
 /obj/effect/decal/cobbleedge{
 	dir = 10;
@@ -3777,6 +3762,14 @@
 /obj/item/bait,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter/woods)
+"CD" = (
+/obj/effect/particle_effect/smoke,
+/turf/open/water/river{
+	icon_state = "rockwd"
+	},
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "CE" = (
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/thresher,
@@ -4228,12 +4221,6 @@
 "FU" = (
 /turf/open/floor/rogue/woodturned/nosmooth,
 /area/rogue/outdoors/town/roofs)
-"FV" = (
-/obj/structure/well/fountain/mana,
-/turf/open/floor/rogue/greenstone,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "FW" = (
 /obj/structure/stairs{
 	dir = 4
@@ -4802,11 +4789,6 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/town/roofs)
-"Kc" = (
-/turf/open/floor/rogue/greenstone,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "Kg" = (
 /obj/structure/bed/rogue/inn/hay,
 /turf/open/floor/rogue/cobble,
@@ -5916,6 +5898,12 @@
 "RT" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/shelter/woods)
+"RU" = (
+/obj/structure/well/fountain/mana,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "RV" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -6087,6 +6075,12 @@
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
+"SW" = (
+/obj/structure/leyline,
+/turf/open/floor/rogue/greenstone,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "SX" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1";
@@ -6223,6 +6217,12 @@
 "TH" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
+"TI" = (
+/obj/effect/particle_effect/smoke,
+/turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -8109,7 +8109,7 @@ hc
 hc
 hc
 Ic
-AA
+dd
 Ic
 vk
 Ic
@@ -8310,9 +8310,9 @@ hc
 hc
 hc
 Ic
-AA
-kA
-AA
+dd
+SW
+dd
 vk
 vk
 hc
@@ -8513,7 +8513,7 @@ vk
 Ic
 Ic
 Ic
-AA
+dd
 Ic
 Ic
 vk
@@ -33275,8 +33275,8 @@ rO
 rO
 rO
 rO
-dU
-dU
+TI
+TI
 lv
 lv
 lv
@@ -33478,7 +33478,7 @@ rO
 rO
 rO
 rO
-dU
+TI
 lv
 lv
 lv
@@ -33680,8 +33680,8 @@ rO
 rO
 rO
 rO
-dU
-dU
+TI
+TI
 lv
 lv
 lv
@@ -33883,7 +33883,7 @@ rO
 rO
 rO
 rO
-dU
+TI
 lv
 lv
 lv
@@ -49388,7 +49388,7 @@ Ic
 nk
 nk
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -49589,9 +49589,9 @@ Ic
 Ic
 Ic
 nk
-AA
-kA
-AA
+dd
+SW
+dd
 Ic
 vk
 vk
@@ -49792,7 +49792,7 @@ sO
 vk
 vk
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -57610,7 +57610,7 @@ Ic
 nk
 Ic
 Ic
-AA
+dd
 Ic
 nk
 nk
@@ -57811,9 +57811,9 @@ Ic
 Ic
 Ic
 Ic
-AA
-kA
-AA
+dd
+SW
+dd
 Ic
 Ic
 Ic
@@ -58014,7 +58014,7 @@ Ic
 Ic
 Ic
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -59318,9 +59318,9 @@ vk
 vk
 vk
 vk
-Ic
-Ic
-Ic
+sO
+sO
+sO
 sO
 sO
 sO
@@ -59518,16 +59518,16 @@ Ic
 vk
 vk
 vk
-Ic
-Ic
 sO
 sO
 sO
 sO
 sO
 sO
-Ic
-Ic
+sO
+sO
+sO
+sO
 sO
 vk
 vk
@@ -59719,17 +59719,17 @@ Ic
 Ws
 Ws
 Ic
-Ic
 sO
 sO
 sO
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
-Ic
+sO
+sO
+sO
+sO
+sO
+sO
+sO
+sO
 sO
 sO
 vk
@@ -59922,9 +59922,9 @@ Ws
 Ws
 Ws
 sO
-Ic
-Ic
-Ic
+sO
+sO
+sO
 Ic
 Ic
 Ic
@@ -60110,11 +60110,11 @@ Ic
 Ic
 nk
 Ic
-Ic
-Ic
-Ic
-Ic
-Ic
+sO
+sO
+sO
+sO
+sO
 df
 df
 df
@@ -60136,7 +60136,7 @@ Ic
 Ic
 sO
 sO
-Ic
+sO
 vk
 Ic
 Ic
@@ -60312,7 +60312,7 @@ Ic
 Ic
 nk
 nk
-Ic
+sO
 sO
 sO
 sO
@@ -60338,7 +60338,7 @@ Tq
 Ic
 sO
 sO
-Ic
+sO
 Ic
 Ic
 Ic
@@ -60513,7 +60513,7 @@ Ic
 Ic
 Ic
 nk
-Ic
+sO
 sO
 nh
 nh
@@ -60713,7 +60713,7 @@ nk
 Ic
 Ic
 Ic
-Ic
+sO
 sO
 sO
 sO
@@ -60947,7 +60947,7 @@ Ic
 sO
 sO
 ko
-Ic
+sO
 Ic
 Ic
 Ic
@@ -61149,7 +61149,7 @@ Ic
 Ic
 sO
 sO
-Ic
+sO
 Ic
 Ic
 Ic
@@ -61351,7 +61351,7 @@ Ic
 sO
 sO
 sO
-Ic
+sO
 Ic
 Ic
 Ic
@@ -61552,8 +61552,8 @@ Ic
 Tq
 Ic
 sO
+DP
 sO
-Ic
 Ic
 Ic
 Ic
@@ -61859,7 +61859,7 @@ uN
 uN
 hc
 Ic
-AA
+dd
 Ic
 Ic
 nd
@@ -61923,7 +61923,7 @@ Ic
 UO
 nk
 Ic
-Ic
+sO
 sO
 vk
 hO
@@ -62060,9 +62060,9 @@ uN
 uN
 hc
 hc
-AA
-kA
-AA
+dd
+SW
+dd
 nd
 nd
 nd
@@ -62125,7 +62125,7 @@ Ic
 Ic
 nk
 Ic
-Ic
+sO
 sO
 vk
 hO
@@ -62263,7 +62263,7 @@ uN
 hc
 hc
 Ic
-AA
+dd
 Ic
 Ic
 nd
@@ -62327,7 +62327,7 @@ Ic
 Ic
 nk
 nk
-Ic
+sO
 sO
 sO
 hO
@@ -62529,7 +62529,7 @@ Ic
 Ic
 Ic
 Ic
-Ic
+sO
 sO
 sO
 nh
@@ -62563,7 +62563,7 @@ Ic
 Ic
 sO
 sO
-Ic
+sO
 Ic
 Ic
 Ic
@@ -62731,8 +62731,8 @@ Ic
 Ic
 Ic
 Ic
-Ic
-Ic
+sO
+sO
 sO
 nh
 ff
@@ -62764,8 +62764,8 @@ Ic
 vk
 sO
 sO
-Ic
-Ic
+sO
+sO
 Ic
 Ic
 Ic
@@ -62934,7 +62934,7 @@ Ic
 Ic
 Ic
 Ic
-Ic
+sO
 sO
 nh
 ff
@@ -62966,7 +62966,7 @@ Ic
 vk
 Ic
 sO
-Ic
+sO
 Ic
 Ic
 Ic
@@ -63136,7 +63136,7 @@ Ic
 Ic
 Ic
 Ic
-Ic
+sO
 sO
 sO
 nh
@@ -63168,7 +63168,7 @@ Ic
 Ic
 vk
 sO
-Ic
+sO
 Ic
 sO
 Ic
@@ -63339,7 +63339,7 @@ Ic
 sO
 Ic
 tB
-Ic
+sO
 sO
 sO
 hO
@@ -63542,7 +63542,7 @@ Ic
 tB
 tB
 Ic
-Ic
+sO
 sO
 sO
 hO
@@ -63571,7 +63571,7 @@ sO
 Ic
 Ic
 vk
-Ic
+sO
 sO
 Ic
 Ic
@@ -63745,7 +63745,7 @@ tB
 Ic
 Ic
 Ic
-Ic
+sO
 sO
 jZ
 hO
@@ -63773,7 +63773,7 @@ sO
 Ic
 vk
 vk
-Ic
+sO
 sO
 Ic
 Ic
@@ -63948,7 +63948,7 @@ Ic
 Ic
 Ic
 Ic
-Ic
+sO
 sO
 sO
 sO
@@ -63975,7 +63975,7 @@ sO
 vk
 vk
 Ic
-Ic
+sO
 sO
 Ic
 Ic
@@ -64151,8 +64151,8 @@ Ic
 Ic
 Ic
 Ic
-Ic
-Ic
+sO
+sO
 sO
 sO
 sO
@@ -64377,7 +64377,7 @@ Tq
 sO
 sO
 sO
-Ic
+sO
 sO
 sO
 Ic
@@ -64557,8 +64557,8 @@ nk
 Ic
 kT
 Ic
-Ic
-Ic
+sO
+sO
 sO
 sO
 Ey
@@ -64578,7 +64578,7 @@ kT
 Tq
 sO
 sO
-Ic
+sO
 sO
 sO
 Ic
@@ -64760,7 +64760,7 @@ Ic
 kT
 kT
 kT
-Ic
+sO
 sO
 sO
 sZ
@@ -65586,8 +65586,8 @@ sO
 sO
 sO
 sO
-Ic
-Ic
+sO
+sO
 Ic
 vk
 Ic
@@ -65787,8 +65787,8 @@ sO
 sO
 Ic
 Ic
-Ic
-Ic
+sO
+sO
 sO
 vk
 vk
@@ -65989,9 +65989,9 @@ Ws
 Ic
 Ic
 Ic
-Ic
-Ic
-Ic
+sO
+sO
+sO
 vk
 Ic
 Ic
@@ -66191,10 +66191,10 @@ Ws
 Ws
 Ic
 Ic
-Ic
-Ic
-Ic
-Ic
+sO
+sO
+sO
+sO
 Ic
 Ic
 Ic
@@ -66394,8 +66394,8 @@ Ws
 Ic
 Ic
 Ic
-Ic
-Ic
+sO
+sO
 hc
 hc
 hc
@@ -66596,7 +66596,7 @@ Ws
 Zx
 Ic
 Ic
-Ic
+sO
 hc
 hc
 KL
@@ -66791,7 +66791,7 @@ lv
 lv
 sO
 sO
-Ic
+sO
 Ic
 Ic
 Ws
@@ -66993,7 +66993,7 @@ lv
 sO
 sO
 sO
-Ic
+sO
 hc
 hc
 hc
@@ -67195,7 +67195,7 @@ sO
 sO
 sO
 sO
-Ic
+sO
 hc
 KL
 IV
@@ -67389,15 +67389,15 @@ Ic
 Ic
 Ic
 Ic
-Ic
 sO
 sO
 sO
 sO
 sO
 sO
-Ic
-Ic
+sO
+sO
+sO
 hc
 KL
 Hp
@@ -67591,15 +67591,15 @@ Ic
 Ic
 Ic
 Ic
-Ic
-Ic
-Ic
-Ic
-Ic
+sO
+sO
+sO
+sO
+sO
 nd
 nd
 nd
-Ic
+sO
 hc
 KL
 Az
@@ -67793,8 +67793,8 @@ Ic
 Ic
 Ic
 Ic
-Ic
-Ic
+sO
+sO
 nd
 nd
 nd
@@ -67995,7 +67995,7 @@ Ik
 Ic
 Ic
 Ic
-Ic
+sO
 nd
 nd
 nd
@@ -71191,7 +71191,7 @@ Ic
 sO
 Ic
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -71392,9 +71392,9 @@ Ic
 nk
 Ic
 Ic
-AA
-kA
-AA
+dd
+SW
+dd
 Ic
 Ic
 Ic
@@ -71595,7 +71595,7 @@ Ic
 Ic
 Ic
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -77749,7 +77749,7 @@ Ic
 Ic
 Ic
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -77950,9 +77950,9 @@ Ic
 Ic
 Ic
 Ic
-AA
-kA
-AA
+dd
+SW
+dd
 Ic
 Ic
 Ic
@@ -78153,7 +78153,7 @@ Ic
 Ic
 Ic
 Ic
-AA
+dd
 Ic
 sO
 Ic
@@ -85541,7 +85541,7 @@ Ic
 Ic
 Ic
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -85742,9 +85742,9 @@ Ic
 Ic
 Ic
 Ic
-AA
-kA
-AA
+dd
+SW
+dd
 Ic
 Ic
 Ic
@@ -85945,7 +85945,7 @@ Ic
 Ic
 Ic
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -105398,7 +105398,7 @@ Ic
 Ic
 nk
 Ic
-AA
+dd
 Ic
 Ic
 sO
@@ -105599,9 +105599,9 @@ Ic
 nd
 nd
 nk
-AA
-kA
-AA
+dd
+SW
+dd
 Ic
 Ic
 Ic
@@ -105802,7 +105802,7 @@ Ic
 Ic
 Ic
 Ic
-AA
+dd
 Ic
 Ic
 Ic
@@ -122821,7 +122821,7 @@ KL
 KL
 KL
 KL
-sH
+CD
 zI
 zI
 Mi
@@ -123023,7 +123023,7 @@ KL
 KL
 KL
 KL
-sH
+CD
 zI
 zI
 zI
@@ -123226,7 +123226,7 @@ KL
 KL
 KL
 KL
-sH
+CD
 zI
 zI
 zI
@@ -124656,9 +124656,9 @@ Ic
 vk
 vk
 Ic
-Kc
-AA
-Kc
+xI
+dd
+xI
 hs
 nk
 nk
@@ -124858,9 +124858,9 @@ Ic
 Ic
 Ic
 nk
-AA
-FV
-AA
+dd
+RU
+dd
 hs
 DW
 nk
@@ -125060,9 +125060,9 @@ Ic
 Ic
 Ic
 nk
-Kc
-AA
-Kc
+xI
+dd
+xI
 nk
 hs
 DW
