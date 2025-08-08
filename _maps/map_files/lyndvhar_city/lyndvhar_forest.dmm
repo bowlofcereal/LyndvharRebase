@@ -80,11 +80,8 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "ax" = (
-/obj/structure/fluff/statue{
-	layer = 4.2;
-	desc = "A statue crafted in the likeness of the cartographer Bobby, This lookout is said to be his final resting place."
-	},
-/turf/open/floor/rogue/cobble,
+/obj/structure/leyline,
+/turf/open/floor/rogue/greenstone,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -483,11 +480,6 @@
 /obj/machinery/anvil/crafted,
 /turf/open/floor/rogue/cobblerock,
 /area/rogue/indoors/shelter/woods)
-"dd" = (
-/turf/open/floor/rogue/greenstone/runed,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "df" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/structure/flora/newtree,
@@ -1586,7 +1578,7 @@
 /area/rogue/outdoors/town/roofs)
 "lQ" = (
 /mob/living/carbon/human/species/skeleton/npc/hard,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/rogue/greenstone/runed,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -1858,11 +1850,8 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "nS" = (
-/obj/structure/fluff/railing/border{
-	dir = 8
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
-/turf/open/floor/rogue/cobble,
+/obj/effect/particle_effect/smoke,
+/turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -1952,11 +1941,7 @@
 	},
 /area/rogue/under/cave/inhumen)
 "oJ" = (
-/obj/structure/fluff/railing/border{
-	dir = 4
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
-/turf/open/floor/rogue/cobble/mossy,
+/turf/open/floor/rogue/greenstone/runed,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -3067,6 +3052,14 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/town/roofs)
+"wZ" = (
+/obj/effect/particle_effect/smoke,
+/turf/open/water/river{
+	icon_state = "rockwd"
+	},
+/area/rogue/outdoors/woods{
+	first_time_text = "DRAGUIPPE FOREST"
+	})
 "xj" = (
 /mob/living/carbon/human/species/skeleton/npc/easy,
 /turf/open/floor/rogue/cobblerock,
@@ -3118,11 +3111,6 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/misc,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
-"xI" = (
-/turf/open/floor/rogue/greenstone,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "xJ" = (
 /obj/effect/landmark/start/bogguardlate,
 /turf/open/floor/rogue/cobble/mossy,
@@ -3762,14 +3750,6 @@
 /obj/item/bait,
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors/shelter/woods)
-"CD" = (
-/obj/effect/particle_effect/smoke,
-/turf/open/water/river{
-	icon_state = "rockwd"
-	},
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "CE" = (
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/thresher,
@@ -3806,11 +3786,8 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "CX" = (
-/obj/structure/fluff/railing/border{
-	dir = 1
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
-/turf/open/floor/rogue/cobble,
+/obj/structure/well/fountain/mana,
+/turf/open/floor/rogue/greenstone,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -5898,12 +5875,6 @@
 "RT" = (
 /turf/closed/wall/mineral/rogue/stone,
 /area/rogue/indoors/shelter/woods)
-"RU" = (
-/obj/structure/well/fountain/mana,
-/turf/open/floor/rogue/greenstone,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
 "RV" = (
 /obj/structure/fluff/railing/wood{
 	dir = 4
@@ -6060,11 +6031,7 @@
 	first_time_text = "DRAGUIPPE FOREST"
 	})
 "SQ" = (
-/obj/structure/fluff/railing/border{
-	dir = 9
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
-/turf/open/floor/rogue/cobble,
+/turf/open/floor/rogue/greenstone,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -6072,12 +6039,6 @@
 /obj/structure/flora/roguegrass/water,
 /obj/item/natural/worms/leech,
 /turf/open/water/cleanshallow,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
-"SW" = (
-/obj/structure/leyline,
-/turf/open/floor/rogue/greenstone,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -6217,12 +6178,6 @@
 "TH" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/open/floor/rogue/dirt/road,
-/area/rogue/outdoors/woods{
-	first_time_text = "DRAGUIPPE FOREST"
-	})
-"TI" = (
-/obj/effect/particle_effect/smoke,
-/turf/open/water/cleanshallow,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -6578,11 +6533,8 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "Wg" = (
-/obj/structure/fluff/railing/border{
-	dir = 5
-	},
-/obj/effect/spawner/lootdrop/roguetown/dungeon/money,
-/turf/open/floor/rogue/cobble/mossy,
+/obj/machinery/light/rogue/firebowl/standing/blue,
+/turf/open/floor/rogue/greenstone/runed,
 /area/rogue/outdoors/woods{
 	first_time_text = "DRAGUIPPE FOREST"
 	})
@@ -8109,7 +8061,7 @@ hc
 hc
 hc
 Ic
-dd
+oJ
 Ic
 vk
 Ic
@@ -8310,9 +8262,9 @@ hc
 hc
 hc
 Ic
-dd
-SW
-dd
+oJ
+ax
+oJ
 vk
 vk
 hc
@@ -8513,7 +8465,7 @@ vk
 Ic
 Ic
 Ic
-dd
+oJ
 Ic
 Ic
 vk
@@ -33275,8 +33227,8 @@ rO
 rO
 rO
 rO
-TI
-TI
+nS
+nS
 lv
 lv
 lv
@@ -33478,7 +33430,7 @@ rO
 rO
 rO
 rO
-TI
+nS
 lv
 lv
 lv
@@ -33680,8 +33632,8 @@ rO
 rO
 rO
 rO
-TI
-TI
+nS
+nS
 lv
 lv
 lv
@@ -33883,7 +33835,7 @@ rO
 rO
 rO
 rO
-TI
+nS
 lv
 lv
 lv
@@ -49388,7 +49340,7 @@ Ic
 nk
 nk
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -49589,9 +49541,9 @@ Ic
 Ic
 Ic
 nk
-dd
-SW
-dd
+oJ
+ax
+oJ
 Ic
 vk
 vk
@@ -49792,7 +49744,7 @@ sO
 vk
 vk
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -57610,7 +57562,7 @@ Ic
 nk
 Ic
 Ic
-dd
+oJ
 Ic
 nk
 nk
@@ -57811,9 +57763,9 @@ Ic
 Ic
 Ic
 Ic
-dd
-SW
-dd
+oJ
+ax
+oJ
 Ic
 Ic
 Ic
@@ -58014,7 +57966,7 @@ Ic
 Ic
 Ic
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -61859,7 +61811,7 @@ uN
 uN
 hc
 Ic
-dd
+oJ
 Ic
 Ic
 nd
@@ -62060,9 +62012,9 @@ uN
 uN
 hc
 hc
-dd
-SW
-dd
+oJ
+ax
+oJ
 nd
 nd
 nd
@@ -62263,7 +62215,7 @@ uN
 hc
 hc
 Ic
-dd
+oJ
 Ic
 Ic
 nd
@@ -71093,7 +71045,7 @@ YV
 mb
 Em
 Em
-DW
+Wg
 vi
 VI
 KL
@@ -71191,7 +71143,7 @@ Ic
 sO
 Ic
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -71295,7 +71247,7 @@ je
 Em
 Em
 lQ
-DW
+SQ
 QJ
 VI
 KL
@@ -71392,9 +71344,9 @@ Ic
 nk
 Ic
 Ic
-dd
-SW
-dd
+oJ
+ax
+oJ
 Ic
 Ic
 Ic
@@ -71496,8 +71448,8 @@ uN
 je
 QJ
 oJ
-Wg
-bG
+SQ
+oJ
 zx
 DR
 vk
@@ -71595,7 +71547,7 @@ Ic
 Ic
 Ic
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -71697,9 +71649,9 @@ uN
 uN
 je
 QJ
-ax
+SQ
 CX
-bG
+SQ
 NC
 Ic
 vk
@@ -71899,9 +71851,9 @@ uN
 uN
 je
 QJ
-nS
+oJ
 SQ
-DW
+oJ
 Zy
 DK
 Ic
@@ -72103,7 +72055,7 @@ je
 iy
 iy
 lQ
-DW
+SQ
 vi
 VI
 Ic
@@ -72305,7 +72257,7 @@ Wz
 uV
 iy
 iy
-DW
+Wg
 vi
 VI
 Ic
@@ -77749,7 +77701,7 @@ Ic
 Ic
 Ic
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -77950,9 +77902,9 @@ Ic
 Ic
 Ic
 Ic
-dd
-SW
-dd
+oJ
+ax
+oJ
 Ic
 Ic
 Ic
@@ -78153,7 +78105,7 @@ Ic
 Ic
 Ic
 Ic
-dd
+oJ
 Ic
 sO
 Ic
@@ -85541,7 +85493,7 @@ Ic
 Ic
 Ic
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -85742,9 +85694,9 @@ Ic
 Ic
 Ic
 Ic
-dd
-SW
-dd
+oJ
+ax
+oJ
 Ic
 Ic
 Ic
@@ -85945,7 +85897,7 @@ Ic
 Ic
 Ic
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -105398,7 +105350,7 @@ Ic
 Ic
 nk
 Ic
-dd
+oJ
 Ic
 Ic
 sO
@@ -105599,9 +105551,9 @@ Ic
 nd
 nd
 nk
-dd
-SW
-dd
+oJ
+ax
+oJ
 Ic
 Ic
 Ic
@@ -105802,7 +105754,7 @@ Ic
 Ic
 Ic
 Ic
-dd
+oJ
 Ic
 Ic
 Ic
@@ -122821,7 +122773,7 @@ KL
 KL
 KL
 KL
-CD
+wZ
 zI
 zI
 Mi
@@ -123023,7 +122975,7 @@ KL
 KL
 KL
 KL
-CD
+wZ
 zI
 zI
 zI
@@ -123226,7 +123178,7 @@ KL
 KL
 KL
 KL
-CD
+wZ
 zI
 zI
 zI
@@ -124656,9 +124608,9 @@ Ic
 vk
 vk
 Ic
-xI
-dd
-xI
+SQ
+oJ
+SQ
 hs
 nk
 nk
@@ -124858,9 +124810,9 @@ Ic
 Ic
 Ic
 nk
-dd
-RU
-dd
+oJ
+CX
+oJ
 hs
 DW
 nk
@@ -125060,9 +125012,9 @@ Ic
 Ic
 Ic
 nk
-xI
-dd
-xI
+SQ
+oJ
+SQ
 nk
 hs
 DW
