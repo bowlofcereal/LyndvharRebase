@@ -55,7 +55,7 @@ Footsman is basically a regular foots-soldier with gear to combat criminals, spe
 Archer is basically a 'bounty-catcher' in function, less specialized at close-quarters, beyond knives, but very capable of downing a fleeing criminal.*/
 /datum/advclass/watchman/footsman
 	name = "Watch Footsman"
-	tutorial = "You are a footsman of the Town Watch. Well versed in various close-quarters weapons and aprehending street-savy criminals."
+	tutorial = "You are a footsman of the City Watch. Well versed in various close-quarters weapons and aprehending street-savy criminals."
 	outfit = /datum/outfit/job/roguetown/guardsman/footsman
 
 	category_tags = list(CTAG_WATCH)
@@ -99,7 +99,7 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 
 /datum/advclass/watchman/archer
 	name = "Watch Archer"
-	tutorial = "You are an archer of the Town Watch. Once a hunter, now a man-hunter for the Viscount. Rooftops, bows, and daggers are your best friend."
+	tutorial = "You are an archer of the City Watch. Once a hunter, now a man-hunter for the Viscount. Rooftops, bows, and daggers are your best friend."
 	outfit = /datum/outfit/job/roguetown/guardsman/archer
 
 	category_tags = list(CTAG_WATCH)
@@ -143,7 +143,7 @@ Archer is basically a 'bounty-catcher' in function, less specialized at close-qu
 
 /datum/advclass/watchman/pikeman
 	name = "Watch Pikeman"
-	tutorial = "You are a Pikeman of the Town Watch. Given a polearm and some armor, you are expected to defend this town from all threats."
+	tutorial = "You are a Pikeman of the City Watch. Given a polearm and some armor, you are expected to defend this city from all threats."
 	outfit = /datum/outfit/job/roguetown/guardsman/pikeman
 
 	category_tags = list(CTAG_WATCH)
