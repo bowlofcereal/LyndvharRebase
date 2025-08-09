@@ -1,4 +1,4 @@
-/datum/virtue/utility/noble
+/*/datum/virtue/utility/noble
 	name = "Nobility"
 	desc = "By birth, blade or brain, I am noble known to the nobility of these lands, and have all the benefits associated with it."
 	added_traits = list(TRAIT_NOBLE)
@@ -9,7 +9,7 @@
 	SStreasury.noble_incomes[recipient] += 15
 	var/obj/item/pouch = new /obj/item/storage/belt/rogue/pouch/coins/virtuepouch(get_turf(recipient))
 	recipient.put_in_hands(pouch, forced = TRUE)
-
+*/
 /datum/virtue/utility/beautiful
 	name = "Beautiful"
 	desc = "Wherever I go, I turn heads, such is my natural beauty. I am also rather good in bed, though they always say that."
