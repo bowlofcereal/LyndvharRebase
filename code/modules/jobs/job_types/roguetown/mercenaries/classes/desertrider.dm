@@ -7,7 +7,7 @@
 	traits_applied = list(TRAIT_OUTLANDER)
 	category_tags = list(CTAG_MERCENARY)
 	cmode_music = 'sound/music/combat_desertrider.ogg' //GREATEST COMBAT TRACK IN THE GAME SO FAR BESIDES MAYBE MANIAC2.OGG
-	classes = list("Jannisary" = "The Janissaries are the Empire's elite infantry units, wielding mace and shield. We do not break.",
+	classes = list("Jannisary" = "The Janissaries are the Empire's elite infantry units, wielding sword and shield. We do not break.",
 					"Zeybek" = "Zybantu 'Blade Dancers' famed and feared the world over. Their expertise in blades both long and short is well known.")
 
 
