@@ -18,7 +18,7 @@
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
-		if("Forvheipal Infantry")
+		if("Forvheipal Light Infantry")
 			H.set_blindness(0)
 			to_chat(H, span_warning("The Forvheipal Infantry are the Zapyrixian Order's regular thralls, wielding warhammer and shield."))
 			H.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
